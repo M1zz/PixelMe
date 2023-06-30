@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		58D0123D2A28147A00668585 /* PixelMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0123C2A28147A00668585 /* PixelMeApp.swift */; };
-		58D0123F2A28147A00668585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0123E2A28147A00668585 /* ContentView.swift */; };
-		58D012412A28147D00668585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012402A28147D00668585 /* Assets.xcassets */; };
 		58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012432A28147D00668585 /* Preview Assets.xcassets */; };
 		58D0124E2A28147D00668585 /* PixelMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0124D2A28147D00668585 /* PixelMeTests.swift */; };
 		58D012582A28147D00668585 /* PixelMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012572A28147D00668585 /* PixelMeUITests.swift */; };
 		58D0125A2A28147D00668585 /* PixelMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */; };
+		58D012672A2814F900668585 /* CreatorContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012662A2814F900668585 /* CreatorContentView.swift */; };
+		58D012692A28152400668585 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012682A28152400668585 /* DataManager.swift */; };
+		58D0126B2A28156700668585 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0126A2A28156700668585 /* String+Extension.swift */; };
+		58D0126D2A2815B700668585 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0126C2A2815B700668585 /* AppConfig.swift */; };
+		58D0126F2A2818AD00668585 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0126E2A2818AD00668585 /* UIImage+Extension.swift */; };
+		58D012712A28190D00668585 /* PixelatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012702A28190C00668585 /* PixelatedImage.swift */; };
+		58D012732A281E9D00668585 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012722A281E9C00668585 /* View+Extension.swift */; };
+		58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012742A281F1F00668585 /* Binding+Extension.swift */; };
+		58D012772A286E6D00668585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012762A286E6D00668585 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +43,21 @@
 /* Begin PBXFileReference section */
 		58D012392A28147A00668585 /* PixelMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D0123C2A28147A00668585 /* PixelMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeApp.swift; sourceTree = "<group>"; };
-		58D0123E2A28147A00668585 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		58D012402A28147D00668585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58D012432A28147D00668585 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		58D012492A28147D00668585 /* PixelMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D0124D2A28147D00668585 /* PixelMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeTests.swift; sourceTree = "<group>"; };
 		58D012532A28147D00668585 /* PixelMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D012572A28147D00668585 /* PixelMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeUITests.swift; sourceTree = "<group>"; };
 		58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		58D012662A2814F900668585 /* CreatorContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorContentView.swift; sourceTree = "<group>"; };
+		58D012682A28152400668585 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		58D0126A2A28156700668585 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		58D0126C2A2815B700668585 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		58D0126E2A2818AD00668585 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		58D012702A28190C00668585 /* PixelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedImage.swift; sourceTree = "<group>"; };
+		58D012722A281E9C00668585 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		58D012742A281F1F00668585 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		58D012762A286E6D00668585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +109,16 @@
 			isa = PBXGroup;
 			children = (
 				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
-				58D0123E2A28147A00668585 /* ContentView.swift */,
-				58D012402A28147D00668585 /* Assets.xcassets */,
+				58D012762A286E6D00668585 /* Assets.xcassets */,
 				58D012422A28147D00668585 /* Preview Content */,
+				58D012662A2814F900668585 /* CreatorContentView.swift */,
+				58D012682A28152400668585 /* DataManager.swift */,
+				58D0126C2A2815B700668585 /* AppConfig.swift */,
+				58D012702A28190C00668585 /* PixelatedImage.swift */,
+				58D0126A2A28156700668585 /* String+Extension.swift */,
+				58D0126E2A2818AD00668585 /* UIImage+Extension.swift */,
+				58D012722A281E9C00668585 /* View+Extension.swift */,
+				58D012742A281F1F00668585 /* Binding+Extension.swift */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -232,7 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */,
-				58D012412A28147D00668585 /* Assets.xcassets in Resources */,
+				58D012772A286E6D00668585 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D0123F2A28147A00668585 /* ContentView.swift in Sources */,
+				58D012672A2814F900668585 /* CreatorContentView.swift in Sources */,
+				58D0126F2A2818AD00668585 /* UIImage+Extension.swift in Sources */,
+				58D012712A28190D00668585 /* PixelatedImage.swift in Sources */,
+				58D012692A28152400668585 /* DataManager.swift in Sources */,
+				58D0126D2A2815B700668585 /* AppConfig.swift in Sources */,
+				58D0126B2A28156700668585 /* String+Extension.swift in Sources */,
+				58D012732A281E9D00668585 /* View+Extension.swift in Sources */,
 				58D0123D2A28147A00668585 /* PixelMeApp.swift in Sources */,
+				58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -420,6 +448,8 @@
 				DEVELOPMENT_TEAM = QGAQ3AY3R3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,9 +462,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,6 +482,8 @@
 				DEVELOPMENT_TEAM = QGAQ3AY3R3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,9 +496,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
