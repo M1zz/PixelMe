@@ -21,6 +21,8 @@
 		58D012732A281E9D00668585 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012722A281E9C00668585 /* View+Extension.swift */; };
 		58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012742A281F1F00668585 /* Binding+Extension.swift */; };
 		58D012772A286E6D00668585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012762A286E6D00668585 /* Assets.xcassets */; };
+		58D576232A4E640C006277FB /* PixelatedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576222A4E640B006277FB /* PixelatedPhotoView.swift */; };
+		58D576252A4E6445006277FB /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576242A4E6445006277FB /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		58D012722A281E9C00668585 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		58D012742A281F1F00668585 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		58D012762A286E6D00668585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
+		58D576222A4E640B006277FB /* PixelatedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedPhotoView.swift; sourceTree = "<group>"; };
+		58D576242A4E6445006277FB /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,17 +112,16 @@
 		58D0123B2A28147A00668585 /* PixelMe */ = {
 			isa = PBXGroup;
 			children = (
-				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
-				58D012762A286E6D00668585 /* Assets.xcassets */,
+				58D576212A4E61E1006277FB /* Extension */,
+				58D576202A4E61D6006277FB /* Manager */,
 				58D012422A28147D00668585 /* Preview Content */,
 				58D012662A2814F900668585 /* CreatorContentView.swift */,
-				58D012682A28152400668585 /* DataManager.swift */,
-				58D0126C2A2815B700668585 /* AppConfig.swift */,
+				58D576222A4E640B006277FB /* PixelatedPhotoView.swift */,
+				58D576242A4E6445006277FB /* PhotoPicker.swift */,
 				58D012702A28190C00668585 /* PixelatedImage.swift */,
-				58D0126A2A28156700668585 /* String+Extension.swift */,
-				58D0126E2A2818AD00668585 /* UIImage+Extension.swift */,
-				58D012722A281E9C00668585 /* View+Extension.swift */,
-				58D012742A281F1F00668585 /* Binding+Extension.swift */,
+				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
+				58D0126C2A2815B700668585 /* AppConfig.swift */,
+				58D012762A286E6D00668585 /* Assets.xcassets */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -146,6 +149,25 @@
 				58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */,
 			);
 			path = PixelMeUITests;
+			sourceTree = "<group>";
+		};
+		58D576202A4E61D6006277FB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				58D012682A28152400668585 /* DataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		58D576212A4E61E1006277FB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				58D012742A281F1F00668585 /* Binding+Extension.swift */,
+				58D012722A281E9C00668585 /* View+Extension.swift */,
+				58D0126E2A2818AD00668585 /* UIImage+Extension.swift */,
+				58D0126A2A28156700668585 /* String+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58D012672A2814F900668585 /* CreatorContentView.swift in Sources */,
+				58D576252A4E6445006277FB /* PhotoPicker.swift in Sources */,
 				58D0126F2A2818AD00668585 /* UIImage+Extension.swift in Sources */,
 				58D012712A28190D00668585 /* PixelatedImage.swift in Sources */,
 				58D012692A28152400668585 /* DataManager.swift in Sources */,
@@ -286,6 +309,7 @@
 				58D0126B2A28156700668585 /* String+Extension.swift in Sources */,
 				58D012732A281E9D00668585 /* View+Extension.swift in Sources */,
 				58D0123D2A28147A00668585 /* PixelMeApp.swift in Sources */,
+				58D576232A4E640C006277FB /* PixelatedPhotoView.swift in Sources */,
 				58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,13 +477,13 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -487,13 +511,13 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

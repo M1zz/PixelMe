@@ -22,6 +22,7 @@ struct CreatorContentView: View {
     @State private var invertGridLinesColor: Bool = false
     @State private var didSelectBoardSize: Bool = false
     @State private var didShowInterstitial: Bool = false
+    @State private var showPhotoPicker: Bool = false
     
     // MARK: - Main rendering function
     var body: some View {
@@ -37,12 +38,22 @@ struct CreatorContentView: View {
                 }
             }
         }
-        /// Show interstitials and watermark if needed
-        .onAppear {
-            showLogoWatermark = !manager.isPremiumUser
-            if !manager.isPremiumUser && !didShowInterstitial {
-                didShowInterstitial = true
-                //Interstitial.shared.showInterstitialAds()
+        .fullScreenCover(item: $manager.fullScreenMode) { type in
+            switch type {
+            case .createNFT:
+                CreatorContentView().environmentObject(manager)
+            case .applyFilter:
+                PixelatedPhotoView().environmentObject(manager)
+            case .settings:
+                Text("Setting")
+                //SettingsContentView().environmentObject(manager)
+            }
+        }
+        .sheet(isPresented: $showPhotoPicker) {
+            PhotoPicker { image in
+                showPhotoPicker = false
+                manager.selectedImage = image
+                manager.applyPixelEffect()
             }
         }
     }
@@ -56,8 +67,13 @@ struct CreatorContentView: View {
                 } label: { Image(systemName: "square.and.arrow.down") }
                 Spacer()
                 Button {
-                    manager.fullScreenMode = nil
-                } label: { Image(systemName: "xmark") }
+                    //manager.fullScreenMode = nil
+                    showPhotoPicker = true
+                } label: {
+                    //Image(systemName: "xmark")
+                    Text("Pixelize")
+                        .font(.callout)
+                }
             }.font(.system(size: 25))
             Text("Pixel Creator").font(.system(size: 20)).bold()
         }.padding(.horizontal).foregroundColor(.white)
@@ -134,7 +150,7 @@ struct CreatorContentView: View {
                             type in PixelBoardSizeItem(type)
                         }
                     }
-                    ContinueButton
+                    ChooseButton
                 }
             }
         }.padding(.horizontal)
@@ -154,13 +170,13 @@ struct CreatorContentView: View {
         }.frame(height: 60)
     }
     
-    private var ContinueButton: some View {
+    private var ChooseButton: some View {
         Button {
             didSelectBoardSize = true
         } label: {
             ZStack {
                 Color(AppConfig.continueButtonColor).cornerRadius(15)
-                Text("Continue").font(.system(size: 20, weight: .bold))
+                Text("Choose").font(.system(size: 20, weight: .bold))
             }.foregroundColor(.white)
         }.frame(height: 60)
     }

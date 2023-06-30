@@ -21,7 +21,8 @@ struct PixelatedImage: View {
             if let image = manager.pixelatedImage {
                 Image(uiImage: image).resizable().aspectRatio(contentMode: .fill)
                     .frame(width: size, height: size, alignment: .center)
-                    .contentShape(Rectangle()).overlay(WatermarkLogoView)
+                    .contentShape(Rectangle())
+                    //.overlay(WatermarkLogoView)
             }
         }.frame(width: size, height: size, alignment: .center)
     }
