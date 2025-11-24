@@ -16,15 +16,20 @@ struct PixelatedImage: View {
     
     // MARK: - Main rendering function
     var body: some View {
-        let size = exportMode ? AppConfig.exportSize : UIScreen.main.bounds.width
+        let size = exportMode ? AppConfig.exportSize : min(UIScreen.main.bounds.width - 40, 350)
         return ZStack {
             if let image = manager.pixelatedImage {
-                Image(uiImage: image).resizable().aspectRatio(contentMode: .fill)
-                    .frame(width: size, height: size, alignment: .center)
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: size, maxHeight: size)
+                    .cornerRadius(12)
                     .contentShape(Rectangle())
                     //.overlay(WatermarkLogoView)
             }
-        }.frame(width: size, height: size, alignment: .center)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: size)
     }
     
     private var WatermarkLogoView: some View {

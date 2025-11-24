@@ -53,7 +53,9 @@ struct CreatorContentView: View {
             PhotoPicker { image in
                 showPhotoPicker = false
                 manager.selectedImage = image
-                manager.applyPixelEffect()
+
+                // Ask user if they want to remove background
+                askRemoveBackground()
             }
         }
     }
@@ -67,12 +69,9 @@ struct CreatorContentView: View {
                 } label: { Image(systemName: "square.and.arrow.down") }
                 Spacer()
                 Button {
-                    //manager.fullScreenMode = nil
                     showPhotoPicker = true
                 } label: {
-                    //Image(systemName: "xmark")
-                    Text("Pixelize")
-                        .font(.callout)
+                    Image(systemName: "photo.on.rectangle.angled")
                 }
             }.font(.system(size: 25))
             Text("Pixel Creator").font(.system(size: 20)).bold()
@@ -150,12 +149,13 @@ struct CreatorContentView: View {
                             type in PixelBoardSizeItem(type)
                         }
                     }
+
                     ChooseButton
                 }
             }
         }.padding(.horizontal)
     }
-    
+
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
         Button {
             manager.pixelBoardSize = type
@@ -272,6 +272,23 @@ struct CreatorContentView: View {
                 Toggle(isOn: $invertGridLinesColor) { EmptyView() }.labelsHidden()
             }.padding(.horizontal, 15)
         }.frame(height: 60)
+    }
+
+    // MARK: - Background Removal Prompt
+    private func askRemoveBackground() {
+        // Add delay to ensure sheet is dismissed before showing alert
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            presentAlert(
+                title: "Remove Background?",
+                message: "Would you like to remove the background from this photo?",
+                primaryAction: UIAlertAction(title: "Yes", style: .default) { _ in
+                    self.manager.removeBackgroundAndPixelate()
+                },
+                secondaryAction: UIAlertAction(title: "No", style: .cancel) { _ in
+                    self.manager.applyPixelEffect()
+                }
+            )
+        }
     }
 }
 

@@ -7,10 +7,6 @@
 
 import SwiftUI
 import UIKit
-import PhotosUI
-import Photos
-import Vision
-import CoreImage
 
 /// Color palette types
 enum ColorPaletteType: String, CaseIterable, Identifiable {
@@ -1232,8 +1228,7 @@ class BatchProcessor: ObservableObject {
             try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
 
             // Save all images to temp directory
-            for (index, result) in results.enumerated() where result.success {
-                guard let image = result.processedImage else { continue }
+            for (index, result) in results.enumerated() where result.success, let image = result.processedImage {
                 let filename = "pixelated_\(index + 1).\(config.exportFormat.fileExtension)"
                 let fileURL = tempDirectory.appendingPathComponent(filename)
 
@@ -1400,13 +1395,13 @@ enum ExportFormat: String, CaseIterable, Identifiable {
     private func createPDFData(from image: UIImage) -> Data? {
         let pdfData = NSMutableData()
         let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
-        var mediaBox = CGRect(origin: .zero, size: image.size)
+        let mediaBox = CGRect(origin: .zero, size: image.size)
 
-        guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil) else {
+        guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox.mutable, nil) else {
             return nil
         }
 
-        pdfContext.beginPage(mediaBox: &mediaBox)
+        pdfContext.beginPage(mediaBox: &mediaBox.mutable)
         pdfContext.draw(image.cgImage!, in: mediaBox)
         pdfContext.endPage()
         pdfContext.closePDF()
@@ -2284,7 +2279,7 @@ class GIFCreator: ObservableObject {
             var frames: [GIFFrame] = []
 
             // Generate frames with increasing pixelation
-            let allSizes = Array(PixelBoardSize.allCases.reversed()) // From large to small
+            let allSizes = PixelBoardSize.allCases.reversed() // From large to small
             let step = max(1, allSizes.count / frameCount)
 
             for i in stride(from: 0, to: allSizes.count, by: step) {
@@ -2883,368 +2878,6 @@ extension Layer {
         let renderer = UIGraphicsImageRenderer(size: size)
         return renderer.image { _ in
             image.draw(in: CGRect(origin: .zero, size: size))
-        }
-    }
-}
-//
-//  DataManager.swift
-//  PixelMe
-//
-//  Created by hyunho lee on 2023/06/01.
-//
-
-import UIKit
-import SwiftUI
-import Foundation
-
-/// Full Screen flow
-enum FullScreenMode: Int, Identifiable {
-    case createNFT, applyFilter, settings
-    var id: Int { hashValue }
-}
-
-/// Pixels board size
-enum PixelBoardSize: String, CaseIterable, Identifiable {
-    case extraLow = "8x8"
-    case low = "12x12"
-    case normal = "16x16"
-    case medium = "22x22"
-    case large = "32x32"
-    case extraLarge = "40x40"
-    var count: Int { Int(rawValue.components(separatedBy: "x").first!)! }
-    var density: String { "\(self)".camelCaseToWords().capitalized }
-    var id: Int { hashValue }
-}
-
-/// Main data manager for the app
-class DataManager: NSObject, ObservableObject {
-
-    /// Dynamic properties that the UI will react to
-    @Published var showLoading: Bool = false
-    @Published var fullScreenMode: FullScreenMode?
-    @Published var selectedImage: UIImage?
-    @Published var pixelatedImage: UIImage?
-    @Published var pixelBoardSize: PixelBoardSize = .low
-
-    /// New advanced features
-    @Published var selectedColorPalette: ColorPaletteType = .none
-    @Published var colorReduction: ColorReductionType = .none
-    @Published var ditheringType: DitheringType = .none
-    @Published var filterEffect: FilterEffectType = .none
-    @Published var filterIntensity: CGFloat = 1.0
-    @Published var exportFormat: ExportFormat = .png
-    @Published var exportSize: ExportSize = .original
-    @Published var exportBackground: ExportBackgroundType = .transparent
-    @Published var isBackgroundRemovalEnabled: Bool = false
-
-    /// Managers for advanced features
-    @Published var batchProcessor: BatchProcessor = BatchProcessor()
-    @Published var layerManager: LayerManager = LayerManager()
-    @Published var templateManager: TemplateManager = TemplateManager()
-    @Published var gifCreator: GIFCreator = GIFCreator()
-
-    /// Dynamic properties that the UI will react to AND store values in UserDefaults
-    @AppStorage(AppConfig.premiumVersion) var isPremiumUser: Bool = false
-}
-
-// MARK: - Apply Pixel effect to existing images
-extension DataManager {
-    /// Apply pixel effect with all advanced features
-    func applyPixelEffect(showFilterFlow: Bool = true) {
-        guard let currentCGImage = selectedImage?.cgImage else { return }
-        let width = UIScreen.main.bounds.width
-        let currentCIImage = CIImage(cgImage: currentCGImage)
-        let filter = CIFilter(name: "CIPixellate")
-        filter?.setValue(currentCIImage, forKey: kCIInputImageKey)
-        filter?.setValue(width/CGFloat(pixelBoardSize.count), forKey: kCIInputScaleKey)
-        guard let outputImage = filter?.outputImage else { return }
-        let context = CIContext()
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            var processedImage = UIImage(cgImage: cgimg).cropTransparentPixels()
-
-            // Apply color palette if selected
-            if selectedColorPalette != .none {
-                let palette = selectedColorPalette.colors
-                if !palette.isEmpty {
-                    if ditheringType != .none {
-                        processedImage = ColorReductionEngine.applyDithering(
-                            to: processedImage,
-                            type: ditheringType,
-                            palette: palette
-                        ) ?? processedImage
-                    } else {
-                        processedImage = ColorReductionEngine.applyColorReduction(
-                            to: processedImage,
-                            colorCount: 0,
-                            palette: palette
-                        ) ?? processedImage
-                    }
-                }
-            }
-
-            // Apply color reduction if selected
-            if colorReduction != .none && selectedColorPalette == .none {
-                processedImage = ColorReductionEngine.applyColorReduction(
-                    to: processedImage,
-                    colorCount: colorReduction.colorCount
-                ) ?? processedImage
-            }
-
-            // Apply filter effect if selected
-            if filterEffect != .none {
-                processedImage = FilterEffectsEngine.applyFilter(
-                    to: processedImage,
-                    type: filterEffect,
-                    intensity: filterIntensity
-                ) ?? processedImage
-            }
-
-            DispatchQueue.main.async {
-                self.pixelatedImage = processedImage
-                if showFilterFlow { self.fullScreenMode = .applyFilter }
-            }
-        }
-    }
-
-    /// Apply preset to current image
-    func applyPreset(_ preset: EffectPreset) {
-        // Parse preset values
-        if let paletteType = ColorPaletteType.allCases.first(where: { $0.rawValue.lowercased() == preset.colorPalette.lowercased() }) {
-            selectedColorPalette = paletteType
-        }
-
-        if let reductionType = ColorReductionType.allCases.first(where: { $0.rawValue.lowercased().contains(preset.colorReduction.lowercased()) }) {
-            colorReduction = reductionType
-        }
-
-        if let ditherType = DitheringType.allCases.first(where: { $0.rawValue.lowercased().contains(preset.ditheringType.lowercased()) }) {
-            ditheringType = ditherType
-        }
-
-        if let filterType = FilterEffectType.allCases.first(where: { $0.rawValue.lowercased().contains(preset.filterEffect.lowercased()) }) {
-            filterEffect = filterType
-        }
-
-        filterIntensity = CGFloat(preset.filterIntensity)
-
-        // Apply the effect
-        applyPixelEffect(showFilterFlow: true)
-    }
-}
-
-// MARK: - Save pixel NFT image
-extension DataManager {
-    /// Save pixelated board as NFT/image
-    func savePixelatedNFT() {
-        let nftImage = PixelatedImage(exportMode: true).environmentObject(self)
-            .image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
-    func savePixelGrid(view: AnyView) {
-        let nftImage = view.image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let errorMessage = error?.localizedDescription {
-            presentAlert(title: "Oops!", message: errorMessage, primaryAction: .ok)
-        } else {
-            presentAlert(title: "Image Saved", message: "Your image has been saved into the Photos app", primaryAction: .ok)
-        }
-    }
-}
-
-// MARK: - Background Removal Manager
-
-/// Background removal using Vision framework
-class BackgroundRemovalManager {
-
-    /// Remove background from image (iOS 17+)
-    @available(iOS 17.0, *)
-    static func removeBackground(from image: UIImage, completion: @escaping (UIImage?) -> Void) {
-        guard let inputImage = CIImage(image: image) else {
-            completion(nil)
-            return
-        }
-
-        // Create subject masking request (iOS 17+)
-        let request = VNGenerateForegroundInstanceMaskRequest()
-
-        let handler = VNImageRequestHandler(ciImage: inputImage, options: [:])
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try handler.perform([request])
-
-                guard let result = request.results?.first else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
-                    return
-                }
-
-                // Get all instances (people, objects, etc.)
-                let allInstances = result.allInstances
-
-                // Generate mask for all detected instances
-                guard let maskPixelBuffer = try? result.generateMaskedImage(
-                    ofInstances: allInstances,
-                    from: handler,
-                    croppedToInstancesExtent: false
-                ) else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
-                    return
-                }
-
-                // Convert mask to CIImage
-                let maskImage = CIImage(cvPixelBuffer: maskPixelBuffer)
-
-                // Create output with transparent background
-                let outputImage = self.applyMask(inputImage, mask: maskImage)
-
-                // Convert to UIImage
-                let context = CIContext()
-                guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
-                    return
-                }
-
-                let resultImage = UIImage(cgImage: cgImage)
-
-                DispatchQueue.main.async {
-                    completion(resultImage)
-                }
-
-            } catch {
-                print("Background removal error: \(error)")
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-        }
-    }
-
-    /// Remove background using legacy API (iOS 15+)
-    @available(iOS 15.0, *)
-    static func removeBackgroundLegacy(from image: UIImage, completion: @escaping (UIImage?) -> Void) {
-        guard let inputImage = CIImage(image: image) else {
-            completion(nil)
-            return
-        }
-
-        let request = VNGeneratePersonSegmentationRequest { request, error in
-            if let error = error {
-                print("Segmentation error: \(error)")
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-                return
-            }
-
-            guard let result = request.results?.first as? VNPixelBufferObservation else {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-                return
-            }
-
-            let maskImage = CIImage(cvPixelBuffer: result.pixelBuffer)
-            let outputImage = self.applyMask(inputImage, mask: maskImage)
-
-            let context = CIContext()
-            guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-                return
-            }
-
-            let resultImage = UIImage(cgImage: cgImage)
-
-            DispatchQueue.main.async {
-                completion(resultImage)
-            }
-        }
-
-        request.qualityLevel = .balanced
-        request.outputPixelFormat = kCVPixelFormatType_OneComponent8
-
-        let handler = VNImageRequestHandler(ciImage: inputImage, options: [:])
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try handler.perform([request])
-            } catch {
-                print("Failed to perform request: \(error)")
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-        }
-    }
-
-    /// Apply mask to image to remove background
-    private static func applyMask(_ image: CIImage, mask: CIImage) -> CIImage {
-        // Scale mask to match image size
-        let scaleX = image.extent.width / mask.extent.width
-        let scaleY = image.extent.height / mask.extent.height
-        let scaledMask = mask.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
-
-        // Blend using mask filter
-        guard let filter = CIFilter(name: "CIBlendWithMask") else {
-            return image
-        }
-
-        filter.setValue(image, forKey: kCIInputImageKey)
-        filter.setValue(CIImage(color: .clear).cropped(to: image.extent), forKey: kCIInputBackgroundImageKey)
-        filter.setValue(scaledMask, forKey: kCIInputMaskImageKey)
-
-        return filter.outputImage ?? image
-    }
-
-    /// Smart remove background (tries iOS 17 API first, falls back to iOS 15)
-    static func removeBackgroundSmart(from image: UIImage, completion: @escaping (UIImage?) -> Void) {
-        if #available(iOS 17.0, *) {
-            removeBackground(from: image, completion: completion)
-        } else if #available(iOS 15.0, *) {
-            removeBackgroundLegacy(from: image, completion: completion)
-        } else {
-            // iOS 14 or earlier - not supported
-            completion(nil)
-        }
-    }
-}
-
-// MARK: - DataManager Extension for Background Removal
-
-extension DataManager {
-
-    /// Remove background and apply pixelation
-    func removeBackgroundAndPixelate() {
-        guard let selectedImage = self.selectedImage else { return }
-
-        // Toggle the state
-        isBackgroundRemovalEnabled = true
-
-        BackgroundRemovalManager.removeBackgroundSmart(from: selectedImage) { [weak self] result in
-            guard let self = self, let removedBgImage = result else {
-                self?.isBackgroundRemovalEnabled = false
-                presentAlert(title: "Error", message: "Failed to remove background. This feature requires iOS 15 or later.")
-                return
-            }
-
-            // Update selected image with background removed
-            self.selectedImage = removedBgImage
-
-            // Apply pixelation to the new image
-            self.applyPixelEffect(showFilterFlow: false)
-
-            presentAlert(title: "Success", message: "Background removed successfully!")
         }
     }
 }

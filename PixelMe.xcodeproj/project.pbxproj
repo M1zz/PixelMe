@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58AA25312ED4A3CD00E8766A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58AA25302ED4A3CD00E8766A /* Assets.xcassets */; };
 		58D0123D2A28147A00668585 /* PixelMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0123C2A28147A00668585 /* PixelMeApp.swift */; };
 		58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012432A28147D00668585 /* Preview Assets.xcassets */; };
-		58D0124E2A28147D00668585 /* PixelMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0124D2A28147D00668585 /* PixelMeTests.swift */; };
-		58D012582A28147D00668585 /* PixelMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012572A28147D00668585 /* PixelMeUITests.swift */; };
-		58D0125A2A28147D00668585 /* PixelMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */; };
 		58D012672A2814F900668585 /* CreatorContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012662A2814F900668585 /* CreatorContentView.swift */; };
 		58D012692A28152400668585 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012682A28152400668585 /* DataManager.swift */; };
 		58D0126B2A28156700668585 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0126A2A28156700668585 /* String+Extension.swift */; };
@@ -20,37 +18,15 @@
 		58D012712A28190D00668585 /* PixelatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012702A28190C00668585 /* PixelatedImage.swift */; };
 		58D012732A281E9D00668585 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012722A281E9C00668585 /* View+Extension.swift */; };
 		58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012742A281F1F00668585 /* Binding+Extension.swift */; };
-		58D012772A286E6D00668585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D012762A286E6D00668585 /* Assets.xcassets */; };
 		58D576232A4E640C006277FB /* PixelatedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576222A4E640B006277FB /* PixelatedPhotoView.swift */; };
 		58D576252A4E6445006277FB /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576242A4E6445006277FB /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		58D0124A2A28147D00668585 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58D012312A28147A00668585 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58D012382A28147A00668585;
-			remoteInfo = PixelMe;
-		};
-		58D012542A28147D00668585 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58D012312A28147A00668585 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58D012382A28147A00668585;
-			remoteInfo = PixelMe;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		58AA25302ED4A3CD00E8766A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58D012392A28147A00668585 /* PixelMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D0123C2A28147A00668585 /* PixelMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeApp.swift; sourceTree = "<group>"; };
 		58D012432A28147D00668585 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		58D012492A28147D00668585 /* PixelMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58D0124D2A28147D00668585 /* PixelMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeTests.swift; sourceTree = "<group>"; };
-		58D012532A28147D00668585 /* PixelMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58D012572A28147D00668585 /* PixelMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeUITests.swift; sourceTree = "<group>"; };
-		58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		58D012662A2814F900668585 /* CreatorContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorContentView.swift; sourceTree = "<group>"; };
 		58D012682A28152400668585 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		58D0126A2A28156700668585 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -59,7 +35,6 @@
 		58D012702A28190C00668585 /* PixelatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedImage.swift; sourceTree = "<group>"; };
 		58D012722A281E9C00668585 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		58D012742A281F1F00668585 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
-		58D012762A286E6D00668585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/AppIcons-4/Assets.xcassets"; sourceTree = "<group>"; };
 		58D576222A4E640B006277FB /* PixelatedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedPhotoView.swift; sourceTree = "<group>"; };
 		58D576242A4E6445006277FB /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,29 +47,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58D012462A28147D00668585 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58D012502A28147D00668585 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		58D012302A28147A00668585 = {
 			isa = PBXGroup;
 			children = (
+				58AA25302ED4A3CD00E8766A /* Assets.xcassets */,
 				58D0123B2A28147A00668585 /* PixelMe */,
-				58D0124C2A28147D00668585 /* PixelMeTests */,
-				58D012562A28147D00668585 /* PixelMeUITests */,
 				58D0123A2A28147A00668585 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,8 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				58D012392A28147A00668585 /* PixelMe.app */,
-				58D012492A28147D00668585 /* PixelMeTests.xctest */,
-				58D012532A28147D00668585 /* PixelMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,7 +79,6 @@
 				58D012702A28190C00668585 /* PixelatedImage.swift */,
 				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
 				58D0126C2A2815B700668585 /* AppConfig.swift */,
-				58D012762A286E6D00668585 /* Assets.xcassets */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -132,23 +89,6 @@
 				58D012432A28147D00668585 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		58D0124C2A28147D00668585 /* PixelMeTests */ = {
-			isa = PBXGroup;
-			children = (
-				58D0124D2A28147D00668585 /* PixelMeTests.swift */,
-			);
-			path = PixelMeTests;
-			sourceTree = "<group>";
-		};
-		58D012562A28147D00668585 /* PixelMeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				58D012572A28147D00668585 /* PixelMeUITests.swift */,
-				58D012592A28147D00668585 /* PixelMeUITestsLaunchTests.swift */,
-			);
-			path = PixelMeUITests;
 			sourceTree = "<group>";
 		};
 		58D576202A4E61D6006277FB /* Manager */ = {
@@ -190,42 +130,6 @@
 			productReference = 58D012392A28147A00668585 /* PixelMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		58D012482A28147D00668585 /* PixelMeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58D012602A28147D00668585 /* Build configuration list for PBXNativeTarget "PixelMeTests" */;
-			buildPhases = (
-				58D012452A28147D00668585 /* Sources */,
-				58D012462A28147D00668585 /* Frameworks */,
-				58D012472A28147D00668585 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				58D0124B2A28147D00668585 /* PBXTargetDependency */,
-			);
-			name = PixelMeTests;
-			productName = PixelMeTests;
-			productReference = 58D012492A28147D00668585 /* PixelMeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		58D012522A28147D00668585 /* PixelMeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58D012632A28147D00668585 /* Build configuration list for PBXNativeTarget "PixelMeUITests" */;
-			buildPhases = (
-				58D0124F2A28147D00668585 /* Sources */,
-				58D012502A28147D00668585 /* Frameworks */,
-				58D012512A28147D00668585 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				58D012552A28147D00668585 /* PBXTargetDependency */,
-			);
-			name = PixelMeUITests;
-			productName = PixelMeUITests;
-			productReference = 58D012532A28147D00668585 /* PixelMeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,14 +142,6 @@
 				TargetAttributes = {
 					58D012382A28147A00668585 = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					58D012482A28147D00668585 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 58D012382A28147A00668585;
-					};
-					58D012522A28147D00668585 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 58D012382A28147A00668585;
 					};
 				};
 			};
@@ -263,8 +159,6 @@
 			projectRoot = "";
 			targets = (
 				58D012382A28147A00668585 /* PixelMe */,
-				58D012482A28147D00668585 /* PixelMeTests */,
-				58D012522A28147D00668585 /* PixelMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,22 +168,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58AA25312ED4A3CD00E8766A /* Assets.xcassets in Resources */,
 				58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */,
-				58D012772A286E6D00668585 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58D012472A28147D00668585 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58D012512A28147D00668585 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,37 +194,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58D012452A28147D00668585 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58D0124E2A28147D00668585 /* PixelMeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58D0124F2A28147D00668585 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58D012582A28147D00668585 /* PixelMeUITests.swift in Sources */,
-				58D0125A2A28147D00668585 /* PixelMeUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		58D0124B2A28147D00668585 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58D012382A28147A00668585 /* PixelMe */;
-			targetProxy = 58D0124A2A28147D00668585 /* PBXContainerItemProxy */;
-		};
-		58D012552A28147D00668585 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58D012382A28147A00668585 /* PixelMe */;
-			targetProxy = 58D012542A28147D00668585 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		58D0125B2A28147D00668585 /* Debug */ = {
@@ -479,11 +329,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -513,11 +364,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -526,82 +378,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		58D012612A28147D00668585 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixelMe";
-			};
-			name = Debug;
-		};
-		58D012622A28147D00668585 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixelMe";
-			};
-			name = Release;
-		};
-		58D012642A28147D00668585 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PixelMe;
-			};
-			name = Debug;
-		};
-		58D012652A28147D00668585 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PixelMe;
 			};
 			name = Release;
 		};
@@ -622,24 +398,6 @@
 			buildConfigurations = (
 				58D0125E2A28147D00668585 /* Debug */,
 				58D0125F2A28147D00668585 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58D012602A28147D00668585 /* Build configuration list for PBXNativeTarget "PixelMeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58D012612A28147D00668585 /* Debug */,
-				58D012622A28147D00668585 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58D012632A28147D00668585 /* Build configuration list for PBXNativeTarget "PixelMeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58D012642A28147D00668585 /* Debug */,
-				58D012652A28147D00668585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
