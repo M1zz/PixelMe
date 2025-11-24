@@ -23,6 +23,7 @@ struct CreatorContentView: View {
     @State private var didSelectBoardSize: Bool = false
     @State private var didShowInterstitial: Bool = false
     @State private var showPhotoPicker: Bool = false
+    @State private var shouldRemoveBackground: Bool = false
     
     // MARK: - Main rendering function
     var body: some View {
@@ -51,11 +52,21 @@ struct CreatorContentView: View {
         }
         .sheet(isPresented: $showPhotoPicker) {
             PhotoPicker { image in
-                showPhotoPicker = false
+                // Set the image first
                 manager.selectedImage = image
 
-                // Ask user if they want to remove background
-                askRemoveBackground()
+                // Close the picker
+                showPhotoPicker = false
+
+                // Wait a bit for the sheet to close, then process
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    if self.shouldRemoveBackground {
+                        self.manager.removeBackgroundAndPixelate()
+                        self.shouldRemoveBackground = false
+                    } else {
+                        self.manager.applyPixelEffect()
+                    }
+                }
             }
         }
     }
@@ -69,7 +80,7 @@ struct CreatorContentView: View {
                 } label: { Image(systemName: "square.and.arrow.down") }
                 Spacer()
                 Button {
-                    showPhotoPicker = true
+                    askRemoveBackground()
                 } label: {
                     Image(systemName: "photo.on.rectangle.angled")
                 }
@@ -276,19 +287,18 @@ struct CreatorContentView: View {
 
     // MARK: - Background Removal Prompt
     private func askRemoveBackground() {
-        // Add delay to ensure sheet is dismissed before showing alert
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            presentAlert(
-                title: "Remove Background?",
-                message: "Would you like to remove the background from this photo?",
-                primaryAction: UIAlertAction(title: "Yes", style: .default) { _ in
-                    self.manager.removeBackgroundAndPixelate()
-                },
-                secondaryAction: UIAlertAction(title: "No", style: .cancel) { _ in
-                    self.manager.applyPixelEffect()
-                }
-            )
-        }
+        presentAlert(
+            title: "Remove Background?",
+            message: "Would you like to remove the background from this photo?",
+            primaryAction: UIAlertAction(title: "Yes", style: .default) { _ in
+                self.shouldRemoveBackground = true
+                self.showPhotoPicker = true
+            },
+            secondaryAction: UIAlertAction(title: "No", style: .cancel) { _ in
+                self.shouldRemoveBackground = false
+                self.showPhotoPicker = true
+            }
+        )
     }
 }
 

@@ -3241,10 +3241,8 @@ extension DataManager {
             // Update selected image with background removed
             self.selectedImage = removedBgImage
 
-            // Apply pixelation to the new image
-            self.applyPixelEffect(showFilterFlow: false)
-
-            presentAlert(title: "Success", message: "Background removed successfully!")
+            // Apply pixelation to the new image and show the flow
+            self.applyPixelEffect(showFilterFlow: true)
         }
     }
 }
