@@ -2924,7 +2924,8 @@ class DataManager: NSObject, ObservableObject {
     @Published var fullScreenMode: FullScreenMode?
     @Published var selectedImage: UIImage?
     @Published var pixelatedImage: UIImage?
-    @Published var pixelBoardSize: PixelBoardSize = .low
+    @Published var pixelBoardSize: PixelBoardSize? = nil
+    @Published var tempPhotoForPreview: UIImage?
 
     /// New advanced features
     @Published var selectedColorPalette: ColorPaletteType = .none
@@ -2936,6 +2937,17 @@ class DataManager: NSObject, ObservableObject {
     @Published var exportSize: ExportSize = .original
     @Published var exportBackground: ExportBackgroundType = .transparent
     @Published var isBackgroundRemovalEnabled: Bool = false
+    @Published var pixelateBackgroundColor: Color = .white  // Background color for transparent areas when pixelating
+
+    /// Pixel grid data for Creator mode
+    @Published var pixelGridData: [String: Color]? = nil
+    @Published var shouldLoadPixelGrid: Bool = false
+    @Published var shouldDismissPhotoPreview: Bool = false
+    @Published var pixelatedImageForGrid: UIImage? = nil  // Store pixelated image to display as background
+
+    /// Watermark settings
+    @Published var customWatermarkImage: UIImage?
+    @Published var useCustomWatermark: Bool = false
 
     /// Managers for advanced features
     @Published var batchProcessor: BatchProcessor = BatchProcessor()
@@ -2945,22 +2957,64 @@ class DataManager: NSObject, ObservableObject {
 
     /// Dynamic properties that the UI will react to AND store values in UserDefaults
     @AppStorage(AppConfig.premiumVersion) var isPremiumUser: Bool = false
+
+    override init() {
+        super.init()
+        loadCustomWatermark()
+    }
 }
 
 // MARK: - Apply Pixel effect to existing images
 extension DataManager {
     /// Apply pixel effect with all advanced features
     func applyPixelEffect(showFilterFlow: Bool = true) {
-        guard let currentCGImage = selectedImage?.cgImage else { return }
-        let width = UIScreen.main.bounds.width
+        print("🎯 [DataManager] applyPixelEffect called with showFilterFlow: \(showFilterFlow)")
+
+        // Show loading indicator
+        showLoading = true
+
+        guard var sourceImage = selectedImage else {
+            print("⚠️ [DataManager] selectedImage is nil, returning early")
+            showLoading = false
+            return
+        }
+
+        print("🎯 [DataManager] Processing image...")
+        print("🎯 [DataManager] Original image size: \(sourceImage.size)")
+
+        // If background was removed, fill transparent areas with selected background color
+        if isBackgroundRemovalEnabled {
+            print("🎯 [DataManager] Filling transparent areas with background color")
+            sourceImage = fillTransparentAreas(in: sourceImage, with: pixelateBackgroundColor) ?? sourceImage
+        }
+
+        // Make the image square to match the grid exactly
+        let gridSize = CGFloat(pixelBoardSize?.count ?? 16)
+        sourceImage = makeSquareImage(sourceImage, gridSize: gridSize) ?? sourceImage
+        print("🎯 [DataManager] Square image size: \(sourceImage.size)")
+
+        guard let currentCGImage = sourceImage.cgImage else {
+            print("⚠️ [DataManager] Failed to get cgImage after processing")
+            showLoading = false
+            return
+        }
+
+        // Use image width for accurate pixel scaling
+        let imageWidth = CGFloat(currentCGImage.width)
         let currentCIImage = CIImage(cgImage: currentCGImage)
         let filter = CIFilter(name: "CIPixellate")
         filter?.setValue(currentCIImage, forKey: kCIInputImageKey)
-        filter?.setValue(width/CGFloat(pixelBoardSize.count), forKey: kCIInputScaleKey)
+        let pixelScale = imageWidth / gridSize
+        filter?.setValue(pixelScale, forKey: kCIInputScaleKey)
+        print("🎯 [DataManager] Image width: \(imageWidth), Grid: \(gridSize), Pixel scale: \(pixelScale)")
         guard let outputImage = filter?.outputImage else { return }
-        let context = CIContext()
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            var processedImage = UIImage(cgImage: cgimg).cropTransparentPixels()
+
+        // Use the original image's color space to preserve colors
+        let colorSpace = currentCGImage.colorSpace ?? CGColorSpaceCreateDeviceRGB()
+        let context = CIContext(options: [.workingColorSpace: colorSpace])
+
+        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent, format: .RGBA8, colorSpace: colorSpace) {
+            var processedImage = UIImage(cgImage: cgimg)
 
             // Apply color palette if selected
             if selectedColorPalette != .none {
@@ -3000,14 +3054,170 @@ extension DataManager {
             }
 
             DispatchQueue.main.async {
+                print("✅ [DataManager] Image processed successfully")
                 self.pixelatedImage = processedImage
-                if showFilterFlow { self.fullScreenMode = .applyFilter }
+                print("✅ [DataManager] pixelatedImage set")
+
+                // Log preview colors immediately after pixelation
+                if let cgImage = processedImage.cgImage {
+                    print("🎨 [PREVIEW] === Pixelated Image Colors ===")
+                    print("🎨 [PREVIEW] Image size: \(cgImage.width)x\(cgImage.height)")
+
+                    // Sample center pixel
+                    let centerX = cgImage.width / 2
+                    let centerY = cgImage.height / 2
+                    if let pixelData = cgImage.dataProvider?.data,
+                       let data = CFDataGetBytePtr(pixelData) {
+                        let bytesPerPixel = 4
+                        let bytesPerRow = cgImage.bytesPerRow
+                        let pixelOffset = centerY * bytesPerRow + centerX * bytesPerPixel
+
+                        if pixelOffset + 3 < CFDataGetLength(pixelData) {
+                            let r = data[pixelOffset]
+                            let g = data[pixelOffset + 1]
+                            let b = data[pixelOffset + 2]
+                            let a = data[pixelOffset + 3]
+                            print("🎨 [PREVIEW] Center[\(centerX),\(centerY)] RGB: (\(r), \(g), \(b)) Alpha: \(a)")
+                        }
+
+                        // Sample a few more pixels for comparison
+                        let samples = [(cgImage.width/4, cgImage.height/4),
+                                     (cgImage.width*3/4, cgImage.height/4),
+                                     (cgImage.width/4, cgImage.height*3/4),
+                                     (cgImage.width*3/4, cgImage.height*3/4)]
+
+                        for (x, y) in samples {
+                            let offset = y * bytesPerRow + x * bytesPerPixel
+                            if offset + 3 < CFDataGetLength(pixelData) {
+                                let r = data[offset]
+                                let g = data[offset + 1]
+                                let b = data[offset + 2]
+                                let a = data[offset + 3]
+                                print("🎨 [PREVIEW] Sample[\(x),\(y)] RGB: (\(r), \(g), \(b)) Alpha: \(a)")
+                            }
+                        }
+                    }
+                    print("🎨 [PREVIEW] ============================")
+                }
+
+                // Hide loading indicator
+                self.showLoading = false
+
+                if showFilterFlow {
+                    print("✅ [DataManager] Setting fullScreenMode = .applyFilter")
+                    self.fullScreenMode = .applyFilter
+                    print("✅ [DataManager] fullScreenMode set to .applyFilter")
+                }
             }
         }
     }
 
+    /// Fill transparent areas in an image with a solid color
+    private func fillTransparentAreas(in image: UIImage, with color: Color) -> UIImage? {
+        guard let cgImage = image.cgImage else { return nil }
+
+        let width = cgImage.width
+        let height = cgImage.height
+
+        // Convert SwiftUI Color to UIColor
+        let uiColor = UIColor(color)
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        // Create bitmap context
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bytesPerPixel = 4
+        let bytesPerRow = bytesPerPixel * width
+        let bitsPerComponent = 8
+        var pixelData = [UInt32](repeating: 0, count: width * height)
+
+        guard let context = CGContext(
+            data: &pixelData,
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
+        ) else { return nil }
+
+        // Fill with background color
+        context.setFillColor(red: red, green: green, blue: blue, alpha: 1.0)
+        context.fill(CGRect(x: 0, y: 0, width: width, height: height))
+
+        // Draw the original image on top
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+
+        // Create new image
+        guard let newCGImage = context.makeImage() else { return nil }
+        return UIImage(cgImage: newCGImage)
+    }
+
+    /// Make an image square by adding padding to match the grid size
+    private func makeSquareImage(_ image: UIImage, gridSize: CGFloat) -> UIImage? {
+        guard let cgImage = image.cgImage else { return nil }
+
+        let width = cgImage.width
+        let height = cgImage.height
+        let maxDimension = max(width, height)
+
+        // Calculate size to be exact multiple of gridSize for perfect grid alignment
+        let pixelSize = Int(ceil(CGFloat(maxDimension) / gridSize))
+        let squareSize = Int(gridSize) * pixelSize
+
+        print("🎯 [makeSquareImage] Original: \(width)x\(height), Max: \(maxDimension)")
+        print("🎯 [makeSquareImage] GridSize: \(Int(gridSize)), PixelSize: \(pixelSize), Square: \(squareSize)x\(squareSize)")
+
+        // Create square canvas with background color
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bytesPerPixel = 4
+        let bytesPerRow = bytesPerPixel * squareSize
+        let bitsPerComponent = 8
+
+        // Convert background color to fill the canvas
+        let uiColor = UIColor(pixelateBackgroundColor)
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        guard let context = CGContext(
+            data: nil,
+            width: squareSize,
+            height: squareSize,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
+        ) else { return nil }
+
+        // Fill with background color
+        context.setFillColor(red: red, green: green, blue: blue, alpha: 1.0)
+        context.fill(CGRect(x: 0, y: 0, width: squareSize, height: squareSize))
+
+        // Calculate centering offsets
+        let offsetX = (squareSize - width) / 2
+        let offsetY = (squareSize - height) / 2
+
+        print("🎯 [makeSquareImage] Offset: (\(offsetX), \(offsetY))")
+
+        // Draw image centered
+        context.draw(cgImage, in: CGRect(x: offsetX, y: offsetY, width: width, height: height))
+
+        // Create new image
+        guard let newCGImage = context.makeImage() else { return nil }
+        return UIImage(cgImage: newCGImage)
+    }
+
     /// Apply preset to current image
     func applyPreset(_ preset: EffectPreset) {
+        // Show loading indicator immediately
+        showLoading = true
+
         // Parse preset values
         if let paletteType = ColorPaletteType.allCases.first(where: { $0.rawValue.lowercased() == preset.colorPalette.lowercased() }) {
             selectedColorPalette = paletteType
@@ -3029,6 +3239,127 @@ extension DataManager {
 
         // Apply the effect
         applyPixelEffect(showFilterFlow: true)
+    }
+
+    /// Extract pixel data from pixelated image for Creator mode
+    func extractPixelDataFromImage() {
+        guard let image = pixelatedImage,
+              let cgImage = image.cgImage,
+              let boardSize = pixelBoardSize else {
+            return
+        }
+
+        let gridSize = boardSize.count
+        print("🎨 [DataManager] === EXTRACTING PIXEL DATA ===")
+        print("🎨 Grid size: \(gridSize)x\(gridSize)")
+        print("🎨 Image size: \(cgImage.width)x\(cgImage.height)")
+
+        // Verify image is square and matches expected size
+        let expectedPixelSize = cgImage.width / gridSize
+        print("🎨 Expected pixel block size: \(expectedPixelSize)x\(expectedPixelSize)")
+
+        // Read pixel data directly from the pixelated image
+        guard let pixelData = cgImage.dataProvider?.data,
+              let data = CFDataGetBytePtr(pixelData) else {
+            print("⚠️ Failed to get pixel data")
+            return
+        }
+
+        let bytesPerPixel = cgImage.bitsPerPixel / 8
+        let bytesPerRow = cgImage.bytesPerRow
+        let alphaInfo = cgImage.alphaInfo
+        let byteOrder = cgImage.bitmapInfo
+
+        print("🎨 BitmapInfo: alphaInfo=\(alphaInfo.rawValue), byteOrder=Big:\(byteOrder.contains(.byteOrder32Big)) Little:\(byteOrder.contains(.byteOrder32Little))")
+
+        // Helper function to extract RGB from pixel bytes based on format
+        func extractRGB(byte0: UInt8, byte1: UInt8, byte2: UInt8, byte3: UInt8) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+            var r: UInt8, g: UInt8, b: UInt8, a: UInt8
+
+            if byteOrder.contains(.byteOrder32Big) {
+                // Big endian
+                if alphaInfo == .premultipliedFirst || alphaInfo == .first {
+                    // ARGB
+                    a = byte0; r = byte1; g = byte2; b = byte3
+                } else {
+                    // RGBA
+                    r = byte0; g = byte1; b = byte2; a = byte3
+                }
+            } else {
+                // Little endian (default) or no byte order specified
+                if alphaInfo == .premultipliedFirst || alphaInfo == .first {
+                    // BGRA
+                    b = byte0; g = byte1; r = byte2; a = byte3
+                } else if alphaInfo == .premultipliedLast || alphaInfo == .last {
+                    // RGBA
+                    r = byte0; g = byte1; b = byte2; a = byte3
+                } else {
+                    // No alpha - assume RGB
+                    r = byte0; g = byte1; b = byte2; a = 255
+                }
+            }
+
+            return (CGFloat(r) / 255.0, CGFloat(g) / 255.0, CGFloat(b) / 255.0, CGFloat(a) / 255.0)
+        }
+
+        // Calculate pixel block size (should be exact multiple)
+        let pixelBlockSize = CGFloat(cgImage.width) / CGFloat(gridSize)
+        print("🎨 Calculated pixel block size: \(pixelBlockSize)")
+
+        // Create a dictionary to store pixel colors
+        var colors: [String: Color] = [:]
+
+        // Extract color for each grid cell by sampling from center of each block
+        for row in 0..<gridSize {
+            for col in 0..<gridSize {
+                // Sample from the center of each pixel block
+                let x = Int(CGFloat(col) * pixelBlockSize + pixelBlockSize / 2)
+                let y = Int(CGFloat(row) * pixelBlockSize + pixelBlockSize / 2)
+
+                // Make sure we're within bounds
+                guard x >= 0 && x < cgImage.width && y >= 0 && y < cgImage.height else {
+                    print("⚠️ Out of bounds: [\(col),\(row)] -> (\(x),\(y))")
+                    continue
+                }
+
+                // Calculate byte offset
+                let pixelOffset = y * bytesPerRow + x * bytesPerPixel
+                guard pixelOffset + 3 < CFDataGetLength(pixelData) else {
+                    print("⚠️ Invalid offset: [\(col),\(row)] offset=\(pixelOffset)")
+                    continue
+                }
+
+                // Read the bytes
+                let byte0 = data[pixelOffset]
+                let byte1 = data[pixelOffset + 1]
+                let byte2 = data[pixelOffset + 2]
+                let byte3 = data[pixelOffset + 3]
+
+                // Extract RGB using the helper function
+                let (r, g, b, a) = extractRGB(byte0: byte0, byte1: byte1, byte2: byte2, byte3: byte3)
+
+                // Always include all pixels (no transparency check since we filled background)
+                let color = Color(red: r, green: g, blue: b, opacity: a)
+                colors["\(col)_\(row)"] = color
+
+                // Log some sample pixels for verification
+                if col == gridSize / 2 && row == gridSize / 2 {
+                    print("🎨 CENTER pixel[\(col),\(row)] at (\(x),\(y)) RGB: (\(Int(r*255)), \(Int(g*255)), \(Int(b*255)))")
+                }
+                if col == 0 && row == 0 {
+                    print("🎨 TOP-LEFT pixel[\(col),\(row)] at (\(x),\(y)) RGB: (\(Int(r*255)), \(Int(g*255)), \(Int(b*255)))")
+                }
+                if col == gridSize-1 && row == gridSize-1 {
+                    print("🎨 BOTTOM-RIGHT pixel[\(col),\(row)] at (\(x),\(y)) RGB: (\(Int(r*255)), \(Int(g*255)), \(Int(b*255)))")
+                }
+            }
+        }
+
+        print("🎨 [DataManager] Extracted \(colors.count) pixels out of \(gridSize * gridSize) grid cells")
+        print("🎨 ===================================")
+
+        self.pixelGridData = colors
+        self.shouldLoadPixelGrid = true
     }
 }
 
@@ -3244,5 +3575,59 @@ extension DataManager {
             // Apply pixelation to the new image and show the flow
             self.applyPixelEffect(showFilterFlow: true)
         }
+    }
+}
+
+// MARK: - Custom Watermark Management
+
+extension DataManager {
+
+    /// Save custom watermark image
+    func saveCustomWatermark(_ image: UIImage) {
+        // Save to Documents directory
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
+
+        if let pngData = image.pngData() {
+            try? pngData.write(to: watermarkPath)
+            customWatermarkImage = image
+            useCustomWatermark = true
+
+            // Save preference
+            UserDefaults.standard.set(true, forKey: "useCustomWatermark")
+        }
+    }
+
+    /// Load custom watermark image
+    func loadCustomWatermark() {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
+
+        if FileManager.default.fileExists(atPath: watermarkPath.path),
+           let imageData = try? Data(contentsOf: watermarkPath),
+           let image = UIImage(data: imageData) {
+            customWatermarkImage = image
+            useCustomWatermark = UserDefaults.standard.bool(forKey: "useCustomWatermark")
+        }
+    }
+
+    /// Remove custom watermark
+    func removeCustomWatermark() {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
+
+        try? FileManager.default.removeItem(at: watermarkPath)
+        customWatermarkImage = nil
+        useCustomWatermark = false
+
+        UserDefaults.standard.set(false, forKey: "useCustomWatermark")
+    }
+
+    /// Get watermark image (custom or default)
+    func getWatermarkImage() -> UIImage? {
+        if useCustomWatermark, let customImage = customWatermarkImage {
+            return customImage
+        }
+        return UIImage(named: "watermark")
     }
 }

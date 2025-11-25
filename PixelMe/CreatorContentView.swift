@@ -23,8 +23,10 @@ struct CreatorContentView: View {
     @State private var didSelectBoardSize: Bool = false
     @State private var didShowInterstitial: Bool = false
     @State private var showPhotoPicker: Bool = false
-    @State private var shouldRemoveBackground: Bool = false
-    
+    @State private var showPhotoPreview: Bool = false
+    @State private var showBoardSizeChanger: Bool = false
+    @State private var showWatermarkPicker: Bool = false
+
     // MARK: - Main rendering function
     var body: some View {
         ZStack {
@@ -40,37 +42,106 @@ struct CreatorContentView: View {
             }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
-            switch type {
-            case .createNFT:
-                CreatorContentView().environmentObject(manager)
-            case .applyFilter:
-                PixelatedPhotoView().environmentObject(manager)
-            case .settings:
-                Text("Setting")
-                //SettingsContentView().environmentObject(manager)
+            Group {
+                switch type {
+                case .createNFT:
+                    CreatorContentView().environmentObject(manager)
+                        .onAppear { print("🖼️ [CreatorContentView] CreatorContentView appeared") }
+                case .applyFilter:
+                    PixelatedPhotoView().environmentObject(manager)
+                        .onAppear { print("🖼️ [CreatorContentView] PixelatedPhotoView appeared!") }
+                case .settings:
+                    Text("Setting")
+                        .onAppear { print("🖼️ [CreatorContentView] Settings appeared") }
+                    //SettingsContentView().environmentObject(manager)
+                }
+            }
+            .onAppear {
+                print("🖼️ [CreatorContentView] fullScreenMode triggered: \(type)")
             }
         }
         .sheet(isPresented: $showPhotoPicker) {
             PhotoPicker { image in
-                // Set the image first
-                manager.selectedImage = image
+                print("📸 [CreatorContentView] Photo selected from picker")
+                print("📸 [CreatorContentView] Image is: \(image != nil ? "NOT NIL" : "NIL")")
 
-                // Close the picker
-                showPhotoPicker = false
+                // Store the image in DataManager (more stable than @State)
+                manager.tempPhotoForPreview = image
+                print("📸 [CreatorContentView] manager.tempPhotoForPreview set")
 
-                // Wait a bit for the sheet to close, then process
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    if self.shouldRemoveBackground {
-                        self.manager.removeBackgroundAndPixelate()
-                        self.shouldRemoveBackground = false
-                    } else {
-                        self.manager.applyPixelEffect()
-                    }
+                // Don't manually dismiss - let PhotoPicker handle it
+                // showPhotoPicker = false
+
+                // Wait a bit for the sheet to close, then show preview
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    print("📸 [CreatorContentView] Checking image before showing preview...")
+                    print("📸 [CreatorContentView] manager.tempPhotoForPreview is: \(manager.tempPhotoForPreview != nil ? "NOT NIL" : "NIL")")
+                    showPhotoPreview = true
+                    print("📸 [CreatorContentView] Setting showPhotoPreview = true")
                 }
             }
         }
+        .sheet(isPresented: $showPhotoPreview) {
+            Group {
+                if let selectedImage = manager.tempPhotoForPreview {
+                    PhotoPreviewView(selectedImage: selectedImage)
+                        .environmentObject(manager)
+                        .presentationDragIndicator(.visible)
+                        .presentationDetents([.large])
+                        .onAppear {
+                            print("📸 [CreatorContentView] PhotoPreviewView appeared")
+                        }
+                } else {
+                    Color.clear
+                        .onAppear {
+                            print("⚠️ [CreatorContentView] manager.tempPhotoForPreview is nil!")
+                        }
+                }
+            }
+        }
+        .sheet(isPresented: $showBoardSizeChanger) {
+            BoardSizeChangerSheet
+        }
+        .sheet(isPresented: $showWatermarkPicker) {
+            PhotoPicker { image in
+                if let selectedImage = image {
+                    manager.saveCustomWatermark(selectedImage)
+                    print("✅ [CreatorContentView] Watermark saved")
+                }
+            }
+        }
+        .onChange(of: manager.shouldLoadPixelGrid) { oldValue, shouldLoad in
+            // Load pixel data when returning from PixelatedPhotoView
+            if shouldLoad, let pixelData = manager.pixelGridData {
+                print("🎨 [CreatorContentView] Loading pixel data from PixelatedPhotoView")
+
+                // Set board size as already selected
+                didSelectBoardSize = true
+
+                // Load pixel colors into the grid
+                filledColors = pixelData
+                filledPixels = Array(pixelData.keys)
+
+                // Reset the flag
+                manager.shouldLoadPixelGrid = false
+
+                print("🎨 [CreatorContentView] Loaded \(filledPixels.count) pixels")
+                print("🎨 [CreatorContentView] Board size: \(manager.pixelBoardSize?.rawValue ?? "nil")")
+            }
+        }
+        .onChange(of: manager.shouldDismissPhotoPreview) { oldValue, shouldDismiss in
+            if shouldDismiss {
+                showPhotoPreview = false
+                manager.shouldDismissPhotoPreview = false
+            }
+        }
+        .onChange(of: manager.useCustomWatermark) { oldValue, newValue in
+            // Save watermark preference
+            UserDefaults.standard.set(newValue, forKey: "useCustomWatermark")
+            print("💾 [CreatorContentView] Watermark toggle saved: \(newValue)")
+        }
     }
-    
+
     /// Flow navigation header view
     private var HeaderView: some View {
         ZStack {
@@ -80,7 +151,7 @@ struct CreatorContentView: View {
                 } label: { Image(systemName: "square.and.arrow.down") }
                 Spacer()
                 Button {
-                    askRemoveBackground()
+                    showPhotoPicker = true
                 } label: {
                     Image(systemName: "photo.on.rectangle.angled")
                 }
@@ -93,15 +164,16 @@ struct CreatorContentView: View {
     private func PixelsGridView(height: CGFloat = UIScreen.main.bounds.width, export: Bool = false) -> some View {
         ZStack {
             HStack(spacing: 0) {
-                ForEach(0..<manager.pixelBoardSize.count, id: \.self) { column in
+                ForEach(0..<(manager.pixelBoardSize?.count ?? 16), id: \.self) { column in
                     Pixels(forColumn: column, height: height, export: export)
                 }
             }
         }
         .frame(height: height)
         .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged { dragGesture in
+            guard let boardSize = manager.pixelBoardSize else { return }
             let point = dragGesture.location
-            let pixelSize = UIScreen.main.bounds.width/CGFloat(manager.pixelBoardSize.count)
+            let pixelSize = UIScreen.main.bounds.width/CGFloat(boardSize.count)
             let height = Int(height)
             let width = height
             let y = Int(point.y / pixelSize)
@@ -116,7 +188,7 @@ struct CreatorContentView: View {
     
     private func Pixels(forColumn column: Int, height: CGFloat, export: Bool = false) -> some View {
         VStack(spacing: 0) {
-            ForEach(0..<manager.pixelBoardSize.count, id: \.self) { row in
+            ForEach(0..<(manager.pixelBoardSize?.count ?? 16), id: \.self) { row in
                 ZStack {
                     Rectangle().foregroundColor(backgroundColor)
                     if export == false {
@@ -126,23 +198,24 @@ struct CreatorContentView: View {
                     if filledPixels.contains("\(column)_\(row)") {
                         Rectangle().foregroundColor(filledColors["\(column)_\(row)"])
                     }
-                }.frame(height: height/CGFloat(manager.pixelBoardSize.count))
+                }.frame(height: height/CGFloat(manager.pixelBoardSize?.count ?? 16))
             }
         }
     }
     
     private var WatermarkLogoView: some View {
         ZStack {
-            if didSelectBoardSize && showLogoWatermark {
+            if didSelectBoardSize && manager.useCustomWatermark {
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        Image(uiImage: UIImage(named: "watermark")!)
-                            .resizable().aspectRatio(contentMode: .fit)
-                            .frame(width: 60, height: 60).shadow(color: Color.black.opacity(0.3), radius: 10)
-                            .opacity(shouldHideLogoWatermark ? 0.2 : 1)
-                            .onTapGesture { shouldHideLogoWatermark.toggle() }
+                        if let watermarkImage = manager.getWatermarkImage() {
+                            Image(uiImage: watermarkImage)
+                                .resizable().aspectRatio(contentMode: .fit)
+                                .frame(width: 60, height: 60)
+                                .shadow(color: Color.black.opacity(0.3), radius: 10)
+                        }
                     }
                 }.padding()
             }
@@ -152,7 +225,14 @@ struct CreatorContentView: View {
     // MARK: - Initial Pixel Canvas/Board size
     private var PixelBoardSizeSelector: some View {
         VStack(spacing: 15) {
-            Text("Select Board Size").foregroundColor(.white)
+            VStack(spacing: 8) {
+                Text("Select Board Size")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                Text("Choose a size to start drawing pixel art")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+            }
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
@@ -160,38 +240,30 @@ struct CreatorContentView: View {
                             type in PixelBoardSizeItem(type)
                         }
                     }
-
-                    ChooseButton
                 }
             }
         }.padding(.horizontal)
     }
 
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
-        Button {
+        let isSelected = manager.pixelBoardSize == type
+        return Button {
             manager.pixelBoardSize = type
+            // Auto-activate the board immediately for instant drawing
+            withAnimation(.easeInOut(duration: 0.3)) {
+                didSelectBoardSize = true
+            }
         } label: {
             ZStack {
                 Color.white.cornerRadius(15)
-                    .opacity(manager.pixelBoardSize == type ? 1 : 0.3)
+                    .opacity(isSelected ? 1 : 0.3)
                 Text(type.rawValue)
-                    .foregroundColor(manager.pixelBoardSize == type ? .black : .white)
-                    .opacity(manager.pixelBoardSize == type ? 1 : 0.5)
+                    .foregroundColor(isSelected ? .black : .white)
+                    .opacity(isSelected ? 1 : 0.5)
             }
         }.frame(height: 60)
     }
-    
-    private var ChooseButton: some View {
-        Button {
-            didSelectBoardSize = true
-        } label: {
-            ZStack {
-                Color(AppConfig.continueButtonColor).cornerRadius(15)
-                Text("Choose").font(.system(size: 20, weight: .bold))
-            }.foregroundColor(.white)
-        }.frame(height: 60)
-    }
-    
+
     // MARK: - Pixel Colors and Tools
     private var PixelBoardToolsView: some View {
         VStack(spacing: 15) {
@@ -199,11 +271,12 @@ struct CreatorContentView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
+                        BoardSizeChangeView
                         PixelColorView
                         BackgroundColorView
-                        RemoveWatermarkView
                         EraserToolView
                     }
+                    WatermarkView
                     ShowHideGridView
                     InvertGridColorView
                 }.foregroundColor(.white)
@@ -244,7 +317,38 @@ struct CreatorContentView: View {
             }.padding(.horizontal, 15)
         }.frame(height: 60)
     }
-    
+
+    private var WatermarkView: some View {
+        ZStack {
+            Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+            HStack {
+                Text("Watermark").font(.system(size: 18))
+                Spacer()
+
+                // Image select button
+                Button {
+                    showWatermarkPicker = true
+                } label: {
+                    HStack(spacing: 4) {
+                        if manager.customWatermarkImage != nil {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.system(size: 16))
+                        }
+                        Image(systemName: "photo")
+                            .font(.system(size: 16))
+                            .foregroundColor(.white)
+                    }
+                }
+
+                // Toggle
+                Toggle(isOn: $manager.useCustomWatermark) { EmptyView() }
+                    .disabled(manager.customWatermarkImage == nil)
+                    .labelsHidden()
+            }.padding(.horizontal, 15)
+        }.frame(height: 60)
+    }
+
     private var RemoveWatermarkView: some View {
         ZStack {
             Color(AppConfig.toolBackgroundColor).cornerRadius(15)
@@ -285,20 +389,79 @@ struct CreatorContentView: View {
         }.frame(height: 60)
     }
 
-    // MARK: - Background Removal Prompt
-    private func askRemoveBackground() {
-        presentAlert(
-            title: "Remove Background?",
-            message: "Would you like to remove the background from this photo?",
-            primaryAction: UIAlertAction(title: "Yes", style: .default) { _ in
-                self.shouldRemoveBackground = true
-                self.showPhotoPicker = true
-            },
-            secondaryAction: UIAlertAction(title: "No", style: .cancel) { _ in
-                self.shouldRemoveBackground = false
-                self.showPhotoPicker = true
+    private var BoardSizeChangeView: some View {
+        Button {
+            showBoardSizeChanger = true
+        } label: {
+            ZStack {
+                Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+                HStack {
+                    Text("Board Size").font(.system(size: 18))
+                    Spacer()
+                    Text(manager.pixelBoardSize?.rawValue ?? "N/A")
+                        .font(.system(size: 16))
+                        .foregroundColor(.gray)
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray)
+                }.padding(.horizontal, 15)
             }
-        )
+        }.frame(height: 60)
+    }
+
+    private var BoardSizeChangerSheet: some View {
+        ZStack {
+            Color(AppConfig.backgroundColor).ignoresSafeArea()
+            VStack(spacing: 20) {
+                // Header
+                HStack {
+                    Spacer()
+                    Text("Change Board Size")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                    Spacer()
+                    Button {
+                        showBoardSizeChanger = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 18))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+
+                Text("Warning: Changing board size will clear your current drawing")
+                    .font(.system(size: 14))
+                    .foregroundColor(.orange)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
+                        ForEach(PixelBoardSize.allCases) { type in
+                            Button {
+                                manager.pixelBoardSize = type
+                                // Clear the drawing
+                                filledPixels.removeAll()
+                                filledColors.removeAll()
+                                showBoardSizeChanger = false
+                            } label: {
+                                ZStack {
+                                    Color.white.cornerRadius(15)
+                                        .opacity(manager.pixelBoardSize == type ? 1 : 0.3)
+                                    Text(type.rawValue)
+                                        .foregroundColor(manager.pixelBoardSize == type ? .black : .white)
+                                        .opacity(manager.pixelBoardSize == type ? 1 : 0.5)
+                                }
+                            }.frame(height: 60)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+
+                Spacer()
+            }
+        }
     }
 }
 

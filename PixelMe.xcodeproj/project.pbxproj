@@ -53,7 +53,6 @@
 		58D012302A28147A00668585 = {
 			isa = PBXGroup;
 			children = (
-				58AA25302ED4A3CD00E8766A /* Assets.xcassets */,
 				58D0123B2A28147A00668585 /* PixelMe */,
 				58D0123A2A28147A00668585 /* Products */,
 			);
@@ -79,6 +78,7 @@
 				58D012702A28190C00668585 /* PixelatedImage.swift */,
 				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
 				58D0126C2A2815B700668585 /* AppConfig.swift */,
+				58AA25302ED4A3CD00E8766A /* Assets.xcassets */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -322,6 +322,7 @@
 				DEVELOPMENT_TEAM = QGAQ3AY3R3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PixelMeMe;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -357,6 +358,7 @@
 				DEVELOPMENT_TEAM = QGAQ3AY3R3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PixelMeMe;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

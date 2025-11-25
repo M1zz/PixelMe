@@ -29,7 +29,10 @@ struct PhotoPicker: UIViewControllerRepresentable {
         init(_ parent: PhotoPicker) { self.parent = parent }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-            parent.didSelect((info[.editedImage] as? UIImage)?.crop)
+            let image = (info[.editedImage] as? UIImage)?.crop
+            print("📷 [PhotoPicker] Image picked: \(image != nil ? "YES" : "NO")")
+            parent.didSelect(image)
+            print("📷 [PhotoPicker] Callback completed, dismissing picker")
             parent.presentationMode.wrappedValue.dismiss()
         }
     }

@@ -22,20 +22,23 @@ struct PixelatedPhotoView: View {
 
             VStack(spacing: 0) {
                 HeaderView
+                    .padding(.top, 50)
+                    .padding(.bottom, 8)
 
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 15) {
+                    VStack(spacing: 20) {
                         // Pixelated Image Preview
                         PixelatedImage()
                             .environmentObject(manager)
-                            .padding(.top, 10)
+                            .padding(.top, 15)
+                            .padding(.bottom, 5)
 
                         // Tab selector
                         TabSelector
-                            .padding(.horizontal)
+                            .padding(.horizontal, 20)
 
                         // Content based on selected tab
-                        VStack(spacing: 15) {
+                        VStack(spacing: 18) {
                             switch selectedTab {
                             case 0:
                                 PixelBoardSizeSelector
@@ -50,15 +53,34 @@ struct PixelatedPhotoView: View {
                             }
 
                             // Action buttons
-                            HStack(spacing: 10) {
-                                AdvancedSettingsButton
-                                DownloadButton
+                            VStack(spacing: 12) {
+                                EditButton
+                                HStack(spacing: 12) {
+                                    AdvancedSettingsButton
+                                    DownloadButton
+                                }
                             }
-                            .padding(.top, 10)
-                            .padding(.bottom, 20)
+                            .padding(.top, 15)
+                            .padding(.bottom, 30)
                         }
-                        .padding(.horizontal)
+                        .padding(.horizontal, 20)
                     }
+                }
+            }
+
+            // Loading overlay
+            if manager.showLoading {
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
+
+                VStack(spacing: 15) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(1.5)
+
+                    Text("처리 중...")
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.white)
                 }
             }
         }
@@ -109,17 +131,41 @@ struct PixelatedPhotoView: View {
 
     // MARK: - Pixel Board Size Selector
     private var PixelBoardSizeSelector: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 18) {
             Text("Select Pixel Density")
                 .foregroundColor(.white)
                 .font(.headline)
 
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
+            // Background color picker for transparent images
+            if manager.isBackgroundRemovalEnabled {
+                HStack {
+                    Text("Background Color")
+                        .foregroundColor(.white)
+                        .font(.system(size: 16))
+                    Spacer()
+                    ColorPicker("", selection: $manager.pixelateBackgroundColor)
+                        .labelsHidden()
+                        .onChange(of: manager.pixelateBackgroundColor) { oldValue, newValue in
+                            // Reapply pixel effect when background color changes
+                            if manager.pixelBoardSize != nil {
+                                manager.applyPixelEffect(showFilterFlow: false)
+                            }
+                        }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color(AppConfig.toolBackgroundColor))
+                )
+            }
+
+            LazyVGrid(columns: Array(repeating: GridItem(spacing: 12), count: 2), spacing: 12) {
                 ForEach(PixelBoardSize.allCases) { type in
                     PixelBoardSizeItem(type)
                 }
             }
         }
+        .padding(.top, 5)
     }
 
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
@@ -145,15 +191,18 @@ struct PixelatedPhotoView: View {
 
     // MARK: - Color Palette Selector
     private var ColorPaletteSelector: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 18) {
             Text("Color Palette")
                 .foregroundColor(.white)
                 .font(.headline)
 
-            ForEach(ColorPaletteType.allCases) { palette in
-                ColorPaletteItem(palette)
+            VStack(spacing: 10) {
+                ForEach(ColorPaletteType.allCases) { palette in
+                    ColorPaletteItem(palette)
+                }
             }
         }
+        .padding(.top, 5)
     }
 
     private func ColorPaletteItem(_ palette: ColorPaletteType) -> some View {
@@ -201,14 +250,14 @@ struct PixelatedPhotoView: View {
 
     // MARK: - Filter Effects Selector
     private var FilterEffectsSelector: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 18) {
             Text("Filter Effects")
                 .foregroundColor(.white)
                 .font(.headline)
 
             // Intensity slider if filter is selected
             if manager.filterEffect != .none {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Intensity: \(Int(manager.filterIntensity * 100))%")
                         .foregroundColor(.white)
                         .font(.subheadline)
@@ -218,16 +267,16 @@ struct PixelatedPhotoView: View {
                     }
                     .accentColor(.blue)
                 }
-                .padding(.horizontal)
+                .padding(.bottom, 5)
             }
 
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
+            LazyVGrid(columns: Array(repeating: GridItem(spacing: 12), count: 2), spacing: 12) {
                 ForEach(FilterEffectType.allCases) { filter in
                     FilterEffectItem(filter)
                 }
             }
         }
-        .padding(.horizontal)
+        .padding(.top, 5)
     }
 
     private func FilterEffectItem(_ filter: FilterEffectType) -> some View {
@@ -266,19 +315,24 @@ struct PixelatedPhotoView: View {
 
     // MARK: - Presets Selector
     private var PresetsSelector: some View {
-        VStack(spacing: 15) {
-            Text("Quick Presets")
-                .foregroundColor(.white)
-                .font(.headline)
+        VStack(spacing: 18) {
+            VStack(spacing: 8) {
+                Text("Quick Presets")
+                    .foregroundColor(.white)
+                    .font(.headline)
 
-            Text("One-tap perfect styles")
-                .foregroundColor(.gray)
-                .font(.caption)
+                Text("One-tap perfect styles")
+                    .foregroundColor(.gray)
+                    .font(.caption)
+            }
 
-            ForEach(EffectPreset.presets) { preset in
-                PresetItem(preset)
+            VStack(spacing: 10) {
+                ForEach(EffectPreset.presets) { preset in
+                    PresetItem(preset)
+                }
             }
         }
+        .padding(.top, 5)
     }
 
     private func PresetItem(_ preset: EffectPreset) -> some View {
@@ -358,6 +412,32 @@ struct PixelatedPhotoView: View {
             )
         }
     }
+
+    private var EditButton: some View {
+        Button {
+            // Extract pixel data from pixelated image
+            print("🎨 [PixelatedPhotoView] Extracting pixel data...")
+            manager.extractPixelDataFromImage()
+            // Signal to dismiss photo preview sheet
+            manager.shouldDismissPhotoPreview = true
+            // Close all modals and return to Pixel Creator
+            manager.fullScreenMode = nil
+        } label: {
+            HStack {
+                Image(systemName: "square.grid.3x3.fill.square")
+                Text("Use this Pixel")
+            }
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(manager.pixelBoardSize == nil ? .gray : .white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(manager.pixelBoardSize == nil ? Color.gray.opacity(0.5) : Color.blue)
+            )
+        }
+        .disabled(manager.pixelBoardSize == nil)
+    }
 }
 
 // MARK: - Tab Button Component
@@ -406,6 +486,7 @@ struct AdvancedSettingsView: View {
     @State private var showLayerEditor = false
     @State private var showTemplateGallery = false
     @State private var showExportOptions = false
+    @State private var showWatermarkPicker = false
 
     var body: some View {
         NavigationView {
@@ -419,6 +500,9 @@ struct AdvancedSettingsView: View {
 
                         // Color Reduction Section
                         ColorReductionSection
+
+                        // Watermark Section
+                        WatermarkSection
 
                         // Export Options Section
                         ExportSection
@@ -459,6 +543,92 @@ struct AdvancedSettingsView: View {
         .sheet(isPresented: $showExportOptions) {
             ExportOptionsView()
                 .environmentObject(manager)
+        }
+        .sheet(isPresented: $showWatermarkPicker) {
+            PhotoPicker { image in
+                if let selectedImage = image {
+                    manager.saveCustomWatermark(selectedImage)
+                }
+                showWatermarkPicker = false
+            }
+        }
+    }
+
+    // MARK: - Watermark Section
+    private var WatermarkSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Custom Watermark")
+                .font(.headline)
+                .foregroundColor(.white)
+
+            VStack(spacing: 10) {
+                // Preview
+                if let watermarkImage = manager.getWatermarkImage() {
+                    HStack {
+                        Text("Current:")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+
+                        Image(uiImage: watermarkImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(8)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            )
+
+                        Spacer()
+                    }
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color(AppConfig.toolBackgroundColor))
+                    )
+                }
+
+                // Select New Watermark
+                Button {
+                    showWatermarkPicker = true
+                } label: {
+                    HStack {
+                        Image(systemName: "photo.badge.plus")
+                            .font(.system(size: 20))
+                        Text("Select Custom Watermark")
+                            .font(.system(size: 16, weight: .semibold))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color(AppConfig.toolBackgroundColor))
+                    )
+                }
+
+                // Remove Custom Watermark
+                if manager.useCustomWatermark {
+                    Button {
+                        manager.removeCustomWatermark()
+                    } label: {
+                        HStack {
+                            Image(systemName: "trash")
+                                .font(.system(size: 20))
+                            Text("Remove Custom Watermark")
+                                .font(.system(size: 16, weight: .semibold))
+                            Spacer()
+                        }
+                        .foregroundColor(.red)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color(AppConfig.toolBackgroundColor))
+                        )
+                    }
+                }
+            }
         }
     }
 
@@ -805,7 +975,7 @@ struct BatchProcessingView: View {
 
             VStack(alignment: .leading, spacing: 8) {
                 SettingRow(label: "Images", value: "\(selectedImages.count)")
-                SettingRow(label: "Pixel Size", value: manager.pixelBoardSize.rawValue)
+                SettingRow(label: "Pixel Size", value: manager.pixelBoardSize?.rawValue ?? "16x16")
                 SettingRow(label: "Palette", value: manager.selectedColorPalette.rawValue)
                 SettingRow(label: "Filter", value: manager.filterEffect.rawValue)
                 SettingRow(label: "Export Format", value: manager.exportFormat.rawValue)
@@ -873,7 +1043,7 @@ struct BatchProcessingView: View {
         isProcessing = true
 
         let config = BatchProcessingConfig(
-            pixelSize: manager.pixelBoardSize,
+            pixelSize: manager.pixelBoardSize ?? .normal,
             colorPalette: manager.selectedColorPalette,
             colorReduction: manager.colorReduction,
             ditheringType: manager.ditheringType,
@@ -1860,5 +2030,418 @@ struct TemplateGalleryView_Previews: PreviewProvider {
     static var previews: some View {
         TemplateGalleryView()
             .environmentObject(DataManager())
+    }
+}
+//
+//  PhotoPreviewView.swift
+//  PixelMe
+//
+//  Photo preview with Pixelize and Remove Background options
+//
+
+import SwiftUI
+
+struct PhotoPreviewView: View {
+    @EnvironmentObject var manager: DataManager
+    @Environment(\.presentationMode) var presentationMode
+
+    let selectedImage: UIImage
+    @State private var showRemoveBackgroundResult = false
+    @State private var removedBackgroundImage: UIImage?
+    @State private var isProcessing = false
+
+    var body: some View {
+        ZStack {
+            Color(AppConfig.backgroundColor).ignoresSafeArea()
+
+            VStack(spacing: 20) {
+                // Header
+                HeaderView
+
+                ScrollView {
+                    VStack(spacing: 25) {
+                        // Selected Image Preview
+                        ImagePreview
+
+                        // Title
+                        VStack(spacing: 8) {
+                            Text("Choose an option")
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(.white)
+
+                            Text("Transform your photo into pixel art")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, 10)
+
+                        // Options
+                        VStack(spacing: 15) {
+                            PixelizeButton
+                            RemoveBackgroundButton
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 30)
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $showRemoveBackgroundResult) {
+            if let bgRemovedImage = removedBackgroundImage {
+                BackgroundRemovalResultView(
+                    originalImage: selectedImage,
+                    removedBackgroundImage: bgRemovedImage
+                )
+                .environmentObject(manager)
+            }
+        }
+    }
+
+    private var HeaderView: some View {
+        HStack {
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 22))
+            }
+
+            Spacer()
+
+            Text("Photo Preview")
+                .font(.system(size: 20, weight: .bold))
+
+            Spacer()
+
+            // Invisible spacer for center alignment
+            Image(systemName: "xmark")
+                .font(.system(size: 22))
+                .opacity(0)
+        }
+        .padding(.top, 30)
+        .padding(.horizontal)
+        .foregroundColor(.white)
+    }
+
+    private var ImagePreview: some View {
+        Image(uiImage: selectedImage)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: min(UIScreen.main.bounds.width - 40, 350))
+            .cornerRadius(12)
+            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+    }
+
+    private var PixelizeButton: some View {
+        Button {
+            // Set image and apply pixelation
+            manager.selectedImage = selectedImage
+            manager.applyPixelEffect()
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack(spacing: 15) {
+                Image(systemName: "square.grid.3x3.fill")
+                    .font(.system(size: 24))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Pixelize")
+                        .font(.system(size: 18, weight: .bold))
+                    Text("Create pixel art instantly")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 16, weight: .semibold))
+            }
+            .foregroundColor(.white)
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.continueButtonColor))
+            )
+        }
+    }
+
+    private var RemoveBackgroundButton: some View {
+        Button {
+            isProcessing = true
+
+            BackgroundRemovalManager.removeBackgroundSmart(from: selectedImage) { result in
+                isProcessing = false
+
+                if let removedBgImage = result {
+                    removedBackgroundImage = removedBgImage
+                    showRemoveBackgroundResult = true
+                } else {
+                    presentAlert(
+                        title: "Error",
+                        message: "Failed to remove background. This feature requires iOS 15 or later."
+                    )
+                }
+            }
+        } label: {
+            HStack(spacing: 15) {
+                if isProcessing {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .frame(width: 24, height: 24)
+                } else {
+                    Image(systemName: "person.crop.circle")
+                        .font(.system(size: 24))
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Remove Background")
+                        .font(.system(size: 18, weight: .bold))
+                    Text(isProcessing ? "Processing..." : "Keep only the subject")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                }
+
+                Spacer()
+
+                if !isProcessing {
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 16, weight: .semibold))
+                }
+            }
+            .foregroundColor(.white)
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.toolBackgroundColor))
+            )
+        }
+        .disabled(isProcessing)
+    }
+}
+//
+//  BackgroundRemovalResultView.swift
+//  PixelMe
+//
+//  Shows the result of background removal with option to choose or keep original
+//
+
+import SwiftUI
+
+struct BackgroundRemovalResultView: View {
+    @EnvironmentObject var manager: DataManager
+    @Environment(\.presentationMode) var presentationMode
+
+    let originalImage: UIImage
+    let removedBackgroundImage: UIImage
+
+    @State private var showComparison = false
+
+    var body: some View {
+        ZStack {
+            Color(AppConfig.backgroundColor).ignoresSafeArea()
+
+            VStack(spacing: 20) {
+                // Header
+                HeaderView
+
+                ScrollView {
+                    VStack(spacing: 25) {
+                        // Result Image Preview
+                        ResultPreview
+
+                        // Toggle Comparison
+                        ComparisonToggle
+
+                        // Title
+                        VStack(spacing: 8) {
+                            Text("Background Removed!")
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(.white)
+
+                            Text("Choose the version you want to pixelize")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, 10)
+
+                        // Options
+                        VStack(spacing: 15) {
+                            ChooseButton
+                            KeepBackgroundButton
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 30)
+                    }
+                }
+            }
+        }
+    }
+
+    private var HeaderView: some View {
+        HStack {
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 22))
+            }
+
+            Spacer()
+
+            Text("Result")
+                .font(.system(size: 20, weight: .bold))
+
+            Spacer()
+
+            // Invisible spacer for center alignment
+            Image(systemName: "chevron.left")
+                .font(.system(size: 22))
+                .opacity(0)
+        }
+        .padding(.horizontal)
+        .padding(.top, 30)
+        .foregroundColor(.white)
+    }
+
+    private var ResultPreview: some View {
+        ZStack {
+            // Checkered background to show transparency
+            CheckeredBackground()
+                .frame(maxWidth: min(UIScreen.main.bounds.width - 40, 350))
+                .frame(height: min(UIScreen.main.bounds.width - 40, 350))
+                .cornerRadius(12)
+
+            Image(uiImage: showComparison ? originalImage : removedBackgroundImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: min(UIScreen.main.bounds.width - 40, 350))
+                .cornerRadius(12)
+        }
+        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+    }
+
+    private var ComparisonToggle: some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                showComparison.toggle()
+            }
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: showComparison ? "eye.slash" : "eye")
+                    .font(.system(size: 14))
+
+                Text(showComparison ? "Original" : "Background Removed")
+                    .font(.system(size: 14, weight: .medium))
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(AppConfig.toolBackgroundColor))
+            )
+        }
+    }
+
+    private var ChooseButton: some View {
+        Button {
+            // Use background removed image
+            manager.selectedImage = removedBackgroundImage
+            manager.isBackgroundRemovalEnabled = true
+            manager.applyPixelEffect()
+
+            // Dismiss all sheets
+            presentationMode.wrappedValue.dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                // Dismiss the parent PhotoPreviewView too
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let rootViewController = windowScene.windows.first?.rootViewController {
+                    rootViewController.dismiss(animated: true)
+                }
+            }
+        } label: {
+            HStack(spacing: 15) {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 24))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Choose This")
+                        .font(.system(size: 18, weight: .bold))
+                    Text("Pixelize without background")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                }
+
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color.green.opacity(0.7))
+            )
+        }
+    }
+
+    private var KeepBackgroundButton: some View {
+        Button {
+            // Use original image
+            manager.selectedImage = originalImage
+            manager.isBackgroundRemovalEnabled = false
+            manager.applyPixelEffect()
+
+            // Dismiss all sheets
+            presentationMode.wrappedValue.dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let rootViewController = windowScene.windows.first?.rootViewController {
+                    rootViewController.dismiss(animated: true)
+                }
+            }
+        } label: {
+            HStack(spacing: 15) {
+                Image(systemName: "photo")
+                    .font(.system(size: 24))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Keep Background")
+                        .font(.system(size: 18, weight: .bold))
+                    Text("Pixelize with original image")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                }
+
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.toolBackgroundColor))
+            )
+        }
+    }
+}
+
+// Checkered background to show transparency
+struct CheckeredBackground: View {
+    var body: some View {
+        GeometryReader { geometry in
+            let size: CGFloat = 20
+            let rows = Int(geometry.size.height / size) + 1
+            let cols = Int(geometry.size.width / size) + 1
+
+            VStack(spacing: 0) {
+                ForEach(0..<rows, id: \.self) { row in
+                    HStack(spacing: 0) {
+                        ForEach(0..<cols, id: \.self) { col in
+                            Rectangle()
+                                .fill((row + col) % 2 == 0 ? Color.gray.opacity(0.2) : Color.gray.opacity(0.1))
+                                .frame(width: size, height: size)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
