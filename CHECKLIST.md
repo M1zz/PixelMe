@@ -92,7 +92,7 @@
 
 #### 앱 이름
 - [ ] 메인: "PixelMe - Pixel Art Creator"
-- [ ] 부제목: "NFT Avatar & Retro Filters"
+- [ ] 부제목: "Pixel Art & Retro Filters"
 
 #### 설명 (한국어)
 ```
@@ -107,11 +107,11 @@
 • 배치 처리 - 무제한 이미지 일괄 처리
 • GIF 애니메이션 제작
 • 전문가급 레이어 시스템 (12가지 블렌드 모드)
-• 15+ 템플릿 (NFT 아바타, 게임 스프라이트, 소셜 미디어)
+• 15+ 템플릿 (픽셀 아바타, 게임 스프라이트, 소셜 미디어)
 • 고급 내보내기 - PNG, SVG, PDF, 최대 4K 해상도
 
 🎮 이런 분들께 완벽합니다
-• NFT 아티스트 & 컬렉터
+• 픽셀 아티스트 & 디자이너
 • 게임 개발자
 • 픽셀 아트 애호가
 • 소셜 미디어 인플루언서
@@ -123,7 +123,7 @@
 
 #### 키워드 (100자 제한)
 ```
-pixel art,retro,nft,avatar,game sprite,vaporwave,cyberpunk,gameboy,nes,filter,glitch,crt,8bit
+pixel art,retro,pixelate,avatar,game sprite,vaporwave,cyberpunk,gameboy,nes,filter,glitch,crt,8bit
 ```
 
 ### 가격 설정
@@ -169,7 +169,7 @@ pixel art,retro,nft,avatar,game sprite,vaporwave,cyberpunk,gameboy,nes,filter,gl
 
 ### 런칭 당일
 - [ ] Product Hunt 등록
-- [ ] Reddit 게시 (r/PixelArt, r/NFT, r/iOSBeta)
+- [ ] Reddit 게시 (r/PixelArt, r/iOS, r/iOSBeta)
 - [ ] Twitter/X 공지
 - [ ] HackerNews Show HN (선택)
 - [ ] IndieHackers 공유
@@ -177,13 +177,13 @@ pixel art,retro,nft,avatar,game sprite,vaporwave,cyberpunk,gameboy,nes,filter,gl
 ### 콘텐츠 마케팅
 - [ ] Before/After 비교 영상 (TikTok/Reels)
 - [ ] 튜토리얼 영상 제작
-- [ ] NFT 커뮤니티 타겟팅
+- [ ] 픽셀 아트 커뮤니티 타겟팅
 - [ ] 게임 개발 커뮤니티 접근
 
 ### 인플루언서 아웃리치
 - [ ] 픽셀 아트 아티스트 연락
 - [ ] 게임 개발 유튜버 연락
-- [ ] NFT 인플루언서 연락
+- [ ] 레트로 게임 인플루언서 연락
 - [ ] 프로모 코드 제공
 
 ---

@@ -168,9 +168,9 @@ Quick-start templates for common use cases:
 - Circle Profile (512x512, 16px)
 - Rounded Profile (512x512, 12px)
 
-**NFT Avatars:**
-- Punk Style (24x24, CryptoPunks inspired)
-- Ape Style (16x16, BAYC inspired)
+**Pixel Avatars:**
+- Punk Style (24x24, retro pixel style)
+- Ape Style (16x16, character style)
 - Doodle Style (12x12, colorful)
 
 **Game Sprites:**
@@ -395,7 +395,7 @@ batchProcessor.processBatch(images: selectedImages, config: config) { results in
 
 ## 🎯 Target Audience
 
-1. **NFT Creators** - Create avatar collections
+1. **Pixel Artists** - Create avatar collections and artwork
 2. **Game Developers** - Generate sprite assets
 3. **Social Media Influencers** - Unique profile pictures
 4. **Pixel Art Enthusiasts** - Hobbyists and professionals

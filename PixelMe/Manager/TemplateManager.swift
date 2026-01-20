@@ -11,7 +11,7 @@ import SwiftUI
 /// Template categories
 enum TemplateCategory: String, CaseIterable, Identifiable {
     case profile = "Profile Picture"
-    case nftAvatar = "NFT Avatar"
+    case pixelAvatar = "Pixel Avatar"
     case gameSprite = "Game Sprite"
     case icon = "App Icon"
     case banner = "Banner"
@@ -23,8 +23,8 @@ enum TemplateCategory: String, CaseIterable, Identifiable {
         switch self {
         case .profile:
             return Template.profileTemplates
-        case .nftAvatar:
-            return Template.nftAvatarTemplates
+        case .pixelAvatar:
+            return Template.pixelAvatarTemplates
         case .gameSprite:
             return Template.gameSpriteTemplates
         case .icon:
@@ -101,7 +101,7 @@ struct Template: Identifiable, Codable {
     ]
 
     // MARK: - NFT Avatar Templates
-    static let nftAvatarTemplates: [Template] = [
+    static let pixelAvatarTemplates: [Template] = [
         Template(
             id: "nft_punk",
             name: "Punk Style",

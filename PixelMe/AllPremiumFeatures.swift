@@ -1228,7 +1228,8 @@ class BatchProcessor: ObservableObject {
             try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
 
             // Save all images to temp directory
-            for (index, result) in results.enumerated() where result.success, let image = result.processedImage {
+            for (index, result) in results.enumerated() where result.success {
+                guard let image = result.processedImage else { continue }
                 let filename = "pixelated_\(index + 1).\(config.exportFormat.fileExtension)"
                 let fileURL = tempDirectory.appendingPathComponent(filename)
 
@@ -1654,7 +1655,7 @@ import SwiftUI
 /// Template categories
 enum TemplateCategory: String, CaseIterable, Identifiable {
     case profile = "Profile Picture"
-    case nftAvatar = "NFT Avatar"
+    case pixelAvatar = "Pixel Avatar"
     case gameSprite = "Game Sprite"
     case icon = "App Icon"
     case banner = "Banner"
@@ -1666,8 +1667,8 @@ enum TemplateCategory: String, CaseIterable, Identifiable {
         switch self {
         case .profile:
             return Template.profileTemplates
-        case .nftAvatar:
-            return Template.nftAvatarTemplates
+        case .pixelAvatar:
+            return Template.pixelAvatarTemplates
         case .gameSprite:
             return Template.gameSpriteTemplates
         case .icon:
@@ -1744,7 +1745,7 @@ struct Template: Identifiable, Codable {
     ]
 
     // MARK: - NFT Avatar Templates
-    static let nftAvatarTemplates: [Template] = [
+    static let pixelAvatarTemplates: [Template] = [
         Template(
             id: "nft_punk",
             name: "Punk Style",

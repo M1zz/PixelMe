@@ -33,32 +33,14 @@ struct PixelatedPhotoView: View {
                             .padding(.top, 15)
                             .padding(.bottom, 5)
 
-                        // Tab selector
-                        TabSelector
-                            .padding(.horizontal, 20)
-
-                        // Content based on selected tab
+                        // Pixel density selector
                         VStack(spacing: 18) {
-                            switch selectedTab {
-                            case 0:
-                                PixelBoardSizeSelector
-                            case 1:
-                                ColorPaletteSelector
-                            case 2:
-                                FilterEffectsSelector
-                            case 3:
-                                PresetsSelector
-                            default:
-                                PixelBoardSizeSelector
-                            }
+                            PixelBoardSizeSelector
 
                             // Action buttons
                             VStack(spacing: 12) {
                                 EditButton
-                                HStack(spacing: 12) {
-                                    AdvancedSettingsButton
-                                    DownloadButton
-                                }
+                                DownloadButton
                             }
                             .padding(.top, 15)
                             .padding(.bottom, 30)
@@ -78,7 +60,7 @@ struct PixelatedPhotoView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .scaleEffect(1.5)
 
-                    Text("처리 중...")
+                    Text("Processing...")
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(.white)
                 }
@@ -100,7 +82,7 @@ struct PixelatedPhotoView: View {
         ZStack {
             HStack {
                 Button {
-                    manager.savePixelatedNFT()
+                    manager.savePixelatedImage()
                 } label: {
                     Image(systemName: "square.and.arrow.down")
                         .font(.system(size: 22))
@@ -396,7 +378,7 @@ struct PixelatedPhotoView: View {
 
     private var DownloadButton: some View {
         Button {
-            manager.savePixelatedNFT()
+            manager.savePixelatedImage()
         } label: {
             HStack {
                 Image(systemName: "square.and.arrow.down")
@@ -781,7 +763,7 @@ struct AdvancedSettingsView: View {
             FeatureButton(
                 icon: "square.grid.3x3",
                 title: "Templates",
-                description: "NFT avatars, game sprites & more",
+                description: "Pixel avatars, game sprites & more",
                 action: { showTemplateGallery = true }
             )
         }

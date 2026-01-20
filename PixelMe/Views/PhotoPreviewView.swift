@@ -33,11 +33,11 @@ struct PhotoPreviewView: View {
 
                         // Title
                         VStack(spacing: 8) {
-                            Text("선택된 이미지")
+                            Text("Selected Image")
                                 .font(.system(size: 22, weight: .bold))
                                 .foregroundColor(.white)
 
-                            Text("옵션을 선택하여 픽셀 아트로 변환하세요")
+                            Text("Choose an option to transform your photo")
                                 .font(.system(size: 14))
                                 .foregroundColor(.gray)
                         }
@@ -64,7 +64,7 @@ struct PhotoPreviewView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .scaleEffect(1.5)
 
-                    Text("처리 중...")
+                    Text("Processing...")
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(.white)
                 }
@@ -100,7 +100,7 @@ struct PhotoPreviewView: View {
 
             Spacer()
 
-            Text("사진 미리보기")
+            Text("Photo Preview")
                 .font(.system(size: 20, weight: .bold))
 
             Spacer()

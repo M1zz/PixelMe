@@ -198,7 +198,8 @@ class BatchProcessor: ObservableObject {
             try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
 
             // Save all images to temp directory
-            for (index, result) in results.enumerated() where result.success, let image = result.processedImage {
+            for (index, result) in results.enumerated() where result.success {
+                guard let image = result.processedImage else { continue }
                 let filename = "pixelated_\(index + 1).\(config.exportFormat.fileExtension)"
                 let fileURL = tempDirectory.appendingPathComponent(filename)
 

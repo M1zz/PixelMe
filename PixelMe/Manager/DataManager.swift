@@ -1659,7 +1659,7 @@ import SwiftUI
 /// Template categories
 enum TemplateCategory: String, CaseIterable, Identifiable {
     case profile = "Profile Picture"
-    case nftAvatar = "NFT Avatar"
+    case pixelAvatar = "Pixel Avatar"
     case gameSprite = "Game Sprite"
     case icon = "App Icon"
     case banner = "Banner"
@@ -1671,8 +1671,8 @@ enum TemplateCategory: String, CaseIterable, Identifiable {
         switch self {
         case .profile:
             return Template.profileTemplates
-        case .nftAvatar:
-            return Template.nftAvatarTemplates
+        case .pixelAvatar:
+            return Template.pixelAvatarTemplates
         case .gameSprite:
             return Template.gameSpriteTemplates
         case .icon:
@@ -1749,7 +1749,7 @@ struct Template: Identifiable, Codable {
     ]
 
     // MARK: - NFT Avatar Templates
-    static let nftAvatarTemplates: [Template] = [
+    static let pixelAvatarTemplates: [Template] = [
         Template(
             id: "nft_punk",
             name: "Punk Style",
@@ -2899,7 +2899,7 @@ import Foundation
 
 /// Full Screen flow
 enum FullScreenMode: Int, Identifiable {
-    case createNFT, applyFilter, settings
+    case createPixelArt, applyFilter, settings
     var id: Int { hashValue }
 }
 
@@ -3363,10 +3363,10 @@ extension DataManager {
     }
 }
 
-// MARK: - Save pixel NFT image
+// MARK: - Save pixel art image
 extension DataManager {
-    /// Save pixelated board as NFT/image
-    func savePixelatedNFT() {
+    /// Save pixelated board as image
+    func savePixelatedImage() {
         let nftImage = PixelatedImage(exportMode: true).environmentObject(self)
             .image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)

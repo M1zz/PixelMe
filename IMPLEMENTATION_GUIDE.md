@@ -405,7 +405,7 @@ struct OnboardingView: View {
 3. **Filter Gallery** - Show all 6 filters applied
 4. **Batch Processing** - Screenshot of batch view with progress
 5. **GIF Preview** - Animated GIF example
-6. **Templates** - Show NFT avatar templates
+6. **Templates** - Show pixel avatar templates
 
 ### App Description Template
 
@@ -421,11 +421,11 @@ Transform your photos into stunning pixel art with 8 powerful features:
 • Batch Processing - Process unlimited images
 • GIF Animation Creator - Make animated pixel art
 • Professional Layer System - 12 blend modes
-• 15+ Templates (NFT Avatars, Game Sprites, Social Media)
+• 15+ Templates (Pixel Avatars, Game Sprites, Social Media)
 • Advanced Export - PNG, SVG, PDF, up to 4K resolution
 
 🎮 PERFECT FOR
-• NFT Artists & Collectors
+• Pixel Artists & Designers
 • Game Developers
 • Pixel Art Enthusiasts
 • Social Media Influencers

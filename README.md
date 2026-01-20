@@ -13,7 +13,7 @@ PixelMe는 이제 **$4.99-$9.99 프리미엄 앱**으로서 경쟁력을 갖춘 
 3. **📺 필터 효과** - CRT, 스캔라인, 글리치, VHS, 아케이드, 빈티지 6가지 필터
 4. **📦 배치 처리** - 여러 이미지를 한 번에 처리
 5. **💾 고급 내보내기** - PNG, SVG, PDF 포맷 지원, 4K 해상도까지
-6. **📐 템플릿 & 프리셋** - NFT 아바타, 게임 스프라이트, 프로필 사진 등 15+ 템플릿
+6. **📐 템플릿 & 프리셋** - 픽셀 아바타, 게임 스프라이트, 프로필 사진 등 15+ 템플릿
 7. **🎬 GIF 애니메이션** - 픽셀 아트 GIF 생성 (progressive, glitch, color cycle)
 8. **🎭 레이어 시스템** - 다중 레이어, 12가지 블렌드 모드, 전문가급 편집
 
@@ -159,7 +159,7 @@ manager.gifCreator.createProgressivePixelationGIF(
 - Circle Profile (512x512)
 - Rounded Profile (512x512)
 
-**NFT 아바타**
+**픽셀 아바타**
 - Punk Style (24x24)
 - Ape Style (16x16)
 - Doodle Style (12x12)
@@ -213,8 +213,8 @@ manager.gifCreator.createProgressivePixelationGIF(
 
 **소셜 미디어**
 - TikTok/Instagram Reels: Before/After 영상
-- Twitter/X: NFT 커뮤니티 타겟팅
-- Reddit: r/PixelArt, r/NFT
+- Twitter/X: 픽셀 아트 커뮤니티 타겟팅
+- Reddit: r/PixelArt, r/iOS
 
 **론칭 플랫폼**
 - Product Hunt
@@ -233,7 +233,7 @@ manager.gifCreator.createProgressivePixelationGIF(
 
 ## 🎯 타겟 고객
 
-1. **NFT 크리에이터** - 아바타 컬렉션 생성
+1. **픽셀 아티스트** - 아바타 및 아트워크 제작
 2. **게임 개발자** - 스프라이트 에셋 제작
 3. **소셜 미디어 인플루언서** - 독특한 프로필 사진
 4. **픽셀 아트 애호가** - 취미 및 전문가

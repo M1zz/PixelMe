@@ -220,7 +220,7 @@ struct AdvancedSettingsView: View {
             FeatureButton(
                 icon: "square.grid.3x3",
                 title: "Templates",
-                description: "NFT avatars, game sprites & more",
+                description: "Pixel avatars, game sprites & more",
                 action: { showTemplateGallery = true }
             )
         }
