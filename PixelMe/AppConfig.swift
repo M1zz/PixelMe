@@ -12,10 +12,11 @@ import Foundation
 /// Generic configurations for the app
 class AppConfig {
     
-//    /// This is the AdMob Interstitial ad id
-//    /// Test App ID: ca-app-pub-3940256099942544~1458002511
-//    static let adMobAdId: String = "ca-app-pub-3940256099942544/4411468910"
-//
+    // MARK: - Version (Single source of truth)
+    /// 앱 버전 - 여기서만 관리. pbxproj의 MARKETING_VERSION과 일치시킬 것.
+    static let appVersion: String = "2.0.0"
+    static let buildNumber: String = "1"
+    
     // MARK: - Settings flow items
     static let emailSupport = "leeo@kakao.com"
     static let privacyURL: URL = URL(string: "https://www.google.com/")!
