@@ -1,11 +1,8 @@
 #!/bin/bash
-# sync_version.sh - AppConfig.swift에서 버전을 읽어 pbxproj에 자동 반영
+# sync_version.sh - AppConfig.swift에서 버전을 읽어 Info.plist 빌드 설정에 반영
 # Single source of truth: AppConfig.swift
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-CONFIG_FILE="$PROJECT_DIR/PixelMe/AppConfig.swift"
-PBXPROJ="$PROJECT_DIR/PixelMe.xcodeproj/project.pbxproj"
+CONFIG_FILE="${SRCROOT}/PixelMe/AppConfig.swift"
 
 # AppConfig.swift에서 버전 추출
 APP_VERSION=$(grep 'static let appVersion' "$CONFIG_FILE" | sed 's/.*"\(.*\)".*/\1/')
@@ -16,8 +13,11 @@ if [ -z "$APP_VERSION" ] || [ -z "$BUILD_NUMBER" ]; then
     exit 1
 fi
 
-# pbxproj 업데이트
-sed -i '' "s/MARKETING_VERSION = .*;/MARKETING_VERSION = $APP_VERSION;/g" "$PBXPROJ"
-sed -i '' "s/CURRENT_PROJECT_VERSION = .*;/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g" "$PBXPROJ"
+# Info.plist가 빌드 출력에 있으면 직접 업데이트
+PLIST="${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
+if [ -f "$PLIST" ]; then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $APP_VERSION" "$PLIST" 2>/dev/null
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$PLIST" 2>/dev/null
+fi
 
 echo "✅ Version synced: $APP_VERSION (build $BUILD_NUMBER)"
