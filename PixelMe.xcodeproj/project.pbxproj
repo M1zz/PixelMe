@@ -152,6 +152,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58D0125D2A28147D00668585 /* Build configuration list for PBXNativeTarget "PixelMe" */;
 			buildPhases = (
+				AABB001122334455SYNC0001 /* Sync Version */,
 				58D012352A28147A00668585 /* Sources */,
 				58D012362A28147A00668585 /* Frameworks */,
 				58D012372A28147A00668585 /* Resources */,
@@ -210,6 +211,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AABB001122334455SYNC0001 /* Sync Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Sync Version";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Scripts/sync_version.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58D012352A28147A00668585 /* Sources */ = {
