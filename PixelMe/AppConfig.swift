@@ -28,7 +28,12 @@ class AppConfig {
     static let continueButtonColor: UIColor = UIColor(#colorLiteral(red: 0.1895111597, green: 0.6577079403, blue: 0.9686274529, alpha: 1))
     
     // MARK: - In App Purchases
-    static let premiumVersion: String = "PixelNFT.Premium"
+    static let premiumVersion: String = "PixelNFT.Premium" // 기존 호환성 유지
+    
+    // 구독 시스템 Product IDs
+    static let monthlyProductID: String = "com.pixelme.pro.monthly"
+    static let yearlyProductID: String = "com.pixelme.pro.yearly"
+    static let lifetimeProductID: String = "com.pixelme.pro.lifetime"
     
     // MARK: - Image export size at 2x
     static let exportSize: CGFloat = 500 /// this will export the image at 1000x1000 resolution

@@ -150,18 +150,42 @@ struct PixelatedPhotoView: View {
         .padding(.top, 5)
     }
 
+    @ViewBuilder
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
+        let isLocked = !FeatureGating.shared.canUsePixelSize(type)
+        
         Button {
-            manager.pixelBoardSize = type
-            manager.applyPixelEffect(showFilterFlow: false)
+            if isLocked {
+                // Show paywall for locked features
+                showAdvancedSettings = true
+            } else {
+                manager.pixelBoardSize = type
+                manager.applyPixelEffect(showFilterFlow: false)
+            }
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(manager.pixelBoardSize == type ? Color.white : Color(AppConfig.toolBackgroundColor))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(
+                                isLocked ? Color.yellow.opacity(0.5) : Color.clear,
+                                lineWidth: 1
+                            )
+                    )
 
                 VStack(spacing: 4) {
-                    Text(type.rawValue)
-                        .font(.system(size: 16, weight: .bold))
+                    HStack {
+                        Text(LocalizedStringKey(type.rawValue))
+                            .font(.system(size: 16, weight: .bold))
+                        
+                        if isLocked {
+                            Spacer()
+                            Image(systemName: "lock.fill")
+                                .font(.system(size: 12))
+                                .foregroundColor(.yellow)
+                        }
+                    }
                     Text(type.density)
                         .font(.caption)
                 }
@@ -187,10 +211,18 @@ struct PixelatedPhotoView: View {
         .padding(.top, 5)
     }
 
+    @ViewBuilder
     private func ColorPaletteItem(_ palette: ColorPaletteType) -> some View {
+        let isLocked = !FeatureGating.shared.canUsePalette(palette)
+        
         Button {
-            manager.selectedColorPalette = palette
-            manager.applyPixelEffect(showFilterFlow: false)
+            if isLocked {
+                // Show paywall for locked palettes
+                showAdvancedSettings = true
+            } else {
+                manager.selectedColorPalette = palette
+                manager.applyPixelEffect(showFilterFlow: false)
+            }
         } label: {
             HStack(spacing: 12) {
                 // Color preview
@@ -206,9 +238,9 @@ struct PixelatedPhotoView: View {
 
                 // Palette info
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(palette.rawValue)
+                    Text(LocalizedStringKey(palette.rawValue))
                         .font(.system(size: 16, weight: .semibold))
-                    Text(palette.description)
+                    Text(LocalizedStringKey(palette.description))
                         .font(.caption)
                         .lineLimit(2)
                 }
@@ -216,7 +248,11 @@ struct PixelatedPhotoView: View {
 
                 Spacer()
 
-                if manager.selectedColorPalette == palette {
+                if isLocked {
+                    Image(systemName: "lock.fill")
+                        .foregroundColor(.yellow)
+                        .font(.system(size: 16))
+                } else if manager.selectedColorPalette == palette {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.blue)
                         .font(.system(size: 20))
@@ -226,7 +262,15 @@ struct PixelatedPhotoView: View {
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(manager.selectedColorPalette == palette ? Color.blue.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(
+                                isLocked ? Color.yellow.opacity(0.5) : Color.clear,
+                                lineWidth: 1
+                            )
+                    )
             )
+            .opacity(isLocked ? 0.7 : 1.0)
         }
     }
 
@@ -261,26 +305,40 @@ struct PixelatedPhotoView: View {
         .padding(.top, 5)
     }
 
+    @ViewBuilder
     private func FilterEffectItem(_ filter: FilterEffectType) -> some View {
+        // Note: FilterType in FeatureGating might be different, need to map
+        let isLocked = !SubscriptionManager.shared.hasAccess(to: .pro) && filter != .crt
+        
         Button {
-            manager.filterEffect = filter
-            if filter != .none {
-                manager.filterIntensity = 0.8
+            if isLocked {
+                // Show paywall for locked filters
+                showAdvancedSettings = true
+            } else {
+                manager.filterEffect = filter
+                if filter != .none {
+                    manager.filterIntensity = 0.8
+                }
+                manager.applyPixelEffect(showFilterFlow: false)
             }
-            manager.applyPixelEffect(showFilterFlow: false)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text(filter.rawValue)
+                    Text(LocalizedStringKey(filter.rawValue))
                         .font(.system(size: 15, weight: .bold))
                     Spacer()
-                    if manager.filterEffect == filter {
+                    
+                    if isLocked {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 14))
+                    } else if manager.filterEffect == filter {
                         Image(systemName: "checkmark.circle.fill")
                             .foregroundColor(.blue)
                     }
                 }
 
-                Text(filter.description)
+                Text(LocalizedStringKey(filter.description))
                     .font(.caption)
                     .lineLimit(2)
             }
@@ -290,7 +348,15 @@ struct PixelatedPhotoView: View {
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(manager.filterEffect == filter ? Color.blue.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(
+                                isLocked ? Color.yellow.opacity(0.5) : Color.clear,
+                                lineWidth: 1
+                            )
+                    )
             )
+            .opacity(isLocked ? 0.7 : 1.0)
         }
         .frame(height: 90)
     }
@@ -337,7 +403,7 @@ struct PixelatedPhotoView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(preset.name)
                         .font(.system(size: 16, weight: .semibold))
-                    Text(preset.description)
+                    Text(LocalizedStringKey(preset.description))
                         .font(.caption)
                         .lineLimit(2)
                 }
@@ -628,9 +694,9 @@ struct AdvancedSettingsView: View {
                 } label: {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(dithering.rawValue)
+                            Text(LocalizedStringKey(dithering.rawValue))
                                 .font(.system(size: 16, weight: .semibold))
-                            Text(dithering.description)
+                            Text(LocalizedStringKey(dithering.description))
                                 .font(.caption)
                                 .foregroundColor(.gray)
                         }
@@ -673,7 +739,7 @@ struct AdvancedSettingsView: View {
                     manager.applyPixelEffect(showFilterFlow: false)
                 } label: {
                     HStack {
-                        Text(reduction.rawValue)
+                        Text(LocalizedStringKey(reduction.rawValue))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
 
@@ -1172,9 +1238,9 @@ struct ExportOptionsView: View {
                 } label: {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(format.rawValue)
+                            Text(LocalizedStringKey(format.rawValue))
                                 .font(.system(size: 16, weight: .semibold))
-                            Text(format.description)
+                            Text(LocalizedStringKey(format.description))
                                 .font(.caption)
                                 .foregroundColor(.gray)
                         }
@@ -1209,7 +1275,7 @@ struct ExportOptionsView: View {
                     manager.exportSize = size
                 } label: {
                     HStack {
-                        Text(size.rawValue)
+                        Text(LocalizedStringKey(size.rawValue))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
 
@@ -1260,7 +1326,7 @@ struct ExportOptionsView: View {
                     manager.exportBackground = background
                 } label: {
                     HStack {
-                        Text(background.rawValue)
+                        Text(LocalizedStringKey(background.rawValue))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
 
@@ -1419,7 +1485,7 @@ struct GIFCreatorView: View {
                     ModeSelectorView
 
                     // Description
-                    Text(selectedMode.description)
+                    Text(LocalizedStringKey(selectedMode.description))
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
@@ -1468,7 +1534,7 @@ struct GIFCreatorView: View {
                                 .foregroundColor(.white)
                         }
 
-                        Text(mode.rawValue)
+                        Text(LocalizedStringKey(mode.rawValue))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
 
@@ -1894,7 +1960,7 @@ struct TemplateGalleryView: View {
                     Button {
                         selectedCategory = category
                     } label: {
-                        Text(category.rawValue)
+                        Text(LocalizedStringKey(category.rawValue))
                             .font(.system(size: 14, weight: selectedCategory == category ? .bold : .regular))
                             .foregroundColor(selectedCategory == category ? .white : .gray)
                             .padding(.horizontal, 16)
@@ -1953,7 +2019,7 @@ struct TemplateGalleryView: View {
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(.white)
 
-                    Text(template.description)
+                    Text(LocalizedStringKey(template.description))
                         .font(.caption)
                         .foregroundColor(.gray)
                         .lineLimit(2)

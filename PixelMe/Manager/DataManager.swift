@@ -2957,6 +2957,11 @@ class DataManager: NSObject, ObservableObject {
 
     /// Dynamic properties that the UI will react to AND store values in UserDefaults
     @AppStorage(AppConfig.premiumVersion) var isPremiumUser: Bool = false
+    
+    /// Computed property for premium status using new subscription system
+    @MainActor var isProUser: Bool {
+        return SubscriptionManager.shared.isProUser
+    }
 
     override init() {
         super.init()
@@ -3006,6 +3011,8 @@ extension DataManager {
         filter?.setValue(currentCIImage, forKey: kCIInputImageKey)
         let pixelScale = imageWidth / gridSize
         filter?.setValue(pixelScale, forKey: kCIInputScaleKey)
+        // Set center to half pixel size so grid aligns exactly with image edges
+        filter?.setValue(CIVector(x: pixelScale / 2, y: pixelScale / 2), forKey: kCIInputCenterKey)
         print("🎯 [DataManager] Image width: \(imageWidth), Grid: \(gridSize), Pixel scale: \(pixelScale)")
         guard let outputImage = filter?.outputImage else { return }
 

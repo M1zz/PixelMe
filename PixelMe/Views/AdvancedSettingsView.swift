@@ -15,6 +15,7 @@ struct AdvancedSettingsView: View {
     @State private var showLayerEditor = false
     @State private var showTemplateGallery = false
     @State private var showExportOptions = false
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -69,19 +70,38 @@ struct AdvancedSettingsView: View {
             ExportOptionsView()
                 .environmentObject(manager)
         }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView(isProUser: .constant(false))
+        }
     }
 
     // MARK: - Dithering Section
     private var DitheringSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Dithering Algorithm")
-                .font(.headline)
-                .foregroundColor(.white)
+            HStack {
+                Text("Dithering Algorithm")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                
+                if !FeatureGating.shared.canUseDithering {
+                    Spacer()
+                    Image(systemName: "lock.fill")
+                        .foregroundColor(.yellow)
+                        .font(.system(size: 16))
+                }
+            }
 
             ForEach(DitheringType.allCases) { dithering in
+                let isLocked = !FeatureGating.shared.canUseDithering && dithering != .none
+                
                 Button {
-                    manager.ditheringType = dithering
-                    manager.applyPixelEffect(showFilterFlow: false)
+                    if isLocked {
+                        // Show paywall
+                        showPaywall = true
+                    } else {
+                        manager.ditheringType = dithering
+                        manager.applyPixelEffect(showFilterFlow: false)
+                    }
                 } label: {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
@@ -95,7 +115,11 @@ struct AdvancedSettingsView: View {
 
                         Spacer()
 
-                        if manager.ditheringType == dithering {
+                        if isLocked {
+                            Image(systemName: "lock.fill")
+                                .foregroundColor(.yellow)
+                                .font(.system(size: 14))
+                        } else if manager.ditheringType == dithering {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.blue)
                         }
@@ -197,7 +221,14 @@ struct AdvancedSettingsView: View {
                 icon: "photo.stack",
                 title: "Batch Processing",
                 description: "Process multiple images at once",
-                action: { showBatchPicker = true }
+                isLocked: !FeatureGating.shared.canUseBatchProcessing,
+                action: { 
+                    if FeatureGating.shared.canUseBatchProcessing {
+                        showBatchPicker = true
+                    } else {
+                        showPaywall = true
+                    }
+                }
             )
 
             // GIF Creator
@@ -205,7 +236,14 @@ struct AdvancedSettingsView: View {
                 icon: "film",
                 title: "GIF Animation",
                 description: "Create animated pixel art GIFs",
-                action: { showGIFCreator = true }
+                isLocked: !FeatureGating.shared.canUseGIF,
+                action: { 
+                    if FeatureGating.shared.canUseGIF {
+                        showGIFCreator = true
+                    } else {
+                        showPaywall = true
+                    }
+                }
             )
 
             // Layer Editor
@@ -213,7 +251,14 @@ struct AdvancedSettingsView: View {
                 icon: "square.3.layers.3d",
                 title: "Layer Editor",
                 description: "Professional multi-layer editing",
-                action: { showLayerEditor = true }
+                isLocked: !FeatureGating.shared.canUseLayers,
+                action: { 
+                    if FeatureGating.shared.canUseLayers {
+                        showLayerEditor = true
+                    } else {
+                        showPaywall = true
+                    }
+                }
             )
 
             // Template Gallery
@@ -221,6 +266,7 @@ struct AdvancedSettingsView: View {
                 icon: "square.grid.3x3",
                 title: "Templates",
                 description: "Pixel avatars, game sprites & more",
+                isLocked: false, // Templates have mixed access
                 action: { showTemplateGallery = true }
             )
         }
@@ -232,24 +278,53 @@ struct FeatureButton: View {
     let icon: String
     let title: String
     let description: String
+    let isLocked: Bool
     let action: () -> Void
+    
+    init(icon: String, title: String, description: String, isLocked: Bool = false, action: @escaping () -> Void) {
+        self.icon = icon
+        self.title = title
+        self.description = description
+        self.isLocked = isLocked
+        self.action = action
+    }
 
     var body: some View {
         Button(action: action) {
             HStack(spacing: 15) {
                 ZStack {
                     Circle()
-                        .fill(Color.blue.opacity(0.2))
+                        .fill(isLocked ? Color.gray.opacity(0.2) : Color.blue.opacity(0.2))
                         .frame(width: 50, height: 50)
 
-                    Image(systemName: icon)
-                        .foregroundColor(.blue)
-                        .font(.system(size: 22))
+                    if isLocked {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 18))
+                    } else {
+                        Image(systemName: icon)
+                            .foregroundColor(.blue)
+                            .font(.system(size: 22))
+                    }
                 }
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(.system(size: 16, weight: .semibold))
+                    HStack {
+                        Text(title)
+                            .font(.system(size: 16, weight: .semibold))
+                        
+                        if isLocked {
+                            Spacer()
+                            Text("Pro")
+                                .font(.system(size: 10, weight: .bold))
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Color.yellow)
+                                .foregroundColor(.black)
+                                .cornerRadius(4)
+                        }
+                    }
+                    
                     Text(description)
                         .font(.caption)
                         .foregroundColor(.gray)
@@ -258,14 +333,22 @@ struct FeatureButton: View {
 
                 Spacer()
 
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
+                Image(systemName: isLocked ? "lock.fill" : "chevron.right")
+                    .foregroundColor(isLocked ? .yellow : .gray)
             }
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color(AppConfig.toolBackgroundColor))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(
+                                isLocked ? Color.yellow.opacity(0.3) : Color.clear,
+                                lineWidth: 1
+                            )
+                    )
             )
+            .opacity(isLocked ? 0.7 : 1.0)
         }
     }
 }

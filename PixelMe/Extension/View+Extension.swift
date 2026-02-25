@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+// MARK: - Color Extension for brightness detection
+extension Color {
+    /// Returns true if the color is considered "light" (for contrast purposes)
+    var isLight: Bool {
+        guard let components = UIColor(self).cgColor.components else { return false }
+        let red = components[0]
+        let green = components.count > 1 ? components[1] : components[0]
+        let blue = components.count > 2 ? components[2] : components[0]
+        // Calculate luminance using standard formula
+        let luminance = 0.299 * red + 0.587 * green + 0.114 * blue
+        return luminance > 0.5
+    }
+}
+
 extension View {
     func image(size: CGSize? = nil) -> UIImage {
         func generateScreenshot(_ controller: UIHostingController<AnyView>) -> UIImage {
