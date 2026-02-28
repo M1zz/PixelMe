@@ -12,6 +12,9 @@ struct GIFCreatorView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedMode: GIFMode = .progressive
     @State private var isCreating = false
+    @State private var showingError = false
+    @State private var errorMessage = ""
+    @State private var showingSuccess = false
 
     enum GIFMode: String, CaseIterable {
         case progressive = "Progressive Pixelation"
@@ -175,6 +178,18 @@ struct GIFCreatorView: View {
             )
         }
         .disabled(isCreating || manager.selectedImage == nil)
+        .alert("Error", isPresented: $showingError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
+        .alert("Success", isPresented: $showingSuccess) {
+            Button("OK", role: .cancel) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        } message: {
+            Text("GIF saved to Photos")
+        }
     }
 
     // MARK: - Create GIF Action
@@ -223,18 +238,19 @@ struct GIFCreatorView: View {
     private func handleGIFCreated(url: URL?) {
         isCreating = false
 
-        if let url = url {
-            // Save GIF
-            GIFCreator.saveGIFToPhotos(url: url) { success, error in
-                if success {
-                    presentAlert(title: "Success", message: "GIF saved to Photos")
-                    presentationMode.wrappedValue.dismiss()
-                } else {
-                    presentAlert(title: "Error", message: error?.localizedDescription ?? "Failed to save GIF")
-                }
+        guard let url = url else {
+            errorMessage = manager.gifCreator.lastError?.localizedDescription ?? "Failed to create GIF. Please try again."
+            showingError = true
+            return
+        }
+
+        GIFCreator.saveGIFToPhotos(url: url) { success, error in
+            if success {
+                showingSuccess = true
+            } else {
+                errorMessage = error?.localizedDescription ?? "Failed to save GIF"
+                showingError = true
             }
-        } else {
-            presentAlert(title: "Error", message: "Failed to create GIF")
         }
     }
 }

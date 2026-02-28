@@ -55,15 +55,26 @@ enum ExportFormat: String, CaseIterable, Identifiable {
 
     private func createPDFData(from image: UIImage) -> Data? {
         let pdfData = NSMutableData()
-        let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
-        let mediaBox = CGRect(origin: .zero, size: image.size)
 
-        guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox.mutable, nil) else {
+        guard let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData) else {
+            print("[ExportManager] Error: Failed to create PDF data consumer")
             return nil
         }
 
-        pdfContext.beginPage(mediaBox: &mediaBox.mutable)
-        pdfContext.draw(image.cgImage!, in: mediaBox)
+        guard let cgImage = image.cgImage else {
+            print("[ExportManager] Error: Failed to get CGImage for PDF export")
+            return nil
+        }
+
+        var mediaBox = CGRect(origin: .zero, size: image.size)
+
+        guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil) else {
+            print("[ExportManager] Error: Failed to create PDF context")
+            return nil
+        }
+
+        pdfContext.beginPage(mediaBox: &mediaBox)
+        pdfContext.draw(cgImage, in: mediaBox)
         pdfContext.endPage()
         pdfContext.closePDF()
 

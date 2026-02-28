@@ -9,9 +9,52 @@
 import StoreKit
 import SwiftUI
 
+// MARK: - Purchase Error Types
+
+/// User-friendly purchase error descriptions
+enum PurchaseError: LocalizedError {
+    case productNotFound
+    case purchaseFailed(underlying: Error)
+    case verificationFailed
+    case networkError
+    case restoreFailed(underlying: Error)
+    case maxRetriesExceeded
+    case unknown
+
+    var errorDescription: String? {
+        switch self {
+        case .productNotFound:
+            return NSLocalizedString("Product not available. Please try again later.", comment: "")
+        case .purchaseFailed(let error):
+            if (error as NSError).domain == NSURLErrorDomain {
+                return NSLocalizedString("Network error. Please check your connection and try again.", comment: "")
+            }
+            return NSLocalizedString("Purchase failed. Please try again.", comment: "")
+        case .verificationFailed:
+            return NSLocalizedString("Could not verify purchase. Please contact support.", comment: "")
+        case .networkError:
+            return NSLocalizedString("Network error. Please check your connection and try again.", comment: "")
+        case .restoreFailed:
+            return NSLocalizedString("Failed to restore purchases. Please check your connection and try again.", comment: "")
+        case .maxRetriesExceeded:
+            return NSLocalizedString("Operation failed after multiple attempts. Please try again later.", comment: "")
+        case .unknown:
+            return NSLocalizedString("An unexpected error occurred. Please try again.", comment: "")
+        }
+    }
+}
+
 /// Manages all in-app purchases using StoreKit 2.0
 @MainActor
 class PurchaseManager: ObservableObject {
+
+    // MARK: - Constants
+
+    /// Maximum number of retry attempts for failed operations
+    private static let maxRetryAttempts = 3
+
+    /// Base delay for exponential backoff (in nanoseconds)
+    private static let baseRetryDelay: UInt64 = 1_000_000_000 // 1 second
 
     // MARK: - Published Properties
 
@@ -56,6 +99,38 @@ class PurchaseManager: ObservableObject {
         updateListenerTask?.cancel()
     }
 
+    // MARK: - Retry Logic
+
+    /// Execute an async operation with exponential backoff retry
+    private func withRetry<T>(
+        maxAttempts: Int = PurchaseManager.maxRetryAttempts,
+        operation: @escaping () async throws -> T
+    ) async throws -> T {
+        var lastError: Error?
+
+        for attempt in 0..<maxAttempts {
+            do {
+                return try await operation()
+            } catch {
+                lastError = error
+
+                // Don't retry on user cancellation or verification failures
+                if error is StoreKit.Product.PurchaseError {
+                    throw error
+                }
+
+                // Don't retry on last attempt
+                if attempt < maxAttempts - 1 {
+                    let delay = Self.baseRetryDelay * UInt64(pow(2.0, Double(attempt)))
+                    print("⏳ [PurchaseManager] Retry \(attempt + 1)/\(maxAttempts) after \(delay / 1_000_000_000)s...")
+                    try await Task.sleep(nanoseconds: delay)
+                }
+            }
+        }
+
+        throw lastError ?? PurchaseError.maxRetriesExceeded
+    }
+
     // MARK: - Product Management
 
     /// Load available products from App Store
@@ -64,10 +139,10 @@ class PurchaseManager: ObservableObject {
         errorMessage = nil
 
         do {
-            // Fetch products from App Store
-            let products = try await Product.products(for: [premiumProductID])
+            let products = try await withRetry {
+                try await Product.products(for: [self.premiumProductID])
+            }
 
-            // Update products on main thread
             self.products = products.sorted { $0.price < $1.price }
 
             print("✅ [PurchaseManager] Loaded \(products.count) product(s)")
@@ -76,7 +151,7 @@ class PurchaseManager: ObservableObject {
             }
         } catch {
             print("❌ [PurchaseManager] Failed to load products: \(error.localizedDescription)")
-            errorMessage = "Failed to load products. Please try again."
+            errorMessage = PurchaseError.networkError.errorDescription
         }
 
         isLoading = false
@@ -93,7 +168,7 @@ class PurchaseManager: ObservableObject {
     func purchasePremium() async -> Bool {
         guard let product = getPremiumProduct() else {
             print("❌ [PurchaseManager] Premium product not found")
-            errorMessage = "Product not available. Please try again later."
+            errorMessage = PurchaseError.productNotFound.errorDescription
             return false
         }
 
@@ -101,47 +176,48 @@ class PurchaseManager: ObservableObject {
         errorMessage = nil
 
         do {
-            // Start purchase
+            // Start purchase (no retry on the purchase call itself — StoreKit handles this)
             print("🛒 [PurchaseManager] Starting purchase for \(product.displayName)")
             let result = try await product.purchase()
 
             // Handle purchase result
             switch result {
             case .success(let verification):
-                // Verify the transaction
-                let transaction = try checkVerified(verification)
-
-                // Update purchase status
-                await updatePurchaseStatus()
-
-                // Finish the transaction
-                await transaction.finish()
-
-                print("✅ [PurchaseManager] Purchase successful!")
-                isLoading = false
-                return true
+                do {
+                    let transaction = try checkVerified(verification)
+                    await updatePurchaseStatus()
+                    await transaction.finish()
+                    print("✅ [PurchaseManager] Purchase successful!")
+                    isLoading = false
+                    return true
+                } catch {
+                    print("❌ [PurchaseManager] Verification failed: \(error)")
+                    errorMessage = PurchaseError.verificationFailed.errorDescription
+                    isLoading = false
+                    return false
+                }
 
             case .userCancelled:
                 print("⚠️ [PurchaseManager] User cancelled purchase")
-                errorMessage = nil // Don't show error for user cancellation
+                errorMessage = nil
                 isLoading = false
                 return false
 
             case .pending:
                 print("⏳ [PurchaseManager] Purchase pending approval")
-                errorMessage = "Purchase is pending approval. Please check back later."
+                errorMessage = NSLocalizedString("Purchase is pending approval. Please check back later.", comment: "")
                 isLoading = false
                 return false
 
             @unknown default:
                 print("❌ [PurchaseManager] Unknown purchase result")
-                errorMessage = "An unexpected error occurred. Please try again."
+                errorMessage = PurchaseError.unknown.errorDescription
                 isLoading = false
                 return false
             }
         } catch {
             print("❌ [PurchaseManager] Purchase failed: \(error.localizedDescription)")
-            errorMessage = "Purchase failed: \(error.localizedDescription)"
+            errorMessage = PurchaseError.purchaseFailed(underlying: error).errorDescription
             isLoading = false
             return false
         }
@@ -149,7 +225,7 @@ class PurchaseManager: ObservableObject {
 
     // MARK: - Restore Purchases
 
-    /// Restore previous purchases
+    /// Restore previous purchases with retry logic
     func restorePurchases() async {
         isLoading = true
         errorMessage = nil
@@ -157,21 +233,21 @@ class PurchaseManager: ObservableObject {
         print("🔄 [PurchaseManager] Restoring purchases...")
 
         do {
-            // Sync with App Store
-            try await AppStore.sync()
+            try await withRetry {
+                try await AppStore.sync()
+            }
 
-            // Check purchase status
             await checkPurchaseStatus()
 
             if isPremiumUser {
                 print("✅ [PurchaseManager] Purchases restored successfully")
             } else {
                 print("⚠️ [PurchaseManager] No purchases to restore")
-                errorMessage = "No previous purchases found."
+                errorMessage = NSLocalizedString("No previous purchases found.", comment: "")
             }
         } catch {
             print("❌ [PurchaseManager] Restore failed: \(error.localizedDescription)")
-            errorMessage = "Failed to restore purchases: \(error.localizedDescription)"
+            errorMessage = PurchaseError.restoreFailed(underlying: error).errorDescription
         }
 
         isLoading = false
@@ -183,12 +259,10 @@ class PurchaseManager: ObservableObject {
     func checkPurchaseStatus() async {
         var hasPremium = false
 
-        // Check all transactions
         for await result in Transaction.currentEntitlements {
             do {
                 let transaction = try checkVerified(result)
 
-                // Check if this is the premium product
                 if transaction.productID == premiumProductID {
                     hasPremium = true
                     print("✅ [PurchaseManager] Found valid premium purchase")
@@ -199,12 +273,8 @@ class PurchaseManager: ObservableObject {
             }
         }
 
-        // Update premium status
         isPremiumUser = hasPremium
-
-        // Sync with UserDefaults for backward compatibility
         UserDefaults.standard.set(hasPremium, forKey: AppConfig.premiumVersion)
-
         print("📊 [PurchaseManager] Premium status: \(isPremiumUser)")
     }
 
@@ -217,10 +287,8 @@ class PurchaseManager: ObservableObject {
     nonisolated private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
         case .unverified(_, let error):
-            // Transaction failed verification
             throw error
         case .verified(let safe):
-            // Transaction is verified
             return safe
         }
     }
@@ -230,17 +298,11 @@ class PurchaseManager: ObservableObject {
     /// Listen for transaction updates
     private func listenForTransactions() -> Task<Void, Error> {
         return Task.detached {
-            // Iterate through any transactions that don't come from a direct call to purchase()
             for await result in Transaction.updates {
                 do {
                     let transaction = try self.checkVerified(result)
-
-                    // Deliver content to the user
                     await self.updatePurchaseStatus()
-
-                    // Always finish a transaction
                     await transaction.finish()
-
                     print("✅ [PurchaseManager] Transaction update processed")
                 } catch {
                     print("❌ [PurchaseManager] Transaction update failed: \(error)")
@@ -254,7 +316,7 @@ class PurchaseManager: ObservableObject {
     /// Get formatted price for premium product
     func getPremiumPrice() -> String {
         guard let product = getPremiumProduct() else {
-            return "$4.99" // Fallback price
+            return "$4.99"
         }
         return product.displayPrice
     }
@@ -311,7 +373,7 @@ struct PremiumPurchaseButton: View {
                         let success = await purchaseManager.purchasePremium()
                         if success {
                             isPremiumUser = true
-                        } else if let error = purchaseManager.errorMessage {
+                        } else if purchaseManager.errorMessage != nil {
                             showingError = true
                         }
                     }
@@ -342,7 +404,7 @@ struct PremiumPurchaseButton: View {
                     Task {
                         await purchaseManager.restorePurchases()
                         isPremiumUser = purchaseManager.isPremiumUser
-                        if let error = purchaseManager.errorMessage {
+                        if purchaseManager.errorMessage != nil {
                             showingError = true
                         }
                     }

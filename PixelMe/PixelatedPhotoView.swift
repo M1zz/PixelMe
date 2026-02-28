@@ -87,6 +87,8 @@ struct PixelatedPhotoView: View {
                     Image(systemName: "square.and.arrow.down")
                         .font(.system(size: 22))
                 }
+                .accessibilityLabel("저장")
+                .accessibilityHint("픽셀화된 이미지를 저장합니다")
                 Spacer()
                 Button {
                     manager.fullScreenMode = nil
@@ -94,8 +96,10 @@ struct PixelatedPhotoView: View {
                     Image(systemName: "xmark")
                         .font(.system(size: 22))
                 }
+                .accessibilityLabel("닫기")
             }
             Text("Pixel Effect").font(.system(size: 20, weight: .bold))
+                .accessibilityAddTraits(.isHeader)
         }
         .padding(.horizontal)
         .foregroundColor(.white)
@@ -459,6 +463,8 @@ struct PixelatedPhotoView: View {
                     .fill(Color(AppConfig.continueButtonColor))
             )
         }
+        .accessibilityLabel("다운로드")
+        .accessibilityHint("픽셀 아트를 사진 앨범에 저장합니다")
     }
 
     private var EditButton: some View {
@@ -2400,7 +2406,7 @@ struct BackgroundRemovalResultView: View {
 
             // Dismiss all sheets
             presentationMode.wrappedValue.dismiss()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.dismissAnimationDelay) {
                 // Dismiss the parent PhotoPreviewView too
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                    let rootViewController = windowScene.windows.first?.rootViewController {
@@ -2440,7 +2446,7 @@ struct BackgroundRemovalResultView: View {
 
             // Dismiss all sheets
             presentationMode.wrappedValue.dismiss()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.dismissAnimationDelay) {
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                    let rootViewController = windowScene.windows.first?.rootViewController {
                     rootViewController.dismiss(animated: true)

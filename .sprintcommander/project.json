@@ -1,0 +1,28 @@
+{
+  "appStoreURL" : "https:\/\/apps.apple.com\/app\/pixel-meme\/id6449769987",
+  "colorHex" : "F97316",
+  "desc" : "SwiftUI 기반 Xcode Project · 14개 파일",
+  "doneTasks" : 0,
+  "durationWeeks" : 4,
+  "icon" : "📱",
+  "id" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+  "landingURL" : "https:\/\/m1zz.github.io\/PixelMe\/",
+  "languages" : [
+    "한국어",
+    "English"
+  ],
+  "lastModified" : "2026-02-28T13:43:53Z",
+  "name" : "PixelMe",
+  "pricing" : {
+    "downloadPrice" : "무료",
+    "lifetimePrice" : "$49.99, ₩66,000",
+    "monthlyPrice" : "$4.99, ₩6,600",
+    "yearlyPrice" : "$29.99, ₩44,000"
+  },
+  "progress" : 0,
+  "sourcePath" : "\/Users\/hyunholee\/Documents\/workspace\/code\/PixelMe",
+  "sprint" : "Sprint 1",
+  "startWeek" : 3,
+  "totalTasks" : 12,
+  "version" : "2.0.0"
+}

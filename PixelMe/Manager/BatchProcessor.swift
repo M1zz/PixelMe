@@ -49,8 +49,23 @@ class BatchProcessor: ObservableObject {
     @Published var totalImages: Int = 0
     @Published var results: [BatchProcessingResult] = []
 
+    /// Active processing task for cancellation support (Task 4)
+    private var processingTask: Task<Void, Never>?
+
+    /// Cancel any ongoing batch processing
+    func cancelProcessing() {
+        processingTask?.cancel()
+        processingTask = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.isProcessing = false
+        }
+    }
+
     /// Process multiple images with the same settings
     func processBatch(images: [UIImage], config: BatchProcessingConfig, completion: @escaping ([BatchProcessingResult]) -> Void) {
+        // Cancel any previous task before starting new one
+        cancelProcessing()
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
 
@@ -73,8 +88,8 @@ class BatchProcessor: ObservableObject {
                 let result = self.processImage(image, config: config)
                 results.append(result)
 
-                // Small delay to prevent UI freezing
-                Thread.sleep(forTimeInterval: 0.1)
+                // Yield to allow UI updates without blocking
+                RunLoop.current.run(until: Date())
             }
 
             DispatchQueue.main.async {

@@ -1083,8 +1083,21 @@ class BatchProcessor: ObservableObject {
     @Published var totalImages: Int = 0
     @Published var results: [BatchProcessingResult] = []
 
+    /// Active processing task for cancellation support (Task 4)
+    private var processingTask: Task<Void, Never>?
+
+    /// Cancel any ongoing batch processing
+    func cancelProcessing() {
+        processingTask?.cancel()
+        processingTask = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.isProcessing = false
+        }
+    }
+
     /// Process multiple images with the same settings
     func processBatch(images: [UIImage], config: BatchProcessingConfig, completion: @escaping ([BatchProcessingResult]) -> Void) {
+        cancelProcessing()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
 
@@ -1107,8 +1120,8 @@ class BatchProcessor: ObservableObject {
                 let result = self.processImage(image, config: config)
                 results.append(result)
 
-                // Small delay to prevent UI freezing
-                Thread.sleep(forTimeInterval: 0.1)
+                // Yield to allow UI updates without blocking
+                RunLoop.current.run(until: Date())
             }
 
             DispatchQueue.main.async {
@@ -2955,6 +2968,27 @@ class DataManager: NSObject, ObservableObject {
     @Published var templateManager: TemplateManager = TemplateManager()
     @Published var gifCreator: GIFCreator = GIFCreator()
 
+    /// Active async tasks for cancellation support (Task 4)
+    private var activeProcessingTasks: [String: Task<Void, Never>] = [:]
+
+    /// Cancel all active processing tasks
+    func cancelAllTasks() {
+        activeProcessingTasks.values.forEach { $0.cancel() }
+        activeProcessingTasks.removeAll()
+        batchProcessor.cancelProcessing()
+    }
+
+    /// Track a named task for later cancellation
+    func trackTask(_ name: String, task: Task<Void, Never>) {
+        activeProcessingTasks[name]?.cancel()
+        activeProcessingTasks[name] = task
+    }
+
+    /// Remove completed task
+    func removeTask(_ name: String) {
+        activeProcessingTasks.removeValue(forKey: name)
+    }
+
     /// Dynamic properties that the UI will react to AND store values in UserDefaults
     @AppStorage(AppConfig.premiumVersion) var isPremiumUser: Bool = false
     
@@ -3591,30 +3625,57 @@ extension DataManager {
 
     /// Save custom watermark image
     func saveCustomWatermark(_ image: UIImage) {
-        // Save to Documents directory
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
 
-        if let pngData = image.pngData() {
-            try? pngData.write(to: watermarkPath)
+        guard let pngData = image.pngData() else {
+            print("⚠️ [DataManager] Failed to convert watermark image to PNG data")
+            presentAlert(title: "Error", message: "Failed to process watermark image. Please try a different image.")
+            return
+        }
+
+        do {
+            try pngData.write(to: watermarkPath)
             customWatermarkImage = image
             useCustomWatermark = true
-
-            // Save preference
             UserDefaults.standard.set(true, forKey: "useCustomWatermark")
+            print("✅ [DataManager] Custom watermark saved successfully to \(watermarkPath.path)")
+        } catch {
+            print("⚠️ [DataManager] Failed to save custom watermark: \(error.localizedDescription)")
+            presentAlert(title: "Save Error", message: "Failed to save watermark image: \(error.localizedDescription)")
         }
     }
 
-    /// Load custom watermark image
+    /// Load custom watermark image asynchronously
     func loadCustomWatermark() {
+        Task { @MainActor in
+            await loadCustomWatermarkAsync()
+        }
+    }
+
+    /// Async implementation for loading custom watermark
+    private func loadCustomWatermarkAsync() async {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
 
-        if FileManager.default.fileExists(atPath: watermarkPath.path),
-           let imageData = try? Data(contentsOf: watermarkPath),
-           let image = UIImage(data: imageData) {
-            customWatermarkImage = image
-            useCustomWatermark = UserDefaults.standard.bool(forKey: "useCustomWatermark")
+        guard FileManager.default.fileExists(atPath: watermarkPath.path) else {
+            print("ℹ️ [DataManager] No custom watermark file found at \(watermarkPath.path)")
+            return
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: watermarkPath)
+            guard let image = UIImage(data: data) else {
+                print("⚠️ [DataManager] Failed to create UIImage from watermark data at \(watermarkPath.path)")
+                return
+            }
+            await MainActor.run {
+                self.customWatermarkImage = image
+                self.useCustomWatermark = UserDefaults.standard.bool(forKey: "useCustomWatermark")
+            }
+            print("✅ [DataManager] Custom watermark loaded successfully")
+        } catch {
+            print("⚠️ [DataManager] Failed to read custom watermark file: \(error.localizedDescription)")
         }
     }
 
@@ -3623,10 +3684,15 @@ extension DataManager {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let watermarkPath = documentsPath.appendingPathComponent("customWatermark.png")
 
-        try? FileManager.default.removeItem(at: watermarkPath)
+        do {
+            try FileManager.default.removeItem(at: watermarkPath)
+            print("✅ [DataManager] Custom watermark file removed successfully")
+        } catch {
+            print("⚠️ [DataManager] Failed to remove custom watermark file: \(error.localizedDescription)")
+        }
+
         customWatermarkImage = nil
         useCustomWatermark = false
-
         UserDefaults.standard.set(false, forKey: "useCustomWatermark")
     }
 

@@ -29,6 +29,9 @@
 		AA4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift */; };
 		D5DC5993800BE71085C85ED0 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */; };
 		EDFD175EFA6D6EEDF11353E2 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */; };
+		A5157CC9E17941C4AA35C002 /* CreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */; };
+		3FB83995683F4D45AE78E034 /* CreatorToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */; };
+		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		CC4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPaywallView.swift; sourceTree = "<group>"; };
 		DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		EDCA211452AA0422EF2CC210 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorViewModel.swift; path = ViewModels/CreatorViewModel.swift; sourceTree = "<group>"; };
+		37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorToolbarView.swift; path = Views/CreatorSubviews/CreatorToolbarView.swift; sourceTree = "<group>"; };
+		28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorColorPaletteView.swift; path = Views/CreatorSubviews/CreatorColorPaletteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				58D0126C2A2815B700668585 /* AppConfig.swift */,
 				58AA25302ED4A3CD00E8766A /* Assets.xcassets */,
 				587D17692F1FB4DF006DED5B /* Localizable.xcstrings */,
+			
+				84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */,
+				37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */,
+				28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -258,7 +268,10 @@
 				0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */,
 				96C35DA1EBF1E1E51BA8D68F /* OnboardingView.swift in Sources */,
 				EDFD175EFA6D6EEDF11353E2 /* PaywallView.swift in Sources */,
-			);
+							A5157CC9E17941C4AA35C002 /* CreatorViewModel.swift in Sources */,
+				3FB83995683F4D45AE78E034 /* CreatorToolbarView.swift in Sources */,
+				1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */,
+);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */

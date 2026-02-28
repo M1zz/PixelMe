@@ -1103,8 +1103,8 @@ class BatchProcessor: ObservableObject {
                 let result = self.processImage(image, config: config)
                 results.append(result)
 
-                // Small delay to prevent UI freezing
-                Thread.sleep(forTimeInterval: 0.1)
+                // Yield to allow UI updates without blocking
+                RunLoop.current.run(until: Date())
             }
 
             DispatchQueue.main.async {

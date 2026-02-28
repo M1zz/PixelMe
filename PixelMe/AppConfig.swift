@@ -21,7 +21,7 @@ class AppConfig {
     static let emailSupport = "leeo@kakao.com"
     static let privacyURL: URL = URL(string: "https://www.google.com/")!
     static let termsAndConditionsURL: URL = URL(string: "https://www.google.com/")!
-    static let yourAppURL: URL = URL(string: "https://apps.apple.com/app/idXXXXXXXXX")!
+    static let yourAppURL: URL = URL(string: "https://apps.apple.com/app/pixel-meme/id6449769987")!
     
     // MARK: - UI Styles
     static let backgroundColor: UIColor = UIColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
@@ -38,4 +38,12 @@ class AppConfig {
     
     // MARK: - Image export size at 2x
     static let exportSize: CGFloat = 500 /// this will export the image at 1000x1000 resolution
+
+    // MARK: - Animation Timing Constants
+    /// Delay for sheet dismissal before showing next view
+    static let sheetTransitionDelay: TimeInterval = 0.5
+    /// Delay for view controller dismissal animations
+    static let dismissAnimationDelay: TimeInterval = 0.3
+    /// Delay after subscription success before auto-dismissing paywall
+    static let subscriptionSuccessDelay: TimeInterval = 1.0
 }

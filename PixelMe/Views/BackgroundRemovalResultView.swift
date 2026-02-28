@@ -132,7 +132,7 @@ struct BackgroundRemovalResultView: View {
             presentationMode.wrappedValue.dismiss()
 
             // Wait for sheet to dismiss, then apply pixel effect and close preview
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.sheetTransitionDelay) {
                 manager.applyPixelEffect()
             }
         } label: {
@@ -169,7 +169,7 @@ struct BackgroundRemovalResultView: View {
             presentationMode.wrappedValue.dismiss()
 
             // Wait for sheet to dismiss, then apply pixel effect and close preview
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.sheetTransitionDelay) {
                 manager.applyPixelEffect()
             }
         } label: {

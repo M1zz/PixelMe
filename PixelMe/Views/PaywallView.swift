@@ -56,7 +56,7 @@ struct PaywallView: View {
         .onChange(of: isProUser) { newValue in
             if newValue {
                 // 구독 성공 시 Paywall 닫기
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.subscriptionSuccessDelay) {
                     presentationMode.wrappedValue.dismiss()
                 }
             }

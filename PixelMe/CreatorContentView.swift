@@ -4,6 +4,8 @@
 //
 //  Created by hyunho lee on 2023/06/01.
 //
+//  Refactored: Task 2 (Accessibility) & Task 3 (Complexity reduction)
+//
 
 import SwiftUI
 
@@ -11,89 +13,25 @@ import SwiftUI
 struct CreatorContentView: View {
 
     @EnvironmentObject var manager: DataManager
-    @State private var filledPixels: [String] = [String]()
-    @State private var filledColors: [String: Color] = [String: Color]()
-    @State private var currentColor: Color = .black
-    @State private var backgroundColor: Color = .white
-    @State private var eraserToolEnabled: Bool = false
-
-    // Custom color palette (10 colors)
-    @State private var customPalette: [Color] = [
-        .black, .white, .red, .orange, .yellow,
-        .green, .blue, .purple, .pink, .brown
-    ]
-    @State private var selectedPaletteIndex: Int = 0
-    @State private var editingColorIndex: Int = 0
-    @State private var editingColor: Color = .black
-    @State private var showColorEditor: Bool = false
-    @State private var showGridView: Bool = true
-    @State private var showLogoWatermark: Bool = true
-    @State private var shouldHideLogoWatermark: Bool = false
-    @State private var invertGridLinesColor: Bool = false
-    @State private var didSelectBoardSize: Bool = false
-    @State private var didShowInterstitial: Bool = false
-    @State private var showPhotoPicker: Bool = false
-    @State private var showPhotoPreview: Bool = false
-    @State private var showBoardSizeChanger: Bool = false
-    @State private var showWatermarkPicker: Bool = false
-    @State private var showSettingsSheet: Bool = false
-    @State private var showPaywall: Bool = false
-
-    // Home screen and navigation
-    @State private var showHomeScreen: Bool = true
-    @State private var showOnboarding: Bool = !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
-    @State private var showSampleGallery: Bool = false
-    @State private var selectedSample: SamplePixelArt? = nil
-    @State private var referenceSample: SamplePixelArt? = nil  // For follow-along drawing
-    @State private var showReferenceImage: Bool = true
+    @StateObject private var viewModel = CreatorViewModel()
 
     // MARK: - Main rendering function
     var body: some View {
         ZStack {
             Color(AppConfig.backgroundColor).ignoresSafeArea()
 
-            if showHomeScreen {
-                // Home Screen - Main menu
+            if viewModel.showHomeScreen {
                 HomeScreenView
             } else {
-                // Drawing Screen
-                VStack(spacing: 15) {
-                    DrawingHeaderView
-                    ZStack {
-                        PixelsGridView()
-
-                        // Hint overlay when board not selected
-                        if !didSelectBoardSize {
-                            GridHintOverlay
-                        }
-                    }
-
-                    // Reference image for follow-along mode
-                    if let sample = referenceSample, showReferenceImage, didSelectBoardSize {
-                        ReferenceImageView(sample: sample)
-                    }
-
-                    // Color palette below the grid
-                    if didSelectBoardSize {
-                        ColorPaletteView
-                    }
-
-                    if didSelectBoardSize {
-                        PixelBoardToolsView
-                    } else {
-                        PixelBoardSizeSelector
-                    }
-                }
+                DrawingScreenView
             }
         }
-        // Onboarding for first-time users
-        .fullScreenCover(isPresented: $showOnboarding) {
-            OnboardingView(isPresented: $showOnboarding)
+        .fullScreenCover(isPresented: $viewModel.showOnboarding) {
+            OnboardingView(isPresented: $viewModel.showOnboarding)
         }
-        // Sample gallery
-        .sheet(isPresented: $showSampleGallery) {
-            SampleArtGalleryView(selectedSample: $selectedSample) { sample in
-                loadSampleArt(sample)
+        .sheet(isPresented: $viewModel.showSampleGallery) {
+            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { sample in
+                viewModel.loadSampleArt(sample, manager: manager)
             }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
@@ -101,124 +39,108 @@ struct CreatorContentView: View {
                 switch type {
                 case .createPixelArt:
                     CreatorContentView().environmentObject(manager)
-                        .onAppear { print("🖼️ [CreatorContentView] CreatorContentView appeared") }
                 case .applyFilter:
                     PixelatedPhotoView().environmentObject(manager)
-                        .onAppear { print("🖼️ [CreatorContentView] PixelatedPhotoView appeared!") }
                 case .settings:
                     Text("Setting")
-                        .onAppear { print("🖼️ [CreatorContentView] Settings appeared") }
-                    //SettingsContentView().environmentObject(manager)
                 }
             }
-            .onAppear {
-                print("🖼️ [CreatorContentView] fullScreenMode triggered: \(type)")
-            }
         }
-        .sheet(isPresented: $showPhotoPicker) {
+        .sheet(isPresented: $viewModel.showPhotoPicker) {
             PhotoPicker { image in
-                print("📸 [CreatorContentView] Photo selected from picker")
-                print("📸 [CreatorContentView] Image is: \(image != nil ? "NOT NIL" : "NIL")")
-
-                // Store the image in DataManager (more stable than @State)
                 manager.tempPhotoForPreview = image
-                print("📸 [CreatorContentView] manager.tempPhotoForPreview set")
-
-                // Don't manually dismiss - let PhotoPicker handle it
-                // showPhotoPicker = false
-
-                // Wait a bit for the sheet to close, then show preview
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    print("📸 [CreatorContentView] Checking image before showing preview...")
-                    print("📸 [CreatorContentView] manager.tempPhotoForPreview is: \(manager.tempPhotoForPreview != nil ? "NOT NIL" : "NIL")")
-                    showPhotoPreview = true
-                    print("📸 [CreatorContentView] Setting showPhotoPreview = true")
+                DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.sheetTransitionDelay) {
+                    viewModel.showPhotoPreview = true
                 }
             }
         }
-        .sheet(isPresented: $showPhotoPreview) {
+        .sheet(isPresented: $viewModel.showPhotoPreview) {
             Group {
                 if let selectedImage = manager.tempPhotoForPreview {
                     PhotoPreviewView(selectedImage: selectedImage)
                         .environmentObject(manager)
                         .presentationDragIndicator(.visible)
                         .presentationDetents([.large])
-                        .onAppear {
-                            print("📸 [CreatorContentView] PhotoPreviewView appeared")
-                        }
                 } else {
                     Color.clear
-                        .onAppear {
-                            print("⚠️ [CreatorContentView] manager.tempPhotoForPreview is nil!")
-                        }
                 }
             }
         }
-        .sheet(isPresented: $showPaywall) {
+        .sheet(isPresented: $viewModel.showPaywall) {
             PaywallView(isProUser: $manager.isPremiumUser)
         }
-        .sheet(isPresented: $showBoardSizeChanger) {
+        .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
         }
-        .sheet(isPresented: $showWatermarkPicker) {
+        .sheet(isPresented: $viewModel.showWatermarkPicker) {
             PhotoPicker { image in
                 if let selectedImage = image {
                     manager.saveCustomWatermark(selectedImage)
-                    print("✅ [CreatorContentView] Watermark saved")
                 }
             }
         }
         .onChange(of: manager.shouldLoadPixelGrid) { oldValue, shouldLoad in
-            // Load pixel data when returning from PixelatedPhotoView
-            if shouldLoad, let pixelData = manager.pixelGridData {
-                print("🎨 [CreatorContentView] Loading pixel data from PixelatedPhotoView")
-
-                // Set board size as already selected
-                didSelectBoardSize = true
-
-                // Load pixel colors into the grid
-                filledColors = pixelData
-                filledPixels = Array(pixelData.keys)
-
-                // Reset the flag
-                manager.shouldLoadPixelGrid = false
-
-                print("🎨 [CreatorContentView] Loaded \(filledPixels.count) pixels")
-                print("🎨 [CreatorContentView] Board size: \(manager.pixelBoardSize?.rawValue ?? "nil")")
+            if shouldLoad {
+                viewModel.loadPixelData(from: manager)
             }
         }
         .onChange(of: manager.shouldDismissPhotoPreview) { oldValue, shouldDismiss in
             if shouldDismiss {
-                showPhotoPreview = false
+                viewModel.showPhotoPreview = false
                 manager.shouldDismissPhotoPreview = false
             }
         }
         .onChange(of: manager.useCustomWatermark) { oldValue, newValue in
-            // Save watermark preference
             UserDefaults.standard.set(newValue, forKey: "useCustomWatermark")
-            print("💾 [CreatorContentView] Watermark toggle saved: \(newValue)")
+        }
+    }
+
+    // MARK: - Drawing Screen (extracted)
+    private var DrawingScreenView: some View {
+        VStack(spacing: 15) {
+            DrawingHeaderView
+            ZStack {
+                PixelsGridView()
+
+                if !viewModel.didSelectBoardSize {
+                    GridHintOverlay
+                }
+            }
+
+            if let sample = viewModel.referenceSample, viewModel.showReferenceImage, viewModel.didSelectBoardSize {
+                ReferenceImageView(sample: sample)
+            }
+
+            if viewModel.didSelectBoardSize {
+                CreatorColorPaletteView(viewModel: viewModel)
+            }
+
+            if viewModel.didSelectBoardSize {
+                CreatorToolbarView(viewModel: viewModel)
+                    .sheet(isPresented: $viewModel.showSettingsSheet) {
+                        SettingsSheetView
+                    }
+            } else {
+                PixelBoardSizeSelector
+            }
         }
     }
 
     // MARK: - Home Screen
-
-    /// Home screen with two main options
     private var HomeScreenView: some View {
         VStack(spacing: 0) {
-            // Header
             Text("Pixel Creator")
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(.white)
                 .padding(.top, 60)
                 .padding(.bottom, 30)
+                .accessibilityAddTraits(.isHeader)
 
             ScrollView {
                 VStack(spacing: 25) {
-                    // Main action buttons
                     VStack(spacing: 15) {
-                        // Follow Along Drawing Button
                         Button {
-                            showSampleGallery = true
+                            viewModel.showSampleGallery = true
                         } label: {
                             HomeActionButton(
                                 icon: "paintbrush.pointed.fill",
@@ -227,10 +149,11 @@ struct CreatorContentView: View {
                                 color: .purple
                             )
                         }
+                        .accessibilityLabel("따라 그리기")
+                        .accessibilityHint("샘플을 선택하고 따라 그립니다")
 
-                        // Pixelate Photo Button
                         Button {
-                            showPhotoPicker = true
+                            viewModel.showPhotoPicker = true
                         } label: {
                             HomeActionButton(
                                 icon: "photo.fill",
@@ -239,11 +162,12 @@ struct CreatorContentView: View {
                                 color: .blue
                             )
                         }
+                        .accessibilityLabel("사진 픽셀화")
+                        .accessibilityHint("사진을 픽셀 아트로 변환합니다")
 
-                        // Free Drawing Button
                         Button {
-                            referenceSample = nil
-                            showHomeScreen = false
+                            viewModel.referenceSample = nil
+                            viewModel.showHomeScreen = false
                         } label: {
                             HomeActionButton(
                                 icon: "scribble.variable",
@@ -252,10 +176,12 @@ struct CreatorContentView: View {
                                 color: .green
                             )
                         }
-                        // Pro Upgrade Button (hidden if already Pro)
+                        .accessibilityLabel("자유 그리기")
+                        .accessibilityHint("나만의 픽셀 아트를 만듭니다")
+
                         if !SubscriptionManager.shared.isProUser {
                             Button {
-                                showPaywall = true
+                                viewModel.showPaywall = true
                             } label: {
                                 HomeActionButton(
                                     icon: "crown.fill",
@@ -264,6 +190,8 @@ struct CreatorContentView: View {
                                     color: .yellow
                                 )
                             }
+                            .accessibilityLabel("PixelMe 프로")
+                            .accessibilityHint("모든 프리미엄 기능을 잠금 해제합니다")
                         }
                     }
                     .padding(.horizontal, 20)
@@ -274,15 +202,18 @@ struct CreatorContentView: View {
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 20)
+                            .accessibilityAddTraits(.isHeader)
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
                                 ForEach(SamplePixelArtCollection.all) { sample in
                                     Button {
-                                        startFollowAlongDrawing(sample)
+                                        viewModel.startFollowAlongDrawing(sample, manager: manager)
                                     } label: {
                                         SamplePreviewCard(sample: sample)
                                     }
+                                    .accessibilityLabel("샘플: \(sample.name)")
+                                    .accessibilityHint("탭하여 이 샘플을 따라 그립니다")
                                 }
                             }
                             .padding(.horizontal, 20)
@@ -296,64 +227,52 @@ struct CreatorContentView: View {
         }
     }
 
-    /// Start follow-along drawing with a sample
-    private func startFollowAlongDrawing(_ sample: SamplePixelArt) {
-        referenceSample = sample
-        manager.pixelBoardSize = sample.boardSize
-        filledPixels.removeAll()
-        filledColors.removeAll()
-        backgroundColor = sample.backgroundColor
-        showHomeScreen = false
-        didSelectBoardSize = true
-    }
-
     // MARK: - Drawing Screen Header
-
-    /// Header for drawing screen with back button
     private var DrawingHeaderView: some View {
         ZStack {
             HStack {
-                // Back to home button
                 Button {
-                    showHomeScreen = true
-                    didSelectBoardSize = false
-                    referenceSample = nil
+                    viewModel.goHome()
                 } label: {
                     Image(systemName: "house.fill")
                 }
+                .accessibilityLabel("홈으로 돌아가기")
 
-                // Save button
                 Button {
                     manager.savePixelGrid(view: AnyView(PixelsGridView(height: AppConfig.exportSize, export: true)))
                 } label: {
                     Image(systemName: "square.and.arrow.down")
                 }
+                .accessibilityLabel("저장")
+                .accessibilityHint("현재 픽셀 아트를 저장합니다")
 
-                // Reset button (clear all pixels and reset background)
-                if didSelectBoardSize {
+                if viewModel.didSelectBoardSize {
                     Button {
-                        filledPixels.removeAll()
-                        filledColors.removeAll()
-                        backgroundColor = .white
+                        viewModel.resetCanvas()
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                     }
+                    .accessibilityLabel("초기화")
+                    .accessibilityHint("캔버스를 지웁니다")
                 }
 
                 Spacer()
 
-                // Toggle reference image (if in follow-along mode)
-                if referenceSample != nil {
+                if viewModel.referenceSample != nil {
                     Button {
-                        showReferenceImage.toggle()
+                        viewModel.showReferenceImage.toggle()
                     } label: {
-                        Image(systemName: showReferenceImage ? "eye.fill" : "eye.slash.fill")
+                        Image(systemName: viewModel.showReferenceImage ? "eye.fill" : "eye.slash.fill")
                     }
+                    .accessibilityLabel("참고 이미지")
+                    .accessibilityValue(viewModel.showReferenceImage ? "표시 중" : "숨김")
+                    .accessibilityHint("참고 이미지를 표시하거나 숨깁니다")
                 }
             }.font(.system(size: 22))
 
-            Text(referenceSample != nil ? "Follow Along" : "Free Drawing")
+            Text(viewModel.referenceSample != nil ? "Follow Along" : "Free Drawing")
                 .font(.system(size: 18, weight: .bold))
+                .accessibilityAddTraits(.isHeader)
         }
         .padding(.horizontal)
         .foregroundColor(.white)
@@ -361,8 +280,6 @@ struct CreatorContentView: View {
     }
 
     // MARK: - Reference Image View
-
-    /// Shows the sample reference while drawing
     private func ReferenceImageView(sample: SamplePixelArt) -> some View {
         VStack(spacing: 8) {
             HStack {
@@ -373,7 +290,6 @@ struct CreatorContentView: View {
             }
 
             HStack(spacing: 15) {
-                // Reference image
                 SampleArtPreview(sample: sample)
                     .frame(width: 80, height: 80)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -381,8 +297,8 @@ struct CreatorContentView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.white.opacity(0.3), lineWidth: 1)
                     )
+                    .accessibilityLabel("참고 이미지: \(sample.name)")
 
-                // Tips
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Look at the reference and draw!")
                         .font(.system(size: 13))
@@ -419,91 +335,20 @@ struct CreatorContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.opacity(0.4))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("보드 크기를 아래에서 선택하세요")
     }
 
-    /// Load sample pixel art into the editor
-    private func loadSampleArt(_ sample: SamplePixelArt) {
-        // Close the gallery sheet first
-        showSampleGallery = false
-
-        // Set board size
-        manager.pixelBoardSize = sample.boardSize
-
-        // Start with empty canvas (user will draw following the reference)
-        filledColors.removeAll()
-        filledPixels.removeAll()
-        backgroundColor = sample.backgroundColor
-        referenceSample = sample
-
-        // Extract unique colors from sample and set palette
-        setupPaletteFromSample(sample)
-
-        // Navigate to drawing screen
-        showHomeScreen = false
-        didSelectBoardSize = true
-
-        print("🎨 [CreatorContentView] Loaded sample: \(sample.name)")
-    }
-
-    /// Extract colors from sample and set up the palette
-    private func setupPaletteFromSample(_ sample: SamplePixelArt) {
-        // Get unique colors from sample pixels
-        var uniqueColors: [Color] = []
-        var seenColors: Set<String> = []
-
-        for (_, color) in sample.pixels {
-            let colorKey = colorToString(color)
-            if !seenColors.contains(colorKey) {
-                seenColors.insert(colorKey)
-                uniqueColors.append(color)
-            }
-        }
-
-        // Add background color if not already included
-        let bgColorKey = colorToString(sample.backgroundColor)
-        if !seenColors.contains(bgColorKey) {
-            uniqueColors.insert(sample.backgroundColor, at: 0)
-        }
-
-        // Fill palette (up to 10 colors)
-        var newPalette: [Color] = []
-        for i in 0..<10 {
-            if i < uniqueColors.count {
-                newPalette.append(uniqueColors[i])
-            } else {
-                // Fill remaining slots with default colors
-                let defaultColors: [Color] = [.black, .white, .red, .orange, .yellow, .green, .blue, .purple, .pink, .brown]
-                newPalette.append(defaultColors[i])
-            }
-        }
-
-        customPalette = newPalette
-        selectedPaletteIndex = 0
-        currentColor = customPalette[0]
-
-        print("🎨 [CreatorContentView] Palette set with \(uniqueColors.count) colors from sample")
-    }
-
-    /// Convert Color to a string key for comparison
-    private func colorToString(_ color: Color) -> String {
-        let uiColor = UIColor(color)
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
-        return String(format: "%.2f-%.2f-%.2f", r, g, b)
-    }
-    
     /// Pixels grid view
     private func PixelsGridView(height: CGFloat = UIScreen.main.bounds.width, export: Bool = false) -> some View {
         ZStack {
-            // Background reference image for Follow Along mode (behind everything)
-            if let sample = referenceSample, !export {
+            if let sample = viewModel.referenceSample, !export {
                 SampleArtPreview(sample: sample)
                     .frame(width: height, height: height)
                     .opacity(0.3)
                     .allowsHitTesting(false)
             }
 
-            // Actual drawing grid
             HStack(spacing: 0) {
                 ForEach(0..<(manager.pixelBoardSize?.count ?? 16), id: \.self) { column in
                     Pixels(forColumn: column, height: height, export: export)
@@ -513,53 +358,41 @@ struct CreatorContentView: View {
         .frame(height: height)
         .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged { dragGesture in
             guard let boardSize = manager.pixelBoardSize else { return }
-            let point = dragGesture.location
-            let pixelSize = UIScreen.main.bounds.width/CGFloat(boardSize.count)
-            let height = Int(height)
-            let width = height
-            let y = Int(point.y / pixelSize)
-            let x = Int(point.x / pixelSize)
-            guard y < height && x < width && y >= 0 && x >= 0 else { return }
-            filledColors["\(x)_\(y)"] = currentColor
-            if eraserToolEnabled { filledPixels.removeAll(where: { $0 == "\(x)_\(y)" }) } else {
-                filledPixels.append("\(x)_\(y)")
-            }
-        }).disabled(!didSelectBoardSize).overlay(WatermarkLogoView)
+            viewModel.handleDrag(at: dragGesture.location, boardSize: boardSize, height: height)
+        }).disabled(!viewModel.didSelectBoardSize).overlay(WatermarkLogoView)
+        .accessibilityLabel("픽셀 그리기 캔버스")
+        .accessibilityHint("드래그하여 픽셀을 그립니다")
     }
-    
+
     private func Pixels(forColumn column: Int, height: CGFloat, export: Bool = false) -> some View {
         VStack(spacing: 0) {
             ForEach(0..<(manager.pixelBoardSize?.count ?? 16), id: \.self) { row in
                 ZStack {
-                    // Background: semi-transparent in Follow Along mode to show reference
-                    let isFilled = filledPixels.contains("\(column)_\(row)")
-                    let isFollowAlongMode = referenceSample != nil && !export
+                    let isFilled = viewModel.filledPixels.contains("\(column)_\(row)")
+                    let isFollowAlongMode = viewModel.referenceSample != nil && !export
 
                     if isFollowAlongMode && !isFilled {
-                        // Transparent background to show reference image
-                        Rectangle().foregroundColor(backgroundColor.opacity(0.5))
+                        Rectangle().foregroundColor(viewModel.backgroundColor.opacity(0.5))
                     } else {
-                        Rectangle().foregroundColor(backgroundColor)
+                        Rectangle().foregroundColor(viewModel.backgroundColor)
                     }
 
-                    // Grid lines
                     if export == false {
-                        Rectangle().stroke(invertGridLinesColor ? Color.white : Color.black, lineWidth: 1)
-                            .opacity(showGridView ? 1 : 0)
+                        Rectangle().stroke(viewModel.invertGridLinesColor ? Color.white : Color.black, lineWidth: 1)
+                            .opacity(viewModel.showGridView ? 1 : 0)
                     }
 
-                    // Filled pixel
                     if isFilled {
-                        Rectangle().foregroundColor(filledColors["\(column)_\(row)"])
+                        Rectangle().foregroundColor(viewModel.filledColors["\(column)_\(row)"])
                     }
-                }.frame(height: height/CGFloat(manager.pixelBoardSize?.count ?? 16))
+                }.frame(height: height / CGFloat(manager.pixelBoardSize?.count ?? 16))
             }
         }
     }
-    
+
     private var WatermarkLogoView: some View {
         ZStack {
-            if didSelectBoardSize && manager.useCustomWatermark {
+            if viewModel.didSelectBoardSize && manager.useCustomWatermark {
                 VStack {
                     Spacer()
                     HStack {
@@ -575,7 +408,7 @@ struct CreatorContentView: View {
             }
         }
     }
-    
+
     // MARK: - Initial Pixel Canvas/Board size
     private var PixelBoardSizeSelector: some View {
         VStack(spacing: 15) {
@@ -583,6 +416,7 @@ struct CreatorContentView: View {
                 Text("Select Board Size")
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)
+                    .accessibilityAddTraits(.isHeader)
                 Text("Choose a size to start drawing pixel art")
                     .font(.system(size: 14))
                     .foregroundColor(.gray)
@@ -590,8 +424,8 @@ struct CreatorContentView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
-                        ForEach(PixelBoardSize.allCases) {
-                            type in PixelBoardSizeItem(type)
+                        ForEach(PixelBoardSize.allCases) { type in
+                            PixelBoardSizeItem(type)
                         }
                     }
                 }
@@ -602,25 +436,21 @@ struct CreatorContentView: View {
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
         let isSelected = manager.pixelBoardSize == type
         let isLocked = !FeatureGating.shared.canUsePixelSize(type)
-        
+
         return Button {
             if !isLocked {
-                manager.pixelBoardSize = type
-                // Auto-activate the board immediately for instant drawing
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    didSelectBoardSize = true
-                }
+                viewModel.selectBoardSize(type, manager: manager)
             }
         } label: {
             ZStack {
                 Color.white.cornerRadius(15)
                     .opacity(isSelected ? 1 : (isLocked ? 0.1 : 0.3))
-                
+
                 HStack {
                     Text(type.rawValue)
                         .foregroundColor(isSelected ? .black : .white)
                         .opacity(isSelected ? 1 : (isLocked ? 0.3 : 0.5))
-                    
+
                     if isLocked {
                         Spacer()
                         Image(systemName: "lock.fill")
@@ -633,202 +463,9 @@ struct CreatorContentView: View {
         }
         .frame(height: 60)
         .disabled(isLocked)
-    }
-
-    // MARK: - Color Palette View
-    private var ColorPaletteView: some View {
-        VStack(spacing: 10) {
-            HStack {
-                Text("Color Palette")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.gray)
-                Spacer()
-                Text("Tap to select, hold to edit")
-                    .font(.system(size: 11))
-                    .foregroundColor(.gray.opacity(0.7))
-            }
-            .padding(.horizontal, 20)
-
-            HStack(spacing: 8) {
-                ForEach(0..<10, id: \.self) { index in
-                    Button {
-                        // Select this color
-                        selectedPaletteIndex = index
-                        currentColor = customPalette[index]
-                        eraserToolEnabled = false
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(customPalette[index])
-                                .frame(width: 32, height: 32)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(selectedPaletteIndex == index ? Color.white : Color.clear, lineWidth: 3)
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.black.opacity(0.3), lineWidth: 1)
-                                )
-
-                            // Selection indicator
-                            if selectedPaletteIndex == index {
-                                Image(systemName: "checkmark")
-                                    .font(.system(size: 12, weight: .bold))
-                                    .foregroundColor(customPalette[index].isLight ? .black : .white)
-                            }
-                        }
-                    }
-                    .simultaneousGesture(
-                        LongPressGesture(minimumDuration: 0.5)
-                            .onEnded { _ in
-                                editingColorIndex = index
-                                editingColor = customPalette[index]
-                                showColorEditor = true
-                            }
-                    )
-                }
-            }
-            .padding(.horizontal, 20)
-        }
-        .padding(.vertical, 10)
-        .background(Color(AppConfig.toolBackgroundColor).opacity(0.5))
-        .sheet(isPresented: $showColorEditor) {
-            ColorEditorSheet
-        }
-    }
-
-    // MARK: - Color Editor Sheet
-    private var ColorEditorSheet: some View {
-        ZStack {
-            Color(AppConfig.backgroundColor).ignoresSafeArea()
-            VStack(spacing: 20) {
-                // Header
-                HStack {
-                    Text("Edit Color")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                    Spacer()
-                    Button {
-                        showColorEditor = false
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 18))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-
-                // Current color preview
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(editingColor)
-                    .frame(width: 100, height: 100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.white.opacity(0.3), lineWidth: 2)
-                    )
-                    .padding()
-
-                // Color picker
-                ColorPicker("Select a new color", selection: $editingColor)
-                    .labelsHidden()
-                    .scaleEffect(1.5)
-                    .padding()
-                    .onChange(of: editingColor) { oldValue, newValue in
-                        customPalette[editingColorIndex] = newValue
-                        if selectedPaletteIndex == editingColorIndex {
-                            currentColor = newValue
-                        }
-                    }
-
-                // Preset colors grid
-                VStack(spacing: 10) {
-                    Text("Quick Colors")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.gray)
-
-                    LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 6), spacing: 10) {
-                        ForEach(presetColors, id: \.self) { color in
-                            Button {
-                                editingColor = color
-                            } label: {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(color)
-                                    .frame(width: 40, height: 40)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                                    )
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-
-                Spacer()
-            }
-        }
-        .presentationDetents([.medium])
-    }
-
-    // Preset colors for quick selection
-    private var presetColors: [Color] {
-        [
-            .black, .white, .gray,
-            .red, .orange, .yellow,
-            .green, .mint, .teal,
-            .cyan, .blue, .indigo,
-            .purple, .pink, .brown
-        ]
-    }
-
-    // MARK: - Pixel Colors and Tools (Quick access bar)
-    private var PixelBoardToolsView: some View {
-        HStack(spacing: 20) {
-            // Eraser toggle
-            Button {
-                eraserToolEnabled.toggle()
-            } label: {
-                VStack(spacing: 4) {
-                    Image(systemName: eraserToolEnabled ? "eraser.fill" : "eraser")
-                        .font(.system(size: 24))
-                        .foregroundColor(eraserToolEnabled ? .orange : .white)
-                    Text("Eraser")
-                        .font(.system(size: 10))
-                        .foregroundColor(.gray)
-                }
-            }
-
-            // Background color
-            VStack(spacing: 4) {
-                ColorPicker("", selection: $backgroundColor)
-                    .labelsHidden()
-                    .frame(width: 30, height: 30)
-                Text("Board")
-                    .font(.system(size: 10))
-                    .foregroundColor(.gray)
-            }
-
-            // Settings button
-            Button {
-                showSettingsSheet = true
-            } label: {
-                VStack(spacing: 4) {
-                    Image(systemName: "gearshape.fill")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                    Text("Settings")
-                        .font(.system(size: 10))
-                        .foregroundColor(.gray)
-                }
-            }
-        }
-        .padding(.horizontal, 30)
-        .padding(.vertical, 15)
-        .background(Color(AppConfig.toolBackgroundColor).opacity(0.8))
-        .cornerRadius(20)
-        .sheet(isPresented: $showSettingsSheet) {
-            SettingsSheetView
-        }
+        .accessibilityLabel("보드 크기: \(type.rawValue)")
+        .accessibilityValue(isSelected ? "선택됨" : (isLocked ? "잠김" : "선택되지 않음"))
+        .accessibilityHint(isLocked ? "프로 버전이 필요합니다" : "탭하여 이 보드 크기를 선택합니다")
     }
 
     // MARK: - Settings Sheet
@@ -836,36 +473,34 @@ struct CreatorContentView: View {
         ZStack {
             Color(AppConfig.backgroundColor).ignoresSafeArea()
             VStack(spacing: 0) {
-                // Header
                 HStack {
                     Text("Settings")
                         .font(.system(size: 22, weight: .bold))
                         .foregroundColor(.white)
+                        .accessibilityAddTraits(.isHeader)
                     Spacer()
                     Button {
-                        showSettingsSheet = false
+                        viewModel.showSettingsSheet = false
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 28))
                             .foregroundColor(.gray)
                     }
+                    .accessibilityLabel("닫기")
                 }
                 .padding()
 
                 ScrollView {
                     VStack(spacing: 15) {
-                        // Board section
                         SettingsSectionHeader(title: "Board")
                         BoardSizeChangeView
                         BackgroundColorView
                         ResetCanvasView
 
-                        // Display section
                         SettingsSectionHeader(title: "Display")
                         ShowHideGridView
                         InvertGridColorView
 
-                        // Watermark section
                         SettingsSectionHeader(title: "Watermark")
                         WatermarkView
 
@@ -884,16 +519,15 @@ struct CreatorContentView: View {
             Text(title)
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.gray)
+                .accessibilityAddTraits(.isHeader)
             Spacer()
         }
         .padding(.top, 10)
     }
-    
+
     private var ResetCanvasView: some View {
         Button {
-            filledPixels.removeAll()
-            filledColors.removeAll()
-            backgroundColor = .white
+            viewModel.resetCanvas()
         } label: {
             ZStack {
                 Color(AppConfig.toolBackgroundColor).cornerRadius(15)
@@ -905,7 +539,10 @@ struct CreatorContentView: View {
                         .foregroundColor(.orange)
                 }.padding(.horizontal, 15)
             }
-        }.frame(height: 60)
+        }
+        .frame(height: 60)
+        .accessibilityLabel("캔버스 초기화")
+        .accessibilityHint("모든 픽셀을 지우고 배경을 초기화합니다")
     }
 
     private var BackgroundColorView: some View {
@@ -914,20 +551,12 @@ struct CreatorContentView: View {
             HStack {
                 Text("Board Color").font(.system(size: 18))
                 Spacer()
-                ColorPicker("", selection: $backgroundColor).labelsHidden()
+                ColorPicker("", selection: $viewModel.backgroundColor).labelsHidden()
             }.padding(.horizontal, 15)
-        }.frame(height: 60)
-    }
-    
-    private var EraserToolView: some View {
-        ZStack {
-            Color(AppConfig.toolBackgroundColor).cornerRadius(15)
-            HStack {
-                Text("Eraser").font(.system(size: 18))
-                Spacer()
-                Toggle(isOn: $eraserToolEnabled) { EmptyView() }
-            }.padding(.horizontal, 15)
-        }.frame(height: 60)
+        }
+        .frame(height: 60)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("보드 색상")
     }
 
     private var WatermarkView: some View {
@@ -937,9 +566,8 @@ struct CreatorContentView: View {
                 Text("Watermark").font(.system(size: 18))
                 Spacer()
 
-                // Image select button
                 Button {
-                    showWatermarkPicker = true
+                    viewModel.showWatermarkPicker = true
                 } label: {
                     HStack(spacing: 4) {
                         if manager.customWatermarkImage != nil {
@@ -952,58 +580,46 @@ struct CreatorContentView: View {
                             .foregroundColor(.white)
                     }
                 }
+                .accessibilityLabel("워터마크 이미지 선택")
 
-                // Toggle
                 Toggle(isOn: $manager.useCustomWatermark) { EmptyView() }
                     .disabled(manager.customWatermarkImage == nil)
                     .labelsHidden()
+                    .accessibilityLabel("워터마크 사용")
+                    .accessibilityValue(manager.useCustomWatermark ? "켜짐" : "꺼짐")
             }.padding(.horizontal, 15)
         }.frame(height: 60)
     }
 
-    private var RemoveWatermarkView: some View {
-        ZStack {
-            Color(AppConfig.toolBackgroundColor).cornerRadius(15)
-            HStack {
-                Text("Logo").font(.system(size: 18))
-                Spacer()
-                Toggle(isOn: $showLogoWatermark.onChange({ value in
-                    if false {//!manager.isPremiumUser {
-                        presentAlert(title: "Premium Feature", message: "To remove this logo, an in-app purchase is required. Go to the app settings to upgrade to the premium version", primaryAction: UIAlertAction(title: "OK", style: .default, handler: { _ in
-                            showLogoWatermark = true
-                            shouldHideLogoWatermark = false
-                        }))
-                    }
-                })) { EmptyView() }.labelsHidden()
-            }.padding(.horizontal, 15)
-        }.frame(height: 60)
-    }
-    
     private var ShowHideGridView: some View {
         ZStack {
             Color(AppConfig.toolBackgroundColor).cornerRadius(15)
             HStack {
                 Text("Show Board Grid Lines").font(.system(size: 18))
                 Spacer()
-                Toggle(isOn: $showGridView) { EmptyView() }.labelsHidden()
+                Toggle(isOn: $viewModel.showGridView) { EmptyView() }.labelsHidden()
+                    .accessibilityLabel("그리드 라인 표시")
+                    .accessibilityValue(viewModel.showGridView ? "켜짐" : "꺼짐")
             }.padding(.horizontal, 15)
         }.frame(height: 60)
     }
-    
+
     private var InvertGridColorView: some View {
         ZStack {
             Color(AppConfig.toolBackgroundColor).cornerRadius(15)
             HStack {
                 Text("Invert Grid Lines Color").font(.system(size: 18))
                 Spacer()
-                Toggle(isOn: $invertGridLinesColor) { EmptyView() }.labelsHidden()
+                Toggle(isOn: $viewModel.invertGridLinesColor) { EmptyView() }.labelsHidden()
+                    .accessibilityLabel("그리드 라인 색상 반전")
+                    .accessibilityValue(viewModel.invertGridLinesColor ? "켜짐" : "꺼짐")
             }.padding(.horizontal, 15)
         }.frame(height: 60)
     }
 
     private var BoardSizeChangeView: some View {
         Button {
-            showBoardSizeChanger = true
+            viewModel.showBoardSizeChanger = true
         } label: {
             ZStack {
                 Color(AppConfig.toolBackgroundColor).cornerRadius(15)
@@ -1018,27 +634,31 @@ struct CreatorContentView: View {
                         .foregroundColor(.gray)
                 }.padding(.horizontal, 15)
             }
-        }.frame(height: 60)
+        }
+        .frame(height: 60)
+        .accessibilityLabel("보드 크기 변경")
+        .accessibilityValue(manager.pixelBoardSize?.rawValue ?? "없음")
     }
 
     private var BoardSizeChangerSheet: some View {
         ZStack {
             Color(AppConfig.backgroundColor).ignoresSafeArea()
             VStack(spacing: 20) {
-                // Header
                 HStack {
                     Spacer()
                     Text("Change Board Size")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
+                        .accessibilityAddTraits(.isHeader)
                     Spacer()
                     Button {
-                        showBoardSizeChanger = false
+                        viewModel.showBoardSizeChanger = false
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18))
                             .foregroundColor(.white)
                     }
+                    .accessibilityLabel("닫기")
                 }
                 .padding()
 
@@ -1052,11 +672,7 @@ struct CreatorContentView: View {
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 15), count: 2), spacing: 15) {
                         ForEach(PixelBoardSize.allCases) { type in
                             Button {
-                                manager.pixelBoardSize = type
-                                // Clear the drawing
-                                filledPixels.removeAll()
-                                filledColors.removeAll()
-                                showBoardSizeChanger = false
+                                viewModel.changeBoardSize(type, manager: manager)
                             } label: {
                                 ZStack {
                                     Color.white.cornerRadius(15)
@@ -1065,7 +681,9 @@ struct CreatorContentView: View {
                                         .foregroundColor(manager.pixelBoardSize == type ? .black : .white)
                                         .opacity(manager.pixelBoardSize == type ? 1 : 0.5)
                                 }
-                            }.frame(height: 60)
+                            }
+                            .frame(height: 60)
+                            .accessibilityLabel("보드 크기: \(type.rawValue)")
                         }
                     }
                     .padding(.horizontal)
@@ -1078,8 +696,6 @@ struct CreatorContentView: View {
 }
 
 // MARK: - Home Action Button
-
-/// Large action button for home screen
 struct HomeActionButton: View {
     let icon: String
     let title: String
@@ -1088,7 +704,6 @@ struct HomeActionButton: View {
 
     var body: some View {
         HStack(spacing: 15) {
-            // Icon
             ZStack {
                 Circle()
                     .fill(color.opacity(0.2))
@@ -1098,7 +713,6 @@ struct HomeActionButton: View {
                     .foregroundColor(color)
             }
 
-            // Text
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.system(size: 18, weight: .bold))
@@ -1110,7 +724,6 @@ struct HomeActionButton: View {
 
             Spacer()
 
-            // Arrow
             Image(systemName: "chevron.right")
                 .font(.system(size: 16))
                 .foregroundColor(.gray)
@@ -1122,14 +735,11 @@ struct HomeActionButton: View {
 }
 
 // MARK: - Sample Preview Card
-
-/// Small card showing sample pixel art preview
 struct SamplePreviewCard: View {
     let sample: SamplePixelArt
 
     var body: some View {
         VStack(spacing: 8) {
-            // Pixel art preview
             SampleArtPreview(sample: sample)
                 .frame(width: 80, height: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -1138,7 +748,6 @@ struct SamplePreviewCard: View {
                         .stroke(Color.white.opacity(0.2), lineWidth: 1)
                 )
 
-            // Name
             Text(sample.name)
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(.white)
