@@ -11,7 +11,7 @@
     "한국어",
     "English"
   ],
-  "lastModified" : "2026-02-28T13:43:53Z",
+  "lastModified" : "2026-02-28T16:51:51Z",
   "name" : "PixelMe",
   "pricing" : {
     "downloadPrice" : "무료",
@@ -21,8 +21,8 @@
   },
   "progress" : 0,
   "sourcePath" : "\/Users\/hyunholee\/Documents\/workspace\/code\/PixelMe",
-  "sprint" : "Sprint 1",
+  "sprint" : "Sprint 1 외 1개",
   "startWeek" : 3,
-  "totalTasks" : 12,
+  "totalTasks" : 22,
   "version" : "2.0.0"
 }
