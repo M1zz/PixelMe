@@ -14,6 +14,7 @@ struct CreatorContentView: View {
 
     @EnvironmentObject var manager: DataManager
     @StateObject private var viewModel = CreatorViewModel()
+    @State private var showProfilePixelate = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -71,6 +72,10 @@ struct CreatorContentView: View {
         }
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
+        }
+        .sheet(isPresented: $showProfilePixelate) {
+            ProfilePixelateView()
+                .environmentObject(manager)
         }
         .sheet(isPresented: $viewModel.showWatermarkPicker) {
             PhotoPicker { image in
@@ -164,6 +169,19 @@ struct CreatorContentView: View {
                         }
                         .accessibilityLabel("사진 픽셀화")
                         .accessibilityHint("사진을 픽셀 아트로 변환합니다")
+
+                        Button {
+                            showProfilePixelate = true
+                        } label: {
+                            HomeActionButton(
+                                icon: "person.crop.square",
+                                title: "Profile Pixel",
+                                subtitle: "Auto-detect face & create pixel profile",
+                                color: .orange
+                            )
+                        }
+                        .accessibilityLabel("프로필 픽셀화")
+                        .accessibilityHint("얼굴을 자동 감지하여 프로필 픽셀 아트를 만듭니다")
 
                         Button {
                             viewModel.referenceSample = nil

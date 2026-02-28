@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		548BAF5BD37F4B8D8AD485FC /* BeforeAfterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */; };
+		A277CDE5DEDD406AAB63F5AF /* ProfilePixelateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */; };
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
 		587D176A2F1FB4DF006DED5B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 587D17692F1FB4DF006DED5B /* Localizable.xcstrings */; };
 		58AA25312ED4A3CD00E8766A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58AA25302ED4A3CD00E8766A /* Assets.xcassets */; };
@@ -32,9 +34,14 @@
 		A5157CC9E17941C4AA35C002 /* CreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */; };
 		3FB83995683F4D45AE78E034 /* CreatorToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */; };
 		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
+		AA0001022A4E640C006277FB /* SNSSizePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001012A4E640C006277FB /* SNSSizePreset.swift */; };
+		AA0001042A4E640C006277FB /* SNSShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001032A4E640C006277FB /* SNSShareView.swift */; };
+		AA0001062A4E640C006277FB /* FreeUsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001052A4E640C006277FB /* FreeUsageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageGenerator.swift; sourceTree = "<group>"; };
+		6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePixelateView.swift; sourceTree = "<group>"; };
 		03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		587D17692F1FB4DF006DED5B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		58AA25302ED4A3CD00E8766A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +68,9 @@
 		84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorViewModel.swift; path = ViewModels/CreatorViewModel.swift; sourceTree = "<group>"; };
 		37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorToolbarView.swift; path = Views/CreatorSubviews/CreatorToolbarView.swift; sourceTree = "<group>"; };
 		28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorColorPaletteView.swift; path = Views/CreatorSubviews/CreatorColorPaletteView.swift; sourceTree = "<group>"; };
+		AA0001012A4E640C006277FB /* SNSSizePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSSizePreset.swift; path = Models/SNSSizePreset.swift; sourceTree = "<group>"; };
+		AA0001032A4E640C006277FB /* SNSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSShareView.swift; path = Views/SNSShareView.swift; sourceTree = "<group>"; };
+		AA0001052A4E640C006277FB /* FreeUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeUsageManager.swift; path = Manager/FreeUsageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,9 @@
 				58D012422A28147D00668585 /* Preview Content */,
 				58D012662A2814F900668585 /* CreatorContentView.swift */,
 				58D576222A4E640B006277FB /* PixelatedPhotoView.swift */,
+				AA0001012A4E640C006277FB /* SNSSizePreset.swift */,
+				AA0001052A4E640C006277FB /* FreeUsageManager.swift */,
+				AA0001032A4E640C006277FB /* SNSShareView.swift */,
 				58D576242A4E6445006277FB /* PhotoPicker.swift */,
 				58D012702A28190C00668585 /* PixelatedImage.swift */,
 				58D0123C2A28147A00668585 /* PixelMeApp.swift */,
@@ -124,6 +137,7 @@
 		58D576202A4E61D6006277FB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */,
 				58D012682A28152400668585 /* DataManager.swift */,
 				CC2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift */,
 				CC1B2C3D4E5F6A7B8C9D0E1F /* SubscriptionManager.swift */,
@@ -147,6 +161,7 @@
 		B50F725B147D5A0605FF5547 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */,
 				EDCA211452AA0422EF2CC210 /* OnboardingView.swift */,
 				03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */,
 				CC4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift */,
@@ -249,6 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0001022A4E640C006277FB /* SNSSizePreset.swift in Sources */,
+				AA0001062A4E640C006277FB /* FreeUsageManager.swift in Sources */,
+				AA0001042A4E640C006277FB /* SNSShareView.swift in Sources */,
+				548BAF5BD37F4B8D8AD485FC /* BeforeAfterImageGenerator.swift in Sources */,
+				A277CDE5DEDD406AAB63F5AF /* ProfilePixelateView.swift in Sources */,
 				AA1B2C3D4E5F6A7B8C9D0E1F /* SubscriptionManager.swift in Sources */,
 				AA2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift in Sources */,
 				AA3B2C3D4E5F6A7B8C9D0E3F /* PreviewWallView.swift in Sources */,

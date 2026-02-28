@@ -42,7 +42,8 @@ class FeatureGating: ObservableObject {
     
     /// 색상 팔레트 접근 권한 확인
     func canUsePalette(_ paletteType: ColorPaletteType) -> Bool {
-        let freePalettes: [ColorPaletteType] = [.none, .gameboy, .nes]
+        // Free: 1 palette only (none = original colors)
+        let freePalettes: [ColorPaletteType] = [.none]
         
         if freePalettes.contains(paletteType) {
             return true
@@ -53,12 +54,12 @@ class FeatureGating: ObservableObject {
     
     /// 무료로 사용 가능한 색상 팔레트들
     var freePalettes: [ColorPaletteType] {
-        return [.none, .gameboy, .nes]
+        return [.none]
     }
     
     /// 프리미엄 색상 팔레트들
     var premiumPalettes: [ColorPaletteType] {
-        return [.snes, .vaporwave, .cyberpunk, .pastel, .retro8bit, .noir]
+        return [.gameboy, .nes, .snes, .vaporwave, .cyberpunk, .pastel, .retro8bit, .noir]
     }
     
     /// 필터 효과 접근 권한 확인

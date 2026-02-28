@@ -292,14 +292,22 @@ class ExportManager {
         }
     }
 
-    /// Share file using share sheet
+    /// Share file using share sheet (includes watermark + app link for non-Pro users)
     static func shareFile(data: Data, filename: String, from viewController: UIViewController) {
         let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
 
         do {
             try data.write(to: tempURL)
 
-            let activityViewController = UIActivityViewController(activityItems: [tempURL], applicationActivities: nil)
+            var activityItems: [Any] = [tempURL]
+            
+            // 비Pro 사용자: 앱 링크 추가
+            if !UserDefaults.standard.bool(forKey: AppConfig.premiumVersion) {
+                let shareText = "Created with PixelMe 🎨\n\(FreeUsageManager.appStoreURL)"
+                activityItems.append(shareText)
+            }
+
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
             viewController.present(activityViewController, animated: true)
         } catch {
             print("Error sharing file: \(error)")

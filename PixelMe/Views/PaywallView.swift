@@ -15,7 +15,7 @@ struct PaywallView: View {
     @ObservedObject var subscriptionManager = SubscriptionManager.shared
     @Binding var isProUser: Bool
     
-    @State private var selectedPlan: SubscriptionPlan = .yearly
+    @State private var selectedPlan: SubscriptionPlan = .monthly
     @State private var showingError = false
     @State private var isProcessing = false
     
@@ -126,10 +126,12 @@ struct PaywallView: View {
                 .foregroundColor(.white)
                 .padding(.bottom, 10)
             
-            // Monthly Plan
+            // Monthly Plan (Most Popular - prominent)
             PlanOptionView(
                 plan: .monthly,
                 price: subscriptionManager.getMonthlyPrice(),
+                badge: "Most Popular",
+                badgeColor: Color(AppConfig.continueButtonColor),
                 isSelected: selectedPlan == .monthly
             ) {
                 selectedPlan = .monthly
@@ -246,9 +248,9 @@ struct PaywallView: View {
                 .background(Color(AppConfig.toolBackgroundColor))
                 
                 // Features
-                FeatureComparisonRow(feature: "Pixelize", free: "Unlimited", pro: "Unlimited")
+                FeatureComparisonRow(feature: "Pixelize", free: "3/day", pro: "Unlimited")
                 FeatureComparisonRow(feature: "Pixel Size", free: "3 levels", pro: "6 levels")
-                FeatureComparisonRow(feature: "Color Palette", free: "3", pro: "9")
+                FeatureComparisonRow(feature: "Color Palette", free: "1", pro: "9")
                 FeatureComparisonRow(feature: "Filter Effects", free: "1", pro: "6")
                 FeatureComparisonRow(feature: "Dithering", free: "❌", pro: "✅")
                 FeatureComparisonRow(feature: "Batch Processing", free: "❌", pro: "✅")

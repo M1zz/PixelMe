@@ -1645,7 +1645,15 @@ class ExportManager {
         do {
             try data.write(to: tempURL)
 
-            let activityViewController = UIActivityViewController(activityItems: [tempURL], applicationActivities: nil)
+            var activityItems: [Any] = [tempURL]
+            
+            // 비Pro 사용자: 앱 링크 추가
+            if !UserDefaults.standard.bool(forKey: AppConfig.premiumVersion) {
+                let shareText = "Created with PixelMe 🎨\n\(FreeUsageManager.appStoreURL)"
+                activityItems.append(shareText)
+            }
+
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
             viewController.present(activityViewController, animated: true)
         } catch {
             print("Error sharing file: \(error)")
@@ -3406,15 +3414,23 @@ extension DataManager {
 
 // MARK: - Save pixel art image
 extension DataManager {
-    /// Save pixelated board as image
+    /// Save pixelated board as image (with watermark for non-Pro users)
     func savePixelatedImage() {
-        let nftImage = PixelatedImage(exportMode: true).environmentObject(self)
+        var nftImage = PixelatedImage(exportMode: true).environmentObject(self)
             .image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
+        let isPro = UserDefaults.standard.bool(forKey: AppConfig.premiumVersion)
+        if !isPro {
+            nftImage = FreeUsageManager.applyWatermark(to: nftImage)
+        }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func savePixelGrid(view: AnyView) {
-        let nftImage = view.image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
+        var nftImage = view.image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
+        let isPro = UserDefaults.standard.bool(forKey: AppConfig.premiumVersion)
+        if !isPro {
+            nftImage = FreeUsageManager.applyWatermark(to: nftImage)
+        }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     

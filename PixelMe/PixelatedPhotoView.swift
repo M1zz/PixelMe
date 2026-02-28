@@ -13,7 +13,10 @@ struct PixelatedPhotoView: View {
     @EnvironmentObject var manager: DataManager
     @State private var didShowInterstitial: Bool = false
     @State private var showAdvancedSettings: Bool = false
+    @State private var showSNSShare: Bool = false
     @State private var selectedTab: Int = 0
+    @State private var showShareSheet: Bool = false
+    @State private var shareBeforeAfter: Bool = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -37,8 +40,38 @@ struct PixelatedPhotoView: View {
                         VStack(spacing: 18) {
                             PixelBoardSizeSelector
 
+                            // Before/After toggle
+                            if manager.selectedImage != nil && manager.pixelatedImage != nil {
+                                Toggle(isOn: $shareBeforeAfter) {
+                                    HStack {
+                                        Image(systemName: "rectangle.split.2x1")
+                                        Text("비포/애프터로 공유")
+                                            .font(.system(size: 15))
+                                    }
+                                    .foregroundColor(.white)
+                                }
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(Color(AppConfig.toolBackgroundColor))
+                                )
+                                
+                                if shareBeforeAfter,
+                                   let original = manager.selectedImage,
+                                   let pixelated = manager.pixelatedImage,
+                                   let comparison = BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) {
+                                    Image(uiImage: comparison)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxHeight: 180)
+                                        .cornerRadius(12)
+                                }
+                            }
+
                             // Action buttons
                             VStack(spacing: 12) {
+                                ShareToSNSButton
+                                BeforeAfterShareButton
                                 EditButton
                                 DownloadButton
                             }
@@ -66,9 +99,22 @@ struct PixelatedPhotoView: View {
                 }
             }
         }
+        .sheet(isPresented: $showSNSShare) {
+            SNSShareView()
+                .environmentObject(manager)
+        }
         .sheet(isPresented: $showAdvancedSettings) {
             AdvancedSettingsView()
                 .environmentObject(manager)
+        }
+        .sheet(isPresented: $showShareSheet) {
+            if let original = manager.selectedImage,
+               let pixelated = manager.pixelatedImage {
+                let shareImage: UIImage = shareBeforeAfter
+                    ? (BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) ?? pixelated)
+                    : pixelated
+                ShareSheet(items: [shareImage])
+            }
         }
         .onAppear {
             if !manager.isPremiumUser && !didShowInterstitial {
@@ -444,6 +490,58 @@ struct PixelatedPhotoView: View {
                     .fill(Color(AppConfig.toolBackgroundColor))
             )
         }
+    }
+
+    private var ShareToSNSButton: some View {
+        Button {
+            showSNSShare = true
+        } label: {
+            HStack {
+                Image(systemName: "square.and.arrow.up")
+                Text("Share to SNS")
+            }
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.purple)
+            )
+        }
+        .disabled(manager.pixelatedImage == nil)
+        .accessibilityLabel("SNS 공유")
+        .accessibilityHint("SNS 사이즈 프리셋을 선택하고 공유합니다")
+    }
+
+    private var BeforeAfterShareButton: some View {
+        Button {
+            guard let original = manager.selectedImage,
+                  let pixelated = manager.pixelatedImage else { return }
+            
+            let shareImage: UIImage
+            if shareBeforeAfter,
+               let comparison = BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) {
+                shareImage = comparison
+            } else {
+                shareImage = pixelated
+            }
+            showShareSheet = true
+        } label: {
+            HStack {
+                Image(systemName: shareBeforeAfter ? "rectangle.split.2x1" : "square.and.arrow.up")
+                Text(shareBeforeAfter ? "Share Before/After" : "Share")
+            }
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.blue)
+            )
+        }
+        .disabled(manager.pixelatedImage == nil)
     }
 
     private var DownloadButton: some View {
