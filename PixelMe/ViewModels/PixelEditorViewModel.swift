@@ -50,6 +50,17 @@ final class PixelEditorViewModel: ObservableObject {
     @Published var scale: CGFloat = 1.0
     @Published var offset: CGSize = .zero
     @Published var showGrid: Bool = true
+
+    // MARK: Palette
+    @Published var selectedPalette: BuiltInPalette? = nil
+
+    /// 현재 활성 팔레트 색상 (Lospec 선택 시 해당 팔레트, 아니면 기본 팔레트)
+    var activePaletteColors: [PixelColor] {
+        if let palette = selectedPalette {
+            return palette.colors
+        }
+        return Self.defaultPalette
+    }
     
     // MARK: Undo/Redo
     private var undoStack: [CanvasCommand] = []
@@ -71,6 +82,10 @@ final class PixelEditorViewModel: ObservableObject {
     @Published var selectionStart: PixelPoint?
     @Published var selectionEnd: PixelPoint?
     @Published var clipboard: PixelSelection?
+
+    // MARK: Reference Sample (Follow Along)
+    @Published var referenceSample: SamplePixelArt?
+    @Published var showReferenceSample: Bool = true
 
     // MARK: Animation
     @Published var frames: [AnimationFrame] = []
@@ -98,6 +113,30 @@ final class PixelEditorViewModel: ObservableObject {
         self.canvasWidth = width
         self.canvasHeight = height
         self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
+    }
+
+    /// Aseprite 등 외부에서 가져온 AnimationFrame 배열로 초기화
+    init(frames importedFrames: [AnimationFrame], width: Int, height: Int) {
+        self.canvasWidth = width
+        self.canvasHeight = height
+        if let firstFrame = importedFrames.first {
+            self.layers = firstFrame.layers
+        } else {
+            self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
+        }
+        self.frames = importedFrames
+        if importedFrames.count > 1 {
+            self.currentFrameIndex = 0
+        }
+    }
+
+    /// Follow Along — 참고 샘플과 함께 빈 캔버스 생성
+    init(referenceSample sample: SamplePixelArt) {
+        let size = sample.boardSize.count
+        self.canvasWidth = size
+        self.canvasHeight = size
+        self.layers = [PixelLayer(name: "레이어 1", width: size, height: size)]
+        self.referenceSample = sample
     }
 
     /// 사진 변환 결과(UIImage)로부터 에디터 초기화
@@ -547,6 +586,20 @@ final class PixelEditorViewModel: ObservableObject {
             }
             layers[i].canvas = newCanvas
         }
+    }
+
+    // MARK: - Onion Skinning
+
+    /// 이전 프레임의 레이어들 (어니언 스키닝용)
+    var previousFrameLayers: [PixelLayer]? {
+        guard currentFrameIndex > 0 else { return nil }
+        return frames[currentFrameIndex - 1].layers
+    }
+
+    /// 다음 프레임의 레이어들 (어니언 스키닝용)
+    var nextFrameLayers: [PixelLayer]? {
+        guard currentFrameIndex < frames.count - 1 else { return nil }
+        return frames[currentFrameIndex + 1].layers
     }
 
     // MARK: - Animation

@@ -46,15 +46,64 @@ struct PixelEditorView: View {
         self.initialShowTimeline = initialShowTimeline
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(fromImage: image, targetSize: targetSize))
     }
-    
+
+    /// Follow Along — 참고 샘플과 함께 빈 캔버스
+    init(referenceSample: SamplePixelArt) {
+        self.initialShowTimeline = false
+        _viewModel = StateObject(wrappedValue: PixelEditorViewModel(referenceSample: referenceSample))
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             // 상단 바
             topBar
 
-            // 캔버스
-            PixelCanvasView(viewModel: viewModel)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            // 캔버스 + 줌 컨트롤
+            ZStack(alignment: .bottomTrailing) {
+                PixelCanvasView(viewModel: viewModel)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                // 줌 컨트롤 오버레이
+                VStack(spacing: 8) {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            viewModel.scale = min(viewModel.scale * 1.5, 10)
+                        }
+                    } label: {
+                        Image(systemName: "plus.magnifyingglass")
+                            .font(.system(size: 16))
+                            .frame(width: 36, height: 36)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Circle())
+                    }
+
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            viewModel.scale = max(viewModel.scale / 1.5, 0.5)
+                        }
+                    } label: {
+                        Image(systemName: "minus.magnifyingglass")
+                            .font(.system(size: 16))
+                            .frame(width: 36, height: 36)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Circle())
+                    }
+
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            viewModel.scale = 1.0
+                            viewModel.offset = .zero
+                        }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.system(size: 14))
+                            .frame(width: 36, height: 36)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Circle())
+                    }
+                }
+                .padding(12)
+            }
 
             // 팔레트
             colorPaletteBar
@@ -146,9 +195,19 @@ struct PixelEditorView: View {
             Text("\(viewModel.canvasWidth)×\(viewModel.canvasHeight)")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            
+
+            if viewModel.referenceSample != nil {
+                Button {
+                    viewModel.showReferenceSample.toggle()
+                } label: {
+                    Image(systemName: viewModel.showReferenceSample ? "eye.fill" : "eye.slash.fill")
+                        .font(.caption)
+                        .foregroundStyle(viewModel.showReferenceSample ? .blue : .secondary)
+                }
+            }
+
             Spacer()
-            
+
             HStack(spacing: 16) {
                 Button { viewModel.undo() } label: {
                     Image(systemName: "arrow.uturn.backward")
@@ -242,6 +301,34 @@ struct PixelEditorView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
 
+                // Lospec 팔레트 전환
+                Menu {
+                    Button {
+                        viewModel.selectedPalette = nil
+                    } label: {
+                        HStack {
+                            Text("Default (16색)")
+                            if viewModel.selectedPalette == nil { Image(systemName: "checkmark") }
+                        }
+                    }
+                    Divider()
+                    ForEach(BuiltInPalette.allCases) { palette in
+                        Button {
+                            viewModel.selectedPalette = palette
+                        } label: {
+                            HStack {
+                                Text(palette.rawValue)
+                                if viewModel.selectedPalette == palette { Image(systemName: "checkmark") }
+                            }
+                        }
+                    }
+                } label: {
+                    Image(systemName: "paintpalette")
+                        .frame(width: 28, height: 28)
+                        .background(Color.green.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                }
+
                 Divider().frame(height: 24)
 
                 // AI 추천 팔레트 (있을 경우)
@@ -261,7 +348,8 @@ struct PixelEditorView: View {
                     Divider().frame(height: 24)
                 }
 
-                ForEach(PixelEditorViewModel.defaultPalette, id: \.self) { color in
+                // 활성 팔레트 색상
+                ForEach(viewModel.activePaletteColors, id: \.self) { color in
                     Rectangle()
                         .fill(color.swiftUIColor)
                         .frame(width: 28, height: 28)
@@ -286,6 +374,33 @@ struct PixelEditorView: View {
     private var toolBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
+                // 브러시 크기 컨트롤
+                VStack(spacing: 2) {
+                    HStack(spacing: 4) {
+                        Button { viewModel.brushSize = max(1, viewModel.brushSize - 1) } label: {
+                            Image(systemName: "minus")
+                                .font(.system(size: 10, weight: .bold))
+                        }
+                        Text("\(viewModel.brushSize)")
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 16)
+                        Button { viewModel.brushSize = min(8, viewModel.brushSize + 1) } label: {
+                            Image(systemName: "plus")
+                                .font(.system(size: 10, weight: .bold))
+                        }
+                    }
+                    .frame(width: 56, height: 36)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+
+                    Text("Size")
+                        .font(.system(size: 9))
+                        .foregroundStyle(.secondary)
+                }
+                .tint(.primary)
+
+                Divider().frame(height: 40)
+
                 ForEach(DrawingToolType.allCases) { tool in
                     Button {
                         viewModel.selectedTool = tool
@@ -336,23 +451,43 @@ struct LayerPanelView: View {
         NavigationStack {
             List {
                 ForEach(Array(viewModel.layers.enumerated()), id: \.element.id) { index, layer in
-                    HStack {
-                        Button {
-                            viewModel.layers[index].isVisible.toggle()
-                        } label: {
-                            Image(systemName: layer.isVisible ? "eye" : "eye.slash")
-                                .foregroundStyle(layer.isVisible ? .primary : .secondary)
+                    VStack(spacing: 8) {
+                        HStack {
+                            Button {
+                                viewModel.layers[index].isVisible.toggle()
+                            } label: {
+                                Image(systemName: layer.isVisible ? "eye" : "eye.slash")
+                                    .foregroundStyle(layer.isVisible ? .primary : .secondary)
+                            }
+                            .buttonStyle(.plain)
+
+                            Text(layer.name)
+                                .fontWeight(viewModel.activeLayerIndex == index ? .bold : .regular)
+
+                            Spacer()
+
+                            if viewModel.activeLayerIndex == index {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.blue)
+                            }
                         }
-                        .buttonStyle(.plain)
-                        
-                        Text(layer.name)
-                            .fontWeight(viewModel.activeLayerIndex == index ? .bold : .regular)
-                        
-                        Spacer()
-                        
-                        if viewModel.activeLayerIndex == index {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(.blue)
+
+                        // 불투명도 슬라이더
+                        HStack(spacing: 8) {
+                            Image(systemName: "circle.lefthalf.filled")
+                                .font(.system(size: 12))
+                                .foregroundStyle(.secondary)
+                            Slider(
+                                value: Binding(
+                                    get: { viewModel.layers[index].opacity },
+                                    set: { viewModel.layers[index].opacity = $0 }
+                                ),
+                                in: 0...1
+                            )
+                            Text("\(Int(layer.opacity * 100))%")
+                                .font(.system(size: 11))
+                                .foregroundStyle(.secondary)
+                                .frame(width: 36, alignment: .trailing)
                         }
                     }
                     .contentShape(Rectangle())

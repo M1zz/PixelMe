@@ -15,35 +15,26 @@ struct CreatorContentView: View {
 
     @EnvironmentObject var manager: DataManager
     @StateObject private var viewModel = CreatorViewModel()
-    @State private var showProfilePixelate = false
     @State private var showAsepriteEditor = false
     @State private var showNewCanvasSheet = false
     @State private var showHomeAsepriteImporter = false
-    @State private var pendingEditorFromGallery = false
+    @State private var showFollowAlongEditor = false
 
     // MARK: - Main rendering function
     var body: some View {
         ZStack {
             Color(AppConfig.backgroundColor).ignoresSafeArea()
-
-            if viewModel.showHomeScreen {
-                HomeScreenView
-            } else {
-                DrawingScreenView
-            }
+            HomeScreenView
         }
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
         }
         .sheet(isPresented: $viewModel.showSampleGallery, onDismiss: {
-            if pendingEditorFromGallery {
-                pendingEditorFromGallery = false
-                showNewCanvasSheet = true
+            if viewModel.selectedSample != nil {
+                showFollowAlongEditor = true
             }
         }) {
-            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { _ in
-                pendingEditorFromGallery = true
-            }
+            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { _ in }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
             Group {
@@ -83,9 +74,10 @@ struct CreatorContentView: View {
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
         }
-        .sheet(isPresented: $showProfilePixelate) {
-            ProfilePixelateView()
-                .environmentObject(manager)
+        .fullScreenCover(isPresented: $showFollowAlongEditor) {
+            if let sample = viewModel.selectedSample {
+                PixelEditorView(referenceSample: sample)
+            }
         }
         .sheet(isPresented: $viewModel.showWatermarkPicker) {
             PhotoPicker { image in
@@ -124,8 +116,8 @@ struct CreatorContentView: View {
                 )
             }
         }
-        .fullScreenCover(isPresented: $showNewCanvasSheet) {
-            PixelEditorView(preset: .small)
+        .sheet(isPresented: $showNewCanvasSheet) {
+            NewCanvasView()
         }
         .fileImporter(
             isPresented: $showHomeAsepriteImporter,
@@ -258,20 +250,6 @@ struct CreatorContentView: View {
                     )
                 }
                 .accessibilityLabel("자유 그리기")
-
-                // Profile Pixel
-                Button {
-                    showProfilePixelate = true
-                } label: {
-                    HomeToolCard(
-                        icon: "person.crop.square",
-                        title: "Profile Pixel",
-                        subtitle: "Face → pixel profile",
-                        color: .orange,
-                        pixelIcon: PixelIconCatalog.profile
-                    )
-                }
-                .accessibilityLabel("프로필 픽셀화")
 
                 // Import
                 Button {
