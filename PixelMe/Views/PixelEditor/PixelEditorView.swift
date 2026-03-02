@@ -154,19 +154,27 @@ struct PixelEditorView: View {
                     Image(systemName: "arrow.uturn.backward")
                 }
                 .disabled(!viewModel.canUndo)
-                
+
                 Button { viewModel.redo() } label: {
                     Image(systemName: "arrow.uturn.forward")
                 }
                 .disabled(!viewModel.canRedo)
-                
+
                 Button { showLayerPanel = true } label: {
                     Image(systemName: "square.3.layers.3d")
                 }
-                
+
+                Button { showAnimationTimeline = true } label: {
+                    Image(systemName: "film")
+                }
+
+                Button { showExportSheet = true } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
+
                 Menu {
                     Toggle("그리드", isOn: $viewModel.showGrid)
-                    
+
                     Menu("대칭") {
                         ForEach(MirrorMode.allCases, id: \.self) { mode in
                             Button {
@@ -181,21 +189,11 @@ struct PixelEditorView: View {
                             }
                         }
                     }
-                    
-                    Button { showExportSheet = true } label: {
-                        Label("내보내기", systemImage: "square.and.arrow.up")
-                    }
 
                     Divider()
 
                     Button { showAsepriteImporter = true } label: {
                         Label("Aseprite 가져오기", systemImage: "doc.badge.arrow.up")
-                    }
-
-                    Divider()
-
-                    Button { showAnimationTimeline = true } label: {
-                        Label("애니메이션", systemImage: "film")
                     }
 
                     Button { showCanvasResize = true } label: {

@@ -19,6 +19,7 @@ struct CreatorContentView: View {
     @State private var showAsepriteEditor = false
     @State private var showNewCanvasSheet = false
     @State private var showHomeAsepriteImporter = false
+    @State private var pendingEditorFromGallery = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -34,9 +35,14 @@ struct CreatorContentView: View {
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
         }
-        .sheet(isPresented: $viewModel.showSampleGallery) {
-            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { sample in
-                viewModel.loadSampleArt(sample, manager: manager)
+        .sheet(isPresented: $viewModel.showSampleGallery, onDismiss: {
+            if pendingEditorFromGallery {
+                pendingEditorFromGallery = false
+                showNewCanvasSheet = true
+            }
+        }) {
+            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { _ in
+                pendingEditorFromGallery = true
             }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
@@ -239,15 +245,14 @@ struct CreatorContentView: View {
                 }
                 .accessibilityLabel("따라 그리기")
 
-                // Free Drawing
+                // Free Drawing → PixelEditorView (레이어·애니메이션·내보내기 통합)
                 Button {
-                    viewModel.referenceSample = nil
-                    viewModel.showHomeScreen = false
+                    showNewCanvasSheet = true
                 } label: {
                     HomeToolCard(
                         icon: "scribble.variable",
                         title: "Free Drawing",
-                        subtitle: "Start from scratch",
+                        subtitle: "Draw · Animate · Export",
                         color: .green,
                         pixelIcon: PixelIconCatalog.pencil
                     )
