@@ -553,5 +553,161 @@
       "Backend"
     ],
     "title" : "B전략 가격 업데이트: Free\/Pro ₩6,600mo\/₩49,000yr\/₩129,000 lifetime"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "DC1E4B4E-6D5F-4BBD-8FA4-CF744E7D191E",
+    "priority" : "high",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 5,
+    "tags" : [
+      "Feature",
+      "Core",
+      "UI"
+    ],
+    "title" : "사진 변환 결과를 픽셀 에디터에서 직접 편집 연결"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "6FC2D95C-147C-4AFC-B7B4-8435C90864A1",
+    "priority" : "high",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 5,
+    "tags" : [
+      "Feature",
+      "Core",
+      "Backend"
+    ],
+    "title" : "프로젝트 자동 저장 및 크래시 복구 시스템"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "F77794CC-F414-40DD-B5A5-CBBC110B4F98",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 5,
+    "tags" : [
+      "Feature",
+      "Core",
+      "iOS"
+    ],
+    "title" : "AI 스마트 팔레트 추천 (사진 색상 분석 기반 최적 팔레트 자동 선택)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "7FA8C1CA-C289-48C9-AEF5-F4853F45A3E5",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 3,
+    "tags" : [
+      "Feature",
+      "UI",
+      "Design"
+    ],
+    "title" : "컬러 휠 & HSB\/RGB 색상 피커 추가"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "0BA87E96-F38F-48CC-9D8B-69E49D324DE1",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 3,
+    "tags" : [
+      "Feature",
+      "Core"
+    ],
+    "title" : "캔버스 리사이즈 기능 (비파괴 크기 조절, 확장\/축소)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "DAF6E19B-6A63-408C-902E-5D7F7A19C6F2",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 2,
+    "tags" : [
+      "Feature",
+      "Core"
+    ],
+    "title" : "레이어 병합 및 평탄화 기능 (Merge Down\/Flatten All)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "54B9E3B2-7118-44F7-9D0D-1284A549A158",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 3,
+    "tags" : [
+      "Performance",
+      "Core",
+      "iOS"
+    ],
+    "title" : "저전력 모드 및 배터리 최적화 (동적 품질 스케일링)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "DF50E50D-8159-411C-8CF7-A4D39F988AA7",
+    "priority" : "medium",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 3,
+    "tags" : [
+      "UI",
+      "Design"
+    ],
+    "title" : "평생 요금제 강조 페이월 UX 개선 (구독 피로 해소)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "B0BB83C7-910B-485C-8658-CE98D34B8E16",
+    "priority" : "low",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 2,
+    "tags" : [
+      "Feature",
+      "iOS"
+    ],
+    "title" : "인앱 리뷰 유도 시스템 (SKStoreReviewController 적절한 타이밍 트리거)"
+  },
+  {
+    "assignee" : "ME",
+    "assigneeColorHex" : "4FACFE",
+    "id" : "E1454FF1-0D94-4480-9039-04626CCD75A7",
+    "priority" : "low",
+    "projectId" : "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
+    "sprint" : "Sprint 2",
+    "status" : "백로그",
+    "storyPoints" : 3,
+    "tags" : [
+      "Core",
+      "Backend",
+      "iOS"
+    ],
+    "title" : "오프라인 모드 안정성 확보 (네트워크 없이 전 기능 동작 보장)"
   }
 ]

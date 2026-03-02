@@ -36,9 +36,32 @@ struct PixelatedPhotoView: View {
                             .padding(.top, 15)
                             .padding(.bottom, 5)
 
-                        // Pixel density selector
+                        // Tab selector
+                        TabSelector
+                            .padding(.horizontal, 20)
+
+                        // Tab content
                         VStack(spacing: 18) {
-                            PixelBoardSizeSelector
+                            switch selectedTab {
+                            case 0:
+                                PixelBoardSizeSelector
+                            case 1:
+                                ColorPaletteSelector
+                            case 2:
+                                FilterEffectsSelector
+                            case 3:
+                                PresetsSelector
+                            default:
+                                PixelBoardSizeSelector
+                            }
+
+                            // Dithering quick toggle (visible in Size & Palette tabs)
+                            if selectedTab == 0 || selectedTab == 1 {
+                                DitheringQuickSelector
+                            }
+
+                            // Advanced button
+                            AdvancedSettingsButton
 
                             // Before/After toggle
                             if manager.selectedImage != nil && manager.pixelatedImage != nil {
@@ -469,6 +492,50 @@ struct PixelatedPhotoView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color(AppConfig.toolBackgroundColor))
             )
+        }
+    }
+
+    // MARK: - Dithering Quick Selector
+    private var DitheringQuickSelector: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Dithering")
+                .foregroundColor(.white)
+                .font(.headline)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(DitheringType.allCases) { dithering in
+                        let isLocked = !FeatureGating.shared.canUseDithering && dithering != .none
+
+                        Button {
+                            if isLocked {
+                                showAdvancedSettings = true
+                            } else {
+                                manager.ditheringType = dithering
+                                manager.applyPixelEffect(showFilterFlow: false)
+                            }
+                        } label: {
+                            HStack(spacing: 6) {
+                                Text(dithering.rawValue)
+                                    .font(.system(size: 13, weight: manager.ditheringType == dithering ? .bold : .regular))
+
+                                if isLocked {
+                                    Image(systemName: "lock.fill")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(.yellow)
+                                }
+                            }
+                            .foregroundColor(manager.ditheringType == dithering ? .white : .gray)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(manager.ditheringType == dithering ? Color(AppConfig.continueButtonColor) : Color(AppConfig.toolBackgroundColor))
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 

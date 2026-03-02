@@ -19,10 +19,10 @@
     "monthlyPrice" : "$4.99, ₩6,600",
     "yearlyPrice" : "$29.99, ₩44,000"
   },
-  "progress" : 13.88888888888889,
+  "progress" : 10.869565217391305,
   "sourcePath" : "\/Users\/hyunholee\/Documents\/workspace\/code\/PixelMe",
   "sprint" : "Sprint 3",
   "startWeek" : 3,
-  "totalTasks" : 36,
+  "totalTasks" : 46,
   "version" : "2.0.0"
 }
