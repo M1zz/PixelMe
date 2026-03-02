@@ -23,6 +23,7 @@ struct PixelatedPhotoView: View {
     @State private var videoGenerationError: String?
     @State private var showFilterPackStore: Bool = false
     @State private var selectedPackFilter: PackFilter?
+    @State private var showPixelEditor: Bool = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -99,6 +100,7 @@ struct PixelatedPhotoView: View {
 
                             // Action buttons
                             VStack(spacing: 12) {
+                                OpenInPixelEditorButton
                                 CreateReelButton
                                 ShareToSNSButton
                                 BeforeAfterShareButton
@@ -862,6 +864,37 @@ struct PixelatedPhotoView: View {
             )
         }
         .disabled(manager.pixelBoardSize == nil)
+    }
+
+    // MARK: - Open in Pixel Editor
+    private var OpenInPixelEditorButton: some View {
+        Button {
+            showPixelEditor = true
+        } label: {
+            HStack {
+                Image(systemName: "paintbrush.pointed.fill")
+                Text("픽셀 에디터에서 편집")
+            }
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(LinearGradient(
+                        colors: [.purple, .blue],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    ))
+            )
+        }
+        .disabled(manager.pixelatedImage == nil)
+        .fullScreenCover(isPresented: $showPixelEditor) {
+            if let pixelImage = manager.pixelatedImage,
+               let boardSize = manager.pixelBoardSize {
+                PixelEditorView(fromImage: pixelImage, targetSize: boardSize.count)
+            }
+        }
     }
 }
 

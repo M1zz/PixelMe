@@ -47,9 +47,12 @@ class SubscriptionManager: ObservableObject {
     // MARK: - Initialization
     
     private init() {
+        // 오프라인 시 캐시된 Pro 상태 즉시 적용
+        self.isProUser = UserDefaults.standard.bool(forKey: "SubscriptionManager.cachedProStatus")
+
         // Start listening for transaction updates
         updateListenerTask = listenForTransactions()
-        
+
         // Load products and check subscription status
         Task {
             await loadProducts()
@@ -187,13 +190,33 @@ class SubscriptionManager: ObservableObject {
         isLoading = false
     }
     
+    // MARK: - Offline Cache
+
+    private let cachedProStatusKey = "SubscriptionManager.cachedProStatus"
+    private let cachedProDateKey = "SubscriptionManager.cachedProDate"
+
+    /// 오프라인 시 캐시된 Pro 상태 반환 (7일 유효)
+    private func loadCachedProStatus() -> Bool {
+        let cached = UserDefaults.standard.bool(forKey: cachedProStatusKey)
+        if let date = UserDefaults.standard.object(forKey: cachedProDateKey) as? Date {
+            let days = Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
+            return cached && days < 7
+        }
+        return false
+    }
+
+    private func saveCachedProStatus(_ isPro: Bool) {
+        UserDefaults.standard.set(isPro, forKey: cachedProStatusKey)
+        UserDefaults.standard.set(Date(), forKey: cachedProDateKey)
+    }
+
     // MARK: - Subscription Status
-    
+
     /// 구독 상태 확인
     func checkSubscriptionStatus() async {
         var hasActiveSubscription = false
         var activeProduct: Product?
-        
+
         // 현재 활성 구독 확인
         for await result in Transaction.currentEntitlements {
             do {
@@ -232,7 +255,10 @@ class SubscriptionManager: ObservableObject {
         // 상태 업데이트
         isProUser = hasActiveSubscription
         currentSubscription = activeProduct
-        
+
+        // 오프라인 캐시 저장
+        saveCachedProStatus(hasActiveSubscription)
+
         // UserDefaults 동기화 (기존 코드 호환성)
         UserDefaults.standard.set(hasActiveSubscription, forKey: AppConfig.premiumVersion)
         
@@ -296,17 +322,17 @@ class SubscriptionManager: ObservableObject {
     
     /// 월간 구독 가격 반환
     func getMonthlyPrice() -> String {
-        return getMonthlyProduct()?.displayPrice ?? "₩4,900"
+        return getMonthlyProduct()?.displayPrice ?? "₩6,600"
     }
-    
+
     /// 연간 구독 가격 반환
     func getYearlyPrice() -> String {
-        return getYearlyProduct()?.displayPrice ?? "₩29,900"
+        return getYearlyProduct()?.displayPrice ?? "₩49,000"
     }
-    
+
     /// 평생 구매 가격 반환
     func getLifetimePrice() -> String {
-        return getLifetimeProduct()?.displayPrice ?? "₩99,000"
+        return getLifetimeProduct()?.displayPrice ?? "₩129,000"
     }
     
     /// 연간 구독의 월 환산 가격 반환
@@ -319,8 +345,8 @@ class SubscriptionManager: ObservableObject {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = yearlyProduct.priceFormatStyle.locale
-        
-        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩3,325"
+
+        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩4,083"
     }
     
     /// 상품들이 로드되었는지 확인

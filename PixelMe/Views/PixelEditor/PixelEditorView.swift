@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
+import ImageIO
 
 /// 메인 픽셀 에디터 화면 — 캔버스 + 도구바 + 팔레트 + 레이어
 struct PixelEditorView: View {
@@ -14,6 +16,9 @@ struct PixelEditorView: View {
     @State private var showLayerPanel = false
     @State private var showExportSheet = false
     @State private var showColorPicker = false
+    @State private var showAdvancedColorPicker = false
+    @State private var showAnimationTimeline = false
+    @State private var showCanvasResize = false
     
     init(preset: CanvasPreset = .small) {
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(preset: preset))
@@ -22,19 +27,24 @@ struct PixelEditorView: View {
     init(width: Int, height: Int) {
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(width: width, height: height))
     }
+
+    /// 사진 변환 결과를 편집기에 로드
+    init(fromImage image: UIImage, targetSize: Int = 32) {
+        _viewModel = StateObject(wrappedValue: PixelEditorViewModel(fromImage: image, targetSize: targetSize))
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             // 상단 바
             topBar
-            
+
             // 캔버스
             PixelCanvasView(viewModel: viewModel)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+
             // 팔레트
             colorPaletteBar
-            
+
             // 도구 바
             toolBar
         }
@@ -46,6 +56,25 @@ struct PixelEditorView: View {
         .sheet(isPresented: $showExportSheet) {
             ExportSheetView(viewModel: viewModel)
                 .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $showAdvancedColorPicker) {
+            AdvancedColorPickerView(selectedColor: $viewModel.selectedColor)
+                .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showAnimationTimeline) {
+            AnimationTimelineView(viewModel: viewModel)
+                .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $showCanvasResize) {
+            CanvasResizeView(viewModel: viewModel)
+                .presentationDetents([.medium])
+        }
+        .onAppear {
+            viewModel.startAutoSave()
+        }
+        .onDisappear {
+            viewModel.saveProject()
+            viewModel.stopAutoSave()
         }
     }
     
@@ -102,6 +131,16 @@ struct PixelEditorView: View {
                     Button { showExportSheet = true } label: {
                         Label("내보내기", systemImage: "square.and.arrow.up")
                     }
+
+                    Divider()
+
+                    Button { showAnimationTimeline = true } label: {
+                        Label("애니메이션", systemImage: "film")
+                    }
+
+                    Button { showCanvasResize = true } label: {
+                        Label("캔버스 크기 변경", systemImage: "arrow.up.left.and.arrow.down.right")
+                    }
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
@@ -129,8 +168,41 @@ struct PixelEditorView: View {
                 .labelsHidden()
                 .frame(width: 32, height: 32)
                 
+                // 고급 색상 피커 버튼
+                Button { showAdvancedColorPicker = true } label: {
+                    Image(systemName: "slider.horizontal.3")
+                        .frame(width: 28, height: 28)
+                        .background(Color.blue.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                }
+
+                // AI 팔레트 추천 버튼
+                Button { viewModel.generateAIPalette() } label: {
+                    Image(systemName: "wand.and.stars")
+                        .frame(width: 28, height: 28)
+                        .background(Color.purple.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                }
+
                 Divider().frame(height: 24)
-                
+
+                // AI 추천 팔레트 (있을 경우)
+                ForEach(viewModel.aiPalette, id: \.self) { color in
+                    Rectangle()
+                        .fill(color.swiftUIColor)
+                        .frame(width: 28, height: 28)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(viewModel.selectedColor == color ? Color.purple : Color.clear, lineWidth: 2)
+                        )
+                        .onTapGesture { viewModel.selectedColor = color }
+                }
+
+                if !viewModel.aiPalette.isEmpty {
+                    Divider().frame(height: 24)
+                }
+
                 ForEach(PixelEditorViewModel.defaultPalette, id: \.self) { color in
                     Rectangle()
                         .fill(color.swiftUIColor)
@@ -251,9 +323,11 @@ struct ExportSheetView: View {
     @ObservedObject var viewModel: PixelEditorViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var exportScale = 4
-    
+    @State private var exportStatus: String?
+    @State private var selectedLayout: SpriteSheetLayout = .horizontal
+
     private let scales = [1, 2, 4, 8]
-    
+
     var body: some View {
         NavigationStack {
             List {
@@ -266,12 +340,43 @@ struct ExportSheetView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
-                Section {
+
+                Section("PNG 내보내기") {
                     Button {
                         exportPNG()
                     } label: {
                         Label("PNG로 저장", systemImage: "photo")
+                    }
+                }
+
+                if viewModel.frames.count > 1 {
+                    Section("애니메이션 내보내기") {
+                        Button {
+                            exportGIF()
+                        } label: {
+                            Label("GIF로 저장", systemImage: "play.rectangle")
+                        }
+
+                        Button {
+                            exportSpriteSheet()
+                        } label: {
+                            Label("스프라이트 시트로 저장", systemImage: "square.grid.3x3")
+                        }
+
+                        Picker("레이아웃", selection: $selectedLayout) {
+                            ForEach(SpriteSheetLayout.allCases, id: \.self) { layout in
+                                Text(layout.rawValue).tag(layout)
+                            }
+                        }
+                    }
+                }
+
+                if let status = exportStatus {
+                    Section {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                            Text(status)
+                        }
                     }
                 }
             }
@@ -284,11 +389,42 @@ struct ExportSheetView: View {
             }
         }
     }
-    
+
     private func exportPNG() {
         guard let image = viewModel.renderToImage(scale: exportScale) else { return }
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        dismiss()
+        exportStatus = "PNG 저장 완료"
+    }
+
+    private func exportGIF() {
+        let images = viewModel.renderAllFrames(scale: exportScale)
+        guard !images.isEmpty else { return }
+        let delay = 1.0 / Double(max(1, viewModel.fps))
+        // GIF 생성
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("pixel_animation.gif")
+        let dest = CGImageDestinationCreateWithURL(tempURL as CFURL, UTType.gif.identifier as CFString, images.count, nil)
+        guard let destination = dest else { return }
+        let gifProps = [kCGImagePropertyGIFDictionary: [kCGImagePropertyGIFLoopCount: 0]] as CFDictionary
+        CGImageDestinationSetProperties(destination, gifProps)
+        for img in images {
+            guard let cgImg = img.cgImage else { continue }
+            let frameProps = [kCGImagePropertyGIFDictionary: [kCGImagePropertyGIFDelayTime: delay]] as CFDictionary
+            CGImageDestinationAddImage(destination, cgImg, frameProps)
+        }
+        if CGImageDestinationFinalize(destination) {
+            if let data = try? Data(contentsOf: tempURL) {
+                if let gifImage = UIImage(data: data) {
+                    UIImageWriteToSavedPhotosAlbum(gifImage, nil, nil, nil)
+                }
+            }
+            exportStatus = "GIF 저장 완료 (\(images.count)프레임)"
+        }
+    }
+
+    private func exportSpriteSheet() {
+        guard let image = viewModel.renderSpriteSheet(scale: exportScale, layout: selectedLayout) else { return }
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        exportStatus = "스프라이트 시트 저장 완료"
     }
 }
 
@@ -298,10 +434,29 @@ struct NewCanvasView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedPreset: CanvasPreset = .small
     @State private var showEditor = false
-    
+    @State private var showRecovery = false
+
     var body: some View {
         NavigationStack {
             List {
+                if PixelEditorViewModel.hasRecoverableProject {
+                    Section("복구") {
+                        Button {
+                            showRecovery = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "arrow.counterclockwise.circle.fill")
+                                    .foregroundStyle(.orange)
+                                Text("이전 작업 복구하기")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .tint(.primary)
+                    }
+                }
+
                 Section("캔버스 크기") {
                     ForEach(CanvasPreset.allCases, id: \.self) { preset in
                         Button {
@@ -328,6 +483,7 @@ struct NewCanvasView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("생성") {
+                        PixelEditorViewModel.clearAutoSave()
                         showEditor = true
                     }
                 }
@@ -335,7 +491,82 @@ struct NewCanvasView: View {
             .fullScreenCover(isPresented: $showEditor) {
                 PixelEditorView(preset: selectedPreset)
             }
+            .fullScreenCover(isPresented: $showRecovery) {
+                if let vm = PixelEditorViewModel.recoverProject() {
+                    RecoveredPixelEditorView(viewModel: vm)
+                }
+            }
         }
+    }
+}
+
+/// 복구된 프로젝트 에디터 래퍼
+struct RecoveredPixelEditorView: View {
+    @StateObject var viewModel: PixelEditorViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State private var showLayerPanel = false
+    @State private var showExportSheet = false
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Button { dismiss() } label: {
+                    Image(systemName: "xmark").font(.title3)
+                }
+                Spacer()
+                Text("\(viewModel.canvasWidth)×\(viewModel.canvasHeight)")
+                    .font(.caption).foregroundStyle(.secondary)
+                Spacer()
+                HStack(spacing: 16) {
+                    Button { viewModel.undo() } label: { Image(systemName: "arrow.uturn.backward") }.disabled(!viewModel.canUndo)
+                    Button { viewModel.redo() } label: { Image(systemName: "arrow.uturn.forward") }.disabled(!viewModel.canRedo)
+                    Button { showLayerPanel = true } label: { Image(systemName: "square.3.layers.3d") }
+                    Button { showExportSheet = true } label: { Image(systemName: "square.and.arrow.up") }
+                }
+            }
+            .padding(.horizontal, 16).padding(.vertical, 8)
+            .background(Color(uiColor: .secondarySystemBackground))
+
+            PixelCanvasView(viewModel: viewModel)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 6) {
+                    ColorPicker("", selection: Binding(
+                        get: { viewModel.selectedColor.swiftUIColor },
+                        set: { viewModel.selectedColor = PixelColor(uiColor: UIColor($0)) }
+                    )).labelsHidden().frame(width: 32, height: 32)
+                    Divider().frame(height: 24)
+                    ForEach(PixelEditorViewModel.defaultPalette, id: \.self) { color in
+                        Rectangle().fill(color.swiftUIColor).frame(width: 28, height: 28)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                            .overlay(RoundedRectangle(cornerRadius: 4).stroke(viewModel.selectedColor == color ? Color.blue : Color.clear, lineWidth: 2))
+                            .onTapGesture { viewModel.selectedColor = color }
+                    }
+                }.padding(.horizontal, 12).padding(.vertical, 6)
+            }.background(Color(uiColor: .secondarySystemBackground))
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(DrawingToolType.allCases) { tool in
+                        Button { viewModel.selectedTool = tool } label: {
+                            VStack(spacing: 2) {
+                                Image(systemName: tool.icon).font(.title3).frame(width: 36, height: 36)
+                                    .background(viewModel.selectedTool == tool ? Color.blue.opacity(0.2) : Color.clear)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                Text(tool.rawValue).font(.system(size: 9))
+                                    .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
+                            }
+                        }.tint(viewModel.selectedTool == tool ? .blue : .primary)
+                    }
+                }.padding(.horizontal, 12).padding(.vertical, 8)
+            }.background(Color(uiColor: .secondarySystemBackground))
+        }
+        .background(Color(uiColor: .systemBackground))
+        .sheet(isPresented: $showLayerPanel) { LayerPanelView(viewModel: viewModel).presentationDetents([.medium]) }
+        .sheet(isPresented: $showExportSheet) { ExportSheetView(viewModel: viewModel).presentationDetents([.medium]) }
+        .onAppear { viewModel.startAutoSave() }
+        .onDisappear { viewModel.saveProject(); viewModel.stopAutoSave() }
     }
 }
 

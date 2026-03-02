@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
 		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
+		3CC20BD5105DEA77121F6E47 /* PowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */; };
+		3ED5F204E8A29B5887C48242 /* AsepriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */; };
 		3FB83995683F4D45AE78E034 /* CreatorToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */; };
 		48ADB35DF48DC901EE54EFD2 /* FilterPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B73E0937DD5196974A90D3 /* FilterPackManager.swift */; };
 		548BAF5BD37F4B8D8AD485FC /* BeforeAfterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */; };
@@ -36,6 +38,7 @@
 		58D576232A4E640C006277FB /* PixelatedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576222A4E640B006277FB /* PixelatedPhotoView.swift */; };
 		58D576252A4E6445006277FB /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576242A4E6445006277FB /* PhotoPicker.swift */; };
 		70855EC9C6D9447B225F6165 /* FilterPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A247E7AD4AC46B4FAA94A81 /* FilterPack.swift */; };
+		7F0A5E20B709D0D5974C40AD /* CanvasResizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA0C4A27A8652240E7608FA /* CanvasResizeView.swift */; };
 		96C35DA1EBF1E1E51BA8D68F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA211452AA0422EF2CC210 /* OnboardingView.swift */; };
 		9EA1EEC5BB0157F22775CAD2 /* FilterPackStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130E7395FEF5E5B665F631F /* FilterPackStoreView.swift */; };
 		A277CDE5DEDD406AAB63F5AF /* ProfilePixelateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */; };
@@ -51,11 +54,16 @@
 		D5DC5993800BE71085C85ED0 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */; };
 		D745E85BC8AA38EF45722774 /* BeforeAfterVideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */; };
 		EDFD175EFA6D6EEDF11353E2 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */; };
+		F2C018810D9C4060D13D757B /* AdvancedColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */; };
+		FF776C1D23B5933CF50A4A99 /* AnimationTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A61BA48040EB899027EFA /* AnimationTimelineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdvancedColorPickerView.swift; sourceTree = "<group>"; };
+		175A61BA48040EB899027EFA /* AnimationTimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationTimelineView.swift; sourceTree = "<group>"; };
 		176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageGenerator.swift; sourceTree = "<group>"; };
+		1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsepriteManager.swift; sourceTree = "<group>"; };
 		2130E7395FEF5E5B665F631F /* FilterPackStoreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPackStoreView.swift; sourceTree = "<group>"; };
 		28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorColorPaletteView.swift; path = Views/CreatorSubviews/CreatorColorPaletteView.swift; sourceTree = "<group>"; };
 		2A247E7AD4AC46B4FAA94A81 /* FilterPack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPack.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 		AA0001012A4E640C006277FB /* SNSSizePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSSizePreset.swift; path = Models/SNSSizePreset.swift; sourceTree = "<group>"; };
 		AA0001032A4E640C006277FB /* SNSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSShareView.swift; path = Views/SNSShareView.swift; sourceTree = "<group>"; };
 		AA0001052A4E640C006277FB /* FreeUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeUsageManager.swift; path = Manager/FreeUsageManager.swift; sourceTree = "<group>"; };
+		B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PowerManager.swift; sourceTree = "<group>"; };
 		CC1B2C3D4E5F6A7B8C9D0E1F /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		CC2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureGating.swift; sourceTree = "<group>"; };
 		CC3B2C3D4E5F6A7B8C9D0E3F /* PreviewWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWallView.swift; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 		D1B73E0937DD5196974A90D3 /* FilterPackManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPackManager.swift; sourceTree = "<group>"; };
 		D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BeforeAfterVideoGenerator.swift; sourceTree = "<group>"; };
 		DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		DFA0C4A27A8652240E7608FA /* CanvasResizeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanvasResizeView.swift; sourceTree = "<group>"; };
 		EDCA211452AA0422EF2CC210 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +149,9 @@
 			children = (
 				58C863BC2F53679200B3995A /* PixelCanvasView.swift */,
 				58C863BD2F53679200B3995A /* PixelEditorView.swift */,
+				0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */,
+				175A61BA48040EB899027EFA /* AnimationTimelineView.swift */,
+				DFA0C4A27A8652240E7608FA /* CanvasResizeView.swift */,
 			);
 			path = PixelEditor;
 			sourceTree = "<group>";
@@ -206,6 +219,8 @@
 				D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */,
 				D1B73E0937DD5196974A90D3 /* FilterPackManager.swift */,
 				559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */,
+				B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */,
+				1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -370,6 +385,11 @@
 				48ADB35DF48DC901EE54EFD2 /* FilterPackManager.swift in Sources */,
 				9EA1EEC5BB0157F22775CAD2 /* FilterPackStoreView.swift in Sources */,
 				CE68B4F96E976C24A2733ED7 /* ReviewManager.swift in Sources */,
+				3CC20BD5105DEA77121F6E47 /* PowerManager.swift in Sources */,
+				3ED5F204E8A29B5887C48242 /* AsepriteManager.swift in Sources */,
+				F2C018810D9C4060D13D757B /* AdvancedColorPickerView.swift in Sources */,
+				FF776C1D23B5933CF50A4A99 /* AnimationTimelineView.swift in Sources */,
+				7F0A5E20B709D0D5974C40AD /* CanvasResizeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

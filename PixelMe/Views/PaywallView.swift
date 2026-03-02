@@ -15,7 +15,7 @@ struct PaywallView: View {
     @ObservedObject var subscriptionManager = SubscriptionManager.shared
     @Binding var isProUser: Bool
     
-    @State private var selectedPlan: SubscriptionPlan = .monthly
+    @State private var selectedPlan: SubscriptionPlan = .lifetime
     @State private var showingError = false
     @State private var isProcessing = false
     
@@ -125,38 +125,45 @@ struct PaywallView: View {
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.white)
                 .padding(.bottom, 10)
-            
-            // Monthly Plan (Most Popular - prominent)
+
+            // Lifetime Plan (Best Deal - 최상단, 강조)
             PlanOptionView(
-                plan: .monthly,
-                price: subscriptionManager.getMonthlyPrice(),
-                badge: "Most Popular",
-                badgeColor: Color(AppConfig.continueButtonColor),
-                isSelected: selectedPlan == .monthly
+                plan: .lifetime,
+                price: subscriptionManager.getLifetimePrice(),
+                badge: "Best Deal",
+                badgeColor: .purple,
+                isSelected: selectedPlan == .lifetime
             ) {
-                selectedPlan = .monthly
+                selectedPlan = .lifetime
             }
-            
+
+            // 구독 대비 절약 안내
+            if selectedPlan == .lifetime {
+                Text("Monthly for 20 months = Lifetime forever")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.purple)
+                    .padding(.vertical, 4)
+            }
+
             // Yearly Plan (Best Value)
             PlanOptionView(
                 plan: .yearly,
                 price: subscriptionManager.getYearlyPrice(),
                 monthlyPrice: subscriptionManager.getYearlyMonthlyPrice(),
-                badge: "Best Value",
+                badge: "Save 44%",
+                badgeColor: .green,
                 isSelected: selectedPlan == .yearly
             ) {
                 selectedPlan = .yearly
             }
-            
-            // Lifetime Plan (Limited)
+
+            // Monthly Plan
             PlanOptionView(
-                plan: .lifetime,
-                price: subscriptionManager.getLifetimePrice(),
-                badge: "Limited Time",
-                badgeColor: .purple,
-                isSelected: selectedPlan == .lifetime
+                plan: .monthly,
+                price: subscriptionManager.getMonthlyPrice(),
+                isSelected: selectedPlan == .monthly
             ) {
-                selectedPlan = .lifetime
+                selectedPlan = .monthly
             }
         }
     }

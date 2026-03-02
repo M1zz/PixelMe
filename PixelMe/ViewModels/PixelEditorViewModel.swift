@@ -65,6 +65,20 @@ final class PixelEditorViewModel: ObservableObject {
     // MARK: Shape preview
     @Published var shapePreviewPixels: [PixelPoint] = []
     private var shapeStartPoint: PixelPoint?
+
+    // MARK: Selection
+    @Published var selection: PixelSelection?
+    @Published var selectionStart: PixelPoint?
+    @Published var selectionEnd: PixelPoint?
+    @Published var clipboard: PixelSelection?
+
+    // MARK: Animation
+    @Published var frames: [AnimationFrame] = []
+    @Published var currentFrameIndex: Int = 0
+    @Published var fps: Int = 8
+    @Published var isPlaying: Bool = false
+    @Published var showOnionSkin: Bool = false
+    private var playbackTimer: Timer?
     
     var activeCanvas: PixelCanvas {
         get { layers[activeLayerIndex].canvas }
@@ -85,6 +99,62 @@ final class PixelEditorViewModel: ObservableObject {
         self.canvasHeight = height
         self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
     }
+
+    /// 사진 변환 결과(UIImage)로부터 에디터 초기화
+    init(fromImage image: UIImage, targetSize: Int = 32) {
+        let size = min(targetSize, 128)
+        self.canvasWidth = size
+        self.canvasHeight = size
+
+        // 이미지를 targetSize로 nearest-neighbor 리사이즈
+        let scaledImage = Self.resizeImageNearest(image, to: CGSize(width: size, height: size))
+        var layer = PixelLayer(name: "변환된 이미지", width: size, height: size)
+
+        // 픽셀 데이터 추출
+        if let cgImage = scaledImage.cgImage {
+            let w = cgImage.width
+            let h = cgImage.height
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let bytesPerPixel = 4
+            let bytesPerRow = bytesPerPixel * w
+            var rawData = [UInt8](repeating: 0, count: h * bytesPerRow)
+
+            if let context = CGContext(
+                data: &rawData,
+                width: w, height: h,
+                bitsPerComponent: 8,
+                bytesPerRow: bytesPerRow,
+                space: colorSpace,
+                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+            ) {
+                context.draw(cgImage, in: CGRect(x: 0, y: 0, width: w, height: h))
+
+                for y in 0..<min(h, size) {
+                    for x in 0..<min(w, size) {
+                        let offset = (y * bytesPerRow) + (x * bytesPerPixel)
+                        let r = rawData[offset]
+                        let g = rawData[offset + 1]
+                        let b = rawData[offset + 2]
+                        let a = rawData[offset + 3]
+                        if a > 0 {
+                            layer.canvas.setPixel(at: PixelPoint(x: x, y: y), color: PixelColor(r: r, g: g, b: b, a: a))
+                        }
+                    }
+                }
+            }
+        }
+
+        self.layers = [layer]
+    }
+
+    /// Nearest-neighbor 리사이즈 (픽셀 아트 보존)
+    private static func resizeImageNearest(_ image: UIImage, to size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { ctx in
+            ctx.cgContext.interpolationQuality = .none
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
     
     // MARK: - Drawing
     
@@ -104,7 +174,8 @@ final class PixelEditorViewModel: ObservableObject {
             shapeStartPoint = point
             shapePreviewPixels = [point]
         case .select:
-            break // TODO: Sprint 3 후반
+            selectionStart = point
+            selectionEnd = point
         }
     }
     
@@ -125,25 +196,29 @@ final class PixelEditorViewModel: ObservableObject {
             if let start = shapeStartPoint {
                 shapePreviewPixels = circlePoints(center: start, to: point)
             }
+        case .select:
+            selectionEnd = point
         default:
             break
         }
     }
-    
+
     /// 터치 끝
     func endStroke(at point: PixelPoint) {
         switch selectedTool {
         case .line, .rectangle, .circle:
-            // shape preview → 실제 적용
             for p in shapePreviewPixels {
                 applyPixel(at: p)
             }
             shapePreviewPixels = []
             shapeStartPoint = nil
+        case .select:
+            selectionEnd = point
+            finalizeSelection()
         default:
             break
         }
-        
+
         commitStroke()
     }
     
@@ -378,6 +453,347 @@ final class PixelEditorViewModel: ObservableObject {
     
     // MARK: - Color Palette
     
+    // MARK: - Selection Tool
+
+    private func finalizeSelection() {
+        guard let start = selectionStart, let end = selectionEnd else { return }
+        let minX = min(start.x, end.x)
+        let minY = min(start.y, end.y)
+        let maxX = max(start.x, end.x)
+        let maxY = max(start.y, end.y)
+        let w = maxX - minX + 1
+        let h = maxY - minY + 1
+
+        var pixels: [PixelColor] = []
+        for y in minY...maxY {
+            for x in minX...maxX {
+                let p = PixelPoint(x: x, y: y)
+                pixels.append(activeCanvas.pixel(at: p) ?? .clear)
+            }
+        }
+        selection = PixelSelection(origin: PixelPoint(x: minX, y: minY), size: (w, h), pixels: pixels)
+    }
+
+    /// 선택 영역 복사
+    func copySelection() {
+        clipboard = selection
+    }
+
+    /// 선택 영역 잘라내기
+    func cutSelection() {
+        guard let sel = selection else { return }
+        clipboard = sel
+        var changes: [(point: PixelPoint, oldColor: PixelColor, newColor: PixelColor)] = []
+        for y in 0..<sel.size.height {
+            for x in 0..<sel.size.width {
+                let p = PixelPoint(x: sel.origin.x + x, y: sel.origin.y + y)
+                if let old = activeCanvas.pixel(at: p) {
+                    changes.append((point: p, oldColor: old, newColor: .clear))
+                    activeCanvas.setPixel(at: p, color: .clear)
+                }
+            }
+        }
+        if !changes.isEmpty {
+            let cmd = PixelChangeCommand(changes: changes)
+            undoStack.append(cmd)
+            if undoStack.count > maxHistory { undoStack.removeFirst() }
+            redoStack.removeAll()
+            updateUndoRedoState()
+        }
+        selection = nil
+    }
+
+    /// 클립보드 붙여넣기
+    func pasteClipboard(at target: PixelPoint = PixelPoint(x: 0, y: 0)) {
+        guard let clip = clipboard else { return }
+        var changes: [(point: PixelPoint, oldColor: PixelColor, newColor: PixelColor)] = []
+        for y in 0..<clip.size.height {
+            for x in 0..<clip.size.width {
+                let p = PixelPoint(x: target.x + x, y: target.y + y)
+                guard activeCanvas.isValid(p) else { continue }
+                let newColor = clip.pixels[y * clip.size.width + x]
+                guard !newColor.isTransparent else { continue }
+                let old = activeCanvas.pixel(at: p) ?? .clear
+                changes.append((point: p, oldColor: old, newColor: newColor))
+                activeCanvas.setPixel(at: p, color: newColor)
+            }
+        }
+        if !changes.isEmpty {
+            let cmd = PixelChangeCommand(changes: changes)
+            undoStack.append(cmd)
+            if undoStack.count > maxHistory { undoStack.removeFirst() }
+            redoStack.removeAll()
+            updateUndoRedoState()
+        }
+    }
+
+    func clearSelection() {
+        selection = nil
+        selectionStart = nil
+        selectionEnd = nil
+    }
+
+    // MARK: - Canvas Resize
+
+    func resizeCanvas(newWidth: Int, newHeight: Int) {
+        for i in 0..<layers.count {
+            var newCanvas = PixelCanvas(width: newWidth, height: newHeight)
+            for y in 0..<min(layers[i].canvas.height, newHeight) {
+                for x in 0..<min(layers[i].canvas.width, newWidth) {
+                    if let color = layers[i].canvas.pixel(at: PixelPoint(x: x, y: y)) {
+                        newCanvas.setPixel(at: PixelPoint(x: x, y: y), color: color)
+                    }
+                }
+            }
+            layers[i].canvas = newCanvas
+        }
+    }
+
+    // MARK: - Animation
+
+    /// 현재 캔버스를 프레임으로 초기화
+    func initializeAnimation() {
+        if frames.isEmpty {
+            frames = [AnimationFrame(layers: layers, durationMs: 1000 / max(1, fps))]
+            currentFrameIndex = 0
+        }
+    }
+
+    func addFrame() {
+        let frame = AnimationFrame(width: canvasWidth, height: canvasHeight, durationMs: 1000 / max(1, fps))
+        frames.append(frame)
+        currentFrameIndex = frames.count - 1
+        layers = frames[currentFrameIndex].layers
+    }
+
+    func duplicateFrame() {
+        guard currentFrameIndex < frames.count else { return }
+        let current = frames[currentFrameIndex]
+        // deep copy layers
+        var copiedLayers: [PixelLayer] = []
+        for layer in current.layers {
+            var newLayer = PixelLayer(name: layer.name, width: canvasWidth, height: canvasHeight)
+            newLayer.canvas = layer.canvas
+            newLayer.isVisible = layer.isVisible
+            newLayer.opacity = layer.opacity
+            copiedLayers.append(newLayer)
+        }
+        let newFrame = AnimationFrame(layers: copiedLayers, durationMs: current.durationMs)
+        frames.insert(newFrame, at: currentFrameIndex + 1)
+        currentFrameIndex += 1
+        layers = frames[currentFrameIndex].layers
+    }
+
+    func deleteFrame() {
+        guard frames.count > 1, currentFrameIndex < frames.count else { return }
+        frames.remove(at: currentFrameIndex)
+        if currentFrameIndex >= frames.count { currentFrameIndex = frames.count - 1 }
+        layers = frames[currentFrameIndex].layers
+    }
+
+    func switchToFrame(_ index: Int) {
+        guard index >= 0, index < frames.count else { return }
+        // 현재 프레임 저장
+        if currentFrameIndex < frames.count {
+            frames[currentFrameIndex] = AnimationFrame(layers: layers, durationMs: frames[currentFrameIndex].durationMs)
+        }
+        currentFrameIndex = index
+        layers = frames[currentFrameIndex].layers
+        activeLayerIndex = 0
+    }
+
+    func startPlayback() {
+        guard !frames.isEmpty else { return }
+        isPlaying = true
+        playbackTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / Double(max(1, fps)), repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            let next = (self.currentFrameIndex + 1) % self.frames.count
+            self.switchToFrame(next)
+        }
+    }
+
+    func stopPlayback() {
+        isPlaying = false
+        playbackTimer?.invalidate()
+        playbackTimer = nil
+    }
+
+    /// 모든 프레임을 UIImage 배열로 렌더링
+    func renderAllFrames(scale: Int = 1) -> [UIImage] {
+        return frames.compactMap { frame in
+            renderFrame(frame, scale: scale)
+        }
+    }
+
+    private func renderFrame(_ frame: AnimationFrame, scale: Int = 1) -> UIImage? {
+        let w = canvasWidth * scale
+        let h = canvasHeight * scale
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: w, height: h), false, 1.0)
+        guard let ctx = UIGraphicsGetCurrentContext() else { return nil }
+        ctx.clear(CGRect(x: 0, y: 0, width: w, height: h))
+        for layer in frame.layers where layer.isVisible {
+            ctx.setAlpha(layer.opacity)
+            for y in 0..<canvasHeight {
+                for x in 0..<canvasWidth {
+                    let point = PixelPoint(x: x, y: y)
+                    guard let color = layer.canvas.pixel(at: point), !color.isTransparent else { continue }
+                    ctx.setFillColor(color.uiColor.cgColor)
+                    ctx.fill(CGRect(x: x * scale, y: y * scale, width: scale, height: scale))
+                }
+            }
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
+    /// 스프라이트 시트 렌더링
+    func renderSpriteSheet(scale: Int = 4, layout: SpriteSheetLayout = .horizontal) -> UIImage? {
+        let images = renderAllFrames(scale: scale)
+        guard !images.isEmpty else { return nil }
+        let frameW = canvasWidth * scale
+        let frameH = canvasHeight * scale
+        let totalW: Int
+        let totalH: Int
+        switch layout {
+        case .horizontal:
+            totalW = frameW * images.count
+            totalH = frameH
+        case .vertical:
+            totalW = frameW
+            totalH = frameH * images.count
+        case .grid:
+            let cols = Int(ceil(sqrt(Double(images.count))))
+            let rows = Int(ceil(Double(images.count) / Double(cols)))
+            totalW = frameW * cols
+            totalH = frameH * rows
+        }
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: totalW, height: totalH), false, 1.0)
+        for (i, img) in images.enumerated() {
+            let x: Int, y: Int
+            switch layout {
+            case .horizontal:
+                x = i * frameW; y = 0
+            case .vertical:
+                x = 0; y = i * frameH
+            case .grid:
+                let cols = Int(ceil(sqrt(Double(images.count))))
+                x = (i % cols) * frameW; y = (i / cols) * frameH
+            }
+            img.draw(in: CGRect(x: x, y: y, width: frameW, height: frameH))
+        }
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result
+    }
+
+    // MARK: - AI Smart Palette
+
+    /// 이미지 색상 분석 → 최적 팔레트 추천
+    static func suggestPalette(from image: UIImage, colorCount: Int = 16) -> [PixelColor] {
+        guard let cgImage = image.cgImage else { return [] }
+        let w = min(cgImage.width, 64)
+        let h = min(cgImage.height, 64)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bytesPerPixel = 4
+        let bytesPerRow = bytesPerPixel * w
+        var rawData = [UInt8](repeating: 0, count: h * bytesPerRow)
+        guard let ctx = CGContext(data: &rawData, width: w, height: h, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return [] }
+        ctx.draw(cgImage, in: CGRect(x: 0, y: 0, width: w, height: h))
+
+        // 색상 빈도 집계 (양자화: 4비트)
+        var colorFreq: [UInt32: Int] = [:]
+        for y in 0..<h {
+            for x in 0..<w {
+                let offset = (y * bytesPerRow) + (x * bytesPerPixel)
+                let r = rawData[offset] >> 4
+                let g = rawData[offset+1] >> 4
+                let b = rawData[offset+2] >> 4
+                let key = UInt32(r) << 8 | UInt32(g) << 4 | UInt32(b)
+                colorFreq[key, default: 0] += 1
+            }
+        }
+        // 빈도 높은 색상 선택
+        let sorted = colorFreq.sorted { $0.value > $1.value }.prefix(colorCount)
+        return sorted.map { (key, _) in
+            let r = UInt8((key >> 8) & 0xF) * 17
+            let g = UInt8((key >> 4) & 0xF) * 17
+            let b = UInt8(key & 0xF) * 17
+            return PixelColor(r: r, g: g, b: b)
+        }
+    }
+
+    // MARK: - Auto Save & Crash Recovery
+
+    private static let autoSaveKey = "PixelEditor.autoSave"
+    private var autoSaveTimer: Timer?
+
+    /// 자동 저장 시작 (30초 간격)
+    func startAutoSave() {
+        autoSaveTimer?.invalidate()
+        autoSaveTimer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { [weak self] _ in
+            self?.saveProject()
+        }
+    }
+
+    func stopAutoSave() {
+        autoSaveTimer?.invalidate()
+        autoSaveTimer = nil
+    }
+
+    /// 프로젝트 저장
+    func saveProject() {
+        let project = PixelProject(
+            canvasWidth: canvasWidth,
+            canvasHeight: canvasHeight,
+            layers: layers,
+            selectedToolRaw: selectedTool.rawValue,
+            mirrorModeRaw: mirrorMode.rawValue,
+            brushSize: brushSize,
+            showGrid: showGrid,
+            savedAt: Date()
+        )
+        if let data = try? JSONEncoder().encode(project) {
+            UserDefaults.standard.set(data, forKey: Self.autoSaveKey)
+        }
+    }
+
+    /// 복구 가능한 프로젝트가 있는지 확인
+    static var hasRecoverableProject: Bool {
+        UserDefaults.standard.data(forKey: autoSaveKey) != nil
+    }
+
+    /// 크래시 복구 — 저장된 프로젝트 로드
+    static func recoverProject() -> PixelEditorViewModel? {
+        guard let data = UserDefaults.standard.data(forKey: autoSaveKey),
+              let project = try? JSONDecoder().decode(PixelProject.self, from: data) else {
+            return nil
+        }
+        let vm = PixelEditorViewModel(width: project.canvasWidth, height: project.canvasHeight)
+        vm.layers = project.layers
+        vm.selectedTool = DrawingToolType(rawValue: project.selectedToolRaw) ?? .pencil
+        vm.mirrorMode = MirrorMode(rawValue: project.mirrorModeRaw) ?? .none
+        vm.brushSize = project.brushSize
+        vm.showGrid = project.showGrid
+        return vm
+    }
+
+    /// 자동 저장 데이터 삭제
+    static func clearAutoSave() {
+        UserDefaults.standard.removeObject(forKey: autoSaveKey)
+    }
+
+    // MARK: - Color Palette
+
+    /// AI 팔레트 (동적)
+    @Published var aiPalette: [PixelColor] = []
+
+    /// 현재 캔버스에서 AI 팔레트 생성
+    func generateAIPalette() {
+        guard let image = renderToImage(scale: 1) else { return }
+        aiPalette = Self.suggestPalette(from: image, colorCount: 16)
+    }
+
     /// 기본 팔레트
     static let defaultPalette: [PixelColor] = [
         .black,

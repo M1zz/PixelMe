@@ -105,6 +105,33 @@ struct PixelLayer: Codable, Equatable, Identifiable {
     }
 }
 
+/// 프로젝트 자동 저장용 직렬화 모델
+struct PixelProject: Codable {
+    let canvasWidth: Int
+    let canvasHeight: Int
+    let layers: [PixelLayer]
+    let selectedToolRaw: String
+    let mirrorModeRaw: String
+    let brushSize: Int
+    let showGrid: Bool
+    let savedAt: Date
+}
+
+/// 선택 영역
+struct PixelSelection: Equatable {
+    var origin: PixelPoint
+    var size: (width: Int, height: Int)
+    var pixels: [PixelColor]  // 복사된 픽셀 데이터
+
+    var rect: (minX: Int, minY: Int, maxX: Int, maxY: Int) {
+        (origin.x, origin.y, origin.x + size.width - 1, origin.y + size.height - 1)
+    }
+
+    static func == (lhs: PixelSelection, rhs: PixelSelection) -> Bool {
+        lhs.origin == rhs.origin && lhs.size.width == rhs.size.width && lhs.size.height == rhs.size.height
+    }
+}
+
 /// 캔버스 프리셋 사이즈
 enum CanvasPreset: String, CaseIterable {
     case tiny = "16×16"
