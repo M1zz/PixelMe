@@ -19,17 +19,31 @@ struct PixelEditorView: View {
     @State private var showAdvancedColorPicker = false
     @State private var showAnimationTimeline = false
     @State private var showCanvasResize = false
-    
-    init(preset: CanvasPreset = .small) {
+    @State private var showAsepriteImporter = false
+    @State private var asepriteImportError: String?
+    @State private var showAsepriteImportError = false
+
+    private let initialShowTimeline: Bool
+
+    init(preset: CanvasPreset = .small, initialShowTimeline: Bool = false) {
+        self.initialShowTimeline = initialShowTimeline
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(preset: preset))
     }
-    
-    init(width: Int, height: Int) {
+
+    init(width: Int, height: Int, initialShowTimeline: Bool = false) {
+        self.initialShowTimeline = initialShowTimeline
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(width: width, height: height))
     }
 
+    /// Aseprite 등 외부에서 가져온 프레임으로 편집기 로드
+    init(frames: [AnimationFrame], width: Int, height: Int, initialShowTimeline: Bool = false) {
+        self.initialShowTimeline = initialShowTimeline
+        _viewModel = StateObject(wrappedValue: PixelEditorViewModel(frames: frames, width: width, height: height))
+    }
+
     /// 사진 변환 결과를 편집기에 로드
-    init(fromImage image: UIImage, targetSize: Int = 32) {
+    init(fromImage image: UIImage, targetSize: Int = 32, initialShowTimeline: Bool = false) {
+        self.initialShowTimeline = initialShowTimeline
         _viewModel = StateObject(wrappedValue: PixelEditorViewModel(fromImage: image, targetSize: targetSize))
     }
     
@@ -48,7 +62,8 @@ struct PixelEditorView: View {
             // 도구 바
             toolBar
         }
-        .background(Color(uiColor: .systemBackground))
+        .background(Color(AppConfig.backgroundColor))
+        .preferredColorScheme(.dark)
         .sheet(isPresented: $showLayerPanel) {
             LayerPanelView(viewModel: viewModel)
                 .presentationDetents([.medium])
@@ -69,8 +84,47 @@ struct PixelEditorView: View {
             CanvasResizeView(viewModel: viewModel)
                 .presentationDetents([.medium])
         }
+        .fileImporter(
+            isPresented: $showAsepriteImporter,
+            allowedContentTypes: [UTType(filenameExtension: "aseprite") ?? .data, UTType(filenameExtension: "ase") ?? .data],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let urls):
+                guard let url = urls.first else { return }
+                guard url.startAccessingSecurityScopedResource() else { return }
+                defer { url.stopAccessingSecurityScopedResource() }
+                do {
+                    let (width, height, frames) = try AsepriteManager.importFile(from: url)
+                    let newVM = PixelEditorViewModel(width: width, height: height)
+                    newVM.frames = frames
+                    if let first = frames.first {
+                        newVM.layers = first.layers
+                    }
+                    // 현재 ViewModel에 데이터 적용
+                    viewModel.frames = frames
+                    if let first = frames.first {
+                        viewModel.layers = first.layers
+                    }
+                } catch {
+                    asepriteImportError = error.localizedDescription
+                    showAsepriteImportError = true
+                }
+            case .failure(let error):
+                asepriteImportError = error.localizedDescription
+                showAsepriteImportError = true
+            }
+        }
+        .alert("Aseprite 가져오기 실패", isPresented: $showAsepriteImportError) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(asepriteImportError ?? "알 수 없는 오류")
+        }
         .onAppear {
             viewModel.startAutoSave()
+            if initialShowTimeline {
+                showAnimationTimeline = true
+            }
         }
         .onDisappear {
             viewModel.saveProject()
@@ -134,6 +188,12 @@ struct PixelEditorView: View {
 
                     Divider()
 
+                    Button { showAsepriteImporter = true } label: {
+                        Label("Aseprite 가져오기", systemImage: "doc.badge.arrow.up")
+                    }
+
+                    Divider()
+
                     Button { showAnimationTimeline = true } label: {
                         Label("애니메이션", systemImage: "film")
                     }
@@ -148,9 +208,9 @@ struct PixelEditorView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
-        .background(Color(uiColor: .secondarySystemBackground))
+        .background(Color(AppConfig.toolBackgroundColor))
     }
-    
+
     // MARK: - Color Palette
     
     private var colorPaletteBar: some View {
@@ -220,9 +280,9 @@ struct PixelEditorView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
         }
-        .background(Color(uiColor: .secondarySystemBackground))
+        .background(Color(AppConfig.toolBackgroundColor))
     }
-    
+
     // MARK: - Tool Bar
     
     private var toolBar: some View {
@@ -233,16 +293,26 @@ struct PixelEditorView: View {
                         viewModel.selectedTool = tool
                     } label: {
                         VStack(spacing: 2) {
-                            Image(systemName: tool.icon)
-                                .font(.title3)
-                                .frame(width: 36, height: 36)
-                                .background(
-                                    viewModel.selectedTool == tool
-                                    ? Color.blue.opacity(0.2)
-                                    : Color.clear
-                                )
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                            
+                            Group {
+                                if let pixelIcon = tool.pixelIconDefinition {
+                                    PixelAnimatedIcon(
+                                        icon: pixelIcon,
+                                        size: 22,
+                                        animating: viewModel.selectedTool == tool
+                                    )
+                                } else {
+                                    Image(systemName: tool.icon)
+                                        .font(.title3)
+                                }
+                            }
+                            .frame(width: 36, height: 36)
+                            .background(
+                                viewModel.selectedTool == tool
+                                ? Color.blue.opacity(0.2)
+                                : Color.clear
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+
                             Text(tool.rawValue)
                                 .font(.system(size: 9))
                                 .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
@@ -254,7 +324,7 @@ struct PixelEditorView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
         }
-        .background(Color(uiColor: .secondarySystemBackground))
+        .background(Color(AppConfig.toolBackgroundColor))
     }
 }
 
@@ -325,6 +395,8 @@ struct ExportSheetView: View {
     @State private var exportScale = 4
     @State private var exportStatus: String?
     @State private var selectedLayout: SpriteSheetLayout = .horizontal
+    @State private var showAsepriteShareSheet = false
+    @State private var asepriteFileURL: URL?
 
     private let scales = [1, 2, 4, 8]
 
@@ -371,6 +443,14 @@ struct ExportSheetView: View {
                     }
                 }
 
+                Section("Aseprite") {
+                    Button {
+                        exportAseprite()
+                    } label: {
+                        Label("Aseprite (.ase)로 내보내기", systemImage: "doc.badge.arrow.up")
+                    }
+                }
+
                 if let status = exportStatus {
                     Section {
                         HStack {
@@ -381,6 +461,11 @@ struct ExportSheetView: View {
                 }
             }
             .navigationTitle("내보내기")
+            .sheet(isPresented: $showAsepriteShareSheet) {
+                if let url = asepriteFileURL {
+                    ShareSheet(items: [url])
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -426,7 +511,32 @@ struct ExportSheetView: View {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         exportStatus = "스프라이트 시트 저장 완료"
     }
+
+    private func exportAseprite() {
+        let frames: [AnimationFrame]
+        if viewModel.frames.isEmpty {
+            frames = [AnimationFrame(layers: viewModel.layers)]
+        } else {
+            frames = viewModel.frames
+        }
+
+        do {
+            let data = try AsepriteManager.exportFile(
+                width: viewModel.canvasWidth,
+                height: viewModel.canvasHeight,
+                frames: frames
+            )
+            let url = FileManager.default.temporaryDirectory.appendingPathComponent("pixel_art.aseprite")
+            try data.write(to: url)
+            asepriteFileURL = url
+            showAsepriteShareSheet = true
+            exportStatus = "Aseprite 파일 준비 완료"
+        } catch {
+            exportStatus = "Aseprite 내보내기 실패: \(error.localizedDescription)"
+        }
+    }
 }
+
 
 // MARK: - Canvas Preset Picker (Entry Point)
 
@@ -525,7 +635,7 @@ struct RecoveredPixelEditorView: View {
                 }
             }
             .padding(.horizontal, 16).padding(.vertical, 8)
-            .background(Color(uiColor: .secondarySystemBackground))
+            .background(Color(AppConfig.toolBackgroundColor))
 
             PixelCanvasView(viewModel: viewModel)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -544,7 +654,7 @@ struct RecoveredPixelEditorView: View {
                             .onTapGesture { viewModel.selectedColor = color }
                     }
                 }.padding(.horizontal, 12).padding(.vertical, 6)
-            }.background(Color(uiColor: .secondarySystemBackground))
+            }.background(Color(AppConfig.toolBackgroundColor))
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -560,9 +670,10 @@ struct RecoveredPixelEditorView: View {
                         }.tint(viewModel.selectedTool == tool ? .blue : .primary)
                     }
                 }.padding(.horizontal, 12).padding(.vertical, 8)
-            }.background(Color(uiColor: .secondarySystemBackground))
+            }.background(Color(AppConfig.toolBackgroundColor))
         }
-        .background(Color(uiColor: .systemBackground))
+        .background(Color(AppConfig.backgroundColor))
+        .preferredColorScheme(.dark)
         .sheet(isPresented: $showLayerPanel) { LayerPanelView(viewModel: viewModel).presentationDetents([.medium]) }
         .sheet(isPresented: $showExportSheet) { ExportSheetView(viewModel: viewModel).presentationDetents([.medium]) }
         .onAppear { viewModel.startAutoSave() }

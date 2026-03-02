@@ -125,7 +125,7 @@ struct CreatorContentView: View {
             }
         }
         .fullScreenCover(isPresented: $showNewCanvasSheet) {
-            NewCanvasView()
+            PixelEditorView(preset: .small)
         }
         .fileImporter(
             isPresented: $showHomeAsepriteImporter,
