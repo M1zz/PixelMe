@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 /// Pixel creator flow to draw pixels
 struct CreatorContentView: View {
@@ -15,6 +16,10 @@ struct CreatorContentView: View {
     @EnvironmentObject var manager: DataManager
     @StateObject private var viewModel = CreatorViewModel()
     @State private var showProfilePixelate = false
+    @State private var showAsepriteEditor = false
+    @State private var showNewCanvasSheet = false
+    @State private var showHomeAsepriteImporter = false
+    @State private var pendingEditorFromGallery = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -30,9 +35,14 @@ struct CreatorContentView: View {
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
         }
-        .sheet(isPresented: $viewModel.showSampleGallery) {
-            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { sample in
-                viewModel.loadSampleArt(sample, manager: manager)
+        .sheet(isPresented: $viewModel.showSampleGallery, onDismiss: {
+            if pendingEditorFromGallery {
+                pendingEditorFromGallery = false
+                showNewCanvasSheet = true
+            }
+        }) {
+            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { _ in
+                pendingEditorFromGallery = true
             }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
@@ -98,6 +108,46 @@ struct CreatorContentView: View {
         .onChange(of: manager.useCustomWatermark) { oldValue, newValue in
             UserDefaults.standard.set(newValue, forKey: "useCustomWatermark")
         }
+        .onChange(of: manager.shouldOpenPixelEditor) { oldValue, shouldOpen in
+            if shouldOpen {
+                showAsepriteEditor = true
+                manager.shouldOpenPixelEditor = false
+            }
+        }
+        .fullScreenCover(isPresented: $showAsepriteEditor) {
+            if let frames = manager.importedAsepriteFrames,
+               let firstLayer = frames.first?.layers.first {
+                PixelEditorView(
+                    frames: frames,
+                    width: firstLayer.canvas.width,
+                    height: firstLayer.canvas.height
+                )
+            }
+        }
+        .fullScreenCover(isPresented: $showNewCanvasSheet) {
+            NewCanvasView()
+        }
+        .fileImporter(
+            isPresented: $showHomeAsepriteImporter,
+            allowedContentTypes: [UTType(filenameExtension: "aseprite") ?? .data, UTType(filenameExtension: "ase") ?? .data],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let urls):
+                guard let url = urls.first else { return }
+                guard url.startAccessingSecurityScopedResource() else { return }
+                defer { url.stopAccessingSecurityScopedResource() }
+                do {
+                    let (_, _, frames) = try AsepriteManager.importFile(from: url)
+                    manager.importedAsepriteFrames = frames
+                    manager.shouldOpenPixelEditor = true
+                } catch {
+                    // Aseprite import failed silently
+                }
+            case .failure:
+                break
+            }
+        }
     }
 
     // MARK: - Drawing Screen (extracted)
@@ -133,116 +183,205 @@ struct CreatorContentView: View {
 
     // MARK: - Home Screen
     private var HomeScreenView: some View {
-        VStack(spacing: 0) {
-            Text("Pixel Creator")
-                .font(.system(size: 28, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.top, 60)
-                .padding(.bottom, 30)
-                .accessibilityAddTraits(.isHeader)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 0) {
 
-            ScrollView {
-                VStack(spacing: 25) {
-                    VStack(spacing: 15) {
-                        Button {
-                            viewModel.showSampleGallery = true
-                        } label: {
-                            HomeActionButton(
-                                icon: "paintbrush.pointed.fill",
-                                title: "Follow Along",
-                                subtitle: "Pick a sample and draw along",
-                                color: .purple
-                            )
-                        }
-                        .accessibilityLabel("따라 그리기")
-                        .accessibilityHint("샘플을 선택하고 따라 그립니다")
-
-                        Button {
-                            viewModel.showPhotoPicker = true
-                        } label: {
-                            HomeActionButton(
-                                icon: "photo.fill",
-                                title: "Pixelate Photo",
-                                subtitle: "Turn your photo into pixel art",
-                                color: .blue
-                            )
-                        }
-                        .accessibilityLabel("사진 픽셀화")
-                        .accessibilityHint("사진을 픽셀 아트로 변환합니다")
-
-                        Button {
-                            showProfilePixelate = true
-                        } label: {
-                            HomeActionButton(
-                                icon: "person.crop.square",
-                                title: "Profile Pixel",
-                                subtitle: "Auto-detect face & create pixel profile",
-                                color: .orange
-                            )
-                        }
-                        .accessibilityLabel("프로필 픽셀화")
-                        .accessibilityHint("얼굴을 자동 감지하여 프로필 픽셀 아트를 만듭니다")
-
-                        Button {
-                            viewModel.referenceSample = nil
-                            viewModel.showHomeScreen = false
-                        } label: {
-                            HomeActionButton(
-                                icon: "scribble.variable",
-                                title: "Free Drawing",
-                                subtitle: "Create your own pixel art",
-                                color: .green
-                            )
-                        }
-                        .accessibilityLabel("자유 그리기")
-                        .accessibilityHint("나만의 픽셀 아트를 만듭니다")
-
-                        if !SubscriptionManager.shared.isProUser {
-                            Button {
-                                viewModel.showPaywall = true
-                            } label: {
-                                HomeActionButton(
-                                    icon: "crown.fill",
-                                    title: "PixelMe Pro",
-                                    subtitle: "Unlock all premium features",
-                                    color: .yellow
-                                )
-                            }
-                            .accessibilityLabel("PixelMe 프로")
-                            .accessibilityHint("모든 프리미엄 기능을 잠금 해제합니다")
-                        }
-                    }
+                // ── 1) Tool Grid: Create ──
+                HomeToolGrid
+                    .padding(.top, 60)
                     .padding(.horizontal, 20)
 
-                    // Sample Preview Section
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("Sample Gallery")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 20)
-                            .accessibilityAddTraits(.isHeader)
+                // ── 2) Feature Highlights: What You Can Create ──
+                HomeFeatureHighlights
+                    .padding(.top, 24)
 
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 15) {
-                                ForEach(SamplePixelArtCollection.all) { sample in
-                                    Button {
-                                        viewModel.startFollowAlongDrawing(sample, manager: manager)
-                                    } label: {
-                                        SamplePreviewCard(sample: sample)
-                                    }
-                                    .accessibilityLabel("샘플: \(sample.name)")
-                                    .accessibilityHint("탭하여 이 샘플을 따라 그립니다")
-                                }
-                            }
-                            .padding(.horizontal, 20)
-                        }
-                    }
-                    .padding(.top, 20)
-
-                    Spacer(minLength: 50)
+                // ── 3) Pro Banner: 프리미엄 ──
+                if !SubscriptionManager.shared.isProUser {
+                    HomeProBanner
+                        .padding(.top, 20)
+                        .padding(.horizontal, 20)
                 }
+
+                Spacer(minLength: 60)
             }
         }
+    }
+
+    // MARK: - Tool Grid
+    private var HomeToolGrid: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("Create")
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.white)
+                .accessibilityAddTraits(.isHeader)
+
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
+
+                // Pixelate Photo
+                Button {
+                    viewModel.showPhotoPicker = true
+                } label: {
+                    HomeToolCard(
+                        icon: "camera.fill",
+                        title: "Pixelate Photo",
+                        subtitle: "Photo → pixel art",
+                        color: .blue,
+                        pixelIcon: PixelIconCatalog.camera
+                    )
+                }
+                .accessibilityLabel("사진 픽셀화")
+
+                // Follow Along
+                Button {
+                    viewModel.showSampleGallery = true
+                } label: {
+                    HomeToolCard(
+                        icon: "paintbrush.pointed.fill",
+                        title: "Follow Along",
+                        subtitle: "Draw with a sample",
+                        color: .purple,
+                        pixelIcon: PixelIconCatalog.paintbrush
+                    )
+                }
+                .accessibilityLabel("따라 그리기")
+
+                // Free Drawing → NewCanvasView (레이어·애니메이션·내보내기 통합)
+                Button {
+                    showNewCanvasSheet = true
+                } label: {
+                    HomeToolCard(
+                        icon: "scribble.variable",
+                        title: "Free Drawing",
+                        subtitle: "Draw · Animate · Export",
+                        color: .green,
+                        pixelIcon: PixelIconCatalog.pencil
+                    )
+                }
+                .accessibilityLabel("자유 그리기")
+
+                // Profile Pixel
+                Button {
+                    showProfilePixelate = true
+                } label: {
+                    HomeToolCard(
+                        icon: "person.crop.square",
+                        title: "Profile Pixel",
+                        subtitle: "Face → pixel profile",
+                        color: .orange,
+                        pixelIcon: PixelIconCatalog.profile
+                    )
+                }
+                .accessibilityLabel("프로필 픽셀화")
+
+                // Import
+                Button {
+                    showHomeAsepriteImporter = true
+                } label: {
+                    HomeToolCard(
+                        icon: "doc.badge.arrow.up",
+                        title: "Import",
+                        subtitle: "Import .ase files",
+                        color: .indigo,
+                        pixelIcon: PixelIconCatalog.floppyDisk
+                    )
+                }
+                .accessibilityLabel("파일 가져오기")
+            }
+        }
+    }
+
+    // MARK: - Feature Highlights (기능 하이라이트 가로 스크롤)
+    private var HomeFeatureHighlights: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("What You Can Create")
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 20)
+                .accessibilityAddTraits(.isHeader)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    FeatureHighlightCard(
+                        icon: "film",
+                        title: "GIF Animation",
+                        description: "Frame-by-frame pixel animation with onion skinning",
+                        gradientColors: [.pink, .orange]
+                    ) {
+                        showNewCanvasSheet = true
+                    }
+
+                    FeatureHighlightCard(
+                        icon: "square.grid.3x3",
+                        title: "Sprite Sheets",
+                        description: "Export animation frames as sprite sheets",
+                        gradientColors: [.cyan, .blue]
+                    ) {
+                        showNewCanvasSheet = true
+                    }
+
+                    FeatureHighlightCard(
+                        icon: "doc.badge.arrow.up",
+                        title: "Import & Export",
+                        description: "Import & export .ase files",
+                        gradientColors: [.indigo, .purple]
+                    ) {
+                        showHomeAsepriteImporter = true
+                    }
+
+                    FeatureHighlightCard(
+                        icon: "square.3.layers.3d",
+                        title: "Layer Editing",
+                        description: "Multiple layers with opacity control",
+                        gradientColors: [.green, .teal]
+                    ) {
+                        showNewCanvasSheet = true
+                    }
+                }
+                .padding(.horizontal, 20)
+            }
+        }
+    }
+
+    // MARK: - Pro Banner (컴팩트한 프리미엄 배너)
+    private var HomeProBanner: some View {
+        Button {
+            viewModel.showPaywall = true
+        } label: {
+            HStack(spacing: 12) {
+                PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 24)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Unlock Pro")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.white)
+                    Text("Unlimited pixelation · No watermark · 4K export")
+                        .font(.system(size: 11))
+                        .foregroundColor(.white.opacity(0.5))
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                Text("Try Free")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Color.yellow)
+                    .cornerRadius(8)
+            }
+            .padding(14)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(Color.white.opacity(0.06))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.yellow.opacity(0.2), lineWidth: 1)
+                    )
+            )
+        }
+        .accessibilityLabel("PixelMe 프로")
+        .accessibilityHint("모든 프리미엄 기능을 잠금 해제합니다")
     }
 
     // MARK: - Drawing Screen Header
@@ -252,14 +391,16 @@ struct CreatorContentView: View {
                 Button {
                     viewModel.goHome()
                 } label: {
-                    Image(systemName: "house.fill")
+                    PixelAnimatedIcon(icon: PixelIconCatalog.house, size: 30, animating: false)
+                        .frame(width: 36, height: 36)
                 }
                 .accessibilityLabel("홈으로 돌아가기")
 
                 Button {
                     manager.savePixelGrid(view: AnyView(PixelsGridView(height: AppConfig.exportSize, export: true)))
                 } label: {
-                    Image(systemName: "square.and.arrow.down")
+                    PixelAnimatedIcon(icon: PixelIconCatalog.floppyDisk, size: 30, animating: false)
+                        .frame(width: 36, height: 36)
                 }
                 .accessibilityLabel("저장")
                 .accessibilityHint("현재 픽셀 아트를 저장합니다")
@@ -749,6 +890,94 @@ struct HomeActionButton: View {
         .padding(18)
         .background(Color(AppConfig.toolBackgroundColor))
         .cornerRadius(15)
+    }
+}
+
+// MARK: - Home Tool Card (2x2 grid)
+struct HomeToolCard: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    var pixelIcon: PixelIconDefinition? = nil
+
+    var body: some View {
+        VStack(spacing: 10) {
+            ZStack {
+                Circle()
+                    .fill(color.opacity(0.15))
+                    .frame(width: 48, height: 48)
+                if let pixelIcon = pixelIcon {
+                    PixelAnimatedIcon(icon: pixelIcon, size: 28)
+                } else {
+                    Image(systemName: icon)
+                        .font(.system(size: 22))
+                        .foregroundColor(color)
+                }
+            }
+
+            VStack(spacing: 3) {
+                Text(title)
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+                Text(subtitle)
+                    .font(.system(size: 12))
+                    .foregroundColor(.white.opacity(0.4))
+                    .lineLimit(1)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .background(Color(AppConfig.toolBackgroundColor))
+        .cornerRadius(14)
+    }
+}
+
+// MARK: - Feature Highlight Card (가로 스크롤 카드)
+struct FeatureHighlightCard: View {
+    let icon: String
+    let title: String
+    let description: String
+    let gradientColors: [Color]
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 8) {
+                Image(systemName: icon)
+                    .font(.system(size: 22))
+                    .foregroundColor(gradientColors.first ?? .white)
+
+                Text(title)
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.white)
+
+                Text(description)
+                    .font(.system(size: 12))
+                    .foregroundColor(.white.opacity(0.5))
+                    .lineLimit(3)
+                    .multilineTextAlignment(.leading)
+            }
+            .frame(width: 160, alignment: .leading)
+            .padding(14)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(Color.white.opacity(0.06))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(
+                                LinearGradient(
+                                    colors: gradientColors.map { $0.opacity(0.3) },
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: 1
+                            )
+                    )
+            )
+        }
+        .accessibilityLabel(title)
+        .accessibilityHint(description)
     }
 }
 
