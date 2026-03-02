@@ -91,19 +91,49 @@ class BeforeAfterImageGenerator {
                 withAttributes: labelAttributes
             )
             
-            // Branding at bottom
-            let brandingAttributes: [NSAttributedString.Key: Any] = [
+            // Branding at bottom: "Made with PixelMe" + app link
+            let brandNameAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 14, weight: .semibold),
+                .foregroundColor: UIColor.white.withAlphaComponent(0.7)
+            ]
+            let brandLinkAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 11, weight: .regular),
                 .foregroundColor: UIColor.white.withAlphaComponent(0.4)
             ]
-            let brandingText = "PixelMe"
-            let brandingSize = brandingText.size(withAttributes: brandingAttributes)
-            brandingText.draw(
+
+            let brandNameText = "Made with PixelMe"
+            let brandLinkText = "apps.apple.com/app/pixel-meme"
+
+            let brandNameSize = brandNameText.size(withAttributes: brandNameAttributes)
+            let brandLinkSize = brandLinkText.size(withAttributes: brandLinkAttributes)
+
+            let brandSpacing: CGFloat = 6
+            let totalBrandWidth = brandNameSize.width + brandSpacing + brandLinkSize.width
+            let brandStartX = (outputWidth - totalBrandWidth) / 2
+            let brandCenterY = totalHeight - brandingHeight + (brandingHeight - brandNameSize.height) / 2
+
+            brandNameText.draw(
+                at: CGPoint(x: brandStartX, y: brandCenterY),
+                withAttributes: brandNameAttributes
+            )
+
+            // 구분선
+            let dotText = "·"
+            let dotAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 14, weight: .regular),
+                .foregroundColor: UIColor.white.withAlphaComponent(0.3)
+            ]
+            dotText.draw(
+                at: CGPoint(x: brandStartX + brandNameSize.width + 1, y: brandCenterY),
+                withAttributes: dotAttributes
+            )
+
+            brandLinkText.draw(
                 at: CGPoint(
-                    x: (outputWidth - brandingSize.width) / 2,
-                    y: totalHeight - brandingHeight + (brandingHeight - brandingSize.height) / 2
+                    x: brandStartX + brandNameSize.width + brandSpacing,
+                    y: brandCenterY + (brandNameSize.height - brandLinkSize.height) / 2
                 ),
-                withAttributes: brandingAttributes
+                withAttributes: brandLinkAttributes
             )
         }
     }

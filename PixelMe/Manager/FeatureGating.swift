@@ -211,6 +211,21 @@ class FeatureGating: ObservableObject {
         }
     }
     
+    // MARK: - Filter Pack Features
+
+    /// 필터 팩의 특정 필터에 대한 접근 권한 확인
+    func canUsePackFilter(_ filterId: String) -> Bool {
+        return FilterPackManager.shared.hasAccessToFilter(filterId)
+    }
+
+    /// 특정 필터 팩에 대한 접근 권한 확인
+    func hasFilterPack(_ packId: String) -> Bool {
+        guard let pack = FilterPackManager.shared.allPacks.first(where: { $0.id == packId }) else {
+            return false
+        }
+        return FilterPackManager.shared.hasAccess(to: pack)
+    }
+
     // MARK: - Feature Description Methods
     
     /// 잠긴 기능에 대한 설명 메시지

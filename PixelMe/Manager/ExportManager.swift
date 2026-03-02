@@ -182,7 +182,12 @@ class ExportManager {
             processedImage = resizeImage(processedImage, targetSize: CGSize(width: targetSize, height: targetSize))
         }
 
-        // Step 3: Convert to desired format
+        // Step 3: Apply watermark for non-Pro users
+        if !SubscriptionManager.shared.isProUser {
+            processedImage = FreeUsageManager.applyWatermark(to: processedImage)
+        }
+
+        // Step 4: Convert to desired format
         guard let data = format.data(from: processedImage) else { return nil }
 
         // Generate filename

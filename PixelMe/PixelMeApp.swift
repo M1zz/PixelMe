@@ -14,6 +14,9 @@ struct PixelMeApp: App {
         WindowGroup {
             CreatorContentView()
                 .environmentObject(manager)
+                .onAppear {
+                    ReviewManager.shared.trackAppLaunch()
+                }
         }
     }
 }

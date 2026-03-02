@@ -17,6 +17,12 @@ struct PixelatedPhotoView: View {
     @State private var selectedTab: Int = 0
     @State private var showShareSheet: Bool = false
     @State private var shareBeforeAfter: Bool = false
+    @State private var isGeneratingVideo: Bool = false
+    @State private var generatedVideoURL: URL?
+    @State private var showVideoShareSheet: Bool = false
+    @State private var videoGenerationError: String?
+    @State private var showFilterPackStore: Bool = false
+    @State private var selectedPackFilter: PackFilter?
 
     // MARK: - Main rendering function
     var body: some View {
@@ -93,6 +99,7 @@ struct PixelatedPhotoView: View {
 
                             // Action buttons
                             VStack(spacing: 12) {
+                                CreateReelButton
                                 ShareToSNSButton
                                 BeforeAfterShareButton
                                 EditButton
@@ -374,8 +381,147 @@ struct PixelatedPhotoView: View {
                     FilterEffectItem(filter)
                 }
             }
+
+            // Filter Packs Section
+            FilterPacksSection
         }
         .padding(.top, 5)
+    }
+
+    // MARK: - Filter Packs Section
+    private var FilterPacksSection: some View {
+        VStack(spacing: 12) {
+            Divider().background(Color.gray.opacity(0.3))
+
+            HStack {
+                Image(systemName: "paintpalette.fill")
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.purple, .pink, .orange],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                Text("Filter Packs")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                Spacer()
+                Button {
+                    showFilterPackStore = true
+                } label: {
+                    Text("See All")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                }
+            }
+
+            // Owned pack filters (quick access)
+            let ownedFilters = ownedPackFilters()
+            if ownedFilters.isEmpty {
+                // Promo card
+                Button {
+                    showFilterPackStore = true
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "sparkles")
+                            .font(.title3)
+                            .foregroundColor(.purple)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Get Filter Packs")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundColor(.white)
+                            Text("Unique filter + palette combos")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                    }
+                    .padding(12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.purple.opacity(0.15))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.purple.opacity(0.3), lineWidth: 1)
+                            )
+                    )
+                }
+            } else {
+                LazyVGrid(columns: Array(repeating: GridItem(spacing: 12), count: 2), spacing: 12) {
+                    ForEach(ownedFilters, id: \.id) { pf in
+                        PackFilterItem(pf)
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $showFilterPackStore) {
+            FilterPackStoreView()
+        }
+    }
+
+    private func ownedPackFilters() -> [PackFilter] {
+        let pm = FilterPackManager.shared
+        return pm.availablePacks
+            .filter { pm.hasAccess(to: $0) }
+            .flatMap { $0.filters }
+    }
+
+    @ViewBuilder
+    private func PackFilterItem(_ pf: PackFilter) -> some View {
+        let isSelected = selectedPackFilter?.id == pf.id
+        Button {
+            if isSelected {
+                selectedPackFilter = nil
+                // 팩 필터 해제 → 기본 필터 다시 적용
+                manager.applyPixelEffect(showFilterFlow: false)
+            } else {
+                selectedPackFilter = pf
+                applySelectedPackFilter(pf)
+            }
+        } label: {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text(pf.name)
+                        .font(.system(size: 14, weight: .bold))
+                    Spacer()
+                    if isSelected {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.purple)
+                            .font(.system(size: 14))
+                    }
+                }
+                Text(pf.description)
+                    .font(.system(size: 11))
+                    .lineLimit(2)
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(10)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(isSelected ? Color.purple.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(isSelected ? Color.purple.opacity(0.6) : Color.clear, lineWidth: 1)
+                    )
+            )
+        }
+        .frame(minHeight: 70)
+    }
+
+    private func applySelectedPackFilter(_ pf: PackFilter) {
+        guard let source = manager.pixelatedImage else { return }
+        // 백그라운드에서 팩 필터 적용
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = FilterPackManager.applyPackFilter(pf, to: source)
+            DispatchQueue.main.async {
+                if let result = result {
+                    manager.pixelatedImage = result
+                }
+            }
+        }
     }
 
     @ViewBuilder
@@ -556,6 +702,66 @@ struct PixelatedPhotoView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color(AppConfig.toolBackgroundColor))
             )
+        }
+    }
+
+    private var CreateReelButton: some View {
+        Button {
+            guard let original = manager.selectedImage,
+                  let pixelated = manager.pixelatedImage else { return }
+
+            isGeneratingVideo = true
+            videoGenerationError = nil
+
+            BeforeAfterVideoGenerator.generate(original: original, pixelated: pixelated, format: .reels) { result in
+                isGeneratingVideo = false
+                switch result {
+                case .success(let url):
+                    generatedVideoURL = url
+                    showVideoShareSheet = true
+                case .failure(let error):
+                    videoGenerationError = error.localizedDescription
+                }
+            }
+        } label: {
+            HStack {
+                if isGeneratingVideo {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(0.8)
+                } else {
+                    Image(systemName: "video.fill")
+                }
+                Text(isGeneratingVideo ? "Creating Reel..." : "Create Reel / TikTok")
+            }
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.pink, Color.orange],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+            )
+        }
+        .disabled(manager.pixelatedImage == nil || isGeneratingVideo)
+        .sheet(isPresented: $showVideoShareSheet) {
+            if let videoURL = generatedVideoURL {
+                VideoShareSheet(videoURL: videoURL)
+            }
+        }
+        .alert("Video Error", isPresented: .init(
+            get: { videoGenerationError != nil },
+            set: { if !$0 { videoGenerationError = nil } }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(videoGenerationError ?? "")
         }
     }
 
@@ -2050,9 +2256,32 @@ struct LayerEditorView: View {
             Divider()
                 .frame(height: 30)
 
-            // Merge
-            Button {
-                manager.layerManager.flattenLayers()
+            // Merge menu
+            Menu {
+                Button {
+                    if let index = manager.layerManager.selectedLayerIndex {
+                        manager.layerManager.mergeLayerDown(at: index)
+                    }
+                } label: {
+                    Label("Merge Down", systemImage: "arrow.down.square")
+                }
+                .disabled(manager.layerManager.selectedLayerIndex == nil || manager.layerManager.selectedLayerIndex == 0)
+
+                Button {
+                    manager.layerManager.mergeVisibleLayers()
+                } label: {
+                    Label("Merge Visible", systemImage: "eye.square")
+                }
+                .disabled(manager.layerManager.visibleLayerCount < 2)
+
+                Divider()
+
+                Button(role: .destructive) {
+                    manager.layerManager.flattenLayers()
+                } label: {
+                    Label("Flatten All", systemImage: "square.3.layers.3d.down.right")
+                }
+                .disabled(manager.layerManager.layers.count < 2)
             } label: {
                 VStack(spacing: 4) {
                     Image(systemName: "square.3.layers.3d.down.right")

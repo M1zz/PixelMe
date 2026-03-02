@@ -121,6 +121,7 @@ struct SNSShareView: View {
     private func shareImage() {
         prepareImage()
         showingShareSheet = true
+        ReviewManager.shared.trackCompletedAction()
     }
 }
 
@@ -135,6 +136,23 @@ struct SNSShareSheet: UIViewControllerRepresentable {
             shareText += "\nhttps://apps.apple.com/app/pixelme-pixel-art-creator/id6450535064"
         }
         let vc = UIActivityViewController(activityItems: [image, shareText], applicationActivities: nil)
+        return vc
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+/// 비디오 공유용 시트 (릴스/틱톡 비디오 공유)
+struct VideoShareSheet: UIViewControllerRepresentable {
+    let videoURL: URL
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        var items: [Any] = [videoURL]
+        if !SubscriptionManager.shared.isProUser {
+            let shareText = "Made with PixelMe 🎨\n\(FreeUsageManager.appStoreURL)"
+            items.append(shareText)
+        }
+        let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
         return vc
     }
 

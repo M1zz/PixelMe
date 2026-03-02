@@ -35,6 +35,11 @@ class AppConfig {
     static let monthlyProductID: String = "com.pixelme.pro.monthly"
     static let yearlyProductID: String = "com.pixelme.pro.yearly"
     static let lifetimeProductID: String = "com.pixelme.pro.lifetime"
+
+    // 필터 팩 Product IDs
+    static let filterPackArcade90sID: String = "com.pixelme.filterpack.arcade90s"
+    static let filterPackSpringID: String = "com.pixelme.filterpack.spring"
+    static let filterPackCyberNightID: String = "com.pixelme.filterpack.cybernight"
     
     // MARK: - Image export size at 2x
     static let exportSize: CGFloat = 500 /// this will export the image at 1000x1000 resolution

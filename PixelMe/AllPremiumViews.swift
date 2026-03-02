@@ -1270,9 +1270,32 @@ struct LayerEditorView: View {
             Divider()
                 .frame(height: 30)
 
-            // Merge
-            Button {
-                manager.layerManager.flattenLayers()
+            // Merge menu
+            Menu {
+                Button {
+                    if let index = manager.layerManager.selectedLayerIndex {
+                        manager.layerManager.mergeLayerDown(at: index)
+                    }
+                } label: {
+                    Label("Merge Down", systemImage: "arrow.down.square")
+                }
+                .disabled(manager.layerManager.selectedLayerIndex == nil || manager.layerManager.selectedLayerIndex == 0)
+
+                Button {
+                    manager.layerManager.mergeVisibleLayers()
+                } label: {
+                    Label("Merge Visible", systemImage: "eye.square")
+                }
+                .disabled(manager.layerManager.visibleLayerCount < 2)
+
+                Divider()
+
+                Button(role: .destructive) {
+                    manager.layerManager.flattenLayers()
+                } label: {
+                    Label("Flatten All", systemImage: "square.3.layers.3d.down.right")
+                }
+                .disabled(manager.layerManager.layers.count < 2)
             } label: {
                 VStack(spacing: 4) {
                     Image(systemName: "square.3.layers.3d.down.right")

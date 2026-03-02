@@ -3439,6 +3439,7 @@ extension DataManager {
             presentAlert(title: "Oops!", message: errorMessage, primaryAction: .ok)
         } else {
             presentAlert(title: "Image Saved", message: "Your image has been saved into the Photos app", primaryAction: .ok)
+            ReviewManager.shared.trackCompletedAction()
         }
     }
 }
