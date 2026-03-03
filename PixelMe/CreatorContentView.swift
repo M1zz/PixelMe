@@ -142,37 +142,6 @@ struct CreatorContentView: View {
         }
     }
 
-    // MARK: - Drawing Screen (extracted)
-    private var DrawingScreenView: some View {
-        VStack(spacing: 15) {
-            DrawingHeaderView
-            ZStack {
-                PixelsGridView()
-
-                if !viewModel.didSelectBoardSize {
-                    GridHintOverlay
-                }
-            }
-
-            if let sample = viewModel.referenceSample, viewModel.showReferenceImage, viewModel.didSelectBoardSize {
-                ReferenceImageView(sample: sample)
-            }
-
-            if viewModel.didSelectBoardSize {
-                CreatorColorPaletteView(viewModel: viewModel)
-            }
-
-            if viewModel.didSelectBoardSize {
-                CreatorToolbarView(viewModel: viewModel)
-                    .sheet(isPresented: $viewModel.showSettingsSheet) {
-                        SettingsSheetView
-                    }
-            } else {
-                PixelBoardSizeSelector
-            }
-        }
-    }
-
     // MARK: - Home Screen
     private var HomeScreenView: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -832,45 +801,6 @@ struct CreatorContentView: View {
     }
 }
 
-// MARK: - Home Action Button
-struct HomeActionButton: View {
-    let icon: String
-    let title: String
-    let subtitle: String
-    let color: Color
-
-    var body: some View {
-        HStack(spacing: 15) {
-            ZStack {
-                Circle()
-                    .fill(color.opacity(0.2))
-                    .frame(width: 50, height: 50)
-                Image(systemName: icon)
-                    .font(.system(size: 22))
-                    .foregroundColor(color)
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
-                Text(subtitle)
-                    .font(.system(size: 13))
-                    .foregroundColor(.gray)
-            }
-
-            Spacer()
-
-            Image(systemName: "chevron.right")
-                .font(.system(size: 16))
-                .foregroundColor(.gray)
-        }
-        .padding(18)
-        .background(Color(AppConfig.toolBackgroundColor))
-        .cornerRadius(15)
-    }
-}
-
 // MARK: - Home Tool Card (2x2 grid)
 struct HomeToolCard: View {
     let icon: String
@@ -956,29 +886,6 @@ struct FeatureHighlightCard: View {
         }
         .accessibilityLabel(title)
         .accessibilityHint(description)
-    }
-}
-
-// MARK: - Sample Preview Card
-struct SamplePreviewCard: View {
-    let sample: SamplePixelArt
-
-    var body: some View {
-        VStack(spacing: 8) {
-            SampleArtPreview(sample: sample)
-                .frame(width: 80, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                )
-
-            Text(sample.name)
-                .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.white)
-                .lineLimit(1)
-        }
-        .frame(width: 90)
     }
 }
 

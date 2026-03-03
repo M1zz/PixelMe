@@ -5,9 +5,12 @@
 //  Created by hyunho lee on 2023/06/01.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
+import PhotosUI
 import Photos
+import Vision
+import CoreImage
 
 /// Batch processing configuration
 struct BatchProcessingConfig {
@@ -63,9 +66,7 @@ class BatchProcessor: ObservableObject {
 
     /// Process multiple images with the same settings
     func processBatch(images: [UIImage], config: BatchProcessingConfig, completion: @escaping ([BatchProcessingResult]) -> Void) {
-        // Cancel any previous task before starting new one
         cancelProcessing()
-
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
 
@@ -323,3 +324,10 @@ struct MultipleImagePicker: UIViewControllerRepresentable {
         }
     }
 }
+//
+//  ExportManager.swift
+//  PixelMe
+//
+//  Created by hyunho lee on 2023/06/01.
+//
+

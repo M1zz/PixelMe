@@ -30,7 +30,8 @@ func presentAlert(title: String, message: String, primaryAction: UIAlertAction =
 }
 
 var rootController: UIViewController? {
-    var root = UIApplication.shared.windows.first?.rootViewController
+    let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+    var root = scene?.windows.first?.rootViewController
     if let presenter = root?.presentedViewController { root = presenter }
     return root
 }

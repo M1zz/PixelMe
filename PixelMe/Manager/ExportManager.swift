@@ -5,8 +5,12 @@
 //  Created by hyunho lee on 2023/06/01.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
+import PhotosUI
+import Photos
+import Vision
+import CoreImage
 import PDFKit
 
 /// Export format options
@@ -55,26 +59,15 @@ enum ExportFormat: String, CaseIterable, Identifiable {
 
     private func createPDFData(from image: UIImage) -> Data? {
         let pdfData = NSMutableData()
-
-        guard let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData) else {
-            print("[ExportManager] Error: Failed to create PDF data consumer")
-            return nil
-        }
-
-        guard let cgImage = image.cgImage else {
-            print("[ExportManager] Error: Failed to get CGImage for PDF export")
-            return nil
-        }
-
+        let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
         var mediaBox = CGRect(origin: .zero, size: image.size)
 
         guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil) else {
-            print("[ExportManager] Error: Failed to create PDF context")
             return nil
         }
 
         pdfContext.beginPage(mediaBox: &mediaBox)
-        pdfContext.draw(cgImage, in: mediaBox)
+        pdfContext.draw(image.cgImage!, in: mediaBox)
         pdfContext.endPage()
         pdfContext.closePDF()
 
@@ -182,12 +175,7 @@ class ExportManager {
             processedImage = resizeImage(processedImage, targetSize: CGSize(width: targetSize, height: targetSize))
         }
 
-        // Step 3: Apply watermark for non-Pro users
-        if !SubscriptionManager.shared.isProUser {
-            processedImage = FreeUsageManager.applyWatermark(to: processedImage)
-        }
-
-        // Step 4: Convert to desired format
+        // Step 3: Convert to desired format
         guard let data = format.data(from: processedImage) else { return nil }
 
         // Generate filename
@@ -297,7 +285,7 @@ class ExportManager {
         }
     }
 
-    /// Share file using share sheet (includes watermark + app link for non-Pro users)
+    /// Share file using share sheet
     static func shareFile(data: Data, filename: String, from viewController: UIViewController) {
         let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
 
@@ -326,3 +314,10 @@ extension CGRect {
         set { self = newValue }
     }
 }
+//
+//  TemplateManager.swift
+//  PixelMe
+//
+//  Created by hyunho lee on 2023/06/01.
+//
+

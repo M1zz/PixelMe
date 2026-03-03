@@ -7,6 +7,10 @@
 
 import SwiftUI
 import UIKit
+import PhotosUI
+import Photos
+import Vision
+import CoreImage
 
 /// Color palette types
 enum ColorPaletteType: String, CaseIterable, Identifiable {
@@ -261,3 +265,10 @@ extension UIColor {
         return sqrt(pow(r1 - r2, 2) + pow(g1 - g2, 2) + pow(b1 - b2, 2))
     }
 }
+//
+//  ColorReduction.swift
+//  PixelMe
+//
+//  Created by hyunho lee on 2023/06/01.
+//
+
