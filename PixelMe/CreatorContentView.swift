@@ -184,7 +184,7 @@ struct CreatorContentView: View {
                     viewModel.showPhotoPicker = true
                 } label: {
                     HomeToolCard(
-                        icon: "camera.fill",
+                        pixelIcon: PixelIconCatalog.camera,
                         title: "Pixelate Photo",
                         subtitle: "Photo → pixel art",
                         color: .blue
@@ -197,7 +197,7 @@ struct CreatorContentView: View {
                     viewModel.showSampleGallery = true
                 } label: {
                     HomeToolCard(
-                        icon: "paintbrush.pointed.fill",
+                        pixelIcon: PixelIconCatalog.paintbrush,
                         title: "Follow Along",
                         subtitle: "Draw with a sample",
                         color: .purple
@@ -210,7 +210,7 @@ struct CreatorContentView: View {
                     showNewCanvasSheet = true
                 } label: {
                     HomeToolCard(
-                        icon: "scribble.variable",
+                        pixelIcon: PixelIconCatalog.pencil,
                         title: "Free Drawing",
                         subtitle: "Draw · Animate · Export",
                         color: .green
@@ -223,7 +223,7 @@ struct CreatorContentView: View {
                     showHomeAsepriteImporter = true
                 } label: {
                     HomeToolCard(
-                        icon: "doc.badge.arrow.up",
+                        pixelIcon: PixelIconCatalog.export,
                         title: "Import",
                         subtitle: "Import .ase files",
                         color: .indigo
@@ -246,7 +246,7 @@ struct CreatorContentView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     FeatureHighlightCard(
-                        icon: "film",
+                        pixelIcon: PixelIconCatalog.film,
                         title: "GIF Animation",
                         description: "Frame-by-frame pixel animation with onion skinning",
                         gradientColors: [.pink, .orange]
@@ -255,7 +255,7 @@ struct CreatorContentView: View {
                     }
 
                     FeatureHighlightCard(
-                        icon: "square.grid.3x3",
+                        pixelIcon: PixelIconCatalog.grid,
                         title: "Sprite Sheets",
                         description: "Export animation frames as sprite sheets",
                         gradientColors: [.cyan, .blue]
@@ -264,7 +264,7 @@ struct CreatorContentView: View {
                     }
 
                     FeatureHighlightCard(
-                        icon: "doc.badge.arrow.up",
+                        pixelIcon: PixelIconCatalog.export,
                         title: "Import & Export",
                         description: "Import & export .ase files",
                         gradientColors: [.indigo, .purple]
@@ -273,7 +273,7 @@ struct CreatorContentView: View {
                     }
 
                     FeatureHighlightCard(
-                        icon: "square.3.layers.3d",
+                        pixelIcon: PixelIconCatalog.layers,
                         title: "Layer Editing",
                         description: "Multiple layers with opacity control",
                         gradientColors: [.green, .teal]
@@ -320,18 +320,14 @@ struct CreatorContentView: View {
 
     private var animationSamples: [PixelIconDefinition] {
         [
-            PixelIconCatalog.camera,
-            PixelIconCatalog.paintbrush,
-            PixelIconCatalog.star,
-            PixelIconCatalog.house,
-            PixelIconCatalog.profile,
-            PixelIconCatalog.floppyDisk,
-            PixelIconCatalog.paintDrop,
-            PixelIconCatalog.sparkle,
-            PixelIconCatalog.grid,
-            PixelIconCatalog.pencil,
-            PixelIconCatalog.eraser,
-            PixelIconCatalog.export,
+            PixelIconCatalog.runningChar,
+            PixelIconCatalog.bouncingBall,
+            PixelIconCatalog.campfire,
+            PixelIconCatalog.heartBeat,
+            PixelIconCatalog.rocket,
+            PixelIconCatalog.swordSlash,
+            PixelIconCatalog.spinCoin,
+            PixelIconCatalog.flag,
         ]
     }
 
@@ -341,9 +337,7 @@ struct CreatorContentView: View {
             viewModel.showPaywall = true
         } label: {
             HStack(spacing: 12) {
-                Image(systemName: "sparkles")
-                    .font(.system(size: 20))
-                    .foregroundColor(.yellow)
+                PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 28)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Unlock Pro")
@@ -853,21 +847,14 @@ struct CreatorContentView: View {
 
 // MARK: - Home Tool Card (2x2 grid)
 struct HomeToolCard: View {
-    let icon: String
+    let pixelIcon: PixelIconDefinition
     let title: String
     let subtitle: String
     let color: Color
 
     var body: some View {
         VStack(spacing: 10) {
-            ZStack {
-                Circle()
-                    .fill(color.opacity(0.15))
-                    .frame(width: 48, height: 48)
-                Image(systemName: icon)
-                    .font(.system(size: 22))
-                    .foregroundColor(color)
-            }
+            PixelAnimatedIcon(icon: pixelIcon, size: 48)
 
             VStack(spacing: 3) {
                 Text(title)
@@ -888,7 +875,7 @@ struct HomeToolCard: View {
 
 // MARK: - Feature Highlight Card (가로 스크롤 카드)
 struct FeatureHighlightCard: View {
-    let icon: String
+    let pixelIcon: PixelIconDefinition
     let title: String
     let description: String
     let gradientColors: [Color]
@@ -897,9 +884,7 @@ struct FeatureHighlightCard: View {
     var body: some View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 8) {
-                Image(systemName: icon)
-                    .font(.system(size: 22))
-                    .foregroundColor(gradientColors.first ?? .white)
+                PixelAnimatedIcon(icon: pixelIcon, size: 28)
 
                 Text(title)
                     .font(.system(size: 15, weight: .bold))

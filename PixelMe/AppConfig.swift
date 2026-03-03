@@ -14,7 +14,7 @@ class AppConfig {
     
     // MARK: - Version (Single source of truth)
     /// 앱 버전 - 여기서만 관리. pbxproj의 MARKETING_VERSION과 일치시킬 것.
-    static let appVersion: String = "2.0.0"
+    static let appVersion: String = "2.0.1"
     static let buildNumber: String = "1"
     
     // MARK: - Settings flow items
