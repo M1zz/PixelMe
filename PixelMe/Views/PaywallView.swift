@@ -3,502 +3,842 @@
 //  PixelMe
 //
 //  Created by Claude on 2026/02/25.
-//  프리미엄 구독 시스템 Paywall
+//  페르소나 기반 Paywall — 전환율 최적화 레이아웃
 //
 
 import SwiftUI
 import StoreKit
 
-/// 프리미엄 구독을 위한 Paywall 화면
+// MARK: - Main Paywall
+
 struct PaywallView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var subscriptionManager = SubscriptionManager.shared
     @Binding var isProUser: Bool
-    
-    @State private var selectedPlan: SubscriptionPlan = .lifetime
+
+    @State private var selectedPlan: SubscriptionPlan = .yearly
     @State private var showingError = false
     @State private var isProcessing = false
-    
+    @State private var animateGradient = false
+    @State private var showcasePage = 0
+    @State private var floatOffset: CGFloat = 0
+
     var body: some View {
         ZStack {
-            Color(AppConfig.backgroundColor)
+            // Animated gradient background
+            backgroundGradient
                 .ignoresSafeArea()
-            
+
+            // Floating pixel icons (배경 장식)
+            floatingPixelIcons
+
             VStack(spacing: 0) {
-                // Header
-                HeaderView
-                    .padding(.top, 50)
-                
-                ScrollView {
-                    VStack(spacing: 30) {
-                        // Title Section
-                        TitleSection
-                        
-                        // Subscription Plans
-                        SubscriptionPlansSection
-                        
-                        // Purchase Button
-                        PurchaseButtonSection
-                        
-                        // Features Comparison
-                        FeaturesComparisonSection
-                        
-                        // Terms & Restore
-                        BottomSection
-                        
-                        Spacer(minLength: 50)
+                // Close button
+                closeButton
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 24) {
+                        // Showcase carousel — 결과물로 "오 이거 좋은데?" 유도
+                        showcaseCarousel
+
+                        // Plan selector (compact horizontal)
+                        planSelector
+
+                        // CTA button
+                        ctaButton
+
+                        // Micro feature list (compact)
+                        microFeatureList
+
+                        // Trust & legal
+                        trustSection
+
+                        Spacer(minLength: 40)
                     }
                     .padding(.horizontal, 20)
-                    .padding(.top, 20)
                 }
             }
         }
+        .onAppear {
+            withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) { animateGradient = true }
+            withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) { floatOffset = 12 }
+        }
         .onChange(of: isProUser) { newValue in
             if newValue {
-                // 구독 성공 시 Paywall 닫기
                 DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.subscriptionSuccessDelay) {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
         }
         .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) {
-                subscriptionManager.errorMessage = nil
-            }
+            Button("OK", role: .cancel) { subscriptionManager.errorMessage = nil }
         } message: {
             Text(subscriptionManager.errorMessage ?? "An unknown error occurred")
         }
     }
-    
-    // MARK: - Header
-    
-    private var HeaderView: some View {
+
+    // MARK: - Background
+
+    private var backgroundGradient: some View {
+        LinearGradient(
+            colors: animateGradient
+                ? [Color(red: 0.06, green: 0.04, blue: 0.15), Color(red: 0.12, green: 0.06, blue: 0.25)]
+                : [Color(red: 0.04, green: 0.02, blue: 0.10), Color(red: 0.08, green: 0.04, blue: 0.18)],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
+
+    // MARK: - Floating Pixel Icons (배경 장식 애니메이션)
+
+    private var floatingPixelIcons: some View {
+        GeometryReader { geo in
+            // 여러 픽셀 아이콘이 느리게 떠다니는 효과
+            PixelAnimatedIcon(icon: PixelIconCatalog.star, size: 32)
+                .opacity(0.12)
+                .position(x: geo.size.width * 0.1, y: geo.size.height * 0.15)
+                .offset(y: floatOffset)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 28)
+                .opacity(0.1)
+                .position(x: geo.size.width * 0.85, y: geo.size.height * 0.08)
+                .offset(y: -floatOffset)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.paintbrush, size: 24)
+                .opacity(0.08)
+                .position(x: geo.size.width * 0.92, y: geo.size.height * 0.35)
+                .offset(y: floatOffset * 0.7)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.camera, size: 26)
+                .opacity(0.08)
+                .position(x: geo.size.width * 0.08, y: geo.size.height * 0.45)
+                .offset(y: -floatOffset * 0.8)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.grid, size: 30)
+                .opacity(0.06)
+                .position(x: geo.size.width * 0.75, y: geo.size.height * 0.65)
+                .offset(y: floatOffset * 0.5)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.pencil, size: 22)
+                .opacity(0.07)
+                .position(x: geo.size.width * 0.15, y: geo.size.height * 0.75)
+                .offset(y: -floatOffset * 0.6)
+
+            PixelAnimatedIcon(icon: PixelIconCatalog.floppyDisk, size: 26)
+                .opacity(0.06)
+                .position(x: geo.size.width * 0.88, y: geo.size.height * 0.85)
+                .offset(y: floatOffset * 0.9)
+        }
+        .ignoresSafeArea()
+        .allowsHitTesting(false)
+    }
+
+    // MARK: - Close Button
+
+    private var closeButton: some View {
         HStack {
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
+            Button { presentationMode.wrappedValue.dismiss() } label: {
                 Image(systemName: "xmark")
-                    .font(.system(size: 22))
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(.white.opacity(0.6))
+                    .frame(width: 32, height: 32)
+                    .background(Color.white.opacity(0.1))
+                    .clipShape(Circle())
             }
-            
             Spacer()
-            
-            Text("PixelMe Pro")
-                .font(.system(size: 20, weight: .bold))
-            
-            Spacer()
-            
-            // Invisible spacer for center alignment
-            Image(systemName: "xmark")
-                .font(.system(size: 22))
-                .opacity(0)
         }
-        .padding(.horizontal)
-        .foregroundColor(.white)
+        .padding(.horizontal, 20)
+        .padding(.top, 56)
     }
-    
-    // MARK: - Title Section
-    
-    private var TitleSection: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "crown.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.yellow)
-            
-            Text("Unlock Pro Features")
-                .font(.system(size: 32, weight: .bold))
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-            
-            Text("Create professional-level pixel art")
-                .font(.system(size: 16))
-                .foregroundColor(.gray)
-                .multilineTextAlignment(.center)
-        }
-    }
-    
-    // MARK: - Subscription Plans Section
-    
-    private var SubscriptionPlansSection: some View {
-        VStack(spacing: 15) {
-            Text("Choose Your Plan")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.bottom, 10)
 
-            // Lifetime Plan (Best Deal - 최상단, 강조)
-            PlanOptionView(
-                plan: .lifetime,
-                price: subscriptionManager.getLifetimePrice(),
-                badge: "Best Deal",
-                badgeColor: .purple,
-                isSelected: selectedPlan == .lifetime
-            ) {
-                selectedPlan = .lifetime
+    // MARK: - Showcase Carousel (크리에이터 중심 — 에디터·애니메이션·내보내기)
+
+    private var showcaseCarousel: some View {
+        VStack(spacing: 14) {
+            TabView(selection: $showcasePage) {
+                // Slide 1: 레이어 + 애니메이션 (핵심 에디터 기능)
+                showcaseSlideLayers
+                    .tag(0)
+
+                // Slide 2: 내보내기 (GIF, Sprite Sheet, Aseprite)
+                showcaseSlideExport
+                    .tag(1)
+
+                // Slide 3: 크리에이티브 도구 (팔레트, 대칭, 필터)
+                showcaseSlideTools
+                    .tag(2)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .frame(height: 320)
+
+            // Custom page indicator
+            HStack(spacing: 8) {
+                ForEach(0..<3, id: \.self) { index in
+                    Capsule()
+                        .fill(showcasePage == index ? Color.white : Color.white.opacity(0.25))
+                        .frame(width: showcasePage == index ? 20 : 6, height: 6)
+                        .animation(.easeInOut(duration: 0.25), value: showcasePage)
+                }
             }
 
-            // 구독 대비 절약 안내
-            if selectedPlan == .lifetime {
-                Text("Monthly for 20 months = Lifetime forever")
+            // Social proof
+            HStack(spacing: 6) {
+                HStack(spacing: 2) {
+                    ForEach(0..<5, id: \.self) { _ in
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 10))
+                            .foregroundColor(.yellow)
+                    }
+                }
+                Text("4.8")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.yellow)
+                Text("·")
+                    .foregroundColor(.white.opacity(0.3))
+                Text("10K+ creators")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.white.opacity(0.6))
+            }
+        }
+    }
+
+    // MARK: Slide 1 — Layers & Animation (픽셀 아이콘 중심)
+
+    private var showcaseSlideLayers: some View {
+        VStack(spacing: 16) {
+            Text("Layers & Animation")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.white.opacity(0.5))
+                .textCase(.uppercase)
+                .tracking(1.5)
+
+            HStack(spacing: 20) {
+                // 레이어 — 겹친 픽셀 아이콘
+                VStack(spacing: 10) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(Color.cyan.opacity(0.08))
+                            .frame(width: 130, height: 150)
+
+                        // 3장 겹친 레이어 효과 (뒤에서 앞으로)
+                        PixelAnimatedIcon(icon: PixelIconCatalog.grid, size: 48)
+                            .opacity(0.3)
+                            .offset(x: 10, y: -10)
+                        PixelAnimatedIcon(icon: PixelIconCatalog.pencil, size: 48)
+                            .opacity(0.5)
+                            .offset(x: 5, y: -5)
+                        PixelAnimatedIcon(icon: PixelIconCatalog.paintbrush, size: 56)
+
+                        // 레이어 뱃지
+                        VStack {
+                            Spacer()
+                            Text("Unlimited Layers")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.cyan)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.cyan.opacity(0.15))
+                                .cornerRadius(6)
+                                .padding(.bottom, 10)
+                        }
+                        .frame(width: 130, height: 150)
+                    }
+                }
+
+                // 애니메이션 — 스파클 + 타임라인
+                VStack(spacing: 10) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(Color.pink.opacity(0.08))
+                            .frame(width: 130, height: 150)
+
+                        VStack(spacing: 8) {
+                            PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 56)
+
+                            // 미니 타임라인 프레임 스트립
+                            HStack(spacing: 3) {
+                                ForEach(0..<5, id: \.self) { i in
+                                    RoundedRectangle(cornerRadius: 3)
+                                        .fill(Color.pink.opacity(Double(i + 1) * 0.15))
+                                        .frame(width: 16, height: 20)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 3)
+                                                .stroke(Color.pink.opacity(i == 2 ? 0.6 : 0.15), lineWidth: 1)
+                                        )
+                                }
+                            }
+                        }
+
+                        VStack {
+                            Spacer()
+                            Text("GIF · Onion Skin")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.pink)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.pink.opacity(0.15))
+                                .cornerRadius(6)
+                                .padding(.bottom, 10)
+                        }
+                        .frame(width: 130, height: 150)
+                    }
+                }
+            }
+
+            Text("Create frame-by-frame animations with full layer control")
+                .font(.system(size: 13, weight: .medium))
+                .foregroundColor(.white.opacity(0.5))
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    // MARK: Slide 2 — Export Everything (픽셀 아이콘 + 포맷 카드)
+
+    private var showcaseSlideExport: some View {
+        VStack(spacing: 16) {
+            Text("Export Anything")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.white.opacity(0.5))
+                .textCase(.uppercase)
+                .tracking(1.5)
+
+            // 중앙에 큰 내보내기 픽셀 아이콘
+            ZStack {
+                // 배경 글로우
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.purple.opacity(0.2), Color.clear],
+                            center: .center,
+                            startRadius: 20,
+                            endRadius: 80
+                        )
+                    )
+                    .frame(width: 120, height: 120)
+
+                PixelAnimatedIcon(icon: PixelIconCatalog.export, size: 72)
+            }
+
+            // 4가지 내보내기 포맷 카드
+            HStack(spacing: 10) {
+                exportFormatCard(icon: PixelIconCatalog.sparkle, label: "GIF", color: .green)
+                exportFormatCard(icon: PixelIconCatalog.grid, label: "Sprite", color: .orange)
+                exportFormatCard(icon: PixelIconCatalog.floppyDisk, label: ".ase", color: .indigo)
+                exportFormatCard(icon: PixelIconCatalog.camera, label: "4K", color: .blue)
+            }
+            .padding(.horizontal, 8)
+
+            Text("GIF · Sprite Sheet · Aseprite · 4K PNG")
+                .font(.system(size: 13, weight: .medium))
+                .foregroundColor(.white.opacity(0.5))
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    private func exportFormatCard(icon: PixelIconDefinition, label: String, color: Color) -> some View {
+        VStack(spacing: 4) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(color.opacity(0.12))
+                    .frame(height: 56)
+
+                PixelAnimatedIcon(icon: icon, size: 28)
+            }
+            Text(label)
+                .font(.system(size: 10, weight: .bold))
+                .foregroundColor(color.opacity(0.9))
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    // MARK: Slide 3 — Creative Tools (픽셀 아이콘 중심)
+
+    private var showcaseSlideTools: some View {
+        VStack(spacing: 16) {
+            Text("Creative Tools")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.white.opacity(0.5))
+                .textCase(.uppercase)
+                .tracking(1.5)
+
+            // 3개 기능 카드 — 픽셀 아이콘 사용
+            HStack(spacing: 12) {
+                // AI 팔레트
+                VStack(spacing: 6) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.purple.opacity(0.12))
+                            .frame(width: 95, height: 100)
+
+                        VStack(spacing: 6) {
+                            PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 36)
+
+                            HStack(spacing: 2) {
+                                ForEach([Color.red, Color.orange, Color.yellow, Color.green, Color.blue], id: \.self) { c in
+                                    Circle().fill(c).frame(width: 8, height: 8)
+                                }
+                            }
+                        }
+                    }
+                    Text("AI Palette")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white.opacity(0.7))
+                }
+
+                // 그리기 도구
+                VStack(spacing: 6) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.orange.opacity(0.12))
+                            .frame(width: 95, height: 100)
+
+                        VStack(spacing: 6) {
+                            HStack(spacing: 4) {
+                                PixelAnimatedIcon(icon: PixelIconCatalog.pencil, size: 30)
+                                PixelAnimatedIcon(icon: PixelIconCatalog.eraser, size: 30)
+                            }
+                            PixelAnimatedIcon(icon: PixelIconCatalog.paintDrop, size: 24)
+                        }
+                    }
+                    Text("Pro Tools")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white.opacity(0.7))
+                }
+
+                // 팔레트
+                VStack(spacing: 6) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.yellow.opacity(0.12))
+                            .frame(width: 95, height: 100)
+
+                        VStack(spacing: 6) {
+                            PixelAnimatedIcon(icon: PixelIconCatalog.star, size: 36)
+
+                            Text("9 Palettes")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.yellow.opacity(0.8))
+                        }
+                    }
+                    Text("Colors")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white.opacity(0.7))
+                }
+            }
+
+            // 태그들
+            HStack(spacing: 8) {
+                ForEach(["Symmetry", "6 Filters", "Batch", "All Sizes"], id: \.self) { tag in
+                    Text(tag)
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.white.opacity(0.6))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.white.opacity(0.08))
+                        .cornerRadius(8)
+                }
+            }
+        }
+    }
+
+    // MARK: - Plan Selector (Compact Horizontal)
+
+    private var planSelector: some View {
+        VStack(spacing: 14) {
+            // Top row: Yearly (hero) + Monthly (anchor)
+            HStack(spacing: 10) {
+                // Yearly — hero card
+                CompactPlanCard(
+                    label: "Yearly",
+                    price: subscriptionManager.getYearlyPrice(),
+                    detail: subscriptionManager.getYearlyWeeklyPrice() + "/wk",
+                    badge: "Save 64%",
+                    badgeColor: .green,
+                    isSelected: selectedPlan == .yearly,
+                    isRecommended: true
+                ) { selectedPlan = .yearly }
+
+                // Monthly — anchor
+                CompactPlanCard(
+                    label: "Monthly",
+                    price: subscriptionManager.getMonthlyPrice(),
+                    detail: "per month",
+                    badge: nil,
+                    badgeColor: .clear,
+                    isSelected: selectedPlan == .monthly,
+                    isRecommended: false
+                ) { selectedPlan = .monthly }
+            }
+
+            // Bottom row: Weekly + Lifetime
+            HStack(spacing: 10) {
+                // Weekly — low commitment
+                CompactPlanCard(
+                    label: "Weekly",
+                    price: subscriptionManager.getWeeklyPrice(),
+                    detail: "per week",
+                    badge: "Try It",
+                    badgeColor: .blue,
+                    isSelected: selectedPlan == .weekly,
+                    isRecommended: false
+                ) { selectedPlan = .weekly }
+
+                // Lifetime
+                CompactPlanCard(
+                    label: "Lifetime",
+                    price: subscriptionManager.getLifetimePrice(),
+                    detail: "one-time",
+                    badge: "Forever",
+                    badgeColor: .purple,
+                    isSelected: selectedPlan == .lifetime,
+                    isRecommended: false
+                ) { selectedPlan = .lifetime }
+            }
+
+            // Contextual hint below plans
+            planHintText
+        }
+    }
+
+    private var planHintText: some View {
+        Group {
+            switch selectedPlan {
+            case .yearly:
+                Label("Only \(subscriptionManager.getYearlyWeeklyPrice()) per week · 7-day free trial", systemImage: "checkmark.seal.fill")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor(.green)
+            case .monthly:
+                Label("7-day free trial included", systemImage: "clock.fill")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.white.opacity(0.6))
+            case .weekly:
+                Label("No commitment · Cancel anytime", systemImage: "hand.thumbsup.fill")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.cyan)
+            case .lifetime:
+                Label("Pay once, use forever — save vs 3 yrs subscription", systemImage: "infinity")
                     .font(.system(size: 13, weight: .medium))
                     .foregroundColor(.purple)
-                    .padding(.vertical, 4)
-            }
-
-            // Yearly Plan (Best Value)
-            PlanOptionView(
-                plan: .yearly,
-                price: subscriptionManager.getYearlyPrice(),
-                monthlyPrice: subscriptionManager.getYearlyMonthlyPrice(),
-                badge: "Save 44%",
-                badgeColor: .green,
-                isSelected: selectedPlan == .yearly
-            ) {
-                selectedPlan = .yearly
-            }
-
-            // Monthly Plan
-            PlanOptionView(
-                plan: .monthly,
-                price: subscriptionManager.getMonthlyPrice(),
-                isSelected: selectedPlan == .monthly
-            ) {
-                selectedPlan = .monthly
             }
         }
+        .padding(.top, 2)
     }
-    
-    // MARK: - Purchase Button Section
-    
-    private var PurchaseButtonSection: some View {
-        VStack(spacing: 15) {
+
+    // MARK: - CTA Button
+
+    private var ctaButton: some View {
+        VStack(spacing: 10) {
             if subscriptionManager.isLoading || isProcessing {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                Text("Processing...")
-                    .foregroundColor(.white)
+                    .frame(height: 56)
             } else if subscriptionManager.isProUser {
-                VStack(spacing: 8) {
+                HStack(spacing: 8) {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 40))
+                        .font(.system(size: 22))
                         .foregroundColor(.green)
-                    Text("Pro Subscription Active")
+                    Text("Pro Active")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
                 }
+                .frame(maxWidth: .infinity)
+                .frame(height: 56)
+                .background(Color.green.opacity(0.2))
+                .cornerRadius(16)
             } else {
                 Button {
-                    Task {
-                        await purchaseSelectedPlan()
-                    }
+                    Task { await purchaseSelectedPlan() }
                 } label: {
-                    VStack(spacing: 8) {
-                        if selectedPlan == .lifetime {
-                            Text("Purchase Lifetime")
-                                .font(.system(size: 20, weight: .bold))
-                        } else {
-                            Text("Start 3-Day Free Trial")
-                                .font(.system(size: 20, weight: .bold))
-                        }
-                        
-                        Text(selectedPlan.description)
-                            .font(.system(size: 14))
+                    HStack(spacing: 8) {
+                        ctaIcon
+                        ctaText
                     }
+                    .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 18)
+                    .frame(height: 56)
                     .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color(AppConfig.continueButtonColor))
+                        LinearGradient(
+                            colors: [Color(AppConfig.continueButtonColor), Color(AppConfig.continueButtonColor).opacity(0.8)],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
                     )
+                    .cornerRadius(16)
+                    .shadow(color: Color(AppConfig.continueButtonColor).opacity(0.4), radius: 12, y: 4)
                 }
                 .disabled(!subscriptionManager.hasLoadedProducts)
-                
-                if selectedPlan != .lifetime {
-                    Text("• After 3-day free trial: \(selectedPlan == .monthly ? subscriptionManager.getMonthlyPrice() : subscriptionManager.getYearlyPrice())")
-                        .font(.system(size: 12))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                }
+
+                // Price disclosure
+                ctaPriceDisclosure
             }
         }
     }
-    
-    // MARK: - Features Comparison Section
-    
-    private var FeaturesComparisonSection: some View {
-        VStack(spacing: 20) {
-            Text("Feature Comparison")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-            
-            VStack(spacing: 0) {
-                // Header
-                HStack {
-                    Text("Feature")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text("Free")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 60)
-                    
-                    Text("Pro")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.yellow)
-                        .frame(width: 60)
-                }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 12)
-                .background(Color(AppConfig.toolBackgroundColor))
-                
-                // Features
-                FeatureComparisonRow(feature: "Pixelize", free: "3/day", pro: "Unlimited")
-                FeatureComparisonRow(feature: "Pixel Size", free: "3 levels", pro: "6 levels")
-                FeatureComparisonRow(feature: "Color Palette", free: "1", pro: "9")
-                FeatureComparisonRow(feature: "Filter Effects", free: "1", pro: "6")
-                FeatureComparisonRow(feature: "Dithering", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Batch Processing", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Create GIF", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Layers", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Export", free: "PNG, 1080p", pro: "PNG/SVG/PDF, 4K")
-                FeatureComparisonRow(feature: "Watermark", free: "Yes", pro: "Removed")
-                FeatureComparisonRow(feature: "Templates", free: "5", pro: "15+")
-            }
-            .background(Color.black.opacity(0.3))
-            .cornerRadius(10)
+
+    @ViewBuilder
+    private var ctaIcon: some View {
+        switch selectedPlan {
+        case .lifetime:
+            Image(systemName: "crown.fill")
+        case .weekly:
+            Image(systemName: "bolt.fill")
+        default:
+            Image(systemName: "play.fill")
         }
     }
-    
-    // MARK: - Bottom Section
-    
-    private var BottomSection: some View {
-        VStack(spacing: 15) {
+
+    @ViewBuilder
+    private var ctaText: some View {
+        switch selectedPlan {
+        case .lifetime:
+            Text("Get Lifetime Access")
+        case .weekly:
+            Text("Start Weekly — \(subscriptionManager.getWeeklyPrice())")
+        default:
+            Text("Start Free 7-Day Trial")
+        }
+    }
+
+    @ViewBuilder
+    private var ctaPriceDisclosure: some View {
+        switch selectedPlan {
+        case .monthly:
+            Text("After trial: \(subscriptionManager.getMonthlyPrice())/month · Cancel anytime")
+                .font(.system(size: 11))
+                .foregroundColor(.white.opacity(0.4))
+        case .yearly:
+            Text("After trial: \(subscriptionManager.getYearlyPrice())/year · Cancel anytime")
+                .font(.system(size: 11))
+                .foregroundColor(.white.opacity(0.4))
+        case .weekly:
+            Text("Billed \(subscriptionManager.getWeeklyPrice()) every week · Cancel anytime")
+                .font(.system(size: 11))
+                .foregroundColor(.white.opacity(0.4))
+        case .lifetime:
+            Text("One-time payment · No subscription")
+                .font(.system(size: 11))
+                .foregroundColor(.white.opacity(0.4))
+        }
+    }
+
+    // MARK: - Micro Feature List
+
+    private var microFeatureList: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 8) {
+                PixelAnimatedIcon(icon: PixelIconCatalog.star, size: 20)
+                Text("Everything in Pro")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            .padding(.bottom, 12)
+
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                MicroFeatureRow(icon: "square.3.layers.3d", text: "Unlimited Layers")
+                MicroFeatureRow(icon: "film", text: "GIF Animation")
+                MicroFeatureRow(icon: "square.grid.3x3", text: "Sprite Sheets")
+                MicroFeatureRow(icon: "doc.badge.arrow.up", text: "Aseprite Import")
+                MicroFeatureRow(icon: "wand.and.stars", text: "AI Palette")
+                MicroFeatureRow(icon: "paintpalette.fill", text: "9 Color Palettes")
+                MicroFeatureRow(icon: "square.resize", text: "4K PNG Export")
+                MicroFeatureRow(icon: "xmark.circle", text: "No Watermark")
+            }
+        }
+        .padding(16)
+        .background(Color.white.opacity(0.05))
+        .cornerRadius(16)
+    }
+
+    // MARK: - Trust Section
+
+    private var trustSection: some View {
+        VStack(spacing: 14) {
             Button {
                 Task {
                     await subscriptionManager.restorePurchases()
                     isProUser = subscriptionManager.isProUser
-                    if let error = subscriptionManager.errorMessage {
-                        showingError = true
-                    }
+                    if subscriptionManager.errorMessage != nil { showingError = true }
                 }
             } label: {
                 Text("Restore Purchases")
-                    .font(.system(size: 16))
-                    .foregroundColor(.gray)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.white.opacity(0.4))
             }
-            
-            VStack(spacing: 8) {
-                Text("You can cancel your subscription anytime")
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                
-                HStack(spacing: 20) {
-                    Button("Terms of Service") {
-                        // Terms of Service link
+
+            HStack(spacing: 16) {
+                Label("Cancel anytime", systemImage: "xmark.circle")
+                Label("Secure payment", systemImage: "lock.fill")
+            }
+            .font(.system(size: 11))
+            .foregroundColor(.white.opacity(0.3))
+
+            HStack(spacing: 20) {
+                Button("Terms of Service") {
+                    if let url = URL(string: AppConfig.termsAndConditionsURL.absoluteString) {
+                        UIApplication.shared.open(url)
                     }
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                    
-                    Button("Privacy Policy") {
-                        // Privacy Policy link
+                }
+                Button("Privacy Policy") {
+                    if let url = URL(string: AppConfig.privacyURL.absoluteString) {
+                        UIApplication.shared.open(url)
                     }
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
                 }
             }
+            .font(.system(size: 11))
+            .foregroundColor(.white.opacity(0.25))
         }
     }
-    
-    // MARK: - Helper Methods
-    
+
+    // MARK: - Purchase Logic
+
     private func purchaseSelectedPlan() async {
         isProcessing = true
-        
+
         let product: Product?
         switch selectedPlan {
-        case .monthly:
-            product = subscriptionManager.getMonthlyProduct()
-        case .yearly:
-            product = subscriptionManager.getYearlyProduct()
-        case .lifetime:
-            product = subscriptionManager.getLifetimeProduct()
+        case .weekly:  product = subscriptionManager.getWeeklyProduct()
+        case .monthly: product = subscriptionManager.getMonthlyProduct()
+        case .yearly:  product = subscriptionManager.getYearlyProduct()
+        case .lifetime: product = subscriptionManager.getLifetimeProduct()
         }
-        
+
         guard let selectedProduct = product else {
             subscriptionManager.errorMessage = "Selected product not found"
             showingError = true
             isProcessing = false
             return
         }
-        
+
         let success = await subscriptionManager.purchaseSubscription(selectedProduct)
         if success {
             isProUser = true
-        } else if let error = subscriptionManager.errorMessage {
+        } else if subscriptionManager.errorMessage != nil {
             showingError = true
         }
-        
+
         isProcessing = false
     }
 }
 
-// MARK: - Supporting Views
+// MARK: - Compact Plan Card
 
-/// 요금제 옵션 뷰
-struct PlanOptionView: View {
-    let plan: SubscriptionPlan
+struct CompactPlanCard: View {
+    let label: String
     let price: String
-    let monthlyPrice: String?
+    let detail: String
     let badge: String?
     let badgeColor: Color
     let isSelected: Bool
+    let isRecommended: Bool
     let action: () -> Void
-    
-    init(
-        plan: SubscriptionPlan,
-        price: String,
-        monthlyPrice: String? = nil,
-        badge: String? = nil,
-        badgeColor: Color = .green,
-        isSelected: Bool,
-        action: @escaping () -> Void
-    ) {
-        self.plan = plan
-        self.price = price
-        self.monthlyPrice = monthlyPrice
-        self.badge = badge
-        self.badgeColor = badgeColor
-        self.isSelected = isSelected
-        self.action = action
-    }
-    
+
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Color(AppConfig.continueButtonColor).opacity(0.2) : Color.black.opacity(0.3))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(
-                                isSelected ? Color(AppConfig.continueButtonColor) : Color.gray.opacity(0.3),
-                                lineWidth: isSelected ? 2 : 1
-                            )
-                    )
-                
-                VStack(spacing: 8) {
-                    HStack {
-                        Text(plan.title)
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                        
-                        if let badge = badge {
-                            Text(badge)
-                                .font(.system(size: 12, weight: .bold))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(badgeColor)
-                                .foregroundColor(.white)
-                                .cornerRadius(6)
-                        }
-                    }
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(price)
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
-                            
-                            if let monthlyPrice = monthlyPrice {
-                                Text("per month \(monthlyPrice)")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        if isSelected {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 24))
-                                .foregroundColor(Color(AppConfig.continueButtonColor))
-                        } else {
-                            Image(systemName: "circle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    
-                    if plan != .lifetime {
-                        Text("Includes 3-day free trial")
-                            .font(.system(size: 12))
-                            .foregroundColor(.green)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+            VStack(spacing: 6) {
+                // Badge or spacer
+                if let badge = badge {
+                    Text(badge)
+                        .font(.system(size: 10, weight: .heavy))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(badgeColor)
+                        .cornerRadius(4)
+                } else {
+                    Text(" ")
+                        .font(.system(size: 10))
+                        .padding(.vertical, 3)
                 }
-                .padding(16)
+
+                Text(label)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor(isSelected ? .white : .white.opacity(0.6))
+
+                Text(price)
+                    .font(.system(size: 18, weight: .heavy))
+                    .foregroundColor(.white)
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+
+                Text(detail)
+                    .font(.system(size: 11))
+                    .foregroundColor(.white.opacity(0.4))
+
+                // Selection indicator
+                if isSelected {
+                    Circle()
+                        .fill(Color(AppConfig.continueButtonColor))
+                        .frame(width: 8, height: 8)
+                } else {
+                    Circle()
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                        .frame(width: 8, height: 8)
+                }
             }
+            .padding(.vertical, 14)
+            .padding(.horizontal, 8)
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(isSelected ? Color(AppConfig.continueButtonColor).opacity(0.15) : Color.white.opacity(0.04))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(
+                        isSelected
+                            ? Color(AppConfig.continueButtonColor)
+                            : (isRecommended ? Color.white.opacity(0.15) : Color.white.opacity(0.08)),
+                        lineWidth: isSelected ? 2 : 1
+                    )
+            )
         }
     }
 }
 
-/// 기능 비교 행
-struct FeatureComparisonRow: View {
-    let feature: String
-    let free: String
-    let pro: String
-    
+// MARK: - Micro Feature Row
+
+struct MicroFeatureRow: View {
+    let icon: String
+    let text: String
+
     var body: some View {
-        HStack {
-            Text(feature)
-                .font(.system(size: 14))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Text(free)
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .frame(width: 60)
-                .multilineTextAlignment(.center)
-            
-            Text(pro)
-                .font(.system(size: 14))
+        HStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.system(size: 12))
                 .foregroundColor(.yellow)
-                .frame(width: 60)
-                .multilineTextAlignment(.center)
+                .frame(width: 18)
+
+            Text(text)
+                .font(.system(size: 12))
+                .foregroundColor(.white.opacity(0.7))
+                .lineLimit(1)
+
+            Spacer()
         }
-        .padding(.horizontal, 15)
-        .padding(.vertical, 8)
-        .background(Color.black.opacity(0.1))
     }
 }
 
 // MARK: - Supporting Enums
 
 enum SubscriptionPlan: String, CaseIterable {
+    case weekly = "Weekly"
     case monthly = "Monthly"
     case yearly = "Yearly"
     case lifetime = "Lifetime"
-    
-    var title: String {
-        return rawValue
-    }
-    
+
+    var title: String { rawValue }
+
     var description: String {
         switch self {
-        case .monthly:
-            return "Monthly billing"
-        case .yearly:
-            return "Yearly billing"
-        case .lifetime:
-            return "One-time payment for lifetime access"
+        case .weekly:   return "Weekly billing"
+        case .monthly:  return "Monthly billing"
+        case .yearly:   return "Yearly billing — best value"
+        case .lifetime: return "One-time payment for lifetime access"
         }
     }
 }
+
 // MARK: - Preview
 
 #Preview {

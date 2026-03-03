@@ -17,6 +17,26 @@ struct PixelMeApp: App {
                 .onAppear {
                     ReviewManager.shared.trackAppLaunch()
                 }
+                .onOpenURL { url in
+                    handleAsepriteFile(url)
+                }
+        }
+    }
+
+    private func handleAsepriteFile(_ url: URL) {
+        let ext = url.pathExtension.lowercased()
+        guard ext == "aseprite" || ext == "ase" else { return }
+
+        guard url.startAccessingSecurityScopedResource() else { return }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        do {
+            let (_, _, frames) = try AsepriteManager.importFile(from: url)
+            // DataManager에 가져온 데이터를 저장하고 에디터를 열도록 알림
+            manager.importedAsepriteFrames = frames
+            manager.shouldOpenPixelEditor = true
+        } catch {
+            presentAlert(title: "Aseprite 가져오기 실패", message: error.localizedDescription)
         }
     }
 }

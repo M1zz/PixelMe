@@ -172,7 +172,7 @@ struct PixelLayerView: View {
     }
 }
 
-/// 캔버스 배경 (앱 테마에 맞춘 어두운 배경)
+/// 캔버스 배경 (흰색)
 struct CheckerboardBackground: View {
     let width: Int
     let height: Int
@@ -180,7 +180,7 @@ struct CheckerboardBackground: View {
 
     var body: some View {
         Rectangle()
-            .fill(Color(AppConfig.backgroundColor))
+            .fill(Color.white)
             .frame(
                 width: CGFloat(width) * pixelSize,
                 height: CGFloat(height) * pixelSize

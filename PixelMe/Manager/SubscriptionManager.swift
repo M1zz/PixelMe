@@ -33,6 +33,7 @@ class SubscriptionManager: ObservableObject {
     // MARK: - Private Properties
     
     /// 구독 상품 ID들
+    private let weeklyProductID = AppConfig.weeklyProductID
     private let monthlyProductID = AppConfig.monthlyProductID
     private let yearlyProductID = AppConfig.yearlyProductID
     private let lifetimeProductID = AppConfig.lifetimeProductID
@@ -72,16 +73,15 @@ class SubscriptionManager: ObservableObject {
         errorMessage = nil
         
         do {
-            let productIDs = [monthlyProductID, yearlyProductID, lifetimeProductID]
+            let productIDs = [weeklyProductID, monthlyProductID, yearlyProductID, lifetimeProductID]
             let products = try await Product.products(for: productIDs)
-            
-            // 상품을 가격 순으로 정렬 (월간 < 연간 < 평생)
-            self.subscriptionProducts = products.sorted { product1, product2 in
-                if product1.id == monthlyProductID { return true }
-                if product2.id == monthlyProductID { return false }
-                if product1.id == yearlyProductID { return true }
-                if product2.id == yearlyProductID { return false }
-                return false
+
+            // 상품을 가격 순으로 정렬 (주간 < 월간 < 연간 < 평생)
+            let order = [weeklyProductID, monthlyProductID, yearlyProductID, lifetimeProductID]
+            self.subscriptionProducts = products.sorted { p1, p2 in
+                let i1 = order.firstIndex(of: p1.id) ?? order.count
+                let i2 = order.firstIndex(of: p2.id) ?? order.count
+                return i1 < i2
             }
             
             print("✅ [SubscriptionManager] 로드된 구독 상품 \(products.count)개")
@@ -96,16 +96,21 @@ class SubscriptionManager: ObservableObject {
         isLoading = false
     }
     
+    /// 주간 구독 상품 반환
+    func getWeeklyProduct() -> Product? {
+        return subscriptionProducts.first { $0.id == weeklyProductID }
+    }
+
     /// 월간 구독 상품 반환
     func getMonthlyProduct() -> Product? {
         return subscriptionProducts.first { $0.id == monthlyProductID }
     }
-    
+
     /// 연간 구독 상품 반환
     func getYearlyProduct() -> Product? {
         return subscriptionProducts.first { $0.id == yearlyProductID }
     }
-    
+
     /// 평생 구매 상품 반환
     func getLifetimeProduct() -> Product? {
         return subscriptionProducts.first { $0.id == lifetimeProductID }
@@ -231,7 +236,7 @@ class SubscriptionManager: ObservableObject {
                 }
                 
                 // 새 구독 상품 확인
-                if [monthlyProductID, yearlyProductID, lifetimeProductID].contains(transaction.productID) {
+                if [weeklyProductID, monthlyProductID, yearlyProductID, lifetimeProductID].contains(transaction.productID) {
                     // 평생 구매는 항상 활성
                     if transaction.productID == lifetimeProductID {
                         hasActiveSubscription = true
@@ -319,34 +324,53 @@ class SubscriptionManager: ObservableObject {
     }
     
     // MARK: - Helper Methods
-    
+
+    /// 주간 구독 가격 반환
+    func getWeeklyPrice() -> String {
+        return getWeeklyProduct()?.displayPrice ?? "₩2,500"
+    }
+
     /// 월간 구독 가격 반환
     func getMonthlyPrice() -> String {
-        return getMonthlyProduct()?.displayPrice ?? "₩6,600"
+        return getMonthlyProduct()?.displayPrice ?? "₩6,900"
     }
 
     /// 연간 구독 가격 반환
     func getYearlyPrice() -> String {
-        return getYearlyProduct()?.displayPrice ?? "₩49,000"
+        return getYearlyProduct()?.displayPrice ?? "₩29,900"
     }
 
     /// 평생 구매 가격 반환
     func getLifetimePrice() -> String {
-        return getLifetimeProduct()?.displayPrice ?? "₩129,000"
+        return getLifetimeProduct()?.displayPrice ?? "₩89,000"
     }
-    
-    /// 연간 구독의 월 환산 가격 반환
-    func getYearlyMonthlyPrice() -> String {
-        guard let yearlyProduct = getYearlyProduct() else { return "₩2,492" }
-        
+
+    /// 연간 구독의 주당 환산 가격 반환
+    func getYearlyWeeklyPrice() -> String {
+        guard let yearlyProduct = getYearlyProduct() else { return "₩575" }
+
         let yearlyPrice = yearlyProduct.price
-        let monthlyPrice = yearlyPrice / 12
-        
+        let weeklyPrice = yearlyPrice / 52
+
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = yearlyProduct.priceFormatStyle.locale
 
-        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩4,083"
+        return formatter.string(from: weeklyPrice as NSNumber) ?? "₩575"
+    }
+
+    /// 연간 구독의 월 환산 가격 반환
+    func getYearlyMonthlyPrice() -> String {
+        guard let yearlyProduct = getYearlyProduct() else { return "₩2,492" }
+
+        let yearlyPrice = yearlyProduct.price
+        let monthlyPrice = yearlyPrice / 12
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = yearlyProduct.priceFormatStyle.locale
+
+        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩2,492"
     }
     
     /// 상품들이 로드되었는지 확인

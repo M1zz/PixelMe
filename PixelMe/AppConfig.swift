@@ -32,6 +32,7 @@ class AppConfig {
     static let premiumVersion: String = "PixelNFT.Premium" // 기존 호환성 유지
     
     // 구독 시스템 Product IDs
+    static let weeklyProductID: String = "com.pixelme.pro.weekly"
     static let monthlyProductID: String = "com.pixelme.pro.monthly"
     static let yearlyProductID: String = "com.pixelme.pro.yearly"
     static let lifetimeProductID: String = "com.pixelme.pro.lifetime"

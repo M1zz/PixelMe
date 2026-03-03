@@ -153,7 +153,11 @@ struct CreatorContentView: View {
                 HomeFeatureHighlights
                     .padding(.top, 24)
 
-                // ── 3) Pro Banner: 프리미엄 ──
+                // ── 3) Animation Gallery: 픽셀 애니메이션 샘플 ──
+                HomeAnimationGallery
+                    .padding(.top, 24)
+
+                // ── 4) Pro Banner: 프리미엄 ──
                 if !SubscriptionManager.shared.isProUser {
                     HomeProBanner
                         .padding(.top, 20)
@@ -280,6 +284,55 @@ struct CreatorContentView: View {
                 .padding(.horizontal, 20)
             }
         }
+    }
+
+    // MARK: - Animation Gallery (픽셀 애니메이션 샘플 갤러리)
+    private var HomeAnimationGallery: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("Pixel Animation Samples")
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 20)
+                .accessibilityAddTraits(.isHeader)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(animationSamples, id: \.name) { icon in
+                        VStack(spacing: 8) {
+                            PixelAnimatedIcon(icon: icon, size: 100)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(Color(AppConfig.toolBackgroundColor))
+                                )
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                            Text(icon.name.prefix(1).uppercased() + icon.name.dropFirst())
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundColor(.white.opacity(0.6))
+                        }
+                        .accessibilityLabel("픽셀 애니메이션: \(icon.name)")
+                    }
+                }
+                .padding(.horizontal, 20)
+            }
+        }
+    }
+
+    private var animationSamples: [PixelIconDefinition] {
+        [
+            PixelIconCatalog.camera,
+            PixelIconCatalog.paintbrush,
+            PixelIconCatalog.star,
+            PixelIconCatalog.house,
+            PixelIconCatalog.profile,
+            PixelIconCatalog.floppyDisk,
+            PixelIconCatalog.paintDrop,
+            PixelIconCatalog.sparkle,
+            PixelIconCatalog.grid,
+            PixelIconCatalog.pencil,
+            PixelIconCatalog.eraser,
+            PixelIconCatalog.export,
+        ]
     }
 
     // MARK: - Pro Banner (컴팩트한 프리미엄 배너)

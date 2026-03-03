@@ -64,6 +64,10 @@ class DataManager: NSObject, ObservableObject {
     @Published var customWatermarkImage: UIImage?
     @Published var useCustomWatermark: Bool = false
 
+    /// Aseprite 파일 가져오기
+    @Published var importedAsepriteFrames: [AnimationFrame]?
+    @Published var shouldOpenPixelEditor: Bool = false
+
     /// Managers for advanced features
     @Published var batchProcessor: BatchProcessor = BatchProcessor()
     @Published var layerManager: LayerManager = LayerManager()

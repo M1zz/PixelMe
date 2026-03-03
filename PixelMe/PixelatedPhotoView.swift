@@ -28,7 +28,15 @@ struct PixelatedPhotoView: View {
     // MARK: - Main rendering function
     var body: some View {
         ZStack {
-            Color(AppConfig.backgroundColor).ignoresSafeArea()
+            LinearGradient(
+                colors: [
+                    Color(red: 0.03, green: 0.02, blue: 0.09),
+                    Color(red: 0.07, green: 0.04, blue: 0.16)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
             VStack(spacing: 0) {
                 HeaderView
@@ -36,19 +44,19 @@ struct PixelatedPhotoView: View {
                     .padding(.bottom, 8)
 
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 16) {
                         // Pixelated Image Preview
                         PixelatedImage()
                             .environmentObject(manager)
-                            .padding(.top, 15)
-                            .padding(.bottom, 5)
+                            .padding(.top, 12)
+                            .padding(.bottom, 4)
 
-                        // Tab selector
+                        // Tab selector — pill style
                         TabSelector
-                            .padding(.horizontal, 20)
+                            .padding(.horizontal, 16)
 
                         // Tab content
-                        VStack(spacing: 18) {
+                        VStack(spacing: 14) {
                             switch selectedTab {
                             case 0:
                                 PixelBoardSizeSelector
@@ -117,17 +125,17 @@ struct PixelatedPhotoView: View {
 
             // Loading overlay
             if manager.showLoading {
-                Color.black.opacity(0.5)
+                Color.black.opacity(0.6)
                     .ignoresSafeArea()
 
-                VStack(spacing: 15) {
+                VStack(spacing: 16) {
                     ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .cyan))
                         .scaleEffect(1.5)
 
                     Text("Processing...")
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.white)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.8))
                 }
             }
         }
@@ -162,8 +170,14 @@ struct PixelatedPhotoView: View {
                 Button {
                     manager.savePixelatedImage()
                 } label: {
-                    Image(systemName: "square.and.arrow.down")
-                        .font(.system(size: 22))
+                    ZStack {
+                        Circle()
+                            .fill(Color.white.opacity(0.08))
+                            .frame(width: 40, height: 40)
+                        Image(systemName: "square.and.arrow.down")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.cyan)
+                    }
                 }
                 .accessibilityLabel("저장")
                 .accessibilityHint("픽셀화된 이미지를 저장합니다")
@@ -171,34 +185,57 @@ struct PixelatedPhotoView: View {
                 Button {
                     manager.fullScreenMode = nil
                 } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 22))
+                    ZStack {
+                        Circle()
+                            .fill(Color.white.opacity(0.08))
+                            .frame(width: 40, height: 40)
+                        Image(systemName: "xmark")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.white.opacity(0.7))
+                    }
                 }
                 .accessibilityLabel("닫기")
             }
-            Text("Pixel Effect").font(.system(size: 20, weight: .bold))
+            Text("Pixel Effect")
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.white)
                 .accessibilityAddTraits(.isHeader)
         }
-        .padding(.horizontal)
-        .foregroundColor(.white)
+        .padding(.horizontal, 16)
     }
 
-    // MARK: - Tab Selector
+    // MARK: - Tab Selector — Pill style
     private var TabSelector: some View {
-        HStack(spacing: 8) {
-            TabButton(title: "Size", index: 0, selected: $selectedTab)
-            TabButton(title: "Palette", index: 1, selected: $selectedTab)
-            TabButton(title: "Filters", index: 2, selected: $selectedTab)
-            TabButton(title: "Presets", index: 3, selected: $selectedTab)
+        HStack(spacing: 6) {
+            ForEach(Array(["Size", "Palette", "Filters", "Presets"].enumerated()), id: \.offset) { index, title in
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) { selectedTab = index }
+                } label: {
+                    Text(title)
+                        .font(.system(size: 13, weight: selectedTab == index ? .bold : .medium))
+                        .foregroundColor(selectedTab == index ? .white : .white.opacity(0.4))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 36)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(selectedTab == index
+                                      ? LinearGradient(colors: [Color.cyan.opacity(0.5), Color.blue.opacity(0.5)], startPoint: .leading, endPoint: .trailing)
+                                      : LinearGradient(colors: [Color.white.opacity(0.05)], startPoint: .leading, endPoint: .trailing)
+                                )
+                        )
+                }
+            }
         }
+        .padding(4)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color.white.opacity(0.04))
+        )
     }
 
     // MARK: - Pixel Board Size Selector
     private var PixelBoardSizeSelector: some View {
-        VStack(spacing: 18) {
-            Text("Select Pixel Density")
-                .foregroundColor(.white)
-                .font(.headline)
+        VStack(spacing: 14) {
 
             // Background color picker for transparent images
             if manager.isBackgroundRemovalEnabled {
@@ -235,62 +272,61 @@ struct PixelatedPhotoView: View {
     @ViewBuilder
     private func PixelBoardSizeItem(_ type: PixelBoardSize) -> some View {
         let isLocked = !FeatureGating.shared.canUsePixelSize(type)
-        
+        let isSelected = manager.pixelBoardSize == type
+
         Button {
             if isLocked {
-                // Show paywall for locked features
                 showAdvancedSettings = true
             } else {
                 manager.pixelBoardSize = type
                 manager.applyPixelEffect(showFilterFlow: false)
             }
         } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(manager.pixelBoardSize == type ? Color.white : Color(AppConfig.toolBackgroundColor))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(
-                                isLocked ? Color.yellow.opacity(0.5) : Color.clear,
-                                lineWidth: 1
-                            )
-                    )
-
-                VStack(spacing: 4) {
-                    HStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 4) {
                         Text(LocalizedStringKey(type.rawValue))
-                            .font(.system(size: 16, weight: .bold))
-                        
+                            .font(.system(size: 14, weight: .bold))
                         if isLocked {
-                            Spacer()
                             Image(systemName: "lock.fill")
-                                .font(.system(size: 12))
-                                .foregroundColor(.yellow)
+                                .font(.system(size: 10))
+                                .foregroundColor(.yellow.opacity(0.8))
                         }
                     }
                     Text(type.density)
-                        .font(.caption)
+                        .font(.system(size: 11))
+                        .foregroundColor(isSelected ? .white.opacity(0.6) : .white.opacity(0.35))
                 }
-                .foregroundColor(manager.pixelBoardSize == type ? .black : .white)
+                Spacer()
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 16))
+                        .foregroundColor(.cyan)
+                }
             }
+            .foregroundColor(.white)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(isSelected ? Color.cyan.opacity(0.15) : Color.white.opacity(0.05))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(isSelected ? Color.cyan.opacity(0.3) : (isLocked ? Color.yellow.opacity(0.2) : Color.clear), lineWidth: 1)
+                    )
+            )
         }
-        .frame(height: 70)
+        .frame(minHeight: 56)
     }
 
     // MARK: - Color Palette Selector
     private var ColorPaletteSelector: some View {
-        VStack(spacing: 18) {
-            Text("Color Palette")
-                .foregroundColor(.white)
-                .font(.headline)
-
-            VStack(spacing: 10) {
-                ForEach(ColorPaletteType.allCases) { palette in
-                    ColorPaletteItem(palette)
-                }
+        VStack(spacing: 10) {
+            ForEach(ColorPaletteType.allCases) { palette in
+                ColorPaletteItem(palette)
             }
         }
-        .padding(.top, 5)
+        .padding(.top, 4)
     }
 
     @ViewBuilder
@@ -336,18 +372,19 @@ struct PixelatedPhotoView: View {
                         .font(.system(size: 16))
                 } else if manager.selectedColorPalette == palette {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(Color(AppConfig.continueButtonColor))
+                        .foregroundColor(.blue)
                         .font(.system(size: 20))
                 }
             }
-            .padding()
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(manager.selectedColorPalette == palette ? Color(AppConfig.continueButtonColor).opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(manager.selectedColorPalette == palette ? Color.cyan.opacity(0.12) : Color.white.opacity(0.05))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 12)
+                        RoundedRectangle(cornerRadius: 14)
                             .stroke(
-                                isLocked ? Color.yellow.opacity(0.5) : Color.clear,
+                                manager.selectedColorPalette == palette ? Color.cyan.opacity(0.25) : (isLocked ? Color.yellow.opacity(0.2) : Color.clear),
                                 lineWidth: 1
                             )
                     )
@@ -555,7 +592,7 @@ struct PixelatedPhotoView: View {
                             .font(.system(size: 14))
                     } else if manager.filterEffect == filter {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(Color(AppConfig.continueButtonColor))
+                            .foregroundColor(.blue)
                     }
                 }
 
@@ -568,7 +605,7 @@ struct PixelatedPhotoView: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(manager.filterEffect == filter ? Color(AppConfig.continueButtonColor).opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .fill(manager.filterEffect == filter ? Color.blue.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(
@@ -612,11 +649,11 @@ struct PixelatedPhotoView: View {
                 // Icon
                 ZStack {
                     Circle()
-                        .fill(Color(AppConfig.continueButtonColor).opacity(0.2))
+                        .fill(Color.blue.opacity(0.2))
                         .frame(width: 50, height: 50)
 
                     Image(systemName: "sparkles")
-                        .foregroundColor(Color(AppConfig.continueButtonColor))
+                        .foregroundColor(.blue)
                         .font(.system(size: 20))
                 }
 
@@ -692,17 +729,22 @@ struct PixelatedPhotoView: View {
         Button {
             showAdvancedSettings = true
         } label: {
-            HStack {
+            HStack(spacing: 8) {
                 Image(systemName: "slider.horizontal.3")
+                    .font(.system(size: 14))
                 Text("Advanced")
+                    .font(.system(size: 14, weight: .semibold))
             }
-            .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(.white)
+            .foregroundColor(.white.opacity(0.6))
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 44)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.white.opacity(0.05))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.white.opacity(0.06), lineWidth: 1)
+                    )
             )
         }
     }
@@ -736,15 +778,15 @@ struct PixelatedPhotoView: View {
                 }
                 Text(isGeneratingVideo ? "Creating Reel..." : "Create Reel / TikTok")
             }
-            .font(.system(size: 16, weight: .bold))
+            .font(.system(size: 15, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 48)
             .background(
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 14)
                     .fill(
                         LinearGradient(
-                            colors: [Color.pink, Color.orange],
+                            colors: [Color.pink.opacity(0.7), Color.orange.opacity(0.7)],
                             startPoint: .leading,
                             endPoint: .trailing
                         )
@@ -778,10 +820,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 50)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.purple)
             )
         }
         .disabled(manager.pixelatedImage == nil)
@@ -793,7 +835,7 @@ struct PixelatedPhotoView: View {
         Button {
             guard let original = manager.selectedImage,
                   let pixelated = manager.pixelatedImage else { return }
-
+            
             let shareImage: UIImage
             if shareBeforeAfter,
                let comparison = BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) {
@@ -810,10 +852,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 50)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.blue)
             )
         }
         .disabled(manager.pixelatedImage == nil)
@@ -830,9 +872,9 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 50)
             .background(
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 12)
                     .fill(Color(AppConfig.continueButtonColor))
             )
         }
@@ -842,8 +884,12 @@ struct PixelatedPhotoView: View {
 
     private var EditButton: some View {
         Button {
+            // Extract pixel data from pixelated image
+            print("🎨 [PixelatedPhotoView] Extracting pixel data...")
             manager.extractPixelDataFromImage()
+            // Signal to dismiss photo preview sheet
             manager.shouldDismissPhotoPreview = true
+            // Close all modals and return to Pixel Creator
             manager.fullScreenMode = nil
         } label: {
             HStack {
@@ -853,10 +899,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(manager.pixelBoardSize == nil ? .gray : .white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 50)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(manager.pixelBoardSize == nil ? Color(AppConfig.toolBackgroundColor).opacity(0.5) : Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(manager.pixelBoardSize == nil ? Color.gray.opacity(0.5) : Color.blue)
             )
         }
         .disabled(manager.pixelBoardSize == nil)
@@ -869,15 +915,19 @@ struct PixelatedPhotoView: View {
         } label: {
             HStack {
                 Image(systemName: "paintbrush.pointed.fill")
-                Text("Open in Pixel Editor")
+                Text("픽셀 에디터에서 편집")
             }
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 54)
+            .frame(height: 50)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(LinearGradient(
+                        colors: [.purple, .blue],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    ))
             )
         }
         .disabled(manager.pixelatedImage == nil)
@@ -2525,37 +2575,44 @@ struct PhotoPreviewView: View {
 
     var body: some View {
         ZStack {
-            Color(AppConfig.backgroundColor).ignoresSafeArea()
+            LinearGradient(
+                colors: [
+                    Color(red: 0.04, green: 0.02, blue: 0.10),
+                    Color(red: 0.08, green: 0.05, blue: 0.18)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
-            VStack(spacing: 20) {
-                // Header
-                HeaderView
+            VStack(spacing: 0) {
+                ppHeaderView
+                    .padding(.top, 60)
 
-                ScrollView {
-                    VStack(spacing: 25) {
-                        // Selected Image Preview
-                        ImagePreview
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 24) {
+                        ppImagePreview
+                            .padding(.top, 16)
 
-                        // Title
-                        VStack(spacing: 8) {
-                            Text("Choose an option")
-                                .font(.system(size: 22, weight: .bold))
-                                .foregroundColor(.white)
-
-                            Text("Transform your photo into pixel art")
-                                .font(.system(size: 14))
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.top, 10)
-
-                        // Options
-                        VStack(spacing: 15) {
+                        VStack(spacing: 12) {
                             PixelizeButton
                             RemoveBackgroundButton
                         }
                         .padding(.horizontal, 20)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 40)
                     }
+                }
+            }
+
+            if manager.showLoading {
+                Color.black.opacity(0.6).ignoresSafeArea()
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(1.5)
+                    Text("Pixelating...")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.8))
                 }
             }
         }
@@ -2568,72 +2625,79 @@ struct PhotoPreviewView: View {
                 .environmentObject(manager)
             }
         }
+        .onChange(of: manager.fullScreenMode) { newValue in
+            if newValue == .applyFilter {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 
-    private var HeaderView: some View {
+    private var ppHeaderView: some View {
         HStack {
             Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: 22))
+                ZStack {
+                    Circle().fill(Color.white.opacity(0.08)).frame(width: 40, height: 40)
+                    Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.7))
+                }
             }
 
             Spacer()
 
-            Text("Photo Preview")
-                .font(.system(size: 20, weight: .bold))
+            Text("Transform")
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.white)
 
             Spacer()
 
-            // Invisible spacer for center alignment
-            Image(systemName: "xmark")
-                .font(.system(size: 22))
-                .opacity(0)
+            Circle().fill(Color.clear).frame(width: 40, height: 40)
         }
-        .padding(.top, 30)
-        .padding(.horizontal)
-        .foregroundColor(.white)
+        .padding(.horizontal, 20)
     }
 
-    private var ImagePreview: some View {
-        Image(uiImage: selectedImage)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(maxWidth: min(UIScreen.main.bounds.width - 40, 350))
-            .cornerRadius(12)
-            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+    private var ppImagePreview: some View {
+        VStack(spacing: 16) {
+            Image(uiImage: selectedImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: min(UIScreen.main.bounds.width - 48, 340))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white.opacity(0.08), lineWidth: 1))
+                .shadow(color: .black.opacity(0.4), radius: 20, x: 0, y: 10)
+
+            Text("Choose how to transform your photo")
+                .font(.system(size: 14))
+                .foregroundColor(.white.opacity(0.4))
+        }
     }
 
     private var PixelizeButton: some View {
         Button {
-            // Set image and apply pixelation
             manager.selectedImage = selectedImage
             manager.applyPixelEffect()
-            presentationMode.wrappedValue.dismiss()
         } label: {
-            HStack(spacing: 15) {
-                Image(systemName: "square.grid.3x3.fill")
-                    .font(.system(size: 24))
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Pixelize")
-                        .font(.system(size: 18, weight: .bold))
-                    Text("Create pixel art instantly")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
+            HStack(spacing: 16) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(LinearGradient(colors: [Color.cyan.opacity(0.2), Color.blue.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width: 52, height: 52)
+                    Image(systemName: "square.grid.3x3.fill")
+                        .font(.system(size: 22)).foregroundColor(.cyan)
                 }
-
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Pixelize").font(.system(size: 18, weight: .bold)).foregroundColor(.white)
+                    Text("Create pixel art instantly").font(.system(size: 13)).foregroundColor(.white.opacity(0.45))
+                }
                 Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 16, weight: .semibold))
+                Image(systemName: "arrow.right.circle.fill").font(.system(size: 24)).foregroundColor(.cyan.opacity(0.6))
             }
-            .foregroundColor(.white)
-            .padding(20)
+            .padding(18)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.continueButtonColor))
+                RoundedRectangle(cornerRadius: 18).fill(Color.white.opacity(0.06))
+                    .overlay(RoundedRectangle(cornerRadius: 18).stroke(Color.cyan.opacity(0.15), lineWidth: 1))
             )
         }
     }
@@ -2656,36 +2720,28 @@ struct PhotoPreviewView: View {
                 }
             }
         } label: {
-            HStack(spacing: 15) {
-                if isProcessing {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .frame(width: 24, height: 24)
-                } else {
-                    Image(systemName: "person.crop.circle")
-                        .font(.system(size: 24))
+            HStack(spacing: 16) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14).fill(Color.purple.opacity(0.15)).frame(width: 52, height: 52)
+                    if isProcessing {
+                        ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .purple))
+                    } else {
+                        Image(systemName: "person.crop.circle").font(.system(size: 22)).foregroundColor(.purple)
+                    }
                 }
-
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Remove Background")
-                        .font(.system(size: 18, weight: .bold))
-                    Text(isProcessing ? "Processing..." : "Keep only the subject")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
+                    Text("Remove Background").font(.system(size: 18, weight: .bold)).foregroundColor(.white)
+                    Text(isProcessing ? "Processing..." : "Keep only the subject").font(.system(size: 13)).foregroundColor(.white.opacity(0.45))
                 }
-
                 Spacer()
-
                 if !isProcessing {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 16, weight: .semibold))
+                    Image(systemName: "arrow.right.circle.fill").font(.system(size: 24)).foregroundColor(.purple.opacity(0.5))
                 }
             }
-            .foregroundColor(.white)
-            .padding(20)
+            .padding(18)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(AppConfig.toolBackgroundColor))
+                RoundedRectangle(cornerRadius: 18).fill(Color.white.opacity(0.06))
+                    .overlay(RoundedRectangle(cornerRadius: 18).stroke(Color.purple.opacity(0.12), lineWidth: 1))
             )
         }
         .disabled(isProcessing)
