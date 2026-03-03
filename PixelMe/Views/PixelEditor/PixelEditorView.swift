@@ -22,6 +22,7 @@ struct PixelEditorView: View {
     @State private var showAsepriteImporter = false
     @State private var asepriteImportError: String?
     @State private var showAsepriteImportError = false
+    @State private var showDiscardAlert = false
 
     private let initialShowTimeline: Bool
 
@@ -73,7 +74,7 @@ struct PixelEditorView: View {
                         Image(systemName: "plus.magnifyingglass")
                             .font(.system(size: 16))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
 
@@ -85,7 +86,7 @@ struct PixelEditorView: View {
                         Image(systemName: "minus.magnifyingglass")
                             .font(.system(size: 16))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
 
@@ -98,7 +99,7 @@ struct PixelEditorView: View {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.system(size: 14))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
                 }
@@ -185,9 +186,21 @@ struct PixelEditorView: View {
     
     private var topBar: some View {
         HStack {
-            Button { dismiss() } label: {
+            Button {
+                if viewModel.canUndo {
+                    showDiscardAlert = true
+                } else {
+                    dismiss()
+                }
+            } label: {
                 Image(systemName: "xmark")
                     .font(.title3)
+            }
+            .alert("작업을 종료할까요?", isPresented: $showDiscardAlert) {
+                Button("저장하지 않고 닫기", role: .destructive) { dismiss() }
+                Button("계속 편집", role: .cancel) {}
+            } message: {
+                Text("저장하지 않은 변경사항은 사라집니다.")
             }
             
             Spacer()
@@ -348,6 +361,17 @@ struct PixelEditorView: View {
                     Divider().frame(height: 24)
                 }
 
+                // Follow Along: 샘플 팔레트 라벨
+                if viewModel.referenceSample != nil && viewModel.selectedPalette == nil {
+                    Text("Sample")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundColor(Color(AppConfig.continueButtonColor))
+                        .padding(.horizontal, 4)
+                        .padding(.vertical, 2)
+                        .background(Color(AppConfig.continueButtonColor).opacity(0.15))
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                }
+
                 // 활성 팔레트 색상
                 ForEach(viewModel.activePaletteColors, id: \.self) { color in
                     Rectangle()
@@ -356,7 +380,7 @@ struct PixelEditorView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(viewModel.selectedColor == color ? Color.blue : Color.clear, lineWidth: 2)
+                                .stroke(viewModel.selectedColor == color ? Color(AppConfig.continueButtonColor) : Color.clear, lineWidth: 2)
                         )
                         .onTapGesture {
                             viewModel.selectedColor = color
@@ -406,19 +430,9 @@ struct PixelEditorView: View {
                         viewModel.selectedTool = tool
                     } label: {
                         VStack(spacing: 2) {
-                            Group {
-                                if let pixelIcon = tool.pixelIconDefinition {
-                                    PixelAnimatedIcon(
-                                        icon: pixelIcon,
-                                        size: 22,
-                                        animating: viewModel.selectedTool == tool
-                                    )
-                                } else {
-                                    Image(systemName: tool.icon)
-                                        .font(.title3)
-                                }
-                            }
-                            .frame(width: 36, height: 36)
+                            Image(systemName: tool.icon)
+                                .font(.title3)
+                                .frame(width: 36, height: 36)
                             .background(
                                 viewModel.selectedTool == tool
                                 ? Color.blue.opacity(0.2)

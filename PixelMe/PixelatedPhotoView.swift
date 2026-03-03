@@ -336,14 +336,14 @@ struct PixelatedPhotoView: View {
                         .font(.system(size: 16))
                 } else if manager.selectedColorPalette == palette {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(AppConfig.continueButtonColor))
                         .font(.system(size: 20))
                 }
             }
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(manager.selectedColorPalette == palette ? Color.blue.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .fill(manager.selectedColorPalette == palette ? Color(AppConfig.continueButtonColor).opacity(0.3) : Color(AppConfig.toolBackgroundColor))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(
@@ -555,7 +555,7 @@ struct PixelatedPhotoView: View {
                             .font(.system(size: 14))
                     } else if manager.filterEffect == filter {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(AppConfig.continueButtonColor))
                     }
                 }
 
@@ -568,7 +568,7 @@ struct PixelatedPhotoView: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(manager.filterEffect == filter ? Color.blue.opacity(0.3) : Color(AppConfig.toolBackgroundColor))
+                    .fill(manager.filterEffect == filter ? Color(AppConfig.continueButtonColor).opacity(0.3) : Color(AppConfig.toolBackgroundColor))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(
@@ -612,11 +612,11 @@ struct PixelatedPhotoView: View {
                 // Icon
                 ZStack {
                     Circle()
-                        .fill(Color.blue.opacity(0.2))
+                        .fill(Color(AppConfig.continueButtonColor).opacity(0.2))
                         .frame(width: 50, height: 50)
 
                     Image(systemName: "sparkles")
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(AppConfig.continueButtonColor))
                         .font(.system(size: 20))
                 }
 
@@ -699,9 +699,9 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .semibold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: 15)
                     .fill(Color(AppConfig.toolBackgroundColor))
             )
         }
@@ -739,9 +739,9 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: 15)
                     .fill(
                         LinearGradient(
                             colors: [Color.pink, Color.orange],
@@ -778,10 +778,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.purple)
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.toolBackgroundColor))
             )
         }
         .disabled(manager.pixelatedImage == nil)
@@ -793,7 +793,7 @@ struct PixelatedPhotoView: View {
         Button {
             guard let original = manager.selectedImage,
                   let pixelated = manager.pixelatedImage else { return }
-            
+
             let shareImage: UIImage
             if shareBeforeAfter,
                let comparison = BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) {
@@ -810,10 +810,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.blue)
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.toolBackgroundColor))
             )
         }
         .disabled(manager.pixelatedImage == nil)
@@ -830,9 +830,9 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: 15)
                     .fill(Color(AppConfig.continueButtonColor))
             )
         }
@@ -842,12 +842,8 @@ struct PixelatedPhotoView: View {
 
     private var EditButton: some View {
         Button {
-            // Extract pixel data from pixelated image
-            print("🎨 [PixelatedPhotoView] Extracting pixel data...")
             manager.extractPixelDataFromImage()
-            // Signal to dismiss photo preview sheet
             manager.shouldDismissPhotoPreview = true
-            // Close all modals and return to Pixel Creator
             manager.fullScreenMode = nil
         } label: {
             HStack {
@@ -857,10 +853,10 @@ struct PixelatedPhotoView: View {
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(manager.pixelBoardSize == nil ? .gray : .white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(manager.pixelBoardSize == nil ? Color.gray.opacity(0.5) : Color.blue)
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(manager.pixelBoardSize == nil ? Color(AppConfig.toolBackgroundColor).opacity(0.5) : Color(AppConfig.toolBackgroundColor))
             )
         }
         .disabled(manager.pixelBoardSize == nil)
@@ -873,19 +869,15 @@ struct PixelatedPhotoView: View {
         } label: {
             HStack {
                 Image(systemName: "paintbrush.pointed.fill")
-                Text("픽셀 에디터에서 편집")
+                Text("Open in Pixel Editor")
             }
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 54)
             .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(LinearGradient(
-                        colors: [.purple, .blue],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ))
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(AppConfig.toolBackgroundColor))
             )
         }
         .disabled(manager.pixelatedImage == nil)

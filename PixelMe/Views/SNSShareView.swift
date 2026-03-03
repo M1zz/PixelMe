@@ -46,7 +46,7 @@ struct SNSShareView: View {
                                     HStack(spacing: 12) {
                                         Image(systemName: preset.icon)
                                             .frame(width: 24)
-                                            .foregroundColor(.blue)
+                                            .foregroundColor(Color(AppConfig.continueButtonColor))
                                         VStack(alignment: .leading, spacing: 2) {
                                             Text(preset.rawValue)
                                                 .font(.system(size: 16, weight: .semibold))
@@ -58,13 +58,13 @@ struct SNSShareView: View {
                                         Spacer()
                                         if selectedPreset == preset {
                                             Image(systemName: "checkmark.circle.fill")
-                                                .foregroundColor(.blue)
+                                                .foregroundColor(Color(AppConfig.continueButtonColor))
                                         }
                                     }
                                     .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(selectedPreset == preset ? Color.blue.opacity(0.2) : Color(AppConfig.toolBackgroundColor))
+                                            .fill(selectedPreset == preset ? Color(AppConfig.continueButtonColor).opacity(0.2) : Color(AppConfig.toolBackgroundColor))
                                     )
                                 }
                             }
@@ -79,9 +79,9 @@ struct SNSShareView: View {
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 50)
+                            .frame(height: 54)
                             .background(
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: 15)
                                     .fill(Color(AppConfig.continueButtonColor))
                             )
                         }
