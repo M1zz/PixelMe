@@ -694,64 +694,97 @@ struct NewCanvasView: View {
     @State private var showRecovery = false
 
     var body: some View {
-        NavigationStack {
-            List {
-                if PixelEditorViewModel.hasRecoverableProject {
-                    Section("복구") {
-                        Button {
-                            showRecovery = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "arrow.counterclockwise.circle.fill")
-                                    .foregroundStyle(.orange)
-                                Text("이전 작업 복구하기")
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        .tint(.primary)
-                    }
-                }
+        ZStack {
+            Color(AppConfig.backgroundColor).ignoresSafeArea()
 
-                Section("캔버스 크기") {
-                    ForEach(CanvasPreset.allCases, id: \.self) { preset in
-                        Button {
-                            selectedPreset = preset
-                        } label: {
-                            HStack {
-                                Text(preset.rawValue)
-                                Spacer()
-                                if selectedPreset == preset {
-                                    Image(systemName: "checkmark")
-                                        .foregroundStyle(.blue)
-                                }
-                            }
-                        }
-                        .tint(.primary)
-                    }
-                }
-            }
-            .navigationTitle("새 캔버스")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+            VStack(spacing: 0) {
+                // 헤더
+                HStack {
                     Button("취소") { dismiss() }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
+                        .foregroundColor(.white.opacity(0.7))
+                    Spacer()
+                    Text("새 캔버스")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                    Spacer()
                     Button("생성") {
                         PixelEditorViewModel.clearAutoSave()
                         showEditor = true
                     }
+                    .foregroundColor(Color(AppConfig.continueButtonColor))
+                    .fontWeight(.bold)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+
+                ScrollView {
+                    VStack(spacing: 16) {
+                        // 복구 섹션
+                        if PixelEditorViewModel.hasRecoverableProject {
+                            Button {
+                                showRecovery = true
+                            } label: {
+                                HStack {
+                                    Image(systemName: "arrow.counterclockwise.circle.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.orange)
+                                    Text("이전 작업 복구하기")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                }
+                                .padding(16)
+                                .background(Color(AppConfig.toolBackgroundColor))
+                                .cornerRadius(12)
+                            }
+                        }
+
+                        // 캔버스 크기 섹션
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("캔버스 크기")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.gray)
+
+                            ForEach(CanvasPreset.allCases, id: \.self) { preset in
+                                Button {
+                                    selectedPreset = preset
+                                } label: {
+                                    HStack {
+                                        Text(preset.rawValue)
+                                            .font(.system(size: 16))
+                                            .foregroundColor(.white)
+                                        Spacer()
+                                        if selectedPreset == preset {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.system(size: 20))
+                                                .foregroundColor(Color(AppConfig.continueButtonColor))
+                                        } else {
+                                            Circle()
+                                                .stroke(Color.gray.opacity(0.4), lineWidth: 1.5)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                    }
+                                    .padding(16)
+                                    .background(Color(AppConfig.toolBackgroundColor))
+                                    .cornerRadius(12)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
                 }
             }
-            .fullScreenCover(isPresented: $showEditor) {
-                PixelEditorView(preset: selectedPreset)
-            }
-            .fullScreenCover(isPresented: $showRecovery) {
-                if let vm = PixelEditorViewModel.recoverProject() {
-                    RecoveredPixelEditorView(viewModel: vm)
-                }
+        }
+        .fullScreenCover(isPresented: $showEditor) {
+            PixelEditorView(preset: selectedPreset)
+        }
+        .fullScreenCover(isPresented: $showRecovery) {
+            if let vm = PixelEditorViewModel.recoverProject() {
+                RecoveredPixelEditorView(viewModel: vm)
             }
         }
     }

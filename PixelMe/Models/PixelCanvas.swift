@@ -134,13 +134,15 @@ struct PixelSelection: Equatable {
 
 /// 캔버스 프리셋 사이즈
 enum CanvasPreset: String, CaseIterable {
+    case micro = "8×8"
     case tiny = "16×16"
     case small = "32×32"
     case medium = "64×64"
     case large = "128×128"
-    
+
     var size: (width: Int, height: Int) {
         switch self {
+        case .micro: return (8, 8)
         case .tiny: return (16, 16)
         case .small: return (32, 32)
         case .medium: return (64, 64)

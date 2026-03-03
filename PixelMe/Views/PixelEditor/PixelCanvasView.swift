@@ -172,32 +172,20 @@ struct PixelLayerView: View {
     }
 }
 
-/// 투명 배경 체커보드
+/// 캔버스 배경 (앱 테마에 맞춘 어두운 배경)
 struct CheckerboardBackground: View {
     let width: Int
     let height: Int
     let pixelSize: CGFloat
 
     var body: some View {
-        Canvas { context, size in
-            let lightGray = Color(white: 0.9)
-            let white = Color.white
-            let checkSize = pixelSize / 2
-
-            for y in 0..<(height * 2) {
-                for x in 0..<(width * 2) {
-                    let color = (x + y) % 2 == 0 ? white : lightGray
-                    let rect = CGRect(
-                        x: CGFloat(x) * checkSize,
-                        y: CGFloat(y) * checkSize,
-                        width: checkSize,
-                        height: checkSize
-                    )
-                    context.fill(Path(rect), with: .color(color))
-                }
-            }
-        }
-        .allowsHitTesting(false)
+        Rectangle()
+            .fill(Color(AppConfig.backgroundColor))
+            .frame(
+                width: CGFloat(width) * pixelSize,
+                height: CGFloat(height) * pixelSize
+            )
+            .allowsHitTesting(false)
     }
 }
 
