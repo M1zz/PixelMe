@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import LeeoKit
 
 @main
 struct PixelMeApp: App {
     @StateObject private var manager: DataManager = DataManager()
+
+    init() {
+        LeeoEngagement.shared.registerLaunch()
+    }
+
     var body: some Scene {
         WindowGroup {
             CreatorContentView()
                 .environmentObject(manager)
+                .leeoSatisfactionCheck(PixelMeSpec.self)
                 .onAppear {
                     ReviewManager.shared.trackAppLaunch()
                 }

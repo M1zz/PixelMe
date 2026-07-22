@@ -9,6 +9,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import LeeoKit
 
 /// Pixel creator flow to draw pixels
 struct CreatorContentView: View {
@@ -640,28 +641,48 @@ struct CreatorContentView: View {
                 }
                 .padding()
 
-                ScrollView {
-                    VStack(spacing: 15) {
-                        SettingsSectionHeader(title: "Board")
-                        BoardSizeChangeView
-                        BackgroundColorView
-                        ResetCanvasView
+                NavigationStack {
+                    ScrollView {
+                        VStack(spacing: 15) {
+                            SettingsSectionHeader(title: "Board")
+                            BoardSizeChangeView
+                            BackgroundColorView
+                            ResetCanvasView
 
-                        SettingsSectionHeader(title: "Display")
-                        ShowHideGridView
-                        InvertGridColorView
+                            SettingsSectionHeader(title: "Display")
+                            ShowHideGridView
+                            InvertGridColorView
 
-                        SettingsSectionHeader(title: "Watermark")
-                        WatermarkView
+                            SettingsSectionHeader(title: "Watermark")
+                            WatermarkView
 
-                        Spacer(minLength: 50)
+                            SettingsSectionHeader(title: "Contact")
+                            ContactEmailView
+                            ContactInstagramView
+
+                            SettingsSectionHeader(title: "Support")
+                            SupportSectionView
+
+                            Spacer(minLength: 50)
+                        }
+                        .padding(.horizontal)
+                        .foregroundColor(.white)
                     }
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
+                    .navigationBarHidden(true)
                 }
             }
         }
         .presentationDetents([.large])
+    }
+
+    private var SupportSectionView: some View {
+        VStack(spacing: 0) {
+            LeeoSupportSection<PixelMeSpec>()
+                .tint(.white)
+        }
+        .padding(.horizontal, 15)
+        .padding(.vertical, 6)
+        .background(Color(AppConfig.toolBackgroundColor).cornerRadius(15))
     }
 
     private func SettingsSectionHeader(title: String) -> some View {
@@ -739,6 +760,42 @@ struct CreatorContentView: View {
                     .accessibilityValue(manager.useCustomWatermark ? "켜짐" : "꺼짐")
             }.padding(.horizontal, 15)
         }.frame(height: 60)
+    }
+
+    // MARK: - Developer Contact
+    private var ContactEmailView: some View {
+        Link(destination: URL(string: "mailto:leeo@kakao.com")!) {
+            ZStack {
+                Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+                HStack {
+                    Text("Contact via Email").font(.system(size: 18))
+                    Spacer()
+                    Image(systemName: "envelope")
+                        .font(.system(size: 18))
+                        .foregroundColor(.blue)
+                }.padding(.horizontal, 15)
+            }
+        }
+        .frame(height: 60)
+        .accessibilityLabel("이메일로 문의하기")
+        .accessibilityHint("버그 제보와 기능 제안을 환영합니다")
+    }
+
+    private var ContactInstagramView: some View {
+        Link(destination: URL(string: "https://instagram.com/lee25_ios")!) {
+            ZStack {
+                Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+                HStack {
+                    Text("Instagram DM (@lee25_ios)").font(.system(size: 18))
+                    Spacer()
+                    Image(systemName: "paperplane")
+                        .font(.system(size: 18))
+                        .foregroundColor(.purple)
+                }.padding(.horizontal, 15)
+            }
+        }
+        .frame(height: 60)
+        .accessibilityLabel("인스타그램 DM으로 문의하기")
     }
 
     private var ShowHideGridView: some View {

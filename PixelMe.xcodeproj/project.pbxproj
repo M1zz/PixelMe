@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */; };
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
 		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
 		3CC20BD5105DEA77121F6E47 /* PowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */; };
@@ -50,12 +51,14 @@
 		AA2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift */; };
 		AA3B2C3D4E5F6A7B8C9D0E3F /* PreviewWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B2C3D4E5F6A7B8C9D0E3F /* PreviewWallView.swift */; };
 		AA4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift */; };
-		CE68B4F96E976C24A2733ED7 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0001 /* PixelIconDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1001 /* PixelIconDefinition.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0002 /* PixelAnimatedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0003 /* PixelIconCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */; };
+		CE68B4F96E976C24A2733ED7 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */; };
 		D5DC5993800BE71085C85ED0 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */; };
 		D745E85BC8AA38EF45722774 /* BeforeAfterVideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */; };
+		E1FB0C289A9FA30C2D70615C /* LeeoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 002C0DDE3311CAB65E3938EF /* LeeoKit */; };
+		EDFD175EFA6D6EEDF11353E2 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0001 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0001 /* ColorPalette.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0002 /* ColorReduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0002 /* ColorReduction.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0003 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0003 /* ExportManager.swift */; };
@@ -64,13 +67,13 @@
 		EE1A2C3D4E5F6A7B8C9D0006 /* LayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0006 /* LayerManager.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift */; };
-		EDFD175EFA6D6EEDF11353E2 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */; };
 		F2C018810D9C4060D13D757B /* AdvancedColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */; };
 		FF776C1D23B5933CF50A4A99 /* AnimationTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A61BA48040EB899027EFA /* AnimationTimelineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeSpec.swift; sourceTree = "<group>"; };
 		0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdvancedColorPickerView.swift; sourceTree = "<group>"; };
 		175A61BA48040EB899027EFA /* AnimationTimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationTimelineView.swift; sourceTree = "<group>"; };
 		176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageGenerator.swift; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 		AA0001012A4E640C006277FB /* SNSSizePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSSizePreset.swift; path = Models/SNSSizePreset.swift; sourceTree = "<group>"; };
 		AA0001032A4E640C006277FB /* SNSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSShareView.swift; path = Views/SNSShareView.swift; sourceTree = "<group>"; };
 		AA0001052A4E640C006277FB /* FreeUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeUsageManager.swift; path = Manager/FreeUsageManager.swift; sourceTree = "<group>"; };
+		AA5B2C3D4E5F6A7B8C9D1001 /* PixelIconDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelIconDefinition.swift; sourceTree = "<group>"; };
+		AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAnimatedIcon.swift; sourceTree = "<group>"; };
+		AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelIconCatalog.swift; sourceTree = "<group>"; };
 		B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PowerManager.swift; sourceTree = "<group>"; };
 		CC1B2C3D4E5F6A7B8C9D0E1F /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		CC2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureGating.swift; sourceTree = "<group>"; };
@@ -128,9 +134,6 @@
 		DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		DFA0C4A27A8652240E7608FA /* CanvasResizeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanvasResizeView.swift; sourceTree = "<group>"; };
 		EDCA211452AA0422EF2CC210 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		AA5B2C3D4E5F6A7B8C9D1001 /* PixelIconDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelIconDefinition.swift; sourceTree = "<group>"; };
-		AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAnimatedIcon.swift; sourceTree = "<group>"; };
-		AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelIconCatalog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FB0C289A9FA30C2D70615C /* LeeoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +223,7 @@
 				84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */,
 				37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */,
 				28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */,
+				0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -268,7 +273,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-			AA5B2C3D4E5F6A7B8C9D2001 /* Components */ = {
+		AA5B2C3D4E5F6A7B8C9D2001 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */,
@@ -316,6 +321,9 @@
 			dependencies = (
 			);
 			name = PixelMe;
+			packageProductDependencies = (
+				002C0DDE3311CAB65E3938EF /* LeeoKit */,
+			);
 			productName = PixelMe;
 			productReference = 58D012392A28147A00668585 /* PixelMe.app */;
 			productType = "com.apple.product-type.application";
@@ -344,6 +352,9 @@
 				Base,
 			);
 			mainGroup = 58D012302A28147A00668585;
+			packageReferences = (
+				728DBCC3CF382C2093C93D6E /* XCLocalSwiftPackageReference "LeeoKit" */,
+			);
 			productRefGroup = 58D0123A2A28147A00668585 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -450,6 +461,7 @@
 				EE1A2C3D4E5F6A7B8C9D0006 /* LayerManager.swift in Sources */,
 				EE1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift in Sources */,
 				EE1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift in Sources */,
+				0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +684,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		728DBCC3CF382C2093C93D6E /* XCLocalSwiftPackageReference "LeeoKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../LeeoKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		002C0DDE3311CAB65E3938EF /* LeeoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 728DBCC3CF382C2093C93D6E /* XCLocalSwiftPackageReference "LeeoKit" */;
+			productName = LeeoKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 58D012312A28147A00668585 /* Project object */;
 }
