@@ -8,6 +8,8 @@
 
 import StoreKit
 import SwiftUI
+import Combine
+import LeeoKit
 
 // MARK: - Purchase Error Types
 
@@ -44,28 +46,15 @@ enum PurchaseError: LocalizedError {
     }
 }
 
-/// Manages all in-app purchases using StoreKit 2.0
+/// Manages all in-app purchases using StoreKit 2.0 — LeeoKit 파사드
+///
+/// 레거시 일회성 프리미엄(`PixelNFT.Premium`) 전용 매니저. StoreKit 2 플러밍은 공용
+/// LeeoStore 로 위임한다. 현재 앱의 Pro 판정은 SubscriptionManager 가 담당하며, 이 매니저는
+/// 하위 호환(PremiumPurchaseButton 등)을 위해 API/동작을 그대로 유지한다.
 @MainActor
 class PurchaseManager: ObservableObject {
 
-    // MARK: - Constants
-
-    /// Maximum number of retry attempts for failed operations
-    private static let maxRetryAttempts = 3
-
-    /// Base delay for exponential backoff (in nanoseconds)
-    private static let baseRetryDelay: UInt64 = 1_000_000_000 // 1 second
-
     // MARK: - Published Properties
-
-    /// Available products for purchase
-    @Published private(set) var products: [Product] = []
-
-    /// Premium purchase status
-    @Published private(set) var isPremiumUser: Bool = false
-
-    /// Loading state
-    @Published private(set) var isLoading: Bool = false
 
     /// Error message
     @Published var errorMessage: String?
@@ -75,8 +64,9 @@ class PurchaseManager: ObservableObject {
     /// Product ID for premium version
     private let premiumProductID = AppConfig.premiumVersion
 
-    /// Transaction update listener task
-    private var updateListenerTask: Task<Void, Error>?
+    /// 공용 StoreKit 엔진 (레거시 프리미엄 비소비성 상품 전용)
+    private let store: LeeoStore
+    private var cancellable: AnyCancellable?
 
     // MARK: - Singleton
 
@@ -85,81 +75,47 @@ class PurchaseManager: ObservableObject {
     // MARK: - Initialization
 
     private init() {
-        // Start listening for transaction updates
-        updateListenerTask = listenForTransactions()
+        store = LeeoStore(config: LeeoPaywallConfig(
+            productIDs: [AppConfig.premiumVersion],
+            autoLoad: false,
+            cacheSuiteName: "com.pixelme.leeostore.premium"
+        ))
 
-        // Load products and check purchase status
-        Task {
-            await loadProducts()
-            await checkPurchaseStatus()
-        }
-    }
-
-    deinit {
-        updateListenerTask?.cancel()
-    }
-
-    // MARK: - Retry Logic
-
-    /// Execute an async operation with exponential backoff retry
-    private func withRetry<T>(
-        maxAttempts: Int = PurchaseManager.maxRetryAttempts,
-        operation: @escaping () async throws -> T
-    ) async throws -> T {
-        var lastError: Error?
-
-        for attempt in 0..<maxAttempts {
-            do {
-                return try await operation()
-            } catch {
-                lastError = error
-
-                // Don't retry on user cancellation or verification failures
-                if error is StoreKit.Product.PurchaseError {
-                    throw error
-                }
-
-                // Don't retry on last attempt
-                if attempt < maxAttempts - 1 {
-                    let delay = Self.baseRetryDelay * UInt64(pow(2.0, Double(attempt)))
-                    print("⏳ [PurchaseManager] Retry \(attempt + 1)/\(maxAttempts) after \(delay / 1_000_000_000)s...")
-                    try await Task.sleep(nanoseconds: delay)
-                }
-            }
+        cancellable = store.objectWillChange.sink { [weak self] in
+            guard let self else { return }
+            self.objectWillChange.send()
+            DispatchQueue.main.async { self.mirrorPremiumState() }
         }
 
-        throw lastError ?? PurchaseError.maxRetriesExceeded
+        Task { await store.loadProducts() }
+    }
+
+    // MARK: - Published Accessors
+
+    /// Available products for purchase
+    var products: [Product] { store.products }
+
+    /// Premium purchase status
+    var isPremiumUser: Bool { store.hasPro }
+
+    /// Loading state
+    var isLoading: Bool {
+        store.isLoadingProducts || store.purchasingProductID != nil || store.isRestoring
     }
 
     // MARK: - Product Management
 
     /// Load available products from App Store
     func loadProducts() async {
-        isLoading = true
-        errorMessage = nil
-
-        do {
-            let products = try await withRetry {
-                try await Product.products(for: [self.premiumProductID])
-            }
-
-            self.products = products.sorted { $0.price < $1.price }
-
-            print("✅ [PurchaseManager] Loaded \(products.count) product(s)")
-            for product in products {
-                print("  📦 \(product.displayName): \(product.displayPrice)")
-            }
-        } catch {
-            print("❌ [PurchaseManager] Failed to load products: \(error.localizedDescription)")
+        await store.loadProducts()
+        if store.products.isEmpty {
             errorMessage = PurchaseError.networkError.errorDescription
         }
-
-        isLoading = false
     }
 
     /// Get the premium product
     func getPremiumProduct() -> Product? {
-        return products.first { $0.id == premiumProductID }
+        return store.products.first { $0.id == premiumProductID }
     }
 
     // MARK: - Purchase Flow
@@ -172,143 +128,35 @@ class PurchaseManager: ObservableObject {
             return false
         }
 
-        isLoading = true
         errorMessage = nil
-
-        do {
-            // Start purchase (no retry on the purchase call itself — StoreKit handles this)
-            print("🛒 [PurchaseManager] Starting purchase for \(product.displayName)")
-            let result = try await product.purchase()
-
-            // Handle purchase result
-            switch result {
-            case .success(let verification):
-                do {
-                    let transaction = try checkVerified(verification)
-                    await updatePurchaseStatus()
-                    await transaction.finish()
-                    print("✅ [PurchaseManager] Purchase successful!")
-                    isLoading = false
-                    return true
-                } catch {
-                    print("❌ [PurchaseManager] Verification failed: \(error)")
-                    errorMessage = PurchaseError.verificationFailed.errorDescription
-                    isLoading = false
-                    return false
-                }
-
-            case .userCancelled:
-                print("⚠️ [PurchaseManager] User cancelled purchase")
-                errorMessage = nil
-                isLoading = false
-                return false
-
-            case .pending:
-                print("⏳ [PurchaseManager] Purchase pending approval")
-                errorMessage = NSLocalizedString("Purchase is pending approval. Please check back later.", comment: "")
-                isLoading = false
-                return false
-
-            @unknown default:
-                print("❌ [PurchaseManager] Unknown purchase result")
-                errorMessage = PurchaseError.unknown.errorDescription
-                isLoading = false
-                return false
-            }
-        } catch {
-            print("❌ [PurchaseManager] Purchase failed: \(error.localizedDescription)")
-            errorMessage = PurchaseError.purchaseFailed(underlying: error).errorDescription
-            isLoading = false
-            return false
-        }
+        let success = await store.purchase(product)
+        if !success { errorMessage = store.lastError }
+        return success
     }
 
     // MARK: - Restore Purchases
 
-    /// Restore previous purchases with retry logic
+    /// Restore previous purchases
     func restorePurchases() async {
-        isLoading = true
         errorMessage = nil
-
-        print("🔄 [PurchaseManager] Restoring purchases...")
-
-        do {
-            try await withRetry {
-                try await AppStore.sync()
-            }
-
-            await checkPurchaseStatus()
-
-            if isPremiumUser {
-                print("✅ [PurchaseManager] Purchases restored successfully")
-            } else {
-                print("⚠️ [PurchaseManager] No purchases to restore")
-                errorMessage = NSLocalizedString("No previous purchases found.", comment: "")
-            }
-        } catch {
-            print("❌ [PurchaseManager] Restore failed: \(error.localizedDescription)")
-            errorMessage = PurchaseError.restoreFailed(underlying: error).errorDescription
+        await store.restore()
+        mirrorPremiumState()
+        if !isPremiumUser {
+            errorMessage = store.lastError ?? NSLocalizedString("No previous purchases found.", comment: "")
         }
-
-        isLoading = false
     }
 
-    // MARK: - Transaction Verification
+    // MARK: - Purchase Status
 
-    /// Check if user has purchased premium
+    /// Check if user has purchased premium (공용 스토어에 위임)
     func checkPurchaseStatus() async {
-        var hasPremium = false
-
-        for await result in Transaction.currentEntitlements {
-            do {
-                let transaction = try checkVerified(result)
-
-                if transaction.productID == premiumProductID {
-                    hasPremium = true
-                    print("✅ [PurchaseManager] Found valid premium purchase")
-                    break
-                }
-            } catch {
-                print("❌ [PurchaseManager] Transaction verification failed: \(error)")
-            }
-        }
-
-        isPremiumUser = hasPremium
-        UserDefaults.standard.set(hasPremium, forKey: AppConfig.premiumVersion)
-        print("📊 [PurchaseManager] Premium status: \(isPremiumUser)")
+        await store.refreshEntitlements()
+        mirrorPremiumState()
     }
 
-    /// Update purchase status after successful purchase
-    private func updatePurchaseStatus() async {
-        await checkPurchaseStatus()
-    }
-
-    /// Verify a transaction is valid
-    nonisolated private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
-        switch result {
-        case .unverified(_, let error):
-            throw error
-        case .verified(let safe):
-            return safe
-        }
-    }
-
-    // MARK: - Transaction Listener
-
-    /// Listen for transaction updates
-    private func listenForTransactions() -> Task<Void, Error> {
-        return Task.detached {
-            for await result in Transaction.updates {
-                do {
-                    let transaction = try self.checkVerified(result)
-                    await self.updatePurchaseStatus()
-                    await transaction.finish()
-                    print("✅ [PurchaseManager] Transaction update processed")
-                } catch {
-                    print("❌ [PurchaseManager] Transaction update failed: \(error)")
-                }
-            }
-        }
+    /// 레거시 프리미엄 상태를 기존 코드가 읽는 UserDefaults 키에 반영한다.
+    private func mirrorPremiumState() {
+        UserDefaults.standard.set(store.hasPro, forKey: AppConfig.premiumVersion)
     }
 
     // MARK: - Helper Methods
