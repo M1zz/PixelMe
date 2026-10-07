@@ -19,8 +19,8 @@ class AppConfig {
     
     // MARK: - Settings flow items
     static let emailSupport = "leeo@kakao.com"
-    static let privacyURL: URL = URL(string: "https://www.google.com/")!
-    static let termsAndConditionsURL: URL = URL(string: "https://www.google.com/")!
+    static let privacyURL: URL = URL(string: "https://m1zz.github.io/PixelMe/privacy.html")!
+    static let termsAndConditionsURL: URL = URL(string: "https://m1zz.github.io/PixelMe/terms.html")!
     static let yourAppURL: URL = URL(string: "https://apps.apple.com/app/pixel-meme/id6449769987")!
     
     // MARK: - UI Styles
