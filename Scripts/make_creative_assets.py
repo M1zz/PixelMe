@@ -27,7 +27,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일. 스토어에는 영어(미국)만 있다.
-STORE = {"en": "en-US"}
+STORE = {"en": "en-US", "ko": "ko"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -38,11 +38,13 @@ SPEC = {
 # 검색 결과: 눈썹글(그 나라 검색어) · 헤드라인 · 보조 한 줄. 기기 화면(샘플 갤러리)과 같은 이야기다.
 SEARCH = {
     "en": ("Pixel art drawing", "Draw along with<br>100+ samples", "Pick a flower, a pet or a snack and copy it dot by dot"),
+    "ko": ("픽셀 아트 그리기", "110가지 예시로<br>따라 그려요", "꽃, 동물, 간식을 골라 한 칸씩 채워요"),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 픽셀 아트를 쉽게, 한 칸씩 그린다.
 HEADER = {
     "en": ("Pixel MeMe", "Pixel art,<br>one dot at a time"),
+    "ko": ("픽셀미미", "한 칸 한 칸<br>채워 가는 픽셀 아트"),
 }
 
 # 바탕은 앱 화면의 검정과 앱 아이콘의 주황(#DD5500)을 따른다.
@@ -50,7 +52,8 @@ BASE_CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0b0b0c; position:relative;
-  font-family:-apple-system, "SF Pro Display", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", sans-serif; }
+:lang(ko) .headline, :lang(ko) .sub, :lang(ko) .eyebrow { word-break:keep-all; }
 .grid { position:absolute; inset:0; opacity:.5;
   background-image:linear-gradient(rgba(255,255,255,.035) 2px, transparent 2px),
                    linear-gradient(90deg, rgba(255,255,255,.035) 2px, transparent 2px);
