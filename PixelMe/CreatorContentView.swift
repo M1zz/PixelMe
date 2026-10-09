@@ -307,7 +307,7 @@ struct CreatorContentView: View {
                                 )
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                            Text(icon.name.prefix(1).uppercased() + icon.name.dropFirst())
+                            Text(LocalizedStringKey(icon.name.prefix(1).uppercased() + icon.name.dropFirst()))
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(.white.opacity(0.6))
                         }
@@ -421,7 +421,7 @@ struct CreatorContentView: View {
                 }
             }.font(.system(size: 22))
 
-            Text(viewModel.referenceSample != nil ? "Follow Along" : "Free Drawing")
+            Text(viewModel.referenceSample != nil ? LocalizedStringKey("Follow Along") : LocalizedStringKey("Free Drawing"))
                 .font(.system(size: 18, weight: .bold))
                 .accessibilityAddTraits(.isHeader)
         }
@@ -905,8 +905,8 @@ struct CreatorContentView: View {
 // MARK: - Home Tool Card (2x2 grid)
 struct HomeToolCard: View {
     let pixelIcon: PixelIconDefinition
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
     let color: Color
 
     var body: some View {
@@ -933,8 +933,8 @@ struct HomeToolCard: View {
 // MARK: - Feature Highlight Card (가로 스크롤 카드)
 struct FeatureHighlightCard: View {
     let pixelIcon: PixelIconDefinition
-    let title: String
-    let description: String
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
     let gradientColors: [Color]
     let action: () -> Void
 
@@ -971,8 +971,8 @@ struct FeatureHighlightCard: View {
                     )
             )
         }
-        .accessibilityLabel(title)
-        .accessibilityHint(description)
+        .accessibilityLabel(Text(title))
+        .accessibilityHint(Text(description))
     }
 }
 

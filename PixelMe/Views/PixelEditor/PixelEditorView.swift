@@ -440,7 +440,7 @@ struct PixelEditorView: View {
                             )
                             .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                            Text(tool.rawValue)
+                            Text(LocalizedStringKey(tool.rawValue))
                                 .font(.system(size: 9))
                                 .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
                         }
@@ -844,7 +844,7 @@ struct RecoveredPixelEditorView: View {
                                 Image(systemName: tool.icon).font(.title3).frame(width: 36, height: 36)
                                     .background(viewModel.selectedTool == tool ? Color.blue.opacity(0.2) : Color.clear)
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                                Text(tool.rawValue).font(.system(size: 9))
+                                Text(LocalizedStringKey(tool.rawValue)).font(.system(size: 9))
                                     .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
                             }
                         }.tint(viewModel.selectedTool == tool ? .blue : .primary)

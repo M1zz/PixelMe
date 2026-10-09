@@ -211,7 +211,7 @@ struct PixelatedPhotoView: View {
                 Button {
                     withAnimation(.easeInOut(duration: 0.2)) { selectedTab = index }
                 } label: {
-                    Text(title)
+                    Text(LocalizedStringKey(title))
                         .font(.system(size: 13, weight: selectedTab == index ? .bold : .medium))
                         .foregroundColor(selectedTab == index ? .white : .white.opacity(0.4))
                         .frame(maxWidth: .infinity)
@@ -293,7 +293,7 @@ struct PixelatedPhotoView: View {
                                 .foregroundColor(.yellow.opacity(0.8))
                         }
                     }
-                    Text(type.density)
+                    Text(LocalizedStringKey(type.density))
                         .font(.system(size: 11))
                         .foregroundColor(isSelected ? .white.opacity(0.6) : .white.opacity(0.35))
                 }
@@ -701,7 +701,7 @@ struct PixelatedPhotoView: View {
                             }
                         } label: {
                             HStack(spacing: 6) {
-                                Text(dithering.rawValue)
+                                Text(LocalizedStringKey(dithering.rawValue))
                                     .font(.system(size: 13, weight: manager.ditheringType == dithering ? .bold : .regular))
 
                                 if isLocked {
