@@ -1,6 +1,6 @@
 # Privacy Policy for PixelMe
 
-**Last Updated: January 20, 2026**
+**Last Updated: October 16, 2026**
 
 ## Introduction
 
@@ -18,36 +18,42 @@ PixelMe ("we," "our," or "us") is committed to protecting your privacy. This Pri
 - We only receive confirmation of purchase status (premium vs. free user)
 - We do NOT collect or store your payment information
 
-### Device Information
-- The App may collect basic device information (iOS version, device model) for crash reporting and performance optimization
-- This information is anonymous and cannot identify you personally
+### Anonymous Usage Statistics and Crash Reports
+To learn how many people use the App and to fix crashes, the App sends anonymous statistics to Apple's iCloud (CloudKit), where only the developer can read them:
+- A random ID created when the App is installed (not linked to you, your device, your Apple ID, or any other app; it changes if you reinstall)
+- App version, iOS version, and region/language setting
+- How many times the App was opened, the days it was opened, and the install date (days since install)
+- Crash and freeze reports: app version, iOS version, device type, and technical details about the crash
+
+No name, contact details, location, photos, or pixel art are included. Statistics are sent only if you are signed in to iCloud.
 
 ### Analytics Data
-- We do NOT use any third-party analytics services
-- We do NOT track your usage behavior or collect telemetry data
+- We do NOT use any third-party analytics or advertising services
+- We do NOT track you across other apps or websites
 
 ## How We Use Your Information
 
 - **Photos**: Processed locally on your device to create pixel art effects
 - **Purchase Status**: To enable premium features for verified purchasers
-- **Device Info**: To ensure app compatibility and fix bugs
+- **Anonymous Statistics and Crash Reports**: To count how many people use the App, see which versions are in use, and fix bugs
 
 ## Data Storage and Security
 
 - All photos and created pixel art remain on your device
-- We do NOT maintain any servers or cloud storage for user content
+- We do NOT maintain any servers or cloud storage for user content; only the anonymous statistics described above are stored in Apple's iCloud
 - Your data is protected by your device's security features and Apple's iOS security measures
 
 ## Third-Party Services
 
 The App does NOT integrate with any third-party services except:
 - **Apple App Store**: For app distribution and in-app purchases (governed by Apple's Privacy Policy)
+- **Apple iCloud (CloudKit)**: To store the anonymous usage statistics and crash reports described above (governed by Apple's Privacy Policy)
 
 We do NOT use:
-- Analytics services (Google Analytics, Firebase, etc.)
+- Third-party analytics services (Google Analytics, Firebase, etc.)
 - Advertising networks
 - Social media SDKs
-- Cloud storage services
+- Cloud storage services for your photos or pixel art
 
 ## Data Sharing and Disclosure
 
@@ -86,7 +92,7 @@ If you are a California resident, you have rights under CCPA:
 
 ## Children's Privacy
 
-The App is suitable for users of all ages (4+). We do NOT knowingly collect personal information from children. Since all processing happens on-device and we collect no personal data, the App is safe for children to use under parental supervision.
+The App is suitable for users of all ages (4+). We do NOT knowingly collect personal information from children. Since all photo processing happens on-device and the only data sent is anonymous statistics that cannot identify anyone, the App is safe for children to use under parental supervision.
 
 ## Changes to This Privacy Policy
 
@@ -94,11 +100,11 @@ We may update this Privacy Policy from time to time. Changes will be posted with
 
 ## Data Retention
 
-Since we do NOT collect or store user data on our servers, there is no data retention period. All data remains on your device until you delete it or uninstall the App.
+Your photos and pixel art remain on your device until you delete them or uninstall the App. Anonymous usage statistics and crash reports are kept in Apple's iCloud only as long as they are useful for understanding usage and fixing bugs.
 
 ## International Data Transfers
 
-As the App processes all data locally on your device, there are NO international data transfers to worry about.
+Your photos and pixel art are processed locally on your device. The anonymous statistics described above are stored in Apple's iCloud, which may process them in data centers outside your country under Apple's Privacy Policy.
 
 ## Contact Us
 
@@ -116,4 +122,4 @@ By using PixelMe, you consent to this Privacy Policy and agree to its terms.
 
 ---
 
-**Note**: This is a privacy-first app. Your photos never leave your device. We believe in minimal data collection and maximum user privacy.
+**Note**: This is a privacy-first app. Your photos and pixel art never leave your device. We believe in minimal data collection and maximum user privacy.
