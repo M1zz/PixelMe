@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */; };
+		2B9B33B607C34BDA943CDF19 /* PixelMeRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */; };
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
 		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
 		3CC20BD5105DEA77121F6E47 /* PowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeSpec.swift; sourceTree = "<group>"; };
+		DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeRoadmap.swift; sourceTree = "<group>"; };
 		0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdvancedColorPickerView.swift; sourceTree = "<group>"; };
 		175A61BA48040EB899027EFA /* AnimationTimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationTimelineView.swift; sourceTree = "<group>"; };
 		176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageGenerator.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */,
 				28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */,
 				0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */,
+				DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				EE1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift in Sources */,
 				EE1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift in Sources */,
 				0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */,
+				2B9B33B607C34BDA943CDF19 /* PixelMeRoadmap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +697,7 @@
 			repositoryURL = "https://github.com/M1zz/LeeoKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.16.1;
+				minimumVersion = 3.20.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

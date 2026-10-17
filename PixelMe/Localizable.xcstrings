@@ -23,6 +23,380 @@
         }
       }
     },
+    "Backup and export" : {
+      "comment" : "Roadmap item: backup and export",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업과 내보내기"
+          }
+        }
+      }
+    },
+    "Better VoiceOver support" : {
+      "comment" : "Roadmap item: better VoiceOver support",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VoiceOver로 더 편하게"
+          }
+        }
+      }
+    },
+    "Bigger text never gets cut off — the screen rearranges itself neatly." : {
+      "comment" : "Roadmap item detail: Dynamic Type layouts",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "글자 크기를 키워도 잘리지 않고 보기 좋게 다시 배치돼요."
+          }
+        }
+      }
+    },
+    "Delete all my data" : {
+      "comment" : "Roadmap item: delete all data",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내 데이터 한 번에 지우기"
+          }
+        }
+      }
+    },
+    "Done notifications" : {
+      "comment" : "Roadmap item: notifications",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "작업 끝 알림"
+          }
+        }
+      }
+    },
+    "Easier-to-see colors and contrast" : {
+      "comment" : "Roadmap item: contrast and color",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보기 편한 색과 대비"
+          }
+        }
+      }
+    },
+    "Erase all your saved work and settings right in the app." : {
+      "comment" : "Roadmap item detail: delete all data",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "원하면 앱 안에서 저장한 작품과 설정을 모두 지울 수 있어요."
+          }
+        }
+      }
+    },
+    "Everything stays readable with Increase Contrast on or if colors are hard to tell apart." : {
+      "comment" : "Roadmap item detail: contrast and color",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "대비를 높이거나 색을 구별하기 어려워도 내용을 알아볼 수 있어요."
+          }
+        }
+      }
+    },
+    "Face ID lock" : {
+      "comment" : "Roadmap item: Face ID lock",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face ID 잠금"
+          }
+        }
+      }
+    },
+    "Feel a light tap when you draw or finish something." : {
+      "comment" : "Roadmap item detail: haptics",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "그리거나 다 만들었을 때 가볍게 떨려서 알려 줘요."
+          }
+        }
+      }
+    },
+    "Foldable iPhone layout" : {
+      "comment" : "Roadmap item: foldable iPhone layout",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "펼치는 아이폰 화면"
+          }
+        }
+      }
+    },
+    "Get a notification when a long conversion finishes." : {
+      "comment" : "Roadmap item detail: notifications",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래 걸리는 변환이 끝나면 알림으로 알려 줘요."
+          }
+        }
+      }
+    },
+    "Gift Pro" : {
+      "comment" : "Roadmap item: gift Pro",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro 선물하기"
+          }
+        }
+      }
+    },
+    "Handy features are pointed out gently, right when they’re useful." : {
+      "comment" : "Roadmap item detail: tips",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알아 두면 편한 기능을 알맞은 때에 살짝 알려 줘요."
+          }
+        }
+      }
+    },
+    "Haptic feedback" : {
+      "comment" : "Roadmap item: haptics",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "손끝으로 느끼는 반응"
+          }
+        }
+      }
+    },
+    "Helpful tips" : {
+      "comment" : "Roadmap item: tips",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "쓰는 요령 알려 주기"
+          }
+        }
+      }
+    },
+    "Home Screen widgets" : {
+      "comment" : "Roadmap item: home screen widgets",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈 화면 위젯"
+          }
+        }
+      }
+    },
+    "Layouts that fit larger text" : {
+      "comment" : "Roadmap item: Dynamic Type layouts",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "큰 글씨에 맞춘 화면"
+          }
+        }
+      }
+    },
+    "Lock the app with Face ID to keep your work private." : {
+      "comment" : "Roadmap item detail: Face ID lock",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face ID로 앱을 잠가 내 작품을 지켜요."
+          }
+        }
+      }
+    },
+    "More languages" : {
+      "comment" : "Roadmap item: more languages",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "더 많은 언어"
+          }
+        }
+      }
+    },
+    "Reduce Motion" : {
+      "comment" : "Roadmap item: reduce motion",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "움직임 줄이기"
+          }
+        }
+      }
+    },
+    "Save your work to a file and bring it back anytime." : {
+      "comment" : "Roadmap item detail: backup and export",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내 작품을 파일로 저장하고 다시 불러올 수 있어요."
+          }
+        }
+      }
+    },
+    "See your pixel art on the Home Screen without opening the app." : {
+      "comment" : "Roadmap item detail: home screen widgets",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱을 열지 않고 홈 화면에서 내 픽셀 아트를 바로 봐요."
+          }
+        }
+      }
+    },
+    "Siri and Shortcuts" : {
+      "comment" : "Roadmap item: Siri and Shortcuts",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siri와 단축어"
+          }
+        }
+      }
+    },
+    "Split the wide screen of a foldable iPhone into two sides." : {
+      "comment" : "Roadmap item detail: foldable iPhone layout",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "펼치는 아이폰에서 넓은 화면을 두 쪽으로 나눠 써요."
+          }
+        }
+      }
+    },
+    "Sync across devices" : {
+      "comment" : "Roadmap item: iCloud sync",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기기 간 동기화"
+          }
+        }
+      }
+    },
+    "The first time you open the app after an update, you’ll see what’s new." : {
+      "comment" : "Roadmap item detail: what's new",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 뒤 처음 열 때 무엇이 새로 생겼는지 알려 줘요."
+          }
+        }
+      }
+    },
+    "Turn a photo into pixel art straight from Siri or the Shortcuts app." : {
+      "comment" : "Roadmap item detail: Siri and Shortcuts",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siri나 단축어 앱에서 바로 사진을 픽셀 아트로 바꿔요."
+          }
+        }
+      }
+    },
+    "Use the app in even more languages." : {
+      "comment" : "Roadmap item detail: more languages",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "더 많은 나라 말로 앱을 쓸 수 있게 해요."
+          }
+        }
+      }
+    },
+    "VoiceOver reads every button and tool, in the right order." : {
+      "comment" : "Roadmap item detail: better VoiceOver support",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화면 읽기 기능이 단추와 도구를 빠짐없이, 알맞은 순서로 읽어 줘요."
+          }
+        }
+      }
+    },
+    "What’s New" : {
+      "comment" : "Roadmap item: what's new",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 소식"
+          }
+        }
+      }
+    },
+    "With Reduce Motion on, animations become calmer." : {
+      "comment" : "Roadmap item detail: reduce motion",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "움직임 줄이기를 켜면 화면 효과가 차분해져요."
+          }
+        }
+      }
+    },
+    "You pay, and the person you choose gets Pro." : {
+      "comment" : "Roadmap item detail: gift Pro",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결제는 보내는 분이 하고, Pro는 받는 분이 써요."
+          }
+        }
+      }
+    },
+    "Your pixel art follows you to a new iPhone through iCloud." : {
+      "comment" : "Roadmap item detail: iCloud sync",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새 아이폰으로 바꿔도 내 픽셀 아트가 iCloud로 그대로 이어져요."
+          }
+        }
+      }
+    },
     "·" : {
       "comment" : "A period symbol used in a list of items.",
       "isCommentAutoGenerated" : true,

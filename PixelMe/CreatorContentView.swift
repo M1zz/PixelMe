@@ -679,6 +679,13 @@ struct CreatorContentView: View {
         VStack(spacing: 0) {
             LeeoSupportSection<PixelMeSpec>()
                 .tint(.white)
+            // 앞으로 만들 기능 — 원본은 PixelMeRoadmap.swift
+            NavigationLink { RoadmapScreen() } label: {
+                Label(LeeoRoadmapText.entry, systemImage: "map")
+                    .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                    .contentShape(Rectangle())
+            }
+            .tint(.white)
         }
         .padding(.horizontal, 15)
         .padding(.vertical, 6)
