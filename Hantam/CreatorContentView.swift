@@ -140,7 +140,7 @@ struct CreatorContentView: View {
             }
         }
         .sheet(isPresented: $viewModel.showPaywall) {
-            PaywallView(isProUser: $manager.isPremiumUser, reason: viewModel.paywallReason)
+            PaywallView(isProUser: .constant(false), reason: viewModel.paywallReason)
         }
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet

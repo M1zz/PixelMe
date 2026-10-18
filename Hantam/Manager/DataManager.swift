@@ -95,10 +95,7 @@ class DataManager: NSObject, ObservableObject {
         activeProcessingTasks.removeValue(forKey: name)
     }
 
-    /// Dynamic properties that the UI will react to AND store values in UserDefaults
-    @AppStorage(AppConfig.premiumVersion) var isPremiumUser: Bool = false
-    
-    /// Computed property for premium status using new subscription system
+    /// Pro 여부 — 판정은 SubscriptionManager 한 곳에서만 한다.
     @MainActor var isProUser: Bool {
         return SubscriptionManager.shared.isProUser
     }
@@ -513,21 +510,19 @@ extension DataManager {
 // MARK: - Save pixel art image
 extension DataManager {
     /// Save pixelated board as image (with watermark for non-Pro users)
-    func savePixelatedImage() {
+    @MainActor func savePixelatedImage() {
         var nftImage = PixelatedImage(exportMode: true).environmentObject(self)
             .image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        let isPro = UserDefaults.standard.bool(forKey: AppConfig.premiumVersion)
-        if !isPro {
-            nftImage = FreeUsageManager.applyWatermark(to: nftImage)
+        if !isProUser {
+            nftImage = Watermark.applyWatermark(to: nftImage)
         }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    func savePixelGrid(view: AnyView) {
+    @MainActor func savePixelGrid(view: AnyView) {
         var nftImage = view.image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        let isPro = UserDefaults.standard.bool(forKey: AppConfig.premiumVersion)
-        if !isPro {
-            nftImage = FreeUsageManager.applyWatermark(to: nftImage)
+        if !isProUser {
+            nftImage = Watermark.applyWatermark(to: nftImage)
         }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }

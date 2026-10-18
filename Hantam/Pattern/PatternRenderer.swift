@@ -50,7 +50,7 @@ enum PatternRenderer {
     static func shareImage(for pattern: BeadPattern, style: PatternDisplayStyle, watermark: Bool) -> UIImage {
         let cell = max(8, min(40, (2000 / CGFloat(pattern.longestSide)).rounded()))
         let img = image(for: pattern, cell: cell, style: style, showGrid: style != .preview)
-        return watermark ? FreeUsageManager.applyWatermark(to: img) : img
+        return watermark ? Watermark.applyWatermark(to: img) : img
     }
 
     // MARK: - 칸 그리기

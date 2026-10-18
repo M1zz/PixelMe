@@ -284,28 +284,6 @@ class ExportManager {
             completion(false, nil)
         }
     }
-
-    /// Share file using share sheet
-    static func shareFile(data: Data, filename: String, from viewController: UIViewController) {
-        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
-
-        do {
-            try data.write(to: tempURL)
-
-            var activityItems: [Any] = [tempURL]
-            
-            // 비Pro 사용자: 앱 링크 추가
-            if !UserDefaults.standard.bool(forKey: AppConfig.premiumVersion) {
-                let shareText = "Made with Hantam\n\(FreeUsageManager.appStoreURL)"
-                activityItems.append(shareText)
-            }
-
-            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-            viewController.present(activityViewController, animated: true)
-        } catch {
-            print("Error sharing file: \(error)")
-        }
-    }
 }
 
 extension CGRect {
@@ -314,10 +292,3 @@ extension CGRect {
         set { self = newValue }
     }
 }
-//
-//  TemplateManager.swift
-//  Hantam
-//
-//  Created by hyunho lee on 2023/06/01.
-//
-

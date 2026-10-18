@@ -8,8 +8,7 @@
 //  StoreKit 2 엔진(상품 로드·구매·복원·권한 추적·트랜잭션 리스너·오프라인 캐시)은
 //  이제 LeeoKit 의 LeeoStore 가 공용으로 담당한다. 이 파일은 그 위에 앱 고유의
 //  공개 API(플랜별 가격 헬퍼, 기능 접근 판정, 레거시 UserDefaults 미러)를 얹은
-//  얇은 파사드로, 기존 호출부(PaywallView / ExportPaywallView / PreviewWallView /
-//  FeatureGating / FreeUsageManager / DataManager 등)는 그대로 동작한다.
+//  얇은 파사드로, 결제 화면 · FeatureGating · 도안 화면이 Pro 여부를 여기서만 묻는다.
 //
 //  권한 규칙(기존 checkSubscriptionStatus 와 동치):
 //   - 주간/월간/연간 구독이 활성(currentEntitlements) 이거나
@@ -34,7 +33,6 @@ class SubscriptionManager: ObservableObject {
     private var cancellable: AnyCancellable?
 
     /// 구독 상품 ID들 (표시 순서 정렬용)
-    private let weeklyProductID = AppConfig.weeklyProductID
     private let monthlyProductID = AppConfig.monthlyProductID
     private let yearlyProductID = AppConfig.yearlyProductID
     private let lifetimeProductID = AppConfig.lifetimeProductID
@@ -53,12 +51,9 @@ class SubscriptionManager: ObservableObject {
     private init() {
         store = LeeoStore(config: HantamSpec.paywall!)
 
-        // 공용 스토어 상태 변화를 뷰에 전파하고, 레거시 UserDefaults 미러를 갱신한다.
+        // 공용 스토어 상태 변화를 뷰에 전파한다.
         cancellable = store.objectWillChange.sink { [weak self] in
-            guard let self else { return }
-            self.objectWillChange.send()
-            // objectWillChange 는 변경 "직전"에 발화하므로, 반영된 값을 읽기 위해 한 틱 뒤에 미러한다.
-            DispatchQueue.main.async { self.mirrorProState() }
+            self?.objectWillChange.send()
         }
 
         // 상품 로드 (LeeoStore.init 은 상품을 자동 로드하지 않는다).
@@ -67,7 +62,7 @@ class SubscriptionManager: ObservableObject {
 
     // MARK: - Product Management
 
-    /// 사용 가능한 구독 상품들 (주간 < 월간 < 연간 < 평생 순서 — Spec.productIDs 순서를 그대로 따른다)
+    /// 판매 상품 (월간 < 연간 < 평생 — Spec.productIDs 순서를 그대로 따른다)
     var subscriptionProducts: [Product] { store.products }
 
     /// 프리미엄 구독 상태
@@ -86,11 +81,6 @@ class SubscriptionManager: ObservableObject {
     /// App Store에서 사용 가능한 구독 상품들을 로드
     func loadProducts() async {
         await store.loadProducts()
-    }
-
-    /// 주간 구독 상품 반환
-    func getWeeklyProduct() -> Product? {
-        return subscriptionProducts.first { $0.id == weeklyProductID }
     }
 
     /// 월간 구독 상품 반환
@@ -134,22 +124,6 @@ class SubscriptionManager: ObservableObject {
     /// 구독 상태 확인 (공용 스토어에 위임)
     func checkSubscriptionStatus() async {
         await store.refreshEntitlements()
-        mirrorProState()
-    }
-
-    // MARK: - Legacy Mirror
-
-    private let cachedProStatusKey = "SubscriptionManager.cachedProStatus"
-    private let cachedProDateKey = "SubscriptionManager.cachedProDate"
-
-    /// Pro 상태를 기존 코드가 읽는 레거시 저장소에 반영한다.
-    /// - UserDefaults[AppConfig.premiumVersion]: DataManager 의 @AppStorage, ExportManager, DataManager 가 직접 읽음.
-    /// - cachedProStatus/Date: 과거 오프라인 캐시 키 (연속성 유지).
-    private func mirrorProState() {
-        let pro = store.hasPro
-        UserDefaults.standard.set(pro, forKey: AppConfig.premiumVersion)
-        UserDefaults.standard.set(pro, forKey: cachedProStatusKey)
-        UserDefaults.standard.set(Date(), forKey: cachedProDateKey)
     }
 
     // MARK: - Feature Access
@@ -165,14 +139,6 @@ class SubscriptionManager: ObservableObject {
     }
 
     // MARK: - Helper Methods
-
-    /// 주간 구독 가격 반환
-    func getWeeklyPrice() -> String {
-        #if DEBUG
-        if let p = ScreenshotScene.reviewPrice("weekly") { return p }
-        #endif
-        return getWeeklyProduct()?.displayPrice ?? "₩2,500"
-    }
 
     /// 월간 구독 가격 반환
     func getMonthlyPrice() -> String {
@@ -198,20 +164,6 @@ class SubscriptionManager: ObservableObject {
         return getLifetimeProduct()?.displayPrice ?? "₩59,000"
     }
 
-    /// 연간 구독의 주당 환산 가격 반환
-    func getYearlyWeeklyPrice() -> String {
-        guard let yearlyProduct = getYearlyProduct() else { return "₩575" }
-
-        let yearlyPrice = yearlyProduct.price
-        let weeklyPrice = yearlyPrice / 52
-
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = yearlyProduct.priceFormatStyle.locale
-
-        return formatter.string(from: weeklyPrice as NSNumber) ?? "₩575"
-    }
-
     /// 연간 구독의 월 환산 가격 반환
     func getYearlyMonthlyPrice() -> String {
         #if DEBUG
@@ -234,10 +186,6 @@ class SubscriptionManager: ObservableObject {
         return !subscriptionProducts.isEmpty
     }
 
-    /// 기존 PurchaseManager 호환성 유지
-    var isPremiumUser: Bool {
-        return isProUser
-    }
 }
 
 // MARK: - Feature Access Enum

@@ -747,7 +747,7 @@
     "priority": "medium",
     "projectId": "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
     "sprint": "",
-    "status": "백로그",
+    "status": "완료",
     "storyPoints": 3,
     "tags": [
       "Refactor"
@@ -776,7 +776,7 @@
     "priority": "medium",
     "projectId": "BE548E4F-C76E-494E-9E8F-E66E3A4A94CA",
     "sprint": "",
-    "status": "백로그",
+    "status": "완료",
     "storyPoints": 2,
     "tags": [
       "Core"

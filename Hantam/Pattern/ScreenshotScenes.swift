@@ -26,7 +26,7 @@ enum ScreenshotScene {
     /// 심사용 결제 화면에 보일 가격 (App Store Connect 에 넣을 미국 가격과 같게).
     static func reviewPrice(_ key: String) -> String? {
         guard current == "paywall" else { return nil }
-        return ["weekly": "$1.99", "monthly": "$3.99", "yearly": "$24.99",
+        return ["monthly": "$3.99", "yearly": "$24.99",
                 "lifetime": "$44.99", "yearlyMonthly": "$2.08"][key]
     }
 

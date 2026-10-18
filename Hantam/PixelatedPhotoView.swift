@@ -11,7 +11,6 @@ import SwiftUI
 struct PixelatedPhotoView: View {
 
     @EnvironmentObject var manager: DataManager
-    @State private var didShowInterstitial: Bool = false
     @State private var showAdvancedSettings: Bool = false
     @State private var paywallReason: PaywallReason?
     @State private var showSNSShare: Bool = false
@@ -158,11 +157,6 @@ struct PixelatedPhotoView: View {
                     ? (BeforeAfterImageGenerator.generate(original: original, pixelated: pixelated) ?? pixelated)
                     : pixelated
                 ShareSheet(items: [shareImage])
-            }
-        }
-        .onAppear {
-            if !manager.isPremiumUser && !didShowInterstitial {
-                didShowInterstitial = true
             }
         }
     }

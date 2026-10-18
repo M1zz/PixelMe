@@ -6,7 +6,7 @@
 //  - 무료 체험 문구는 App Store 에 실제로 걸린 체험(introductoryOffer)과 자격이 있을 때만 보인다.
 //  - 평점·사용자 수 같은 숫자는 지어내지 않는다.
 //  - 어디서 띄웠는지(reason)를 허브로 보낸다 — 어느 순간에 사려고 하는지 본다.
-//  - 주간 상품은 더 팔지 않는다(기존 구독자의 권한은 HantamSpec.entitlementIDs 가 지킨다).
+//  - 판매는 월간 · 연간 · 평생. 팔지 않는 예전 ID 의 권한은 HantamSpec.entitlementIDs 가 지킨다.
 //
 
 import SwiftUI
@@ -187,7 +187,6 @@ struct PaywallView: View {
 
     private var selectedProductID: String {
         switch selectedPlan {
-        case .weekly:   return AppConfig.weeklyProductID
         case .monthly:  return AppConfig.monthlyProductID
         case .yearly:   return AppConfig.yearlyProductID
         case .lifetime: return AppConfig.lifetimeProductID
@@ -196,7 +195,6 @@ struct PaywallView: View {
 
     private var selectedProduct: Product? {
         switch selectedPlan {
-        case .weekly:   return subscriptionManager.getWeeklyProduct()
         case .monthly:  return subscriptionManager.getMonthlyProduct()
         case .yearly:   return subscriptionManager.getYearlyProduct()
         case .lifetime: return subscriptionManager.getLifetimeProduct()
@@ -254,7 +252,7 @@ struct PaywallView: View {
                 return "Free during the trial, then \(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
             }
             return "\(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
-        case .monthly, .weekly:
+        case .monthly:
             if trialDays[selectedProductID] != nil {
                 return "Free during the trial, then \(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
             }
@@ -440,7 +438,6 @@ struct BeadHeartMark: View {
 // MARK: - Supporting Enums
 
 enum SubscriptionPlan: String, CaseIterable {
-    case weekly = "Weekly"
     case monthly = "Monthly"
     case yearly = "Yearly"
     case lifetime = "Lifetime"

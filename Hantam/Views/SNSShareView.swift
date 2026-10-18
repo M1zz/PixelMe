@@ -104,7 +104,7 @@ struct SNSShareView: View {
         .onAppear { prepareImage() }
         .sheet(isPresented: $showingShareSheet) {
             if let image = resizedImage ?? manager.pixelatedImage {
-                SNSShareSheet(image: image, isPremium: manager.isPremiumUser)
+                SNSShareSheet(image: image, isPremium: manager.isProUser)
             }
         }
     }
@@ -133,7 +133,7 @@ struct SNSShareSheet: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIActivityViewController {
         var shareText = "Made with Hantam"
         if !isPremium {
-            shareText += "\n\(FreeUsageManager.appStoreURL)"
+            shareText += "\n\(Watermark.appStoreURL)"
         }
         let vc = UIActivityViewController(activityItems: [image, shareText], applicationActivities: nil)
         return vc
@@ -149,7 +149,7 @@ struct VideoShareSheet: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIActivityViewController {
         var items: [Any] = [videoURL]
         if !SubscriptionManager.shared.isProUser {
-            let shareText = "Made with Hantam\n\(FreeUsageManager.appStoreURL)"
+            let shareText = "Made with Hantam\n\(Watermark.appStoreURL)"
             items.append(shareText)
         }
         let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
