@@ -31,11 +31,17 @@ class AppConfig {
     // MARK: - In App Purchases
     static let premiumVersion: String = "PixelNFT.Premium" // 기존 호환성 유지
     
-    // 구독 시스템 Product IDs
+    // 판매 상품 Product IDs
+    // 월간·연간은 '한땀 Pro' 구독 그룹의 자동 갱신 구독이다. 예전 com.pixelme.pro.monthly/yearly 는
+    // App Store Connect 에 일회성 구매로 잘못 만들어져 종류를 바꿀 수 없어 새 ID 를 쓴다(2.1.0).
+    static let monthlyProductID: String = "com.hantam.pro.monthly"
+    static let yearlyProductID: String = "com.hantam.pro.yearly"
+    static let lifetimeProductID: String = "com.pixelme.pro.lifetime"  // 일회성(비소모성) — 그대로
+
+    // 팔지 않지만 이미 산 사람은 Pro 로 인정하는 예전 ID
     static let weeklyProductID: String = "com.pixelme.pro.weekly"
-    static let monthlyProductID: String = "com.pixelme.pro.monthly"
-    static let yearlyProductID: String = "com.pixelme.pro.yearly"
-    static let lifetimeProductID: String = "com.pixelme.pro.lifetime"
+    static let legacyMonthlyProductID: String = "com.pixelme.pro.monthly"
+    static let legacyYearlyProductID: String = "com.pixelme.pro.yearly"
 
     // 필터 팩 Product IDs
     static let filterPackArcade90sID: String = "com.pixelme.filterpack.arcade90s"

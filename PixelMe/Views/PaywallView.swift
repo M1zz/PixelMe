@@ -18,7 +18,22 @@ struct PaywallView: View {
     @Binding var isProUser: Bool
     var reason: PaywallReason = .advanced
 
-    @State private var selectedPlan: SubscriptionPlan = .lifetime
+    @State private var selectedPlan: SubscriptionPlan
+
+    init(isProUser: Binding<Bool>, reason: PaywallReason = .advanced, initialPlan: SubscriptionPlan = .lifetime) {
+        _isProUser = isProUser
+        self.reason = reason
+        _selectedPlan = State(initialValue: initialPlan)
+    }
+
+    /// 심사용 스크린샷 장면(DEBUG) — 상품을 못 불러오는 시뮬레이터에서 정한 가격 · 체험으로 그린다.
+    static var isReviewShot: Bool {
+        #if DEBUG
+        return ScreenshotScene.current == "paywall"
+        #else
+        return false
+        #endif
+    }
     @State private var showingError = false
     @State private var isProcessing = false
     /// 상품 ID → 무료 체험 일수 (자격이 있을 때만).
@@ -143,7 +158,7 @@ struct PaywallView: View {
             PlanRow(
                 title: "Monthly",
                 price: subscriptionManager.getMonthlyPrice(),
-                detail: trialText(for: subscriptionManager.getMonthlyProduct()) ?? LocalizedStringKey("Billed every month"),
+                detail: trialText(for: AppConfig.monthlyProductID) ?? LocalizedStringKey("Billed every month"),
                 badge: nil,
                 isSelected: selectedPlan == .monthly
             ) { selectedPlan = .monthly }
@@ -151,12 +166,13 @@ struct PaywallView: View {
     }
 
     private var yearlyDetail: LocalizedStringKey {
-        if let t = trialText(for: subscriptionManager.getYearlyProduct()) { return t }
+        if let t = trialText(for: AppConfig.yearlyProductID) { return t }
         return "\(subscriptionManager.getYearlyMonthlyPrice()) a month, billed yearly"
     }
 
     /// 연간이 월간 12개월보다 얼마나 싼지 — 상품이 둘 다 있을 때만.
     private var yearlySavingsBadge: LocalizedStringKey? {
+        if Self.isReviewShot { return "Save 48%" }
         guard let y = subscriptionManager.getYearlyProduct()?.price,
               let m = subscriptionManager.getMonthlyProduct()?.price, m > 0 else { return nil }
         let ratio = NSDecimalNumber(decimal: y / (m * 12)).doubleValue
@@ -164,9 +180,18 @@ struct PaywallView: View {
         return pct >= 5 ? "Save \(pct)%" : nil
     }
 
-    private func trialText(for product: Product?) -> LocalizedStringKey? {
-        guard let id = product?.id, let days = trialDays[id] else { return nil }
+    private func trialText(for productID: String) -> LocalizedStringKey? {
+        guard let days = trialDays[productID] else { return nil }
         return "\(days)-day free trial"
+    }
+
+    private var selectedProductID: String {
+        switch selectedPlan {
+        case .weekly:   return AppConfig.weeklyProductID
+        case .monthly:  return AppConfig.monthlyProductID
+        case .yearly:   return AppConfig.yearlyProductID
+        case .lifetime: return AppConfig.lifetimeProductID
+        }
     }
 
     private var selectedProduct: Product? {
@@ -193,7 +218,7 @@ struct PaywallView: View {
                     Task { await purchaseSelectedPlan() }
                 } label: {
                     ZStack {
-                        if isProcessing || subscriptionManager.isLoading {
+                        if isProcessing || (subscriptionManager.isLoading && !Self.isReviewShot) {
                             ProgressView().tint(.white)
                         } else {
                             Text(ctaTitle)
@@ -204,7 +229,7 @@ struct PaywallView: View {
                     .frame(maxWidth: .infinity, minHeight: 56)
                     .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
                 }
-                .disabled(!subscriptionManager.hasLoadedProducts || isProcessing)
+                .disabled((!subscriptionManager.hasLoadedProducts && !Self.isReviewShot) || isProcessing)
 
                 Text(disclosure)
                     .font(.caption)
@@ -216,7 +241,7 @@ struct PaywallView: View {
 
     private var ctaTitle: LocalizedStringKey {
         if selectedPlan == .lifetime { return "Buy once for \(subscriptionManager.getLifetimePrice())" }
-        if let id = selectedProduct?.id, let days = trialDays[id] { return "Start \(days)-day free trial" }
+        if let days = trialDays[selectedProductID] { return "Start \(days)-day free trial" }
         return "Continue"
     }
 
@@ -225,12 +250,12 @@ struct PaywallView: View {
         case .lifetime:
             return "One-time purchase. No subscription."
         case .yearly:
-            if let id = selectedProduct?.id, trialDays[id] != nil {
+            if trialDays[selectedProductID] != nil {
                 return "Free during the trial, then \(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
             }
             return "\(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
         case .monthly, .weekly:
-            if let id = selectedProduct?.id, trialDays[id] != nil {
+            if trialDays[selectedProductID] != nil {
                 return "Free during the trial, then \(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
             }
             return "\(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
@@ -263,6 +288,7 @@ struct PaywallView: View {
     // MARK: - 동작
 
     private func loadTrials() async {
+        if Self.isReviewShot { trialDays = [AppConfig.yearlyProductID: 7]; return }
         if !subscriptionManager.hasLoadedProducts { await subscriptionManager.loadProducts() }
         var found: [String: Int] = [:]
         for product in [subscriptionManager.getYearlyProduct(), subscriptionManager.getMonthlyProduct()].compactMap({ $0 }) {

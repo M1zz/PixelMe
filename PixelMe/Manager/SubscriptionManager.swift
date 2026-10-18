@@ -168,21 +168,33 @@ class SubscriptionManager: ObservableObject {
 
     /// 주간 구독 가격 반환
     func getWeeklyPrice() -> String {
+        #if DEBUG
+        if let p = ScreenshotScene.reviewPrice("weekly") { return p }
+        #endif
         return getWeeklyProduct()?.displayPrice ?? "₩2,500"
     }
 
     /// 월간 구독 가격 반환
     func getMonthlyPrice() -> String {
+        #if DEBUG
+        if let p = ScreenshotScene.reviewPrice("monthly") { return p }
+        #endif
         return getMonthlyProduct()?.displayPrice ?? "₩4,900"
     }
 
     /// 연간 구독 가격 반환
     func getYearlyPrice() -> String {
+        #if DEBUG
+        if let p = ScreenshotScene.reviewPrice("yearly") { return p }
+        #endif
         return getYearlyProduct()?.displayPrice ?? "₩29,900"
     }
 
     /// 평생 구매 가격 반환
     func getLifetimePrice() -> String {
+        #if DEBUG
+        if let p = ScreenshotScene.reviewPrice("lifetime") { return p }
+        #endif
         return getLifetimeProduct()?.displayPrice ?? "₩59,000"
     }
 
@@ -202,6 +214,9 @@ class SubscriptionManager: ObservableObject {
 
     /// 연간 구독의 월 환산 가격 반환
     func getYearlyMonthlyPrice() -> String {
+        #if DEBUG
+        if let p = ScreenshotScene.reviewPrice("yearlyMonthly") { return p }
+        #endif
         guard let yearlyProduct = getYearlyProduct() else { return "₩2,492" }
 
         let yearlyPrice = yearlyProduct.price

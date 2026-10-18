@@ -7,7 +7,8 @@
 //    xcrun simctl launch <기기> com.leeo.PixelMe -AppleLanguages "(ja)" \
 //        -HantamScene detail -HantamDemoPhoto /path/to/photo.jpg
 //
-//  장면: home · maker · detail · symbols · stitch · pdf
+//  장면: home · maker · detail · symbols · stitch · pdf · paywall
+//  paywall 은 인앱 구입 심사용 스크린샷 — -HantamPlan monthly|yearly|lifetime 으로 고른 요금제를 보인다.
 //
 
 #if DEBUG
@@ -20,6 +21,21 @@ enum ScreenshotScene {
     static var demoPhoto: UIImage? {
         guard let path = UserDefaults.standard.string(forKey: "HantamDemoPhoto") else { return nil }
         return UIImage(contentsOfFile: path)
+    }
+
+    /// 심사용 결제 화면에 보일 가격 (App Store Connect 에 넣을 미국 가격과 같게).
+    static func reviewPrice(_ key: String) -> String? {
+        guard current == "paywall" else { return nil }
+        return ["weekly": "$1.99", "monthly": "$3.99", "yearly": "$24.99",
+                "lifetime": "$44.99", "yearlyMonthly": "$2.08"][key]
+    }
+
+    static var reviewPlan: SubscriptionPlan {
+        switch UserDefaults.standard.string(forKey: "HantamPlan") {
+        case "monthly": return .monthly
+        case "yearly": return .yearly
+        default: return .lifetime
+        }
     }
 
     /// 데모 도안 제목 — 앱 문구가 아니라 사용자가 붙인 이름이므로 번역 카탈로그에 넣지 않는다.
@@ -67,7 +83,10 @@ struct ScreenshotSceneRoot: View {
 
     var body: some View {
         Group {
-            if let ready {
+            if scene == "paywall" {
+                // 결제 화면은 데모 도안이 필요 없다 — 바로 띄운다.
+                PaywallView(isProUser: .constant(false), reason: .patternPDF, initialPlan: ScreenshotScene.reviewPlan)
+            } else if let ready {
                 switch scene {
                 case "maker":
                     PatternMakerView(startWithPicker: false, initialImage: ScreenshotScene.demoPhoto)
@@ -86,7 +105,7 @@ struct ScreenshotSceneRoot: View {
                 Color.hantamBackground.ignoresSafeArea()
             }
         }
-        .task { await prepare() }
+        .task { if scene != "paywall" { await prepare() } }
     }
 
     private func prepare() async {

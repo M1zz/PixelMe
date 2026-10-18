@@ -9,6 +9,7 @@ set -e
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$1"; shift
 LANGS="${*:-ko en ja}"
+[ "$ONLY_REVIEW" = 1 ] && LANGS=""
 UDID="${UDID:-7F517AA6-6217-4326-9F6B-5AE490B38C7D}"
 BUNDLE=com.leeo.PixelMe
 PHOTO="$ROOT/docs/screenshots/raw/assets/demo-beagle.jpg"
@@ -33,3 +34,24 @@ for L in $LANGS; do
   done
 done
 xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
+
+# 인앱 구입 심사용 스크린샷 — 결제 화면(영어), 상품마다 그 요금제를 고른 모습.
+# App Store Connect ▸ 구독/인앱 구입 ▸ 해당 상품 ▸ 심사 정보 ▸ 스크린샷 에 직접 올린다 (DeployBar 는 올리지 않는다).
+if [ "${REVIEW:-1}" = 1 ]; then
+  mkdir -p "$ROOT/docs/screenshots/review"
+  # 설치 직후 첫 실행은 느려 빈 화면이 찍힌다 — 한 번 띄워 데워 둔다.
+  xcrun simctl launch "$UDID" $BUNDLE -HantamScene paywall >/dev/null; sleep 8
+  for PLAN in monthly yearly lifetime; do
+    xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
+    xcrun simctl launch "$UDID" $BUNDLE -AppleLanguages "(en)" -AppleLocale en_US \
+      -HantamScene paywall -HantamPlan $PLAN -HantamDemoPhoto "$PHOTO" >/dev/null
+    sleep 7
+    xcrun simctl io "$UDID" screenshot "$ROOT/docs/screenshots/review/raw-$PLAN.png" >/dev/null 2>&1
+    # 1320×2868 → 1242×2688 (이 계정의 iPhone 제출 규격)
+    ffmpeg -loglevel error -y -i "$ROOT/docs/screenshots/review/raw-$PLAN.png" \
+      -vf "scale=1242:2699,crop=1242:2688:0:0" "$ROOT/docs/screenshots/review/$PLAN.png"
+    rm "$ROOT/docs/screenshots/review/raw-$PLAN.png"
+    echo "🧾 review/$PLAN"
+  done
+  xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
+fi
