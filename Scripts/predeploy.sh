@@ -13,11 +13,11 @@ set -e
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$ROOT"
 
-SCHEME="PixelMe"
+SCHEME="Hantam"
 PROJECT_FLAG="-project"
-PROJECT="PixelMe.xcodeproj"
+PROJECT="Hantam.xcodeproj"
 
-# 도안 엔진 · PDF · 통계 이름 단위 테스트 (PixelMeTests/PatternEngineTests.swift)
+# 도안 엔진 · PDF · 통계 이름 단위 테스트 (HantamTests/PatternEngineTests.swift)
 echo "🧪 단위 테스트 ($SCHEME)"
 # 이미 켜진 아이폰을 먼저 쓴다 — 막 켜지는 기기에서는 테스트 실행기가 앱을 못 띄울 때가 있다.
 DEST_ID=$(xcrun simctl list devices booted | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)

@@ -2,7 +2,7 @@
 # sync_version.sh - AppConfig.swift에서 버전을 읽어 Info.plist 빌드 설정에 반영
 # Single source of truth: AppConfig.swift
 
-CONFIG_FILE="${SRCROOT}/PixelMe/AppConfig.swift"
+CONFIG_FILE="${SRCROOT}/Hantam/AppConfig.swift"
 
 # AppConfig.swift에서 버전 추출
 APP_VERSION=$(grep 'static let appVersion' "$CONFIG_FILE" | sed 's/.*"\(.*\)".*/\1/')
