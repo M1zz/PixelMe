@@ -5,37 +5,15 @@
 //  Created by hyunho lee on 2023/06/01.
 //
 
+import SwiftUI
 import UIKit
+import PhotosUI
+import Photos
+import Vision
+import CoreImage
 import ImageIO
 import MobileCoreServices
 import UniformTypeIdentifiers
-
-/// GIF creation error types
-enum GIFCreationError: LocalizedError {
-    case noFrames
-    case destinationCreationFailed
-    case finalizationFailed
-    case imageConversionFailed(frameIndex: Int)
-    case fileWriteFailed(underlying: Error)
-    case readFailed
-
-    var errorDescription: String? {
-        switch self {
-        case .noFrames:
-            return "No frames provided for GIF creation."
-        case .destinationCreationFailed:
-            return "Failed to create GIF file. Please check available storage."
-        case .finalizationFailed:
-            return "Failed to finalize GIF. The file may be corrupted."
-        case .imageConversionFailed(let index):
-            return "Failed to process frame \(index + 1)."
-        case .fileWriteFailed(let error):
-            return "Failed to save GIF: \(error.localizedDescription)"
-        case .readFailed:
-            return "Failed to read GIF data."
-        }
-    }
-}
 
 /// GIF frame model
 struct GIFFrame: Identifiable {
@@ -73,17 +51,16 @@ class GIFCreator: ObservableObject {
     @Published var frames: [GIFFrame] = []
     @Published var isProcessing: Bool = false
     @Published var progress: Double = 0.0
-    @Published var lastError: GIFCreationError?
 
     /// Create GIF from multiple images
     func createGIF(
         from frames: [GIFFrame],
-        loopCount: Int = 0,
+        loopCount: Int = 0, // 0 means infinite loop
         quality: GIFQuality = .medium,
-        completion: @escaping (Result<URL, GIFCreationError>) -> Void
+        completion: @escaping (URL?) -> Void
     ) {
         guard !frames.isEmpty else {
-            completion(.failure(.noFrames))
+            completion(nil)
             return
         }
 
@@ -93,13 +70,14 @@ class GIFCreator: ObservableObject {
             DispatchQueue.main.async {
                 self.isProcessing = true
                 self.progress = 0.0
-                self.lastError = nil
             }
 
+            // Create temporary file URL
             let tempDirectory = FileManager.default.temporaryDirectory
             let filename = "pixelme_\(Date().timeIntervalSince1970).gif"
             let fileURL = tempDirectory.appendingPathComponent(filename)
 
+            // Create GIF
             guard let destination = CGImageDestinationCreateWithURL(
                 fileURL as CFURL,
                 UTType.gif.identifier as CFString,
@@ -108,12 +86,12 @@ class GIFCreator: ObservableObject {
             ) else {
                 DispatchQueue.main.async {
                     self.isProcessing = false
-                    self.lastError = .destinationCreationFailed
-                    completion(.failure(.destinationCreationFailed))
+                    completion(nil)
                 }
                 return
             }
 
+            // Set GIF properties
             let fileProperties: [String: Any] = [
                 kCGImagePropertyGIFDictionary as String: [
                     kCGImagePropertyGIFLoopCount as String: loopCount
@@ -121,20 +99,18 @@ class GIFCreator: ObservableObject {
             ]
             CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
 
-            var skippedFrames = 0
+            // Add frames
             for (index, frame) in frames.enumerated() {
                 DispatchQueue.main.async {
                     self.progress = Double(index) / Double(frames.count)
                 }
 
+                // Resize frame if needed
                 let resizedImage = self.resizeImageForGIF(frame.image, maxSize: quality.maxSize)
 
-                guard let cgImage = resizedImage.cgImage else {
-                    print("⚠️ [GIFCreator] Skipping frame \(index) - CGImage conversion failed")
-                    skippedFrames += 1
-                    continue
-                }
+                guard let cgImage = resizedImage.cgImage else { continue }
 
+                // Frame properties
                 let frameProperties: [String: Any] = [
                     kCGImagePropertyGIFDictionary as String: [
                         kCGImagePropertyGIFDelayTime as String: frame.duration
@@ -144,28 +120,13 @@ class GIFCreator: ObservableObject {
                 CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
             }
 
-            // If all frames were skipped, report error
-            if skippedFrames == frames.count {
-                DispatchQueue.main.async {
-                    self.isProcessing = false
-                    self.lastError = .imageConversionFailed(frameIndex: 0)
-                    completion(.failure(.imageConversionFailed(frameIndex: 0)))
-                }
-                return
-            }
-
+            // Finalize GIF
             let success = CGImageDestinationFinalize(destination)
 
             DispatchQueue.main.async {
                 self.isProcessing = false
                 self.progress = 1.0
-
-                if success {
-                    completion(.success(fileURL))
-                } else {
-                    self.lastError = .finalizationFailed
-                    completion(.failure(.finalizationFailed))
-                }
+                completion(success ? fileURL : nil)
             }
         }
     }
@@ -177,11 +138,21 @@ class GIFCreator: ObservableObject {
         duration: TimeInterval,
         frameRate: Int = 10,
         quality: GIFQuality = .medium,
-        completion: @escaping (Result<URL, GIFCreationError>) -> Void
+        completion: @escaping (URL?) -> Void
     ) {
-        DispatchQueue.global(qos: .userInitiated).async {
+        // Note: This requires AVFoundation
+        // For a complete implementation, you would use AVAssetImageGenerator
+        // This is a placeholder showing the structure
+
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+
+            // Extract frames from video
+            // let frames = self.extractFramesFromVideo(videoURL, startTime, duration, frameRate)
+
+            // For now, return nil as this requires AVFoundation implementation
             DispatchQueue.main.async {
-                completion(.failure(.noFrames))
+                completion(nil)
             }
         }
     }
@@ -201,7 +172,8 @@ class GIFCreator: ObservableObject {
 
             var frames: [GIFFrame] = []
 
-            let allSizes = PixelBoardSize.allCases.reversed()
+            // Generate frames with increasing pixelation
+            let allSizes = Array(PixelBoardSize.allCases.reversed()) // From large to small
             let step = max(1, allSizes.count / frameCount)
 
             for i in stride(from: 0, to: allSizes.count, by: step) {
@@ -212,15 +184,8 @@ class GIFCreator: ObservableObject {
                 }
             }
 
-            self.createGIF(from: frames, loopCount: 0, quality: quality) { result in
-                switch result {
-                case .success(let url):
-                    completion(url)
-                case .failure(let error):
-                    print("❌ [GIFCreator] Progressive pixelation GIF failed: \(error.localizedDescription)")
-                    completion(nil)
-                }
-            }
+            // Create GIF from frames
+            self.createGIF(from: frames, loopCount: 0, quality: quality, completion: completion)
         }
     }
 
@@ -237,8 +202,11 @@ class GIFCreator: ObservableObject {
             guard let self = self else { return }
 
             var frames: [GIFFrame] = []
+
+            // Add original image
             frames.append(GIFFrame(image: image, duration: frameDuration))
 
+            // Add glitch frames
             for _ in 0..<frameCount {
                 if let glitchedImage = FilterEffectsEngine.applyFilter(
                     to: image,
@@ -249,15 +217,8 @@ class GIFCreator: ObservableObject {
                 }
             }
 
-            self.createGIF(from: frames, loopCount: 0, quality: quality) { result in
-                switch result {
-                case .success(let url):
-                    completion(url)
-                case .failure(let error):
-                    print("❌ [GIFCreator] Glitch GIF failed: \(error.localizedDescription)")
-                    completion(nil)
-                }
-            }
+            // Create GIF from frames
+            self.createGIF(from: frames, loopCount: 0, quality: quality, completion: completion)
         }
     }
 
@@ -274,6 +235,7 @@ class GIFCreator: ObservableObject {
 
             var frames: [GIFFrame] = []
 
+            // Apply each palette
             for palette in palettes {
                 let colors = palette.colors
                 if !colors.isEmpty,
@@ -286,15 +248,8 @@ class GIFCreator: ObservableObject {
                 }
             }
 
-            self.createGIF(from: frames, loopCount: 0, quality: quality) { result in
-                switch result {
-                case .success(let url):
-                    completion(url)
-                case .failure(let error):
-                    print("❌ [GIFCreator] Color cycle GIF failed: \(error.localizedDescription)")
-                    completion(nil)
-                }
-            }
+            // Create GIF from frames
+            self.createGIF(from: frames, loopCount: 0, quality: quality, completion: completion)
         }
     }
 
@@ -322,10 +277,12 @@ class GIFCreator: ObservableObject {
     private func resizeImageForGIF(_ image: UIImage, maxSize: CGSize) -> UIImage {
         let size = image.size
 
+        // Calculate aspect ratio
         let widthRatio = maxSize.width / size.width
         let heightRatio = maxSize.height / size.height
         let ratio = min(widthRatio, heightRatio)
 
+        // Don't upscale
         if ratio >= 1.0 {
             return image
         }
@@ -340,13 +297,21 @@ class GIFCreator: ObservableObject {
 
     /// Save GIF to Photos library
     static func saveGIFToPhotos(url: URL, completion: @escaping (Bool, Error?) -> Void) {
+        guard let gifData = try? Data(contentsOf: url) else {
+            completion(false, NSError(domain: "GIFCreator", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to read GIF data"]))
+            return
+        }
+
+        // Save to temporary location first
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp.gif")
         do {
-            let gifData = try Data(contentsOf: url)
-            let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp.gif")
             try gifData.write(to: tempURL)
+
+            // Use UIActivityViewController or custom save method
+            // Note: Direct GIF saving to Photos requires PHPhotoLibrary
             completion(true, nil)
         } catch {
-            completion(false, GIFCreationError.fileWriteFailed(underlying: error))
+            completion(false, error)
         }
     }
 }
@@ -417,3 +382,10 @@ class GIFTimelineViewModel: ObservableObject {
         selectedFrameIndex = nil
     }
 }
+//
+//  LayerManager.swift
+//  PixelMe
+//
+//  Created by hyunho lee on 2023/06/01.
+//
+

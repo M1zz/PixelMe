@@ -1,0 +1,33 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Home Screen app name",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "한땀" } }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "한땀" } }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription" : {
+      "comment" : "Photos add permission",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hantam saves your patterns and pixel art to Photos." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "図案やドット絵を写真アプリに保存するために使います。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "도안과 픽셀 아트를 사진 앱에 저장할 때 사용해요." } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

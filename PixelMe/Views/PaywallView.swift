@@ -1,506 +1,427 @@
 //
 //  PaywallView.swift
-//  PixelMe
+//  Hantam
 //
-//  Created by Claude on 2026/02/25.
-//  프리미엄 구독 시스템 Paywall
+//  한땀 Pro 결제 화면. 공예는 가끔 하는 취미라 평생 이용권을 맨 앞에 둔다.
+//  - 무료 체험 문구는 App Store 에 실제로 걸린 체험(introductoryOffer)과 자격이 있을 때만 보인다.
+//  - 평점·사용자 수 같은 숫자는 지어내지 않는다.
+//  - 어디서 띄웠는지(reason)를 허브로 보낸다 — 어느 순간에 사려고 하는지 본다.
+//  - 주간 상품은 더 팔지 않는다(기존 구독자의 권한은 PixelMeSpec.entitlementIDs 가 지킨다).
 //
 
 import SwiftUI
 import StoreKit
 
-/// 프리미엄 구독을 위한 Paywall 화면
 struct PaywallView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var subscriptionManager = SubscriptionManager.shared
     @Binding var isProUser: Bool
-    
+    var reason: PaywallReason = .advanced
+
     @State private var selectedPlan: SubscriptionPlan = .lifetime
     @State private var showingError = false
     @State private var isProcessing = false
-    
+    /// 상품 ID → 무료 체험 일수 (자격이 있을 때만).
+    @State private var trialDays: [String: Int] = [:]
+
     var body: some View {
         ZStack {
-            Color(AppConfig.backgroundColor)
-                .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                // Header
-                HeaderView
-                    .padding(.top, 50)
-                
-                ScrollView {
-                    VStack(spacing: 30) {
-                        // Title Section
-                        TitleSection
-                        
-                        // Subscription Plans
-                        SubscriptionPlansSection
-                        
-                        // Purchase Button
-                        PurchaseButtonSection
-                        
-                        // Features Comparison
-                        FeaturesComparisonSection
-                        
-                        // Terms & Restore
-                        BottomSection
-                        
-                        Spacer(minLength: 50)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 20)
+            Color.hantamBackground.ignoresSafeArea()
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 22) {
+                    header
+                    benefits
+                    planSelector
+                    ctaButton
+                    trustSection
                 }
+                .padding(.horizontal, 20)
+                .padding(.top, 56)
+                .padding(.bottom, 30)
             }
+            closeButton
         }
-        .onChange(of: isProUser) { newValue in
-            if newValue {
-                // 구독 성공 시 Paywall 닫기
-                DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.subscriptionSuccessDelay) {
-                    presentationMode.wrappedValue.dismiss()
-                }
+        .tint(.hantamAccent)
+        .onAppear { HantamEvent.paywallShown(reason) }
+        .task { await loadTrials() }
+        .onChange(of: subscriptionManager.isProUser) { _, pro in
+            if pro {
+                isProUser = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.subscriptionSuccessDelay) { dismiss() }
             }
         }
         .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) {
-                subscriptionManager.errorMessage = nil
-            }
+            Button("OK", role: .cancel) { subscriptionManager.errorMessage = nil }
         } message: {
-            Text(subscriptionManager.errorMessage ?? "An unknown error occurred")
+            Text(subscriptionManager.errorMessage ?? NSLocalizedString("An unknown error occurred", comment: ""))
         }
     }
-    
-    // MARK: - Header
-    
-    private var HeaderView: some View {
-        HStack {
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: 22))
-            }
-            
-            Spacer()
-            
-            Text("PixelMe Pro")
-                .font(.system(size: 20, weight: .bold))
-            
-            Spacer()
-            
-            // Invisible spacer for center alignment
-            Image(systemName: "xmark")
-                .font(.system(size: 22))
-                .opacity(0)
-        }
-        .padding(.horizontal)
-        .foregroundColor(.white)
-    }
-    
-    // MARK: - Title Section
-    
-    private var TitleSection: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "crown.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.yellow)
-            
-            Text("Unlock Pro Features")
-                .font(.system(size: 32, weight: .bold))
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-            
-            Text("Create professional-level pixel art")
-                .font(.system(size: 16))
-                .foregroundColor(.gray)
-                .multilineTextAlignment(.center)
-        }
-    }
-    
-    // MARK: - Subscription Plans Section
-    
-    private var SubscriptionPlansSection: some View {
-        VStack(spacing: 15) {
-            Text("Choose Your Plan")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.bottom, 10)
 
-            // Lifetime Plan (Best Deal - 최상단, 강조)
-            PlanOptionView(
-                plan: .lifetime,
-                price: subscriptionManager.getLifetimePrice(),
-                badge: "Best Deal",
-                badgeColor: .purple,
-                isSelected: selectedPlan == .lifetime
-            ) {
-                selectedPlan = .lifetime
-            }
+    // MARK: - 머리
 
-            // 구독 대비 절약 안내
-            if selectedPlan == .lifetime {
-                Text("Monthly for 20 months = Lifetime forever")
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundColor(.purple)
-                    .padding(.vertical, 4)
-            }
-
-            // Yearly Plan (Best Value)
-            PlanOptionView(
-                plan: .yearly,
-                price: subscriptionManager.getYearlyPrice(),
-                monthlyPrice: subscriptionManager.getYearlyMonthlyPrice(),
-                badge: "Save 44%",
-                badgeColor: .green,
-                isSelected: selectedPlan == .yearly
-            ) {
-                selectedPlan = .yearly
-            }
-
-            // Monthly Plan
-            PlanOptionView(
-                plan: .monthly,
-                price: subscriptionManager.getMonthlyPrice(),
-                isSelected: selectedPlan == .monthly
-            ) {
-                selectedPlan = .monthly
-            }
-        }
-    }
-    
-    // MARK: - Purchase Button Section
-    
-    private var PurchaseButtonSection: some View {
-        VStack(spacing: 15) {
-            if subscriptionManager.isLoading || isProcessing {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                Text("Processing...")
-                    .foregroundColor(.white)
-            } else if subscriptionManager.isProUser {
-                VStack(spacing: 8) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 40))
-                        .foregroundColor(.green)
-                    Text("Pro Subscription Active")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.white)
+    private var closeButton: some View {
+        VStack {
+            HStack {
+                Button { dismiss() } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Color.hantamInk.opacity(0.6))
+                        .frame(width: 34, height: 34)
+                        .background(Color.hantamCard, in: Circle())
                 }
+                .accessibilityLabel(Text("Close"))
+                Spacer()
+            }
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
+    }
+
+    private var header: some View {
+        VStack(spacing: 12) {
+            BeadHeartMark(size: 84)
+            Text("Hantam Pro")
+                .font(.system(size: 30, weight: .heavy))
+                .foregroundStyle(Color.hantamInk)
+            Text(headline)
+                .font(.headline)
+                .foregroundStyle(Color.hantamInk.opacity(0.75))
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    private var headline: LocalizedStringKey {
+        switch reason {
+        case .patternPDF:        return "Print your pattern and start making"
+        case .patternSize:       return "Make patterns as big as you like"
+        case .patternSaveLimit:  return "Keep every pattern you make"
+        case .patternCleanImage: return "Share patterns without the mark"
+        default:                 return "Everything for bead and stitch patterns"
+        }
+    }
+
+    // MARK: - 혜택 (앱에 실제로 있는 것만)
+
+    private var benefits: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            BenefitRow(icon: "printer.fill", title: "Printable PDF patterns",
+                       detail: "Symbol charts split board by board, with a color list.")
+            BenefitRow(icon: "square.grid.3x3.fill", title: "Bigger patterns",
+                       detail: "Up to 4 × 4 pegboards, or 200 stitches across.")
+            BenefitRow(icon: "tray.full.fill", title: "Keep every pattern",
+                       detail: "Free keeps 3. Pro has no limit.")
+            BenefitRow(icon: "photo.fill", title: "No Hantam mark",
+                       detail: "Clean images of your patterns and pixel art.")
+            BenefitRow(icon: "paintpalette.fill", title: "All pixel art tools",
+                       detail: "Every grid size, palette, filter and dithering style, plus 4K export.")
+        }
+        .padding(16)
+        .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 18))
+    }
+
+    // MARK: - 요금제
+
+    private var planSelector: some View {
+        VStack(spacing: 10) {
+            PlanRow(
+                title: "Lifetime",
+                price: subscriptionManager.getLifetimePrice(),
+                detail: "Pay once, yours forever",
+                badge: "Pay once",
+                isSelected: selectedPlan == .lifetime
+            ) { selectedPlan = .lifetime }
+
+            PlanRow(
+                title: "Yearly",
+                price: subscriptionManager.getYearlyPrice(),
+                detail: yearlyDetail,
+                badge: yearlySavingsBadge,
+                isSelected: selectedPlan == .yearly
+            ) { selectedPlan = .yearly }
+
+            PlanRow(
+                title: "Monthly",
+                price: subscriptionManager.getMonthlyPrice(),
+                detail: trialText(for: subscriptionManager.getMonthlyProduct()) ?? LocalizedStringKey("Billed every month"),
+                badge: nil,
+                isSelected: selectedPlan == .monthly
+            ) { selectedPlan = .monthly }
+        }
+    }
+
+    private var yearlyDetail: LocalizedStringKey {
+        if let t = trialText(for: subscriptionManager.getYearlyProduct()) { return t }
+        return "\(subscriptionManager.getYearlyMonthlyPrice()) a month, billed yearly"
+    }
+
+    /// 연간이 월간 12개월보다 얼마나 싼지 — 상품이 둘 다 있을 때만.
+    private var yearlySavingsBadge: LocalizedStringKey? {
+        guard let y = subscriptionManager.getYearlyProduct()?.price,
+              let m = subscriptionManager.getMonthlyProduct()?.price, m > 0 else { return nil }
+        let ratio = NSDecimalNumber(decimal: y / (m * 12)).doubleValue
+        let pct = Int(((1 - ratio) * 100).rounded())
+        return pct >= 5 ? "Save \(pct)%" : nil
+    }
+
+    private func trialText(for product: Product?) -> LocalizedStringKey? {
+        guard let id = product?.id, let days = trialDays[id] else { return nil }
+        return "\(days)-day free trial"
+    }
+
+    private var selectedProduct: Product? {
+        switch selectedPlan {
+        case .weekly:   return subscriptionManager.getWeeklyProduct()
+        case .monthly:  return subscriptionManager.getMonthlyProduct()
+        case .yearly:   return subscriptionManager.getYearlyProduct()
+        case .lifetime: return subscriptionManager.getLifetimeProduct()
+        }
+    }
+
+    // MARK: - 결제 버튼
+
+    private var ctaButton: some View {
+        VStack(spacing: 10) {
+            if subscriptionManager.isProUser {
+                Label("Pro is active", systemImage: "checkmark.seal.fill")
+                    .font(.headline)
+                    .foregroundStyle(Color.hantamTeal)
+                    .frame(maxWidth: .infinity, minHeight: 56)
+                    .background(Color.hantamTeal.opacity(0.15), in: RoundedRectangle(cornerRadius: 16))
             } else {
                 Button {
-                    Task {
-                        await purchaseSelectedPlan()
-                    }
+                    Task { await purchaseSelectedPlan() }
                 } label: {
-                    VStack(spacing: 8) {
-                        if selectedPlan == .lifetime {
-                            Text("Purchase Lifetime")
-                                .font(.system(size: 20, weight: .bold))
+                    ZStack {
+                        if isProcessing || subscriptionManager.isLoading {
+                            ProgressView().tint(.white)
                         } else {
-                            Text("Start 3-Day Free Trial")
-                                .font(.system(size: 20, weight: .bold))
+                            Text(ctaTitle)
                         }
-                        
-                        Text(selectedPlan.description)
-                            .font(.system(size: 14))
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 18)
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color(AppConfig.continueButtonColor))
-                    )
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, minHeight: 56)
+                    .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
                 }
-                .disabled(!subscriptionManager.hasLoadedProducts)
-                
-                if selectedPlan != .lifetime {
-                    Text("• After 3-day free trial: \(selectedPlan == .monthly ? subscriptionManager.getMonthlyPrice() : subscriptionManager.getYearlyPrice())")
-                        .font(.system(size: 12))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                }
+                .disabled(!subscriptionManager.hasLoadedProducts || isProcessing)
+
+                Text(disclosure)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
         }
     }
-    
-    // MARK: - Features Comparison Section
-    
-    private var FeaturesComparisonSection: some View {
-        VStack(spacing: 20) {
-            Text("Feature Comparison")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-            
-            VStack(spacing: 0) {
-                // Header
-                HStack {
-                    Text("Feature")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text("Free")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 60)
-                    
-                    Text("Pro")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.yellow)
-                        .frame(width: 60)
-                }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 12)
-                .background(Color(AppConfig.toolBackgroundColor))
-                
-                // Features
-                FeatureComparisonRow(feature: "Pixelize", free: "3/day", pro: "Unlimited")
-                FeatureComparisonRow(feature: "Pixel Size", free: "3 levels", pro: "6 levels")
-                FeatureComparisonRow(feature: "Color Palette", free: "1", pro: "9")
-                FeatureComparisonRow(feature: "Filter Effects", free: "1", pro: "6")
-                FeatureComparisonRow(feature: "Dithering", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Batch Processing", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Create GIF", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Layers", free: "❌", pro: "✅")
-                FeatureComparisonRow(feature: "Export", free: "PNG, 1080p", pro: "PNG/SVG/PDF, 4K")
-                FeatureComparisonRow(feature: "Watermark", free: "Yes", pro: "Removed")
-                FeatureComparisonRow(feature: "Templates", free: "5", pro: "15+")
+
+    private var ctaTitle: LocalizedStringKey {
+        if selectedPlan == .lifetime { return "Buy once for \(subscriptionManager.getLifetimePrice())" }
+        if let id = selectedProduct?.id, let days = trialDays[id] { return "Start \(days)-day free trial" }
+        return "Continue"
+    }
+
+    private var disclosure: LocalizedStringKey {
+        switch selectedPlan {
+        case .lifetime:
+            return "One-time purchase. No subscription."
+        case .yearly:
+            if let id = selectedProduct?.id, trialDays[id] != nil {
+                return "Free during the trial, then \(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
             }
-            .background(Color.black.opacity(0.3))
-            .cornerRadius(10)
+            return "\(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
+        case .monthly, .weekly:
+            if let id = selectedProduct?.id, trialDays[id] != nil {
+                return "Free during the trial, then \(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
+            }
+            return "\(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
         }
     }
-    
-    // MARK: - Bottom Section
-    
-    private var BottomSection: some View {
-        VStack(spacing: 15) {
+
+    // MARK: - 복원 · 약관
+
+    private var trustSection: some View {
+        VStack(spacing: 12) {
             Button {
                 Task {
                     await subscriptionManager.restorePurchases()
                     isProUser = subscriptionManager.isProUser
-                    if let error = subscriptionManager.errorMessage {
-                        showingError = true
-                    }
+                    if subscriptionManager.errorMessage != nil { showingError = true }
                 }
             } label: {
                 Text("Restore Purchases")
-                    .font(.system(size: 16))
-                    .foregroundColor(.gray)
+                    .font(.subheadline.weight(.semibold))
             }
-            
-            VStack(spacing: 8) {
-                Text("You can cancel your subscription anytime")
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                
-                HStack(spacing: 20) {
-                    Button("Terms of Service") {
-                        // Terms of Service link
-                    }
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                    
-                    Button("Privacy Policy") {
-                        // Privacy Policy link
-                    }
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                }
+            HStack(spacing: 20) {
+                Link("Terms of Use", destination: AppConfig.termsAndConditionsURL)
+                Link("Privacy Policy", destination: AppConfig.privacyURL)
             }
+            .font(.caption)
+            .foregroundStyle(.secondary)
         }
     }
-    
-    // MARK: - Helper Methods
-    
-    private func purchaseSelectedPlan() async {
-        isProcessing = true
-        
-        let product: Product?
-        switch selectedPlan {
-        case .monthly:
-            product = subscriptionManager.getMonthlyProduct()
-        case .yearly:
-            product = subscriptionManager.getYearlyProduct()
-        case .lifetime:
-            product = subscriptionManager.getLifetimeProduct()
+
+    // MARK: - 동작
+
+    private func loadTrials() async {
+        if !subscriptionManager.hasLoadedProducts { await subscriptionManager.loadProducts() }
+        var found: [String: Int] = [:]
+        for product in [subscriptionManager.getYearlyProduct(), subscriptionManager.getMonthlyProduct()].compactMap({ $0 }) {
+            guard let sub = product.subscription,
+                  let offer = sub.introductoryOffer,
+                  offer.paymentMode == .freeTrial,
+                  await sub.isEligibleForIntroOffer else { continue }
+            let unitDays: Int
+            switch offer.period.unit {
+            case .day: unitDays = 1
+            case .week: unitDays = 7
+            case .month: unitDays = 30
+            case .year: unitDays = 365
+            @unknown default: unitDays = 1
+            }
+            found[product.id] = offer.period.value * unitDays
         }
-        
-        guard let selectedProduct = product else {
-            subscriptionManager.errorMessage = "Selected product not found"
+        trialDays = found
+    }
+
+    private func purchaseSelectedPlan() async {
+        guard let product = selectedProduct else {
+            subscriptionManager.errorMessage = NSLocalizedString("Product not available. Please try again later.", comment: "")
             showingError = true
-            isProcessing = false
             return
         }
-        
-        let success = await subscriptionManager.purchaseSubscription(selectedProduct)
+        isProcessing = true
+        let success = await subscriptionManager.purchaseSubscription(product)
+        isProcessing = false
         if success {
             isProUser = true
-        } else if let error = subscriptionManager.errorMessage {
+        } else if subscriptionManager.errorMessage != nil {
             showingError = true
         }
-        
-        isProcessing = false
     }
 }
 
-// MARK: - Supporting Views
+// MARK: - 부품
 
-/// 요금제 옵션 뷰
-struct PlanOptionView: View {
-    let plan: SubscriptionPlan
+private struct BenefitRow: View {
+    let icon: String
+    let title: LocalizedStringKey
+    let detail: LocalizedStringKey
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: icon)
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(Color.hantamAccent)
+                .frame(width: 26)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title).font(.subheadline.weight(.semibold)).foregroundStyle(Color.hantamInk)
+                Text(detail).font(.caption).foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct PlanRow: View {
+    let title: LocalizedStringKey
     let price: String
-    let monthlyPrice: String?
-    let badge: String?
-    let badgeColor: Color
+    let detail: LocalizedStringKey
+    let badge: LocalizedStringKey?
     let isSelected: Bool
     let action: () -> Void
-    
-    init(
-        plan: SubscriptionPlan,
-        price: String,
-        monthlyPrice: String? = nil,
-        badge: String? = nil,
-        badgeColor: Color = .green,
-        isSelected: Bool,
-        action: @escaping () -> Void
-    ) {
-        self.plan = plan
-        self.price = price
-        self.monthlyPrice = monthlyPrice
-        self.badge = badge
-        self.badgeColor = badgeColor
-        self.isSelected = isSelected
-        self.action = action
-    }
-    
+
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Color(AppConfig.continueButtonColor).opacity(0.2) : Color.black.opacity(0.3))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(
-                                isSelected ? Color(AppConfig.continueButtonColor) : Color.gray.opacity(0.3),
-                                lineWidth: isSelected ? 2 : 1
-                            )
-                    )
-                
-                VStack(spacing: 8) {
-                    HStack {
-                        Text(plan.title)
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                        
-                        if let badge = badge {
+            HStack(spacing: 12) {
+                Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
+                    .font(.system(size: 22))
+                    .foregroundStyle(isSelected ? Color.hantamAccent : Color.hantamInk.opacity(0.3))
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 6) {
+                        Text(title).font(.headline)
+                        if let badge {
                             Text(badge)
-                                .font(.system(size: 12, weight: .bold))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(badgeColor)
-                                .foregroundColor(.white)
-                                .cornerRadius(6)
+                                .font(.system(size: 11, weight: .bold))
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 7).padding(.vertical, 2)
+                                .background(Color.hantamMustard, in: Capsule())
                         }
                     }
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(price)
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
-                            
-                            if let monthlyPrice = monthlyPrice {
-                                Text("per month \(monthlyPrice)")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        if isSelected {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 24))
-                                .foregroundColor(Color(AppConfig.continueButtonColor))
-                        } else {
-                            Image(systemName: "circle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    
-                    if plan != .lifetime {
-                        Text("Includes 3-day free trial")
-                            .font(.system(size: 12))
-                            .foregroundColor(.green)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+                    Text(detail).font(.caption).foregroundStyle(.secondary)
                 }
-                .padding(16)
+                Spacer()
+                Text(price)
+                    .font(.headline.monospacedDigit())
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
             }
+            .foregroundStyle(Color.hantamInk)
+            .padding(14)
+            .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 16))
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(isSelected ? Color.hantamAccent : Color.hantamInk.opacity(0.08), lineWidth: isSelected ? 2 : 1)
+            )
         }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
 
-/// 기능 비교 행
-struct FeatureComparisonRow: View {
-    let feature: String
-    let free: String
-    let pro: String
-    
+/// 한땀 로고 — 비즈로 만든 하트. 앱 아이콘과 같은 모양.
+struct BeadHeartMark: View {
+    var size: CGFloat = 80
+
+    static let rows: [String] = [
+        ".##.##.",
+        "#######",
+        "#######",
+        ".#####.",
+        "..###..",
+        "...#...",
+    ]
+
+    /// 왼쪽 위 볼록한 곳의 겨자색 비즈 세 알 — 아이콘과 같은 자리.
+    static func isAccent(_ r: Int, _ c: Int) -> Bool {
+        (r == 1 && (c == 1 || c == 2)) || (r == 2 && c == 1)
+    }
+
     var body: some View {
-        HStack {
-            Text(feature)
-                .font(.system(size: 14))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Text(free)
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .frame(width: 60)
-                .multilineTextAlignment(.center)
-            
-            Text(pro)
-                .font(.system(size: 14))
-                .foregroundColor(.yellow)
-                .frame(width: 60)
-                .multilineTextAlignment(.center)
+        let cols = Self.rows[0].count
+        let cell = size / CGFloat(cols)
+        VStack(spacing: 0) {
+            ForEach(Array(Self.rows.enumerated()), id: \.offset) { r, row in
+                HStack(spacing: 0) {
+                    ForEach(Array(row.enumerated()), id: \.offset) { c, ch in
+                        ZStack {
+                            if ch == "#" {
+                                Circle().fill(Self.isAccent(r, c) ? Color.hantamMustard : Color.hantamAccent)
+                                Circle().fill(Color.white.opacity(0.92)).padding(cell * 0.32)
+                            } else {
+                                Circle().fill(Color.hantamInk.opacity(0.08)).padding(cell * 0.36)
+                            }
+                        }
+                        .frame(width: cell, height: cell)
+                    }
+                }
+            }
         }
-        .padding(.horizontal, 15)
-        .padding(.vertical, 8)
-        .background(Color.black.opacity(0.1))
+        .accessibilityHidden(true)
     }
 }
 
 // MARK: - Supporting Enums
 
 enum SubscriptionPlan: String, CaseIterable {
+    case weekly = "Weekly"
     case monthly = "Monthly"
     case yearly = "Yearly"
     case lifetime = "Lifetime"
-    
-    var title: String {
-        return rawValue
-    }
-    
-    var description: String {
-        switch self {
-        case .monthly:
-            return "Monthly billing"
-        case .yearly:
-            return "Yearly billing"
-        case .lifetime:
-            return "One-time payment for lifetime access"
-        }
-    }
 }
+
 // MARK: - Preview
 
 #Preview {
-    PaywallView(isProUser: .constant(false))
+    PaywallView(isProUser: .constant(false), reason: .patternPDF)
 }

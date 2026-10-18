@@ -34,6 +34,16 @@ enum DrawingToolType: String, CaseIterable, Identifiable {
         case .dither: return "checkerboard.rectangle"
         }
     }
+
+    /// 픽셀 아이콘 정의 (해당하는 도구만)
+    var pixelIconDefinition: PixelIconDefinition? {
+        switch self {
+        case .pencil: return PixelIconCatalog.pencil
+        case .eraser: return PixelIconCatalog.eraser
+        case .fill: return PixelIconCatalog.paintDrop
+        default: return nil
+        }
+    }
 }
 
 /// 대칭 모드

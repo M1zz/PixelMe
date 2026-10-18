@@ -1621,7 +1621,7 @@ struct SampleArtGalleryView: View {
                             selectedSize = nil
                         }
                         ForEach(SampleCategory.allCases, id: \.self) { category in
-                            FilterChip(title: category.rawValue, isSelected: selectedCategory == category) {
+                            FilterChip(title: LocalizedStringKey(category.rawValue), isSelected: selectedCategory == category) {
                                 selectedCategory = selectedCategory == category ? nil : category
                             }
                         }
@@ -1656,7 +1656,7 @@ struct SampleArtGalleryView: View {
 }
 
 struct FilterChip: View {
-    let title: String
+    let title: LocalizedStringKey
     let isSelected: Bool
     let action: () -> Void
 
@@ -1684,7 +1684,7 @@ struct SampleArtCard: View {
                     .frame(width: 80, height: 80)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                Text(sample.name)
+                Text(LocalizedStringKey(sample.name))
                     .font(.system(size: 11, weight: .medium))
                     .foregroundColor(.white)
                     .lineLimit(1)

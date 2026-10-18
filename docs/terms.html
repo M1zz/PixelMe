@@ -1,121 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - PixelMe</title>
-  <link rel="icon" type="image/png" href="assets/app-icon.png">
-  <link rel="canonical" href="https://m1zz.github.io/PixelMe/terms.html">
-  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/terms.html">
-  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/terms.html">
-  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/terms.html">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      line-height: 1.8;
-    }
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-    }
-    a.back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #ff7a00;
-      text-decoration: none;
-      font-weight: 600;
-      margin-bottom: 40px;
-    }
-    a.back:hover { text-decoration: underline; }
-    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
-    .updated { color: #888; font-size: 0.9rem; margin-bottom: 40px; }
-    h2 { font-size: 1.3rem; font-weight: 700; margin: 36px 0 12px; color: #ff7a00; }
-    h3 { font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
-    p, li { color: #ccc; font-size: 0.95rem; margin-bottom: 12px; }
-    ul { padding-left: 24px; }
-    li { margin-bottom: 6px; }
-    strong { color: #f0f0f0; }
-    hr { border: none; border-top: 1px solid #2a2a2a; margin: 40px 0; }
-    nav.langs { display: flex; justify-content: flex-end; gap: 14px; margin: -40px 0 32px; font-size: 0.85rem; }
-    nav.langs a { color: #888; text-decoration: none; }
-    nav.langs a[aria-current] { color: #ff7a00; font-weight: 700; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Hantam</title>
+<meta name="description" content="Turn any photo into a fuse bead or cross-stitch pattern matched to real Perler, Hama, Artkal and DMC colors.">
+<meta property="og:title" content="Hantam — Bead &amp; Cross-Stitch Pattern Maker">
+<meta property="og:description" content="Turn any photo into a fuse bead or cross-stitch pattern matched to real Perler, Hama, Artkal and DMC colors.">
+<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
+<link rel="icon" type="image/png" href="assets/app-icon.png">
+<link rel="canonical" href="https://m1zz.github.io/PixelMe/terms.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/terms.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/terms.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/terms.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/terms.html">
+<style>
+:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+:lang(ko) body{word-break:keep-all}
+a{color:var(--accent)}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
+header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
+header .logo img{width:40px;height:40px;border-radius:10px}
+header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
+header nav a{color:var(--muted);text-decoration:none}
+header nav a:hover{color:var(--accent)}
+.langs{font-size:14px;color:var(--muted)}
+.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
+.langs a[aria-current]{color:var(--ink);font-weight:700}
+main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
+.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
+.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
+.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px}
+section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
+section.pro h2{color:var(--accent);margin-bottom:8px}
+.doc h1{font-size:34px;margin:10px 0 4px}
+.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
+.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
+.doc p{margin-bottom:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:8px;color:var(--muted)}
+footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
+</style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back">&larr; Back to PixelMe</a>
-    <nav class="langs" aria-label="Language">
-      <a href="terms.html" hreflang="en" lang="en" aria-current="true">English</a>
-      <a href="ko/terms.html" hreflang="ko" lang="ko">한국어</a>
-    </nav>
-
-    <h1>Terms of Service</h1>
-    <p class="updated">Last Updated: October 8, 2026</p>
-
-    <h2>1. Acceptance of Terms</h2>
-    <p>By downloading, installing, or using PixelMe - Pixel Art Creator (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-
-    <h2>2. Description of Service</h2>
-    <p>PixelMe is a mobile application for iOS devices that transforms photos into pixel art with professional effects including color palettes, AI dithering, retro filters, batch processing, GIF animation, layer system, templates, and advanced export.</p>
-
-    <h2>3. License Grant</h2>
-    <h3>Free Version</h3>
-    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the free version of the App for personal, non-commercial purposes.</p>
-    <h3>Pro</h3>
-    <p>Pro unlocks the App's premium features. While your Pro subscription is active, or permanently once you buy the lifetime option (or if you previously bought the one-time Premium version), you may use all Pro features, subject to these Terms.</p>
-    <h3>Restrictions</h3>
-    <ul>
-      <li>Do not reverse engineer, decompile, or disassemble the App</li>
-      <li>Do not remove or modify any copyright notices</li>
-      <li>Do not rent, lease, loan, sell, sublicense, or distribute the App</li>
-      <li>Do not use the App for any illegal or unauthorized purpose</li>
-    </ul>
-
-    <h2>4. Intellectual Property</h2>
-    <p>The App is owned by Hyunho Lee and protected by intellectual property laws. You retain all ownership rights to photos you upload and pixel art you create.</p>
-
-    <h2>5. Purchases and Payments</h2>
-    <ul>
-      <li>Pro is offered as a weekly, monthly, or yearly auto-renewing subscription, or as a one-time lifetime purchase</li>
-      <li>All purchases are processed through Apple's App Store and charged to your Apple Account</li>
-      <li>Subscriptions renew automatically at the end of each period at the price shown in the App, unless you turn off auto-renew at least 24 hours before the current period ends</li>
-      <li>You can manage or cancel a subscription in your Apple Account settings. Canceling stops future renewals; the current period stays active until it ends</li>
-      <li>If a free trial is offered, any unused part of it ends when you buy a subscription</li>
-      <li>Refunds are handled by Apple under its refund policy; to request one, contact Apple Support</li>
-    </ul>
-
-    <h2>6. User Obligations</h2>
-    <ul>
-      <li>Use the App in compliance with all applicable laws</li>
-      <li>Respect intellectual property rights of others</li>
-      <li>Do not use the App to create illegal or harmful content</li>
-      <li>Ensure you have rights to any photos you process</li>
-    </ul>
-
-    <h2>7. Disclaimer of Warranties</h2>
-    <p>THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. We do not guarantee uninterrupted or error-free operation.</p>
-
-    <h2>8. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, consequential, or punitive damages. Our total liability shall not exceed the amount you paid for the App.</p>
-
-    <h2>9. Termination</h2>
-    <p>You may stop using the App at any time. We may terminate access if you violate these Terms.</p>
-
-    <h2>10. Governing Law</h2>
-    <p>These Terms are governed by the laws of the Republic of Korea. Any disputes shall be resolved in the courts of Seoul, Republic of Korea.</p>
-
-    <h2>11. Contact</h2>
-    <p><strong>Email</strong>: leeo@kakao.com</p>
-    <p><strong>Developer</strong>: Hyunho Lee</p>
-    <p><strong>Address</strong>: Seoul, Republic of Korea</p>
-
-    <hr>
-    <p><strong>By using PixelMe, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong></p>
-  </div>
+<header>
+  <a class="logo" href="index.html"><img src="assets/app-icon.png" alt="">Hantam</a>
+  <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  <div class="langs"><a href="terms.html" lang="en" aria-current="page">English</a><a href="ko/terms.html" lang="ko">한국어</a><a href="ja/terms.html" lang="ja">日本語</a></div>
+</header>
+<main>
+<div class="doc"><h1>Terms of Use</h1>
+<p class="updated">Last updated: October 18, 2026</p><h2>Using the app</h2><p>By using Hantam you agree to these terms. If you do not agree, please do not use the app.</p><h2>What Hantam does</h2><p>Hantam turns photos into fuse bead and cross-stitch patterns and includes pixel art tools. Colors on screen are close matches and may differ from the real products.</p><h2>Your content</h2><p>You own the photos you pick and the patterns you make. Make sure you have the right to use the photos you turn into patterns, especially if you sell what you make.</p><h2>Hantam Pro</h2><p>Pro is sold as a monthly or yearly auto-renewing subscription or as one-time lifetime access, through Apple&#x27;s App Store.</p><p>Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. Your Apple Account is charged within 24 hours before renewal. Manage or cancel in your Apple Account settings.</p><p>If a free trial is offered, any unused part ends when you buy a subscription. Refunds follow Apple&#x27;s policy.</p><h2>Rules</h2><p>Do not reverse engineer the app or use it for anything illegal.</p><h2>No warranty</h2><p>The app is provided as is, without warranties of any kind. To the extent the law allows, our liability is limited to what you paid for the app.</p><h2>Trademarks</h2><p>Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with or endorsed by them.</p><h2>Law</h2><p>These terms are governed by the laws of the Republic of Korea.</p>
+<h2>Contact</h2><p><a href="mailto:leeo@kakao.com">leeo@kakao.com</a></p></div>
+</main>
+<footer>Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them.<br>Developer: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
 </body>
 </html>

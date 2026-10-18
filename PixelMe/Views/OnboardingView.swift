@@ -1,167 +1,204 @@
 //
 //  OnboardingView.swift
-//  PixelMe
+//  Hantam
 //
-//  Created by Claude on 2026/01/20.
-//  First-time user onboarding experience
+//  첫 실행 — 한땀이 무엇을 하는지 세 장으로. 사진 → 실제 색 → 인쇄.
 //
 
 import SwiftUI
 
-/// Onboarding view for first-time users
 struct OnboardingView: View {
     @Binding var isPresented: Bool
     @State private var currentPage = 0
 
-    private let pages: [OnboardingPage] = [
-        OnboardingPage(
-            image: "photo.on.rectangle.angled",
-            title: "Transform Your Photos",
-            description: "Turn any photo into stunning pixel art with just one tap. Apply retro filters, color palettes, and effects.",
-            color: .blue
-        ),
-        OnboardingPage(
-            image: "paintbrush.pointed.fill",
-            title: "Create from Scratch",
-            description: "Draw your own pixel art masterpiece. Choose your canvas size and start creating with our intuitive tools.",
-            color: .purple
-        ),
-        OnboardingPage(
-            image: "paintpalette.fill",
-            title: "9 Retro Palettes",
-            description: "GameBoy, NES, SNES, Vaporwave, Cyberpunk and more. Give your art that authentic retro look.",
-            color: .green
-        ),
-        OnboardingPage(
-            image: "sparkles",
-            title: "Ready to Create?",
-            description: "Start with a sample or create your own. Let's make some pixel art!",
-            color: .orange
-        )
-    ]
+    private let totalPages = 3
 
     var body: some View {
         ZStack {
-            Color(AppConfig.backgroundColor)
-                .ignoresSafeArea()
+            Color.hantamBackground.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Skip button
                 HStack {
                     Spacer()
-                    Button("Skip") {
-                        completeOnboarding()
+                    if currentPage < totalPages - 1 {
+                        Button("Skip") { completeOnboarding() }
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundStyle(.secondary)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 16)
                     }
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.gray)
-                    .padding()
                 }
+                .frame(height: 44)
 
-                // Page content
                 TabView(selection: $currentPage) {
-                    ForEach(0..<pages.count, id: \.self) { index in
-                        OnboardingPageView(page: pages[index])
-                            .tag(index)
-                    }
+                    OnboardingPage(
+                        title: "One photo becomes a pattern",
+                        detail: "Pick a photo of your pet, your face or a favorite character. Hantam turns it into a bead or cross-stitch pattern.",
+                        visual: AnyView(PhotoToPatternVisual())
+                    ).tag(0)
+                    OnboardingPage(
+                        title: "Matched to colors you can buy",
+                        detail: "Perler, Hama, Artkal beads and DMC thread. See the color number and how many you need of each.",
+                        visual: AnyView(SwatchVisual())
+                    ).tag(1)
+                    OnboardingPage(
+                        title: "Print it and start making",
+                        detail: "Symbol charts split board by board, with a shopping list you can copy.",
+                        visual: AnyView(PrintVisual())
+                    ).tag(2)
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .tabViewStyle(.page(indexDisplayMode: .never))
 
-                // Page indicator
                 HStack(spacing: 8) {
-                    ForEach(0..<pages.count, id: \.self) { index in
-                        Circle()
-                            .fill(currentPage == index ? Color.white : Color.gray.opacity(0.5))
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(currentPage == index ? 1.2 : 1.0)
-                            .animation(.spring(), value: currentPage)
+                    ForEach(0..<totalPages, id: \.self) { i in
+                        Capsule()
+                            .fill(currentPage == i ? Color.hantamAccent : Color.hantamInk.opacity(0.15))
+                            .frame(width: currentPage == i ? 24 : 8, height: 8)
+                            .animation(.spring(response: 0.3), value: currentPage)
                     }
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 24)
+                .accessibilityHidden(true)
 
-                // Next / Get Started button
                 Button {
-                    if currentPage < pages.count - 1 {
-                        withAnimation {
-                            currentPage += 1
-                        }
+                    if currentPage < totalPages - 1 {
+                        withAnimation(.easeInOut) { currentPage += 1 }
                     } else {
                         completeOnboarding()
                     }
                 } label: {
-                    Text(currentPage < pages.count - 1 ? "Next" : "Get Started")
+                    Text(currentPage < totalPages - 1 ? "Next" : "Make my first pattern")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 18)
-                        .background(
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(Color(AppConfig.continueButtonColor))
-                        )
+                        .frame(height: 56)
+                        .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
                 }
-                .padding(.horizontal, 30)
-                .padding(.bottom, 50)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 40)
             }
         }
     }
 
     private func completeOnboarding() {
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
-        withAnimation {
-            isPresented = false
-        }
+        HantamEvent.track(currentPage == totalPages - 1 ? "onboarding_done" : "onboarding_skipped")
+        withAnimation { isPresented = false }
     }
 }
 
-/// Single onboarding page data
-struct OnboardingPage {
-    let image: String
-    let title: String
-    let description: String
-    let color: Color
-}
-
-/// Single onboarding page view
-struct OnboardingPageView: View {
-    let page: OnboardingPage
+private struct OnboardingPage: View {
+    let title: LocalizedStringKey
+    let detail: LocalizedStringKey
+    let visual: AnyView
 
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 28) {
             Spacer()
-
-            // Icon
-            ZStack {
-                Circle()
-                    .fill(page.color.opacity(0.2))
-                    .frame(width: 160, height: 160)
-
-                Image(systemName: page.image)
-                    .font(.system(size: 70))
-                    .foregroundColor(page.color)
-            }
-
-            // Text content
-            VStack(spacing: 16) {
-                Text(page.title)
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white)
+            visual
+                .frame(height: 280)
+            VStack(spacing: 12) {
+                Text(title)
+                    .font(.system(size: 26, weight: .heavy))
+                    .foregroundStyle(Color.hantamInk)
                     .multilineTextAlignment(.center)
-
-                Text(page.description)
+                Text(detail)
                     .font(.system(size: 16))
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 28)
             }
-
-            Spacer()
             Spacer()
         }
     }
 }
 
-// MARK: - Preview
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView(isPresented: .constant(true))
+// MARK: - 그림
+
+private struct PhotoToPatternVisual: View {
+    var body: some View {
+        HStack(spacing: 18) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(LinearGradient(colors: [Color(red: 0.98, green: 0.75, blue: 0.62), Color(red: 0.86, green: 0.45, blue: 0.40)],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing))
+                Image(systemName: "pawprint.fill")
+                    .font(.system(size: 54))
+                    .foregroundStyle(.white.opacity(0.85))
+            }
+            .frame(width: 120, height: 150)
+
+            Image(systemName: "arrow.right")
+                .font(.system(size: 22, weight: .bold))
+                .foregroundStyle(Color.hantamAccent)
+
+            BeadHeartMark(size: 130)
+                .padding(10)
+                .background(Color.white, in: RoundedRectangle(cornerRadius: 18))
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+private struct SwatchVisual: View {
+    private let samples: [PatternColor] = PatternColor.perler
+        .filter { [ "Red", "Yellow", "Light Blue", "Kiwi Lime", "Bubblegum" ].contains($0.name) }
+
+    var body: some View {
+        VStack(spacing: 10) {
+            ForEach(Array(samples.prefix(4).enumerated()), id: \.offset) { i, c in
+                HStack(spacing: 12) {
+                    Circle().fill(c.color).frame(width: 34, height: 34)
+                        .overlay(Circle().fill(Color.white.opacity(0.85)).padding(11))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(c.code).font(.subheadline.weight(.semibold))
+                        Text(c.name).font(.caption).foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Text("×\([212, 148, 97, 41][i % 4])")
+                        .font(.headline.monospacedDigit())
+                }
+                .foregroundStyle(Color.hantamInk)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 14))
+            }
+        }
+        .padding(.horizontal, 40)
+        .accessibilityHidden(true)
+    }
+}
+
+private struct PrintVisual: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 6)
+                .fill(Color.white)
+                .frame(width: 190, height: 250)
+                .shadow(color: .black.opacity(0.12), radius: 10, y: 4)
+                .rotationEffect(.degrees(-6))
+                .offset(x: -24)
+            RoundedRectangle(cornerRadius: 6)
+                .fill(Color.white)
+                .frame(width: 190, height: 250)
+                .shadow(color: .black.opacity(0.15), radius: 10, y: 4)
+                .overlay(
+                    VStack(spacing: 6) {
+                        BeadHeartMark(size: 120)
+                        ForEach(0..<3, id: \.self) { _ in
+                            Capsule().fill(Color.hantamInk.opacity(0.12)).frame(width: 130, height: 6)
+                        }
+                    }
+                )
+                .rotationEffect(.degrees(4))
+                .offset(x: 18)
+            Image(systemName: "printer.fill")
+                .font(.system(size: 30))
+                .foregroundStyle(.white)
+                .frame(width: 64, height: 64)
+                .background(Color.hantamAccent, in: Circle())
+                .offset(x: 90, y: 100)
+        }
+        .accessibilityHidden(true)
     }
 }

@@ -23,7 +23,7 @@ class FreeUsageManager: ObservableObject {
     private static let lastResetDateKey = "pixelme_daily_reset_date"
     
     /// App Store URL
-    static let appStoreURL = "https://apps.apple.com/app/pixel-meme/id6449769987"
+    static let appStoreURL = "https://apps.apple.com/app/id6449769987"
     
     // MARK: - Published
     
@@ -88,7 +88,7 @@ class FreeUsageManager: ObservableObject {
     }
     
     /// 이미지에 워터마크 추가 (thread-safe, no MainActor requirement)
-    /// "Made with PixelMe" + 앱 링크를 하단에 표시하여 바이럴 효과 극대화
+    /// "Made with Hantam" + 앱 링크를 하단에 표시하여 바이럴 효과 극대화
     nonisolated static func applyWatermark(to image: UIImage) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: image.size)
 
@@ -99,8 +99,8 @@ class FreeUsageManager: ObservableObject {
             let linkFontSize: CGFloat = max(image.size.width * 0.02, 10)
             let padding: CGFloat = mainFontSize * 0.7
 
-            // 메인 텍스트: "Made with PixelMe"
-            let mainText = "Made with PixelMe"
+            // 메인 텍스트: "Made with Hantam"
+            let mainText = "Made with Hantam"
             let mainAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: mainFontSize, weight: .semibold),
                 .foregroundColor: UIColor.white.withAlphaComponent(0.85)
@@ -108,7 +108,7 @@ class FreeUsageManager: ObservableObject {
             let mainSize = (mainText as NSString).size(withAttributes: mainAttributes)
 
             // 링크 텍스트: 앱스토어 단축 URL
-            let linkText = "apps.apple.com/app/pixel-meme"
+            let linkText = "apps.apple.com/app/id6449769987"
             let linkAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: linkFontSize, weight: .regular),
                 .foregroundColor: UIColor.white.withAlphaComponent(0.55)
@@ -154,7 +154,7 @@ class FreeUsageManager: ObservableObject {
             return [image]
         } else {
             let watermarked = applyWatermark(to: image)
-            let shareText = "Created with PixelMe 🎨\n\(appStoreURL)"
+            let shareText = "Made with Hantam\n\(appStoreURL)"
             return [watermarked, shareText] as [Any]
         }
     }

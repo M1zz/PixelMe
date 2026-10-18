@@ -22,6 +22,7 @@ struct PixelEditorView: View {
     @State private var showAsepriteImporter = false
     @State private var asepriteImportError: String?
     @State private var showAsepriteImportError = false
+    @State private var showDiscardAlert = false
 
     private let initialShowTimeline: Bool
 
@@ -73,7 +74,7 @@ struct PixelEditorView: View {
                         Image(systemName: "plus.magnifyingglass")
                             .font(.system(size: 16))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
 
@@ -85,7 +86,7 @@ struct PixelEditorView: View {
                         Image(systemName: "minus.magnifyingglass")
                             .font(.system(size: 16))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
 
@@ -98,7 +99,7 @@ struct PixelEditorView: View {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.system(size: 14))
                             .frame(width: 36, height: 36)
-                            .background(.ultraThinMaterial)
+                            .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
                 }
@@ -185,9 +186,21 @@ struct PixelEditorView: View {
     
     private var topBar: some View {
         HStack {
-            Button { dismiss() } label: {
+            Button {
+                if viewModel.canUndo {
+                    showDiscardAlert = true
+                } else {
+                    dismiss()
+                }
+            } label: {
                 Image(systemName: "xmark")
                     .font(.title3)
+            }
+            .alert("작업을 종료할까요?", isPresented: $showDiscardAlert) {
+                Button("저장하지 않고 닫기", role: .destructive) { dismiss() }
+                Button("계속 편집", role: .cancel) {}
+            } message: {
+                Text("저장하지 않은 변경사항은 사라집니다.")
             }
             
             Spacer()
@@ -348,6 +361,17 @@ struct PixelEditorView: View {
                     Divider().frame(height: 24)
                 }
 
+                // Follow Along: 샘플 팔레트 라벨
+                if viewModel.referenceSample != nil && viewModel.selectedPalette == nil {
+                    Text("Sample")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundColor(Color(AppConfig.continueButtonColor))
+                        .padding(.horizontal, 4)
+                        .padding(.vertical, 2)
+                        .background(Color(AppConfig.continueButtonColor).opacity(0.15))
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                }
+
                 // 활성 팔레트 색상
                 ForEach(viewModel.activePaletteColors, id: \.self) { color in
                     Rectangle()
@@ -356,7 +380,7 @@ struct PixelEditorView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(viewModel.selectedColor == color ? Color.blue : Color.clear, lineWidth: 2)
+                                .stroke(viewModel.selectedColor == color ? Color(AppConfig.continueButtonColor) : Color.clear, lineWidth: 2)
                         )
                         .onTapGesture {
                             viewModel.selectedColor = color
@@ -406,19 +430,9 @@ struct PixelEditorView: View {
                         viewModel.selectedTool = tool
                     } label: {
                         VStack(spacing: 2) {
-                            Group {
-                                if let pixelIcon = tool.pixelIconDefinition {
-                                    PixelAnimatedIcon(
-                                        icon: pixelIcon,
-                                        size: 22,
-                                        animating: viewModel.selectedTool == tool
-                                    )
-                                } else {
-                                    Image(systemName: tool.icon)
-                                        .font(.title3)
-                                }
-                            }
-                            .frame(width: 36, height: 36)
+                            Image(systemName: tool.icon)
+                                .font(.title3)
+                                .frame(width: 36, height: 36)
                             .background(
                                 viewModel.selectedTool == tool
                                 ? Color.blue.opacity(0.2)
@@ -426,7 +440,7 @@ struct PixelEditorView: View {
                             )
                             .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                            Text(tool.rawValue)
+                            Text(LocalizedStringKey(tool.rawValue))
                                 .font(.system(size: 9))
                                 .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
                         }
@@ -680,64 +694,97 @@ struct NewCanvasView: View {
     @State private var showRecovery = false
 
     var body: some View {
-        NavigationStack {
-            List {
-                if PixelEditorViewModel.hasRecoverableProject {
-                    Section("복구") {
-                        Button {
-                            showRecovery = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "arrow.counterclockwise.circle.fill")
-                                    .foregroundStyle(.orange)
-                                Text("이전 작업 복구하기")
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        .tint(.primary)
-                    }
-                }
+        ZStack {
+            Color(AppConfig.backgroundColor).ignoresSafeArea()
 
-                Section("캔버스 크기") {
-                    ForEach(CanvasPreset.allCases, id: \.self) { preset in
-                        Button {
-                            selectedPreset = preset
-                        } label: {
-                            HStack {
-                                Text(preset.rawValue)
-                                Spacer()
-                                if selectedPreset == preset {
-                                    Image(systemName: "checkmark")
-                                        .foregroundStyle(.blue)
-                                }
-                            }
-                        }
-                        .tint(.primary)
-                    }
-                }
-            }
-            .navigationTitle("새 캔버스")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+            VStack(spacing: 0) {
+                // 헤더
+                HStack {
                     Button("취소") { dismiss() }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
+                        .foregroundColor(.white.opacity(0.7))
+                    Spacer()
+                    Text("새 캔버스")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                    Spacer()
                     Button("생성") {
                         PixelEditorViewModel.clearAutoSave()
                         showEditor = true
                     }
+                    .foregroundColor(Color(AppConfig.continueButtonColor))
+                    .fontWeight(.bold)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+
+                ScrollView {
+                    VStack(spacing: 16) {
+                        // 복구 섹션
+                        if PixelEditorViewModel.hasRecoverableProject {
+                            Button {
+                                showRecovery = true
+                            } label: {
+                                HStack {
+                                    Image(systemName: "arrow.counterclockwise.circle.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.orange)
+                                    Text("이전 작업 복구하기")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                }
+                                .padding(16)
+                                .background(Color(AppConfig.toolBackgroundColor))
+                                .cornerRadius(12)
+                            }
+                        }
+
+                        // 캔버스 크기 섹션
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("캔버스 크기")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.gray)
+
+                            ForEach(CanvasPreset.allCases, id: \.self) { preset in
+                                Button {
+                                    selectedPreset = preset
+                                } label: {
+                                    HStack {
+                                        Text(preset.rawValue)
+                                            .font(.system(size: 16))
+                                            .foregroundColor(.white)
+                                        Spacer()
+                                        if selectedPreset == preset {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.system(size: 20))
+                                                .foregroundColor(Color(AppConfig.continueButtonColor))
+                                        } else {
+                                            Circle()
+                                                .stroke(Color.gray.opacity(0.4), lineWidth: 1.5)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                    }
+                                    .padding(16)
+                                    .background(Color(AppConfig.toolBackgroundColor))
+                                    .cornerRadius(12)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
                 }
             }
-            .fullScreenCover(isPresented: $showEditor) {
-                PixelEditorView(preset: selectedPreset)
-            }
-            .fullScreenCover(isPresented: $showRecovery) {
-                if let vm = PixelEditorViewModel.recoverProject() {
-                    RecoveredPixelEditorView(viewModel: vm)
-                }
+        }
+        .fullScreenCover(isPresented: $showEditor) {
+            PixelEditorView(preset: selectedPreset)
+        }
+        .fullScreenCover(isPresented: $showRecovery) {
+            if let vm = PixelEditorViewModel.recoverProject() {
+                RecoveredPixelEditorView(viewModel: vm)
             }
         }
     }
@@ -797,7 +844,7 @@ struct RecoveredPixelEditorView: View {
                                 Image(systemName: tool.icon).font(.title3).frame(width: 36, height: 36)
                                     .background(viewModel.selectedTool == tool ? Color.blue.opacity(0.2) : Color.clear)
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                                Text(tool.rawValue).font(.system(size: 9))
+                                Text(LocalizedStringKey(tool.rawValue)).font(.system(size: 9))
                                     .foregroundStyle(viewModel.selectedTool == tool ? .blue : .secondary)
                             }
                         }.tint(viewModel.selectedTool == tool ? .blue : .primary)

@@ -303,7 +303,7 @@ struct ExportPreviewCard: View {
                     if hasWatermark {
                         VStack {
                             Spacer()
-                            Text("PixelMe")
+                            Text(verbatim: "Hantam")
                                 .font(.system(size: 12, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 8)

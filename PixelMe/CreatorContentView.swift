@@ -9,6 +9,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import LeeoKit
 
 /// Pixel creator flow to draw pixels
 struct CreatorContentView: View {
@@ -19,22 +20,96 @@ struct CreatorContentView: View {
     @State private var showNewCanvasSheet = false
     @State private var showHomeAsepriteImporter = false
     @State private var showFollowAlongEditor = false
+    @State private var importedAsepriteFrames: [AnimationFrame]? = nil
+    @State private var showPatternMaker = false
+    @State private var openedPattern: BeadPattern?
+    @State private var showHantamSettings = false
 
     // MARK: - Main rendering function
     var body: some View {
+        presentationLayer
+            .onChange(of: manager.shouldLoadPixelGrid) { _, shouldLoad in
+                if shouldLoad { viewModel.loadPixelData(from: manager) }
+            }
+            .onChange(of: manager.shouldDismissPhotoPreview) { _, shouldDismiss in
+                if shouldDismiss {
+                    viewModel.showPhotoPreview = false
+                    manager.shouldDismissPhotoPreview = false
+                }
+            }
+            .onChange(of: manager.useCustomWatermark) { _, newValue in
+                UserDefaults.standard.set(newValue, forKey: "useCustomWatermark")
+            }
+            .fileImporter(
+                isPresented: $showHomeAsepriteImporter,
+                allowedContentTypes: [UTType(filenameExtension: "aseprite") ?? .data, UTType(filenameExtension: "ase") ?? .data],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    guard let url = urls.first else { return }
+                    guard url.startAccessingSecurityScopedResource() else { return }
+                    defer { url.stopAccessingSecurityScopedResource() }
+                    do {
+                        let (_, _, frames) = try AsepriteManager.importFile(from: url)
+                        importedAsepriteFrames = frames
+                        showAsepriteEditor = true
+                    } catch {}
+                case .failure:
+                    break
+                }
+            }
+    }
+
+    // MARK: - Presentation layer (sheets & full-screen covers)
+    private var presentationLayer: some View {
+        sheetLayer
+            .sheet(isPresented: $viewModel.showWatermarkPicker) {
+                PhotoPicker { image in
+                    if let selectedImage = image {
+                        manager.saveCustomWatermark(selectedImage)
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showAsepriteEditor) {
+                if let frames = importedAsepriteFrames,
+                   let firstLayer = frames.first?.layers.first {
+                    PixelEditorView(
+                        frames: frames,
+                        width: firstLayer.canvas.width,
+                        height: firstLayer.canvas.height
+                    )
+                }
+            }
+            .sheet(isPresented: $showNewCanvasSheet) {
+                NewCanvasView()
+            }
+    }
+
+    // MARK: - Sheet layer (primary sheets & covers)
+    private var sheetLayer: some View {
         ZStack {
-            Color(AppConfig.backgroundColor).ignoresSafeArea()
+            Color.hantamBackground.ignoresSafeArea()
             HomeScreenView
+        }
+        .fullScreenCover(isPresented: $showPatternMaker) {
+            PatternMakerView()
+        }
+        .fullScreenCover(item: $openedPattern) { pattern in
+            PatternDetailView(pattern: pattern)
+        }
+        .sheet(isPresented: $showHantamSettings) {
+            HantamSettingsView()
         }
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
         }
         .sheet(isPresented: $viewModel.showSampleGallery, onDismiss: {
-            if viewModel.selectedSample != nil {
-                showFollowAlongEditor = true
-            }
+            if viewModel.selectedSample != nil { showFollowAlongEditor = true }
         }) {
-            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { _ in }
+            SampleArtGalleryView(selectedSample: $viewModel.selectedSample) { sample in
+                viewModel.selectedSample = sample
+            }
         }
         .fullScreenCover(item: $manager.fullScreenMode) { type in
             Group {
@@ -57,19 +132,15 @@ struct CreatorContentView: View {
             }
         }
         .sheet(isPresented: $viewModel.showPhotoPreview) {
-            Group {
-                if let selectedImage = manager.tempPhotoForPreview {
-                    PhotoPreviewView(selectedImage: selectedImage)
-                        .environmentObject(manager)
-                        .presentationDragIndicator(.visible)
-                        .presentationDetents([.large])
-                } else {
-                    Color.clear
-                }
+            if let selectedImage = manager.tempPhotoForPreview {
+                PhotoPreviewView(selectedImage: selectedImage)
+                    .environmentObject(manager)
+                    .presentationDragIndicator(.visible)
+                    .presentationDetents([.large])
             }
         }
         .sheet(isPresented: $viewModel.showPaywall) {
-            PaywallView(isProUser: $manager.isPremiumUser)
+            PaywallView(isProUser: $manager.isPremiumUser, reason: viewModel.paywallReason)
         }
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
@@ -79,132 +150,45 @@ struct CreatorContentView: View {
                 PixelEditorView(referenceSample: sample)
             }
         }
-        .sheet(isPresented: $viewModel.showWatermarkPicker) {
-            PhotoPicker { image in
-                if let selectedImage = image {
-                    manager.saveCustomWatermark(selectedImage)
-                }
-            }
-        }
-        .onChange(of: manager.shouldLoadPixelGrid) { oldValue, shouldLoad in
-            if shouldLoad {
-                viewModel.loadPixelData(from: manager)
-            }
-        }
-        .onChange(of: manager.shouldDismissPhotoPreview) { oldValue, shouldDismiss in
-            if shouldDismiss {
-                viewModel.showPhotoPreview = false
-                manager.shouldDismissPhotoPreview = false
-            }
-        }
-        .onChange(of: manager.useCustomWatermark) { oldValue, newValue in
-            UserDefaults.standard.set(newValue, forKey: "useCustomWatermark")
-        }
-        .onChange(of: manager.shouldOpenPixelEditor) { oldValue, shouldOpen in
-            if shouldOpen {
-                showAsepriteEditor = true
-                manager.shouldOpenPixelEditor = false
-            }
-        }
-        .fullScreenCover(isPresented: $showAsepriteEditor) {
-            if let frames = manager.importedAsepriteFrames,
-               let firstLayer = frames.first?.layers.first {
-                PixelEditorView(
-                    frames: frames,
-                    width: firstLayer.canvas.width,
-                    height: firstLayer.canvas.height
-                )
-            }
-        }
-        .sheet(isPresented: $showNewCanvasSheet) {
-            NewCanvasView()
-        }
-        .fileImporter(
-            isPresented: $showHomeAsepriteImporter,
-            allowedContentTypes: [UTType(filenameExtension: "aseprite") ?? .data, UTType(filenameExtension: "ase") ?? .data],
-            allowsMultipleSelection: false
-        ) { result in
-            switch result {
-            case .success(let urls):
-                guard let url = urls.first else { return }
-                guard url.startAccessingSecurityScopedResource() else { return }
-                defer { url.stopAccessingSecurityScopedResource() }
-                do {
-                    let (_, _, frames) = try AsepriteManager.importFile(from: url)
-                    manager.importedAsepriteFrames = frames
-                    manager.shouldOpenPixelEditor = true
-                } catch {
-                    // Aseprite import failed silently
-                }
-            case .failure:
-                break
-            }
-        }
-    }
-
-    // MARK: - Drawing Screen (extracted)
-    private var DrawingScreenView: some View {
-        VStack(spacing: 15) {
-            DrawingHeaderView
-            ZStack {
-                PixelsGridView()
-
-                if !viewModel.didSelectBoardSize {
-                    GridHintOverlay
-                }
-            }
-
-            if let sample = viewModel.referenceSample, viewModel.showReferenceImage, viewModel.didSelectBoardSize {
-                ReferenceImageView(sample: sample)
-            }
-
-            if viewModel.didSelectBoardSize {
-                CreatorColorPaletteView(viewModel: viewModel)
-            }
-
-            if viewModel.didSelectBoardSize {
-                CreatorToolbarView(viewModel: viewModel)
-                    .sheet(isPresented: $viewModel.showSettingsSheet) {
-                        SettingsSheetView
-                    }
-            } else {
-                PixelBoardSizeSelector
-            }
-        }
     }
 
     // MARK: - Home Screen
     private var HomeScreenView: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 20) {
+                HantamHomeHeader { showHantamSettings = true }
+                    .padding(.top, 8)
 
-                // ── 1) Tool Grid: Create ──
+                // ── 1) 도안 만들기 (주 기능) ──
+                PatternHeroCard {
+                    HantamEvent.track("home_pattern_tapped")
+                    showPatternMaker = true
+                }
+                PatternStepsRow()
+
+                // ── 2) 내 도안 ──
+                MyPatternsSection { openedPattern = $0 }
+
+                // ── 3) 픽셀 아트 도구 ──
                 HomeToolGrid
-                    .padding(.top, 60)
-                    .padding(.horizontal, 20)
 
-                // ── 2) Feature Highlights: What You Can Create ──
-                HomeFeatureHighlights
-                    .padding(.top, 24)
-
-                // ── 3) Pro Banner: 프리미엄 ──
+                // ── 4) Pro ──
                 if !SubscriptionManager.shared.isProUser {
                     HomeProBanner
-                        .padding(.top, 20)
-                        .padding(.horizontal, 20)
                 }
 
-                Spacer(minLength: 60)
+                Spacer(minLength: 40)
             }
+            .padding(.horizontal, 20)
         }
     }
 
     // MARK: - Tool Grid
     private var HomeToolGrid: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Create")
+            Text("Pixel art tools")
                 .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(Color.hantamInk)
                 .accessibilityAddTraits(.isHeader)
 
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
@@ -214,108 +198,48 @@ struct CreatorContentView: View {
                     viewModel.showPhotoPicker = true
                 } label: {
                     HomeToolCard(
-                        icon: "camera.fill",
+                        pixelIcon: PixelIconCatalog.camera,
                         title: "Pixelate Photo",
                         subtitle: "Photo → pixel art",
-                        color: .blue,
-                        pixelIcon: PixelIconCatalog.camera
+                        color: .blue
                     )
                 }
-                .accessibilityLabel("사진 픽셀화")
 
                 // Follow Along
                 Button {
                     viewModel.showSampleGallery = true
                 } label: {
                     HomeToolCard(
-                        icon: "paintbrush.pointed.fill",
+                        pixelIcon: PixelIconCatalog.paintbrush,
                         title: "Follow Along",
                         subtitle: "Draw with a sample",
-                        color: .purple,
-                        pixelIcon: PixelIconCatalog.paintbrush
+                        color: .purple
                     )
                 }
-                .accessibilityLabel("따라 그리기")
 
                 // Free Drawing → PixelEditorView (레이어·애니메이션·내보내기 통합)
                 Button {
                     showNewCanvasSheet = true
                 } label: {
                     HomeToolCard(
-                        icon: "scribble.variable",
+                        pixelIcon: PixelIconCatalog.pencil,
                         title: "Free Drawing",
                         subtitle: "Draw · Animate · Export",
-                        color: .green,
-                        pixelIcon: PixelIconCatalog.pencil
+                        color: .green
                     )
                 }
-                .accessibilityLabel("자유 그리기")
 
                 // Import
                 Button {
                     showHomeAsepriteImporter = true
                 } label: {
                     HomeToolCard(
-                        icon: "doc.badge.arrow.up",
+                        pixelIcon: PixelIconCatalog.export,
                         title: "Import",
                         subtitle: "Import .ase files",
-                        color: .indigo,
-                        pixelIcon: PixelIconCatalog.floppyDisk
+                        color: .indigo
                     )
                 }
-                .accessibilityLabel("파일 가져오기")
-            }
-        }
-    }
-
-    // MARK: - Feature Highlights (기능 하이라이트 가로 스크롤)
-    private var HomeFeatureHighlights: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text("What You Can Create")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-                .accessibilityAddTraits(.isHeader)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    FeatureHighlightCard(
-                        icon: "film",
-                        title: "GIF Animation",
-                        description: "Frame-by-frame pixel animation with onion skinning",
-                        gradientColors: [.pink, .orange]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-
-                    FeatureHighlightCard(
-                        icon: "square.grid.3x3",
-                        title: "Sprite Sheets",
-                        description: "Export animation frames as sprite sheets",
-                        gradientColors: [.cyan, .blue]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-
-                    FeatureHighlightCard(
-                        icon: "doc.badge.arrow.up",
-                        title: "Import & Export",
-                        description: "Import & export .ase files",
-                        gradientColors: [.indigo, .purple]
-                    ) {
-                        showHomeAsepriteImporter = true
-                    }
-
-                    FeatureHighlightCard(
-                        icon: "square.3.layers.3d",
-                        title: "Layer Editing",
-                        description: "Multiple layers with opacity control",
-                        gradientColors: [.green, .teal]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-                }
-                .padding(.horizontal, 20)
             }
         }
     }
@@ -323,43 +247,35 @@ struct CreatorContentView: View {
     // MARK: - Pro Banner (컴팩트한 프리미엄 배너)
     private var HomeProBanner: some View {
         Button {
+            viewModel.paywallReason = .homeBanner
             viewModel.showPaywall = true
         } label: {
             HStack(spacing: 12) {
-                PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 24)
+                Image(systemName: "printer.fill")
+                    .font(.system(size: 20))
+                    .foregroundStyle(Color.hantamAccent)
+                    .frame(width: 40, height: 40)
+                    .background(Color.hantamAccent.opacity(0.12), in: Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Unlock Pro")
+                    Text("Hantam Pro")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.white)
-                    Text("Unlimited pixelation · No watermark · 4K export")
-                        .font(.system(size: 11))
-                        .foregroundColor(.white.opacity(0.5))
-                        .lineLimit(1)
+                        .foregroundColor(Color.hantamInk)
+                    Text("Printable PDFs · Bigger patterns · No mark")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
                 }
 
                 Spacer()
 
-                Text("Try Free")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color.yellow)
-                    .cornerRadius(8)
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.tertiary)
             }
             .padding(14)
-            .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white.opacity(0.06))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14)
-                            .stroke(Color.yellow.opacity(0.2), lineWidth: 1)
-                    )
-            )
+            .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 16))
         }
-        .accessibilityLabel("PixelMe 프로")
-        .accessibilityHint("모든 프리미엄 기능을 잠금 해제합니다")
+        .buttonStyle(.plain)
     }
 
     // MARK: - Drawing Screen Header
@@ -369,7 +285,8 @@ struct CreatorContentView: View {
                 Button {
                     viewModel.goHome()
                 } label: {
-                    PixelAnimatedIcon(icon: PixelIconCatalog.house, size: 30, animating: false)
+                    Image(systemName: "house.fill")
+                        .font(.system(size: 20))
                         .frame(width: 36, height: 36)
                 }
                 .accessibilityLabel("홈으로 돌아가기")
@@ -377,7 +294,8 @@ struct CreatorContentView: View {
                 Button {
                     manager.savePixelGrid(view: AnyView(PixelsGridView(height: AppConfig.exportSize, export: true)))
                 } label: {
-                    PixelAnimatedIcon(icon: PixelIconCatalog.floppyDisk, size: 30, animating: false)
+                    Image(systemName: "square.and.arrow.down.fill")
+                        .font(.system(size: 20))
                         .frame(width: 36, height: 36)
                 }
                 .accessibilityLabel("저장")
@@ -407,7 +325,7 @@ struct CreatorContentView: View {
                 }
             }.font(.system(size: 22))
 
-            Text(viewModel.referenceSample != nil ? "Follow Along" : "Free Drawing")
+            Text(viewModel.referenceSample != nil ? LocalizedStringKey("Follow Along") : LocalizedStringKey("Free Drawing"))
                 .font(.system(size: 18, weight: .bold))
                 .accessibilityAddTraits(.isHeader)
         }
@@ -575,7 +493,10 @@ struct CreatorContentView: View {
         let isLocked = !FeatureGating.shared.canUsePixelSize(type)
 
         return Button {
-            if !isLocked {
+            if isLocked {
+                viewModel.paywallReason = .boardSize
+                viewModel.showPaywall = true
+            } else {
                 viewModel.selectBoardSize(type, manager: manager)
             }
         } label: {
@@ -599,7 +520,6 @@ struct CreatorContentView: View {
             }
         }
         .frame(height: 60)
-        .disabled(isLocked)
         .accessibilityLabel("보드 크기: \(type.rawValue)")
         .accessibilityValue(isSelected ? "선택됨" : (isLocked ? "잠김" : "선택되지 않음"))
         .accessibilityHint(isLocked ? "프로 버전이 필요합니다" : "탭하여 이 보드 크기를 선택합니다")
@@ -627,28 +547,55 @@ struct CreatorContentView: View {
                 }
                 .padding()
 
-                ScrollView {
-                    VStack(spacing: 15) {
-                        SettingsSectionHeader(title: "Board")
-                        BoardSizeChangeView
-                        BackgroundColorView
-                        ResetCanvasView
+                NavigationStack {
+                    ScrollView {
+                        VStack(spacing: 15) {
+                            SettingsSectionHeader(title: "Board")
+                            BoardSizeChangeView
+                            BackgroundColorView
+                            ResetCanvasView
 
-                        SettingsSectionHeader(title: "Display")
-                        ShowHideGridView
-                        InvertGridColorView
+                            SettingsSectionHeader(title: "Display")
+                            ShowHideGridView
+                            InvertGridColorView
 
-                        SettingsSectionHeader(title: "Watermark")
-                        WatermarkView
+                            SettingsSectionHeader(title: "Watermark")
+                            WatermarkView
 
-                        Spacer(minLength: 50)
+                            SettingsSectionHeader(title: "Contact")
+                            ContactEmailView
+                            ContactInstagramView
+
+                            SettingsSectionHeader(title: "Support")
+                            SupportSectionView
+
+                            Spacer(minLength: 50)
+                        }
+                        .padding(.horizontal)
+                        .foregroundColor(.white)
                     }
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
+                    .navigationBarHidden(true)
                 }
             }
         }
         .presentationDetents([.large])
+    }
+
+    private var SupportSectionView: some View {
+        VStack(spacing: 0) {
+            LeeoSupportSection<PixelMeSpec>()
+                .tint(.white)
+            // 앞으로 만들 기능 — 원본은 PixelMeRoadmap.swift
+            NavigationLink { RoadmapScreen() } label: {
+                Label(LeeoRoadmapText.entry, systemImage: "map")
+                    .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                    .contentShape(Rectangle())
+            }
+            .tint(.white)
+        }
+        .padding(.horizontal, 15)
+        .padding(.vertical, 6)
+        .background(Color(AppConfig.toolBackgroundColor).cornerRadius(15))
     }
 
     private func SettingsSectionHeader(title: String) -> some View {
@@ -726,6 +673,42 @@ struct CreatorContentView: View {
                     .accessibilityValue(manager.useCustomWatermark ? "켜짐" : "꺼짐")
             }.padding(.horizontal, 15)
         }.frame(height: 60)
+    }
+
+    // MARK: - Developer Contact
+    private var ContactEmailView: some View {
+        Link(destination: URL(string: "mailto:leeo@kakao.com")!) {
+            ZStack {
+                Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+                HStack {
+                    Text("Contact via Email").font(.system(size: 18))
+                    Spacer()
+                    Image(systemName: "envelope")
+                        .font(.system(size: 18))
+                        .foregroundColor(.blue)
+                }.padding(.horizontal, 15)
+            }
+        }
+        .frame(height: 60)
+        .accessibilityLabel(Text("Contact via Email"))
+        .accessibilityHint(Text("Bug reports and feature ideas are welcome"))
+    }
+
+    private var ContactInstagramView: some View {
+        Link(destination: URL(string: "https://instagram.com/lee25_ios")!) {
+            ZStack {
+                Color(AppConfig.toolBackgroundColor).cornerRadius(15)
+                HStack {
+                    Text("Instagram DM (@lee25_ios)").font(.system(size: 18))
+                    Spacer()
+                    Image(systemName: "paperplane")
+                        .font(.system(size: 18))
+                        .foregroundColor(.purple)
+                }.padding(.horizontal, 15)
+            }
+        }
+        .frame(height: 60)
+        .accessibilityLabel(Text("Instagram DM (@lee25_ios)"))
     }
 
     private var ShowHideGridView: some View {
@@ -832,99 +815,46 @@ struct CreatorContentView: View {
     }
 }
 
-// MARK: - Home Action Button
-struct HomeActionButton: View {
-    let icon: String
-    let title: String
-    let subtitle: String
-    let color: Color
-
-    var body: some View {
-        HStack(spacing: 15) {
-            ZStack {
-                Circle()
-                    .fill(color.opacity(0.2))
-                    .frame(width: 50, height: 50)
-                Image(systemName: icon)
-                    .font(.system(size: 22))
-                    .foregroundColor(color)
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
-                Text(subtitle)
-                    .font(.system(size: 13))
-                    .foregroundColor(.gray)
-            }
-
-            Spacer()
-
-            Image(systemName: "chevron.right")
-                .font(.system(size: 16))
-                .foregroundColor(.gray)
-        }
-        .padding(18)
-        .background(Color(AppConfig.toolBackgroundColor))
-        .cornerRadius(15)
-    }
-}
-
 // MARK: - Home Tool Card (2x2 grid)
 struct HomeToolCard: View {
-    let icon: String
-    let title: String
-    let subtitle: String
+    let pixelIcon: PixelIconDefinition
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
     let color: Color
-    var pixelIcon: PixelIconDefinition? = nil
 
     var body: some View {
         VStack(spacing: 10) {
-            ZStack {
-                Circle()
-                    .fill(color.opacity(0.15))
-                    .frame(width: 48, height: 48)
-                if let pixelIcon = pixelIcon {
-                    PixelAnimatedIcon(icon: pixelIcon, size: 28)
-                } else {
-                    Image(systemName: icon)
-                        .font(.system(size: 22))
-                        .foregroundColor(color)
-                }
-            }
+            PixelAnimatedIcon(icon: pixelIcon, size: 48)
 
             VStack(spacing: 3) {
                 Text(title)
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.hantamInk)
                 Text(subtitle)
                     .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.4))
+                    .foregroundColor(.secondary)
                     .lineLimit(1)
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
-        .background(Color(AppConfig.toolBackgroundColor))
-        .cornerRadius(14)
+        .background(Color.hantamCard)
+        .cornerRadius(12)
     }
 }
 
 // MARK: - Feature Highlight Card (가로 스크롤 카드)
 struct FeatureHighlightCard: View {
-    let icon: String
-    let title: String
-    let description: String
+    let pixelIcon: PixelIconDefinition
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
     let gradientColors: [Color]
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 8) {
-                Image(systemName: icon)
-                    .font(.system(size: 22))
-                    .foregroundColor(gradientColors.first ?? .white)
+                PixelAnimatedIcon(icon: pixelIcon, size: 28)
 
                 Text(title)
                     .font(.system(size: 15, weight: .bold))
@@ -939,10 +869,10 @@ struct FeatureHighlightCard: View {
             .frame(width: 160, alignment: .leading)
             .padding(14)
             .background(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: 12)
                     .fill(Color.white.opacity(0.06))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 14)
+                        RoundedRectangle(cornerRadius: 12)
                             .stroke(
                                 LinearGradient(
                                     colors: gradientColors.map { $0.opacity(0.3) },
@@ -954,31 +884,8 @@ struct FeatureHighlightCard: View {
                     )
             )
         }
-        .accessibilityLabel(title)
-        .accessibilityHint(description)
-    }
-}
-
-// MARK: - Sample Preview Card
-struct SamplePreviewCard: View {
-    let sample: SamplePixelArt
-
-    var body: some View {
-        VStack(spacing: 8) {
-            SampleArtPreview(sample: sample)
-                .frame(width: 80, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                )
-
-            Text(sample.name)
-                .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.white)
-                .lineLimit(1)
-        }
-        .frame(width: 90)
+        .accessibilityLabel(Text(title))
+        .accessibilityHint(Text(description))
     }
 }
 

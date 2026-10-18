@@ -5,8 +5,12 @@
 //  Created by hyunho lee on 2023/06/01.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
+import PhotosUI
+import Photos
+import Vision
+import CoreImage
 
 /// Template categories
 enum TemplateCategory: String, CaseIterable, Identifiable {
@@ -466,3 +470,11 @@ class TemplateManager: ObservableObject {
         return EffectPreset.presets
     }
 }
+//
+//  GIFCreator.swift
+//  PixelMe
+//
+//  Created by hyunho lee on 2023/06/01.
+//
+
+import UIKit

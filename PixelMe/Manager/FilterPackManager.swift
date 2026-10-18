@@ -2,11 +2,19 @@
 //  FilterPackManager.swift
 //  PixelMe
 //
-//  시즌 필터 팩 관리: 카탈로그, 구매, 접근 제어
+//  시즌 필터 팩 관리: 카탈로그, 구매, 접근 제어 — LeeoKit 파사드
+//
+//  StoreKit 2 플러밍(상품 로드·구매·복원·권한 추적·트랜잭션 리스너)은 공용 LeeoStore
+//  로 위임하고, 이 매니저는 앱 고유의 팩 카탈로그·시즌 노출·소유 판정(팩 ID 기준)·
+//  이미지 필터 처리만 담당한다. 팩은 비소비성 상품이며, entitlementIDs 를 비워
+//  팩 구매가 Pro(hasPro) 로 오인되지 않도록 한다(Pro 여부는 SubscriptionManager 가 판정).
+//  소유 팩 오프라인 캐시는 기존 키("FilterPackManager.purchasedPacks", 값=pack.id)를 그대로 유지한다.
 //
 
 import StoreKit
 import SwiftUI
+import Combine
+import LeeoKit
 
 @MainActor
 class FilterPackManager: ObservableObject {
@@ -19,34 +27,41 @@ class FilterPackManager: ObservableObject {
 
     /// 사용 가능한 전체 팩 카탈로그
     @Published private(set) var allPacks: [FilterPack] = []
-    /// 구매된 팩 ID 목록
+    /// 구매된 팩 ID 목록 (값 = pack.id). 오프라인 캐시로 유지되며 StoreKit 소유권과 동기화된다.
     @Published private(set) var purchasedPackIDs: Set<String> = []
-    /// StoreKit 상품 (productID → Product)
-    @Published private(set) var storeProducts: [String: Product] = [:]
-    /// 로딩 상태
-    @Published private(set) var isLoading: Bool = false
     /// 에러 메시지
     @Published var errorMessage: String?
 
     // MARK: - Private
 
     private let purchasedKey = "FilterPackManager.purchasedPacks"
-    private var updateListenerTask: Task<Void, Error>?
+
+    /// 공용 StoreKit 엔진 (팩 = 비소비성 상품). entitlementIDs 를 비워 hasPro 에 영향 주지 않음.
+    private let store: LeeoStore
+    private var cancellable: AnyCancellable?
 
     // MARK: - Init
 
     private init() {
+        let packProductIDs = Self.builtInPacks.map { $0.productID }
+        store = LeeoStore(config: LeeoPaywallConfig(
+            productIDs: packProductIDs,
+            entitlementIDs: [], // 팩 소유가 Pro 로 승격되지 않도록 (Pro 판정은 SubscriptionManager)
+            autoLoad: false,
+            cacheSuiteName: "com.pixelme.leeostore.packs"
+        ))
+
         loadCatalog()
         loadPurchasedPacks()
-        updateListenerTask = listenForTransactions()
-        Task {
-            await loadStoreProducts()
-            await checkPurchasedPacks()
-        }
-    }
 
-    deinit {
-        updateListenerTask?.cancel()
+        // 공용 스토어 변화를 뷰에 전파하고, StoreKit 소유권을 로컬 소유 목록에 합친다.
+        cancellable = store.objectWillChange.sink { [weak self] in
+            guard let self else { return }
+            self.objectWillChange.send()
+            DispatchQueue.main.async { self.syncOwnedFromStore() }
+        }
+
+        Task { await store.loadProducts() }
     }
 
     // MARK: - Catalog
@@ -59,6 +74,16 @@ class FilterPackManager: ObservableObject {
     /// 현재 시즌에 표시 가능한 팩들
     var availablePacks: [FilterPack] {
         allPacks.filter { $0.isCurrentlyAvailable }
+    }
+
+    /// StoreKit 상품 (productID → Product) — 공용 스토어에서 파생
+    var storeProducts: [String: Product] {
+        Dictionary(uniqueKeysWithValues: store.products.map { ($0.id, $0) })
+    }
+
+    /// 로딩/구매/복원 진행 상태
+    var isLoading: Bool {
+        store.isLoadingProducts || store.purchasingProductID != nil || store.isRestoring
     }
 
     /// 특정 팩이 구매되었거나 Pro 사용자인지 확인
@@ -78,96 +103,55 @@ class FilterPackManager: ObservableObject {
         return false
     }
 
-    // MARK: - StoreKit 2
+    // MARK: - StoreKit (LeeoStore 위임)
 
     /// App Store에서 필터 팩 상품 로드
     func loadStoreProducts() async {
-        isLoading = true
-        let productIDs = allPacks.map { $0.productID }
-        do {
-            let products = try await Product.products(for: productIDs)
-            var map: [String: Product] = [:]
-            for product in products {
-                map[product.id] = product
-            }
-            storeProducts = map
-            print("[FilterPackManager] \(products.count)개 상품 로드 완료")
-        } catch {
-            print("[FilterPackManager] 상품 로드 실패: \(error)")
-            errorMessage = "Failed to load filter pack products."
-        }
-        isLoading = false
+        await store.loadProducts()
     }
 
     /// 팩 구매
     func purchasePack(_ pack: FilterPack) async -> Bool {
-        guard let product = storeProducts[pack.productID] else {
+        guard let product = store.products.first(where: { $0.id == pack.productID }) else {
             errorMessage = "Product not found. Please try again."
             return false
         }
 
-        isLoading = true
         errorMessage = nil
-
-        do {
-            let result = try await product.purchase()
-            switch result {
-            case .success(let verification):
-                let transaction = try checkVerified(verification)
-                purchasedPackIDs.insert(pack.id)
-                savePurchasedPacks()
-                await transaction.finish()
-                print("[FilterPackManager] \(pack.name) 구매 성공")
-                isLoading = false
-                return true
-            case .userCancelled:
-                isLoading = false
-                return false
-            case .pending:
-                errorMessage = "Purchase pending approval."
-                isLoading = false
-                return false
-            @unknown default:
-                errorMessage = "An unexpected error occurred."
-                isLoading = false
-                return false
-            }
-        } catch {
-            print("[FilterPackManager] 구매 실패: \(error)")
-            errorMessage = "Purchase failed: \(error.localizedDescription)"
-            isLoading = false
-            return false
+        let success = await store.purchase(product)
+        if success {
+            purchasedPackIDs.insert(pack.id)
+            savePurchasedPacks()
+            print("[FilterPackManager] \(pack.name) 구매 성공")
+        } else {
+            errorMessage = store.lastError
         }
+        return success
     }
 
-    /// 구매 내역에서 팩 확인
+    /// 구매 내역에서 팩 확인 (공용 스토어 권한 재확인 후 로컬 소유 목록 동기화)
     func checkPurchasedPacks() async {
-        let packProductIDs = Set(allPacks.map { $0.productID })
-        for await result in Transaction.currentEntitlements {
-            if let transaction = try? checkVerified(result) {
-                if packProductIDs.contains(transaction.productID) {
-                    if let pack = allPacks.first(where: { $0.productID == transaction.productID }) {
-                        purchasedPackIDs.insert(pack.id)
-                    }
-                }
-            }
-        }
-        savePurchasedPacks()
+        await store.refreshEntitlements()
+        syncOwnedFromStore()
     }
 
     /// 구매 복원
     func restorePurchases() async {
-        isLoading = true
-        do {
-            try await AppStore.sync()
-            await checkPurchasedPacks()
-            if purchasedPackIDs.isEmpty {
-                errorMessage = "No previous filter pack purchases found."
-            }
-        } catch {
-            errorMessage = "Failed to restore: \(error.localizedDescription)"
+        errorMessage = nil
+        await store.restore()
+        syncOwnedFromStore()
+        if purchasedPackIDs.isEmpty {
+            errorMessage = store.lastError ?? "No previous filter pack purchases found."
         }
-        isLoading = false
+    }
+
+    /// StoreKit 소유권을 로컬 소유 팩 목록에 합친다 (추가만; 일시적 빈 응답으로 팩을 잃지 않도록 제거하지 않음).
+    private func syncOwnedFromStore() {
+        var changed = false
+        for pack in allPacks where store.purchasedProductIDs.contains(pack.productID) {
+            if purchasedPackIDs.insert(pack.id).inserted { changed = true }
+        }
+        if changed { savePurchasedPacks() }
     }
 
     // MARK: - Applying Filters
@@ -284,26 +268,6 @@ class FilterPackManager: ObservableObject {
     private func loadPurchasedPacks() {
         if let saved = UserDefaults.standard.stringArray(forKey: purchasedKey) {
             purchasedPackIDs = Set(saved)
-        }
-    }
-
-    // MARK: - Transaction
-
-    nonisolated private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
-        switch result {
-        case .unverified(_, let error): throw error
-        case .verified(let safe): return safe
-        }
-    }
-
-    private func listenForTransactions() -> Task<Void, Error> {
-        Task.detached {
-            for await result in Transaction.updates {
-                if let transaction = try? self.checkVerified(result) {
-                    await self.checkPurchasedPacks()
-                    await transaction.finish()
-                }
-            }
         }
     }
 

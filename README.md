@@ -1,120 +1,28 @@
-<p align="center">
-  <img src="appstore.png" width="160" alt="PixelMe App Icon">
-</p>
+# 한땀 (Hantam) — 비즈·십자수 도안 메이커
 
-<h1 align="center">PixelMe</h1>
+사진 한 장을 아이롱 비즈·십자수 도안으로 바꾸는 iOS 앱. 2.1.0 에서 픽셀미미(Pixel MeMe)를 리브랜딩했다.
+번들 ID `com.leeo.PixelMe` · 상품 ID · FeedbackHub `appName`("PixelMe") 은 기존 사용자·통계와의 계약이라 그대로 둔다.
 
-<p align="center">
-  <strong>Transform your photos into stunning pixel art — right on your iPhone.</strong>
-</p>
+## 무엇을 하나
+- 사진 → Perler · Hama Midi · Artkal S 비즈, DMC 실 색표의 가장 가까운 색으로 도안 (`PixelMe/Pattern/`)
+- 색 수 상한, 크기(비즈 29×29 보드 단위 / 십자수 칸), 배경 지우기, 칸 고치기, 색 통째로 바꾸기
+- 실물 · 색 · 기호 보기, 색마다 개수, 구매 목록 복사, 인쇄용 PDF(보드·쪽마다 나눈 기호 도안)
+- 기존 픽셀 아트 도구(사진 픽셀화, 따라 그리기, 에디터·애니메이션)는 홈 아래 '픽셀 아트 도구'
 
-<p align="center">
-  <a href="https://m1zz.github.io/PixelMe/">Landing Page</a> &bull;
-  <a href="https://m1zz.github.io/PixelMe/privacy.html">Privacy Policy</a> &bull;
-  <a href="https://m1zz.github.io/PixelMe/terms.html">Terms of Service</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/platform-iOS%2018%2B-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/swift-5.0%2B-orange" alt="Swift">
-  <img src="https://img.shields.io/badge/UI-SwiftUI-purple" alt="SwiftUI">
-  <img src="https://img.shields.io/badge/version-2.0.0-green" alt="Version">
-</p>
-
----
-
-## Features
-
-| | Feature | Description |
+## 무료 / Pro
+| | 무료 | Pro |
 |---|---|---|
-| **9 Palettes** | GameBoy, NES, SNES, Vaporwave, Cyberpunk, Pastel, 8-Bit Retro, Film Noir, Original | Authentic color sets from iconic hardware |
-| **AI Dithering** | Floyd-Steinberg, Atkinson, Ordered | Intelligently reduce colors while preserving detail |
-| **Retro Filters** | CRT, Scanlines, Glitch, Vintage Game, VHS, Arcade | One-tap retro aesthetics |
-| **Batch Processing** | Unlimited images | Same settings, export as ZIP |
-| **Advanced Export** | PNG, JPEG, SVG, PDF | HD to 4K, transparent backgrounds |
-| **Templates** | 15+ templates, 8 presets | Profile pics, avatars, sprites, social media |
-| **GIF Animation** | Progressive pixelation, glitch, color cycling | Custom timeline editor |
-| **Layer System** | 12 blend modes | Opacity, locking, merge/flatten |
+| 도안 크기 | 비즈 보드 1장(29) · 십자수 40칸 | 보드 4×4(116) · 200칸 |
+| 인쇄용 PDF | — | ✅ |
+| 저장 | 3개 | 무제한 |
+| 이미지 | 한땀 표시 | 표시 없음 |
 
----
+판매: 월 ₩4,900 · 연 ₩29,900 · 평생 ₩59,000 (주간은 판매 중단, 기존 구독자 권한은 유지).
+결제 화면을 띄운 계기는 `paywall_shown.<reason>` 으로 FeedbackHub 에 남는다 (`HantamAnalytics`).
 
-## Tech Stack
-
-- **Swift 5.0+** / **SwiftUI**
-- **UIKit** + **Core Image** for image processing
-- **ImageIO** for GIF creation
-- **Combine** for reactive updates
-- **StoreKit 2** for in-app purchases
-
----
-
-## Getting Started
-
-```bash
-open PixelMe.xcodeproj
-# Build & Run: Cmd + R
-```
-
-### Quick Usage
-
-```swift
-@EnvironmentObject var manager: DataManager
-
-manager.selectedImage = myImage
-manager.selectedColorPalette = .vaporwave
-manager.ditheringType = .floydSteinberg
-manager.filterEffect = .crt
-manager.applyPixelEffect()
-// Result: manager.pixelatedImage
-```
-
----
-
-## Project Structure
-
-```
-PixelMe/
-├── Manager/
-│   ├── DataManager.swift        # Main coordinator
-│   ├── ColorPalette.swift       # 9 color palettes
-│   ├── ColorReduction.swift     # AI dithering algorithms
-│   ├── FilterEffects.swift      # 6 retro filters
-│   ├── BatchProcessor.swift     # Batch processing
-│   ├── ExportManager.swift      # Multi-format export
-│   ├── TemplateManager.swift    # Templates & presets
-│   ├── GIFCreator.swift         # GIF animation
-│   ├── LayerManager.swift       # Layer system
-│   ├── PurchaseManager.swift    # IAP management
-│   └── SubscriptionManager.swift
-├── Views/                       # SwiftUI views
-├── Extension/                   # Swift extensions
-├── Localizable.xcstrings        # EN/KO localization
-└── docs/                        # GitHub Pages landing page
-```
-
----
-
-## Documentation
-
-| Document | Description |
-|---|---|
-| [Landing Page](https://m1zz.github.io/PixelMe/) | Product landing page (EN/KO) |
-| [FEATURES.md](FEATURES.md) | Detailed feature descriptions & API docs |
-| [IMPLEMENTATION_GUIDE.md](IMPLEMENTATION_GUIDE.md) | UI implementation examples |
-| [CHECKLIST.md](CHECKLIST.md) | App Store launch checklist |
-| [IAP_INTEGRATION_GUIDE.md](IAP_INTEGRATION_GUIDE.md) | In-app purchase setup |
-| [PRIVACY_POLICY.md](PRIVACY_POLICY.md) | Privacy policy |
-| [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md) | Terms of service |
-
----
-
-## Contact
-
-**Developer**: Hyunho Lee
-**Email**: leeo@kakao.com
-
----
-
-## License
-
-All rights reserved. This source code is proprietary.
+## 개발
+- 테스트: `PixelMeTests/PatternEngineTests.swift` (scheme 에 포함, `Scripts/predeploy.sh` 가 돌린다)
+- 색표 원본: [beadcolors](https://github.com/maxcleme/beadcolors) (MIT), [DMC-ColorCodes](https://github.com/nathantspencer/DMC-ColorCodes)
+- 스토어 그림: `sh Scripts/capture_screens.sh <Debug .app>` → `python3 Scripts/make_marketing_screenshots.py` → `python3 Scripts/make_creative_assets.py`
+- 웹 페이지(en 루트 · ko · ja): `python3 Scripts/make_site.py`
+- 스토어 문구 `APPSTORE.md`, 릴리즈 노트 `RELEASE_NOTES.md` — 배포는 DeployBar 가 한다.

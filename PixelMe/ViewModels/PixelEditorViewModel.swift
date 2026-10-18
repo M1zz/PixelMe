@@ -53,12 +53,14 @@ final class PixelEditorViewModel: ObservableObject {
 
     // MARK: Palette
     @Published var selectedPalette: BuiltInPalette? = nil
+    /// Follow Along 시 샘플에서 추출한 팔레트
+    @Published var referencePalette: [PixelColor] = []
 
-    /// 현재 활성 팔레트 색상 (Lospec 선택 시 해당 팔레트, 아니면 기본 팔레트)
+    /// 현재 활성 팔레트 색상
+    /// 우선순위: Lospec 선택 > 샘플 색상 > 기본 16색
     var activePaletteColors: [PixelColor] {
-        if let palette = selectedPalette {
-            return palette.colors
-        }
+        if let palette = selectedPalette { return palette.colors }
+        if !referencePalette.isEmpty { return referencePalette }
         return Self.defaultPalette
     }
     
@@ -137,6 +139,36 @@ final class PixelEditorViewModel: ObservableObject {
         self.canvasHeight = size
         self.layers = [PixelLayer(name: "레이어 1", width: size, height: size)]
         self.referenceSample = sample
+
+        // 캔버스가 화면의 약 80%를 채우도록 초기 줌 설정
+        // pixelSize = 12 * scale 이므로 targetScale = 280 / (size * 12)
+        self.scale = max(1.0, 280.0 / CGFloat(size * 12))
+
+        // 샘플 픽셀에서 고유 색상을 빈도순으로 추출해 팔레트 구성
+        var freq: [PixelColor: Int] = [:]
+        for color in sample.pixels.values {
+            let pc = PixelColor(uiColor: UIColor(color))
+            freq[pc, default: 0] += 1
+        }
+        var seen = Set<PixelColor>()
+        var palette: [PixelColor] = []
+
+        // 배경색을 첫 번째로 추가
+        let bg = PixelColor(uiColor: UIColor(sample.backgroundColor))
+        if !bg.isTransparent { seen.insert(bg); palette.append(bg) }
+
+        // 나머지 색상을 빈도 내림차순으로 추가
+        for (pc, _) in freq.sorted(by: { $0.value > $1.value }) {
+            if !seen.contains(pc) && !pc.isTransparent {
+                seen.insert(pc)
+                palette.append(pc)
+            }
+        }
+        self.referencePalette = palette
+        // 첫 번째 픽셀 색상(가장 많이 쓰인 색)을 초기 선택색으로
+        if let first = freq.sorted(by: { $0.value > $1.value }).first?.key {
+            self.selectedColor = first
+        }
     }
 
     /// 사진 변환 결과(UIImage)로부터 에디터 초기화
