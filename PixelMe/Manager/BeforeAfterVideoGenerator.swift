@@ -223,7 +223,7 @@ class BeforeAfterVideoGenerator {
         }
     }
 
-    /// 하단 브랜딩: "Made with PixelMe"
+    /// 하단 브랜딩: "Made with Hantam"
     private static func drawBranding(in rect: CGRect, progress: Double, isPro: Bool) {
         let brandingHeight: CGFloat = 60
         let brandingRect = CGRect(
@@ -237,7 +237,7 @@ class BeforeAfterVideoGenerator {
         UIColor.black.withAlphaComponent(0.5).setFill()
         UIRectFill(brandingRect)
 
-        let brandText = isPro ? "PixelMe" : "Made with PixelMe"
+        let brandText = isPro ? "Hantam" : "Made with Hantam"
         let brandAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .semibold),
             .foregroundColor: UIColor.white.withAlphaComponent(0.8)
@@ -251,7 +251,7 @@ class BeforeAfterVideoGenerator {
             )
             (brandText as NSString).draw(at: brandPoint, withAttributes: brandAttributes)
         } else {
-            let linkText = "apps.apple.com/app/pixel-meme"
+            let linkText = "apps.apple.com/app/id6449769987"
             let linkAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 12, weight: .regular),
                 .foregroundColor: UIColor.white.withAlphaComponent(0.5)

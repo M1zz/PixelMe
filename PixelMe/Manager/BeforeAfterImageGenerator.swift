@@ -91,7 +91,7 @@ class BeforeAfterImageGenerator {
                 withAttributes: labelAttributes
             )
             
-            // Branding at bottom: "Made with PixelMe" + app link
+            // Branding at bottom: "Made with Hantam" + app link
             let brandNameAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 14, weight: .semibold),
                 .foregroundColor: UIColor.white.withAlphaComponent(0.7)
@@ -101,8 +101,8 @@ class BeforeAfterImageGenerator {
                 .foregroundColor: UIColor.white.withAlphaComponent(0.4)
             ]
 
-            let brandNameText = "Made with PixelMe"
-            let brandLinkText = "apps.apple.com/app/pixel-meme"
+            let brandNameText = "Made with Hantam"
+            let brandLinkText = "apps.apple.com/app/id6449769987"
 
             let brandNameSize = brandNameText.size(withAttributes: brandNameAttributes)
             let brandLinkSize = brandLinkText.size(withAttributes: brandLinkAttributes)

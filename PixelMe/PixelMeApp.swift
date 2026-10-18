@@ -19,7 +19,7 @@ struct PixelMeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CreatorContentView()
+            rootView
                 .environmentObject(manager)
                 .leeoSatisfactionCheck(PixelMeSpec.self)
                 .onAppear {
@@ -29,6 +29,19 @@ struct PixelMeApp: App {
                     handleAsepriteFile(url)
                 }
         }
+    }
+
+    @ViewBuilder
+    private var rootView: some View {
+        #if DEBUG
+        if let scene = ScreenshotScene.current {
+            ScreenshotSceneRoot(scene: scene)
+        } else {
+            CreatorContentView()
+        }
+        #else
+        CreatorContentView()
+        #endif
     }
 
     private func handleAsepriteFile(_ url: URL) {

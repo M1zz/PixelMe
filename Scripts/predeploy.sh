@@ -17,8 +17,17 @@ SCHEME="PixelMe"
 PROJECT_FLAG="-project"
 PROJECT="PixelMe.xcodeproj"
 
-# PixelMe scheme 에는 테스트 동작이 설정돼 있지 않다(PixelMeTests 는 scheme 밖).
-# 그래서 Release 빌드가 깨지지 않는지까지만 확인한다.
+# 도안 엔진 · PDF · 통계 이름 단위 테스트 (PixelMeTests/PatternEngineTests.swift)
+echo "🧪 단위 테스트 ($SCHEME)"
+# 이미 켜진 아이폰을 먼저 쓴다 — 막 켜지는 기기에서는 테스트 실행기가 앱을 못 띄울 때가 있다.
+DEST_ID=$(xcrun simctl list devices booted | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)
+[ -n "$DEST_ID" ] || DEST_ID=$(xcrun simctl list devices available | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)
+xcodebuild test \
+  "$PROJECT_FLAG" "$PROJECT" \
+  -scheme "$SCHEME" \
+  -destination "platform=iOS Simulator,id=$DEST_ID" \
+  -quiet
+
 echo "🔨 Release 빌드 확인 ($SCHEME)"
 xcodebuild build \
   "$PROJECT_FLAG" "$PROJECT" \
@@ -29,4 +38,3 @@ xcodebuild build \
 
 echo ""
 echo "✅ 게이트 통과 — 배포 가능"
-echo "   (scheme 에 테스트가 없어 Release 빌드까지만 확인했습니다)"

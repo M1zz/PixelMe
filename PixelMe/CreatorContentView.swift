@@ -21,6 +21,9 @@ struct CreatorContentView: View {
     @State private var showHomeAsepriteImporter = false
     @State private var showFollowAlongEditor = false
     @State private var importedAsepriteFrames: [AnimationFrame]? = nil
+    @State private var showPatternMaker = false
+    @State private var openedPattern: BeadPattern?
+    @State private var showHantamSettings = false
 
     // MARK: - Main rendering function
     var body: some View {
@@ -86,8 +89,17 @@ struct CreatorContentView: View {
     // MARK: - Sheet layer (primary sheets & covers)
     private var sheetLayer: some View {
         ZStack {
-            Color(AppConfig.backgroundColor).ignoresSafeArea()
+            Color.hantamBackground.ignoresSafeArea()
             HomeScreenView
+        }
+        .fullScreenCover(isPresented: $showPatternMaker) {
+            PatternMakerView()
+        }
+        .fullScreenCover(item: $openedPattern) { pattern in
+            PatternDetailView(pattern: pattern)
+        }
+        .sheet(isPresented: $showHantamSettings) {
+            HantamSettingsView()
         }
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
@@ -128,7 +140,7 @@ struct CreatorContentView: View {
             }
         }
         .sheet(isPresented: $viewModel.showPaywall) {
-            PaywallView(isProUser: $manager.isPremiumUser)
+            PaywallView(isProUser: $manager.isPremiumUser, reason: viewModel.paywallReason)
         }
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
@@ -143,39 +155,40 @@ struct CreatorContentView: View {
     // MARK: - Home Screen
     private var HomeScreenView: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 20) {
+                HantamHomeHeader { showHantamSettings = true }
+                    .padding(.top, 8)
 
-                // ── 1) Tool Grid: Create ──
+                // ── 1) 도안 만들기 (주 기능) ──
+                PatternHeroCard {
+                    HantamEvent.track("home_pattern_tapped")
+                    showPatternMaker = true
+                }
+                PatternStepsRow()
+
+                // ── 2) 내 도안 ──
+                MyPatternsSection { openedPattern = $0 }
+
+                // ── 3) 픽셀 아트 도구 ──
                 HomeToolGrid
-                    .padding(.top, 60)
-                    .padding(.horizontal, 20)
 
-                // ── 2) Feature Highlights: What You Can Create ──
-                HomeFeatureHighlights
-                    .padding(.top, 24)
-
-                // ── 3) Animation Gallery: 픽셀 애니메이션 샘플 ──
-                HomeAnimationGallery
-                    .padding(.top, 24)
-
-                // ── 4) Pro Banner: 프리미엄 ──
+                // ── 4) Pro ──
                 if !SubscriptionManager.shared.isProUser {
                     HomeProBanner
-                        .padding(.top, 20)
-                        .padding(.horizontal, 20)
                 }
 
-                Spacer(minLength: 60)
+                Spacer(minLength: 40)
             }
+            .padding(.horizontal, 20)
         }
     }
 
     // MARK: - Tool Grid
     private var HomeToolGrid: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Create")
+            Text("Pixel art tools")
                 .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(Color.hantamInk)
                 .accessibilityAddTraits(.isHeader)
 
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
@@ -191,7 +204,6 @@ struct CreatorContentView: View {
                         color: .blue
                     )
                 }
-                .accessibilityLabel("사진 픽셀화")
 
                 // Follow Along
                 Button {
@@ -204,7 +216,6 @@ struct CreatorContentView: View {
                         color: .purple
                     )
                 }
-                .accessibilityLabel("따라 그리기")
 
                 // Free Drawing → PixelEditorView (레이어·애니메이션·내보내기 통합)
                 Button {
@@ -217,7 +228,6 @@ struct CreatorContentView: View {
                         color: .green
                     )
                 }
-                .accessibilityLabel("자유 그리기")
 
                 // Import
                 Button {
@@ -230,148 +240,42 @@ struct CreatorContentView: View {
                         color: .indigo
                     )
                 }
-                .accessibilityLabel("파일 가져오기")
             }
         }
-    }
-
-    // MARK: - Feature Highlights (기능 하이라이트 가로 스크롤)
-    private var HomeFeatureHighlights: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text("What You Can Create")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-                .accessibilityAddTraits(.isHeader)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    FeatureHighlightCard(
-                        pixelIcon: PixelIconCatalog.film,
-                        title: "GIF Animation",
-                        description: "Frame-by-frame pixel animation with onion skinning",
-                        gradientColors: [.pink, .orange]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-
-                    FeatureHighlightCard(
-                        pixelIcon: PixelIconCatalog.grid,
-                        title: "Sprite Sheets",
-                        description: "Export animation frames as sprite sheets",
-                        gradientColors: [.cyan, .blue]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-
-                    FeatureHighlightCard(
-                        pixelIcon: PixelIconCatalog.export,
-                        title: "Import & Export",
-                        description: "Import & export .ase files",
-                        gradientColors: [.indigo, .purple]
-                    ) {
-                        showHomeAsepriteImporter = true
-                    }
-
-                    FeatureHighlightCard(
-                        pixelIcon: PixelIconCatalog.layers,
-                        title: "Layer Editing",
-                        description: "Multiple layers with opacity control",
-                        gradientColors: [.green, .teal]
-                    ) {
-                        showNewCanvasSheet = true
-                    }
-                }
-                .padding(.horizontal, 20)
-            }
-        }
-    }
-
-    // MARK: - Animation Gallery (픽셀 애니메이션 샘플 갤러리)
-    private var HomeAnimationGallery: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text("Pixel Animation Samples")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-                .accessibilityAddTraits(.isHeader)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    ForEach(animationSamples, id: \.name) { icon in
-                        VStack(spacing: 8) {
-                            PixelAnimatedIcon(icon: icon, size: 100)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(Color(AppConfig.toolBackgroundColor))
-                                )
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-
-                            Text(LocalizedStringKey(icon.name.prefix(1).uppercased() + icon.name.dropFirst()))
-                                .font(.system(size: 12, weight: .medium))
-                                .foregroundColor(.white.opacity(0.6))
-                        }
-                        .accessibilityLabel("픽셀 애니메이션: \(icon.name)")
-                    }
-                }
-                .padding(.horizontal, 20)
-            }
-        }
-    }
-
-    private var animationSamples: [PixelIconDefinition] {
-        [
-            PixelIconCatalog.runningChar,
-            PixelIconCatalog.bouncingBall,
-            PixelIconCatalog.campfire,
-            PixelIconCatalog.heartBeat,
-            PixelIconCatalog.rocket,
-            PixelIconCatalog.swordSlash,
-            PixelIconCatalog.spinCoin,
-            PixelIconCatalog.flag,
-        ]
     }
 
     // MARK: - Pro Banner (컴팩트한 프리미엄 배너)
     private var HomeProBanner: some View {
         Button {
+            viewModel.paywallReason = .homeBanner
             viewModel.showPaywall = true
         } label: {
             HStack(spacing: 12) {
-                PixelAnimatedIcon(icon: PixelIconCatalog.sparkle, size: 28)
+                Image(systemName: "printer.fill")
+                    .font(.system(size: 20))
+                    .foregroundStyle(Color.hantamAccent)
+                    .frame(width: 40, height: 40)
+                    .background(Color.hantamAccent.opacity(0.12), in: Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Unlock Pro")
+                    Text("Hantam Pro")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.white)
-                    Text("Unlimited pixelation · No watermark · 4K export")
-                        .font(.system(size: 11))
-                        .foregroundColor(.white.opacity(0.5))
-                        .lineLimit(1)
+                        .foregroundColor(Color.hantamInk)
+                    Text("Printable PDFs · Bigger patterns · No mark")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
                 }
 
                 Spacer()
 
-                Text("Try Free")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color.yellow)
-                    .cornerRadius(8)
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.tertiary)
             }
             .padding(14)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white.opacity(0.06))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.yellow.opacity(0.2), lineWidth: 1)
-                    )
-            )
+            .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 16))
         }
-        .accessibilityLabel("PixelMe 프로")
-        .accessibilityHint("모든 프리미엄 기능을 잠금 해제합니다")
+        .buttonStyle(.plain)
     }
 
     // MARK: - Drawing Screen Header
@@ -589,7 +493,10 @@ struct CreatorContentView: View {
         let isLocked = !FeatureGating.shared.canUsePixelSize(type)
 
         return Button {
-            if !isLocked {
+            if isLocked {
+                viewModel.paywallReason = .boardSize
+                viewModel.showPaywall = true
+            } else {
                 viewModel.selectBoardSize(type, manager: manager)
             }
         } label: {
@@ -613,7 +520,6 @@ struct CreatorContentView: View {
             }
         }
         .frame(height: 60)
-        .disabled(isLocked)
         .accessibilityLabel("보드 크기: \(type.rawValue)")
         .accessibilityValue(isSelected ? "선택됨" : (isLocked ? "잠김" : "선택되지 않음"))
         .accessibilityHint(isLocked ? "프로 버전이 필요합니다" : "탭하여 이 보드 크기를 선택합니다")
@@ -784,8 +690,8 @@ struct CreatorContentView: View {
             }
         }
         .frame(height: 60)
-        .accessibilityLabel("이메일로 문의하기")
-        .accessibilityHint("버그 제보와 기능 제안을 환영합니다")
+        .accessibilityLabel(Text("Contact via Email"))
+        .accessibilityHint(Text("Bug reports and feature ideas are welcome"))
     }
 
     private var ContactInstagramView: some View {
@@ -802,7 +708,7 @@ struct CreatorContentView: View {
             }
         }
         .frame(height: 60)
-        .accessibilityLabel("인스타그램 DM으로 문의하기")
+        .accessibilityLabel(Text("Instagram DM (@lee25_ios)"))
     }
 
     private var ShowHideGridView: some View {
@@ -923,16 +829,16 @@ struct HomeToolCard: View {
             VStack(spacing: 3) {
                 Text(title)
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.hantamInk)
                 Text(subtitle)
                     .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.4))
+                    .foregroundColor(.secondary)
                     .lineLimit(1)
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
-        .background(Color(AppConfig.toolBackgroundColor))
+        .background(Color.hantamCard)
         .cornerRadius(12)
     }
 }

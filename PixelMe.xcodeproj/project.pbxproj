@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01DA848155968674E57BB5F2 /* PatternDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860605EA74056A85F8885B8 /* PatternDetailView.swift */; };
+		06C17EF61AB36CE578CD1AB9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 11A1F0AFD814ABEA66A8341C /* InfoPlist.xcstrings */; };
 		0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */; };
-		2B9B33B607C34BDA943CDF19 /* PixelMeRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */; };
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
+		16761F1B391903E72AF42D60 /* PatternColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8655DC2C480AE3CF1C25D /* PatternColorData.swift */; };
 		1AE45C5E11344BA8AA82E26A /* CreatorColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */; };
+		25BF44D3C3F95A4D3298EC0D /* PatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA266BFBD1616F12C0E9FA31 /* PatternModel.swift */; };
+		2B9B33B607C34BDA943CDF19 /* PixelMeRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */; };
+		31C60FCC6CD98F6863744974 /* PatternStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90E358AF1AA3623D30D216C /* PatternStore.swift */; };
 		3CC20BD5105DEA77121F6E47 /* PowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */; };
 		3ED5F204E8A29B5887C48242 /* AsepriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */; };
 		3FB83995683F4D45AE78E034 /* CreatorToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */; };
@@ -39,8 +44,12 @@
 		58D012752A281F1F00668585 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D012742A281F1F00668585 /* Binding+Extension.swift */; };
 		58D576232A4E640C006277FB /* PixelatedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576222A4E640B006277FB /* PixelatedPhotoView.swift */; };
 		58D576252A4E6445006277FB /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D576242A4E6445006277FB /* PhotoPicker.swift */; };
+		6C7621FA2729C25CB691D945 /* ScreenshotScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1638E02C7BE4CAAD372600 /* ScreenshotScenes.swift */; };
+		6E1B821FF8E0B23C5DCD6278 /* HantamAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F20851D6E162FE747C23C /* HantamAnalytics.swift */; };
 		70855EC9C6D9447B225F6165 /* FilterPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A247E7AD4AC46B4FAA94A81 /* FilterPack.swift */; };
 		7F0A5E20B709D0D5974C40AD /* CanvasResizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA0C4A27A8652240E7608FA /* CanvasResizeView.swift */; };
+		8B0A6F223E147416781F24E7 /* LeeoKit in Frameworks */ = {isa = PBXBuildFile; productRef = C7AE87E0A0092300B0EEF58B /* LeeoKit */; };
+		9360F70C69F1CCB835E1E750 /* PatternMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A8B0B9F80364FA5B9DB4E /* PatternMakerView.swift */; };
 		96C35DA1EBF1E1E51BA8D68F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA211452AA0422EF2CC210 /* OnboardingView.swift */; };
 		9EA1EEC5BB0157F22775CAD2 /* FilterPackStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130E7395FEF5E5B665F631F /* FilterPackStoreView.swift */; };
 		A277CDE5DEDD406AAB63F5AF /* ProfilePixelateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */; };
@@ -55,6 +64,11 @@
 		AA5B2C3D4E5F6A7B8C9D0001 /* PixelIconDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1001 /* PixelIconDefinition.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0002 /* PixelAnimatedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0003 /* PixelIconCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */; };
+		B13F52AED2F3481862A5B3C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF32BADE975806E619CC8A1 /* Foundation.framework */; };
+		B6A919CB9550B77BFF826B21 /* HantamHomeSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */; };
+		BD3A58F87C44C1B2CB740AD8 /* PatternEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67102759E10EF5218DB451C2 /* PatternEngine.swift */; };
+		BE7CF64AECD03B6D0B247AFA /* PatternEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */; };
+		C7F4DA78D2E6DD5D61FF1555 /* PatternRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F9D4B81A004228DC952CA /* PatternRenderer.swift */; };
 		CE68B4F96E976C24A2733ED7 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */; };
 		D5DC5993800BE71085C85ED0 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADBC8DCC39630042622DB6 /* PurchaseManager.swift */; };
 		D745E85BC8AA38EF45722774 /* BeforeAfterVideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */; };
@@ -69,21 +83,38 @@
 		EE1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0007 /* TemplateManager.swift */; };
 		EE1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift */; };
 		F2C018810D9C4060D13D757B /* AdvancedColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */; };
+		FCFF1212D9C526249FCEB2C3 /* HantamTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623496F3F91604473477213F /* HantamTheme.swift */; };
 		FF776C1D23B5933CF50A4A99 /* AnimationTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A61BA48040EB899027EFA /* AnimationTimelineView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08BD355F6B99798698CF38CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58D012312A28147A00668585 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58D012382A28147A00668585;
+			remoteInfo = PixelMe;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03FB1CCBC584BDFCB73208F2 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeSpec.swift; sourceTree = "<group>"; };
-		DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeRoadmap.swift; sourceTree = "<group>"; };
 		0E0D9FAF714681039F7718D1 /* AdvancedColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdvancedColorPickerView.swift; sourceTree = "<group>"; };
+		11A1F0AFD814ABEA66A8341C /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		175A61BA48040EB899027EFA /* AnimationTimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationTimelineView.swift; sourceTree = "<group>"; };
 		176A1C934F7C47258BF99D4C /* BeforeAfterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageGenerator.swift; sourceTree = "<group>"; };
+		1860605EA74056A85F8885B8 /* PatternDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternDetailView.swift; sourceTree = "<group>"; };
+		1C4A8B0B9F80364FA5B9DB4E /* PatternMakerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternMakerView.swift; sourceTree = "<group>"; };
 		1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsepriteManager.swift; sourceTree = "<group>"; };
 		2130E7395FEF5E5B665F631F /* FilterPackStoreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPackStoreView.swift; sourceTree = "<group>"; };
 		28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorColorPaletteView.swift; path = Views/CreatorSubviews/CreatorColorPaletteView.swift; sourceTree = "<group>"; };
 		2A247E7AD4AC46B4FAA94A81 /* FilterPack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPack.swift; sourceTree = "<group>"; };
+		332F9D4B81A004228DC952CA /* PatternRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternRenderer.swift; sourceTree = "<group>"; };
 		37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorToolbarView.swift; path = Views/CreatorSubviews/CreatorToolbarView.swift; sourceTree = "<group>"; };
+		424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamHomeSections.swift; sourceTree = "<group>"; };
+		4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternEngineTests.swift; sourceTree = "<group>"; };
+		4FF32BADE975806E619CC8A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		587D17692F1FB4DF006DED5B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		58AA25302ED4A3CD00E8766A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,9 +140,13 @@
 		58D012742A281F1F00668585 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		58D576222A4E640B006277FB /* PixelatedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedPhotoView.swift; sourceTree = "<group>"; };
 		58D576242A4E6445006277FB /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		5A7F20851D6E162FE747C23C /* HantamAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamAnalytics.swift; sourceTree = "<group>"; };
+		623496F3F91604473477213F /* HantamTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamTheme.swift; sourceTree = "<group>"; };
+		67102759E10EF5218DB451C2 /* PatternEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternEngine.swift; sourceTree = "<group>"; };
 		6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePixelArt.swift; sourceTree = "<group>"; };
 		6FEC30B34B20424EB48A41B0 /* ProfilePixelateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePixelateView.swift; sourceTree = "<group>"; };
 		84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorViewModel.swift; path = ViewModels/CreatorViewModel.swift; sourceTree = "<group>"; };
+		9B1638E02C7BE4CAAD372600 /* ScreenshotScenes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotScenes.swift; sourceTree = "<group>"; };
 		AA0001012A4E640C006277FB /* SNSSizePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSSizePreset.swift; path = Models/SNSSizePreset.swift; sourceTree = "<group>"; };
 		AA0001032A4E640C006277FB /* SNSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSShareView.swift; path = Views/SNSShareView.swift; sourceTree = "<group>"; };
 		AA0001052A4E640C006277FB /* FreeUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeUsageManager.swift; path = Manager/FreeUsageManager.swift; sourceTree = "<group>"; };
@@ -119,12 +154,17 @@
 		AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAnimatedIcon.swift; sourceTree = "<group>"; };
 		AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelIconCatalog.swift; sourceTree = "<group>"; };
 		B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PowerManager.swift; sourceTree = "<group>"; };
+		BA266BFBD1616F12C0E9FA31 /* PatternModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternModel.swift; sourceTree = "<group>"; };
+		C334DC4C84660A72153C1D02 /* PixelMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8B8655DC2C480AE3CF1C25D /* PatternColorData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternColorData.swift; sourceTree = "<group>"; };
+		C90E358AF1AA3623D30D216C /* PatternStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternStore.swift; sourceTree = "<group>"; };
 		CC1B2C3D4E5F6A7B8C9D0E1F /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		CC2B2C3D4E5F6A7B8C9D0E2F /* FeatureGating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureGating.swift; sourceTree = "<group>"; };
 		CC3B2C3D4E5F6A7B8C9D0E3F /* PreviewWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWallView.swift; sourceTree = "<group>"; };
 		CC4B2C3D4E5F6A7B8C9D0E4F /* ExportPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPaywallView.swift; sourceTree = "<group>"; };
 		D1B73E0937DD5196974A90D3 /* FilterPackManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPackManager.swift; sourceTree = "<group>"; };
 		D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BeforeAfterVideoGenerator.swift; sourceTree = "<group>"; };
+		DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PixelMeRoadmap.swift; sourceTree = "<group>"; };
 		DD1A2C3D4E5F6A7B8C9D0001 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		DD1A2C3D4E5F6A7B8C9D0002 /* ColorReduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorReduction.swift; sourceTree = "<group>"; };
 		DD1A2C3D4E5F6A7B8C9D0003 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
@@ -147,9 +187,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F851DD308FF1C77B01EDD55E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B13F52AED2F3481862A5B3C2 /* Foundation.framework in Frameworks */,
+				8B0A6F223E147416781F24E7 /* LeeoKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34259FB4772D148CA1A5703B /* PixelMeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */,
+			);
+			name = PixelMeTests;
+			path = PixelMeTests;
+			sourceTree = "<group>";
+		};
 		58C863B12F53677100B3995A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +248,8 @@
 			children = (
 				58D0123B2A28147A00668585 /* PixelMe */,
 				58D0123A2A28147A00668585 /* Products */,
+				91AF33B9F591B72A191234F5 /* Frameworks */,
+				34259FB4772D148CA1A5703B /* PixelMeTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				58D012392A28147A00668585 /* PixelMe.app */,
+				C334DC4C84660A72153C1D02 /* PixelMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +288,8 @@
 				28B2B41D53C04BFE885672B4 /* CreatorColorPaletteView.swift */,
 				0BA8C1650184DBD36BA8315B /* PixelMeSpec.swift */,
 				DAFDD328E6EB4B2DBE4765A8 /* PixelMeRoadmap.swift */,
+				C213E30E2E7B04AFD7650409 /* Pattern */,
+				11A1F0AFD814ABEA66A8341C /* InfoPlist.xcstrings */,
 			);
 			path = PixelMe;
 			sourceTree = "<group>";
@@ -261,6 +324,7 @@
 				559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */,
 				B74F124BE8EC0E5B5F59DB98 /* PowerManager.swift */,
 				1DA64E6F624FEFB0EFA5E6DE /* AsepriteManager.swift */,
+				5A7F20851D6E162FE747C23C /* HantamAnalytics.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -274,6 +338,14 @@
 				58D0126A2A28156700668585 /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		91AF33B9F591B72A191234F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB9A2411416DD1DB5CA4A88C /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AA5B2C3D4E5F6A7B8C9D2001 /* Components */ = {
@@ -307,6 +379,32 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C213E30E2E7B04AFD7650409 /* Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */,
+				623496F3F91604473477213F /* HantamTheme.swift */,
+				C8B8655DC2C480AE3CF1C25D /* PatternColorData.swift */,
+				1860605EA74056A85F8885B8 /* PatternDetailView.swift */,
+				67102759E10EF5218DB451C2 /* PatternEngine.swift */,
+				1C4A8B0B9F80364FA5B9DB4E /* PatternMakerView.swift */,
+				BA266BFBD1616F12C0E9FA31 /* PatternModel.swift */,
+				332F9D4B81A004228DC952CA /* PatternRenderer.swift */,
+				C90E358AF1AA3623D30D216C /* PatternStore.swift */,
+				9B1638E02C7BE4CAAD372600 /* ScreenshotScenes.swift */,
+			);
+			name = Pattern;
+			path = Pattern;
+			sourceTree = "<group>";
+		};
+		EB9A2411416DD1DB5CA4A88C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4FF32BADE975806E619CC8A1 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +429,27 @@
 			productReference = 58D012392A28147A00668585 /* PixelMe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		777AFB9DBAAA120B83BD982B /* PixelMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C3CF129226C4DA30F91A627 /* Build configuration list for PBXNativeTarget "PixelMeTests" */;
+			buildPhases = (
+				12EC5DD9DB16F1EAFD1026A0 /* Sources */,
+				F851DD308FF1C77B01EDD55E /* Frameworks */,
+				00E50C5D7CB66062ED8FA823 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F390400C5A3C77CFCF1D9B4C /* PBXTargetDependency */,
+			);
+			name = PixelMeTests;
+			packageProductDependencies = (
+				C7AE87E0A0092300B0EEF58B /* LeeoKit */,
+			);
+			productName = PixelMeTests;
+			productReference = C334DC4C84660A72153C1D02 /* PixelMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,6 +472,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				ja,
 			);
 			mainGroup = 58D012302A28147A00668585;
 			packageReferences = (
@@ -363,11 +484,19 @@
 			projectRoot = "";
 			targets = (
 				58D012382A28147A00668585 /* PixelMe */,
+				777AFB9DBAAA120B83BD982B /* PixelMeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		00E50C5D7CB66062ED8FA823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58D012372A28147A00668585 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,6 +504,7 @@
 				58AA25312ED4A3CD00E8766A /* Assets.xcassets in Resources */,
 				58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */,
 				587D176A2F1FB4DF006DED5B /* Localizable.xcstrings in Resources */,
+				06C17EF61AB36CE578CD1AB9 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +533,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		12EC5DD9DB16F1EAFD1026A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE7CF64AECD03B6D0B247AFA /* PatternEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58D012352A28147A00668585 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -466,12 +604,48 @@
 				EE1A2C3D4E5F6A7B8C9D0008 /* GIFCreator.swift in Sources */,
 				0EA3D141D0A51A051C80BECA /* PixelMeSpec.swift in Sources */,
 				2B9B33B607C34BDA943CDF19 /* PixelMeRoadmap.swift in Sources */,
+				B6A919CB9550B77BFF826B21 /* HantamHomeSections.swift in Sources */,
+				FCFF1212D9C526249FCEB2C3 /* HantamTheme.swift in Sources */,
+				16761F1B391903E72AF42D60 /* PatternColorData.swift in Sources */,
+				01DA848155968674E57BB5F2 /* PatternDetailView.swift in Sources */,
+				BD3A58F87C44C1B2CB740AD8 /* PatternEngine.swift in Sources */,
+				9360F70C69F1CCB835E1E750 /* PatternMakerView.swift in Sources */,
+				25BF44D3C3F95A4D3298EC0D /* PatternModel.swift in Sources */,
+				C7F4DA78D2E6DD5D61FF1555 /* PatternRenderer.swift in Sources */,
+				31C60FCC6CD98F6863744974 /* PatternStore.swift in Sources */,
+				6E1B821FF8E0B23C5DCD6278 /* HantamAnalytics.swift in Sources */,
+				6C7621FA2729C25CB691D945 /* ScreenshotScenes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F390400C5A3C77CFCF1D9B4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PixelMe;
+			target = 58D012382A28147A00668585 /* PixelMe */;
+			targetProxy = 08BD355F6B99798698CF38CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		241675DD4DE4D70882C5CE48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixelMe";
+			};
+			name = Debug;
+		};
 		58D0125B2A28147D00668585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -606,9 +780,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelMe/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PixelMeMe;
+				INFOPLIST_KEY_CFBundleDisplayName = Hantam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Hantam saves your patterns and pixel art to Photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -619,7 +793,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -643,9 +817,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelMe/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PixelMeMe;
+				INFOPLIST_KEY_CFBundleDisplayName = Hantam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save image to Photos app";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Hantam saves your patterns and pixel art to Photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -656,7 +830,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -665,6 +839,23 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		8E9EB778276978882F953C7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.PixelMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixelMe";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -689,6 +880,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5C3CF129226C4DA30F91A627 /* Build configuration list for PBXNativeTarget "PixelMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E9EB778276978882F953C7F /* Release */,
+				241675DD4DE4D70882C5CE48 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -704,6 +904,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		002C0DDE3311CAB65E3938EF /* LeeoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE6467C1AEA0BA158590B080 /* XCRemoteSwiftPackageReference "LeeoKit" */;
+			productName = LeeoKit;
+		};
+		C7AE87E0A0092300B0EEF58B /* LeeoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE6467C1AEA0BA158590B080 /* XCRemoteSwiftPackageReference "LeeoKit" */;
 			productName = LeeoKit;

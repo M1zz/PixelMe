@@ -13,6 +13,7 @@ struct PixelatedPhotoView: View {
     @EnvironmentObject var manager: DataManager
     @State private var didShowInterstitial: Bool = false
     @State private var showAdvancedSettings: Bool = false
+    @State private var paywallReason: PaywallReason?
     @State private var showSNSShare: Bool = false
     @State private var selectedTab: Int = 0
     @State private var showShareSheet: Bool = false
@@ -147,6 +148,9 @@ struct PixelatedPhotoView: View {
             AdvancedSettingsView()
                 .environmentObject(manager)
         }
+        .sheet(item: $paywallReason) { reason in
+            PaywallView(isProUser: .constant(false), reason: reason)
+        }
         .sheet(isPresented: $showShareSheet) {
             if let original = manager.selectedImage,
                let pixelated = manager.pixelatedImage {
@@ -276,7 +280,7 @@ struct PixelatedPhotoView: View {
 
         Button {
             if isLocked {
-                showAdvancedSettings = true
+                paywallReason = .pixelSize
             } else {
                 manager.pixelBoardSize = type
                 manager.applyPixelEffect(showFilterFlow: false)
@@ -336,7 +340,7 @@ struct PixelatedPhotoView: View {
         Button {
             if isLocked {
                 // Show paywall for locked palettes
-                showAdvancedSettings = true
+                paywallReason = .palette
             } else {
                 manager.selectedColorPalette = palette
                 manager.applyPixelEffect(showFilterFlow: false)
@@ -571,7 +575,7 @@ struct PixelatedPhotoView: View {
         Button {
             if isLocked {
                 // Show paywall for locked filters
-                showAdvancedSettings = true
+                paywallReason = .advanced
             } else {
                 manager.filterEffect = filter
                 if filter != .none {
@@ -694,7 +698,7 @@ struct PixelatedPhotoView: View {
 
                         Button {
                             if isLocked {
-                                showAdvancedSettings = true
+                                paywallReason = .dithering
                             } else {
                                 manager.ditheringType = dithering
                                 manager.applyPixelEffect(showFilterFlow: false)

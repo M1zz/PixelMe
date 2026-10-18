@@ -173,7 +173,7 @@ class SubscriptionManager: ObservableObject {
 
     /// 월간 구독 가격 반환
     func getMonthlyPrice() -> String {
-        return getMonthlyProduct()?.displayPrice ?? "₩6,900"
+        return getMonthlyProduct()?.displayPrice ?? "₩4,900"
     }
 
     /// 연간 구독 가격 반환
@@ -183,7 +183,7 @@ class SubscriptionManager: ObservableObject {
 
     /// 평생 구매 가격 반환
     func getLifetimePrice() -> String {
-        return getLifetimeProduct()?.displayPrice ?? "₩89,000"
+        return getLifetimeProduct()?.displayPrice ?? "₩59,000"
     }
 
     /// 연간 구독의 주당 환산 가격 반환

@@ -48,5 +48,5 @@ enum PixelMeSpec: LeeoAppSpec {
     )
 
     /// 익명 사용 통계 → FeedbackHub. 없으면 bootstrap 이 스냅샷·app_open 을 건너뛴다.
-    static let analytics: any LeeoAnalytics = LeeoUsageAnalytics(spec: PixelMeSpec.self)
+    static let analytics: any LeeoAnalytics = HantamAnalytics(spec: PixelMeSpec.self)
 }

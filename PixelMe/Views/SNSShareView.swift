@@ -131,7 +131,7 @@ struct SNSShareSheet: UIViewControllerRepresentable {
     let isPremium: Bool
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        var shareText = "Made with PixelMe 🎨"
+        var shareText = "Made with Hantam"
         if !isPremium {
             shareText += "\nhttps://apps.apple.com/app/pixelme-pixel-art-creator/id6450535064"
         }
@@ -149,7 +149,7 @@ struct VideoShareSheet: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIActivityViewController {
         var items: [Any] = [videoURL]
         if !SubscriptionManager.shared.isProUser {
-            let shareText = "Made with PixelMe 🎨\n\(FreeUsageManager.appStoreURL)"
+            let shareText = "Made with Hantam\n\(FreeUsageManager.appStoreURL)"
             items.append(shareText)
         }
         let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)

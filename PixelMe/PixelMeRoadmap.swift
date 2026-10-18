@@ -18,6 +18,15 @@ import LeeoKit
 extension PixelMeSpec {
     static var roadmap: [LeeoRoadmapItem] {[
         // MARK: 다음에 만들어요
+        .init(id: "pattern.owned-colors", status: .planned,
+              title: NSLocalizedString("Use only colors I own", comment: "Roadmap item: limit pattern to owned colors"),
+              detail: NSLocalizedString("Check the beads or thread you have, and patterns use only those colors.", comment: "Roadmap item detail: limit pattern to owned colors")),
+        .init(id: "pattern.cleanup", status: .planned,
+              title: NSLocalizedString("Tidy up stray beads", comment: "Roadmap item: remove single stray beads"),
+              detail: NSLocalizedString("Lonely single beads of an odd color are smoothed out in one tap.", comment: "Roadmap item detail: remove single stray beads")),
+        .init(id: "pattern.mini-beads", status: .planned,
+              title: NSLocalizedString("Mini beads and more brands", comment: "Roadmap item: more bead brands"),
+              detail: NSLocalizedString("Patterns for 2.6 mm mini beads and more bead brands.", comment: "Roadmap item detail: more bead brands")),
         .init(id: "a11y.voiceover", status: .planned,
               title: NSLocalizedString("Better VoiceOver support", comment: "Roadmap item: better VoiceOver support"),
               detail: NSLocalizedString("VoiceOver reads every button and tool, in the right order.", comment: "Roadmap item detail: better VoiceOver support")),

@@ -41,6 +41,7 @@ class CreatorViewModel: ObservableObject {
     @Published var showWatermarkPicker: Bool = false
     @Published var showSettingsSheet: Bool = false
     @Published var showPaywall: Bool = false
+    @Published var paywallReason: PaywallReason = .homeBanner
 
     // MARK: - Home Screen
     @Published var showHomeScreen: Bool = true

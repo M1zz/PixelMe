@@ -296,7 +296,7 @@ class ExportManager {
             
             // 비Pro 사용자: 앱 링크 추가
             if !UserDefaults.standard.bool(forKey: AppConfig.premiumVersion) {
-                let shareText = "Created with PixelMe 🎨\n\(FreeUsageManager.appStoreURL)"
+                let shareText = "Made with Hantam\n\(FreeUsageManager.appStoreURL)"
                 activityItems.append(shareText)
             }
 

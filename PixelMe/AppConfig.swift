@@ -14,14 +14,14 @@ class AppConfig {
     
     // MARK: - Version (Single source of truth)
     /// 앱 버전 - 여기서만 관리. pbxproj의 MARKETING_VERSION과 일치시킬 것.
-    static let appVersion: String = "2.0.1"
+    static let appVersion: String = "2.1.0"
     static let buildNumber: String = "1"
     
     // MARK: - Settings flow items
     static let emailSupport = "leeo@kakao.com"
     static let privacyURL: URL = URL(string: "https://m1zz.github.io/PixelMe/privacy.html")!
     static let termsAndConditionsURL: URL = URL(string: "https://m1zz.github.io/PixelMe/terms.html")!
-    static let yourAppURL: URL = URL(string: "https://apps.apple.com/app/pixel-meme/id6449769987")!
+    static let yourAppURL: URL = URL(string: "https://apps.apple.com/app/id6449769987")!
     
     // MARK: - UI Styles
     static let backgroundColor: UIColor = UIColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
