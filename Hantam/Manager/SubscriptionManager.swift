@@ -145,7 +145,7 @@ class SubscriptionManager: ObservableObject {
         #if DEBUG
         if let p = ScreenshotScene.reviewPrice("monthly") { return p }
         #endif
-        return getMonthlyProduct()?.displayPrice ?? "₩4,900"
+        return getMonthlyProduct()?.displayPrice ?? "₩6,600"
     }
 
     /// 연간 구독 가격 반환
@@ -153,7 +153,7 @@ class SubscriptionManager: ObservableObject {
         #if DEBUG
         if let p = ScreenshotScene.reviewPrice("yearly") { return p }
         #endif
-        return getYearlyProduct()?.displayPrice ?? "₩29,900"
+        return getYearlyProduct()?.displayPrice ?? "₩44,000"
     }
 
     /// 평생 구매 가격 반환
@@ -161,7 +161,7 @@ class SubscriptionManager: ObservableObject {
         #if DEBUG
         if let p = ScreenshotScene.reviewPrice("lifetime") { return p }
         #endif
-        return getLifetimeProduct()?.displayPrice ?? "₩59,000"
+        return getLifetimeProduct()?.displayPrice ?? "₩77,000"
     }
 
     /// 연간 구독의 월 환산 가격 반환
@@ -169,7 +169,7 @@ class SubscriptionManager: ObservableObject {
         #if DEBUG
         if let p = ScreenshotScene.reviewPrice("yearlyMonthly") { return p }
         #endif
-        guard let yearlyProduct = getYearlyProduct() else { return "₩2,492" }
+        guard let yearlyProduct = getYearlyProduct() else { return "₩3,667" }
 
         let yearlyPrice = yearlyProduct.price
         let monthlyPrice = yearlyPrice / 12
@@ -178,7 +178,7 @@ class SubscriptionManager: ObservableObject {
         formatter.numberStyle = .currency
         formatter.locale = yearlyProduct.priceFormatStyle.locale
 
-        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩2,492"
+        return formatter.string(from: monthlyPrice as NSNumber) ?? "₩3,667"
     }
 
     /// 상품들이 로드되었는지 확인

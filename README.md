@@ -17,7 +17,7 @@
 | 저장 | 3개 | 무제한 |
 | 이미지 | 한땀 표시 | 표시 없음 |
 
-판매: 월 ₩4,900(`com.hantam.pro.monthly`) · 연 ₩29,900(`com.hantam.pro.yearly`) · 평생 ₩59,000(`com.pixelme.pro.lifetime`). 예전 `com.pixelme.pro.weekly·monthly·yearly` 는 팔지 않고 산 사람만 Pro 로 인정.
+판매: 앱 다운로드 ₩6,600(유료) · 월 ₩6,600(`com.hantam.pro.monthly`) · 연 ₩44,000(`com.hantam.pro.yearly`) · 평생 ₩77,000(`com.pixelme.pro.lifetime`). 예전 `com.pixelme.pro.weekly·monthly·yearly` 는 팔지 않고 산 사람만 Pro 로 인정.
 결제 화면을 띄운 계기는 `paywall_shown.<reason>` 으로 FeedbackHub 에 남는다 (`HantamAnalytics`).
 
 ## 개발
