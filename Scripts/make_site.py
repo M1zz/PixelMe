@@ -230,6 +230,7 @@ def page(lang, name, title, body):
     t = T[lang]
     prefix = "../" if LANGS[lang] else ""
     alt = "\n".join(f'<link rel="alternate" hreflang="{l}" href="{BASE}{p}{name}">' for l, p in LANGS.items())
+    alt += f'\n<link rel="alternate" hreflang="en-GB" href="{BASE}{LANGS["en"]}{name}">'  # en-GB 는 영어 페이지를 같이 쓴다
     alt += f'\n<link rel="alternate" hreflang="x-default" href="{BASE}{name}">'
     navfiles = ["index.html", "support.html", "privacy.html", "terms.html"]
     nav = "".join(f'<a href="{f}">{html.escape(n)}</a>' for f, n in zip(navfiles, t["nav"]))

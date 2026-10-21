@@ -200,3 +200,69 @@ Perler、Hama、Artkal、DMCは各社の商標です。Hantamはこれらの会�
 
 利用規約：https://m1zz.github.io/PixelMe/ja/terms.html
 プライバシーポリシー：https://m1zz.github.io/PixelMe/ja/privacy.html
+
+## en-GB
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/
+
+### 이름
+
+Hantam: Bead & Cross Stitch
+
+### 부제
+
+Turn Photos into DIY Patterns
+
+### 키워드
+
+fuse,melty,pixel,embroidery,needlepoint,chart,craft,mosaic,pegboard,pet,portrait,knit,keyring,hobby
+
+### 프로모션 텍스트
+
+Snap your dog, your child or a favourite character and get a bead or cross-stitch pattern in real colours, with counts for every colour and a printable chart.
+
+### 설명
+
+Turn any photo into a fuse bead or cross-stitch pattern, matched to colours you can actually buy.
+Pick a photo, choose beads or thread, and Hantam tells you exactly which colours you need and how many.
+
+REAL COLORS, REAL NUMBERS
+Patterns use the colour charts of Perler, Hama Midi and Artkal S fuse beads and DMC embroidery floss. Every square shows its colour number, and the colour list counts how many beads or stitches each one needs.
+
+MADE FOR PEGBOARDS AND FABRIC
+Bead patterns are split into 29 by 29 pegboards with bold board lines. Cross-stitch patterns show bold lines every 10 stitches and the finished size for 11, 14, 16 or 18 count fabric.
+
+YOU DECIDE THE LOOK
+Set the size and the number of colours and watch the preview change. Remove the background to keep only the subject. Tap any square to fix it, or swap one colour for another across the whole pattern.
+
+THREE WAYS TO VIEW
+See it as real beads or stitches, as flat colours, or as a symbol chart.
+
+PRINT AND MAKE
+Export a printable PDF with a preview, the colour list and a symbol chart for every board or page. Copy a shopping list with spare beads included.
+
+PIXEL ART TOOLS INCLUDED
+Pixelate photos with retro palettes and filters, draw along with 110 samples, and build frame by frame animations with layers and onion skin.
+
+PRIVATE BY DESIGN
+Your photos and patterns stay on your iPhone.
+
+HANTAM PRO
+Free lets you make patterns up to one pegboard or 40 stitches, keep 3 patterns and share images with a small Hantam mark. Pro adds printable PDF patterns, patterns up to 4 by 4 pegboards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Choose a monthly or yearly subscription, or pay once for lifetime access.
+
+Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Your Apple Account is charged within 24 hours before renewal. Manage or cancel anytime in your Apple Account settings.
+
+Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colours on screen may differ slightly from the real products.
+
+Terms of Use: https://m1zz.github.io/PixelMe/terms.html
+Privacy Policy: https://m1zz.github.io/PixelMe/privacy.html
