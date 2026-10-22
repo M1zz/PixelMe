@@ -516,6 +516,85 @@ T["de"] = {'brand': 'Hantam',
            ('Anwendbares Recht', ['Diese Bedingungen unterliegen dem Recht der Republik Korea.'])],
  'dev': 'Entwickler: Hyunho Lee'}
 
+LANGS["fr"] = "fr/"
+LANG_NAME["fr"] = 'Français'
+UPDATED["fr"] = '18 octobre 2026'
+STORE_LANG["fr"] = "fr-FR"
+T["fr"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Grilles de perles à repasser et de point de croix',
+ 'desc': 'Transformez n’importe quelle photo en grille de perles à repasser ou de point de croix, aux vraies couleurs Perler, Hama, Artkal et DMC.',
+ 'nav': ('Accueil', 'Assistance', 'Confidentialité', 'Conditions'),
+ 'hero_h': 'D’une photo à une grille',
+ 'hero_p': 'Choisissez une photo de votre animal, de vous ou d’un personnage préféré. Hantam en fait une grille de perles à repasser ou de point de croix, avec des couleurs que '
+           'vous pouvez acheter.',
+ 'cta': 'Télécharger sur l’App Store',
+ 'features': [('De vraies couleurs', 'Perles Perler, Hama et Artkal et fils DMC. Chaque case affiche un vrai numéro de couleur.'),
+              ('Vous savez quoi acheter', 'Voyez combien de perles ou de points chaque couleur demande, et copiez une liste de courses.'),
+              ('Plaque par plaque', 'Les grandes grilles sont découpées en plaques de 29 × 29, avec des traits épais aux limites.'),
+              ('Corrigez chaque case', 'Touchez une case pour la modifier, ou remplacez une couleur par une autre partout.'),
+              ('Imprimez et réalisez', 'Avec Pro, exportez un PDF à imprimer : liste des couleurs et grilles à symboles, page par page.'),
+              ('Du pixel art aussi', 'Pixelisez des photos, calquez 110 modèles et animez image par image.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'La version gratuite permet des grilles jusqu’à une plaque (ou 40 points), 3 grilles enregistrées et le partage d’images avec une petite marque. Pro ajoute les PDF à '
+          'imprimer, des grilles jusqu’à 4 × 4 plaques ou 200 points, l’enregistrement illimité, les images sans marque et tous les outils de pixel art. Choisissez un abonnement '
+          'mensuel ou annuel, ou un achat unique à vie.',
+ 'tm': 'Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs. Hantam n’est affilié à aucune de ces sociétés.',
+ 'support_h': 'Assistance',
+ 'support_p': 'Questions, signalements de bugs et idées sont les bienvenus. Le plus rapide : Réglages › Envoyer des commentaires dans l’app, ou nous écrire par e-mail.',
+ 'faq': [('Comment restaurer mon achat ?',
+          'Ouvrez les Réglages de l’app et touchez Restaurer les achats. Utilisez le même compte Apple que celui avec lequel vous avez acheté Pro.'),
+         ('Comment résilier un abonnement ?',
+          'Allez dans Réglages de l’iPhone › votre nom › Abonnements, puis choisissez Hantam. L’accès à vie est un achat unique et ne se renouvelle jamais.'),
+         ('Les couleurs diffèrent un peu de mes perles.',
+          'Les écrans affichent les couleurs autrement que le plastique et le fil réels. Touchez une couleur dans la liste pour la remplacer par une teinte plus proche de la même '
+          'marque.'),
+         ('Quelle taille peut avoir une grille ?',
+          'Les grilles gratuites tiennent sur une plaque de 29 × 29, ou 40 points sur le plus grand côté. Pro va jusqu’à 4 × 4 plaques (116 perles) ou 200 points.'),
+         ('Mes photos sont-elles envoyées sur un serveur ?', 'Non. Les photos et les grilles sont traitées et enregistrées uniquement sur votre iPhone.')],
+ 'contact': 'Contact',
+ 'privacy_h': 'Politique de confidentialité',
+ 'terms_h': 'Conditions d’utilisation',
+ 'updated': 'Dernière mise à jour',
+ 'privacy': [('En bref',
+              ['Vos photos et vos grilles ne quittent jamais votre iPhone. Nous ne recueillons que des statistiques anonymes qui ne permettent pas de vous identifier.']),
+             ('Photos',
+              ['Hantam ne lit une photo que lorsque vous la choisissez. La transformation en grille se fait sur votre appareil.',
+               'Les photos ne sont jamais envoyées, stockées sur un serveur ni partagées.']),
+             ('Les grilles que vous créez',
+              ['Les grilles sont enregistrées dans l’espace de stockage de l’app sur votre iPhone. Si vous supprimez l’app, elles sont supprimées avec elle.']),
+             ('Achats', ['Apple gère tous les paiements. Nous savons seulement si Pro est actif, jamais vos coordonnées de paiement.']),
+             ('Statistiques anonymes et rapports de plantage',
+              ['Pour compter les utilisateurs, savoir quelles fonctions sont utilisées et corriger les plantages, l’app envoie des données anonymes à Apple iCloud (CloudKit), '
+               'lisibles uniquement par le développeur :',
+               'un identifiant aléatoire créé à l’installation (non lié à vous, à votre compte Apple ni à d’autres apps ; il change si vous réinstallez), la version de l’app et '
+               'd’iOS, la région et la langue, les jours d’ouverture de l’app, les fonctions utilisées (par exemple, une grille créée, un PDF exporté ou l’écran d’achat affiché) '
+               'et les détails des plantages.',
+               'Aucun nom, coordonnée, position, photo ou grille n’est inclus. Rien n’est envoyé si vous n’êtes pas connecté à iCloud.']),
+             ('Commentaires',
+              ['Si vous envoyez un commentaire depuis l’app, nous recevons ce que vous écrivez et, seulement si vous l’ajoutez, votre adresse e-mail pour pouvoir vous répondre.']),
+             ('Aucun suivi', ['Pas de publicité, pas d’outil d’analyse tiers et aucun suivi entre d’autres apps ou sites web.']),
+             ('Enfants', ['Hantam convient à tous les âges. Nous ne recueillons pas sciemment de données personnelles d’enfants.']),
+             ('Modifications', ['Si cette politique change, nous publierons ici la nouvelle version avec une nouvelle date.'])],
+ 'terms': [('Utilisation de l’app', ['En utilisant Hantam, vous acceptez ces conditions. Si vous n’êtes pas d’accord, merci de ne pas utiliser l’app.']),
+           ('Ce que fait Hantam',
+            ['Hantam transforme des photos en grilles de perles à repasser et de point de croix, et comprend des outils de pixel art. Les couleurs à l’écran sont approchantes et '
+             'peuvent différer des produits réels.']),
+           ('Votre contenu',
+            ['Les photos que vous choisissez et les grilles que vous créez vous appartiennent. Assurez-vous d’avoir le droit d’utiliser les photos que vous transformez en '
+             'grilles, surtout si vous vendez vos créations.']),
+           ('Hantam Pro',
+            ['Pro est vendu via l’App Store d’Apple, sous forme d’abonnement mensuel ou annuel à renouvellement automatique, ou d’accès à vie en achat unique.',
+             'Les abonnements se renouvellent automatiquement, sauf annulation au moins 24 heures avant la fin de la période en cours. Votre compte Apple est débité dans les 24 '
+             'heures précédant le renouvellement. Vous pouvez gérer ou annuler dans les réglages de votre compte Apple.',
+             'Si un essai gratuit est proposé, sa partie inutilisée prend fin dès que vous souscrivez un abonnement. Les remboursements suivent la politique d’Apple.']),
+           ('Règles', ['Ne faites pas de rétro-ingénierie de l’app et ne l’utilisez pas à des fins illégales.']),
+           ('Absence de garantie',
+            ['L’app est fournie en l’état, sans garantie d’aucune sorte. Dans la mesure permise par la loi, notre responsabilité est limitée au montant que vous avez payé pour '
+             'l’app.']),
+           ('Marques', ['Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs. Hantam n’est ni affilié à ces sociétés ni approuvé par elles.']),
+           ('Droit applicable', ['Ces conditions sont régies par les lois de la République de Corée.'])],
+ 'dev': 'Développeur : Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

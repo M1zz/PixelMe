@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -84,6 +84,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Ausdrucken und<br>loslegen', 'Vorlagen pro Platte und Farbliste als PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Auch Kreuzstich-<br>Vorlagen', 'Garnnummern und Größe für deinen Stoff'),
         ('06-home.png', 'home', 'accent', 'Alle Vorlagen<br>an einem Ort', 'Schlüsselanhänger, Rahmen und Geschenke'),
+    ],
+    "fr": [
+        ('01-photo.png', 'maker', 'hero', 'D’une photo à une<br>grille de perles', 'Choisissez taille et couleurs, aperçu immédiat'),
+        ('02-colors.png', 'detail', 'left', 'Des couleurs que<br>l’on peut acheter', 'Numéros et quantités pour chaque couleur'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Un symbole dans<br>chaque case', 'Limites de plaque en gras, touchez pour corriger'),
+        ('04-print.png', 'pdf', 'tilt', 'Imprimez et<br>lancez-vous', 'Grilles par plaque et liste des couleurs en PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Des grilles de<br>point de croix aussi', 'Numéros de fil et taille selon votre toile'),
+        ('06-home.png', 'home', 'accent', 'Toutes vos grilles<br>au même endroit', 'Porte-clés, cadres et cadeaux'),
     ],
 }
 

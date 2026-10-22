@@ -596,3 +596,69 @@ Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht 
 
 Nutzungsbedingungen: https://m1zz.github.io/PixelMe/de/terms.html
 Datenschutzerklärung: https://m1zz.github.io/PixelMe/de/privacy.html
+
+## fr-FR
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/fr/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/fr/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/fr/
+
+### 이름
+
+Hantam : perles à repasser
+
+### 부제
+
+Photos en grilles et pixel art
+
+### 키워드
+
+point de croix,broderie,pixel art,loisirs créatifs,porte-clés,animal,portrait,mosaïque,DIY,8bit
+
+### 프로모션 텍스트
+
+Choisissez une photo de votre animal, de vous ou d’un personnage préféré : Hantam en fait une grille de perles à repasser ou de point de croix, aux vraies couleurs.
+
+### 설명
+
+Une photo devient une grille pour perles à repasser ou point de croix. Et avec des couleurs que l’on peut vraiment acheter.
+Choisissez une photo, puis des perles ou du fil, et Hantam vous dit quelles couleurs et combien de chacune il vous faut.
+
+De vraies couleurs, de vrais numéros
+Les grilles s’appuient sur les nuanciers des perles Perler, Hama Midi et Artkal S et des fils DMC. Chaque case porte son numéro de couleur, et la liste des couleurs compte les perles ou les points nécessaires pour chacune.
+
+Pour les plaques comme pour le tissu
+Les grilles de perles sont découpées en plaques de 29 × 29, avec des traits épais aux limites. Celles de point de croix ont un trait épais tous les 10 points, et vous voyez la taille finale sur de la toile de 11, 14, 16 et 18 points/pouce.
+
+Vous décidez du résultat
+Modifiez la taille et le nombre de couleurs : l’aperçu se met à jour aussitôt. Vous pouvez supprimer l’arrière-plan pour ne garder que le sujet. Touchez une case pour la retoucher, ou remplacez une couleur par une autre partout à la fois.
+
+Trois affichages
+Passez de l’aspect de vraies perles ou de vrais points aux cases de couleur, puis à la grille à symboles.
+
+À imprimer et à réaliser
+Exportez un PDF à imprimer avec l’aperçu, la liste des couleurs et les grilles à symboles par plaque ou par page. Vous pouvez aussi copier une liste de courses avec une petite marge en plus.
+
+Les outils de pixel art aussi
+Transformez vos photos en pixel art avec des palettes rétro et des filtres, calquez 110 modèles et créez des animations image par image avec calques et papier calque.
+
+Vos photos restent sur votre iPhone
+Ni les photos ni les grilles ne quittent votre iPhone.
+
+Hantam Pro
+La version gratuite permet des grilles jusqu’à une plaque ou 40 points, 3 grilles enregistrées et le partage d’images avec une petite marque Hantam. Pro ajoute les grilles PDF à imprimer, des grilles jusqu’à 4 × 4 plaques ou 200 points, l’enregistrement illimité, les images sans marque et tous les outils de pixel art. Choisissez un abonnement mensuel ou annuel, ou un achat unique.
+
+L’abonnement se renouvelle automatiquement, sauf annulation au moins 24 heures avant la fin de la période en cours ; le paiement est prélevé sur votre compte Apple dans les 24 heures précédant le renouvellement. Vous pouvez gérer ou annuler votre abonnement à tout moment dans les réglages de votre compte Apple.
+
+Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs. Hantam n’est affilié à aucune de ces sociétés. Les couleurs à l’écran peuvent différer légèrement des produits réels.
+
+Conditions d’utilisation : https://m1zz.github.io/PixelMe/fr/terms.html
+Politique de confidentialité : https://m1zz.github.io/PixelMe/fr/privacy.html
