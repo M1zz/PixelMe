@@ -16,7 +16,8 @@
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "fr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "it" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "CFBundleName" : {
@@ -34,7 +35,8 @@
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "fr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "it" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "NSPhotoLibraryAddUsageDescription" : {
@@ -52,7 +54,8 @@
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam sichert deine Vorlagen und deine Pixelart in Fotos." } },
         "fr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam enregistre vos grilles et votre pixel art dans Photos." } },
         "it" : { "stringUnit" : { "state" : "translated", "value" : "Hantam salva i tuoi schemi e il tuo pixel art in Foto." } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O Hantam salva seus padrões e seu pixel art em Fotos." } }
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O Hantam salva seus padrões e seu pixel art em Fotos." } },
+        "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam บันทึกแพตเทิร์นและพิกเซลอาร์ตของคุณลงในรูปภาพ" } }
       }
     }
   },

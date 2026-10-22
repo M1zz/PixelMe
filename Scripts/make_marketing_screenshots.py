@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -108,6 +108,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Imprima e<br>mãos à obra', 'Padrões por placa e lista de cores em PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Padrões de ponto<br>cruz também', 'Números dos fios e tamanho no seu tecido'),
         ('06-home.png', 'home', 'accent', 'Todos os seus padrões<br>em um só lugar', 'Chaveiros, quadros e presentes'),
+    ],
+    "th": [
+        ('01-photo.png', 'maker', 'hero', 'จากรูปใบเดียว<br>เป็นแพตเทิร์นลูกปัด', 'เลือกขนาดและจำนวนสี แล้วดูตัวอย่างทันที'),
+        ('02-colors.png', 'detail', 'left', 'สีที่หาซื้อ<br>ได้จริง', 'เลขสีและจำนวนของแต่ละสี'),
+        ('03-symbols.png', 'symbols', 'bottom', 'มีสัญลักษณ์<br>ในทุกช่อง', 'เส้นแบ่งบอร์ดหนา แตะช่องเพื่อแก้ไข'),
+        ('04-print.png', 'pdf', 'tilt', 'พิมพ์แล้ว<br>ลงมือทำเลย', 'แพตเทิร์นแยกตามบอร์ดและรายการสีใน PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'มีแพตเทิร์น<br>ครอสติชด้วย', 'เลขไหมและขนาดผลงานบนผ้าของคุณ'),
+        ('06-home.png', 'home', 'accent', 'แพตเทิร์นทั้งหมด<br>อยู่ในที่เดียว', 'พวงกุญแจ กรอบรูป และของขวัญ'),
     ],
 }
 
