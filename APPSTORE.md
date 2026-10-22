@@ -530,3 +530,69 @@ Perler, Hama, Artkal y DMC son marcas comerciales de sus respectivos propietario
 
 Términos de uso: https://m1zz.github.io/PixelMe/es/terms.html
 Política de privacidad: https://m1zz.github.io/PixelMe/es/privacy.html
+
+## de-DE
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/de/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/de/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/de/
+
+### 이름
+
+Hantam: Bügelperlen-Vorlagen
+
+### 부제
+
+Fotos als Pixelart & Muster
+
+### 키워드
+
+Kreuzstich,Sticken,Pixelart,Basteln,Schlüsselanhänger,Haustier,Porträt,Mosaik,DIY,8bit,Kinder
+
+### 프로모션 텍스트
+
+Foto vom Haustier, von dir oder vom Lieblingscharakter wählen – und schon entsteht eine Vorlage für Bügelperlen oder Kreuzstich in echten Farben, samt Mengen.
+
+### 설명
+
+Aus einem Foto wird eine Vorlage für Bügelperlen oder Kreuzstich. Und zwar in Farben, die es wirklich zu kaufen gibt.
+Du wählst ein Foto, entscheidest dich für Perlen oder Garn, und Hantam sagt dir, welche Farben du in welcher Menge brauchst.
+
+Echte Farben, echte Farbnummern
+Die Vorlagen entstehen aus den Farbkarten der Bügelperlen von Perler, Hama Midi und Artkal S sowie der DMC-Stickgarne. Jedes Feld trägt seine Farbnummer, und die Farbliste zählt, wie viele Perlen oder Stiche jede Farbe braucht.
+
+Für Steckplatten und Stoff
+Perlen-Vorlagen werden in Steckplatten à 29 × 29 aufgeteilt, die Plattengrenzen sind fett markiert. Kreuzstich-Vorlagen haben alle 10 Stiche eine kräftige Linie, und du siehst die fertige Größe für Stoff mit 11, 14, 16 und 18 Count.
+
+Das Ergebnis bestimmst du
+Ändere Größe und Farbanzahl, und die Vorschau passt sich sofort an. Den Hintergrund kannst du entfernen und nur das Motiv behalten. Tippe ein Feld an, um es einzeln zu korrigieren, oder ersetze eine Farbe überall durch eine andere.
+
+Drei Ansichten
+Wechsle zwischen dem Look echter Perlen oder Stiche, Farbfeldern und der Symbolvorlage.
+
+Ausdrucken und loslegen
+Exportiere ein druckfertiges PDF mit Vorschau, Farbliste und Symbolvorlagen pro Platte oder Seite. Eine Einkaufsliste mit Reserve kannst du ebenfalls kopieren.
+
+Pixelart-Werkzeuge gibt es auch
+Verwandle Fotos mit Retro-Paletten und Filtern in Pixelart, zeichne 110 Vorlagen nach und erstelle mit Ebenen und Onion Skin Bild-für-Bild-Animationen.
+
+Deine Fotos bleiben auf dem iPhone
+Weder Fotos noch Vorlagen verlassen dein iPhone.
+
+Hantam Pro
+Die kostenlose Version erlaubt Vorlagen bis zu einer Steckplatte oder 40 Stichen, 3 gespeicherte Vorlagen und das Teilen von Bildern mit einem kleinen Hantam-Zeichen. Pro bietet druckbare PDF-Vorlagen, Vorlagen bis 4 × 4 Platten oder 200 Stiche, unbegrenztes Speichern, Bilder ohne Zeichen und alle Pixelart-Werkzeuge. Wähle ein Abo für einen Monat oder ein Jahr oder einen einmaligen Kauf.
+
+Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ablauf des aktuellen Zeitraums gekündigt wird. Die Abbuchung von deinem Apple-Account erfolgt innerhalb von 24 Stunden vor der Verlängerung. Du kannst das Abo jederzeit in den Einstellungen deines Apple-Accounts verwalten oder kündigen.
+
+Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht in keiner Verbindung zu diesen Unternehmen. Die Farben auf dem Bildschirm können leicht von den echten abweichen.
+
+Nutzungsbedingungen: https://m1zz.github.io/PixelMe/de/terms.html
+Datenschutzerklärung: https://m1zz.github.io/PixelMe/de/privacy.html

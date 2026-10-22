@@ -441,6 +441,81 @@ T["es"] = {'brand': 'Hantam',
            ('Ley aplicable', ['Estos términos se rigen por las leyes de la República de Corea.'])],
  'dev': 'Desarrollador: Hyunho Lee'}
 
+LANGS["de"] = "de/"
+LANG_NAME["de"] = 'Deutsch'
+UPDATED["de"] = '18. Oktober 2026'
+STORE_LANG["de"] = "de-DE"
+T["de"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Vorlagen für Bügelperlen und Kreuzstich',
+ 'desc': 'Mach aus jedem Foto eine Vorlage für Bügelperlen oder Kreuzstich in den echten Farben von Perler, Hama, Artkal und DMC.',
+ 'nav': ('Start', 'Support', 'Datenschutz', 'Bedingungen'),
+ 'hero_h': 'Aus einem Foto wird eine Vorlage',
+ 'hero_p': 'Wähle ein Foto von deinem Haustier, von dir oder von einem Lieblingscharakter. Hantam macht daraus eine Vorlage für Bügelperlen oder Kreuzstich in Farben, die du '
+           'wirklich kaufen kannst.',
+ 'cta': 'Im App Store laden',
+ 'features': [('Echte Farben', 'Bügelperlen von Perler, Hama und Artkal und DMC-Garn. Jedes Feld zeigt eine echte Farbnummer.'),
+              ('Du weißt, was du kaufen musst', 'Sieh, wie viele Perlen oder Stiche jede Farbe braucht, und kopiere eine Einkaufsliste.'),
+              ('Platte für Platte', 'Große Vorlagen werden in Steckplatten à 29 × 29 mit fetten Plattenlinien aufgeteilt.'),
+              ('Jedes Feld korrigieren', 'Tippe ein Feld an, um es zu ändern, oder ersetze eine Farbe überall durch eine andere.'),
+              ('Ausdrucken und basteln', 'Mit Pro exportierst du ein druckbares PDF: Farbliste und Symbolvorlagen, Seite für Seite.'),
+              ('Auch Pixelart', 'Fotos in Pixelart verwandeln, 110 Vorlagen nachzeichnen und Bild für Bild animieren.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Die kostenlose Version erlaubt Vorlagen bis zu einer Steckplatte (oder 40 Stichen), 3 gespeicherte Vorlagen und das Teilen von Bildern mit einem kleinen Zeichen. Pro '
+          'bietet druckbare PDFs, Vorlagen bis 4 × 4 Platten oder 200 Stiche, unbegrenztes Speichern, Bilder ohne Zeichen und alle Pixelart-Werkzeuge. Wähle ein Monats- oder '
+          'Jahresabo oder einen einmaligen Kauf.',
+ 'tm': 'Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht in keiner Verbindung zu diesen Unternehmen.',
+ 'support_h': 'Support',
+ 'support_p': 'Fragen, Fehlermeldungen und Ideen sind jederzeit willkommen. Am schnellsten geht es über Einstellungen › Feedback senden in der App, oder schreib uns eine E-Mail.',
+ 'faq': [('Wie stelle ich meinen Kauf wieder her?',
+          'Öffne die Einstellungen in der App und tippe auf „Käufe wiederherstellen“. Verwende denselben Apple-Account, mit dem du Pro gekauft hast.'),
+         ('Wie kündige ich ein Abo?',
+          'Gehe in den iPhone-Einstellungen auf deinen Namen › Abonnements und wähle Hantam. Der lebenslange Zugang ist ein Einmalkauf und verlängert sich nie.'),
+         ('Die Farben sehen etwas anders aus als meine Perlen.',
+          'Bildschirme zeigen Farben anders als echtes Plastik und Garn. Tippe in der Liste auf eine Farbe, um sie durch eine ähnlichere derselben Marke zu ersetzen.'),
+         ('Wie groß darf eine Vorlage sein?',
+          'Kostenlose Vorlagen passen auf eine Steckplatte à 29 × 29 oder haben 40 Stiche an der längsten Seite. Pro reicht bis 4 × 4 Platten (116 Perlen) oder 200 Stiche.'),
+         ('Werden meine Fotos hochgeladen?', 'Nein. Fotos und Vorlagen werden nur auf deinem iPhone verarbeitet und gespeichert.')],
+ 'contact': 'Kontakt',
+ 'privacy_h': 'Datenschutzerklärung',
+ 'terms_h': 'Nutzungsbedingungen',
+ 'updated': 'Zuletzt aktualisiert',
+ 'privacy': [('Kurzfassung', ['Deine Fotos und Vorlagen verlassen dein iPhone nie. Wir erfassen nur anonyme Statistiken, die dich nicht identifizieren.']),
+             ('Fotos',
+              ['Hantam liest ein Foto nur, wenn du es auswählst. Die Umwandlung in eine Vorlage geschieht auf deinem Gerät.',
+               'Fotos werden nie hochgeladen, auf einem Server gespeichert oder weitergegeben.']),
+             ('Deine Vorlagen', ['Vorlagen werden im Speicher der App auf deinem iPhone abgelegt. Löschst du die App, werden sie mitgelöscht.']),
+             ('Käufe', ['Apple wickelt alle Zahlungen ab. Wir erfahren nur, ob Pro aktiv ist – niemals deine Zahlungsdaten.']),
+             ('Anonyme Statistiken und Absturzberichte',
+              ['Um Nutzer zu zählen, zu sehen, welche Funktionen genutzt werden, und Abstürze zu beheben, sendet die App anonyme Daten an Apple iCloud (CloudKit), die nur der '
+               'Entwickler lesen kann:',
+               'eine bei der Installation erzeugte zufällige ID (nicht mit dir, deinem Apple-Account oder anderen Apps verknüpft; sie ändert sich bei einer Neuinstallation), App- '
+               'und iOS-Version, Region und Sprache, die Tage, an denen die App geöffnet wurde, genutzte Funktionen (zum Beispiel: eine Vorlage wurde erstellt, ein PDF exportiert '
+               'oder der Kaufbildschirm angezeigt) sowie Absturzdetails.',
+               'Name, Kontaktdaten, Standort, Fotos und Vorlagen sind nicht enthalten. Ohne iCloud-Anmeldung wird nichts gesendet.']),
+             ('Feedback', ['Wenn du Feedback aus der App sendest, erhalten wir deinen Text und – nur wenn du sie angibst – deine E-Mail-Adresse, damit wir antworten können.']),
+             ('Kein Tracking', ['Keine Werbung, keine Analysetools von Drittanbietern und kein Tracking über andere Apps oder Websites hinweg.']),
+             ('Kinder', ['Hantam ist für alle Altersgruppen geeignet. Wir erheben wissentlich keine personenbezogenen Daten von Kindern.']),
+             ('Änderungen', ['Wenn sich diese Erklärung ändert, veröffentlichen wir die neue Fassung hier mit neuem Datum.'])],
+ 'terms': [('Nutzung der App', ['Mit der Nutzung von Hantam stimmst du diesen Bedingungen zu. Wenn du nicht einverstanden bist, nutze die App bitte nicht.']),
+           ('Was Hantam macht',
+            ['Hantam verwandelt Fotos in Vorlagen für Bügelperlen und Kreuzstich und enthält Pixelart-Werkzeuge. Die Farben auf dem Bildschirm sind nur Näherungen und können von '
+             'den echten Produkten abweichen.']),
+           ('Deine Inhalte',
+            ['Die Fotos, die du auswählst, und die Vorlagen, die du erstellst, gehören dir. Stelle sicher, dass du die Rechte an den Fotos hast, aus denen du Vorlagen machst – '
+             'besonders wenn du deine Arbeiten verkaufst.']),
+           ('Hantam Pro',
+            ['Pro wird über Apples App Store als automatisch verlängertes Monats- oder Jahresabo oder als einmaliger lebenslanger Zugang verkauft.',
+             'Abos verlängern sich automatisch, sofern sie nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums gekündigt werden. Dein Apple-Account wird innerhalb von 24 '
+             'Stunden vor der Verlängerung belastet. Verwalten oder kündigen kannst du in den Einstellungen deines Apple-Accounts.',
+             'Wird eine kostenlose Testphase angeboten, verfällt der ungenutzte Teil, sobald du ein Abo abschließt. Rückerstattungen richten sich nach Apples Richtlinien.']),
+           ('Regeln', ['Betreibe kein Reverse Engineering der App und nutze sie nicht für rechtswidrige Zwecke.']),
+           ('Keine Gewährleistung',
+            ['Die App wird ohne jede Gewährleistung „wie besehen“ bereitgestellt. Soweit gesetzlich zulässig, ist unsere Haftung auf den Betrag begrenzt, den du für die App '
+             'bezahlt hast.']),
+           ('Marken', ['Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht mit diesen nicht in Verbindung und wird nicht von ihnen unterstützt.']),
+           ('Anwendbares Recht', ['Diese Bedingungen unterliegen dem Recht der Republik Korea.'])],
+ 'dev': 'Entwickler: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

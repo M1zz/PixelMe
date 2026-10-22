@@ -12,7 +12,8 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "ru" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "CFBundleName" : {
@@ -26,7 +27,8 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "ru" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "NSPhotoLibraryAddUsageDescription" : {
@@ -40,7 +42,8 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Hantam 把你的图纸和像素画保存到照片。" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Hantam 會把你的圖紙和像素畫儲存到照片。" } },
         "ru" : { "stringUnit" : { "state" : "translated", "value" : "Hantam сохраняет ваши схемы и пиксель-арт в «Фото»." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam guarda tus patrones y tu pixel art en Fotos." } }
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hantam guarda tus patrones y tu pixel art en Fotos." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Hantam sichert deine Vorlagen und deine Pixelart in Fotos." } }
       }
     }
   },

@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -76,6 +76,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Imprime y<br>a trabajar', 'Patrones por placa y lista de colores en PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'También patrones<br>de punto de cruz', 'Números de hilo y tamaño según tu tela'),
         ('06-home.png', 'home', 'accent', 'Todos tus patrones<br>en un solo sitio', 'Llaveros, marcos y regalos'),
+    ],
+    "de": [
+        ('01-photo.png', 'maker', 'hero', 'Aus einem Foto<br>eine Perlenvorlage', 'Größe und Farben wählen, sofort sehen'),
+        ('02-colors.png', 'detail', 'left', 'Farben, die es<br>wirklich gibt', 'Farbnummern und Mengen für jede Farbe'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Ein Symbol in<br>jedem Feld', 'Fette Plattengrenzen, Felder per Tipp ändern'),
+        ('04-print.png', 'pdf', 'tilt', 'Ausdrucken und<br>loslegen', 'Vorlagen pro Platte und Farbliste als PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Auch Kreuzstich-<br>Vorlagen', 'Garnnummern und Größe für deinen Stoff'),
+        ('06-home.png', 'home', 'accent', 'Alle Vorlagen<br>an einem Ort', 'Schlüsselanhänger, Rahmen und Geschenke'),
     ],
 }
 
