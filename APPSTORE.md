@@ -1124,3 +1124,69 @@ Hantam Pro
 
 Όροι χρήσης: https://m1zz.github.io/PixelMe/el/terms.html
 Πολιτική απορρήτου: https://m1zz.github.io/PixelMe/el/privacy.html
+
+## fi
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/fi/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/fi/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/fi/
+
+### 이름
+
+Hantam: helmikuviot
+
+### 부제
+
+Valokuvista pikselitaidetta
+
+### 키워드
+
+ristipistotyö,silitettävät helmet,kirjonta,käsityö,avaimenperä,lemmikki,muotokuva,mosaiikki,DIY,8bit
+
+### 프로모션 텍스트
+
+Valitse kuva lemmikistäsi, itsestäsi tai lempihahmostasi ja tee siitä silitettävien helmien tai ristipistotyön kuvio oikeilla väreillä. Tarvittavat määrät näkyvät heti.
+
+### 설명
+
+Yhdestä kuvasta tulee silitettävien helmien tai ristipistotyön kuvio. Ja kuvion värit ovat oikeita, kaupasta löytyviä.
+Valitse kuva, valitse helmet tai lanka, ja Hantam kertoo, mitä värejä tarvitset ja kuinka monta kutakin.
+
+Oikeat värit, oikeat värinumerot
+Kuviot perustuvat Perlerin, Hama Midin ja Artkal S:n silitettävien helmien sekä DMC-kirjontalankojen värikarttoihin. Jokaisessa ruudussa on värinumero, ja värilista laskee, montako helmeä tai pistoa kukin väri vaatii.
+
+Sopii sekä alustoille että kankaalle
+Helmikuviot jaetaan 29 × 29 -alustoihin, ja alustojen rajat merkitään paksuilla viivoilla. Ristipistokuvioissa on paksu viiva joka 10. pistossa, ja näet valmiin koon 11, 14, 16 ja 18 countin kankaalle.
+
+Lopputulos on sinun käsissäsi
+Muuta kokoa ja värien määrää, ja esikatselu päivittyy heti. Voit poistaa taustan ja jättää vain pääkohteen. Napauta ruutua korjataksesi sen tai korvaa yksi väri toisella koko kuviossa.
+
+Kolme näkymää
+Vaihda näkymää oikean helmen tai pistoksen näköisen, värillisten ruutujen ja symbolikuvion välillä.
+
+Tulosta ja aloita
+Vie PDF tulostettavaksi: mukana esikatselu, värilista ja symbolikuviot alustoittain tai sivuittain. Voit myös kopioida ostoslistan, johon on lisätty varalle muutama ylimääräinen.
+
+Pikselitaiteen työkalut mukana
+Muuta kuvat pikselitaiteeksi retropaleteilla ja suodattimilla, piirrä 110 mallin mukaan ja tee kuva kuvalta -animaatioita tasojen ja onion skinin avulla.
+
+Kuvasi pysyvät iPhonessasi
+Kuvat ja kuviot eivät poistu iPhonestasi.
+
+Hantam Pro
+Ilmaisversiolla voit tehdä kuvioita yhteen alustaan tai 40 pistoon asti, tallentaa 3 kuviota ja jakaa kuvia pienellä Hantam-merkillä. Pro lisää tulostettavat PDF-kuviot, kuviot aina 4 × 4 alustaan tai 200 pistoon asti, rajattoman tallennuksen, kuvat ilman merkkiä ja kaikki pikselitaiteen työkalut. Valitse kuukausi- tai vuositilaus tai kertamaksu.
+
+Tilaus uusiutuu automaattisesti, ellei sitä peruuteta vähintään 24 tuntia ennen kuluvan jakson päättymistä. Maksu veloitetaan Apple-tililtäsi 24 tunnin sisällä ennen uusiutumista. Voit hallita tai peruuttaa tilauksen milloin tahansa Apple-tilisi asetuksista.
+
+Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yhteydessä näihin yrityksiin. Näytön värit voivat poiketa hieman todellisista.
+
+Käyttöehdot: https://m1zz.github.io/PixelMe/fi/terms.html
+Tietosuojakäytäntö: https://m1zz.github.io/PixelMe/fi/privacy.html

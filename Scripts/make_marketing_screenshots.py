@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -148,6 +148,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Εκτύπωσε και<br>ξεκίνα', 'Σχέδια ανά πλακέτα και λίστα χρωμάτων σε PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Και σχέδια για<br>σταυροβελονιά', 'Αριθμοί κλωστών και μέγεθος στο ύφασμά σου'),
         ('06-home.png', 'home', 'accent', 'Όλα τα σχέδιά σου<br>σε ένα μέρος', 'Μπρελόκ, κορνίζες και δώρα'),
+    ],
+    "fi": [
+        ('01-photo.png', 'maker', 'hero', 'Kuvasta helmikuvio', 'Valitse koko ja värit, näet tuloksen heti'),
+        ('02-colors.png', 'detail', 'left', 'Värit, jotka<br>voi ostaa', 'Värinumerot ja määrät jokaiselle värille'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Symboli jokaiseen<br>ruutuun', 'Paksut alustojen rajat, korjaa napauttamalla'),
+        ('04-print.png', 'pdf', 'tilt', 'Tulosta ja<br>aloita', 'Alustakohtaiset kuviot ja värilista PDF:nä'),
+        ('05-stitch.png', 'stitch', 'hero', 'Myös ristipistotyön<br>kuviot', 'Lankojen numerot ja koko kankaallesi'),
+        ('06-home.png', 'home', 'accent', 'Kaikki kuviosi<br>yhdessä paikassa', 'Avaimenperät, kehykset ja lahjat'),
     ],
 }
 

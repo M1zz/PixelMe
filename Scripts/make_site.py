@@ -1074,6 +1074,74 @@ T["el"] = {'brand': 'Hantam',
            ('Εφαρμοστέο δίκαιο', ['Οι όροι αυτοί διέπονται από τους νόμους της Δημοκρατίας της Κορέας.'])],
  'dev': 'Προγραμματιστής: Hyunho Lee'}
 
+LANGS["fi"] = "fi/"
+LANG_NAME["fi"] = 'Suomi'
+UPDATED["fi"] = '18. lokakuuta 2026'
+STORE_LANG["fi"] = "fi"
+T["fi"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Silitettävien helmien ja ristipistotyön kuviot',
+ 'desc': 'Muuta mikä tahansa kuva silitettävien helmien tai ristipistotyön kuvioksi Perlerin, Haman, Artkalin ja DMC:n oikeilla väreillä.',
+ 'nav': ('Etusivu', 'Tuki', 'Tietosuoja', 'Ehdot'),
+ 'hero_h': 'Kuvasta kuvio',
+ 'hero_p': 'Valitse kuva lemmikistäsi, itsestäsi tai lempihahmostasi. Hantam tekee siitä silitettävien helmien tai ristipistotyön kuvion väreillä, jotka voit ostaa.',
+ 'cta': 'Lataa App Storesta',
+ 'features': [('Oikeat värit', 'Perlerin, Haman ja Artkalin helmet sekä DMC-langat. Jokaisessa ruudussa on oikea värinumero.'),
+              ('Tiedät, mitä ostaa', 'Näet, montako helmeä tai pistoa kukin väri vaatii, ja voit kopioida ostoslistan.'),
+              ('Alusta alustalta', 'Suuret kuviot jaetaan 29 × 29 -alustoihin, joiden rajat on merkitty paksuilla viivoilla.'),
+              ('Korjaa mikä tahansa ruutu', 'Napauta ruutua muuttaaksesi sen tai korvaa yksi väri toisella kaikkialla.'),
+              ('Tulosta ja tee', 'Pro-versiolla viet tulostettavan PDF:n: värilista ja symbolikuviot sivu sivulta.'),
+              ('Myös pikselitaidetta', 'Muuta kuvia pikselitaiteeksi, piirrä 110 mallin mukaan ja animoi kuva kuvalta.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Ilmaisversiolla voit tehdä kuvioita yhteen alustaan (tai 40 pistoon) asti, tallentaa 3 kuviota ja jakaa kuvia pienellä merkillä. Pro lisää tulostettavat PDF:t, kuviot '
+          'aina 4 × 4 alustaan tai 200 pistoon asti, rajattoman tallennuksen, kuvat ilman merkkiä ja kaikki pikselitaiteen työkalut. Valitse kuukausi- tai vuositilaus tai '
+          'kertamaksu, jolla saat käyttöoikeuden ikuisesti.',
+ 'tm': 'Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yhteydessä näihin yrityksiin.',
+ 'support_h': 'Tuki',
+ 'support_p': 'Kysymykset, virheilmoitukset ja ideat ovat aina tervetulleita. Nopein tapa on Asetukset › Lähetä palautetta sovelluksessa, tai lähetä meille sähköpostia.',
+ 'faq': [('Miten palautan ostoksen?', 'Avaa sovelluksen Asetukset ja napauta Palauta ostokset. Käytä samaa Apple-tiliä, jolla ostit Pron.'),
+         ('Miten peruutan tilauksen?', 'Siirry iPhonen Asetuksiin › nimesi › Tilaukset ja valitse Hantam. Ikuinen käyttöoikeus on kertaostos, eikä se uusiudu koskaan.'),
+         ('Värit näyttävät hieman erilaisilta kuin helmeni.',
+          'Näytöt esittävät värit eri tavalla kuin oikea muovi ja lanka. Napauta väriä luettelossa ja korvaa se lähempänä olevalla samaa merkkiä olevalla sävyllä.'),
+         ('Kuinka suuri kuvio voi olla?',
+          'Ilmaiset kuviot mahtuvat yhdelle 29 × 29 -alustalle tai niissä on pisimmällä sivulla 40 pistoa. Pro yltää 4 × 4 alustaan (116 helmeä) tai 200 pistoon.'),
+         ('Lähetättekö kuvani palvelimelle?', 'Ei. Kuvat ja kuviot käsitellään ja tallennetaan vain iPhonessasi.')],
+ 'contact': 'Yhteystiedot',
+ 'privacy_h': 'Tietosuojakäytäntö',
+ 'terms_h': 'Käyttöehdot',
+ 'updated': 'Päivitetty viimeksi',
+ 'privacy': [('Lyhyesti', ['Kuvasi ja kuviosi eivät poistu koskaan iPhonestasi. Keräämme vain nimettömiä tilastoja, joista sinua ei voi tunnistaa.']),
+             ('Kuvat',
+              ['Hantam lukee kuvan vain, kun valitset sen. Muuntaminen kuvioksi tapahtuu laitteellasi.', 'Kuvia ei koskaan lähetetä, tallenneta palvelimelle eikä jaeta.']),
+             ('Tekemäsi kuviot', ['Kuviot tallennetaan sovelluksen tallennustilaan iPhonessasi. Jos poistat sovelluksen, ne poistuvat sen mukana.']),
+             ('Ostokset', ['Apple käsittelee kaikki maksut. Tiedämme vain, onko Pro käytössä, emme koskaan maksutietojasi.']),
+             ('Nimettömät tilastot ja kaatumisraportit',
+              ['Käyttäjämäärien laskemiseksi, käytettyjen toimintojen selvittämiseksi ja kaatumisten korjaamiseksi sovellus lähettää nimetöntä tietoa Apple iCloudiin (CloudKit), '
+               'jota vain kehittäjä voi lukea:',
+               'asennuksen yhteydessä luotu satunnainen tunnus (ei liity sinuun, Apple-tiliisi eikä muihin sovelluksiin; muuttuu, jos asennat uudelleen), sovelluksen ja iOS:n '
+               'versio, alue ja kieli, päivät, jolloin sovellus avattiin, käytetyt toiminnot (esimerkiksi kuvio tehtiin, PDF vietiin tai ostonäkymä näytettiin) sekä kaatumisten '
+               'tiedot.',
+               'Mukana ei ole nimeä, yhteystietoja, sijaintia, kuvia eikä kuvioita. Jos et ole kirjautunut iCloudiin, mitään ei lähetetä.']),
+             ('Palaute', ['Jos lähetät palautetta sovelluksesta, saamme kirjoittamasi tekstin ja vain jos lisäät sen, sähköpostiosoitteesi, jotta voimme vastata.']),
+             ('Ei seurantaa', ['Ei mainontaa, ei kolmansien osapuolten analytiikkaa eikä seurantaa muissa sovelluksissa tai sivustoilla.']),
+             ('Lapset', ['Hantam sopii kaikenikäisille. Emme tietoisesti kerää lasten henkilötietoja.']),
+             ('Muutokset', ['Jos tämä käytäntö muuttuu, julkaisemme uuden version täällä uudella päiväyksellä.'])],
+ 'terms': [('Sovelluksen käyttö', ['Käyttämällä Hantamia hyväksyt nämä ehdot. Jos et hyväksy niitä, älä käytä sovellusta.']),
+           ('Mitä Hantam tekee',
+            ['Hantam muuttaa kuvia silitettävien helmien ja ristipistotyön kuvioiksi ja sisältää pikselitaiteen työkaluja. Näytön värit ovat likimääräisiä ja voivat poiketa '
+             'oikeista tuotteista.']),
+           ('Sisältösi',
+            ['Valitsemasi kuvat ja tekemäsi kuviot ovat sinun. Varmista, että sinulla on oikeus käyttää kuvia, joista teet kuvioita, erityisesti jos myyt tekemäsi tuotteet.']),
+           ('Hantam Pro',
+            ['Pro myydään Applen App Storen kautta automaattisesti uusiutuvana kuukausi- tai vuositilauksena tai kertamaksulla ikuisena käyttöoikeutena.',
+             'Tilaukset uusiutuvat automaattisesti, ellei niitä peruuteta vähintään 24 tuntia ennen kuluvan jakson päättymistä. Apple-tiliäsi veloitetaan 24 tunnin sisällä ennen '
+             'uusiutumista. Hallitse tai peruuta tilaus Apple-tilisi asetuksista.',
+             'Jos tarjolla on ilmainen kokeilu, sen käyttämätön osa päättyy, kun tilaat. Hyvitykset noudattavat Applen käytäntöä.']),
+           ('Säännöt', ['Älä pura sovellusta takaisin lähdekoodiksi äläkä käytä sitä mihinkään laittomaan.']),
+           ('Ei takuuta', ['Sovellus toimitetaan sellaisenaan ilman minkäänlaisia takuita. Lain sallimissa rajoissa vastuumme rajoittuu sovelluksesta maksamaasi summaan.']),
+           ('Tavaramerkit', ['Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yhteydessä näihin yrityksiin, eivätkä ne ole hyväksyneet sitä.']),
+           ('Sovellettava laki', ['Näihin ehtoihin sovelletaan Korean tasavallan lakia.'])],
+ 'dev': 'Kehittäjä: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
