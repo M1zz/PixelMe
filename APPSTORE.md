@@ -728,3 +728,69 @@ Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è
 
 Condizioni d’uso: https://m1zz.github.io/PixelMe/it/terms.html
 Informativa sulla privacy: https://m1zz.github.io/PixelMe/it/privacy.html
+
+## pt-BR
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/pt-BR/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/pt-BR/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/pt-BR/
+
+### 이름
+
+Hantam: padrões de miçangas
+
+### 부제
+
+Suas fotos em pixel art
+
+### 키워드
+
+ponto cruz,bordado,miçanga de passar,pixel art,artesanato,chaveiro,pet,retrato,mosaico,DIY,8bit
+
+### 프로모션 텍스트
+
+Escolha a foto do seu pet, a sua ou a de um personagem e transforme em padrão de miçangas de passar ou ponto cruz, com cores reais. As quantidades já vêm calculadas.
+
+### 설명
+
+Uma foto vira um padrão de miçangas de passar ou de ponto cruz. E com cores que você realmente encontra para comprar.
+Escolha a foto, depois miçangas ou linha, e o Hantam diz quais cores você precisa e quantas de cada.
+
+Cores reais, números reais
+Os padrões são feitos a partir das cartelas de cores das miçangas Perler, Hama Midi e Artkal S e dos fios DMC. Cada quadradinho tem o número da cor, e a lista de cores conta quantas miçangas ou pontos cada uma exige.
+
+Serve para placa e para tecido
+Os padrões de miçangas são divididos em placas de 29 × 29, com linhas grossas nas divisas. Os de ponto cruz têm uma linha grossa a cada 10 pontos, e você vê o tamanho final em tecido de 11, 14, 16 e 18 count.
+
+O resultado é você quem decide
+Mude o tamanho e o número de cores e a prévia se atualiza na hora. Dá para remover o fundo e ficar só com o assunto. Toque em um quadradinho para ajustá-lo ou troque uma cor por outra no padrão inteiro.
+
+Três visualizações
+Alterne entre o visual de miçangas ou pontos reais, os quadradinhos coloridos e o padrão com símbolos.
+
+Imprima e mãos à obra
+Exporte um PDF para imprimir com prévia, lista de cores e padrões com símbolos por placa ou por página. Você também pode copiar uma lista de compras com uma folguinha a mais.
+
+E as ferramentas de pixel art também
+Transforme fotos em pixel art com paletas retrô e filtros, desenhe por cima de 110 modelos e crie animações quadro a quadro com camadas e papel de cebola.
+
+Suas fotos ficam no seu iPhone
+Nem as fotos nem os padrões saem do seu iPhone.
+
+Hantam Pro
+A versão gratuita permite padrões de até uma placa ou 40 pontos, 3 padrões salvos e o compartilhamento de imagens com uma pequena marca do Hantam. O Pro adiciona padrões em PDF para imprimir, padrões de até 4 × 4 placas ou 200 pontos, salvamento ilimitado, imagens sem marca e todas as ferramentas de pixel art. Escolha uma assinatura mensal ou anual, ou um pagamento único.
+
+A assinatura é renovada automaticamente, a menos que seja cancelada pelo menos 24 horas antes do fim do período atual; a cobrança é feita na sua conta Apple nas 24 horas anteriores à renovação. Você pode gerenciar ou cancelar a assinatura a qualquer momento nos ajustes da sua conta Apple.
+
+Perler, Hama, Artkal e DMC são marcas registradas de seus respectivos proprietários. O Hantam não é afiliado a essas empresas. As cores na tela podem diferir um pouco das reais.
+
+Termos de Uso: https://m1zz.github.io/PixelMe/pt-BR/terms.html
+Política de Privacidade: https://m1zz.github.io/PixelMe/pt-BR/privacy.html

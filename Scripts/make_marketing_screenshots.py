@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -100,6 +100,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Stampa e<br>inizia', 'Schemi per base ed elenco colori in PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Anche schemi<br>a punto croce', 'Numeri dei fili e misura sulla tua tela'),
         ('06-home.png', 'home', 'accent', 'Tutti i tuoi schemi<br>in un unico posto', 'Portachiavi, cornici e regali'),
+    ],
+    "pt-BR": [
+        ('01-photo.png', 'maker', 'hero', 'De uma foto a um<br>padrão de miçangas', 'Escolha tamanho e cores e veja na hora'),
+        ('02-colors.png', 'detail', 'left', 'Cores que você<br>pode comprar', 'Número e quantidade de cada cor'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Um símbolo em<br>cada quadradinho', 'Divisas das placas em negrito, toque para ajustar'),
+        ('04-print.png', 'pdf', 'tilt', 'Imprima e<br>mãos à obra', 'Padrões por placa e lista de cores em PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Padrões de ponto<br>cruz também', 'Números dos fios e tamanho no seu tecido'),
+        ('06-home.png', 'home', 'accent', 'Todos os seus padrões<br>em um só lugar', 'Chaveiros, quadros e presentes'),
     ],
 }
 

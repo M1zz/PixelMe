@@ -667,6 +667,79 @@ T["it"] = {'brand': 'Hantam',
            ('Legge applicabile', ['Queste condizioni sono regolate dalle leggi della Repubblica di Corea.'])],
  'dev': 'Sviluppatore: Hyunho Lee'}
 
+LANGS["pt-BR"] = "pt-BR/"
+LANG_NAME["pt-BR"] = 'Português (Brasil)'
+UPDATED["pt-BR"] = '18 de outubro de 2026'
+STORE_LANG["pt-BR"] = "pt-BR"
+T["pt-BR"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Padrões de miçangas de passar e ponto cruz',
+ 'desc': 'Transforme qualquer foto em um padrão de miçangas de passar ou de ponto cruz com as cores reais de Perler, Hama, Artkal e DMC.',
+ 'nav': ('Início', 'Suporte', 'Privacidade', 'Termos'),
+ 'hero_h': 'De uma foto a um padrão',
+ 'hero_p': 'Escolha a foto do seu pet, a sua ou a de um personagem favorito. O Hantam transforma em um padrão de miçangas de passar ou de ponto cruz, com cores que você pode '
+           'comprar.',
+ 'cta': 'Baixar na App Store',
+ 'features': [('Cores reais', 'Miçangas Perler, Hama e Artkal e fios DMC. Cada quadradinho mostra um número de cor real.'),
+              ('Você sabe o que comprar', 'Veja quantas miçangas ou pontos cada cor exige e copie uma lista de compras.'),
+              ('Placa por placa', 'Padrões grandes são divididos em placas de 29 × 29, com linhas grossas nas divisas.'),
+              ('Ajuste qualquer quadradinho', 'Toque em um quadradinho para alterá-lo ou troque uma cor por outra em todo o padrão.'),
+              ('Imprima e faça', 'Com o Pro, exporte um PDF para imprimir: lista de cores e padrões com símbolos, página por página.'),
+              ('Pixel art também', 'Pixele fotos, desenhe por cima de 110 modelos e anime quadro a quadro.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'A versão gratuita permite padrões de até uma placa (ou 40 pontos), 3 padrões salvos e o compartilhamento de imagens com uma pequena marca. O Pro adiciona PDFs para '
+          'imprimir, padrões de até 4 × 4 placas ou 200 pontos, salvamento ilimitado, imagens sem marca e todas as ferramentas de pixel art. Escolha uma assinatura mensal ou '
+          'anual, ou um pagamento único vitalício.',
+ 'tm': 'Perler, Hama, Artkal e DMC são marcas registradas de seus respectivos proprietários. O Hantam não é afiliado a essas empresas.',
+ 'support_h': 'Suporte',
+ 'support_p': 'Dúvidas, relatos de erros e ideias são sempre bem-vindos. O jeito mais rápido é em Ajustes › Enviar feedback, dentro do app, ou por e-mail.',
+ 'faq': [('Como restauro minha compra?', 'Abra os Ajustes no app e toque em Restaurar Compras. Use a mesma conta Apple com a qual você comprou o Pro.'),
+         ('Como cancelo uma assinatura?', 'Vá em Ajustes do iPhone › seu nome › Assinaturas e escolha o Hantam. O acesso vitalício é um pagamento único e nunca é renovado.'),
+         ('As cores parecem um pouco diferentes das minhas miçangas.',
+          'As telas mostram as cores de modo diferente do plástico e da linha reais. Toque em uma cor da lista para trocá-la por uma mais próxima da mesma marca.'),
+         ('Qual o tamanho máximo de um padrão?',
+          'Os padrões gratuitos cabem em uma placa de 29 × 29, ou têm 40 pontos no lado maior. O Pro vai até 4 × 4 placas (116 miçangas) ou 200 pontos.'),
+         ('Vocês enviam minhas fotos para algum servidor?', 'Não. Fotos e padrões são processados e salvos apenas no seu iPhone.')],
+ 'contact': 'Contato',
+ 'privacy_h': 'Política de Privacidade',
+ 'terms_h': 'Termos de Uso',
+ 'updated': 'Última atualização',
+ 'privacy': [('Resumo', ['Suas fotos e seus padrões nunca saem do seu iPhone. Coletamos apenas estatísticas anônimas que não identificam você.']),
+             ('Fotos',
+              ['O Hantam só lê uma foto quando você a escolhe. A transformação em padrão acontece no seu aparelho.',
+               'As fotos nunca são enviadas, armazenadas em servidor nem compartilhadas.']),
+             ('Os padrões que você cria', ['Os padrões ficam salvos no armazenamento do app, no seu iPhone. Se você apagar o app, eles são apagados junto.']),
+             ('Compras', ['A Apple cuida de todos os pagamentos. Só sabemos se o Pro está ativo, nunca seus dados de pagamento.']),
+             ('Estatísticas anônimas e relatórios de falhas',
+              ['Para contar usuários, ver quais recursos são usados e corrigir falhas, o app envia dados anônimos ao Apple iCloud (CloudKit), que só o desenvolvedor pode ler:',
+               'um ID aleatório criado na instalação (não vinculado a você, à sua conta Apple nem a outros apps; muda se você reinstalar), versão do app e do iOS, região e '
+               'idioma, os dias em que o app foi aberto, os recursos usados (por exemplo, um padrão foi criado, um PDF foi exportado ou a tela de compra foi exibida) e detalhes '
+               'de falhas.',
+               'Nome, dados de contato, localização, fotos e padrões não são incluídos. Se você não estiver conectado ao iCloud, nada é enviado.']),
+             ('Feedback', ['Se você enviar um feedback pelo app, recebemos o que escrever e, somente se você informar, seu e-mail para podermos responder.']),
+             ('Sem rastreamento', ['Sem publicidade, sem análise de terceiros e sem rastreamento entre outros apps ou sites.']),
+             ('Crianças', ['O Hantam é adequado para todas as idades. Não coletamos intencionalmente dados pessoais de crianças.']),
+             ('Alterações', ['Se esta política mudar, publicaremos aqui a nova versão com uma nova data.'])],
+ 'terms': [('Uso do app', ['Ao usar o Hantam, você concorda com estes termos. Se não concordar, por favor, não use o app.']),
+           ('O que o Hantam faz',
+            ['O Hantam transforma fotos em padrões de miçangas de passar e de ponto cruz e inclui ferramentas de pixel art. As cores na tela são aproximadas e podem diferir dos '
+             'produtos reais.']),
+           ('Seu conteúdo',
+            ['As fotos que você escolhe e os padrões que você cria são seus. Certifique-se de ter o direito de usar as fotos que transforma em padrões, principalmente se vender o '
+             'que fizer.']),
+           ('Hantam Pro',
+            ['O Pro é vendido pela App Store da Apple como assinatura mensal ou anual com renovação automática, ou como acesso vitalício com pagamento único.',
+             'As assinaturas são renovadas automaticamente, a menos que sejam canceladas pelo menos 24 horas antes do fim do período atual. A cobrança é feita na sua conta Apple '
+             'nas 24 horas anteriores à renovação. Gerencie ou cancele nos ajustes da sua conta Apple.',
+             'Se for oferecido um teste gratuito, a parte não utilizada termina quando você assina. Os reembolsos seguem a política da Apple.']),
+           ('Regras', ['Não faça engenharia reversa do app nem o use para fins ilegais.']),
+           ('Sem garantia',
+            ['O app é fornecido no estado em que se encontra, sem garantias de qualquer tipo. Na medida permitida por lei, nossa responsabilidade se limita ao valor que você '
+             'pagou pelo app.']),
+           ('Marcas registradas',
+            ['Perler, Hama, Artkal e DMC são marcas registradas de seus respectivos proprietários. O Hantam não é afiliado a essas empresas nem endossado por elas.']),
+           ('Lei aplicável', ['Estes termos são regidos pelas leis da República da Coreia.'])],
+ 'dev': 'Desenvolvedor: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
