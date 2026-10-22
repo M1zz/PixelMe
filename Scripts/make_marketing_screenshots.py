@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -196,6 +196,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Skriv ut och<br>sätt igång', 'Mönster per platta och färglista som PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Även mönster för<br>korsstygn', 'Garnnummer och storlek på ditt tyg'),
         ('06-home.png', 'home', 'accent', 'Alla dina mönster<br>på ett ställe', 'Nyckelringar, ramar och presenter'),
+    ],
+    "tr": [
+        ('01-photo.png', 'maker', 'hero', 'Bir fotoğraftan<br>boncuk şeması', 'Boyutu ve renkleri seç, anında gör'),
+        ('02-colors.png', 'detail', 'left', 'Satın alabileceğin<br>renkler', 'Her rengin numarası ve adedi'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Her karede<br>bir sembol', 'Kalın plaka sınırları, düzeltmek için dokun'),
+        ('04-print.png', 'pdf', 'tilt', 'Yazdır ve<br>hemen başla', "Plaka plaka şemalar ve renk listesi PDF'de"),
+        ('05-stitch.png', 'stitch', 'hero', 'Kanaviçe şemaları<br>da var', 'İplik numaraları ve kumaşına göre boyut'),
+        ('06-home.png', 'home', 'accent', 'Tüm şemaların<br>tek yerde', 'Anahtarlıklar, çerçeveler ve hediyeler'),
     ],
 }
 

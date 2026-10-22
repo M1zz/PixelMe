@@ -1520,3 +1520,69 @@ Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare
 
 Användarvillkor: https://m1zz.github.io/PixelMe/sv/terms.html
 Integritetspolicy: https://m1zz.github.io/PixelMe/sv/privacy.html
+
+## tr
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/tr/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/tr/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/tr/
+
+### 이름
+
+Hantam: boncuk şemaları
+
+### 부제
+
+Fotoğraftan piksel sanat
+
+### 키워드
+
+kanaviçe,ütülenebilir boncuk,nakış,el işi,anahtarlık,evcil hayvan,portre,mozaik,DIY,8bit,çocuk
+
+### 프로모션 텍스트
+
+Evcil hayvanının, kendinin ya da sevdiğin bir karakterin fotoğrafını seç; gerçek renklerle ütülenebilir boncuk veya kanaviçe şemasına dönüştür. Adetler hemen görünür.
+
+### 설명
+
+Bir fotoğraf, ütülenebilir boncuk ya da kanaviçe şemasına dönüşür. Üstelik gerçekten satın alabileceğin renklerle.
+Fotoğrafı seç, sonra boncuk ya da ipliği seç; Hantam hangi renklerden kaçar tane gerektiğini söylesin.
+
+Gerçek renkler, gerçek numaralar
+Şemalar; Perler, Hama Midi ve Artkal S ütülenebilir boncuklarının ve DMC nakış ipliklerinin renk kartelalarına göre hazırlanır. Her karenin bir renk numarası vardır; renk listesi her renk için kaç boncuk ya da kaç dikiş gerektiğini sayar.
+
+Hem plakalara hem kumaşa uygun
+Boncuk şemaları 29 × 29'luk plakalara bölünür, plaka sınırları kalın çizgiyle gösterilir. Kanaviçe şemalarında her 10 dikişte bir kalın çizgi bulunur; 11, 14, 16 ve 18 count kumaş için bitmiş boyutu görebilirsin.
+
+Sonuç senin elinde
+Boyutu ve renk sayısını değiştir, önizleme anında güncellenir. Arka planı silip yalnızca ana konuyu bırakabilirsin. Bir kareye dokunup düzeltebilir ya da bir rengi tüm şemada başka bir renkle değiştirebilirsin.
+
+Üç görünüm
+Gerçek boncuk veya dikiş görünümü, renkli kareler ve sembollü şema arasında geçiş yap.
+
+Yazdır ve başla
+Önizleme, renk listesi ve plaka ya da sayfa bazında sembollü şemalar içeren yazdırılabilir bir PDF dışa aktar. Yedek adetlerin eklendiği bir alışveriş listesini de kopyalayabilirsin.
+
+Piksel sanat araçları da var
+Fotoğrafları retro paletler ve filtrelerle piksel sanata çevir, 110 örneğin üzerinden çiz; katmanlar ve onion skin ile kare kare animasyon yap.
+
+Fotoğrafların iPhone'unda kalır
+Ne fotoğraflar ne de şemalar iPhone'unun dışına çıkmaz.
+
+Hantam Pro
+Ücretsiz sürümde bir plakaya veya 40 dikişe kadar şema yapabilir, 3 şema kaydedebilir ve küçük bir Hantam işaretiyle görsel paylaşabilirsin. Pro; yazdırılabilir PDF şemalar, 4 × 4 plakaya veya 200 dikişe kadar şemalar, sınırsız kayıt, işaretsiz görseller ve tüm piksel sanat araçlarını ekler. Aylık ya da yıllık abonelik veya tek seferlik ödeme seçebilirsin.
+
+Abonelik, geçerli dönemin bitiminden en az 24 saat önce iptal edilmezse otomatik olarak yenilenir; ücret, yenilemeden önceki 24 saat içinde Apple Hesabından tahsil edilir. Aboneliğini istediğin zaman Apple Hesabı ayarlarından yönetebilir veya iptal edebilirsin.
+
+Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu şirketlerle bağlantılı değildir. Ekrandaki renkler gerçeğinden biraz farklı olabilir.
+
+Kullanım Koşulları: https://m1zz.github.io/PixelMe/tr/terms.html
+Gizlilik Politikası: https://m1zz.github.io/PixelMe/tr/privacy.html

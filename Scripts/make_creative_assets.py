@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv"}
+STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -57,6 +57,7 @@ SEARCH = {
     "nl": ('Strijkkralen patronen', 'Van één foto een<br>kralenpatroon', 'Echte kleuren, met de aantallen erbij'),
     "pl": ('Wzory na koraliki do prasowania', 'Ze zdjęcia wzór<br>z koralików', 'Prawdziwe kolory i ich ilości'),
     "sv": ('Mönster för strykpärlor', 'Från foto till<br>pärlmönster', 'Äkta färger och hur många du behöver'),
+    "tr": ('Ütülenebilir boncuk şeması', 'Bir fotoğraftan<br>boncuk şeması', 'Gerçek renkler ve gereken adetler'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -83,6 +84,7 @@ HEADER = {
     "nl": ('Strijkkralen en kruissteek', 'Jouw foto,<br>jouw patroon'),
     "pl": ('Koraliki do prasowania i haft krzyżykowy', 'Twoje zdjęcie,<br>Twój wzór'),
     "sv": ('Strykpärlor och korsstygn', 'Ditt foto,<br>ditt mönster'),
+    "tr": ('Ütülenebilir boncuk ve kanaviçe', 'Fotoğrafın,<br>şeman'),
 }
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)

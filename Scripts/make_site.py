@@ -1502,6 +1502,78 @@ T["sv"] = {'brand': 'Hantam',
            ('Tillämplig lag', ['Dessa villkor regleras av lagarna i Republiken Korea.'])],
  'dev': 'Utvecklare: Hyunho Lee'}
 
+LANGS["tr"] = "tr/"
+LANG_NAME["tr"] = 'Türkçe'
+UPDATED["tr"] = '18 Ekim 2026'
+STORE_LANG["tr"] = "tr"
+T["tr"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Ütülenebilir boncuk ve kanaviçe şemaları',
+ 'desc': "Herhangi bir fotoğrafı Perler, Hama, Artkal ve DMC'nin gerçek renkleriyle ütülenebilir boncuk veya kanaviçe şemasına dönüştür.",
+ 'nav': ('Ana sayfa', 'Destek', 'Gizlilik', 'Koşullar'),
+ 'hero_h': 'Fotoğraftan şemaya',
+ 'hero_p': 'Evcil hayvanının, kendinin ya da sevdiğin bir karakterin fotoğrafını seç. Hantam, onu satın alabileceğin renklerle ütülenebilir boncuk veya kanaviçe şemasına çevirir.',
+ 'cta': "App Store'dan indir",
+ 'features': [('Gerçek renkler', 'Perler, Hama ve Artkal boncukları ile DMC iplikleri. Her kare gerçek bir renk numarası gösterir.'),
+              ('Ne alacağını bilirsin', 'Her rengin kaç boncuk ya da dikiş gerektirdiğini gör, alışveriş listesini kopyala.'),
+              ('Plaka plaka', "Büyük şemalar, sınırları kalın çizgili 29 × 29'luk plakalara bölünür."),
+              ('Her kareyi düzelt', 'Bir kareye dokunup değiştir ya da bir rengi her yerde başka bir renkle değiştir.'),
+              ('Yazdır ve yap', 'Pro ile yazdırılabilir PDF dışa aktar: renk listesi ve sayfa sayfa sembollü şemalar.'),
+              ('Piksel sanat da var', 'Fotoğrafları piksel sanata çevir, 110 örneğin üzerinden çiz, kare kare animasyon yap.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': "Ücretsiz sürümde bir plakaya (veya 40 dikişe) kadar şema yapabilir, 3 şema kaydedebilir ve küçük bir işaretle görsel paylaşabilirsin. Pro; yazdırılabilir PDF'ler, 4 × "
+          '4 plakaya veya 200 dikişe kadar şemalar, sınırsız kayıt, işaretsiz görseller ve tüm piksel sanat araçlarını ekler. Aylık ya da yıllık abonelik veya ömür boyu tek '
+          'seferlik ödeme seçebilirsin.',
+ 'tm': 'Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu şirketlerle bağlantılı değildir.',
+ 'support_h': 'Destek',
+ 'support_p': "Sorular, hata bildirimleri ve fikirler her zaman memnuniyetle karşılanır. En hızlı yol uygulamada Ayarlar › Geri Bildirim Gönder'dir; bize e-posta da yazabilirsin.",
+ 'faq': [('Satın alımımı nasıl geri yüklerim?', "Uygulamada Ayarlar'ı aç ve Satın Alımları Geri Yükle'ye dokun. Pro'yu satın aldığın Apple Hesabını kullan."),
+         ('Aboneliği nasıl iptal ederim?', "iPhone Ayarlar › adın › Abonelikler bölümüne gidip Hantam'ı seç. Ömür boyu erişim tek seferlik bir satın alımdır ve asla yenilenmez."),
+         ('Renkler boncuklarımdan biraz farklı görünüyor.',
+          'Ekranlar renkleri gerçek plastik ve iplikten farklı gösterir. Listedeki bir renge dokunarak aynı markadan daha yakın bir renkle değiştirebilirsin.'),
+         ('Şema ne kadar büyük olabilir?',
+          "Ücretsiz şemalar bir 29 × 29'luk plakaya sığar ya da en uzun kenarda 40 dikiş olur. Pro, 4 × 4 plakaya (116 boncuk) veya 200 dikişe kadar çıkar."),
+         ('Fotoğraflarımı yüklüyor musunuz?', "Hayır. Fotoğraflar ve şemalar yalnızca iPhone'unda işlenir ve kaydedilir.")],
+ 'contact': 'İletişim',
+ 'privacy_h': 'Gizlilik Politikası',
+ 'terms_h': 'Kullanım Koşulları',
+ 'updated': 'Son güncelleme',
+ 'privacy': [('Özet', ["Fotoğrafların ve şemaların iPhone'undan asla çıkmaz. Yalnızca seni tanımlayamayan anonim istatistikler topluyoruz."]),
+             ('Fotoğraflar',
+              ['Hantam bir fotoğrafı yalnızca sen seçtiğinde okur. Şemaya dönüştürme işlemi cihazında gerçekleşir.',
+               'Fotoğraflar asla yüklenmez, bir sunucuda saklanmaz veya paylaşılmaz.']),
+             ('Oluşturduğun şemalar', ["Şemalar iPhone'undaki uygulama depolama alanına kaydedilir. Uygulamayı silersen şemalar da silinir."]),
+             ('Satın alımlar', ["Tüm ödemeleri Apple yönetir. Yalnızca Pro'nun etkin olup olmadığını biliriz, ödeme bilgilerini asla almayız."]),
+             ('Anonim istatistikler ve çökme raporları',
+              ["Kullanıcı sayısını belirlemek, hangi özelliklerin kullanıldığını görmek ve çökmeleri düzeltmek için uygulama, yalnızca geliştiricinin okuyabildiği Apple iCloud'a "
+               '(CloudKit) anonim veriler gönderir:',
+               'kurulumda oluşturulan rastgele bir kimlik (seninle, Apple Hesabınla veya diğer uygulamalarla ilişkili değildir; yeniden kurarsan değişir), uygulama ve iOS sürümü, '
+               'bölge ve dil, uygulamanın açıldığı günler, kullanılan özellikler (örneğin bir şema oluşturuldu, PDF dışa aktarıldı veya satın alma ekranı gösterildi) ve çökme '
+               'ayrıntıları.',
+               "Ad, iletişim bilgisi, konum, fotoğraf veya şema dahil değildir. iCloud'da oturum açmadıysan hiçbir şey gönderilmez."]),
+             ('Geri bildirim', ['Uygulamadan geri bildirim gönderirsen yazdıklarını ve yalnızca sen eklersen yanıt verebilmemiz için e-posta adresini alırız.']),
+             ('İzleme yok', ['Reklam yok, üçüncü taraf analizi yok, diğer uygulama veya web sitelerinde izleme yok.']),
+             ('Çocuklar', ['Hantam her yaştan kullanıcı için uygundur. Çocuklara ait kişisel bilgileri bilerek toplamayız.']),
+             ('Değişiklikler', ['Bu politika değişirse yeni sürümü yeni bir tarihle burada yayımlarız.'])],
+ 'terms': [('Uygulamanın kullanımı', ["Hantam'ı kullanarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan lütfen uygulamayı kullanma."]),
+           ('Hantam ne yapar',
+            ['Hantam, fotoğrafları ütülenebilir boncuk ve kanaviçe şemalarına dönüştürür ve piksel sanat araçları içerir. Ekrandaki renkler yaklaşık eşleşmelerdir ve gerçek '
+             'ürünlerden farklı olabilir.']),
+           ('İçeriğin',
+            ['Seçtiğin fotoğraflar ve oluşturduğun şemalar sana aittir. Şemaya dönüştürdüğün fotoğrafları kullanma hakkına sahip olduğundan emin ol; özellikle ürettiklerini '
+             'satıyorsan.']),
+           ('Hantam Pro',
+            ["Pro, Apple'ın App Store'u üzerinden otomatik yenilenen aylık veya yıllık abonelik ya da tek seferlik ömür boyu erişim olarak satılır.",
+             'Abonelikler, geçerli dönemin bitiminden en az 24 saat önce iptal edilmezse otomatik olarak yenilenir. Apple Hesabından yenilemeden önceki 24 saat içinde ücret '
+             'tahsil edilir. Apple Hesabı ayarlarından yönetebilir veya iptal edebilirsin.',
+             "Ücretsiz deneme sunulursa, aboneliğe başladığında kullanılmayan kısmı sona erer. İadeler Apple'ın politikasına tabidir."]),
+           ('Kurallar', ['Uygulamayı tersine mühendislikle çözme veya yasa dışı amaçlarla kullanma.']),
+           ('Garanti verilmemesi',
+            ['Uygulama, hiçbir garanti verilmeksizin olduğu gibi sunulur. Yasaların izin verdiği ölçüde sorumluluğumuz, uygulama için ödediğin tutarla sınırlıdır.']),
+           ('Ticari markalar',
+            ['Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu şirketlerle bağlantılı değildir ve onlar tarafından onaylanmamıştır.']),
+           ('Uygulanacak hukuk', ['Bu koşullar Kore Cumhuriyeti hukukuna tabidir.'])],
+ 'dev': 'Geliştirici: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
