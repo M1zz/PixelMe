@@ -1429,6 +1429,79 @@ T["pl"] = {'brand': 'Hantam',
            ('Prawo właściwe', ['Te warunki podlegają prawu Republiki Korei.'])],
  'dev': 'Deweloper: Hyunho Lee'}
 
+LANGS["sv"] = "sv/"
+LANG_NAME["sv"] = 'Svenska'
+UPDATED["sv"] = '18 oktober 2026'
+STORE_LANG["sv"] = "sv"
+T["sv"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Mönster för strykpärlor och korsstygn',
+ 'desc': 'Förvandla vilket foto som helst till ett mönster för strykpärlor eller korsstygn i de äkta färgerna från Perler, Hama, Artkal och DMC.',
+ 'nav': ('Hem', 'Support', 'Integritet', 'Villkor'),
+ 'hero_h': 'Från foto till mönster',
+ 'hero_p': 'Välj ett foto på ditt husdjur, dig själv eller en favoritfigur. Hantam gör det till ett mönster för strykpärlor eller korsstygn i färger du kan köpa.',
+ 'cta': 'Hämta i App Store',
+ 'features': [('Äkta färger', 'Strykpärlor från Perler, Hama och Artkal och DMC-garn. Varje ruta visar ett äkta färgnummer.'),
+              ('Du vet vad du ska köpa', 'Se hur många pärlor eller stygn varje färg kräver och kopiera en inköpslista.'),
+              ('Platta för platta', 'Stora mönster delas upp i plattor på 29 × 29 med tjocka linjer vid gränserna.'),
+              ('Justera varje ruta', 'Tryck på en ruta för att ändra den, eller byt ut en färg mot en annan överallt.'),
+              ('Skriv ut och skapa', 'Med Pro exporterar du en PDF att skriva ut: färglista och symbolmönster sida för sida.'),
+              ('Även pixelkonst', 'Förvandla foton till pixelkonst, rita av 110 förlagor och animera bild för bild.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Den kostnadsfria versionen ger mönster upp till en platta (eller 40 stygn), 3 sparade mönster och delning av bilder med ett litet märke. Pro lägger till PDF att skriva '
+          'ut, mönster upp till 4 × 4 plattor eller 200 stygn, obegränsad sparning, bilder utan märke och alla verktyg för pixelkonst. Välj en månads- eller årsprenumeration, '
+          'eller betala en gång för åtkomst för alltid.',
+ 'tm': 'Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare. Hantam är inte knutet till dessa företag.',
+ 'support_h': 'Support',
+ 'support_p': 'Frågor, felrapporter och idéer är alltid välkomna. Snabbast går det via Inställningar › Skicka feedback i appen, eller mejla oss.',
+ 'faq': [('Hur återställer jag mitt köp?', 'Öppna Inställningar i appen och tryck på Återställ köp. Använd samma Apple-konto som du köpte Pro med.'),
+         ('Hur säger jag upp en prenumeration?',
+          'Gå till Inställningar på iPhone › ditt namn › Prenumerationer och välj Hantam. Åtkomst för alltid är ett engångsköp och förnyas aldrig.'),
+         ('Färgerna ser lite annorlunda ut än mina pärlor.',
+          'Skärmar visar färger annorlunda än riktig plast och garn. Tryck på en färg i listan för att byta ut den mot en närmare nyans från samma märke.'),
+         ('Hur stort kan ett mönster vara?',
+          'Kostnadsfria mönster ryms på en platta på 29 × 29, eller har 40 stygn på längsta sidan. Pro går upp till 4 × 4 plattor (116 pärlor) eller 200 stygn.'),
+         ('Laddar ni upp mina foton?', 'Nej. Foton och mönster behandlas och sparas bara på din iPhone.')],
+ 'contact': 'Kontakt',
+ 'privacy_h': 'Integritetspolicy',
+ 'terms_h': 'Användarvillkor',
+ 'updated': 'Senast uppdaterad',
+ 'privacy': [('Kort sagt', ['Dina foton och mönster lämnar aldrig din iPhone. Vi samlar bara in anonym statistik som inte kan identifiera dig.']),
+             ('Foton',
+              ['Hantam läser ett foto först när du väljer det. Omvandlingen till mönster sker på din enhet.',
+               'Foton laddas aldrig upp, sparas inte på någon server och delas inte.']),
+             ('Mönster du skapar', ['Mönster sparas i appens lagringsutrymme på din iPhone. Om du raderar appen raderas de med den.']),
+             ('Köp', ['Apple hanterar alla betalningar. Vi vet bara om Pro är aktivt, aldrig dina betalningsuppgifter.']),
+             ('Anonym statistik och kraschrapporter',
+              ['För att räkna användare, se vilka funktioner som används och åtgärda krascher skickar appen anonyma data till Apple iCloud (CloudKit), som bara utvecklaren kan '
+               'läsa:',
+               'ett slumpmässigt ID som skapas vid installationen (inte kopplat till dig, ditt Apple-konto eller andra appar; det ändras om du installerar om), app- och '
+               'iOS-version, region och språk, vilka dagar appen öppnats, vilka funktioner som använts (till exempel att ett mönster skapats, en PDF exporterats eller köpskärmen '
+               'visats) och detaljer om krascher.',
+               'Inget namn, inga kontaktuppgifter, ingen plats, inga foton och inga mönster ingår. Om du inte är inloggad på iCloud skickas ingenting.']),
+             ('Feedback', ['Om du skickar feedback från appen får vi det du skriver och, bara om du lägger till den, din e-postadress så att vi kan svara.']),
+             ('Ingen spårning', ['Ingen reklam, ingen tredjepartsanalys och ingen spårning över andra appar eller webbplatser.']),
+             ('Barn', ['Hantam passar alla åldrar. Vi samlar inte medvetet in personuppgifter om barn.']),
+             ('Ändringar', ['Om den här policyn ändras publicerar vi den nya versionen här med nytt datum.'])],
+ 'terms': [('Användning av appen', ['Genom att använda Hantam godkänner du dessa villkor. Om du inte håller med bör du inte använda appen.']),
+           ('Vad Hantam gör',
+            ['Hantam förvandlar foton till mönster för strykpärlor och korsstygn och innehåller verktyg för pixelkonst. Färgerna på skärmen är approximativa och kan skilja sig '
+             'från de verkliga produkterna.']),
+           ('Ditt innehåll',
+            ['De foton du väljer och de mönster du skapar tillhör dig. Se till att du har rätt att använda de foton du gör om till mönster, särskilt om du säljer det du '
+             'tillverkar.']),
+           ('Hantam Pro',
+            ['Pro säljs via Apples App Store som en automatiskt förnyad månads- eller årsprenumeration eller som åtkomst för alltid med ett engångsköp.',
+             'Prenumerationer förnyas automatiskt om de inte sägs upp minst 24 timmar före utgången av den pågående perioden. Ditt Apple-konto debiteras inom 24 timmar före '
+             'förnyelsen. Hantera eller säg upp i inställningarna för ditt Apple-konto.',
+             'Om en kostnadsfri provperiod erbjuds upphör den oanvända delen när du tecknar en prenumeration. Återbetalningar följer Apples policy.']),
+           ('Regler', ['Du får inte baklängeskonstruera appen eller använda den till något olagligt.']),
+           ('Ingen garanti',
+            ['Appen tillhandahålls i befintligt skick utan någon form av garanti. I den utsträckning lagen tillåter är vårt ansvar begränsat till det belopp du betalat för '
+             'appen.']),
+           ('Varumärken', ['Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare. Hantam är inte knutet till eller godkänt av dessa företag.']),
+           ('Tillämplig lag', ['Dessa villkor regleras av lagarna i Republiken Korea.'])],
+ 'dev': 'Utvecklare: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

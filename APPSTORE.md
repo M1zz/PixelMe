@@ -1454,3 +1454,69 @@ Perler, Hama, Artkal i DMC to znaki towarowe ich właścicieli. Hantam nie jest 
 
 Warunki korzystania: https://m1zz.github.io/PixelMe/pl/terms.html
 Polityka prywatności: https://m1zz.github.io/PixelMe/pl/privacy.html
+
+## sv
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/sv/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/sv/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/sv/
+
+### 이름
+
+Hantam: pärlmönster
+
+### 부제
+
+Dina foton som pixelkonst
+
+### 키워드
+
+korsstygn,strykpärlor,broderi,pyssel,nyckelring,husdjur,porträtt,mosaik,DIY,8bit,barn,skriv ut
+
+### 프로모션 텍스트
+
+Välj ett foto på ditt husdjur, dig själv eller en favoritfigur och gör det till ett mönster för strykpärlor eller korsstygn i äkta färger. Antalet syns direkt.
+
+### 설명
+
+Ett foto blir ett mönster för strykpärlor eller korsstygn. Och i äkta färger som du faktiskt kan köpa.
+Välj ett foto, välj pärlor eller garn, så berättar Hantam vilka färger du behöver och hur många av varje.
+
+Äkta färger, äkta färgnummer
+Mönstren bygger på färgkorten för strykpärlor från Perler, Hama Midi och Artkal S och på DMC-broderigarn. Varje ruta har sitt färgnummer, och färglistan räknar hur många pärlor eller stygn varje färg kräver.
+
+För pärlplattor och för tyg
+Pärlmönster delas upp i plattor på 29 × 29, med tjocka linjer vid gränserna. Korsstygnsmönster har en tjock linje var tionde stygn, och du ser den färdiga storleken på tyg med 11, 14, 16 och 18 count.
+
+Resultatet bestämmer du
+Ändra storlek och antal färger så uppdateras förhandsvisningen direkt. Du kan ta bort bakgrunden och behålla bara motivet. Tryck på en ruta för att justera den, eller byt ut en färg mot en annan i hela mönstret.
+
+Tre vyer
+Växla mellan utseendet hos riktiga pärlor eller stygn, färgrutor och symbolmönstret.
+
+Skriv ut och sätt igång
+Exportera en PDF att skriva ut med förhandsvisning, färglista och symbolmönster per platta eller sida. Du kan också kopiera en inköpslista med lite extra i reserv.
+
+Verktyg för pixelkonst också
+Förvandla foton till pixelkonst med retropaletter och filter, rita av 110 förlagor och skapa animationer bild för bild med lager och onion skin.
+
+Dina foton stannar på din iPhone
+Varken foton eller mönster lämnar din iPhone.
+
+Hantam Pro
+Den kostnadsfria versionen ger mönster upp till en platta eller 40 stygn, 3 sparade mönster och delning av bilder med ett litet Hantam-märke. Pro lägger till PDF-mönster att skriva ut, mönster upp till 4 × 4 plattor eller 200 stygn, obegränsad sparning, bilder utan märke och alla verktyg för pixelkonst. Välj en månads- eller årsprenumeration, eller betala en gång.
+
+Prenumerationen förnyas automatiskt om den inte sägs upp minst 24 timmar före utgången av den pågående perioden. Betalningen debiteras ditt Apple-konto inom 24 timmar före förnyelsen. Du kan när som helst hantera eller säga upp prenumerationen i inställningarna för ditt Apple-konto.
+
+Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare. Hantam är inte knutet till dessa företag. Färgerna på skärmen kan skilja sig något från de verkliga.
+
+Användarvillkor: https://m1zz.github.io/PixelMe/sv/terms.html
+Integritetspolicy: https://m1zz.github.io/PixelMe/sv/privacy.html
