@@ -662,3 +662,69 @@ Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs.
 
 Conditions d’utilisation : https://m1zz.github.io/PixelMe/fr/terms.html
 Politique de confidentialité : https://m1zz.github.io/PixelMe/fr/privacy.html
+
+## it
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/it/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/it/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/it/
+
+### 이름
+
+Hantam: schemi con perline
+
+### 부제
+
+Dalle foto al pixel art
+
+### 키워드
+
+punto croce,ricamo,perline da stirare,hobby creativi,portachiavi,animale,ritratto,mosaico,fai da te
+
+### 프로모션 텍스트
+
+Scegli una foto del tuo animale, di te o di un personaggio e trasformala in uno schema per perline o punto croce, con colori veri e quantità già calcolate.
+
+### 설명
+
+Una foto diventa uno schema per perline da stirare o punto croce. E con colori che puoi davvero comprare.
+Scegli la foto, poi perline o filo, e Hantam ti dice quali colori servono e in che quantità.
+
+Colori veri, numeri veri
+Gli schemi si basano sulle cartelle colori delle perline Perler, Hama Midi e Artkal S e dei fili DMC. Ogni casella ha il suo numero di colore, e l’elenco dei colori conta quante perline o quanti punti servono per ciascuno.
+
+Per basi e per tela
+Gli schemi di perline sono divisi in basi da 29 × 29, con linee spesse ai bordi. Quelli a punto croce hanno una linea spessa ogni 10 punti, e vedi la misura finale su tela da 11, 14, 16 e 18 count.
+
+Il risultato lo decidi tu
+Cambia dimensione e numero di colori e l’anteprima si aggiorna subito. Puoi togliere lo sfondo e tenere solo il soggetto. Tocca una casella per ritoccarla, oppure sostituisci un colore con un altro in tutto lo schema.
+
+Tre visualizzazioni
+Passa dall’aspetto di perline o punti veri alle caselle colorate fino allo schema con simboli.
+
+Stampa e inizia
+Esporta un PDF da stampare con anteprima, elenco dei colori e schemi con simboli per base o per pagina. Puoi anche copiare una lista della spesa con qualche pezzo in più di scorta.
+
+Anche gli strumenti per il pixel art
+Trasforma le foto in pixel art con palette retrò e filtri, ricalca 110 modelli e crea animazioni fotogramma per fotogramma con livelli e pelle di cipolla.
+
+Le tue foto restano sul tuo iPhone
+Né le foto né gli schemi escono dal tuo iPhone.
+
+Hantam Pro
+La versione gratuita consente schemi fino a una base o 40 punti, 3 schemi salvati e la condivisione di immagini con un piccolo marchio Hantam. Pro aggiunge schemi PDF da stampare, schemi fino a 4 × 4 basi o 200 punti, salvataggio illimitato, immagini senza marchio e tutti gli strumenti per il pixel art. Scegli un abbonamento mensile o annuale, oppure un acquisto unico.
+
+L’abbonamento si rinnova automaticamente, a meno che non venga annullato almeno 24 ore prima della fine del periodo in corso; l’addebito sul tuo account Apple avviene nelle 24 ore precedenti il rinnovo. Puoi gestire o annullare l’abbonamento in qualsiasi momento dalle impostazioni del tuo account Apple.
+
+Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a queste aziende. I colori sullo schermo possono differire leggermente da quelli reali.
+
+Condizioni d’uso: https://m1zz.github.io/PixelMe/it/terms.html
+Informativa sulla privacy: https://m1zz.github.io/PixelMe/it/privacy.html

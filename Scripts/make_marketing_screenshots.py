@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -92,6 +92,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Imprimez et<br>lancez-vous', 'Grilles par plaque et liste des couleurs en PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Des grilles de<br>point de croix aussi', 'Numéros de fil et taille selon votre toile'),
         ('06-home.png', 'home', 'accent', 'Toutes vos grilles<br>au même endroit', 'Porte-clés, cadres et cadeaux'),
+    ],
+    "it": [
+        ('01-photo.png', 'maker', 'hero', 'Da una foto a uno<br>schema di perline', 'Scegli dimensione e colori, anteprima subito'),
+        ('02-colors.png', 'detail', 'left', 'Colori che si<br>possono comprare', 'Numeri e quantità per ogni colore'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Un simbolo in<br>ogni casella', 'Bordi delle basi in grassetto, tocca per correggere'),
+        ('04-print.png', 'pdf', 'tilt', 'Stampa e<br>inizia', 'Schemi per base ed elenco colori in PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Anche schemi<br>a punto croce', 'Numeri dei fili e misura sulla tua tela'),
+        ('06-home.png', 'home', 'accent', 'Tutti i tuoi schemi<br>in un unico posto', 'Portachiavi, cornici e regali'),
     ],
 }
 

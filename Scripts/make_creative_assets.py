@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR"}
+STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -44,6 +44,7 @@ SEARCH = {
     "es": ('Patrones de cuentas', 'De una foto a un<br>patrón de cuentas', 'Colores reales y cuántas necesitas'),
     "de": ('Bügelperlen Vorlagen', 'Aus jedem Foto<br>eine Perlenvorlage', 'Echte Farben und die Menge dazu'),
     "fr": ('Grilles perles à repasser', 'D’une photo à une<br>grille de perles', 'De vraies couleurs, avec les quantités'),
+    "it": ('Schemi perline da stirare', 'Da una foto a uno<br>schema di perline', 'Colori veri, con le quantità'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -57,6 +58,7 @@ HEADER = {
     "es": ('Cuentas y punto de cruz', 'Tu foto,<br>tu patrón'),
     "de": ('Bügelperlen & Kreuzstich', 'Dein Foto,<br>deine Vorlage'),
     "fr": ('Perles à repasser et point de croix', 'Votre photo,<br>votre grille'),
+    "it": ('Perline da stirare e punto croce', 'La tua foto,<br>il tuo schema'),
 }
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)

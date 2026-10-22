@@ -595,6 +595,78 @@ T["fr"] = {'brand': 'Hantam',
            ('Droit applicable', ['Ces conditions sont régies par les lois de la République de Corée.'])],
  'dev': 'Développeur : Hyunho Lee'}
 
+LANGS["it"] = "it/"
+LANG_NAME["it"] = 'Italiano'
+UPDATED["it"] = '18 ottobre 2026'
+STORE_LANG["it"] = "it"
+T["it"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Schemi per perline da stirare e punto croce',
+ 'desc': 'Trasforma qualsiasi foto in uno schema per perline da stirare o punto croce con i colori veri di Perler, Hama, Artkal e DMC.',
+ 'nav': ('Home', 'Assistenza', 'Privacy', 'Condizioni'),
+ 'hero_h': 'Da una foto a uno schema',
+ 'hero_p': 'Scegli la foto del tuo animale, di te o di un personaggio preferito. Hantam la trasforma in uno schema per perline da stirare o punto croce, con colori che puoi '
+           'comprare.',
+ 'cta': 'Scarica dall’App Store',
+ 'features': [('Colori veri', 'Perline Perler, Hama e Artkal e fili DMC. Ogni casella mostra un vero numero di colore.'),
+              ('Sai cosa comprare', 'Vedi quante perline o punti servono per ogni colore e copia una lista della spesa.'),
+              ('Base per base', 'Gli schemi grandi sono divisi in basi da 29 × 29, con linee di bordo spesse.'),
+              ('Correggi ogni casella', 'Tocca una casella per cambiarla, oppure sostituisci un colore con un altro ovunque.'),
+              ('Stampa e realizza', 'Con Pro esporti un PDF da stampare: elenco dei colori e schemi con simboli, pagina per pagina.'),
+              ('Anche pixel art', 'Pixela le foto, ricalca 110 modelli e anima fotogramma per fotogramma.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'La versione gratuita consente schemi fino a una base (o 40 punti), 3 schemi salvati e la condivisione di immagini con un piccolo marchio. Pro aggiunge PDF da stampare, '
+          'schemi fino a 4 × 4 basi o 200 punti, salvataggio illimitato, immagini senza marchio e tutti gli strumenti per il pixel art. Scegli un abbonamento mensile o annuale, '
+          'oppure un acquisto unico a vita.',
+ 'tm': 'Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a queste aziende.',
+ 'support_h': 'Assistenza',
+ 'support_p': 'Domande, segnalazioni di bug e idee sono sempre benvenute. Il modo più veloce è Impostazioni › Invia feedback nell’app, oppure scrivici via e-mail.',
+ 'faq': [('Come ripristino il mio acquisto?', 'Apri le Impostazioni nell’app e tocca Ripristina acquisti. Usa lo stesso account Apple con cui hai acquistato Pro.'),
+         ('Come annullo un abbonamento?', 'Vai in Impostazioni di iPhone › il tuo nome › Abbonamenti e scegli Hantam. L’accesso a vita è un acquisto unico e non si rinnova mai.'),
+         ('I colori sembrano un po’ diversi dalle mie perline.',
+          'Gli schermi mostrano i colori in modo diverso dalla plastica e dal filo reali. Tocca un colore nell’elenco per sostituirlo con uno più simile della stessa marca.'),
+         ('Quanto può essere grande uno schema?',
+          'Gli schemi gratuiti stanno su una base da 29 × 29, oppure arrivano a 40 punti sul lato più lungo. Pro arriva a 4 × 4 basi (116 perline) o 200 punti.'),
+         ('Caricate le mie foto?', 'No. Foto e schemi vengono elaborati e salvati solo sul tuo iPhone.')],
+ 'contact': 'Contatti',
+ 'privacy_h': 'Informativa sulla privacy',
+ 'terms_h': 'Condizioni d’uso',
+ 'updated': 'Ultimo aggiornamento',
+ 'privacy': [('In sintesi', ['Le tue foto e i tuoi schemi non lasciano mai il tuo iPhone. Raccogliamo solo statistiche anonime che non permettono di identificarti.']),
+             ('Foto',
+              ['Hantam legge una foto solo quando la scegli. La trasformazione in schema avviene sul tuo dispositivo.',
+               'Le foto non vengono mai caricate, salvate su un server né condivise.']),
+             ('Gli schemi che crei', ['Gli schemi sono salvati nell’archivio dell’app sul tuo iPhone. Se elimini l’app, vengono eliminati con essa.']),
+             ('Acquisti', ['Apple gestisce tutti i pagamenti. Sappiamo solo se Pro è attivo, mai i tuoi dati di pagamento.']),
+             ('Statistiche anonime e rapporti sugli arresti anomali',
+              ['Per contare gli utenti, vedere quali funzioni vengono usate e correggere gli arresti anomali, l’app invia dati anonimi ad Apple iCloud (CloudKit), leggibili solo '
+               'dallo sviluppatore:',
+               'un ID casuale creato all’installazione (non collegato a te, al tuo account Apple o ad altre app; cambia se reinstalli), versione dell’app e di iOS, area '
+               'geografica e lingua, i giorni in cui l’app è stata aperta, le funzioni usate (ad esempio, è stato creato uno schema, esportato un PDF o mostrata la schermata di '
+               'acquisto) e i dettagli degli arresti anomali.',
+               'Non sono inclusi nome, recapiti, posizione, foto o schemi. Se non hai effettuato l’accesso a iCloud, non viene inviato nulla.']),
+             ('Feedback', ['Se invii un feedback dall’app, riceviamo ciò che scrivi e, solo se lo aggiungi, il tuo indirizzo e-mail per poterti rispondere.']),
+             ('Nessun tracciamento', ['Nessuna pubblicità, nessuna analisi di terze parti e nessun tracciamento tra altre app o siti web.']),
+             ('Minori', ['Hantam è adatta a tutte le età. Non raccogliamo consapevolmente dati personali di minori.']),
+             ('Modifiche', ['Se questa informativa cambia, pubblicheremo qui la nuova versione con una nuova data.'])],
+ 'terms': [('Uso dell’app', ['Usando Hantam accetti queste condizioni. Se non sei d’accordo, ti preghiamo di non usare l’app.']),
+           ('Cosa fa Hantam',
+            ['Hantam trasforma le foto in schemi per perline da stirare e punto croce e include strumenti per il pixel art. I colori sullo schermo sono approssimativi e possono '
+             'differire dai prodotti reali.']),
+           ('I tuoi contenuti',
+            ['Le foto che scegli e gli schemi che crei sono tuoi. Assicurati di avere il diritto di usare le foto che trasformi in schemi, soprattutto se vendi ciò che '
+             'realizzi.']),
+           ('Hantam Pro',
+            ['Pro viene venduto tramite l’App Store di Apple come abbonamento mensile o annuale a rinnovo automatico oppure come accesso a vita con acquisto unico.',
+             'Gli abbonamenti si rinnovano automaticamente, a meno che non vengano annullati almeno 24 ore prima della fine del periodo in corso. Il tuo account Apple viene '
+             'addebitato nelle 24 ore precedenti il rinnovo. Puoi gestire o annullare dalle impostazioni del tuo account Apple.',
+             'Se viene offerta una prova gratuita, la parte non utilizzata termina quando sottoscrivi un abbonamento. I rimborsi seguono la politica di Apple.']),
+           ('Regole', ['Non effettuare il reverse engineering dell’app e non usarla per scopi illeciti.']),
+           ('Esclusione di garanzia',
+            ['L’app è fornita così com’è, senza garanzie di alcun tipo. Nei limiti consentiti dalla legge, la nostra responsabilità è limitata a quanto hai pagato per l’app.']),
+           ('Marchi', ['Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata né approvata da queste aziende.']),
+           ('Legge applicabile', ['Queste condizioni sono regolate dalle leggi della Repubblica di Corea.'])],
+ 'dev': 'Sviluppatore: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
