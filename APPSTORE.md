@@ -1190,3 +1190,69 @@ Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yht
 
 Käyttöehdot: https://m1zz.github.io/PixelMe/fi/terms.html
 Tietosuojakäytäntö: https://m1zz.github.io/PixelMe/fi/privacy.html
+
+## id
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/id/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/id/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/id/
+
+### 이름
+
+Hantam: pola manik setrika
+
+### 부제
+
+Ubah foto jadi pixel art
+
+### 키워드
+
+kristik,sulam silang,bordir,kerajinan,gantungan kunci,hewan peliharaan,potret,mosaik,DIY,8bit,anak
+
+### 프로모션 텍스트
+
+Pilih foto hewan peliharaan, wajahmu, atau karakter favorit, lalu jadikan pola manik setrika atau kristik dengan warna asli. Jumlah tiap warna langsung terlihat.
+
+### 설명
+
+Satu foto jadi pola manik setrika atau kristik. Dan dengan warna asli yang memang bisa kamu beli.
+Pilih foto, lalu manik atau benang, dan Hantam akan memberi tahu warna apa saja yang kamu butuhkan serta berapa banyak tiap warna.
+
+Warna asli, nomor warna asli
+Pola dibuat berdasarkan kartu warna manik setrika Perler, Hama Midi, dan Artkal S serta benang bordir DMC. Setiap kotak punya nomor warna, dan daftar warna menghitung berapa manik atau tusukan yang dibutuhkan tiap warna.
+
+Cocok untuk papan maupun kain
+Pola manik dibagi per papan 29 × 29, dengan garis tebal di batasnya. Pola kristik punya garis tebal setiap 10 tusukan, dan kamu bisa melihat ukuran jadinya pada kain 11, 14, 16, dan 18 count.
+
+Hasilnya kamu yang tentukan
+Ubah ukuran dan jumlah warna, pratinjau langsung berubah. Kamu bisa menghapus latar belakang dan menyisakan objek utamanya. Ketuk kotak untuk memperbaikinya satu per satu, atau ganti satu warna dengan warna lain di seluruh pola.
+
+Tiga tampilan
+Beralih antara tampilan seperti manik atau tusukan sungguhan, kotak warna, dan pola bersimbol.
+
+Cetak lalu langsung kerjakan
+Ekspor PDF untuk dicetak berisi pratinjau, daftar warna, dan pola bersimbol per papan atau per halaman. Kamu juga bisa menyalin daftar belanja dengan jumlah cadangan.
+
+Alat pixel art juga ada
+Ubah foto jadi pixel art dengan palet retro dan filter, gambar mengikuti 110 contoh, dan buat animasi bingkai demi bingkai dengan layer dan onion skin.
+
+Fotomu tetap di iPhone
+Foto maupun pola tidak pernah keluar dari iPhone-mu.
+
+Hantam Pro
+Versi gratis memungkinkan pola hingga satu papan atau 40 tusukan, menyimpan 3 pola, dan membagikan gambar dengan tanda Hantam kecil. Pro menambahkan pola PDF untuk dicetak, pola hingga 4 × 4 papan atau 200 tusukan, penyimpanan tanpa batas, gambar tanpa tanda, dan semua alat pixel art. Pilih langganan bulanan atau tahunan, atau bayar sekali saja.
+
+Langganan diperpanjang otomatis kecuali dibatalkan paling lambat 24 jam sebelum periode berjalan berakhir; biaya ditagihkan ke akun Apple-mu dalam 24 jam sebelum perpanjangan. Kamu bisa mengelola atau membatalkannya kapan saja di pengaturan akun Apple.
+
+Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing. Hantam tidak berafiliasi dengan perusahaan-perusahaan tersebut. Warna di layar bisa sedikit berbeda dari aslinya.
+
+Ketentuan Penggunaan: https://m1zz.github.io/PixelMe/id/terms.html
+Kebijakan Privasi: https://m1zz.github.io/PixelMe/id/privacy.html

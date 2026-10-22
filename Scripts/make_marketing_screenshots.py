@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -156,6 +156,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Tulosta ja<br>aloita', 'Alustakohtaiset kuviot ja värilista PDF:nä'),
         ('05-stitch.png', 'stitch', 'hero', 'Myös ristipistotyön<br>kuviot', 'Lankojen numerot ja koko kankaallesi'),
         ('06-home.png', 'home', 'accent', 'Kaikki kuviosi<br>yhdessä paikassa', 'Avaimenperät, kehykset ja lahjat'),
+    ],
+    "id": [
+        ('01-photo.png', 'maker', 'hero', 'Dari satu foto<br>jadi pola manik', 'Pilih ukuran dan warna, langsung lihat hasilnya'),
+        ('02-colors.png', 'detail', 'left', 'Warna yang<br>bisa dibeli', 'Nomor warna dan jumlah tiap warna'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Satu simbol di<br>tiap kotak', 'Batas papan ditebalkan, ketuk kotak untuk memperbaiki'),
+        ('04-print.png', 'pdf', 'tilt', 'Cetak lalu<br>langsung buat', 'Pola per papan dan daftar warna dalam PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Ada pola<br>kristik juga', 'Nomor benang dan ukuran di kainmu'),
+        ('06-home.png', 'home', 'accent', 'Semua polamu<br>di satu tempat', 'Gantungan kunci, bingkai, dan hadiah'),
     ],
 }
 

@@ -1142,6 +1142,78 @@ T["fi"] = {'brand': 'Hantam',
            ('Sovellettava laki', ['Näihin ehtoihin sovelletaan Korean tasavallan lakia.'])],
  'dev': 'Kehittäjä: Hyunho Lee'}
 
+LANGS["id"] = "id/"
+LANG_NAME["id"] = 'Bahasa Indonesia'
+UPDATED["id"] = '18 Oktober 2026'
+STORE_LANG["id"] = "id"
+T["id"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Pola manik setrika dan kristik',
+ 'desc': 'Ubah foto apa pun menjadi pola manik setrika atau kristik dengan warna asli Perler, Hama, Artkal, dan DMC.',
+ 'nav': ('Beranda', 'Dukungan', 'Privasi', 'Ketentuan'),
+ 'hero_h': 'Dari satu foto jadi pola',
+ 'hero_p': 'Pilih foto hewan peliharaan, wajahmu, atau karakter favorit. Hantam mengubahnya jadi pola manik setrika atau kristik dengan warna yang bisa kamu beli.',
+ 'cta': 'Unduh di App Store',
+ 'features': [('Warna asli', 'Manik Perler, Hama, dan Artkal serta benang DMC. Tiap kotak menampilkan nomor warna asli.'),
+              ('Tahu apa yang harus dibeli', 'Lihat berapa manik atau tusukan yang dibutuhkan tiap warna, dan salin daftar belanja.'),
+              ('Papan demi papan', 'Pola besar dibagi per papan 29 × 29 dengan garis batas yang tebal.'),
+              ('Perbaiki kotak mana pun', 'Ketuk kotak untuk mengubahnya, atau ganti satu warna dengan warna lain di seluruh pola.'),
+              ('Cetak lalu buat', 'Dengan Pro, ekspor PDF untuk dicetak: daftar warna dan pola bersimbol, halaman demi halaman.'),
+              ('Pixel art juga', 'Ubah foto jadi pixel art, gambar mengikuti 110 contoh, dan buat animasi bingkai demi bingkai.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Versi gratis memungkinkan pola hingga satu papan (atau 40 tusukan), menyimpan 3 pola, dan membagikan gambar dengan tanda kecil. Pro menambahkan PDF untuk dicetak, pola '
+          'hingga 4 × 4 papan atau 200 tusukan, penyimpanan tanpa batas, gambar tanpa tanda, dan semua alat pixel art. Pilih langganan bulanan atau tahunan, atau bayar sekali '
+          'untuk akses seumur hidup.',
+ 'tm': 'Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing. Hantam tidak berafiliasi dengan perusahaan-perusahaan tersebut.',
+ 'support_h': 'Dukungan',
+ 'support_p': 'Pertanyaan, laporan bug, dan ide selalu kami sambut. Cara tercepat adalah Pengaturan › Kirim Masukan di dalam aplikasi, atau kirim email kepada kami.',
+ 'faq': [('Bagaimana cara memulihkan pembelianku?', 'Buka Pengaturan di aplikasi lalu ketuk Pulihkan Pembelian. Gunakan akun Apple yang sama dengan yang dipakai membeli Pro.'),
+         ('Bagaimana cara membatalkan langganan?',
+          'Buka Pengaturan iPhone › namamu › Langganan, lalu pilih Hantam. Akses seumur hidup adalah pembelian sekali bayar dan tidak pernah diperpanjang.'),
+         ('Warnanya tampak sedikit berbeda dari manikku.',
+          'Layar menampilkan warna secara berbeda dari plastik dan benang asli. Ketuk warna di daftar untuk menggantinya dengan warna yang lebih mirip dari merek yang sama.'),
+         ('Seberapa besar pola bisa dibuat?', 'Pola gratis muat di satu papan 29 × 29, atau 40 tusukan di sisi terpanjang. Pro mencapai 4 × 4 papan (116 manik) atau 200 tusukan.'),
+         ('Apakah fotoku diunggah?', 'Tidak. Foto dan pola hanya diproses dan disimpan di iPhone-mu.')],
+ 'contact': 'Kontak',
+ 'privacy_h': 'Kebijakan Privasi',
+ 'terms_h': 'Ketentuan Penggunaan',
+ 'updated': 'Terakhir diperbarui',
+ 'privacy': [('Ringkasan', ['Foto dan polamu tidak pernah meninggalkan iPhone-mu. Kami hanya mengumpulkan statistik anonim yang tidak bisa mengidentifikasi dirimu.']),
+             ('Foto',
+              ['Hantam hanya membaca foto saat kamu memilihnya. Perubahan menjadi pola terjadi di perangkatmu.',
+               'Foto tidak pernah diunggah, disimpan di server, atau dibagikan.']),
+             ('Pola yang kamu buat', ['Pola disimpan di penyimpanan aplikasi pada iPhone-mu. Jika aplikasi dihapus, pola ikut terhapus.']),
+             ('Pembelian', ['Apple menangani semua pembayaran. Kami hanya tahu apakah Pro aktif, tidak pernah detail pembayaranmu.']),
+             ('Statistik anonim dan laporan error',
+              ['Untuk menghitung pengguna, melihat fitur mana yang dipakai, dan memperbaiki error, aplikasi mengirim data anonim ke Apple iCloud (CloudKit) yang hanya bisa dibaca '
+               'pengembang:',
+               'ID acak yang dibuat saat instalasi (tidak terkait dengan dirimu, akun Apple, atau aplikasi lain; berubah jika kamu memasang ulang), versi aplikasi dan iOS, '
+               'wilayah dan bahasa, hari saat aplikasi dibuka, fitur yang digunakan (misalnya pola dibuat, PDF diekspor, atau layar pembelian ditampilkan), dan rincian error.',
+               'Tidak ada nama, kontak, lokasi, foto, atau pola yang disertakan. Jika kamu belum masuk ke iCloud, tidak ada yang dikirim.']),
+             ('Masukan', ['Jika kamu mengirim masukan dari aplikasi, kami menerima tulisanmu dan, hanya jika kamu mengisinya, alamat email-mu agar kami bisa membalas.']),
+             ('Tanpa pelacakan', ['Tanpa iklan, tanpa analitik pihak ketiga, dan tanpa pelacakan lintas aplikasi atau situs web lain.']),
+             ('Anak-anak', ['Hantam cocok untuk segala usia. Kami tidak dengan sengaja mengumpulkan data pribadi anak-anak.']),
+             ('Perubahan', ['Jika kebijakan ini berubah, kami akan memuat versi baru di sini dengan tanggal baru.'])],
+ 'terms': [('Penggunaan aplikasi', ['Dengan menggunakan Hantam, kamu menyetujui ketentuan ini. Jika tidak setuju, mohon jangan gunakan aplikasi ini.']),
+           ('Fungsi Hantam',
+            ['Hantam mengubah foto menjadi pola manik setrika dan kristik serta menyediakan alat pixel art. Warna di layar hanya pendekatan dan bisa berbeda dari produk '
+             'aslinya.']),
+           ('Kontenmu',
+            ['Foto yang kamu pilih dan pola yang kamu buat adalah milikmu. Pastikan kamu berhak menggunakan foto yang kamu ubah jadi pola, terutama jika kamu menjual hasil '
+             'karyamu.']),
+           ('Hantam Pro',
+            ['Pro dijual lewat App Store Apple sebagai langganan bulanan atau tahunan dengan perpanjangan otomatis, atau sebagai akses seumur hidup dengan sekali bayar.',
+             'Langganan diperpanjang otomatis kecuali dibatalkan paling lambat 24 jam sebelum periode berjalan berakhir. Akun Apple-mu ditagih dalam 24 jam sebelum perpanjangan. '
+             'Kelola atau batalkan di pengaturan akun Apple.',
+             'Jika ada uji coba gratis, sisa yang belum terpakai berakhir saat kamu berlangganan. Pengembalian dana mengikuti kebijakan Apple.']),
+           ('Aturan', ['Jangan melakukan rekayasa balik pada aplikasi atau menggunakannya untuk hal yang melanggar hukum.']),
+           ('Tanpa jaminan',
+            ['Aplikasi disediakan apa adanya, tanpa jaminan apa pun. Sejauh diizinkan hukum, tanggung jawab kami dibatasi sebesar jumlah yang kamu bayarkan untuk aplikasi.']),
+           ('Merek dagang',
+            ['Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing. Hantam tidak berafiliasi dengan atau didukung oleh perusahaan-perusahaan '
+             'tersebut.']),
+           ('Hukum yang berlaku', ['Ketentuan ini tunduk pada hukum Republik Korea.'])],
+ 'dev': 'Pengembang: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
