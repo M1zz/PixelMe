@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -52,6 +52,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', '打印出来<br>马上开做', '按底板分块的图纸和颜色清单 PDF'),
         ('05-stitch.png', 'stitch', 'hero', '十字绣图纸<br>也能做', '绣线色号和各 count 绣布的成品尺寸'),
         ('06-home.png', 'home', 'accent', '做过的图纸<br>集中收好', '钥匙扣、画框、礼物都在这里'),
+    ],
+    "zh-Hant": [
+        ('01-photo.png', 'maker', 'hero', '一張照片<br>變成拼豆圖紙', '選好尺寸和顏色數，馬上預覽'),
+        ('02-colors.png', 'detail', 'left', '依買得到的<br>顏色來配', '色號和每種顏色的用量都有'),
+        ('03-symbols.png', 'symbols', 'bottom', '每格一個符號<br>不會看錯', '底板分界加粗，點格子就能改'),
+        ('04-print.png', 'pdf', 'tilt', '列印出來<br>馬上開做', '依底板分塊的圖紙和顏色清單 PDF'),
+        ('05-stitch.png', 'stitch', 'hero', '十字繡圖紙<br>也能做', '繡線色號和各 count 繡布的成品尺寸'),
+        ('06-home.png', 'home', 'accent', '做過的圖紙<br>集中收好', '鑰匙圈、相框、禮物都在這裡'),
     ],
 }
 

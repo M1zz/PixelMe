@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hantam — 拼豆與十字繡圖紙製作</title>
+<meta name="description" content="把任何照片變成對應 Perler、Hama、Artkal 拼豆及 DMC 繡線真實顏色的拼豆或十字繡圖紙。">
+<meta property="og:title" content="Hantam — 拼豆與十字繡圖紙製作">
+<meta property="og:description" content="把任何照片變成對應 Perler、Hama、Artkal 拼豆及 DMC 繡線真實顏色的拼豆或十字繡圖紙。">
+<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="canonical" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
+<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
+<style>
+:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+:lang(ko) body{word-break:keep-all}
+a{color:var(--accent)}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
+header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
+header .logo img{width:40px;height:40px;border-radius:10px}
+header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
+header nav a{color:var(--muted);text-decoration:none}
+header nav a:hover{color:var(--accent)}
+.langs{font-size:14px;color:var(--muted)}
+.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
+.langs a[aria-current]{color:var(--ink);font-weight:700}
+main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
+.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
+.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
+.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px}
+section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
+section.pro h2{color:var(--accent);margin-bottom:8px}
+.doc h1{font-size:34px;margin:10px 0 4px}
+.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
+.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
+.doc p{margin-bottom:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:8px;color:var(--muted)}
+footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
+  <nav><a href="index.html">首頁</a><a href="support.html">支援</a><a href="privacy.html">隱私權</a><a href="terms.html">條款</a></nav>
+  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant" aria-current="page">繁體中文</a></div>
+</header>
+<main>
+
+<section class="hero">
+  <div>
+    <h1>一張照片，變成一份圖紙</h1>
+    <p>選一張寵物、自己或喜愛角色的照片，Hantam 會把它做成拼豆或十字繡圖紙，用的都是買得到的顏色。</p>
+    <a class="btn" href="https://apps.apple.com/app/id6449769987">在 App Store 下載</a>
+  </div>
+  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
+</section>
+<div class="grid"><div class="card"><h3>真實顏色</h3><p>支援 Perler、Hama、Artkal 拼豆和 DMC 繡線，每個格子都標有真實色號。</p></div><div class="card"><h3>該買多少一看便知</h3><p>查看每種顏色需要的拼豆數或針數，還能複製購物清單。</p></div><div class="card"><h3>依底板分塊</h3><p>大圖紙依 29 × 29 的底板分塊，並用粗線標出分界。</p></div><div class="card"><h3>哪一格都能改</h3><p>點一下格子即可修改，也可以把某種顏色整個換成另一種。</p></div><div class="card"><h3>列印後直接做</h3><p>開通 Pro 即可匯出列印用 PDF：顏色清單加上逐頁的符號圖紙。</p></div><div class="card"><h3>也有像素畫</h3><p>把照片變成像素畫，對著 110 種範例描繪，還能製作逐格動畫。</p></div></div>
+<section class="pro"><h2>Hantam Pro</h2><p>免費版可製作一塊底板（十字繡為 40 針）以內的圖紙，最多儲存 3 個圖紙，分享的圖片會帶有小標記。Pro 版增加列印用 PDF、最大 4 × 4 塊底板或 200 針的圖紙、無限儲存、無標記圖片以及全部像素畫工具。可選擇按月或按年訂閱，也可以一次性買斷。</p></section>
+
+</main>
+<footer>Perler、Hama、Artkal 和 DMC 是各自所有者的商標。Hantam 與這些公司沒有關聯。<br>開發者：Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+</body>
+</html>
