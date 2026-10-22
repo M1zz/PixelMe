@@ -461,6 +461,7 @@
 				ko,
 				ja,
 				"en-GB",
+				"zh-Hans",
 			);
 			mainGroup = 58D012302A28147A00668585;
 			packageReferences = (

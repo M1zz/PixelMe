@@ -266,3 +266,69 @@ Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam i
 
 Terms of Use: https://m1zz.github.io/PixelMe/terms.html
 Privacy Policy: https://m1zz.github.io/PixelMe/privacy.html
+
+## zh-Hans
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/zh-Hans/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/zh-Hans/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/zh-Hans/
+
+### 이름
+
+Hantam：拼豆与十字绣图纸
+
+### 부제
+
+用照片生成图纸和像素画
+
+### 키워드
+
+拼豆,十字绣,刺绣,像素,像素画,手工,图纸,钥匙扣,宠物,照片,马赛克,色号,DIY,8bit,手作,亲子,儿童,毛线,打印,编织,挂件
+
+### 프로모션 텍스트
+
+选一张宠物、自己或喜欢角色的照片，就能做成拼豆或十字绣图纸，颜色都是买得到的真实色号。每种颜色要用多少也一目了然，还能直接打印图纸。
+
+### 설명
+
+一张照片，就能变成拼豆或十字绣图纸，而且用的都是买得到的真实颜色。
+选好照片，再选拼豆或绣线，Hantam 会告诉你每种颜色需要多少颗。
+
+真实颜色，真实色号
+图纸依据 Perler、Hama Midi、Artkal S 拼豆和 DMC 绣线的色卡生成。每个格子都标有色号，颜色清单会统计每种颜色需要的拼豆数或针数。
+
+拼豆板、绣布都合适
+拼豆图纸按 29 × 29 的底板分块，分界处用粗线标出。十字绣图纸每 10 针画一条粗线，还能看到用 11、14、16、18 count 绣布做出来的成品尺寸。
+
+成品由你决定
+调整尺寸和颜色数量，预览立刻变化。可以去掉背景，只留下主体。点一下格子就能单独修改，也能把某种颜色整体换成另一种。
+
+三种显示方式
+可以在拼豆实物效果、色块和符号图纸之间切换查看。
+
+打印出来马上就能做
+可以导出打印用 PDF，内含预览、颜色清单，以及按底板或页面划分的符号图纸。还能复制加上备用数量的购物清单。
+
+像素画工具也在
+用复古调色板和滤镜把照片变成像素画，对着 110 种范例描摹绘制，还能用图层和洋葱皮制作逐帧动画。
+
+照片只留在你的 iPhone 里
+照片和图纸都不会离开你的 iPhone。
+
+Hantam Pro
+免费版可制作一块底板或 40 针以内的图纸，最多保存 3 个，分享的图片带有小小的 Hantam 标记。Pro 版支持打印用 PDF 图纸、最大 4 × 4 块底板或 200 针的图纸、无限保存、无标记图片，以及全部像素画工具。可选择按月或按年订阅，也可以一次买断。
+
+订阅会自动续订，除非在当前订阅期结束前至少 24 小时取消；续订费用会在结束前 24 小时内从你的 Apple 账户扣除。你可以随时在 Apple 账户设置中管理或取消订阅。
+
+Perler、Hama、Artkal 和 DMC 是各自所有者的商标，Hantam 与这些公司没有关联。屏幕上的颜色可能与实物略有差异。
+
+使用条款：https://m1zz.github.io/PixelMe/zh-Hans/terms.html
+隐私政策：https://m1zz.github.io/PixelMe/zh-Hans/privacy.html

@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -44,6 +44,14 @@ SHOTS_BY_LANG = {
         ("04-print.png",   "pdf",     "tilt",   "印刷して<br>すぐに作れる", "プレートごとの図案と色リストをPDFで"),
         ("05-stitch.png",  "stitch",  "hero",   "クロスステッチの<br>図案も", "糸の色番号と、布ごとの仕上がりサイズ"),
         ("06-home.png",    "home",    "accent", "作った図案を<br>ひとまとめに", "キーホルダーも額もプレゼントも"),
+    ],
+    "zh-Hans": [
+        ('01-photo.png', 'maker', 'hero', '一张照片<br>变成拼豆图纸', '选好尺寸和颜色数，马上预览'),
+        ('02-colors.png', 'detail', 'left', '按买得到的<br>颜色来配', '色号和每种颜色的用量都有'),
+        ('03-symbols.png', 'symbols', 'bottom', '每格一个符号<br>不会看错', '底板分界加粗，点格子就能改'),
+        ('04-print.png', 'pdf', 'tilt', '打印出来<br>马上开做', '按底板分块的图纸和颜色清单 PDF'),
+        ('05-stitch.png', 'stitch', 'hero', '十字绣图纸<br>也能做', '绣线色号和各 count 绣布的成品尺寸'),
+        ('06-home.png', 'home', 'accent', '做过的图纸<br>集中收好', '钥匙扣、画框、礼物都在这里'),
     ],
 }
 
