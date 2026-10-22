@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -140,6 +140,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Print og<br>kom i gang', 'Mønstre pr. plade og farveliste som PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Også mønstre til<br>korssting', 'Garnnumre og størrelse på dit stof'),
         ('06-home.png', 'home', 'accent', 'Alle dine mønstre<br>samlet ét sted', 'Nøgleringe, rammer og gaver'),
+    ],
+    "el": [
+        ('01-photo.png', 'maker', 'hero', 'Από μια φωτογραφία<br>σχέδιο με χάντρες', 'Διάλεξε μέγεθος και χρώματα και δες το αμέσως'),
+        ('02-colors.png', 'detail', 'left', 'Χρώματα που<br>μπορείς να αγοράσεις', 'Αριθμοί και ποσότητες για κάθε χρώμα'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Ένα σύμβολο σε<br>κάθε τετραγωνάκι', 'Έντονα όρια πλακετών, πάτα για διόρθωση'),
+        ('04-print.png', 'pdf', 'tilt', 'Εκτύπωσε και<br>ξεκίνα', 'Σχέδια ανά πλακέτα και λίστα χρωμάτων σε PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Και σχέδια για<br>σταυροβελονιά', 'Αριθμοί κλωστών και μέγεθος στο ύφασμά σου'),
+        ('06-home.png', 'home', 'accent', 'Όλα τα σχέδιά σου<br>σε ένα μέρος', 'Μπρελόκ, κορνίζες και δώρα'),
     ],
 }
 
