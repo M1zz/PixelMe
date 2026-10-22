@@ -800,6 +800,69 @@ T["th"] = {'brand': 'Hantam',
            ('กฎหมายที่ใช้บังคับ', ['เงื่อนไขเหล่านี้อยู่ภายใต้กฎหมายของสาธารณรัฐเกาหลี'])],
  'dev': 'นักพัฒนา: Hyunho Lee'}
 
+LANGS["vi"] = "vi/"
+LANG_NAME["vi"] = 'Tiếng Việt'
+UPDATED["vi"] = '18 tháng 10, 2026'
+STORE_LANG["vi"] = "vi"
+T["vi"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Mẫu hạt ủi và thêu chữ thập',
+ 'desc': 'Biến mọi bức ảnh thành mẫu hạt ủi hoặc thêu chữ thập với màu thật của Perler, Hama, Artkal và DMC.',
+ 'nav': ('Trang chủ', 'Hỗ trợ', 'Quyền riêng tư', 'Điều khoản'),
+ 'hero_h': 'Từ một tấm ảnh thành một mẫu',
+ 'hero_p': 'Chọn ảnh thú cưng, ảnh của bạn hoặc nhân vật yêu thích. Hantam biến nó thành mẫu hạt ủi hoặc thêu chữ thập với những màu bạn có thể mua được.',
+ 'cta': 'Tải trên App Store',
+ 'features': [('Màu thật', 'Hạt Perler, Hama, Artkal và chỉ DMC. Mỗi ô hiển thị một mã màu thật.'),
+              ('Biết cần mua bao nhiêu', 'Xem mỗi màu cần bao nhiêu hạt hoặc mũi thêu, và sao chép danh sách mua sắm.'),
+              ('Từng đế một', 'Mẫu lớn được chia theo đế 29 × 29 với đường viền giữa các đế được kẻ đậm.'),
+              ('Sửa được mọi ô', 'Chạm vào ô để đổi, hoặc thay một màu bằng màu khác trên toàn bộ mẫu.'),
+              ('In ra là làm', 'Với Pro, xuất PDF để in: danh sách màu cùng mẫu ký hiệu theo từng trang.'),
+              ('Có cả pixel art', 'Biến ảnh thành pixel art, tô theo 110 mẫu có sẵn và làm hoạt ảnh từng khung hình.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Bản miễn phí cho phép tạo mẫu tối đa một đế (hoặc 40 mũi), lưu 3 mẫu và chia sẻ ảnh có dấu nhỏ. Pro bổ sung PDF để in, mẫu tối đa 4 × 4 đế hoặc 200 mũi, lưu không giới '
+          'hạn, ảnh không có dấu và toàn bộ công cụ pixel art. Chọn gói theo tháng hoặc theo năm, hoặc mua một lần dùng mãi mãi.',
+ 'tm': 'Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với các công ty này.',
+ 'support_h': 'Hỗ trợ',
+ 'support_p': 'Câu hỏi, báo lỗi và ý tưởng đều được chào đón. Cách nhanh nhất là vào Cài đặt › Gửi phản hồi trong ứng dụng, hoặc gửi email cho chúng tôi.',
+ 'faq': [('Làm sao để khôi phục giao dịch mua?', 'Mở Cài đặt trong ứng dụng và chạm vào Khôi phục giao dịch mua. Hãy dùng đúng tài khoản Apple đã mua Pro.'),
+         ('Làm sao để hủy gói đăng ký?', 'Vào Cài đặt iPhone › tên của bạn › Đăng ký rồi chọn Hantam. Gói dùng mãi mãi chỉ trả một lần và không bao giờ gia hạn.'),
+         ('Màu trông hơi khác so với hạt của tôi.', 'Màn hình hiển thị màu khác với nhựa và chỉ thật. Chạm vào một màu trong danh sách để đổi sang màu gần hơn cùng thương hiệu.'),
+         ('Mẫu có thể lớn đến mức nào?', 'Mẫu miễn phí vừa một đế 29 × 29, hoặc 40 mũi ở cạnh dài nhất. Pro lên tới 4 × 4 đế (116 hạt) hoặc 200 mũi.'),
+         ('Các bạn có tải ảnh của tôi lên không?', 'Không. Ảnh và mẫu chỉ được xử lý và lưu trên iPhone của bạn.')],
+ 'contact': 'Liên hệ',
+ 'privacy_h': 'Chính sách quyền riêng tư',
+ 'terms_h': 'Điều khoản sử dụng',
+ 'updated': 'Cập nhật lần cuối',
+ 'privacy': [('Tóm tắt', ['Ảnh và mẫu của bạn không bao giờ rời khỏi iPhone. Chúng tôi chỉ thu thập thống kê ẩn danh, không thể dùng để nhận ra bạn.']),
+             ('Ảnh',
+              ['Hantam chỉ đọc ảnh khi bạn chọn. Việc chuyển ảnh thành mẫu diễn ra ngay trên thiết bị của bạn.', 'Ảnh không bao giờ được tải lên, lưu trên máy chủ hay chia sẻ.']),
+             ('Mẫu bạn tạo', ['Mẫu được lưu trong bộ nhớ của ứng dụng trên iPhone. Xóa ứng dụng thì mẫu cũng bị xóa theo.']),
+             ('Giao dịch mua', ['Apple xử lý mọi khoản thanh toán. Chúng tôi chỉ biết Pro có đang hoạt động hay không, không bao giờ biết thông tin thanh toán của bạn.']),
+             ('Thống kê ẩn danh và báo cáo sự cố',
+              ['Để đếm số người dùng, biết tính năng nào được dùng và sửa lỗi sự cố, ứng dụng gửi dữ liệu ẩn danh tới Apple iCloud (CloudKit), chỉ nhà phát triển mới đọc được:',
+               'một mã ngẫu nhiên tạo khi cài đặt (không liên kết với bạn, tài khoản Apple hay ứng dụng khác; sẽ đổi nếu bạn cài lại), phiên bản ứng dụng và iOS, khu vực và ngôn '
+               'ngữ, những ngày mở ứng dụng, các tính năng đã dùng (ví dụ đã tạo mẫu, xuất PDF hoặc hiển thị màn hình mua) và chi tiết sự cố.',
+               'Không có tên, thông tin liên hệ, vị trí, ảnh hay mẫu nào được gửi. Nếu bạn chưa đăng nhập iCloud, sẽ không có gì được gửi.']),
+             ('Phản hồi', ['Nếu bạn gửi phản hồi từ ứng dụng, chúng tôi nhận nội dung bạn viết và chỉ khi bạn điền thì mới nhận địa chỉ email để trả lời.']),
+             ('Không theo dõi', ['Không quảng cáo, không công cụ phân tích bên thứ ba và không theo dõi qua các ứng dụng hay trang web khác.']),
+             ('Trẻ em', ['Hantam phù hợp với mọi lứa tuổi. Chúng tôi không cố ý thu thập thông tin cá nhân của trẻ em.']),
+             ('Thay đổi', ['Nếu chính sách này thay đổi, chúng tôi sẽ đăng bản mới tại đây kèm ngày mới.'])],
+ 'terms': [('Sử dụng ứng dụng', ['Khi dùng Hantam, bạn đồng ý với các điều khoản này. Nếu không đồng ý, vui lòng không sử dụng ứng dụng.']),
+           ('Hantam làm gì', ['Hantam biến ảnh thành mẫu hạt ủi và thêu chữ thập, đồng thời có công cụ pixel art. Màu trên màn hình chỉ gần đúng và có thể khác sản phẩm thật.']),
+           ('Nội dung của bạn',
+            ['Ảnh bạn chọn và mẫu bạn tạo thuộc về bạn. Hãy chắc chắn bạn có quyền sử dụng những bức ảnh mình biến thành mẫu, nhất là khi bạn bán sản phẩm làm ra.']),
+           ('Hantam Pro',
+            ['Pro được bán qua App Store của Apple dưới dạng gói đăng ký theo tháng hoặc theo năm tự động gia hạn, hoặc quyền dùng mãi mãi trả một lần.',
+             'Gói đăng ký tự động gia hạn trừ khi bị hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Tài khoản Apple của bạn bị tính phí trong vòng 24 giờ trước khi gia hạn. '
+             'Quản lý hoặc hủy trong cài đặt tài khoản Apple.',
+             'Nếu có dùng thử miễn phí, phần chưa dùng sẽ kết thúc khi bạn đăng ký. Việc hoàn tiền theo chính sách của Apple.']),
+           ('Quy tắc', ['Không dịch ngược ứng dụng và không dùng ứng dụng vào mục đích bất hợp pháp.']),
+           ('Không bảo đảm',
+            ['Ứng dụng được cung cấp nguyên trạng, không có bảo đảm dưới bất kỳ hình thức nào. Trong phạm vi pháp luật cho phép, trách nhiệm của chúng tôi giới hạn ở số tiền bạn '
+             'đã trả cho ứng dụng.']),
+           ('Nhãn hiệu', ['Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết hay được các công ty này chứng thực.']),
+           ('Luật áp dụng', ['Các điều khoản này chịu sự điều chỉnh của pháp luật Hàn Quốc.'])],
+ 'dev': 'Nhà phát triển: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -116,6 +116,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'พิมพ์แล้ว<br>ลงมือทำเลย', 'แพตเทิร์นแยกตามบอร์ดและรายการสีใน PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'มีแพตเทิร์น<br>ครอสติชด้วย', 'เลขไหมและขนาดผลงานบนผ้าของคุณ'),
         ('06-home.png', 'home', 'accent', 'แพตเทิร์นทั้งหมด<br>อยู่ในที่เดียว', 'พวงกุญแจ กรอบรูป และของขวัญ'),
+    ],
+    "vi": [
+        ('01-photo.png', 'maker', 'hero', 'Từ một tấm ảnh<br>thành mẫu hạt', 'Chọn kích thước và màu, xem ngay'),
+        ('02-colors.png', 'detail', 'left', 'Màu bạn có thể<br>mua được', 'Mã màu và số lượng của từng màu'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Mỗi ô một ký hiệu<br>không sợ nhầm', 'Viền đế đậm, chạm vào ô để sửa'),
+        ('04-print.png', 'pdf', 'tilt', 'In ra<br>là làm được', 'Mẫu theo từng đế và danh sách màu bằng PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Có cả mẫu<br>thêu chữ thập', 'Mã chỉ và kích thước trên vải của bạn'),
+        ('06-home.png', 'home', 'accent', 'Mọi mẫu của bạn<br>ở cùng một nơi', 'Móc khóa, khung ảnh và quà tặng'),
     ],
 }
 

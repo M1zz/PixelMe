@@ -860,3 +860,69 @@ Perler, Hama, Artkal และ DMC เป็นเครื่องหมาย
 
 เงื่อนไขการใช้งาน: https://m1zz.github.io/PixelMe/th/terms.html
 นโยบายความเป็นส่วนตัว: https://m1zz.github.io/PixelMe/th/privacy.html
+
+## vi
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/vi/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/vi/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/vi/
+
+### 이름
+
+Hantam: mẫu hạt ủi & thêu
+
+### 부제
+
+Biến ảnh thành pixel art
+
+### 키워드
+
+thêu chữ thập,hạt nhựa,hạt ủi,thủ công,pixel,móc khóa,thú cưng,chân dung,mosaic,DIY,8bit,trẻ em,in
+
+### 프로모션 텍스트
+
+Chọn ảnh thú cưng, ảnh bạn hoặc nhân vật yêu thích để tạo mẫu hạt ủi hay thêu chữ thập với màu thật mua được. Mỗi màu cần bao nhiêu, bạn thấy ngay.
+
+### 설명
+
+Một tấm ảnh thành mẫu hạt ủi hoặc mẫu thêu chữ thập. Và dùng toàn màu bạn có thể mua được ngoài đời.
+Chọn ảnh, chọn hạt hoặc chỉ, Hantam sẽ cho bạn biết cần những màu nào và bao nhiêu của mỗi màu.
+
+Màu thật, mã màu thật
+Mẫu được tạo từ bảng màu hạt ủi Perler, Hama Midi, Artkal S và chỉ thêu DMC. Mỗi ô có mã màu riêng, và danh sách màu đếm số hạt hay mũi thêu cần cho từng màu.
+
+Hợp cho cả đế ghim lẫn vải
+Mẫu hạt được chia theo từng đế 29 × 29, đường viền giữa các đế được kẻ đậm. Mẫu thêu chữ thập có đường đậm sau mỗi 10 mũi, và bạn xem được kích thước thành phẩm trên vải 11, 14, 16 và 18 count.
+
+Thành phẩm do bạn quyết định
+Đổi kích thước và số màu, bản xem trước đổi theo ngay. Bạn có thể xóa nền để chỉ giữ lại chủ thể. Chạm vào một ô để chỉnh riêng, hoặc thay một màu bằng màu khác trên toàn bộ mẫu.
+
+Ba kiểu hiển thị
+Chuyển qua lại giữa vẻ ngoài như hạt hoặc mũi thêu thật, các ô màu và mẫu ký hiệu.
+
+In ra là làm được ngay
+Xuất tệp PDF để in gồm bản xem trước, danh sách màu và mẫu ký hiệu chia theo đế hoặc theo trang. Bạn cũng có thể sao chép danh sách mua sắm đã cộng thêm số dự phòng.
+
+Có cả công cụ pixel art
+Biến ảnh thành pixel art với bảng màu retro và bộ lọc, tô theo 110 mẫu có sẵn, làm hoạt ảnh từng khung hình với lớp và onion skin.
+
+Ảnh của bạn chỉ nằm trong iPhone
+Ảnh và mẫu đều không rời khỏi iPhone của bạn.
+
+Hantam Pro
+Bản miễn phí cho phép tạo mẫu tối đa một đế hoặc 40 mũi, lưu 3 mẫu và chia sẻ ảnh có dấu Hantam nhỏ. Pro bổ sung mẫu PDF để in, mẫu tối đa 4 × 4 đế hoặc 200 mũi, lưu không giới hạn, ảnh không có dấu và toàn bộ công cụ pixel art. Chọn gói theo tháng, theo năm hoặc mua một lần.
+
+Gói đăng ký tự động gia hạn trừ khi bạn hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc; tài khoản Apple của bạn bị tính phí trong vòng 24 giờ trước khi gia hạn. Bạn có thể quản lý hoặc hủy bất cứ lúc nào trong phần cài đặt tài khoản Apple.
+
+Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với các công ty này. Màu trên màn hình có thể khác đôi chút so với thực tế.
+
+Điều khoản sử dụng: https://m1zz.github.io/PixelMe/vi/terms.html
+Chính sách quyền riêng tư: https://m1zz.github.io/PixelMe/vi/privacy.html
