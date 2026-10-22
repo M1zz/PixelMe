@@ -1256,3 +1256,69 @@ Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing.
 
 Ketentuan Penggunaan: https://m1zz.github.io/PixelMe/id/terms.html
 Kebijakan Privasi: https://m1zz.github.io/PixelMe/id/privacy.html
+
+## no
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/nb/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/nb/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/nb/
+
+### 이름
+
+Hantam: perlemønstre
+
+### 부제
+
+Bildene dine som pikselkunst
+
+### 키워드
+
+korssting,strykeperler,broderi,pixel,håndarbeid,nøkkelring,kjæledyr,portrett,mosaikk,DIY,8bit,barn
+
+### 프로모션 텍스트
+
+Velg et bilde av kjæledyret ditt, deg selv eller en favorittfigur og lag et mønster til strykeperler eller korssting med ekte farger. Se hvor mange du trenger.
+
+### 설명
+
+Ett bilde blir til et mønster til strykeperler eller korssting. Og med ekte farger som du faktisk kan kjøpe.
+Velg et bilde, velg perler eller garn, så forteller Hantam hvilke farger du trenger og hvor mange av hver.
+
+Ekte farger, ekte fargenumre
+Mønstrene bygger på fargekortene til strykeperler fra Perler, Hama Midi og Artkal S og på DMC-broderigarn. Hver rute har sitt fargenummer, og fargelisten teller hvor mange perler eller sting hver farge krever.
+
+Passer til både perlebrett og stoff
+Perlemønstre deles inn i brett på 29 × 29, med tykke streker i skillene. Korsstingmønstre har en tykk strek for hver 10. sting, og du ser ferdig størrelse på stoff med 11, 14, 16 og 18 count.
+
+Du bestemmer resultatet
+Endre størrelsen og antall farger, så oppdateres forhåndsvisningen med en gang. Du kan fjerne bakgrunnen og beholde bare motivet. Trykk på en rute for å rette den, eller bytt ut én farge med en annen i hele mønsteret.
+
+Tre visninger
+Bytt mellom utseendet til ekte perler eller sting, fargeruter og symbolmønsteret.
+
+Skriv ut og kom i gang
+Eksporter en PDF til utskrift med forhåndsvisning, fargeliste og symbolmønstre per brett eller side. Du kan også kopiere en handleliste med litt ekstra i reserve.
+
+Verktøy for pikselkunst er også med
+Gjør bilder om til pikselkunst med retropaletter og filtre, tegn etter 110 forlegg, og lag animasjoner bilde for bilde med lag og onion skin.
+
+Bildene dine blir på iPhonen
+Verken bilder eller mønstre forlater iPhonen din.
+
+Hantam Pro
+Gratisversjonen gir mønstre opptil ett brett eller 40 sting, 3 lagrede mønstre og deling av bilder med et lite Hantam-merke. Pro legger til PDF-mønstre til utskrift, mønstre opptil 4 × 4 brett eller 200 sting, ubegrenset lagring, bilder uten merke og alle verktøyene for pikselkunst. Velg et månedlig eller årlig abonnement, eller betal én gang.
+
+Abonnementet fornyes automatisk med mindre det sies opp minst 24 timer før utløpet av gjeldende periode. Betalingen belastes Apple-kontoen din innen 24 timer før fornyelsen. Du kan når som helst administrere eller si opp abonnementet i innstillingene for Apple-kontoen din.
+
+Perler, Hama, Artkal og DMC er varemerker som tilhører sine respektive eiere. Hantam er ikke tilknyttet disse selskapene. Fargene på skjermen kan avvike litt fra de virkelige.
+
+Vilkår for bruk: https://m1zz.github.io/PixelMe/nb/terms.html
+Personvernerklæring: https://m1zz.github.io/PixelMe/nb/privacy.html

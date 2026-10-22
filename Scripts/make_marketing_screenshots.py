@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -164,6 +164,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Cetak lalu<br>langsung buat', 'Pola per papan dan daftar warna dalam PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Ada pola<br>kristik juga', 'Nomor benang dan ukuran di kainmu'),
         ('06-home.png', 'home', 'accent', 'Semua polamu<br>di satu tempat', 'Gantungan kunci, bingkai, dan hadiah'),
+    ],
+    "nb": [
+        ('01-photo.png', 'maker', 'hero', 'Fra bilde til<br>perlemønster', 'Velg størrelse og farger, og se det med en gang'),
+        ('02-colors.png', 'detail', 'left', 'Farger du kan<br>kjøpe', 'Fargenumre og antall for hver farge'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Ett symbol i<br>hver rute', 'Tykke brettskiller, trykk for å rette'),
+        ('04-print.png', 'pdf', 'tilt', 'Skriv ut og<br>kom i gang', 'Mønstre per brett og fargeliste som PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Også mønstre til<br>korssting', 'Garnnumre og størrelse på stoffet ditt'),
+        ('06-home.png', 'home', 'accent', 'Alle mønstrene dine<br>samlet på ett sted', 'Nøkkelringer, rammer og gaver'),
     ],
 }
 
