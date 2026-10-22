@@ -19,7 +19,8 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "da" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "CFBundleName" : {
@@ -40,7 +41,8 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "da" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "NSPhotoLibraryAddUsageDescription" : {
@@ -61,7 +63,8 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O Hantam salva seus padrões e seu pixel art em Fotos." } },
         "th" : { "stringUnit" : { "state" : "translated", "value" : "Hantam บันทึกแพตเทิร์นและพิกเซลอาร์ตของคุณลงในรูปภาพ" } },
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam lưu mẫu và pixel art của bạn vào Ảnh." } },
-        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam ukládá tvé vzory a pixel art do Fotek." } }
+        "cs" : { "stringUnit" : { "state" : "translated", "value" : "Hantam ukládá tvé vzory a pixel art do Fotek." } },
+        "da" : { "stringUnit" : { "state" : "translated", "value" : "Hantam gemmer dine mønstre og din pixelkunst i Fotos." } }
       }
     }
   },

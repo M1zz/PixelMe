@@ -930,6 +930,75 @@ T["cs"] = {'brand': 'Hantam',
            ('Rozhodné právo', ['Tyto podmínky se řídí právem Korejské republiky.'])],
  'dev': 'Vývojář: Hyunho Lee'}
 
+LANGS["da"] = "da/"
+LANG_NAME["da"] = 'Dansk'
+UPDATED["da"] = '18. oktober 2026'
+STORE_LANG["da"] = "da"
+T["da"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Mønstre til strygeperler og korssting',
+ 'desc': 'Lav ethvert foto om til et mønster til strygeperler eller korssting i de rigtige farver fra Perler, Hama, Artkal og DMC.',
+ 'nav': ('Forside', 'Support', 'Privatliv', 'Vilkår'),
+ 'hero_h': 'Fra foto til mønster',
+ 'hero_p': 'Vælg et foto af dit kæledyr, dig selv eller en yndlingsfigur. Hantam laver det om til et mønster til strygeperler eller korssting i farver, du kan købe.',
+ 'cta': 'Hent i App Store',
+ 'features': [('Rigtige farver', 'Strygeperler fra Perler, Hama og Artkal samt DMC-garn. Hver rude viser et rigtigt farvenummer.'),
+              ('Du ved, hvad du skal købe', 'Se, hvor mange perler eller sting hver farve kræver, og kopiér en indkøbsliste.'),
+              ('Plade for plade', 'Store mønstre deles op i plader på 29 × 29 med tykke streger ved skellene.'),
+              ('Ret hver rude', 'Tryk på en rude for at ændre den, eller skift én farve ud med en anden overalt.'),
+              ('Print og lav', 'Med Pro kan du eksportere en PDF til print: farveliste og symbolmønstre side for side.'),
+              ('Også pixelkunst', 'Lav fotos om til pixelkunst, tegn efter 110 forlæg og lav animationer billede for billede.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Den gratis version giver mønstre op til én plade (eller 40 sting), 3 gemte mønstre og deling af billeder med et lille mærke. Pro tilføjer PDF til print, mønstre op til '
+          '4 × 4 plader eller 200 sting, ubegrænset lagring, billeder uden mærke og alle værktøjer til pixelkunst. Vælg et månedligt eller årligt abonnement, eller betal én gang '
+          'for adgang for evigt.',
+ 'tm': 'Perler, Hama, Artkal og DMC er varemærker tilhørende deres respektive ejere. Hantam er ikke tilknyttet disse virksomheder.',
+ 'support_h': 'Support',
+ 'support_p': 'Spørgsmål, fejlrapporter og idéer er altid velkomne. Det går hurtigst via Indstillinger › Send feedback i appen, eller send os en mail.',
+ 'faq': [('Hvordan gendanner jeg mit køb?', 'Åbn Indstillinger i appen og tryk på Gendan køb. Brug den samme Apple-konto, som du købte Pro med.'),
+         ('Hvordan opsiger jeg et abonnement?', 'Gå til Indstillinger på iPhone › dit navn › Abonnementer og vælg Hantam. Adgang for evigt er et engangskøb og fornyes aldrig.'),
+         ('Farverne ser lidt anderledes ud end mine perler.',
+          'Skærme viser farver anderledes end rigtig plastik og garn. Tryk på en farve på listen for at skifte den ud med en, der ligger tættere på, fra samme mærke.'),
+         ('Hvor stort kan et mønster være?',
+          'Gratis mønstre kan være på én plade på 29 × 29 eller 40 sting på den længste led. Pro går op til 4 × 4 plader (116 perler) eller 200 sting.'),
+         ('Uploader I mine fotos?', 'Nej. Fotos og mønstre behandles og gemmes kun på din iPhone.')],
+ 'contact': 'Kontakt',
+ 'privacy_h': 'Privatlivspolitik',
+ 'terms_h': 'Brugsvilkår',
+ 'updated': 'Sidst opdateret',
+ 'privacy': [('Kort fortalt', ['Dine fotos og mønstre forlader aldrig din iPhone. Vi indsamler kun anonym statistik, som ikke kan identificere dig.']),
+             ('Fotos',
+              ['Hantam læser kun et foto, når du vælger det. Omdannelsen til mønster sker på din enhed.', 'Fotos uploades aldrig, gemmes ikke på en server og deles ikke.']),
+             ('Mønstre, du laver', ['Mønstre gemmes i appens lager på din iPhone. Hvis du sletter appen, slettes de med den.']),
+             ('Køb', ['Apple håndterer alle betalinger. Vi ved kun, om Pro er aktivt – aldrig dine betalingsoplysninger.']),
+             ('Anonym statistik og nedbrudsrapporter',
+              ['For at tælle brugere, se hvilke funktioner der bruges, og rette nedbrud sender appen anonyme data til Apple iCloud (CloudKit), som kun udvikleren kan læse:',
+               'et tilfældigt ID oprettet ved installation (ikke knyttet til dig, din Apple-konto eller andre apps; det ændres, hvis du geninstallerer), app- og iOS-version, '
+               'område og sprog, de dage appen blev åbnet, hvilke funktioner der blev brugt (f.eks. at et mønster blev lavet, en PDF eksporteret, eller købsskærmen vist) og '
+               'detaljer om nedbrud.',
+               'Der medfølger intet navn, ingen kontaktoplysninger, ingen placering, ingen fotos og ingen mønstre. Hvis du ikke er logget ind på iCloud, sendes der ingenting.']),
+             ('Feedback', ['Hvis du sender feedback fra appen, modtager vi det, du skriver, og kun hvis du tilføjer den, din mailadresse, så vi kan svare.']),
+             ('Ingen sporing', ['Ingen reklamer, ingen tredjepartsanalyse og ingen sporing på tværs af andre apps eller websteder.']),
+             ('Børn', ['Hantam er egnet til alle aldre. Vi indsamler ikke bevidst personoplysninger om børn.']),
+             ('Ændringer', ['Hvis politikken ændres, offentliggør vi den nye version her med en ny dato.'])],
+ 'terms': [('Brug af appen', ['Ved at bruge Hantam accepterer du disse vilkår. Hvis du ikke er enig, bør du ikke bruge appen.']),
+           ('Hvad Hantam gør',
+            ['Hantam laver fotos om til mønstre til strygeperler og korssting og indeholder værktøjer til pixelkunst. Farverne på skærmen er tilnærmede og kan afvige fra de '
+             'virkelige produkter.']),
+           ('Dit indhold',
+            ['De fotos, du vælger, og de mønstre, du laver, tilhører dig. Sørg for, at du har ret til at bruge de fotos, du omdanner til mønstre, især hvis du sælger det, du '
+             'laver.']),
+           ('Hantam Pro',
+            ['Pro sælges via Apples App Store som et automatisk fornyende månedligt eller årligt abonnement eller som adgang for evigt med ét engangskøb.',
+             'Abonnementer fornyes automatisk, medmindre de opsiges mindst 24 timer før udgangen af den igangværende periode. Din Apple-konto debiteres inden for 24 timer før '
+             'fornyelsen. Administrér eller opsig i indstillingerne for din Apple-konto.',
+             'Hvis der tilbydes en gratis prøveperiode, bortfalder den ubrugte del, når du tegner et abonnement. Refusion følger Apples regler.']),
+           ('Regler', ['Du må ikke reverse engineere appen eller bruge den til noget ulovligt.']),
+           ('Ingen garanti',
+            ['Appen leveres, som den er, uden nogen form for garanti. I det omfang loven tillader det, er vores ansvar begrænset til det beløb, du har betalt for appen.']),
+           ('Varemærker', ['Perler, Hama, Artkal og DMC er varemærker tilhørende deres respektive ejere. Hantam er ikke tilknyttet eller godkendt af disse virksomheder.']),
+           ('Lovvalg', ['Disse vilkår er underlagt lovgivningen i Republikken Korea.'])],
+ 'dev': 'Udvikler: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

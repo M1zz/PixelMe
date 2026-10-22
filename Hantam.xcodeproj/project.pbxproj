@@ -472,6 +472,7 @@
 				th,
 				vi,
 				cs,
+				da,
 			);
 			mainGroup = 58D012302A28147A00668585;
 			packageReferences = (

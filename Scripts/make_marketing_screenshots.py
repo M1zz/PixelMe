@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -132,6 +132,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Vytiskni<br>a tvoř', 'Vzory po podložkách a seznam barev v PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'I vzory pro<br>křížkový steh', 'Čísla nití a velikost na tvé látce'),
         ('06-home.png', 'home', 'accent', 'Všechny vzory<br>na jednom místě', 'Klíčenky, rámečky a dárky'),
+    ],
+    "da": [
+        ('01-photo.png', 'maker', 'hero', 'Fra foto til<br>perlemønster', 'Vælg størrelse og farver, og se det med det samme'),
+        ('02-colors.png', 'detail', 'left', 'Farver, du kan<br>købe', 'Farvenumre og antal for hver farve'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Et symbol i<br>hver rude', 'Tykke pladeskel, tryk for at rette'),
+        ('04-print.png', 'pdf', 'tilt', 'Print og<br>kom i gang', 'Mønstre pr. plade og farveliste som PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'Også mønstre til<br>korssting', 'Garnnumre og størrelse på dit stof'),
+        ('06-home.png', 'home', 'accent', 'Alle dine mønstre<br>samlet ét sted', 'Nøgleringe, rammer og gaver'),
     ],
 }
 

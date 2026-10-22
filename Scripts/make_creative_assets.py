@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs"}
+STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -49,6 +49,7 @@ SEARCH = {
     "th": ('แพตเทิร์นลูกปัดรีด', 'จากรูปใบเดียว<br>เป็นแพตเทิร์นลูกปัด', 'สีจริง พร้อมจำนวนที่ต้องใช้'),
     "vi": ('Mẫu hạt ủi', 'Từ một tấm ảnh<br>thành mẫu hạt', 'Màu thật, kèm số lượng cần dùng'),
     "cs": ('Vzory ze žehlicích korálků', 'Z fotky vzor<br>z korálků', 'Skutečné barvy i s počty kusů'),
+    "da": ('Mønstre til strygeperler', 'Fra foto til<br>perlemønster', 'Rigtige farver og hvor mange du skal bruge'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -67,6 +68,7 @@ HEADER = {
     "th": ('ลูกปัดรีดและครอสติช', 'รูปของคุณ<br>แพตเทิร์นของคุณ'),
     "vi": ('Hạt ủi & thêu chữ thập', 'Ảnh của bạn,<br>mẫu của bạn'),
     "cs": ('Žehlicí korálky a křížkový steh', 'Tvoje fotka,<br>tvůj vzor'),
+    "da": ('Strygeperler og korssting', 'Dit foto,<br>dit mønster'),
 }
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)
