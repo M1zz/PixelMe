@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no"}
+STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -54,6 +54,7 @@ SEARCH = {
     "fi": ('Silitettävien helmien kuviot', 'Kuvasta<br>helmikuvio', 'Oikeat värit ja tarvittavat määrät'),
     "id": ('Pola manik setrika', 'Dari satu foto<br>jadi pola manik', 'Warna asli beserta jumlahnya'),
     "nb": ('Mønstre til strykeperler', 'Fra bilde til<br>perlemønster', 'Ekte farger og hvor mange du trenger'),
+    "nl": ('Strijkkralen patronen', 'Van één foto een<br>kralenpatroon', 'Echte kleuren, met de aantallen erbij'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -77,6 +78,7 @@ HEADER = {
     "fi": ('Silitettävät helmet ja ristipistotyö', 'Kuvasi,<br>kuviosi'),
     "id": ('Manik setrika & kristik', 'Fotomu,<br>polamu'),
     "nb": ('Strykeperler og korssting', 'Bildet ditt,<br>mønsteret ditt'),
+    "nl": ('Strijkkralen en kruissteek', 'Jouw foto,<br>jouw patroon'),
 }
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)

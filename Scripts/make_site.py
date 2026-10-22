@@ -1283,6 +1283,80 @@ T["nb"] = {'brand': 'Hantam',
            ('Lovvalg', ['Disse vilkårene er underlagt lovene i Republikken Korea.'])],
  'dev': 'Utvikler: Hyunho Lee'}
 
+LANGS["nl"] = "nl/"
+LANG_NAME["nl"] = 'Nederlands'
+UPDATED["nl"] = '18 oktober 2026'
+STORE_LANG["nl"] = "nl-NL"
+T["nl"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Patronen voor strijkkralen en kruissteek',
+ 'desc': 'Maak van elke foto een patroon voor strijkkralen of kruissteek in de echte kleuren van Perler, Hama, Artkal en DMC.',
+ 'nav': ('Home', 'Support', 'Privacy', 'Voorwaarden'),
+ 'hero_h': 'Van foto naar patroon',
+ 'hero_p': 'Kies een foto van je huisdier, van jezelf of van een favoriet personage. Hantam maakt er een patroon van voor strijkkralen of kruissteek, in kleuren die je kunt '
+           'kopen.',
+ 'cta': 'Download in de App Store',
+ 'features': [('Echte kleuren', 'Strijkkralen van Perler, Hama en Artkal en DMC-garen. Elk vakje toont een echt kleurnummer.'),
+              ('Weten wat je moet kopen', 'Zie hoeveel kralen of steken elke kleur nodig heeft en kopieer een boodschappenlijst.'),
+              ('Bord voor bord', 'Grote patronen worden verdeeld in borden van 29 × 29 met dikke grenslijnen.'),
+              ('Pas elk vakje aan', 'Tik op een vakje om het te wijzigen, of vervang één kleur overal door een andere.'),
+              ('Printen en maken', 'Met Pro exporteer je een pdf om te printen: kleurenlijst en symbolenpatronen, pagina voor pagina.'),
+              ('Ook pixelart', 'Maak van foto’s pixelart, teken 110 voorbeelden na en animeer beeld voor beeld.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'De gratis versie biedt patronen tot één bord (of 40 steken), 3 bewaarde patronen en het delen van afbeeldingen met een klein merkje. Pro voegt pdf’s om te printen toe, '
+          'patronen tot 4 × 4 borden of 200 steken, onbeperkt bewaren, afbeeldingen zonder merkje en alle pixelart-tools. Kies een maand- of jaarabonnement, of betaal eenmalig '
+          'voor toegang voor altijd.',
+ 'tm': 'Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Hantam is niet gelieerd aan deze bedrijven.',
+ 'support_h': 'Support',
+ 'support_p': 'Vragen, bugmeldingen en ideeën zijn altijd welkom. Het snelst gaat het via Instellingen › Feedback sturen in de app, of mail ons.',
+ 'faq': [('Hoe herstel ik mijn aankoop?', 'Open Instellingen in de app en tik op Aankopen herstellen. Gebruik hetzelfde Apple-account waarmee je Pro hebt gekocht.'),
+         ('Hoe zeg ik een abonnement op?',
+          'Ga naar Instellingen van je iPhone › je naam › Abonnementen en kies Hantam. Toegang voor altijd is een eenmalige aankoop en wordt nooit verlengd.'),
+         ('De kleuren zien er iets anders uit dan mijn kralen.',
+          'Schermen tonen kleuren anders dan echt plastic en garen. Tik op een kleur in de lijst om die te vervangen door een dichterbij liggende kleur van hetzelfde merk.'),
+         ('Hoe groot kan een patroon zijn?',
+          'Gratis patronen passen op één bord van 29 × 29, of hebben 40 steken aan de langste kant. Pro gaat tot 4 × 4 borden (116 kralen) of 200 steken.'),
+         ('Uploaden jullie mijn foto’s?', 'Nee. Foto’s en patronen worden alleen op je iPhone verwerkt en bewaard.')],
+ 'contact': 'Contact',
+ 'privacy_h': 'Privacybeleid',
+ 'terms_h': 'Gebruiksvoorwaarden',
+ 'updated': 'Laatst bijgewerkt',
+ 'privacy': [('Kort samengevat', ['Je foto’s en patronen verlaten je iPhone nooit. We verzamelen alleen anonieme statistieken waarmee je niet te identificeren bent.']),
+             ('Foto’s',
+              ['Hantam leest een foto alleen als jij die kiest. De omzetting naar een patroon gebeurt op je apparaat.',
+               'Foto’s worden nooit geüpload, op een server opgeslagen of gedeeld.']),
+             ('Patronen die je maakt', ['Patronen worden bewaard in de opslag van de app op je iPhone. Als je de app verwijdert, worden ze mee verwijderd.']),
+             ('Aankopen', ['Apple verwerkt alle betalingen. Wij weten alleen of Pro actief is, nooit je betaalgegevens.']),
+             ('Anonieme statistieken en crashrapporten',
+              ['Om gebruikers te tellen, te zien welke functies worden gebruikt en crashes te verhelpen, stuurt de app anonieme gegevens naar Apple iCloud (CloudKit), die alleen '
+               'de ontwikkelaar kan lezen:',
+               'een willekeurig id dat bij de installatie wordt aangemaakt (niet gekoppeld aan jou, je Apple-account of andere apps; het verandert als je opnieuw installeert), de '
+               'app- en iOS-versie, regio en taal, de dagen waarop de app is geopend, de gebruikte functies (bijvoorbeeld een patroon gemaakt, een pdf geëxporteerd of het '
+               'aankoopscherm getoond) en crashdetails.',
+               'Er zijn geen naam, contactgegevens, locatie, foto’s of patronen bij inbegrepen. Als je niet bent ingelogd bij iCloud, wordt er niets verstuurd.']),
+             ('Feedback', ['Als je feedback vanuit de app verstuurt, ontvangen we wat je schrijft en, alleen als je dat invult, je e-mailadres zodat we kunnen antwoorden.']),
+             ('Geen tracking', ['Geen advertenties, geen analyse door derden en geen tracking over andere apps of websites heen.']),
+             ('Kinderen', ['Hantam is geschikt voor alle leeftijden. We verzamelen niet bewust persoonsgegevens van kinderen.']),
+             ('Wijzigingen', ['Als dit beleid verandert, plaatsen we hier de nieuwe versie met een nieuwe datum.'])],
+ 'terms': [('Gebruik van de app', ['Door Hantam te gebruiken ga je akkoord met deze voorwaarden. Ben je het er niet mee eens, gebruik de app dan niet.']),
+           ('Wat Hantam doet',
+            ['Hantam zet foto’s om in patronen voor strijkkralen en kruissteek en bevat pixelart-tools. Kleuren op het scherm zijn benaderingen en kunnen afwijken van de echte '
+             'producten.']),
+           ('Jouw inhoud',
+            ['De foto’s die je kiest en de patronen die je maakt zijn van jou. Zorg dat je het recht hebt om de foto’s te gebruiken die je omzet in patronen, zeker als je '
+             'verkoopt wat je maakt.']),
+           ('Hantam Pro',
+            ['Pro wordt verkocht via de App Store van Apple als automatisch verlengd maand- of jaarabonnement of als toegang voor altijd met een eenmalige betaling.',
+             'Abonnementen worden automatisch verlengd, tenzij ze minstens 24 uur voor het einde van de lopende periode worden opgezegd. Je Apple-account wordt binnen 24 uur voor '
+             'de verlenging belast. Beheer of zeg op in de instellingen van je Apple-account.',
+             'Als er een gratis proefperiode wordt aangeboden, vervalt het ongebruikte deel zodra je een abonnement afsluit. Terugbetalingen volgen het beleid van Apple.']),
+           ('Regels', ['Pas geen reverse engineering toe op de app en gebruik haar niet voor iets illegaals.']),
+           ('Geen garantie',
+            ['De app wordt geleverd zoals ze is, zonder enige vorm van garantie. Voor zover de wet het toestaat, is onze aansprakelijkheid beperkt tot het bedrag dat je voor de '
+             'app hebt betaald.']),
+           ('Handelsmerken', ['Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Hantam is niet gelieerd aan of goedgekeurd door deze bedrijven.']),
+           ('Toepasselijk recht', ['Op deze voorwaarden is het recht van de Republiek Korea van toepassing.'])],
+ 'dev': 'Ontwikkelaar: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

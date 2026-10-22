@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -172,6 +172,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Skriv ut og<br>kom i gang', 'Mønstre per brett og fargeliste som PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'Også mønstre til<br>korssting', 'Garnnumre og størrelse på stoffet ditt'),
         ('06-home.png', 'home', 'accent', 'Alle mønstrene dine<br>samlet på ett sted', 'Nøkkelringer, rammer og gaver'),
+    ],
+    "nl": [
+        ('01-photo.png', 'maker', 'hero', 'Van één foto een<br>kralenpatroon', 'Kies grootte en kleuren en zie het meteen'),
+        ('02-colors.png', 'detail', 'left', 'Kleuren die je<br>kunt kopen', 'Kleurnummers en aantallen per kleur'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Een symbool in<br>elk vakje', 'Dikke bordgrenzen, tik om aan te passen'),
+        ('04-print.png', 'pdf', 'tilt', 'Printen en<br>aan de slag', 'Patronen per bord en kleurenlijst als pdf'),
+        ('05-stitch.png', 'stitch', 'hero', 'Ook patronen voor<br>kruissteek', 'Garennummers en maat op jouw stof'),
+        ('06-home.png', 'home', 'accent', 'Al je patronen<br>op één plek', 'Sleutelhangers, lijstjes en cadeaus'),
     ],
 }
 

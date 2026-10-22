@@ -1322,3 +1322,69 @@ Perler, Hama, Artkal og DMC er varemerker som tilhører sine respektive eiere. H
 
 Vilkår for bruk: https://m1zz.github.io/PixelMe/nb/terms.html
 Personvernerklæring: https://m1zz.github.io/PixelMe/nb/privacy.html
+
+## nl-NL
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/nl/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/nl/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/nl/
+
+### 이름
+
+Hantam: strijkkralenpatronen
+
+### 부제
+
+Jouw foto’s als pixelart
+
+### 키워드
+
+kruissteek,borduren,pixelart,knutselen,sleutelhanger,huisdier,portret,mozaïek,DIY,8bit,kinderen
+
+### 프로모션 텍스트
+
+Kies een foto van je huisdier, jezelf of een favoriet personage en maak er een patroon voor strijkkralen of kruissteek van in echte kleuren. Zie meteen wat je nodig hebt.
+
+### 설명
+
+Van één foto maak je een patroon voor strijkkralen of kruissteek. En dan in echte kleuren die je ook echt kunt kopen.
+Kies een foto, kies kralen of garen, en Hantam vertelt je welke kleuren je nodig hebt en hoeveel van elk.
+
+Echte kleuren, echte kleurnummers
+De patronen zijn gebaseerd op de kleurenkaarten van de strijkkralen van Perler, Hama Midi en Artkal S en van DMC-borduurgaren. Elk vakje heeft een kleurnummer, en de kleurenlijst telt hoeveel kralen of steken elke kleur nodig heeft.
+
+Voor stekerborden én stof
+Kralenpatronen worden verdeeld in borden van 29 × 29, met dikke lijnen op de grenzen. Kruissteekpatronen hebben om de 10 steken een dikke lijn, en je ziet de afgewerkte maat op stof van 11, 14, 16 en 18 count.
+
+Het resultaat bepaal jij
+Wijzig de grootte en het aantal kleuren, en het voorbeeld past zich meteen aan. Je kunt de achtergrond verwijderen en alleen het onderwerp houden. Tik op een vakje om het aan te passen, of vervang één kleur door een andere in het hele patroon.
+
+Drie weergaven
+Wissel tussen de look van echte kralen of steken, kleurvakjes en het symbolenpatroon.
+
+Printen en aan de slag
+Exporteer een pdf om te printen met voorbeeld, kleurenlijst en symbolenpatronen per bord of pagina. Je kunt ook een boodschappenlijst kopiëren met een paar kralen extra als reserve.
+
+Ook tools voor pixelart
+Maak van foto’s pixelart met retropaletten en filters, teken 110 voorbeelden na en maak animaties beeld voor beeld met lagen en onion skin.
+
+Je foto’s blijven op je iPhone
+Foto’s en patronen verlaten je iPhone nooit.
+
+Hantam Pro
+De gratis versie biedt patronen tot één bord of 40 steken, 3 bewaarde patronen en het delen van afbeeldingen met een klein Hantam-merkje. Pro voegt pdf-patronen om te printen toe, patronen tot 4 × 4 borden of 200 steken, onbeperkt bewaren, afbeeldingen zonder merkje en alle pixelart-tools. Kies een maand- of jaarabonnement, of betaal eenmalig.
+
+Het abonnement wordt automatisch verlengd, tenzij je minstens 24 uur voor het einde van de lopende periode opzegt. Het bedrag wordt binnen 24 uur voor de verlenging van je Apple-account afgeschreven. Je kunt je abonnement op elk moment beheren of opzeggen in de instellingen van je Apple-account.
+
+Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Hantam is niet gelieerd aan deze bedrijven. Kleuren op het scherm kunnen een beetje afwijken van de echte kleuren.
+
+Gebruiksvoorwaarden: https://m1zz.github.io/PixelMe/nl/terms.html
+Privacybeleid: https://m1zz.github.io/PixelMe/nl/privacy.html
