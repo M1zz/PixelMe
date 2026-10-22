@@ -1357,6 +1357,78 @@ T["nl"] = {'brand': 'Hantam',
            ('Toepasselijk recht', ['Op deze voorwaarden is het recht van de Republiek Korea van toepassing.'])],
  'dev': 'Ontwikkelaar: Hyunho Lee'}
 
+LANGS["pl"] = "pl/"
+LANG_NAME["pl"] = 'Polski'
+UPDATED["pl"] = '18 października 2026'
+STORE_LANG["pl"] = "pl"
+T["pl"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Wzory na koraliki do prasowania i haft krzyżykowy',
+ 'desc': 'Zamień dowolne zdjęcie we wzór na koraliki do prasowania lub haft krzyżykowy w prawdziwych kolorach Perler, Hama, Artkal i DMC.',
+ 'nav': ('Start', 'Pomoc', 'Prywatność', 'Warunki'),
+ 'hero_h': 'Ze zdjęcia wzór',
+ 'hero_p': 'Wybierz zdjęcie zwierzaka, swoje lub ulubionej postaci. Hantam zamieni je we wzór na koraliki do prasowania lub haft krzyżykowy w kolorach, które możesz kupić.',
+ 'cta': 'Pobierz z App Store',
+ 'features': [('Prawdziwe kolory', 'Koraliki Perler, Hama i Artkal oraz nici DMC. Każde pole pokazuje prawdziwy numer koloru.'),
+              ('Wiesz, co kupić', 'Zobacz, ile koralików lub krzyżyków potrzeba na każdy kolor, i skopiuj listę zakupów.'),
+              ('Podkładka po podkładce', 'Duże wzory dzielą się na podkładki 29 × 29 z grubymi liniami na granicach.'),
+              ('Popraw każde pole', 'Dotknij pola, żeby je zmienić, albo zamień jeden kolor na inny w całym wzorze.'),
+              ('Wydrukuj i twórz', 'W Pro wyeksportujesz PDF do druku: listę kolorów i wzory z symbolami, strona po stronie.'),
+              ('Także pixel art', 'Zamieniaj zdjęcia w pixel art, odrysowuj 110 wzorów i animuj klatka po klatce.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Wersja darmowa pozwala tworzyć wzory do jednej podkładki (lub 40 krzyżyków), zapisać 3 wzory i udostępniać obrazy z małym znakiem. Pro dodaje PDF do druku, wzory do 4 '
+          '× 4 podkładek lub 200 krzyżyków, nieograniczone zapisywanie, obrazy bez znaku i wszystkie narzędzia do pixel artu. Wybierz subskrypcję miesięczną lub roczną albo '
+          'jednorazowy zakup na zawsze.',
+ 'tm': 'Perler, Hama, Artkal i DMC to znaki towarowe ich właścicieli. Hantam nie jest powiązany z tymi firmami.',
+ 'support_h': 'Pomoc',
+ 'support_p': 'Pytania, zgłoszenia błędów i pomysły są zawsze mile widziane. Najszybciej przez Ustawienia › Wyślij opinię w aplikacji albo e-mailem.',
+ 'faq': [('Jak przywrócić zakup?', 'Otwórz Ustawienia w aplikacji i dotknij Przywróć zakupy. Użyj tego samego konta Apple, którym kupiono Pro.'),
+         ('Jak anulować subskrypcję?', 'Wejdź w Ustawienia iPhone’a › swoje imię › Subskrypcje i wybierz Hantam. Dostęp na zawsze to zakup jednorazowy i nigdy się nie odnawia.'),
+         ('Kolory wyglądają trochę inaczej niż moje koraliki.',
+          'Ekrany pokazują kolory inaczej niż prawdziwy plastik i nici. Dotknij koloru na liście, żeby zamienić go na bliższy odcień tej samej marki.'),
+         ('Jak duży może być wzór?',
+          'Darmowe wzory mieszczą się na jednej podkładce 29 × 29 albo mają 40 krzyżyków na dłuższym boku. Pro sięga 4 × 4 podkładek (116 koralików) lub 200 krzyżyków.'),
+         ('Czy przesyłacie moje zdjęcia?', 'Nie. Zdjęcia i wzory są przetwarzane i zapisywane wyłącznie na Twoim iPhonie.')],
+ 'contact': 'Kontakt',
+ 'privacy_h': 'Polityka prywatności',
+ 'terms_h': 'Warunki korzystania',
+ 'updated': 'Ostatnia aktualizacja',
+ 'privacy': [('W skrócie', ['Twoje zdjęcia i wzory nigdy nie opuszczają iPhone’a. Zbieramy tylko anonimowe statystyki, które nie pozwalają Cię zidentyfikować.']),
+             ('Zdjęcia',
+              ['Hantam odczytuje zdjęcie tylko wtedy, gdy je wybierzesz. Zamiana na wzór odbywa się na Twoim urządzeniu.',
+               'Zdjęcia nigdy nie są przesyłane, przechowywane na serwerze ani udostępniane.']),
+             ('Wzory, które tworzysz', ['Wzory są zapisywane w pamięci aplikacji na Twoim iPhonie. Usunięcie aplikacji usuwa także wzory.']),
+             ('Zakupy', ['Wszystkie płatności obsługuje Apple. Wiemy tylko, czy Pro jest aktywne, nigdy nie poznajemy Twoich danych płatniczych.']),
+             ('Anonimowe statystyki i raporty o awariach',
+              ['Aby liczyć użytkowników, sprawdzać, z jakich funkcji się korzysta, i naprawiać awarie, aplikacja wysyła anonimowe dane do Apple iCloud (CloudKit), które może '
+               'odczytać tylko deweloper:',
+               'losowy identyfikator utworzony podczas instalacji (niepowiązany z Tobą, Twoim kontem Apple ani innymi aplikacjami; zmienia się po ponownej instalacji), wersję '
+               'aplikacji i iOS, region i język, dni otwarcia aplikacji, użyte funkcje (na przykład utworzono wzór, wyeksportowano PDF lub wyświetlono ekran zakupu) oraz '
+               'szczegóły awarii.',
+               'Nie obejmują one imienia, danych kontaktowych, lokalizacji, zdjęć ani wzorów. Jeśli nie jesteś zalogowany w iCloud, nic nie jest wysyłane.']),
+             ('Opinie', ['Jeśli wyślesz opinię z aplikacji, otrzymamy to, co napiszesz, i tylko jeśli go podasz, Twój adres e-mail, żebyśmy mogli odpowiedzieć.']),
+             ('Brak śledzenia', ['Bez reklam, bez zewnętrznej analityki i bez śledzenia w innych aplikacjach czy witrynach.']),
+             ('Dzieci', ['Hantam jest odpowiedni dla osób w każdym wieku. Nie zbieramy świadomie danych osobowych dzieci.']),
+             ('Zmiany', ['Jeśli ta polityka ulegnie zmianie, opublikujemy tutaj nową wersję z nową datą.'])],
+ 'terms': [('Korzystanie z aplikacji', ['Korzystając z Hantam, akceptujesz te warunki. Jeśli się z nimi nie zgadzasz, nie korzystaj z aplikacji.']),
+           ('Co robi Hantam',
+            ['Hantam zamienia zdjęcia we wzory na koraliki do prasowania i haft krzyżykowy oraz zawiera narzędzia do pixel artu. Kolory na ekranie są przybliżone i mogą różnić '
+             'się od prawdziwych produktów.']),
+           ('Twoje treści',
+            ['Wybrane przez Ciebie zdjęcia i utworzone wzory należą do Ciebie. Upewnij się, że masz prawo korzystać ze zdjęć, które zamieniasz we wzory, zwłaszcza jeśli '
+             'sprzedajesz swoje prace.']),
+           ('Hantam Pro',
+            ['Pro jest sprzedawane w App Store firmy Apple jako subskrypcja miesięczna lub roczna z automatycznym odnawianiem albo jako dostęp na zawsze za jednorazową opłatą.',
+             'Subskrypcje odnawiają się automatycznie, o ile nie zostaną anulowane co najmniej 24 godziny przed końcem bieżącego okresu. Konto Apple jest obciążane w ciągu 24 '
+             'godzin przed odnowieniem. Zarządzaj subskrypcją lub anuluj ją w ustawieniach konta Apple.',
+             'Jeśli oferowany jest bezpłatny okres próbny, jego niewykorzystana część wygasa po wykupieniu subskrypcji. Zwroty podlegają zasadom Apple.']),
+           ('Zasady', ['Nie dekompiluj aplikacji i nie używaj jej do celów niezgodnych z prawem.']),
+           ('Brak gwarancji',
+            ['Aplikacja jest udostępniana w stanie „takim, jaki jest”, bez żadnych gwarancji. W zakresie dozwolonym przez prawo nasza odpowiedzialność jest ograniczona do kwoty '
+             'zapłaconej za aplikację.']),
+           ('Znaki towarowe', ['Perler, Hama, Artkal i DMC to znaki towarowe ich właścicieli. Hantam nie jest powiązany z tymi firmami ani przez nie zatwierdzony.']),
+           ('Prawo właściwe', ['Te warunki podlegają prawu Republiki Korei.'])],
+ 'dev': 'Deweloper: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

@@ -1388,3 +1388,69 @@ Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Ha
 
 Gebruiksvoorwaarden: https://m1zz.github.io/PixelMe/nl/terms.html
 Privacybeleid: https://m1zz.github.io/PixelMe/nl/privacy.html
+
+## pl
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/pl/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/pl/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/pl/
+
+### 이름
+
+Hantam: wzory z koralików
+
+### 부제
+
+Twoje zdjęcia jako pixel art
+
+### 키워드
+
+haft krzyżykowy,koraliki do prasowania,haft,rękodzieło,brelok,zwierzak,portret,mozaika,DIY,8bit
+
+### 프로모션 텍스트
+
+Wybierz zdjęcie zwierzaka, swoje lub ulubionej postaci i zamień je we wzór na koraliki do prasowania albo haft krzyżykowy w prawdziwych kolorach. Ilości widać od razu.
+
+### 설명
+
+Jedno zdjęcie zamienia się we wzór na koraliki do prasowania albo haft krzyżykowy. I to w prawdziwych kolorach, które naprawdę kupisz.
+Wybierz zdjęcie, potem koraliki lub nici, a Hantam podpowie, jakich kolorów potrzebujesz i ile sztuk każdego.
+
+Prawdziwe kolory, prawdziwe numery
+Wzory powstają na podstawie palet koralików do prasowania Perler, Hama Midi i Artkal S oraz muliny DMC. Każde pole ma numer koloru, a lista kolorów zlicza, ile koralików lub krzyżyków potrzeba na każdy z nich.
+
+Na podkładki i na tkaninę
+Wzory z koralików dzielą się na podkładki 29 × 29, a granice między nimi zaznaczone są grubą linią. We wzorach krzyżykowych gruba linia pojawia się co 10 krzyżyków, a gotowy rozmiar zobaczysz dla tkaniny 11, 14, 16 i 18 count.
+
+Efekt zależy od Ciebie
+Zmień rozmiar i liczbę kolorów, a podgląd od razu się zmieni. Możesz usunąć tło i zostawić tylko główny motyw. Dotknij pola, żeby je poprawić, albo zamień jeden kolor na inny w całym wzorze.
+
+Trzy widoki
+Przełączaj się między wyglądem prawdziwych koralików lub krzyżyków, kolorowymi polami i wzorem z symbolami.
+
+Wydrukuj i do dzieła
+Wyeksportuj PDF do druku z podglądem, listą kolorów i wzorami z symbolami podzielonymi na podkładki lub strony. Możesz też skopiować listę zakupów z niewielkim zapasem.
+
+Są też narzędzia do pixel artu
+Zamieniaj zdjęcia w pixel art za pomocą retro palet i filtrów, odrysowuj 110 wzorów i twórz animacje klatka po klatce z warstwami i funkcją onion skin.
+
+Zdjęcia zostają w Twoim iPhonie
+Ani zdjęcia, ani wzory nigdy nie opuszczają Twojego iPhone’a.
+
+Hantam Pro
+Wersja darmowa pozwala tworzyć wzory do jednej podkładki lub 40 krzyżyków, zapisać 3 wzory i udostępniać obrazy z małym znakiem Hantam. Pro dodaje wzory PDF do druku, wzory do 4 × 4 podkładek lub 200 krzyżyków, nieograniczone zapisywanie, obrazy bez znaku i wszystkie narzędzia do pixel artu. Wybierz subskrypcję miesięczną lub roczną albo jednorazowy zakup.
+
+Subskrypcja odnawia się automatycznie, o ile nie zostanie anulowana co najmniej 24 godziny przed końcem bieżącego okresu; opłata jest pobierana z konta Apple w ciągu 24 godzin przed odnowieniem. Subskrypcją możesz zarządzać lub ją anulować w dowolnym momencie w ustawieniach konta Apple.
+
+Perler, Hama, Artkal i DMC to znaki towarowe ich właścicieli. Hantam nie jest powiązany z tymi firmami. Kolory na ekranie mogą się nieznacznie różnić od prawdziwych.
+
+Warunki korzystania: https://m1zz.github.io/PixelMe/pl/terms.html
+Polityka prywatności: https://m1zz.github.io/PixelMe/pl/privacy.html

@@ -25,7 +25,8 @@
         "fi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "id" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "nb" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "CFBundleName" : {
@@ -52,7 +53,8 @@
         "fi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "id" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "nb" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "NSPhotoLibraryAddUsageDescription" : {
@@ -79,7 +81,8 @@
         "fi" : { "stringUnit" : { "state" : "translated", "value" : "Hantam tallentaa kuviosi ja pikselitaiteesi Kuviin." } },
         "id" : { "stringUnit" : { "state" : "translated", "value" : "Hantam menyimpan pola dan pixel art-mu ke Foto." } },
         "nb" : { "stringUnit" : { "state" : "translated", "value" : "Hantam lagrer mønstrene og pikselkunsten din i Bilder." } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam bewaart je patronen en pixelart in Foto’s." } }
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam bewaart je patronen en pixelart in Foto’s." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam zapisuje Twoje wzory i pixel art w Zdjęciach." } }
       }
     }
   },
