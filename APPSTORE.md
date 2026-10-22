@@ -926,3 +926,69 @@ Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tươn
 
 Điều khoản sử dụng: https://m1zz.github.io/PixelMe/vi/terms.html
 Chính sách quyền riêng tư: https://m1zz.github.io/PixelMe/vi/privacy.html
+
+## cs
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/cs/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/cs/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/cs/
+
+### 이름
+
+Hantam: vzory z korálků
+
+### 부제
+
+Tvoje fotky jako pixel art
+
+### 키워드
+
+křížkový steh,žehlicí korálky,výšivka,tvoření,klíčenka,mazlíček,portrét,mozaika,DIY,8bit,děti,tisk
+
+### 프로모션 텍스트
+
+Vyber fotku mazlíčka, sebe nebo oblíbené postavy a udělej z ní vzor ze žehlicích korálků nebo křížkového stehu ve skutečných barvách. Kolik čeho potřebuješ, hned vidíš.
+
+### 설명
+
+Z jedné fotky se stane vzor ze žehlicích korálků nebo pro křížkový steh. A ve skutečných barvách, které si opravdu koupíš.
+Vyber fotku, pak korálky nebo nitě a Hantam ti řekne, jaké barvy potřebuješ a kolik kusů od každé.
+
+Skutečné barvy, skutečná čísla
+Vzory vycházejí ze vzorníků žehlicích korálků Perler, Hama Midi a Artkal S a z vyšívacích nití DMC. Každé políčko má číslo barvy a seznam barev spočítá, kolik korálků nebo stehů každá barva potřebuje.
+
+Pro podložky i pro látku
+Vzory z korálků se dělí na podložky 29 × 29 a jejich hranice jsou vyznačené tlustou čarou. Vzory pro křížkový steh mají tlustou čáru každých 10 stehů a uvidíš hotovou velikost na látce s 11, 14, 16 a 18 count.
+
+Výsledek je na tobě
+Změň velikost a počet barev a náhled se okamžitě přepočítá. Můžeš odstranit pozadí a nechat jen hlavní motiv. Klepnutím na políčko ho opravíš, nebo nahradíš jednu barvu jinou v celém vzoru.
+
+Tři zobrazení
+Přepínej mezi vzhledem skutečných korálků či stehů, barevnými políčky a vzorem se symboly.
+
+Vytiskni a tvoř
+Exportuj PDF k tisku s náhledem, seznamem barev a vzory se symboly po podložkách nebo stránkách. Zkopírovat můžeš i nákupní seznam s malou rezervou.
+
+Nástroje pro pixel art navíc
+Měň fotky na pixel art s retro paletami a filtry, obkresluj 110 předloh a vytvářej animace po políčkách s vrstvami a průsvitkou.
+
+Fotky zůstanou v tvém iPhonu
+Fotky ani vzory nikdy neopustí tvůj iPhone.
+
+Hantam Pro
+Bezplatná verze umožňuje vzory do jedné podložky nebo 40 stehů, uložení 3 vzorů a sdílení obrázků s malou značkou Hantam. Pro přidává vzory v PDF k tisku, vzory až 4 × 4 podložky nebo 200 stehů, neomezené ukládání, obrázky bez značky a všechny nástroje pro pixel art. Vyber si měsíční nebo roční předplatné, nebo jednorázový nákup.
+
+Předplatné se automaticky obnovuje, pokud ho nezrušíš alespoň 24 hodin před koncem aktuálního období; platba se strhne z tvého účtu Apple do 24 hodin před obnovením. Předplatné můžeš kdykoli spravovat nebo zrušit v nastavení účtu Apple.
+
+Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s těmito společnostmi nijak nesouvisí. Barvy na obrazovce se mohou od skutečných mírně lišit.
+
+Podmínky použití: https://m1zz.github.io/PixelMe/cs/terms.html
+Zásady ochrany soukromí: https://m1zz.github.io/PixelMe/cs/privacy.html

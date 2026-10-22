@@ -863,6 +863,73 @@ T["vi"] = {'brand': 'Hantam',
            ('Luật áp dụng', ['Các điều khoản này chịu sự điều chỉnh của pháp luật Hàn Quốc.'])],
  'dev': 'Nhà phát triển: Hyunho Lee'}
 
+LANGS["cs"] = "cs/"
+LANG_NAME["cs"] = 'Čeština'
+UPDATED["cs"] = '18. října 2026'
+STORE_LANG["cs"] = "cs"
+T["cs"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Vzory ze žehlicích korálků a křížkový steh',
+ 'desc': 'Z libovolné fotky udělej vzor ze žehlicích korálků nebo křížkového stehu ve skutečných barvách Perler, Hama, Artkal a DMC.',
+ 'nav': ('Domů', 'Podpora', 'Soukromí', 'Podmínky'),
+ 'hero_h': 'Z fotky vzor',
+ 'hero_p': 'Vyber fotku mazlíčka, sebe nebo oblíbené postavy. Hantam z ní udělá vzor ze žehlicích korálků nebo křížkového stehu v barvách, které si můžeš koupit.',
+ 'cta': 'Stáhnout z App Storu',
+ 'features': [('Skutečné barvy', 'Korálky Perler, Hama a Artkal a nitě DMC. Každé políčko ukazuje skutečné číslo barvy.'),
+              ('Víš, co koupit', 'Uvidíš, kolik korálků nebo stehů která barva potřebuje, a zkopíruješ nákupní seznam.'),
+              ('Podložku po podložce', 'Velké vzory se dělí na podložky 29 × 29 s tlustými čarami na hranicích.'),
+              ('Oprav každé políčko', 'Klepnutím políčko změníš, nebo nahradíš jednu barvu jinou všude najednou.'),
+              ('Vytiskni a tvoř', 'S Pro exportuješ PDF k tisku: seznam barev a vzory se symboly, stránku po stránce.'),
+              ('I pixel art', 'Převeď fotky na pixel art, obkresluj 110 předloh a animuj po políčkách.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'Bezplatná verze umožňuje vzory do jedné podložky (nebo 40 stehů), uložení 3 vzorů a sdílení obrázků s malou značkou. Pro přidává PDF k tisku, vzory až 4 × 4 podložky '
+          'nebo 200 stehů, neomezené ukládání, obrázky bez značky a všechny nástroje pro pixel art. Vyber si měsíční nebo roční předplatné, nebo jednorázový nákup na celý život.',
+ 'tm': 'Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s těmito společnostmi nijak nesouvisí.',
+ 'support_h': 'Podpora',
+ 'support_p': 'Dotazy, hlášení chyb i nápady jsou vítány. Nejrychlejší je Nastavení › Odeslat zpětnou vazbu přímo v aplikaci, nebo nám napiš e-mail.',
+ 'faq': [('Jak obnovím svůj nákup?', 'V aplikaci otevři Nastavení a klepni na Obnovit nákupy. Použij stejný účet Apple, kterým jsi Pro koupil(a).'),
+         ('Jak zruším předplatné?', 'Otevři Nastavení iPhonu › své jméno › Předplatné a vyber Hantam. Doživotní přístup je jednorázový nákup a nikdy se neobnovuje.'),
+         ('Barvy vypadají trochu jinak než moje korálky.',
+          'Displeje zobrazují barvy jinak než skutečný plast a nitě. Klepni na barvu v seznamu a nahraď ji bližším odstínem od stejné značky.'),
+         ('Jak velký může vzor být?',
+          'Bezplatné vzory se vejdou na jednu podložku 29 × 29, nebo mají 40 stehů na delší straně. Pro dosáhne až 4 × 4 podložek (116 korálků) nebo 200 stehů.'),
+         ('Nahráváte moje fotky?', 'Ne. Fotky i vzory se zpracovávají a ukládají jen v tvém iPhonu.')],
+ 'contact': 'Kontakt',
+ 'privacy_h': 'Zásady ochrany soukromí',
+ 'terms_h': 'Podmínky použití',
+ 'updated': 'Poslední aktualizace',
+ 'privacy': [('Ve zkratce', ['Tvoje fotky a vzory nikdy neopustí tvůj iPhone. Sbíráme jen anonymní statistiky, podle kterých tě nelze identifikovat.']),
+             ('Fotky', ['Hantam čte fotku, jen když ji vybereš. Převod na vzor probíhá přímo v tvém zařízení.', 'Fotky se nikdy nenahrávají, neukládají na server ani nesdílejí.']),
+             ('Vzory, které vytvoříš', ['Vzory se ukládají do úložiště aplikace v tvém iPhonu. Smazáním aplikace se smažou i ony.']),
+             ('Nákupy', ['Všechny platby zpracovává Apple. Víme jen to, zda je Pro aktivní, nikdy ne tvé platební údaje.']),
+             ('Anonymní statistiky a hlášení o pádech',
+              ['Abychom mohli počítat uživatele, zjišťovat, které funkce se používají, a opravovat pády, posílá aplikace anonymní data do Apple iCloud (CloudKit), která může číst '
+               'jen vývojář:',
+               'náhodné ID vytvořené při instalaci (není spojeno s tebou, tvým účtem Apple ani jinými aplikacemi; po přeinstalaci se změní), verzi aplikace a iOS, region a jazyk, '
+               'dny, kdy byla aplikace otevřena, použité funkce (například vytvoření vzoru, export PDF nebo zobrazení obrazovky nákupu) a podrobnosti o pádech.',
+               'Neobsahují jméno, kontaktní údaje, polohu, fotky ani vzory. Pokud nejsi přihlášen(a) k iCloudu, neodešle se nic.']),
+             ('Zpětná vazba',
+              ['Pokud pošleš zpětnou vazbu z aplikace, dostaneme text, který napíšeš, a jen pokud ji uvedeš, i tvou e-mailovou adresu, abychom ti mohli odpovědět.']),
+             ('Bez sledování', ['Žádné reklamy, žádná analytika třetích stran a žádné sledování napříč jinými aplikacemi či weby.']),
+             ('Děti', ['Hantam je vhodný pro všechny věkové kategorie. Vědomě neshromažďujeme osobní údaje dětí.']),
+             ('Změny', ['Pokud se tyto zásady změní, zveřejníme tady novou verzi s novým datem.'])],
+ 'terms': [('Používání aplikace', ['Používáním Hantamu souhlasíš s těmito podmínkami. Pokud nesouhlasíš, aplikaci prosím nepoužívej.']),
+           ('Co Hantam dělá',
+            ['Hantam mění fotky na vzory ze žehlicích korálků a pro křížkový steh a obsahuje nástroje pro pixel art. Barvy na obrazovce jsou jen přibližné a mohou se od '
+             'skutečných výrobků lišit.']),
+           ('Tvůj obsah',
+            ['Fotky, které vybereš, i vzory, které vytvoříš, jsou tvé. Ujisti se, že máš právo použít fotky, ze kterých vzory děláš, zvlášť pokud své výrobky prodáváš.']),
+           ('Hantam Pro',
+            ['Pro se prodává přes App Store společnosti Apple jako měsíční nebo roční předplatné s automatickým obnovováním, nebo jako doživotní přístup za jednorázovou platbu.',
+             'Předplatné se automaticky obnovuje, pokud není zrušeno alespoň 24 hodin před koncem aktuálního období. Platba se strhne z tvého účtu Apple do 24 hodin před '
+             'obnovením. Spravovat nebo zrušit ho můžeš v nastavení účtu Apple.',
+             'Pokud je nabídnuta bezplatná zkušební doba, její nevyužitá část zaniká, když si předplatné koupíš. Vrácení peněz se řídí zásadami Applu.']),
+           ('Pravidla', ['Aplikaci nezpětně nezkoumej a nepoužívej ji k nezákonným účelům.']),
+           ('Žádná záruka',
+            ['Aplikace je poskytována tak, jak je, bez jakýchkoli záruk. V rozsahu povoleném zákonem je naše odpovědnost omezena částkou, kterou jsi za aplikaci zaplatil(a).']),
+           ('Ochranné známky', ['Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s těmito společnostmi nesouvisí a nejsou jimi schválen.']),
+           ('Rozhodné právo', ['Tyto podmínky se řídí právem Korejské republiky.'])],
+ 'dev': 'Vývojář: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
