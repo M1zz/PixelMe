@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -60,6 +60,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', '列印出來<br>馬上開做', '依底板分塊的圖紙和顏色清單 PDF'),
         ('05-stitch.png', 'stitch', 'hero', '十字繡圖紙<br>也能做', '繡線色號和各 count 繡布的成品尺寸'),
         ('06-home.png', 'home', 'accent', '做過的圖紙<br>集中收好', '鑰匙圈、相框、禮物都在這裡'),
+    ],
+    "ru": [
+        ('01-photo.png', 'maker', 'hero', 'Из одного фото —<br>схема из бусин', 'Выберите размер и цвета и сразу увидите'),
+        ('02-colors.png', 'detail', 'left', 'Цвета, которые<br>можно купить', 'Номера и количество для каждого цвета'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Значок в каждой<br>клетке', 'Жирные границы основ, любую клетку можно поправить'),
+        ('04-print.png', 'pdf', 'tilt', 'Распечатайте<br>и за дело', 'Схемы по основам и список цветов в PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'И схемы для<br>вышивки крестом', 'Номера ниток и размер на вашей канве'),
+        ('06-home.png', 'home', 'accent', 'Все схемы<br>в одном месте', 'Брелоки, рамки и подарки'),
     ],
 }
 
