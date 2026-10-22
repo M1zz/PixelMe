@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru"}
+STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -68,6 +68,14 @@ SHOTS_BY_LANG = {
         ('04-print.png', 'pdf', 'tilt', 'Распечатайте<br>и за дело', 'Схемы по основам и список цветов в PDF'),
         ('05-stitch.png', 'stitch', 'hero', 'И схемы для<br>вышивки крестом', 'Номера ниток и размер на вашей канве'),
         ('06-home.png', 'home', 'accent', 'Все схемы<br>в одном месте', 'Брелоки, рамки и подарки'),
+    ],
+    "es": [
+        ('01-photo.png', 'maker', 'hero', 'De una foto a un<br>patrón de cuentas', 'Elige tamaño y colores y míralo al instante'),
+        ('02-colors.png', 'detail', 'left', 'Colores que<br>puedes comprar', 'Número y cantidad de cada color'),
+        ('03-symbols.png', 'symbols', 'bottom', 'Un símbolo en<br>cada casilla', 'Líneas gruesas por placa, toca para retocar'),
+        ('04-print.png', 'pdf', 'tilt', 'Imprime y<br>a trabajar', 'Patrones por placa y lista de colores en PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'También patrones<br>de punto de cruz', 'Números de hilo y tamaño según tu tela'),
+        ('06-home.png', 'home', 'accent', 'Todos tus patrones<br>en un solo sitio', 'Llaveros, marcos y regalos'),
     ],
 }
 

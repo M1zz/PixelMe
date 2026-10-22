@@ -371,6 +371,76 @@ T["ru"] = {'brand': 'Hantam',
            ('Применимое право', ['Эти условия регулируются законодательством Республики Корея.'])],
  'dev': 'Разработчик: Hyunho Lee'}
 
+LANGS["es"] = "es/"
+LANG_NAME["es"] = 'Español'
+UPDATED["es"] = '18 de octubre de 2026'
+STORE_LANG["es"] = "es-ES"
+T["es"] = {'brand': 'Hantam',
+ 'title': 'Hantam — Patrones de cuentas y punto de cruz',
+ 'desc': 'Convierte cualquier foto en un patrón de cuentas para planchar o de punto de cruz con los colores reales de Perler, Hama, Artkal y DMC.',
+ 'nav': ('Inicio', 'Soporte', 'Privacidad', 'Términos'),
+ 'hero_h': 'De una foto a un patrón',
+ 'hero_p': 'Elige una foto de tu mascota, de ti o de tu personaje favorito. Hantam la convierte en un patrón de cuentas o de punto de cruz con colores que puedes comprar.',
+ 'cta': 'Descargar en el App Store',
+ 'features': [('Colores reales', 'Cuentas Perler, Hama y Artkal e hilos DMC. Cada casilla muestra un número de color real.'),
+              ('Sabes qué comprar', 'Consulta cuántas cuentas o puntos necesita cada color y copia la lista de la compra.'),
+              ('Placa a placa', 'Los patrones grandes se dividen en placas de 29 × 29 con líneas de borde gruesas.'),
+              ('Retoca cualquier casilla', 'Toca una casilla para cambiarla o sustituye un color por otro en todo el patrón.'),
+              ('Imprime y haz', 'Con Pro, exporta un PDF para imprimir: lista de colores y patrones con símbolos, página a página.'),
+              ('Y pixel art', 'Pixela fotos, calca 110 modelos y anima fotograma a fotograma.')],
+ 'pro_h': 'Hantam Pro',
+ 'pro_p': 'La versión gratuita permite patrones de hasta una placa (o 40 puntos), guardar 3 patrones y compartir imágenes con una pequeña marca. Pro añade PDF para imprimir, '
+          'patrones de hasta 4 × 4 placas o 200 puntos, guardado ilimitado, imágenes sin marca y todas las herramientas de pixel art. Elige una suscripción mensual o anual, o un '
+          'pago único para siempre.',
+ 'tm': 'Perler, Hama, Artkal y DMC son marcas comerciales de sus respectivos propietarios. Hantam no está afiliada con ellas.',
+ 'support_h': 'Soporte',
+ 'support_p': 'Preguntas, errores e ideas son siempre bienvenidos. Lo más rápido es usar Ajustes › Enviar comentarios dentro de la app, o escribirnos por correo.',
+ 'faq': [('¿Cómo restauro mi compra?', 'Abre Ajustes en la app y toca Restaurar compras. Usa la misma cuenta de Apple con la que compraste Pro.'),
+         ('¿Cómo cancelo una suscripción?', 'Ve a Ajustes del iPhone › tu nombre › Suscripciones y elige Hantam. El acceso de por vida es un pago único y no se renueva.'),
+         ('Los colores se ven un poco distintos de mis cuentas.',
+          'Las pantallas muestran los colores de forma distinta al plástico y al hilo reales. Toca un color de la lista para cambiarlo por otro más parecido de la misma marca.'),
+         ('¿Qué tamaño pueden tener los patrones?',
+          'Los patrones gratuitos caben en una placa de 29 × 29, o tienen 40 puntos en el lado más largo. Pro llega a 4 × 4 placas (116 cuentas) o 200 puntos.'),
+         ('¿Se suben mis fotos?', 'No. Las fotos y los patrones se procesan y se guardan solo en tu iPhone.')],
+ 'contact': 'Contacto',
+ 'privacy_h': 'Política de privacidad',
+ 'terms_h': 'Términos de uso',
+ 'updated': 'Última actualización',
+ 'privacy': [('Resumen', ['Tus fotos y tus patrones nunca salen de tu iPhone. Solo recogemos estadísticas anónimas que no permiten identificarte.']),
+             ('Fotos',
+              ['Hantam lee una foto solo cuando la eliges. La conversión en patrón se hace en tu dispositivo.',
+               'Las fotos nunca se suben, ni se guardan en un servidor ni se comparten.']),
+             ('Los patrones que creas', ['Los patrones se guardan en el almacenamiento de la app en tu iPhone. Si eliminas la app, se eliminan con ella.']),
+             ('Compras', ['Apple gestiona todos los pagos. Solo sabemos si Pro está activo, nunca tus datos de pago.']),
+             ('Estadísticas anónimas e informes de fallos',
+              ['Para contar usuarios, saber qué funciones se usan y corregir fallos, la app envía datos anónimos a Apple iCloud (CloudKit), que solo puede leer el desarrollador:',
+               'un identificador aleatorio creado al instalar (no está vinculado a ti, a tu cuenta de Apple ni a otras apps; cambia si reinstalas), la versión de la app y de iOS, '
+               'la región y el idioma, los días en que se abrió la app, las funciones usadas (por ejemplo, se creó un patrón, se exportó un PDF o se mostró la pantalla de compra) '
+               'y los detalles de los fallos.',
+               'No se incluyen nombre, datos de contacto, ubicación, fotos ni patrones. Si no has iniciado sesión en iCloud, no se envía nada.']),
+             ('Comentarios', ['Si envías comentarios desde la app, recibimos lo que escribas y, solo si lo añades, tu dirección de correo para poder responderte.']),
+             ('Sin seguimiento', ['Sin publicidad, sin analítica de terceros y sin seguimiento entre otras apps o sitios web.']),
+             ('Menores', ['Hantam es apto para todas las edades. No recopilamos a sabiendas datos personales de menores.']),
+             ('Cambios', ['Si esta política cambia, publicaremos aquí la nueva versión con una fecha nueva.'])],
+ 'terms': [('Uso de la app', ['Al usar Hantam aceptas estos términos. Si no estás de acuerdo, por favor no uses la app.']),
+           ('Qué hace Hantam',
+            ['Hantam convierte fotos en patrones de cuentas para planchar y de punto de cruz, e incluye herramientas de pixel art. Los colores en pantalla son aproximados y '
+             'pueden diferir de los productos reales.']),
+           ('Tu contenido',
+            ['Las fotos que eliges y los patrones que creas son tuyos. Asegúrate de tener derecho a usar las fotos que conviertes en patrones, sobre todo si vendes lo que '
+             'haces.']),
+           ('Hantam Pro',
+            ['Pro se vende en el App Store de Apple como suscripción mensual o anual con renovación automática, o como acceso de por vida con un pago único.',
+             'Las suscripciones se renuevan automáticamente salvo que se cancelen al menos 24 horas antes de que termine el periodo en curso. El cargo se hace a tu cuenta de '
+             'Apple en las 24 horas previas a la renovación. Puedes gestionarlas o cancelarlas en los ajustes de tu cuenta de Apple.',
+             'Si se ofrece una prueba gratuita, la parte no utilizada termina al contratar una suscripción. Los reembolsos se rigen por la política de Apple.']),
+           ('Normas', ['No hagas ingeniería inversa de la app ni la uses para nada ilegal.']),
+           ('Sin garantía',
+            ['La app se ofrece tal cual, sin garantías de ningún tipo. En la medida que permita la ley, nuestra responsabilidad se limita a lo que hayas pagado por la app.']),
+           ('Marcas comerciales', ['Perler, Hama, Artkal y DMC son marcas comerciales de sus respectivos propietarios. Hantam no está afiliada ni respaldada por ellas.']),
+           ('Ley aplicable', ['Estos términos se rigen por las leyes de la República de Corea.'])],
+ 'dev': 'Desarrollador: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}

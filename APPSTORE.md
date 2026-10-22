@@ -464,3 +464,69 @@ Perler, Hama, Artkal и DMC — товарные знаки их владель�
 
 Условия использования: https://m1zz.github.io/PixelMe/ru/terms.html
 Политика конфиденциальности: https://m1zz.github.io/PixelMe/ru/privacy.html
+
+## es-ES
+
+### 지원 URL
+
+https://m1zz.github.io/PixelMe/es/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/PixelMe/es/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/PixelMe/es/
+
+### 이름
+
+Hantam: patrones con cuentas
+
+### 부제
+
+Tus fotos en pixel art
+
+### 키워드
+
+punto de cruz,abalorios,bordado,planchar,manualidades,llavero,mascota,retrato,mosaico,DIY,8bit,niños
+
+### 프로모션 텍스트
+
+Elige una foto de tu mascota, de ti o de tu personaje favorito y conviértela en un patrón de cuentas o punto de cruz con colores reales. Cuántas necesitas, al instante.
+
+### 설명
+
+Convierte una foto en un patrón de cuentas para planchar o de punto de cruz. Y con colores que de verdad puedes comprar.
+Elige la foto, decide si usarás cuentas o hilo y Hantam te dice qué colores necesitas y cuántas unidades de cada uno.
+
+Colores reales, números reales
+Los patrones se crean a partir de las cartas de color de las cuentas Perler, Hama Midi y Artkal S y de los hilos DMC. Cada casilla lleva su número de color y la lista de colores cuenta cuántas cuentas o puntos necesitas de cada uno.
+
+Para placas y para tela
+Los patrones de cuentas se dividen en placas de 29 × 29, con líneas gruesas en los bordes. Los de punto de cruz llevan una línea gruesa cada 10 puntos, y puedes ver el tamaño final en tela de 11, 14, 16 y 18 puntos.
+
+Tú decides el resultado
+Cambia el tamaño y el número de colores y la vista previa se actualiza al momento. Puedes quitar el fondo y quedarte solo con el protagonista. Toca una casilla para retocarla o sustituye un color por otro en todo el patrón.
+
+Tres vistas
+Alterna entre el aspecto de cuentas o puntos reales, las casillas de color y el patrón con símbolos.
+
+Imprime y a trabajar
+Exporta un PDF para imprimir con la vista previa, la lista de colores y los patrones con símbolos por placa o por página. También puedes copiar una lista de la compra con unidades de más por si acaso.
+
+Y también herramientas de pixel art
+Convierte fotos en pixel art con paletas retro y filtros, calca 110 modelos y crea animaciones fotograma a fotograma con capas y papel cebolla.
+
+Tus fotos se quedan en tu iPhone
+Ni las fotos ni los patrones salen de tu iPhone.
+
+Hantam Pro
+La versión gratuita permite patrones de hasta una placa o 40 puntos, guardar hasta 3 patrones y compartir imágenes con una pequeña marca de Hantam. Pro añade patrones en PDF para imprimir, patrones de hasta 4 × 4 placas o 200 puntos, guardado ilimitado, imágenes sin marca y todas las herramientas de pixel art. Elige una suscripción mensual o anual, o un pago único para siempre.
+
+La suscripción se renueva automáticamente salvo que la canceles al menos 24 horas antes de que termine el periodo en curso, y el cargo se hace a tu cuenta de Apple en las 24 horas previas a la renovación. Puedes gestionarla o cancelarla en cualquier momento en los ajustes de tu cuenta de Apple.
+
+Perler, Hama, Artkal y DMC son marcas comerciales de sus respectivos propietarios. Hantam no está afiliada con estas empresas. Los colores en pantalla pueden diferir un poco de los reales.
+
+Términos de uso: https://m1zz.github.io/PixelMe/es/terms.html
+Política de privacidad: https://m1zz.github.io/PixelMe/es/privacy.html

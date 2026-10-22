@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru"}
+STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -41,6 +41,7 @@ SEARCH = {
     "zh-Hans": ('拼豆图纸制作', '一张照片<br>变成拼豆图纸', '买得到的颜色，连用量都算好'),
     "zh-Hant": ('拼豆圖紙製作', '一張照片<br>變成拼豆圖紙', '買得到的顏色，連用量都算好'),
     "ru": ('Схемы термомозаики', 'Из любого фото —<br>схема из бусин', 'Настоящие цвета и их количество'),
+    "es": ('Patrones de cuentas', 'De una foto a un<br>patrón de cuentas', 'Colores reales y cuántas necesitas'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -51,6 +52,7 @@ HEADER = {
     "zh-Hans": ('拼豆 · 十字绣', '一张照片<br>变成我的图纸'),
     "zh-Hant": ('拼豆 · 十字繡', '一張照片<br>變成我的圖紙'),
     "ru": ('Термомозаика и вышивка крестом', 'Ваше фото —<br>ваша схема'),
+    "es": ('Cuentas y punto de cruz', 'Tu foto,<br>tu patrón'),
 }
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)
