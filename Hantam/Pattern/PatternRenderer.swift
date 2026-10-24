@@ -246,7 +246,7 @@ enum PatternRenderer {
         var lines: [String] = []
         lines.append("\(p.material.brandName) · \(p.width) × \(p.height)")
         let size = p.finishedSizeCM
-        lines.append(String(format: NSLocalizedString("Finished size about %.1f × %.1f cm", comment: "Pattern info: finished size"), size.w, size.h))
+        lines.append(String(format: NSLocalizedString("Finished size about %.1f × %.1f cm", comment: "Pattern info: finished size"), locale: .current, size.w, size.h))
         if let b = p.boards {
             lines.append(String(format: NSLocalizedString("%lld pegboards (%lld × %lld)", comment: "Pattern info: pegboards needed"), b.across * b.down, b.across, b.down))
             lines.append(String(format: NSLocalizedString("%lld beads in %lld colors", comment: "Pattern info: bead count and colors"), p.filledCount, p.colorUsage.count))

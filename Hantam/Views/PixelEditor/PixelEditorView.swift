@@ -253,7 +253,7 @@ struct PixelEditorView: View {
                                 viewModel.mirrorMode = mode
                             } label: {
                                 HStack {
-                                    Text(mode.rawValue)
+                                    Text(LocalizedStringKey(mode.rawValue))
                                     if viewModel.mirrorMode == mode {
                                         Image(systemName: "checkmark")
                                     }
@@ -584,7 +584,7 @@ struct ExportSheetView: View {
 
                         Picker("레이아웃", selection: $selectedLayout) {
                             ForEach(SpriteSheetLayout.allCases, id: \.self) { layout in
-                                Text(layout.rawValue).tag(layout)
+                                Text(LocalizedStringKey(layout.rawValue)).tag(layout)
                             }
                         }
                     }

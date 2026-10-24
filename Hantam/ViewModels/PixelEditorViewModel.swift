@@ -108,13 +108,13 @@ final class PixelEditorViewModel: ObservableObject {
         let (w, h) = preset.size
         self.canvasWidth = w
         self.canvasHeight = h
-        self.layers = [PixelLayer(name: "레이어 1", width: w, height: h)]
+        self.layers = [PixelLayer(name: String(localized: "레이어 \(1)"), width: w, height: h)]
     }
     
     init(width: Int, height: Int) {
         self.canvasWidth = width
         self.canvasHeight = height
-        self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
+        self.layers = [PixelLayer(name: String(localized: "레이어 \(1)"), width: width, height: height)]
     }
 
     /// Aseprite 등 외부에서 가져온 AnimationFrame 배열로 초기화
@@ -124,7 +124,7 @@ final class PixelEditorViewModel: ObservableObject {
         if let firstFrame = importedFrames.first {
             self.layers = firstFrame.layers
         } else {
-            self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
+            self.layers = [PixelLayer(name: String(localized: "레이어 \(1)"), width: width, height: height)]
         }
         self.frames = importedFrames
         if importedFrames.count > 1 {
@@ -137,7 +137,7 @@ final class PixelEditorViewModel: ObservableObject {
         let size = sample.boardSize.count
         self.canvasWidth = size
         self.canvasHeight = size
-        self.layers = [PixelLayer(name: "레이어 1", width: size, height: size)]
+        self.layers = [PixelLayer(name: String(localized: "레이어 \(1)"), width: size, height: size)]
         self.referenceSample = sample
 
         // 캔버스가 화면의 약 80%를 채우도록 초기 줌 설정
@@ -179,7 +179,7 @@ final class PixelEditorViewModel: ObservableObject {
 
         // 이미지를 targetSize로 nearest-neighbor 리사이즈
         let scaledImage = Self.resizeImageNearest(image, to: CGSize(width: size, height: size))
-        var layer = PixelLayer(name: "변환된 이미지", width: size, height: size)
+        var layer = PixelLayer(name: String(localized: "변환된 이미지"), width: size, height: size)
 
         // 픽셀 데이터 추출
         if let cgImage = scaledImage.cgImage {
@@ -475,7 +475,7 @@ final class PixelEditorViewModel: ObservableObject {
     // MARK: - Layer Management
     
     func addLayer() {
-        let newLayer = PixelLayer(name: "레이어 \(layers.count + 1)", width: canvasWidth, height: canvasHeight)
+        let newLayer = PixelLayer(name: String(localized: "레이어 \(layers.count + 1)"), width: canvasWidth, height: canvasHeight)
         layers.append(newLayer)
         activeLayerIndex = layers.count - 1
     }

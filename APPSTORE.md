@@ -1257,7 +1257,7 @@ Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing.
 Ketentuan Penggunaan: https://m1zz.github.io/PixelMe/id/terms.html
 Kebijakan Privasi: https://m1zz.github.io/PixelMe/id/privacy.html
 
-## no
+## nb
 
 ### 지원 URL
 

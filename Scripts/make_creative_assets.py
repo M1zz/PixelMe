@@ -17,7 +17,7 @@
 
 ⚠️ 가격 · 할인 · 주소(URL) · 수상 · 다른 플랫폼 이름은 넣지 않는다(Apple 가이드).
 """
-import subprocess, sys, pathlib, tempfile
+import subprocess, sys, pathlib, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "docs" / "screenshots" / "raw"
@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
+STORE = {"en": "en-US", "en-GB": "en-GB", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -36,21 +36,22 @@ SPEC = {
 # 검색 결과: 눈썹글(그 나라 검색어) · 헤드라인 · 보조 한 줄. 스크린샷 1장(사진 → 비즈 도안)과 같은 이야기다.
 SEARCH = {
     "en": ("Bead pattern maker", "Any photo,<br>a bead pattern", "Real colors, with counts for every one"),
+    "en-GB": ("Bead pattern maker", "Any photo,<br>a bead pattern", "Real colours, with counts for every one"),
     "ko": ("비즈 도안 만들기", "사진 한 장이<br>비즈 도안으로", "실제로 파는 색과 필요한 개수까지"),
     "ja": ("アイロンビーズ図案", "写真1枚が<br>ビーズ図案に", "実際に買える色と、必要な数まで"),
     "zh-Hans": ('拼豆图纸制作', '一张照片<br>变成拼豆图纸', '买得到的颜色，连用量都算好'),
     "zh-Hant": ('拼豆圖紙製作', '一張照片<br>變成拼豆圖紙', '買得到的顏色，連用量都算好'),
-    "ru": ('Схемы термомозаики', 'Из любого фото —<br>схема из бусин', 'Настоящие цвета и их количество'),
+    "ru": ('Схемы термомозаики', 'Из фото —<br>схема из бусин', 'Настоящие цвета и их количество'),
     "es": ('Patrones de cuentas', 'De una foto a un<br>patrón de cuentas', 'Colores reales y cuántas necesitas'),
     "de": ('Bügelperlen Vorlagen', 'Aus jedem Foto<br>eine Perlenvorlage', 'Echte Farben und die Menge dazu'),
     "fr": ('Grilles perles à repasser', 'D’une photo à une<br>grille de perles', 'De vraies couleurs, avec les quantités'),
     "it": ('Schemi perline da stirare', 'Da una foto a uno<br>schema di perline', 'Colori veri, con le quantità'),
-    "pt-BR": ('Padrões de miçangas', 'De uma foto a um<br>padrão de miçangas', 'Cores reais e quanto você precisa'),
+    "pt-BR": ('Padrões de miçangas', 'Sua foto vira<br>um padrão', 'Cores reais e quanto você precisa'),
     "th": ('แพตเทิร์นลูกปัดรีด', 'จากรูปใบเดียว<br>เป็นแพตเทิร์นลูกปัด', 'สีจริง พร้อมจำนวนที่ต้องใช้'),
     "vi": ('Mẫu hạt ủi', 'Từ một tấm ảnh<br>thành mẫu hạt', 'Màu thật, kèm số lượng cần dùng'),
     "cs": ('Vzory ze žehlicích korálků', 'Z fotky vzor<br>z korálků', 'Skutečné barvy i s počty kusů'),
     "da": ('Mønstre til strygeperler', 'Fra foto til<br>perlemønster', 'Rigtige farver og hvor mange du skal bruge'),
-    "el": ('Σχέδια για χάντρες σιδερώματος', 'Από μια φωτογραφία<br>σχέδιο με χάντρες', 'Πραγματικά χρώματα και πόσα χρειάζεσαι'),
+    "el": ('Σχέδια με χάντρες', 'Από φωτογραφία<br>σε σχέδιο', 'Αληθινά χρώματα και ποσότητες'),
     "fi": ('Silitettävien helmien kuviot', 'Kuvasta<br>helmikuvio', 'Oikeat värit ja tarvittavat määrät'),
     "id": ('Pola manik setrika', 'Dari satu foto<br>jadi pola manik', 'Warna asli beserta jumlahnya'),
     "nb": ('Mønstre til strykeperler', 'Fra bilde til<br>perlemønster', 'Ekte farger og hvor mange du trenger'),
@@ -63,6 +64,7 @@ SEARCH = {
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
 HEADER = {
     "en": ("Fuse beads and cross-stitch", "Your photo,<br>your pattern"),
+    "en-GB": ("Fuse beads and cross-stitch", "Your photo,<br>your pattern"),
     "ko": ("아이롱 비즈 · 십자수", "사진 한 장이<br>나만의 도안으로"),
     "ja": ("アイロンビーズ・クロスステッチ", "写真1枚が<br>わたしの図案に"),
     "zh-Hans": ('拼豆 · 十字绣', '一张照片<br>变成我的图纸'),
@@ -242,6 +244,7 @@ def render(lang, kind):
     else:
         raise SystemExit(f"Chrome 이 그리지 못했다: {out_png}")
     print(f"rendered {out_png}")
+    time.sleep(2)  # 맥을 같이 쓰므로 Chrome 을 연달아 띄우지 않는다
 
 
 if __name__ == "__main__":

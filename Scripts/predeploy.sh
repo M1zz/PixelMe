@@ -20,7 +20,9 @@ PROJECT="Hantam.xcodeproj"
 # 도안 엔진 · PDF · 통계 이름 단위 테스트 (HantamTests/PatternEngineTests.swift)
 echo "🧪 단위 테스트 ($SCHEME)"
 # 이미 켜진 아이폰을 먼저 쓴다 — 막 켜지는 기기에서는 테스트 실행기가 앱을 못 띄울 때가 있다.
-DEST_ID=$(xcrun simctl list devices booted | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)
+# SIM_UDID 를 주면 그 기기를 쓴다(맥을 여럿이 같이 쓸 때 남의 시뮬레이터를 건드리지 않도록).
+DEST_ID="${SIM_UDID:-}"
+[ -n "$DEST_ID" ] || DEST_ID=$(xcrun simctl list devices booted | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)
 [ -n "$DEST_ID" ] || DEST_ID=$(xcrun simctl list devices available | grep -E "iPhone" | grep -oE "[0-9A-F-]{36}" | head -1)
 xcodebuild test \
   "$PROJECT_FLAG" "$PROJECT" \

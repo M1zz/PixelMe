@@ -8,7 +8,7 @@
 바탕은 앱과 같은 면천색(#FAF5EE)에 페그보드 점, 글자는 먹색, 강조는 빨간 실(#D9453D).
 가격 · 할인 · 다른 회사 상표는 헤드라인에 넣지 않는다.
 """
-import subprocess, sys, pathlib, tempfile
+import subprocess, sys, pathlib, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "docs" / "screenshots" / "raw"
@@ -17,7 +17,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "no", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
+STORE = {"ko": "ko", "en": "en-US", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -36,6 +36,14 @@ SHOTS_BY_LANG = {
         ("04-print.png",   "pdf",     "tilt",   "Print it and<br>start making", "Board by board charts and a color list"),
         ("05-stitch.png",  "stitch",  "hero",   "Cross-stitch<br>patterns too", "Thread numbers and size for your fabric"),
         ("06-home.png",    "home",    "accent", "All your patterns<br>in one place", "Keychains, frames and gifts"),
+    ],
+    "en-GB": [
+        ("01-photo.png",   "maker",   "hero",   "Any photo,<br>a bead pattern", "Pick a size and colours, see it instantly"),
+        ("02-colors.png",  "detail",  "left",   "Matched to colours<br>you can buy", "Colour numbers and counts for each one"),
+        ("03-symbols.png", "symbols", "bottom", "A symbol<br>in every square", "Bold board lines, tap any square to fix"),
+        ("04-print.png",   "pdf",     "tilt",   "Print it and<br>start making", "Board by board charts and a colour list"),
+        ("05-stitch.png",  "stitch",  "hero",   "Cross-stitch<br>patterns too", "Thread numbers and size for your fabric"),
+        ("06-home.png",    "home",    "accent", "All your patterns<br>in one place", "Keyrings, frames and gifts"),
     ],
     "ja": [
         ("01-photo.png",   "maker",   "hero",   "写真1枚が<br>ビーズ図案に", "サイズと色数を選べば、すぐにプレビュー"),
@@ -275,6 +283,7 @@ def render(lang, fname, scene, layout, headline, sub):
     else:
         raise SystemExit(f"Chrome 이 그리지 못했다: {out_png}")
     print(f"rendered {out_png}")
+    time.sleep(2)  # 맥을 같이 쓰므로 Chrome 을 연달아 띄우지 않는다
 
 
 if __name__ == "__main__":

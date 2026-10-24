@@ -94,7 +94,7 @@ struct AnimationTimelineView: View {
                 }
                 .padding(.horizontal)
 
-                Text("\(viewModel.frames.count)프레임 · \(viewModel.fps) FPS · \(String(format: "%.1f", Double(viewModel.frames.count) / Double(max(1, viewModel.fps))))초")
+                Text("\(viewModel.frames.count)프레임 · \(viewModel.fps) FPS · \(String(format: "%.1f", locale: .current, Double(viewModel.frames.count) / Double(max(1, viewModel.fps))))초")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

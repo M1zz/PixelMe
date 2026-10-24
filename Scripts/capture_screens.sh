@@ -6,6 +6,8 @@
 #   결과: docs/screenshots/raw/<언어>/<장면>.png
 #   데모 사진: docs/screenshots/raw/assets/demo-beagle.jpg (Unsplash 라이선스 — 상업적 사용 가능)
 set -e
+# 시뮬레이터 명령이 멈추면 끝없이 기다린다 — 명령마다 시간 제한을 둔다.
+t() { perl -e 'alarm shift; exec @ARGV' "$@"; }
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$1"; shift
 LANGS="${*:-ko en ja}"
@@ -13,23 +15,31 @@ LANGS="${*:-ko en ja}"
 UDID="${UDID:-7F517AA6-6217-4326-9F6B-5AE490B38C7D}"
 BUNDLE=com.leeo.PixelMe
 PHOTO="$ROOT/docs/screenshots/raw/assets/demo-beagle.jpg"
-SCENES="home maker detail symbols stitch pdf"
+SCENES="${SCENES:-home maker detail symbols stitch pdf}"
 
 xcrun simctl boot "$UDID" 2>/dev/null || true
-xcrun simctl bootstatus "$UDID" -b >/dev/null
+t 600 xcrun simctl bootstatus "$UDID" -b >/dev/null
 xcrun simctl ui "$UDID" appearance light
 xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3
-xcrun simctl install "$UDID" "$APP"
+t 300 xcrun simctl install "$UDID" "$APP"
 
 for L in $LANGS; do
-  case $L in ko) LOC=ko_KR;; ja) LOC=ja_JP;; *) LOC=en_US;; esac
+  # 앱 언어 → 지역(날짜 · 숫자 표기). en-GB 는 영국식(dd/mm) 으로 찍는다.
+  case $L in
+    ko) LOC=ko_KR;; ja) LOC=ja_JP;; en) LOC=en_US;; en-GB) LOC=en_GB;;
+    zh-Hans) LOC=zh_CN;; zh-Hant) LOC=zh_TW;; ru) LOC=ru_RU;; es) LOC=es_ES;; de) LOC=de_DE;;
+    fr) LOC=fr_FR;; it) LOC=it_IT;; pt-BR) LOC=pt_BR;; th) LOC=th_TH;; vi) LOC=vi_VN;;
+    cs) LOC=cs_CZ;; da) LOC=da_DK;; el) LOC=el_GR;; fi) LOC=fi_FI;; id) LOC=id_ID;;
+    nb) LOC=nb_NO;; nl) LOC=nl_NL;; pl) LOC=pl_PL;; sv) LOC=sv_SE;; tr) LOC=tr_TR;;
+    *) LOC=en_US;;
+  esac
   mkdir -p "$ROOT/docs/screenshots/raw/$L"
   for SC in $SCENES; do
     xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
-    xcrun simctl launch "$UDID" $BUNDLE -AppleLanguages "($L)" -AppleLocale $LOC \
+    t 120 xcrun simctl launch "$UDID" $BUNDLE -AppleLanguages "($L)" -AppleLocale $LOC \
       -HantamScene $SC -HantamDemoPhoto "$PHOTO" >/dev/null
     if [ "$SC" = pdf ]; then sleep 11; else sleep 7; fi
-    xcrun simctl io "$UDID" screenshot "$ROOT/docs/screenshots/raw/$L/$SC.png" >/dev/null 2>&1
+    t 60 xcrun simctl io "$UDID" screenshot "$ROOT/docs/screenshots/raw/$L/$SC.png" >/dev/null 2>&1
     echo "📸 $L/$SC"
   done
 done

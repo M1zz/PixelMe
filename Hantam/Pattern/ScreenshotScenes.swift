@@ -45,8 +45,30 @@ enum ScreenshotScene {
             "ko": ["bead": "우리 집 비글", "stitch": "비글 액자", "heart": "하트 키링"],
             "ja": ["bead": "うちのビーグル", "stitch": "ビーグルの額", "heart": "ハートのキーホルダー"],
             "en": ["bead": "My beagle", "stitch": "Beagle frame", "heart": "Heart keychain"],
+            "en-GB": ["bead": "My beagle", "stitch": "Beagle frame", "heart": "Heart keyring"],
+            "zh-Hans": ["bead": "我家的比格犬", "stitch": "比格犬画框", "heart": "爱心钥匙扣"],
+            "zh-Hant": ["bead": "我家的米格魯", "stitch": "米格魯相框", "heart": "愛心鑰匙圈"],
+            "ru": ["bead": "Мой бигль", "stitch": "Бигль в рамке", "heart": "Брелок-сердце"],
+            "es": ["bead": "Mi beagle", "stitch": "Cuadro del beagle", "heart": "Llavero de corazón"],
+            "de": ["bead": "Mein Beagle", "stitch": "Beagle-Bild", "heart": "Herz-Anhänger"],
+            "fr": ["bead": "Mon beagle", "stitch": "Cadre beagle", "heart": "Porte-clés cœur"],
+            "it": ["bead": "Il mio beagle", "stitch": "Quadretto beagle", "heart": "Portachiavi cuore"],
+            "pt-BR": ["bead": "Meu beagle", "stitch": "Quadro do beagle", "heart": "Chaveiro de coração"],
+            "th": ["bead": "บีเกิลของฉัน", "stitch": "กรอบรูปบีเกิล", "heart": "พวงกุญแจหัวใจ"],
+            "vi": ["bead": "Chú beagle nhà tôi", "stitch": "Khung tranh beagle", "heart": "Móc khóa trái tim"],
+            "cs": ["bead": "Můj bígl", "stitch": "Bígl v rámečku", "heart": "Přívěsek srdce"],
+            "da": ["bead": "Min beagle", "stitch": "Beagle i ramme", "heart": "Hjerte-nøglering"],
+            "el": ["bead": "Το μπιγκλ μου", "stitch": "Κάδρο με μπιγκλ", "heart": "Μπρελόκ καρδιά"],
+            "fi": ["bead": "Meidän beagle", "stitch": "Beagle-taulu", "heart": "Sydänavaimenperä"],
+            "id": ["bead": "Beagle-ku", "stitch": "Bingkai beagle", "heart": "Gantungan kunci hati"],
+            "nb": ["bead": "Beaglen min", "stitch": "Beagle i ramme", "heart": "Hjerte-nøkkelring"],
+            "nl": ["bead": "Onze beagle", "stitch": "Beagle-lijstje", "heart": "Hartjessleutelhanger"],
+            "pl": ["bead": "Mój beagle", "stitch": "Beagle w ramce", "heart": "Brelok serce"],
+            "sv": ["bead": "Min beagle", "stitch": "Beagle i ram", "heart": "Hjärtnyckelring"],
+            "tr": ["bead": "Benim beagle'ım", "stitch": "Beagle çerçevesi", "heart": "Kalpli anahtarlık"],
         ]
-        let key = table.keys.first { lang.hasPrefix($0) } ?? "en"
+        // 가장 긴 접두사부터 맞춘다 — en-GB 가 en 보다 먼저.
+        let key = table.keys.sorted { $0.count > $1.count }.first { lang.hasPrefix($0) } ?? "en"
         return table[key]?[kind] ?? kind
     }
 

@@ -22,7 +22,7 @@ struct AnimationFrame: Identifiable, Codable, Equatable {
     /// 빈 프레임 생성
     init(width: Int, height: Int, durationMs: Int = 100) {
         self.id = UUID()
-        self.layers = [PixelLayer(name: "레이어 1", width: width, height: height)]
+        self.layers = [PixelLayer(name: String(localized: "레이어 \(1)"), width: width, height: height)]
         self.durationMs = durationMs
     }
 }
