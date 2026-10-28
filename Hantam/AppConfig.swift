@@ -38,6 +38,10 @@ class AppConfig {
     static let yearlyProductID: String = "com.hantam.pro.yearly"
     static let lifetimeProductID: String = "com.pixelme.pro.lifetime"  // 일회성(비소모성) — 그대로
 
+    // Pro 선물(소모성). 산 사람이 아니라 코드를 받은 사람이 평생 Pro 가 된다(HantamSpec.monetization 의 gift).
+    // ⚠️ productIDs · entitlementIDs 에 넣지 않는다.
+    static let giftProductID: String = "com.pixelme.gift.pro"
+
     // 팔지 않지만 이미 산 사람은 Pro 로 인정하는 예전 ID
     static let weeklyProductID: String = "com.pixelme.pro.weekly"
     static let legacyMonthlyProductID: String = "com.pixelme.pro.monthly"

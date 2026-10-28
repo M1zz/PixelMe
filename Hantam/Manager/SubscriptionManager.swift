@@ -68,6 +68,10 @@ class SubscriptionManager: ObservableObject {
     /// 프리미엄 구독 상태
     var isProUser: Bool { store.hasPro }
 
+    /// Pro 선물하기 엔진. 받은 선물은 `isProUser` 에 이미 합쳐진다.
+    /// ⚠️ 상품 로드처럼 엔진 안에서 바뀌는 것은 이 객체가 알리지 않는다 — 화면이 따로 관찰한다.
+    var gift: LeeoGiftStore? { store.gift }
+
     /// 현재 활성 구독 상품 (보유 중인 상품 중 표시 우선순위가 가장 높은 것)
     var currentSubscription: Product? {
         store.products.first { store.purchasedProductIDs.contains($0.id) }

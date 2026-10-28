@@ -17,6 +17,11 @@ import LeeoKit
 
 extension HantamSpec {
     static var roadmap: [LeeoRoadmapItem] {[
+        // MARK: 만들고 있어요
+        .init(id: "gift", status: .building,
+              title: NSLocalizedString("Gift Pro", comment: "Roadmap item: gift Pro"),
+              detail: NSLocalizedString("You pay, and the person you choose gets Pro.", comment: "Roadmap item detail: gift Pro")),
+
         // MARK: 다음에 만들어요
         .init(id: "pattern.owned-colors", status: .planned,
               title: NSLocalizedString("Use only colors I own", comment: "Roadmap item: limit pattern to owned colors"),
@@ -48,9 +53,6 @@ extension HantamSpec {
         .init(id: "tips", status: .planned,
               title: NSLocalizedString("Helpful tips", comment: "Roadmap item: tips"),
               detail: NSLocalizedString("Handy features are pointed out gently, right when they’re useful.", comment: "Roadmap item detail: tips")),
-        .init(id: "gift", status: .planned,
-              title: NSLocalizedString("Gift Pro", comment: "Roadmap item: gift Pro"),
-              detail: NSLocalizedString("You pay, and the person you choose gets Pro.", comment: "Roadmap item detail: gift Pro")),
         .init(id: "haptics", status: .planned,
               title: NSLocalizedString("Haptic feedback", comment: "Roadmap item: haptics"),
               detail: NSLocalizedString("Feel a light tap when you draw or finish something.", comment: "Roadmap item detail: haptics")),

@@ -199,6 +199,10 @@ struct HantamSettingsView: View {
                     }
                 } header: { Text("Hantam Pro") }
 
+                if let gift = subscription.gift {
+                    GiftRows(gift: gift, isPro: subscription.isProUser)
+                }
+
                 Section {
                     LeeoSupportSection<HantamSpec>()
                     NavigationLink { RoadmapScreen() } label: {
@@ -237,5 +241,50 @@ struct HantamSettingsView: View {
             }
         }
         .tint(.hantamAccent)
+    }
+}
+
+// MARK: - 선물
+
+/// 설정의 선물 줄 — Hantam Pro 칸 바로 아래. Pro 를 다른 사람에게 보내고, 받은 코드를 넣는다.
+/// 받는 사람은 `com.pixelme.pro.lifetime` 을 산 것과 같아진다(`HantamSpec.monetization` 의 `gift`).
+///
+/// ⚠️ 상품이 App Store 에서 와야 줄이 선다(`isAvailable`). 상품을 만들기 전에 이 빌드가 나가도
+///    눌러도 안 되는 줄은 보이지 않는다. 단, 이미 결제했거나 주고받은 선물이 있는 사람에게는 늘 보인다 —
+///    상품을 못 불러온 날에도 코드를 다시 보거나 문의까지 갈 길이 있어야 한다.
+/// ⚠️ 문구는 LeeoKit 카탈로그(`LeeoGiftText`)에 24개 언어로 있다.
+/// ⚠️ `LeeoGiftStore` 는 따로 관찰한다. 상품은 앱이 뜬 뒤에 오는데 `SubscriptionManager` 는 그 변화를 알리지 않는다.
+private struct GiftRows: View {
+    @ObservedObject var gift: LeeoGiftStore
+    let isPro: Bool
+    @State private var showSupport = false
+
+    var body: some View {
+        if gift.isAvailable || gift.pendingCount > 0 || !gift.sentGifts.isEmpty || gift.redeemed != nil {
+            Section {
+                NavigationLink {
+                    // 선물이 안 되면 결제 번호·코드를 붙여 문의하게 한다 — 막힌 사람을 놓치지 않게.
+                    LeeoGiftView<HantamSpec>(gift: gift, showsRedeemLink: false,
+                                             onContactSupport: { showSupport = true })
+                } label: {
+                    Label(LeeoGiftText.sendEntry, systemImage: "gift.fill")
+                }
+                // 이미 Pro 인 사람은 받을 것이 없다 — 받은 적이 있으면 그 기록을 볼 수 있게만 남긴다.
+                if !isPro || gift.redeemed != nil {
+                    NavigationLink {
+                        LeeoGiftRedeemView<HantamSpec>(gift: gift,
+                                                       onContactSupport: { showSupport = true })
+                    } label: {
+                        Label(LeeoGiftText.redeemEntry, systemImage: "giftcard")
+                    }
+                }
+            }
+            .sheet(isPresented: $showSupport) {
+                NavigationStack {
+                    LeeoFeedbackView<HantamSpec>(initialType: .bug, extraInfo: gift.supportLines,
+                                                 initialCategory: .purchase)
+                }
+            }
+        }
     }
 }
