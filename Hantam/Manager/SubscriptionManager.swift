@@ -72,6 +72,9 @@ class SubscriptionManager: ObservableObject {
     /// ⚠️ 상품 로드처럼 엔진 안에서 바뀌는 것은 이 객체가 알리지 않는다 — 화면이 따로 관찰한다.
     var gift: LeeoGiftStore? { store.gift }
 
+    /// 팁(응원) 엔진. 권한과 상관없다. 상품 로드는 `gift` 처럼 화면이 따로 관찰한다.
+    var tipJar: LeeoTipJar? { store.tipJar }
+
     /// 현재 활성 구독 상품 (보유 중인 상품 중 표시 우선순위가 가장 높은 것)
     var currentSubscription: Product? {
         store.products.first { store.purchasedProductIDs.contains($0.id) }

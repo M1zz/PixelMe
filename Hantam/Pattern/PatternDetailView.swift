@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import LeeoKit
 
 struct PatternDetailView: View {
     @Environment(\.dismiss) private var dismiss
@@ -27,8 +28,12 @@ struct PatternDetailView: View {
     @State private var showRename = false
     @State private var titleDraft = ""
     @State private var copiedList = false
+    /// 방금 만든 도안인가. 그때만 응원 카드를 세운다.
+    private let justCreated: Bool
 
-    init(pattern: BeadPattern, initialStyle: PatternDisplayStyle = .preview, initialZoom: CGFloat = 1) {
+    init(pattern: BeadPattern, initialStyle: PatternDisplayStyle = .preview, initialZoom: CGFloat = 1,
+         justCreated: Bool = false) {
+        self.justCreated = justCreated
         _pattern = State(initialValue: pattern)
         _style = State(initialValue: initialStyle)
         _zoom = State(initialValue: initialZoom)
@@ -55,6 +60,11 @@ struct PatternDetailView: View {
                         stylePicker
                         if isEditing { brushPalette }
                         infoCard
+                        // 이미 Pro 인 사람이 도안을 또 하나 만든 순간에만 응원을 부탁한다.
+                        // 아직 안 산 사람에게는 페이월이 맞는 길이다.
+                        if justCreated, isPro, let tipJar = subscription.tipJar {
+                            LeeoTipAskSlot<HantamSpec>(tipJar: tipJar, reached: HantamTipMoments.reachedNow)
+                        }
                         exportCard
                         colorList
                         Spacer(minLength: 30)
@@ -476,4 +486,23 @@ struct ActivityView: UIViewControllerRepresentable {
         UIActivityViewController(activityItems: items, applicationActivities: nil)
     }
     func updateUIViewController(_ vc: UIActivityViewController, context: Context) {}
+}
+
+// MARK: - 응원 부탁 순간
+
+/// 팁을 부탁할 순간 — 저장해 둔 도안 수. 큰 것부터.
+@MainActor
+enum HantamTipMoments {
+    static let patterns = [50, 20, 10]
+
+    static func reached(patterns count: Int) -> [LeeoTipMoment] {
+        patterns.filter { count >= $0 }.map {
+            LeeoTipMoment(id: "patterns.\($0)",
+                          message: String(format: NSLocalizedString("You've made %lld patterns with Hantam",
+                                                                    comment: "Tip ask card: how many patterns saved so far"),
+                                          count))
+        }
+    }
+
+    static var reachedNow: [LeeoTipMoment] { reached(patterns: PatternStore.shared.patterns.count) }
 }

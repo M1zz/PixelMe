@@ -52,7 +52,9 @@ enum HantamSpec: LeeoAppSpec {
                 productID: AppConfig.giftProductID,
                 grantsProductID: AppConfig.lifetimeProductID,
                 containerIdentifier: "iCloud.com.Ysoup.FeedbackHub"
-            )
+            ),
+            // 개발자 응원하기(팁). 이미 Pro 인 사람이 조금 더 내고 싶을 때.
+            tipJar: LeeoTipJarConfig(productIDs: AppConfig.tipProductIDs)
         )
     )
 

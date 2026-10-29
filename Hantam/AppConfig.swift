@@ -42,6 +42,10 @@ class AppConfig {
     // ⚠️ productIDs · entitlementIDs 에 넣지 않는다.
     static let giftProductID: String = "com.pixelme.gift.pro"
 
+    // 팁(소모성, 작은 것부터). 기능을 열지 않는다(HantamSpec.monetization 의 tipJar).
+    // ⚠️ productIDs · entitlementIDs 에 넣지 않는다.
+    static let tipProductIDs: [String] = ["com.pixelme.tip.small", "com.pixelme.tip.medium", "com.pixelme.tip.large"]
+
     // 팔지 않지만 이미 산 사람은 Pro 로 인정하는 예전 ID
     static let weeklyProductID: String = "com.pixelme.pro.weekly"
     static let legacyMonthlyProductID: String = "com.pixelme.pro.monthly"

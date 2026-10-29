@@ -203,6 +203,10 @@ struct HantamSettingsView: View {
                     GiftRows(gift: gift, isPro: subscription.isProUser)
                 }
 
+                if let tipJar = subscription.tipJar {
+                    TipRows(tipJar: tipJar)
+                }
+
                 Section {
                     LeeoSupportSection<HantamSpec>()
                     NavigationLink { RoadmapScreen() } label: {
@@ -284,6 +288,22 @@ private struct GiftRows: View {
                     LeeoFeedbackView<HantamSpec>(initialType: .bug, extraInfo: gift.supportLines,
                                                  initialCategory: .purchase)
                 }
+            }
+        }
+    }
+}
+
+// MARK: - 응원하기 (팁)
+
+/// 설정의 '개발자 응원하기' 줄 — 선물 바로 아래. 판매 중인 팁이 있어야 선다.
+/// ⚠️ `LeeoTipJar` 는 따로 관찰한다. 상품은 앱이 뜬 뒤에 온다.
+private struct TipRows: View {
+    @ObservedObject var tipJar: LeeoTipJar
+
+    var body: some View {
+        if tipJar.isAvailable {
+            Section {
+                LeeoTipJarLink<HantamSpec>(tipJar: tipJar)
             }
         }
     }

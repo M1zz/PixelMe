@@ -91,7 +91,7 @@ struct PatternMakerView: View {
                 PaywallView(isProUser: .constant(false), reason: reason)
             }
             .fullScreenCover(item: $created, onDismiss: { dismiss() }) { pattern in
-                PatternDetailView(pattern: pattern)
+                PatternDetailView(pattern: pattern, justCreated: true)
             }
         }
         .tint(.hantamAccent)
