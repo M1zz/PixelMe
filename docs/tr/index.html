@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Ütülenebilir boncuk ve kanaviçe şemaları</title>
-<meta name="description" content="Herhangi bir fotoğrafı Perler, Hama, Artkal ve DMC&#x27;nin gerçek renkleriyle ütülenebilir boncuk veya kanaviçe şemasına dönüştür.">
-<meta property="og:title" content="Hantam — Ütülenebilir boncuk ve kanaviçe şemaları">
-<meta property="og:description" content="Herhangi bir fotoğrafı Perler, Hama, Artkal ve DMC&#x27;nin gerçek renkleriyle ütülenebilir boncuk veya kanaviçe şemasına dönüştür.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: fotoğraftan ütülenebilir boncuk ve kanaviçe şeması</title>
+  <meta name="description" content="Bir fotoğraf seç, Hantam gerçekten satılan renklerle şema çıkarsın: Perler, Hama, Artkal boncukları ve DMC ipliği, her rengin adediyle birlikte.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: fotoğraftan ütülenebilir boncuk ve kanaviçe şeması">
+  <meta property="og:description" content="Bir fotoğraf seç, Hantam gerçekten satılan renklerle şema çıkarsın: Perler, Hama, Artkal boncukları ve DMC ipliği, her rengin adediyle birlikte.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/tr/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/tr/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Ana sayfa</a><a href="support.html">Destek</a><a href="privacy.html">Gizlilik</a><a href="terms.html">Koşullar</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr" aria-current="page">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header class="bar">
+    <a class="brand" href="../tr/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Dil</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Fotoğraftan şemaya</h1>
-    <p>Evcil hayvanının, kendinin ya da sevdiğin bir karakterin fotoğrafını seç. Hantam, onu satın alabileceğin renklerle ütülenebilir boncuk veya kanaviçe şemasına çevirir.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">App Store&#x27;dan indir</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Gerçek renkler</h3><p>Perler, Hama ve Artkal boncukları ile DMC iplikleri. Her kare gerçek bir renk numarası gösterir.</p></div><div class="card"><h3>Ne alacağını bilirsin</h3><p>Her rengin kaç boncuk ya da dikiş gerektirdiğini gör, alışveriş listesini kopyala.</p></div><div class="card"><h3>Plaka plaka</h3><p>Büyük şemalar, sınırları kalın çizgili 29 × 29&#x27;luk plakalara bölünür.</p></div><div class="card"><h3>Her kareyi düzelt</h3><p>Bir kareye dokunup değiştir ya da bir rengi her yerde başka bir renkle değiştir.</p></div><div class="card"><h3>Yazdır ve yap</h3><p>Pro ile yazdırılabilir PDF dışa aktar: renk listesi ve sayfa sayfa sembollü şemalar.</p></div><div class="card"><h3>Piksel sanat da var</h3><p>Fotoğrafları piksel sanata çevir, 110 örneğin üzerinden çiz, kare kare animasyon yap.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Ücretsiz sürümde bir plakaya (veya 40 dikişe) kadar şema yapabilir, 3 şema kaydedebilir ve küçük bir işaretle görsel paylaşabilirsin. Pro; yazdırılabilir PDF&#x27;ler, 4 × 4 plakaya veya 200 dikişe kadar şemalar, sınırsız kayıt, işaretsiz görseller ve tüm piksel sanat araçlarını ekler. Aylık ya da yıllık abonelik veya ömür boyu tek seferlik ödeme seçebilirsin.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Bir fotoğraf<br>bir şemaya dönüşür</h1>
+        <p class="lead">Evcil hayvanının, kendi yüzünün ya da sevdiğin karakterin fotoğrafını seç. Hantam onu satın alabileceğin renklerle ütülenebilir boncuk ya da kanaviçe şemasına çevirir.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Ücretsiz indir</a><a class="try" href="#try">Bir fotoğrafla dene ↓</a></div>
+        <p class="muted small">Tek pano boyutundaki şemalar ücretsiz. Fotoğrafların iPhone’undan çıkmaz.</p>
+      </div>
+      <div class="phone"><img src="../img/tr/detail.jpg" alt="Bir fotoğraf bir şemaya dönüşür" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu şirketlerle bağlantılı değildir.<br>Geliştirici: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Bir fotoğrafla dene</h2>
+      <p class="muted">Uygulamadakiyle aynı renk eşleştirme, gerçek Perler renk kartıyla. Boyutu ve renk sayısını değiştir ya da kendi fotoğrafınla dene.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Bir fotoğrafla dene&quot;, &quot;lead&quot;: &quot;Uygulamadakiyle aynı renk eşleştirme, gerçek Perler renk kartıyla. Boyutu ve renk sayısını değiştir ya da kendi fotoğrafınla dene.&quot;, &quot;size&quot;: &quot;Boyut&quot;, &quot;boards&quot;: [&quot;1 pano&quot;, &quot;4 pano (Pro)&quot;], &quot;colors&quot;: &quot;En fazla {n} renk&quot;, &quot;need&quot;: &quot;İhtiyacın olan renkler&quot;, &quot;more&quot;: &quot;ve {n} renk daha&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · yaklaşık {cw} × {ch} cm · {n} boncuk · {c} renk&quot;, &quot;mine&quot;: &quot;Kendi fotoğrafımla dene&quot;, &quot;photo&quot;: &quot;Orijinal fotoğraf&quot;, &quot;alt&quot;: &quot;Fotoğraftan yapılan boncuk şeması&quot;, &quot;note&quot;: &quot;Fotoğrafın burada, bu tarayıcıda dönüştürülür ve hiçbir yere yüklenmez.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Şema yapmak kolay, gerçek boncuk renklerini tutturmak zor</h2>
+      <p>Bir fotoğrafı herhangi bir düzenleyicide pikselleştirirsen hiçbir boncukta ya da iplikte olmayan renkler çıkar. Sonra her karenin hangi kavanozdan geldiğini tahmin edip her renkten kaç tane alacağını saymak zorunda kalırsın. Hantam yalnızca gerçekten satılan renkler arasından seçer ve kaç tane gerektiğini tam olarak söyler.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Gerçek renkler, gerçek numaralar</h2>
+        <p>Perler, Hama Midi, Artkal S boncukları ya da DMC ipliği seç. Her kare, o markanın gerçekten sattığı bir renge numarasıyla birlikte eşlenir.<br>Boyutu ve renk sayısını sen belirlersin. Büyük şemalar 29 × 29 panolara bölünür.</p>
+      </div>
+      <div class="phone"><img src="../img/tr/maker.jpg" alt="Gerçek renkler, gerçek numaralar" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Kanaviçe de olur</h2>
+        <p>DMC ipliği seç, aynı fotoğraf kanaviçe şemasına dönüşsün. 11, 14, 16 ya da 18 count Aida kumaş seçtiğinde Hantam bitmiş boyutu ve her rengin kaç ilmek tuttuğunu gösterir.</p>
+      </div>
+      <div class="phone"><img src="../img/tr/stitch.jpg" alt="Kanaviçe de olur" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Ne alacağını tam olarak bilirsin</h2>
+        <p>Sembol şemasına geçip kare kare ilerle; her pano kenarında ya da her 10 ilmekte kalın çizgiler var. Her rengin kaç boncuk tuttuğunu gör ve <code>Alışveriş listesini kopyala</code> ile tek dokunuşta al.<br>Değiştirmek için bir kareye dokun ya da bir rengi tüm şemada başka bir renkle değiştir.</p>
+      </div>
+      <div class="phone"><img src="../img/tr/symbols.jpg" alt="Ne alacağını tam olarak bilirsin" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Yazdır ve başla</h2>
+        <p>Pro ile <code>Yazdırılabilir şema (PDF)</code> dışa aktar: önce renk listesi, ardından pano pano ayrılmış sembol şemaları.</p>
+      </div>
+      <div class="phone"><img src="../img/tr/pdf.jpg" alt="Yazdır ve başla" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Üç adımda şema</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Fotoğraf seç</h3><p>Evcil hayvanlar, yüzler, logolar ve karakterler olur. Konusu net fotoğraflar en iyi sonucu verir.</p></li>
+<li class="card"><span class="n">2</span><h3>Boncuk ya da iplik seç</h3><p>Markayı, boyutu ve renk sayısını belirle.</p></li>
+<li class="card"><span class="n">3</span><h3>Yapmaya başla</h3><p>Ekrandaki şemayı takip et ya da Pro ile yazdır.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Malzemeler ve boyutlar</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Ütülenebilir boncuk, 29 × 29 panolar, her boncuk yaklaşık 5 mm</dd></div><div><dt>DMC</dt><dd>11, 14, 16 ya da 18 count Aida üzerine kanaviçe ipliği</dd></div><div><dt>Ücretsiz</dt><dd>Boncukta 1 pano (29 kare), iplikte uzun kenarda 40 ilmeğe kadar</dd></div><div><dt>Pro</dt><dd>Boncukta 4 × 4 pano (116 kare), iplikte 200 ilmeğe kadar</dd></div><div><dt>Renkler</dt><dd>Şema başına 2 ile 50 arası</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal ve DMC, ilgili sahiplerinin ticari markalarıdır. Hantam'ın bunlarla bir bağlantısı yoktur. Ekrandaki renkler gerçeğinden biraz farklı görünebilir.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Ücretsiz başla. Büyük şemalar ve yazdırma için Pro.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Ücretsiz</h3>
+          <ul><li>Bir pano ya da 40 ilmeğe kadar şemalar</li><li>Tüm markalar: Perler, Hama, Artkal ve DMC</li><li>Renk başına adet, alışveriş listesi ve renk değiştirme</li><li>En fazla 3 kayıtlı şema</li><li>Küçük Hantam işaretli görsel paylaşma</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Yazdırılabilir PDF şemalar</li><li>4 × 4 pano ya da 200 ilmeğe kadar</li><li>Sınırsız kayıtlı şema</li><li>İşaretsiz görseller</li><li>Tüm piksel sanatı araçları</li></ul>
+          <p class="muted">Aylık ya da yıllık abonelik veya tek seferlik ömür boyu satın alma</p>
+        </div>
+      </div>
+      <p class="muted">Pro'yu uygulamadan bir arkadaşına hediye de edebilirsin.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Sık sorulan sorular</h2>
+      <div class="faq"><details><summary>Fotoğraflarım bir yere yükleniyor mu?</summary><p>Hayır. Fotoğraflar ve şemalar yalnızca iPhone’unda işlenir ve kaydedilir.</p></details>
+<details><summary>Renkler boncuklarımdan biraz farklı görünüyor.</summary><p>Ekran renkleri plastikten ve iplikten farklı gösterir. Listede bir renge dokunarak onu aynı markadan daha yakın bir renkle değiştirebilirsin.</p></details>
+<details><summary>Bir şema ne kadar büyük olabilir?</summary><p>Ücretsizde bir 29 × 29 pano ya da uzun kenarda 40 ilmek. Pro ile 4 × 4 panoya (116 boncuk) ya da 200 ilmeğe kadar.</p></details>
+<details><summary>Hangi fotoğraflar en iyi sonucu verir?</summary><p>Tek bir konusu ve sade bir arka planı olan fotoğraflar. Renk ne kadar azsa şema o kadar temiz olur; sonuç karışık görünüyorsa renk sayısını düşür.</p></details>
+<details><summary>Hâlâ piksel sanatı yapabilir miyim?</summary><p>Evet. Fotoğrafları pikselleştirme, 110 örneğe bakarak çizme ve kare kare animasyon hâlâ var. Tüm piksel sanatı araçları Pro'da.</p></details>
+<details><summary>Satın alımımı nasıl geri yüklerim?</summary><p>Uygulamanın ayarlarını aç ve <code>Satın Alımları Geri Yükle</code> düğmesine dokun. Pro'yu satın aldığın Apple Hesabı'nı kullan.</p></details>
+<details><summary>Aboneliği nasıl iptal ederim?</summary><p>iPhone Ayarlar › adın › Abonelikler bölümünden Hantam'ı seç. Ömür boyu erişim tek seferlik ödemedir ve yenilenmez.</p></details>
+<details><summary>Bir hatayı nasıl bildiririm ya da öneride bulunurum?</summary><p>En hızlısı uygulama ayarlarından geri bildirim göndermek. Aşağıdaki adrese e-posta da atabilir ya da Instagram'dan DM gönderebilirsin (@lee25_ios).</p></details></div>
+      <p class="contact">Sorular, hatalar ve fikirler için <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> adresine yaz.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>En sevdiğin fotoğraf,<br>boncuk boncuk</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Ücretsiz indir</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Dil"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr" aria-current="page">Türkçe</a></nav>
+    <p><a href="privacy.html">Gizlilik Politikası</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

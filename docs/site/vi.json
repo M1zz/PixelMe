@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: biến ảnh thành mẫu hạt ủi và thêu chữ thập",
+  "description": "Chọn một tấm ảnh, Hantam làm mẫu bằng những màu có bán thật của hạt Perler, Hama, Artkal và chỉ DMC, kèm số lượng cần cho từng màu.",
+  "hero": {
+    "headline": "Một tấm ảnh\nthành một mẫu",
+    "lead": "Chọn ảnh thú cưng, ảnh chân dung hay nhân vật bạn thích. Hantam biến nó thành mẫu hạt ủi hoặc thêu chữ thập, khớp với những màu bạn mua được.",
+    "cta": "Tải miễn phí",
+    "note": "Miễn phí cho mẫu cỡ một bảng. Ảnh không rời khỏi iPhone của bạn."
+  },
+  "demo": {
+    "title": "Thử với một tấm ảnh",
+    "lead": "Cùng cách ghép màu như trong ứng dụng, dùng bảng màu thật của Perler. Đổi kích thước, số màu, hoặc thử bằng ảnh của bạn.",
+    "size": "Kích thước",
+    "boards": ["1 bảng", "4 bảng (Pro)"],
+    "colors": "Tối đa {n} màu",
+    "need": "Màu bạn cần",
+    "more": "và {n} màu khác",
+    "info": "Perler · {w} × {h} · khoảng {cw} × {ch} cm · {n} hạt · {c} màu",
+    "mine": "Thử với ảnh của tôi",
+    "photo": "Ảnh gốc",
+    "alt": "Mẫu hạt làm từ ảnh",
+    "note": "Ảnh được chuyển đổi ngay trong trình duyệt này và không bao giờ được tải lên."
+  },
+  "problem": {
+    "title": "Làm mẫu thì dễ, khớp với hạt thật mới khó",
+    "text": "Pixel hóa ảnh bằng ứng dụng chỉnh ảnh thông thường sẽ ra những màu không loại hạt hay chỉ nào có. Rồi bạn phải đoán mỗi ô lấy hạt từ hũ nào và tự đếm cần mua bao nhiêu mỗi màu. Hantam chỉ chọn trong những màu có bán thật và cho biết chính xác bạn cần bao nhiêu."
+  },
+  "features": [
+    {
+      "title": "Màu thật, mã màu thật",
+      "text": "Chọn hạt Perler, Hama Midi, Artkal S hoặc chỉ DMC. Mỗi ô được gán một màu mà hãng đó thật sự bán, kèm mã màu.\nBạn tự chọn kích thước và số màu. Mẫu lớn được chia thành các bảng 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Thêu chữ thập cũng được",
+      "text": "Chọn chỉ DMC, cùng tấm ảnh sẽ thành mẫu thêu chữ thập. Chọn vải Aida 11, 14, 16 hoặc 18 count, Hantam cho thấy kích thước thành phẩm và số mũi của từng màu.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Biết ngay cần mua gì",
+      "text": "Chuyển sang mẫu ký hiệu để làm theo từng ô, có đường đậm ở mỗi mép bảng hoặc mỗi 10 mũi. Xem mỗi màu cần bao nhiêu hạt rồi chạm `Sao chép danh sách mua sắm` một lần là xong.\nChạm vào một ô để đổi, hoặc thay một màu bằng màu khác trên toàn mẫu.",
+      "shot": "symbols"
+    },
+    {
+      "title": "In ra và bắt tay làm",
+      "text": "Với Pro, xuất `Mẫu để in (PDF)`: trang đầu là danh sách màu, các trang sau là mẫu ký hiệu chia theo từng bảng.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Ba bước là có mẫu",
+    "items": [
+      {"title": "Chọn ảnh", "text": "Thú cưng, khuôn mặt, logo, nhân vật đều được. Ảnh có chủ thể rõ ràng sẽ đẹp nhất."},
+      {"title": "Chọn hạt hoặc chỉ", "text": "Chọn hãng, kích thước và số màu."},
+      {"title": "Bắt tay làm", "text": "Làm theo mẫu trên màn hình hoặc in ra với Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Chất liệu và kích thước",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Hạt ủi, bảng 29 × 29, mỗi hạt khoảng 5 mm"],
+      ["DMC", "Chỉ thêu chữ thập trên vải Aida 11, 14, 16 hoặc 18 count"],
+      ["Miễn phí", "Hạt tối đa 1 bảng (29 ô), chỉ tối đa 40 mũi ở cạnh dài"],
+      ["Pro", "Hạt tối đa 4 × 4 bảng (116 ô), chỉ tối đa 200 mũi"],
+      ["Số màu", "Từ 2 đến 50 màu mỗi mẫu"]
+    ],
+    "note": "Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với họ. Màu trên màn hình có thể hơi khác so với thực tế."
+  },
+  "pricing": {
+    "title": "Bắt đầu miễn phí, mẫu lớn và in ấn có Pro",
+    "free": {
+      "name": "Miễn phí",
+      "items": [
+        "Mẫu tối đa một bảng (thêu 40 mũi)",
+        "Mọi hãng: Perler, Hama, Artkal và DMC",
+        "Số lượng từng màu, danh sách mua sắm, đổi màu",
+        "Lưu tối đa 3 mẫu",
+        "Chia sẻ ảnh có dấu Hantam nhỏ"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Mẫu PDF để in",
+        "Tối đa 4 × 4 bảng (thêu 200 mũi)",
+        "Lưu mẫu không giới hạn",
+        "Ảnh không có dấu",
+        "Mọi công cụ pixel art"
+      ],
+      "note": "Gói tháng hoặc gói năm, hoặc mua một lần dùng trọn đời"
+    },
+    "note": "Bạn cũng có thể tặng Pro cho bạn bè ngay trong ứng dụng."
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      {"q": "Ảnh của tôi có bị tải lên đâu không?", "a": "Không. Ảnh và mẫu chỉ được xử lý và lưu trên iPhone của bạn."},
+      {"q": "Màu trên màn hình hơi khác hạt của tôi.", "a": "Màn hình hiển thị màu khác với nhựa và chỉ thật. Chạm vào một màu trong danh sách để đổi sang màu gần hơn cùng hãng."},
+      {"q": "Mẫu có thể lớn đến đâu?", "a": "Bản miễn phí là một bảng 29 × 29, thêu tối đa 40 mũi ở cạnh dài. Pro lên tới 4 × 4 bảng (116 hạt) hoặc 200 mũi."},
+      {"q": "Ảnh nào cho kết quả đẹp?", "a": "Ảnh chỉ có một chủ thể và nền đơn giản. Càng ít màu mẫu càng gọn, nên nếu trông rối, hãy giảm số màu."},
+      {"q": "Tôi vẫn vẽ pixel art được chứ?", "a": "Được. Pixel hóa ảnh, vẽ theo 110 mẫu và làm hoạt ảnh từng khung hình vẫn còn đủ. Mọi công cụ pixel art đều có trong Pro."},
+      {"q": "Làm sao khôi phục giao dịch mua?", "a": "Mở cài đặt trong ứng dụng và chạm `Khôi phục giao dịch mua`. Dùng đúng Tài khoản Apple đã mua Pro."},
+      {"q": "Làm sao hủy gói đăng ký?", "a": "Vào Cài đặt iPhone › tên của bạn › Đăng ký và chọn Hantam. Gói trọn đời chỉ trả một lần và không gia hạn."},
+      {"q": "Báo lỗi hoặc góp ý ở đâu?", "a": "Nhanh nhất là gửi phản hồi từ cài đặt trong ứng dụng. Bạn cũng có thể gửi email đến địa chỉ bên dưới hoặc nhắn Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Bức ảnh bạn yêu thích,\ntừng hạt một",
+    "cta": "Tải miễn phí"
+  },
+  "ui": {
+    "skip": "Chuyển đến nội dung",
+    "languages": "Ngôn ngữ",
+    "privacy": "Chính sách quyền riêng tư",
+    "contact": "Câu hỏi, báo lỗi và ý tưởng xin gửi về {email}."
+  }
+}

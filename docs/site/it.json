@@ -1,0 +1,168 @@
+{
+  "title": "Hantam: schemi per perline da stirare e punto croce da una foto",
+  "description": "Scegli una foto e Hantam crea uno schema con colori in vendita davvero: perline Perler, Hama, Artkal e filo DMC, con le quantità per colore.",
+  "hero": {
+    "headline": "Da una foto\nnasce uno schema",
+    "lead": "Scegli una foto del tuo animale, del tuo viso o del tuo personaggio preferito. Hantam la trasforma in uno schema per perline da stirare o punto croce, con colori che puoi davvero comprare.",
+    "cta": "Scaricala gratis",
+    "note": "Gratis per schemi di una basetta. Le foto non lasciano il tuo iPhone."
+  },
+  "demo": {
+    "title": "Prova con una foto",
+    "lead": "Lo stesso abbinamento dei colori che usa l'app, con la vera cartella colori Perler. Cambia dimensione e numero di colori, o prova con una tua foto.",
+    "size": "Dimensione",
+    "boards": [
+      "1 basetta",
+      "4 basette (Pro)"
+    ],
+    "colors": "Fino a {n} colori",
+    "need": "Colori che ti servono",
+    "more": "e altri {n} colori",
+    "info": "Perler · {w} × {h} · circa {cw} × {ch} cm · {n} perline · {c} colori",
+    "mine": "Prova con una mia foto",
+    "photo": "Foto originale",
+    "alt": "Schema di perline creato dalla foto",
+    "note": "La foto viene convertita qui, in questo browser, e non viene mai caricata."
+  },
+  "problem": {
+    "title": "Fare uno schema è facile. Abbinarlo a perline vere, molto meno",
+    "text": "Se pixeli una foto con un qualsiasi editor, ottieni colori che nessuna perlina e nessun filo hanno. Poi devi indovinare da quale barattolo prendere ogni casella e contare quante comprarne per colore. Hantam sceglie solo tra colori in vendita e ti dice esattamente quante ne servono."
+  },
+  "features": [
+    {
+      "title": "Colori veri, numeri veri",
+      "text": "Scegli perline Perler, Hama Midi o Artkal S, oppure filo DMC. Ogni casella prende un colore che il marchio vende davvero, con il suo numero.\nDimensione e numero di colori li decidi tu. Gli schemi grandi vengono divisi in basette 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Anche punto croce",
+      "text": "Scegli il filo DMC e la stessa foto diventa uno schema a punto croce. Seleziona la tela Aida da 11, 14, 16 o 18 e Hantam mostra la misura finale e quanti punti servono per ogni colore.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Sai esattamente cosa comprare",
+      "text": "Passa allo schema a simboli e segui casella per casella, con linee spesse a ogni bordo di basetta o ogni 10 punti. Vedi quante perline servono per colore e usa `Copia la lista della spesa` con un tocco.\nTocca una casella per cambiarla o sostituisci un colore con un altro ovunque.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Stampa e inizia",
+      "text": "Con Pro esporti uno `Schema da stampare (PDF)`: prima l'elenco dei colori, poi gli schemi a simboli, una basetta per pagina.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Tre passi fino allo schema",
+    "items": [
+      {
+        "title": "Scegli una foto",
+        "text": "Animali, volti, loghi, personaggi: va bene tutto. Le foto con un soggetto ben chiaro vengono meglio."
+      },
+      {
+        "title": "Scegli perline o filo",
+        "text": "Decidi marchio, dimensione e numero di colori."
+      },
+      {
+        "title": "Crea",
+        "text": "Segui lo schema sullo schermo o stampalo con Pro."
+      }
+    ]
+  },
+  "reference": {
+    "title": "Materiali e dimensioni",
+    "rows": [
+      [
+        "Perler · Hama Midi · Artkal S",
+        "Perline da stirare, basette 29 × 29, ogni perlina circa 5 mm"
+      ],
+      [
+        "DMC",
+        "Filo per punto croce su tela Aida da 11, 14, 16 o 18"
+      ],
+      [
+        "Gratis",
+        "Perline fino a 1 basetta (29 caselle), filo fino a 40 punti sul lato lungo"
+      ],
+      [
+        "Pro",
+        "Perline fino a 4 × 4 basette (116 caselle), filo fino a 200 punti"
+      ],
+      [
+        "Colori",
+        "Da 2 a 50 per schema"
+      ]
+    ],
+    "note": "Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a nessuno di loro. I colori sullo schermo possono essere leggermente diversi da quelli reali."
+  },
+  "pricing": {
+    "title": "Inizia gratis. Passa a Pro per schemi grandi e stampa.",
+    "free": {
+      "name": "Gratis",
+      "items": [
+        "Schemi fino a una basetta o 40 punti",
+        "Tutti i marchi: Perler, Hama, Artkal e DMC",
+        "Quantità per colore, lista della spesa e cambio colori",
+        "Fino a 3 schemi salvati",
+        "Immagini da condividere con un piccolo marchio Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Schemi in PDF da stampare",
+        "Fino a 4 × 4 basette o 200 punti",
+        "Schemi salvati senza limiti",
+        "Immagini senza marchio",
+        "Tutti gli strumenti di pixel art"
+      ],
+      "note": "Abbonamento mensile o annuale, oppure acquisto unico a vita"
+    },
+    "note": "Puoi anche regalare Pro a un amico direttamente dall'app."
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "items": [
+      {
+        "q": "Le mie foto vengono caricate da qualche parte?",
+        "a": "No. Foto e schemi vengono elaborati e salvati solo sul tuo iPhone."
+      },
+      {
+        "q": "I colori sono un po' diversi dalle mie perline.",
+        "a": "Lo schermo mostra i colori in modo diverso da plastica e filo. Tocca un colore nell'elenco per sostituirlo con uno più simile dello stesso marchio."
+      },
+      {
+        "q": "Quanto può essere grande uno schema?",
+        "a": "Gratis, una basetta 29 × 29 o 40 punti sul lato lungo. Con Pro, fino a 4 × 4 basette (116 perline) o 200 punti."
+      },
+      {
+        "q": "Quali foto vengono meglio?",
+        "a": "Quelle con un solo soggetto e uno sfondo semplice. Meno colori significa uno schema più pulito: se il risultato sembra confuso, riduci il numero di colori."
+      },
+      {
+        "q": "Posso ancora fare pixel art?",
+        "a": "Sì. Pixelare le foto, disegnare seguendo 110 esempi e animare fotogramma per fotogramma c'è ancora tutto. Tutti gli strumenti di pixel art sono inclusi in Pro."
+      },
+      {
+        "q": "Come ripristino l'acquisto?",
+        "a": "Apri le impostazioni dell'app e tocca `Ripristina acquisti`. Usa lo stesso Apple Account con cui hai comprato Pro."
+      },
+      {
+        "q": "Come annullo l'abbonamento?",
+        "a": "Vai in Impostazioni dell'iPhone › il tuo nome › Abbonamenti e scegli Hantam. L'accesso a vita è un pagamento unico e non si rinnova."
+      },
+      {
+        "q": "Come segnalo un problema o propongo un'idea?",
+        "a": "Il modo più rapido è inviare un feedback dalle impostazioni dell'app. Puoi anche scrivere all'indirizzo qui sotto o mandare un DM su Instagram (@lee25_ios)."
+      }
+    ]
+  },
+  "closing": {
+    "headline": "La tua foto preferita,\nuna perlina alla volta",
+    "cta": "Scaricala gratis"
+  },
+  "ui": {
+    "skip": "Vai al contenuto",
+    "languages": "Lingua",
+    "privacy": "Informativa sulla privacy",
+    "contact": "Domande, segnalazioni e idee sono benvenute a {email}."
+  }
+}

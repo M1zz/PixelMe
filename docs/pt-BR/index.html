@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Padrões de miçangas de passar e ponto cruz</title>
-<meta name="description" content="Transforme qualquer foto em um padrão de miçangas de passar ou de ponto cruz com as cores reais de Perler, Hama, Artkal e DMC.">
-<meta property="og:title" content="Hantam — Padrões de miçangas de passar e ponto cruz">
-<meta property="og:description" content="Transforme qualquer foto em um padrão de miçangas de passar ou de ponto cruz com as cores reais de Perler, Hama, Artkal e DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: padrões de miçangas de passar e ponto cruz a partir de uma foto</title>
+  <meta name="description" content="Escolha uma foto e o Hantam cria um padrão com cores que existem à venda: miçangas Perler, Hama, Artkal e linha DMC, com a quantidade de cada cor.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: padrões de miçangas de passar e ponto cruz a partir de uma foto">
+  <meta property="og:description" content="Escolha uma foto e o Hantam cria um padrão com cores que existem à venda: miçangas Perler, Hama, Artkal e linha DMC, com a quantidade de cada cor.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/pt-BR/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/pt-BR/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Início</a><a href="support.html">Suporte</a><a href="privacy.html">Privacidade</a><a href="terms.html">Termos</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR" aria-current="page">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <header class="bar">
+    <a class="brand" href="../pt-BR/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Idioma</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>De uma foto a um padrão</h1>
-    <p>Escolha a foto do seu pet, a sua ou a de um personagem favorito. O Hantam transforma em um padrão de miçangas de passar ou de ponto cruz, com cores que você pode comprar.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Baixar na App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Cores reais</h3><p>Miçangas Perler, Hama e Artkal e fios DMC. Cada quadradinho mostra um número de cor real.</p></div><div class="card"><h3>Você sabe o que comprar</h3><p>Veja quantas miçangas ou pontos cada cor exige e copie uma lista de compras.</p></div><div class="card"><h3>Placa por placa</h3><p>Padrões grandes são divididos em placas de 29 × 29, com linhas grossas nas divisas.</p></div><div class="card"><h3>Ajuste qualquer quadradinho</h3><p>Toque em um quadradinho para alterá-lo ou troque uma cor por outra em todo o padrão.</p></div><div class="card"><h3>Imprima e faça</h3><p>Com o Pro, exporte um PDF para imprimir: lista de cores e padrões com símbolos, página por página.</p></div><div class="card"><h3>Pixel art também</h3><p>Pixele fotos, desenhe por cima de 110 modelos e anime quadro a quadro.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>A versão gratuita permite padrões de até uma placa (ou 40 pontos), 3 padrões salvos e o compartilhamento de imagens com uma pequena marca. O Pro adiciona PDFs para imprimir, padrões de até 4 × 4 placas ou 200 pontos, salvamento ilimitado, imagens sem marca e todas as ferramentas de pixel art. Escolha uma assinatura mensal ou anual, ou um pagamento único vitalício.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Uma foto<br>vira um padrão</h1>
+        <p class="lead">Escolha uma foto do seu pet, do seu rosto ou do seu personagem favorito. O Hantam transforma em um padrão de miçangas de passar ou de ponto cruz, com cores que você consegue comprar.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Baixe grátis</a><a class="try" href="#try">Teste com uma foto ↓</a></div>
+        <p class="muted small">Grátis para padrões de uma placa. Suas fotos não saem do iPhone.</p>
+      </div>
+      <div class="phone"><img src="../img/pt-BR/detail.jpg" alt="Uma foto vira um padrão" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal e DMC são marcas registradas de seus respectivos proprietários. O Hantam não é afiliado a essas empresas.<br>Desenvolvedor: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Teste com uma foto</h2>
+      <p class="muted">É o mesmo jeito de escolher cores que o app usa, com a cartela real da Perler. Mude o tamanho e o número de cores, ou teste com uma foto sua.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Teste com uma foto&quot;, &quot;lead&quot;: &quot;É o mesmo jeito de escolher cores que o app usa, com a cartela real da Perler. Mude o tamanho e o número de cores, ou teste com uma foto sua.&quot;, &quot;size&quot;: &quot;Tamanho&quot;, &quot;boards&quot;: [&quot;1 placa&quot;, &quot;4 placas (Pro)&quot;], &quot;colors&quot;: &quot;Até {n} cores&quot;, &quot;need&quot;: &quot;Cores de que você precisa&quot;, &quot;more&quot;: &quot;e mais {n} cores&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · cerca de {cw} × {ch} cm · {n} miçangas · {c} cores&quot;, &quot;mine&quot;: &quot;Testar com minha foto&quot;, &quot;photo&quot;: &quot;Foto original&quot;, &quot;alt&quot;: &quot;Padrão de miçangas feito a partir da foto&quot;, &quot;note&quot;: &quot;Sua foto é convertida aqui mesmo, neste navegador, e nunca é enviada.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Fazer um padrão é fácil. Bater com miçangas de verdade, nem tanto</h2>
+      <p>Pixelize uma foto em qualquer editor e você terá cores que nenhuma miçanga ou linha tem. Aí é preciso adivinhar de qual pote vem cada quadradinho e contar quantas comprar de cada cor. O Hantam escolhe só entre cores que existem à venda e diz exatamente quantas você precisa.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Cores reais, números reais</h2>
+        <p>Escolha miçangas Perler, Hama Midi ou Artkal S, ou linha DMC. Cada quadradinho recebe uma cor que a marca vende de verdade, com o número dela.<br>Você define o tamanho e quantas cores usar. Padrões grandes são divididos em placas de 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/pt-BR/maker.jpg" alt="Cores reais, números reais" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Ponto cruz também</h2>
+        <p>Escolha linha DMC e a mesma foto vira um gráfico de ponto cruz. Selecione talagarça Aida 11, 14, 16 ou 18 e o Hantam mostra o tamanho final e quantos pontos cada cor leva.</p>
+      </div>
+      <div class="phone"><img src="../img/pt-BR/stitch.jpg" alt="Ponto cruz também" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Você sabe exatamente o que comprar</h2>
+        <p>Troque para o gráfico de símbolos e siga quadradinho por quadradinho, com linhas grossas em cada borda de placa ou a cada 10 pontos. Veja quantas miçangas cada cor leva e use <code>Copiar lista de compras</code> com um toque.<br>Toque em um quadradinho para mudar, ou troque uma cor por outra no padrão inteiro.</p>
+      </div>
+      <div class="phone"><img src="../img/pt-BR/symbols.jpg" alt="Você sabe exatamente o que comprar" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Imprima e comece</h2>
+        <p>Com o Pro, exporte um <code>Padrão para imprimir (PDF)</code>: primeiro a lista de cores, depois os gráficos de símbolos, placa por placa.</p>
+      </div>
+      <div class="phone"><img src="../img/pt-BR/pdf.jpg" alt="Imprima e comece" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Três passos até o padrão</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Escolha uma foto</h3><p>Pets, rostos, logos e personagens funcionam. Fotos com um tema bem claro ficam melhores.</p></li>
+<li class="card"><span class="n">2</span><h3>Escolha miçangas ou linha</h3><p>Defina a marca, o tamanho e quantas cores.</p></li>
+<li class="card"><span class="n">3</span><h3>Mãos à obra</h3><p>Siga o padrão na tela ou imprima com o Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Materiais e tamanhos</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Miçangas de passar, placas de 29 × 29, cada miçanga com cerca de 5 mm</dd></div><div><dt>DMC</dt><dd>Linha de ponto cruz em talagarça Aida 11, 14, 16 ou 18</dd></div><div><dt>Grátis</dt><dd>Miçangas até 1 placa (29 quadradinhos), linha até 40 pontos no lado maior</dd></div><div><dt>Pro</dt><dd>Miçangas até 4 × 4 placas (116 quadradinhos), linha até 200 pontos</dd></div><div><dt>Cores</dt><dd>De 2 a 50 por padrão</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal e DMC são marcas de seus respectivos donos. O Hantam não tem vínculo com elas. As cores na tela podem ficar um pouco diferentes das reais.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Comece grátis. Use o Pro para padrões grandes e impressão.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Grátis</h3>
+          <ul><li>Padrões de até uma placa ou 40 pontos</li><li>Todas as marcas: Perler, Hama, Artkal e DMC</li><li>Quantidade por cor, lista de compras e troca de cores</li><li>Até 3 padrões salvos</li><li>Imagens para compartilhar com uma pequena marca do Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Padrões em PDF para imprimir</li><li>Até 4 × 4 placas ou 200 pontos</li><li>Padrões salvos sem limite</li><li>Imagens sem marca</li><li>Todas as ferramentas de pixel art</li></ul>
+          <p class="muted">Assinatura mensal ou anual, ou compra única vitalícia</p>
+        </div>
+      </div>
+      <p class="muted">Você também pode dar o Pro de presente a um amigo pelo app.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq"><details><summary>Minhas fotos são enviadas para algum lugar?</summary><p>Não. Fotos e padrões são processados e salvos só no seu iPhone.</p></details>
+<details><summary>As cores parecem um pouco diferentes das minhas miçangas.</summary><p>A tela mostra as cores de um jeito diferente do plástico e da linha. Toque em uma cor da lista para trocá-la por outra mais parecida da mesma marca.</p></details>
+<details><summary>Qual o tamanho máximo de um padrão?</summary><p>No grátis, uma placa de 29 × 29 ou 40 pontos no lado maior. Com o Pro, até 4 × 4 placas (116 miçangas) ou 200 pontos.</p></details>
+<details><summary>Que fotos ficam melhores?</summary><p>As que têm um só tema e um fundo simples. Quanto menos cores, mais limpo o padrão. Se o resultado parecer bagunçado, diminua o número de cores.</p></details>
+<details><summary>Ainda dá para fazer pixel art?</summary><p>Dá. Pixelizar fotos, desenhar com 110 modelos e animar quadro a quadro continua tudo lá. Todas as ferramentas de pixel art estão no Pro.</p></details>
+<details><summary>Como restauro minha compra?</summary><p>Abra os ajustes do app e toque em <code>Restaurar Compras</code>. Use a mesma Conta Apple com que você comprou o Pro.</p></details>
+<details><summary>Como cancelo a assinatura?</summary><p>Vá em Ajustes do iPhone › seu nome › Assinaturas e escolha Hantam. O acesso vitalício é um pagamento único e nunca renova.</p></details>
+<details><summary>Como relato um erro ou sugiro uma ideia?</summary><p>O jeito mais rápido é enviar feedback pelos ajustes do app. Você também pode escrever para o e-mail abaixo ou mandar uma DM no Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Dúvidas, erros e ideias são bem-vindos em <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Sua foto favorita,<br>uma miçanga de cada vez</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Baixe grátis</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Idioma"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR" aria-current="page">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Política de Privacidade</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

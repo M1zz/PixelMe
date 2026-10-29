@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: mønstre til strykeperler og korssting fra et bilde",
+  "description": "Velg et bilde, så lager Hantam et mønster i farger som faktisk selges: Perler, Hama, Artkal og DMC-garn, med antall for hver farge.",
+  "hero": {
+    "headline": "Et bilde\nblir et mønster",
+    "lead": "Velg et bilde av kjæledyret ditt, deg selv eller yndlingsfiguren din. Hantam gjør det om til et mønster for strykeperler eller korssting, i farger du kan kjøpe.",
+    "cta": "Last ned gratis",
+    "note": "Gratis for mønstre på ett perlebrett. Bildene forlater aldri iPhonen din."
+  },
+  "demo": {
+    "title": "Prøv på et bilde",
+    "lead": "Samme fargematching som i appen, med Perlers ekte fargekart. Endre størrelse og antall farger, eller prøv med ditt eget bilde.",
+    "size": "Størrelse",
+    "boards": ["1 perlebrett", "4 perlebrett (Pro)"],
+    "colors": "Opptil {n} farger",
+    "need": "Farger du trenger",
+    "more": "og {n} farger til",
+    "info": "Perler · {w} × {h} · ca. {cw} × {ch} cm · {n} perler · {c} farger",
+    "mine": "Prøv med mitt bilde",
+    "photo": "Originalbilde",
+    "alt": "Perlemønster laget av bildet",
+    "note": "Bildet ditt gjøres om her i nettleseren og lastes aldri opp."
+  },
+  "problem": {
+    "title": "Et mønster er lett. Å treffe ekte perlefarger er vanskelig",
+    "text": "Pikselerer du et bilde i et vanlig redigeringsprogram, får du farger som ingen perle eller garn finnes i. Så må du gjette hvilken boks hver rute hører til, og telle hvor mange av hver du må kjøpe. Hantam velger bare blant farger som faktisk selges, og sier nøyaktig hvor mange du trenger."
+  },
+  "features": [
+    {
+      "title": "Ekte farger, ekte numre",
+      "text": "Velg perler fra Perler, Hama Midi eller Artkal S, eller DMC-garn. Hver rute får en farge merket faktisk selger, med fargenummer.\nDu bestemmer størrelse og antall farger. Store mønstre deles opp i perlebrett på 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Korssting også",
+      "text": "Velg DMC-garn, så blir det samme bildet et korsstingsmønster. Velg Aida-stoff med 11, 14, 16 eller 18 ruter per tomme, og Hantam viser ferdig størrelse og antall sting for hver farge.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Du vet nøyaktig hva du skal kjøpe",
+      "text": "Bytt til symbolmønsteret og følg det rute for rute, med tykke streker ved hver brettkant eller for hvert 10. sting. Se hvor mange perler hver farge trenger, og bruk `Kopier handlelisten` med ett trykk.\nTrykk på en rute for å endre den, eller bytt én farge med en annen overalt.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Skriv ut og sett i gang",
+      "text": "Med Pro eksporterer du et `Mønster til utskrift (PDF)`: først fargelisten, så symbolmønstre side for side, ett perlebrett om gangen.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Tre steg til mønsteret",
+    "items": [
+      {"title": "Velg et bilde", "text": "Kjæledyr, ansikter, logoer og figurer fungerer. Bilder med et tydelig motiv blir best."},
+      {"title": "Velg perler eller garn", "text": "Velg merke, størrelse og antall farger."},
+      {"title": "Sett i gang", "text": "Følg mønsteret på skjermen, eller skriv det ut med Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Materialer og størrelser",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Strykeperler, perlebrett på 29 × 29, hver perle ca. 5 mm"],
+      ["DMC", "Korsstingsgarn på Aida med 11, 14, 16 eller 18 ruter per tomme"],
+      ["Gratis", "Perler opptil 1 brett (29 ruter), garn opptil 40 sting på den lengste siden"],
+      ["Pro", "Perler opptil 4 × 4 brett (116 ruter), garn opptil 200 sting"],
+      ["Farger", "Fra 2 til 50 per mønster"]
+    ],
+    "note": "Perler, Hama, Artkal og DMC er varemerker for sine respektive eiere. Hantam har ingen tilknytning til dem. Farger på skjermen kan se litt annerledes ut enn i virkeligheten."
+  },
+  "pricing": {
+    "title": "Start gratis. Pro for store mønstre og utskrift.",
+    "free": {
+      "name": "Gratis",
+      "items": [
+        "Mønstre opptil ett perlebrett eller 40 sting",
+        "Alle merker: Perler, Hama, Artkal og DMC",
+        "Antall per farge, handleliste og fargebytte",
+        "Opptil 3 lagrede mønstre",
+        "Del bilder med et lite Hantam-merke"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "PDF-mønstre til utskrift",
+        "Opptil 4 × 4 perlebrett eller 200 sting",
+        "Ubegrenset antall lagrede mønstre",
+        "Bilder uten merke",
+        "Alle pikselkunstverktøy"
+      ],
+      "note": "Måneds- eller årsabonnement, eller ett kjøp for alltid"
+    },
+    "note": "Du kan også gi Pro i gave til en venn rett fra appen."
+  },
+  "faq": {
+    "title": "Spørsmål og svar",
+    "items": [
+      {"q": "Blir bildene mine lastet opp?", "a": "Nei. Bilder og mønstre behandles og lagres bare på iPhonen din."},
+      {"q": "Fargene ser litt annerledes ut enn perlene mine.", "a": "Skjermer viser farger annerledes enn plast og garn. Trykk på en farge i listen for å bytte den med en nærmere farge fra samme merke."},
+      {"q": "Hvor stort kan et mønster bli?", "a": "Gratis passer det på ett perlebrett på 29 × 29 eller 40 sting på den lengste siden. Med Pro opptil 4 × 4 brett (116 perler) eller 200 sting."},
+      {"q": "Hvilke bilder blir best?", "a": "Bilder med ett motiv og en enkel bakgrunn. Jo færre farger, jo renere mønster, så senk antall farger hvis resultatet ser urolig ut."},
+      {"q": "Kan jeg fortsatt lage pikselkunst?", "a": "Ja. Pikselering av bilder, tegning etter 110 forbilder og bilde-for-bilde-animasjon finnes fortsatt. Alle pikselkunstverktøyene er med i Pro."},
+      {"q": "Hvordan gjenoppretter jeg kjøpet?", "a": "Åpne innstillingene i appen og trykk på `Gjenopprett kjøp`. Bruk den samme Apple-kontoen som du kjøpte Pro med."},
+      {"q": "Hvordan sier jeg opp abonnementet?", "a": "Gå til Innstillinger på iPhone › navnet ditt › Abonnementer og velg Hantam. Livstidstilgang er en engangsbetaling og fornyes aldri."},
+      {"q": "Hvordan melder jeg fra om feil eller foreslår en idé?", "a": "Raskest er å sende tilbakemelding fra innstillingene i appen. Du kan også skrive til adressen nedenfor eller sende en DM på Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Yndlingsbildet ditt,\nén perle om gangen",
+    "cta": "Last ned gratis"
+  },
+  "ui": {
+    "skip": "Gå til innholdet",
+    "languages": "Språk",
+    "privacy": "Personvernerklæring",
+    "contact": "Spørsmål, feil og idéer tas imot på {email}."
+  }
+}

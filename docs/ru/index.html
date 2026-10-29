@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — схемы для термомозаики и вышивки крестом</title>
-<meta name="description" content="Превратите любое фото в схему для термомозаики или вышивки крестом в настоящих цветах Perler, Hama, Artkal и DMC.">
-<meta property="og:title" content="Hantam — схемы для термомозаики и вышивки крестом">
-<meta property="og:description" content="Превратите любое фото в схему для термомозаики или вышивки крестом в настоящих цветах Perler, Hama, Artkal и DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: схемы для термомозаики и вышивки крестом из фото</title>
+  <meta name="description" content="Выберите фото, и Hantam сделает схему в цветах, которые реально продаются: бусины Perler, Hama, Artkal и мулине DMC, с количеством каждого цвета.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: схемы для термомозаики и вышивки крестом из фото">
+  <meta property="og:description" content="Выберите фото, и Hantam сделает схему в цветах, которые реально продаются: бусины Perler, Hama, Artkal и мулине DMC, с количеством каждого цвета.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/ru/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/ru/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Главная</a><a href="support.html">Поддержка</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru" aria-current="page">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Перейти к содержимому</a>
+  <header class="bar">
+    <a class="brand" href="../ru/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Язык</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Из фото — в схему</h1>
-    <p>Выберите фото питомца, своё или любимого героя. Hantam превратит его в схему для термомозаики или вышивки крестом в цветах, которые можно купить.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Загрузить в App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Настоящие цвета</h3><p>Бусины Perler, Hama и Artkal и мулине DMC. У каждой клетки — настоящий номер цвета.</p></div><div class="card"><h3>Сколько купить — сразу видно</h3><p>Для каждого цвета посчитано число бусин или крестиков, а список покупок можно скопировать.</p></div><div class="card"><h3>Основа за основой</h3><p>Большие схемы делятся на основы 29 × 29 с жирными линиями границ.</p></div><div class="card"><h3>Поправить любую клетку</h3><p>Коснитесь клетки, чтобы изменить её, или замените один цвет другим везде.</p></div><div class="card"><h3>Распечатал — и делай</h3><p>В Pro можно экспортировать PDF для печати: список цветов и схемы со значками по страницам.</p></div><div class="card"><h3>И пиксель-арт</h3><p>Пикселизация фото, рисование по 110 образцам и покадровая анимация.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>В бесплатной версии можно делать схемы до одной основы (или 40 крестиков), хранить 3 схемы и делиться изображениями с маленьким знаком. В Pro добавляются PDF для печати, схемы до 4 × 4 основ или 200 крестиков, неограниченное хранение, изображения без знака и все инструменты пиксель-арта. Выбирайте подписку на месяц или на год либо однократную покупку навсегда.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Одно фото,<br>готовая схема</h1>
+        <p class="lead">Выберите фото питомца, своё лицо или любимого персонажа. Hantam превратит его в схему для термомозаики или вышивки крестом в цветах, которые можно купить.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Скачать бесплатно</a><a class="try" href="#try">Попробуйте на фото ↓</a></div>
+        <p class="muted small">Схемы на одно поле бесплатно. Фото не покидают ваш iPhone.</p>
+      </div>
+      <div class="phone"><img src="../img/ru/detail.jpg" alt="Одно фото, готовая схема" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal и DMC — товарные знаки их владельцев. Hantam не связан с этими компаниями.<br>Разработчик: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Попробуйте на фото</h2>
+      <p class="muted">Тот же подбор цветов, что и в приложении, по настоящей палитре Perler. Меняйте размер и число цветов или возьмите своё фото.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Попробуйте на фото&quot;, &quot;lead&quot;: &quot;Тот же подбор цветов, что и в приложении, по настоящей палитре Perler. Меняйте размер и число цветов или возьмите своё фото.&quot;, &quot;size&quot;: &quot;Размер&quot;, &quot;boards&quot;: [&quot;1 поле&quot;, &quot;4 поля (Pro)&quot;], &quot;colors&quot;: &quot;До {n} цветов&quot;, &quot;need&quot;: &quot;Нужные цвета&quot;, &quot;more&quot;: &quot;и ещё цветов: {n}&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · около {cw} × {ch} см · бусин: {n} · цветов: {c}&quot;, &quot;mine&quot;: &quot;Взять своё фото&quot;, &quot;photo&quot;: &quot;Исходное фото&quot;, &quot;alt&quot;: &quot;Схема из бусин по фотографии&quot;, &quot;note&quot;: &quot;Фото обрабатывается прямо в этом браузере и никуда не загружается.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Сделать схему легко. Подобрать настоящие бусины трудно</h2>
+      <p>Если пикселизировать фото в обычном редакторе, получатся цвета, которых нет ни у одних бусин и ни у одного мулине. Приходится угадывать, какая баночка нужна для каждой клетки, и пересчитывать, сколько чего купить. Hantam выбирает только из цветов, которые продаются, и точно говорит, сколько нужно.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Настоящие цвета и их номера</h2>
+        <p>Выберите бусины Perler, Hama Midi, Artkal S или мулине DMC. Каждая клетка получает цвет, который этот бренд действительно выпускает, с номером.<br>Размер и число цветов задаёте вы. Большие схемы делятся на поля 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/ru/maker.jpg" alt="Настоящие цвета и их номера" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>И для вышивки крестом</h2>
+        <p>Выберите мулине DMC, и то же фото станет схемой для вышивки. Укажите канву Aida 11, 14, 16 или 18, и Hantam покажет готовый размер и число крестиков каждого цвета.</p>
+      </div>
+      <div class="phone"><img src="../img/ru/stitch.jpg" alt="И для вышивки крестом" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Сразу видно, что купить</h2>
+        <p>Переключитесь на схему с символами и идите клетка за клеткой. Границы полей или каждые 10 крестиков выделены жирной линией. Сколько бусин каждого цвета, видно сразу, а <code>Скопировать список покупок</code> переносит всё одним нажатием.<br>Нажмите на клетку, чтобы её изменить, или замените один цвет другим во всей схеме.</p>
+      </div>
+      <div class="phone"><img src="../img/ru/symbols.jpg" alt="Сразу видно, что купить" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Распечатайте и начинайте</h2>
+        <p>С Pro можно сохранить <code>Схема для печати (PDF)</code>: сначала список цветов, затем схемы с символами по одному полю на страницу.</p>
+      </div>
+      <div class="phone"><img src="../img/ru/pdf.jpg" alt="Распечатайте и начинайте" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Три шага до схемы</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Выберите фото</h3><p>Питомцы, лица, логотипы, персонажи. Лучше всего получаются фото с одним чётким объектом.</p></li>
+<li class="card"><span class="n">2</span><h3>Выберите бусины или нитки</h3><p>Задайте бренд, размер и число цветов.</p></li>
+<li class="card"><span class="n">3</span><h3>Собирайте</h3><p>Работайте по схеме на экране или распечатайте её с Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Материалы и размеры</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Термомозаика, поля 29 × 29, бусина около 5 мм</dd></div><div><dt>DMC</dt><dd>Мулине для вышивки крестом, канва Aida 11, 14, 16 или 18</dd></div><div><dt>Бесплатно</dt><dd>Бусины до 1 поля (29 клеток), нитки до 40 крестиков по длинной стороне</dd></div><div><dt>Pro</dt><dd>Бусины до 4 × 4 полей (116 клеток), нитки до 200 крестиков</dd></div><div><dt>Цвета</dt><dd>От 2 до 50 в одной схеме</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal и DMC являются товарными знаками своих владельцев. Hantam с ними не связан. Цвета на экране могут немного отличаться от настоящих.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Начните бесплатно, а для больших схем и печати есть Pro</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Бесплатно</h3>
+          <ul><li>Схемы до одного поля или 40 крестиков</li><li>Все бренды: Perler, Hama, Artkal и DMC</li><li>Количество по цветам, список покупок, замена цветов</li><li>До 3 сохранённых схем</li><li>Картинки с небольшой отметкой Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Схемы для печати в PDF</li><li>До 4 × 4 полей или 200 крестиков</li><li>Сколько угодно сохранённых схем</li><li>Картинки без отметки</li><li>Все инструменты для пиксель-арта</li></ul>
+          <p class="muted">Подписка на месяц или год либо разовая покупка навсегда</p>
+        </div>
+      </div>
+      <p class="muted">Pro можно подарить другу прямо из приложения.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Вопросы и ответы</h2>
+      <div class="faq"><details><summary>Мои фото куда-то загружаются?</summary><p>Нет. Фото и схемы обрабатываются и хранятся только на вашем iPhone.</p></details>
+<details><summary>Цвета на экране немного отличаются от моих бусин.</summary><p>Экран передаёт цвета иначе, чем пластик и нитки. Нажмите на цвет в списке, чтобы заменить его более близким цветом того же бренда.</p></details>
+<details><summary>Насколько большую схему можно сделать?</summary><p>Бесплатно: одно поле 29 × 29 или 40 крестиков по длинной стороне. С Pro: до 4 × 4 полей (116 бусин) или 200 крестиков.</p></details>
+<details><summary>Какие фото получаются лучше всего?</summary><p>С одним объектом и простым фоном. Чем меньше цветов, тем чище схема, поэтому, если результат выглядит пёстро, уменьшите число цветов.</p></details>
+<details><summary>Пиксель-арт ещё остался?</summary><p>Да. Пикселизация фото, рисование по 110 образцам и покадровая анимация на месте. Все инструменты для пиксель-арта входят в Pro.</p></details>
+<details><summary>Как восстановить покупку?</summary><p>Откройте настройки в приложении и нажмите <code>Восстановить покупки</code>. Используйте тот же Apple Account, с которого покупали Pro.</p></details>
+<details><summary>Как отменить подписку?</summary><p>Настройки iPhone › ваше имя › Подписки, затем выберите Hantam. Покупка навсегда оплачивается один раз и не продлевается.</p></details>
+<details><summary>Как сообщить об ошибке или предложить идею?</summary><p>Быстрее всего через отзыв в настройках приложения. Можно также написать на почту ниже или в Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Вопросы, сообщения об ошибках и идеи присылайте на <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Любимое фото,<br>бусина за бусиной</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Скачать бесплатно</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Язык"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru" aria-current="page">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Политика конфиденциальности</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

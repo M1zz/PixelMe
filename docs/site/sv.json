@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: mönster för strykpärlor och korsstygn från ett foto",
+  "description": "Välj ett foto så gör Hantam ett mönster i färger som faktiskt säljs: Perler, Hama, Artkal och DMC-garn, med antal för varje färg.",
+  "hero": {
+    "headline": "Ett foto\nblir ett mönster",
+    "lead": "Välj ett foto på ditt husdjur, dig själv eller din favoritfigur. Hantam gör om det till ett mönster för strykpärlor eller korsstygn, i färger som du kan köpa.",
+    "cta": "Hämta gratis",
+    "note": "Gratis för mönster på en pärlplatta. Dina foton lämnar aldrig din iPhone."
+  },
+  "demo": {
+    "title": "Prova på ett foto",
+    "lead": "Samma färgmatchning som i appen, med Perlers riktiga färgkarta. Ändra storlek och antal färger, eller prova med ett eget foto.",
+    "size": "Storlek",
+    "boards": ["1 pärlplatta", "4 pärlplattor (Pro)"],
+    "colors": "Upp till {n} färger",
+    "need": "Färger du behöver",
+    "more": "och {n} färger till",
+    "info": "Perler · {w} × {h} · ca {cw} × {ch} cm · {n} pärlor · {c} färger",
+    "mine": "Prova med mitt foto",
+    "photo": "Originalfoto",
+    "alt": "Pärlmönster gjort av fotot",
+    "note": "Ditt foto görs om här i webbläsaren och laddas aldrig upp."
+  },
+  "problem": {
+    "title": "Ett mönster är lätt. Att träffa riktiga pärlfärger är svårt",
+    "text": "Pixlar du ett foto i ett vanligt redigeringsprogram blir det färger som ingen pärla eller garn finns i. Sedan får du gissa vilken burk varje ruta hör till och räkna hur många av varje du ska köpa. Hantam väljer bara bland färger som faktiskt säljs och säger exakt hur många du behöver."
+  },
+  "features": [
+    {
+      "title": "Riktiga färger, riktiga nummer",
+      "text": "Välj pärlor från Perler, Hama Midi eller Artkal S, eller DMC-garn. Varje ruta får en färg som märket faktiskt säljer, med färgnummer.\nDu bestämmer storlek och antal färger. Stora mönster delas upp i pärlplattor på 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Korsstygn också",
+      "text": "Välj DMC-garn så blir samma foto ett korsstygnsmönster. Välj Aidaväv med 11, 14, 16 eller 18 rutor per tum så visar Hantam färdig storlek och antal stygn för varje färg.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Du vet exakt vad du ska köpa",
+      "text": "Växla till symbolmönstret och följ det ruta för ruta, med tjocka linjer vid varje plattkant eller vart tionde stygn. Se hur många pärlor varje färg behöver och använd `Kopiera inköpslista` med ett tryck.\nTryck på en ruta för att ändra den, eller byt en färg mot en annan överallt.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Skriv ut och sätt igång",
+      "text": "Med Pro exporterar du ett `Mönster att skriva ut (PDF)`: först färglistan, sedan symbolmönster sida för sida, en pärlplatta i taget.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Tre steg till mönstret",
+    "items": [
+      {"title": "Välj ett foto", "text": "Husdjur, ansikten, logotyper och figurer fungerar. Foton med ett tydligt motiv blir bäst."},
+      {"title": "Välj pärlor eller garn", "text": "Bestäm märke, storlek och antal färger."},
+      {"title": "Sätt igång", "text": "Följ mönstret på skärmen eller skriv ut det med Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Material och storlekar",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Strykpärlor, pärlplattor på 29 × 29, varje pärla ca 5 mm"],
+      ["DMC", "Korsstygnsgarn på Aidaväv med 11, 14, 16 eller 18 rutor per tum"],
+      ["Gratis", "Pärlor upp till 1 platta (29 rutor), garn upp till 40 stygn på längsta sidan"],
+      ["Pro", "Pärlor upp till 4 × 4 plattor (116 rutor), garn upp till 200 stygn"],
+      ["Färger", "Från 2 till 50 per mönster"]
+    ],
+    "note": "Perler, Hama, Artkal och DMC är varumärken som tillhör respektive ägare. Hantam har ingen koppling till dem. Färger på skärmen kan se lite annorlunda ut än i verkligheten."
+  },
+  "pricing": {
+    "title": "Börja gratis. Pro för stora mönster och utskrift.",
+    "free": {
+      "name": "Gratis",
+      "items": [
+        "Mönster upp till en pärlplatta eller 40 stygn",
+        "Alla märken: Perler, Hama, Artkal och DMC",
+        "Antal per färg, inköpslista och färgbyte",
+        "Upp till 3 sparade mönster",
+        "Dela bilder med ett litet Hantam-märke"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "PDF-mönster att skriva ut",
+        "Upp till 4 × 4 pärlplattor eller 200 stygn",
+        "Obegränsat antal sparade mönster",
+        "Bilder utan märke",
+        "Alla pixelkonstverktyg"
+      ],
+      "note": "Månads- eller årsabonnemang, eller ett köp för alltid"
+    },
+    "note": "Du kan också ge bort Pro som present till en vän direkt i appen."
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "items": [
+      {"q": "Laddas mina foton upp någonstans?", "a": "Nej. Foton och mönster behandlas och sparas bara på din iPhone."},
+      {"q": "Färgerna ser lite annorlunda ut än mina pärlor.", "a": "Skärmar visar färger annorlunda än plast och garn. Tryck på en färg i listan för att byta den mot en närmare färg från samma märke."},
+      {"q": "Hur stort kan ett mönster bli?", "a": "Gratis ryms det på en pärlplatta på 29 × 29 eller 40 stygn på längsta sidan. Med Pro upp till 4 × 4 plattor (116 pärlor) eller 200 stygn."},
+      {"q": "Vilka foton blir bäst?", "a": "Foton med ett motiv och en enkel bakgrund. Ju färre färger, desto renare mönster, så sänk antalet färger om resultatet ser rörigt ut."},
+      {"q": "Kan jag fortfarande göra pixelkonst?", "a": "Ja. Pixla foton, rita efter 110 förlagor och animera bild för bild finns kvar. Alla pixelkonstverktyg ingår i Pro."},
+      {"q": "Hur återställer jag mitt köp?", "a": "Öppna inställningarna i appen och tryck på `Återställ köp`. Använd samma Apple-konto som du köpte Pro med."},
+      {"q": "Hur avslutar jag prenumerationen?", "a": "Gå till Inställningar på iPhone › ditt namn › Prenumerationer och välj Hantam. Livstidsåtkomst är en engångsbetalning och förnyas aldrig."},
+      {"q": "Hur rapporterar jag ett fel eller föreslår en idé?", "a": "Snabbast är att skicka feedback från appens inställningar. Du kan också mejla till adressen nedan eller skicka ett DM på Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Ditt favoritfoto,\nen pärla i taget",
+    "cta": "Hämta gratis"
+  },
+  "ui": {
+    "skip": "Hoppa till innehållet",
+    "languages": "Språk",
+    "privacy": "Integritetspolicy",
+    "contact": "Frågor, fel och idéer tas gärna emot på {email}."
+  }
+}

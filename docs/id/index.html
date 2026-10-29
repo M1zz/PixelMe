@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Pola manik setrika dan kristik</title>
-<meta name="description" content="Ubah foto apa pun menjadi pola manik setrika atau kristik dengan warna asli Perler, Hama, Artkal, dan DMC.">
-<meta property="og:title" content="Hantam — Pola manik setrika dan kristik">
-<meta property="og:description" content="Ubah foto apa pun menjadi pola manik setrika atau kristik dengan warna asli Perler, Hama, Artkal, dan DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: ubah foto jadi pola manik setrika dan kristik</title>
+  <meta name="description" content="Pilih foto, Hantam membuat pola dengan warna yang benar-benar dijual: manik Perler, Hama, Artkal, dan benang DMC, lengkap dengan jumlah tiap warna.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: ubah foto jadi pola manik setrika dan kristik">
+  <meta property="og:description" content="Pilih foto, Hantam membuat pola dengan warna yang benar-benar dijual: manik Perler, Hama, Artkal, dan benang DMC, lengkap dengan jumlah tiap warna.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/id/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/id/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Beranda</a><a href="support.html">Dukungan</a><a href="privacy.html">Privasi</a><a href="terms.html">Ketentuan</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id" aria-current="page">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Langsung ke konten</a>
+  <header class="bar">
+    <a class="brand" href="../id/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Bahasa</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Dari satu foto jadi pola</h1>
-    <p>Pilih foto hewan peliharaan, wajahmu, atau karakter favorit. Hantam mengubahnya jadi pola manik setrika atau kristik dengan warna yang bisa kamu beli.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Unduh di App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Warna asli</h3><p>Manik Perler, Hama, dan Artkal serta benang DMC. Tiap kotak menampilkan nomor warna asli.</p></div><div class="card"><h3>Tahu apa yang harus dibeli</h3><p>Lihat berapa manik atau tusukan yang dibutuhkan tiap warna, dan salin daftar belanja.</p></div><div class="card"><h3>Papan demi papan</h3><p>Pola besar dibagi per papan 29 × 29 dengan garis batas yang tebal.</p></div><div class="card"><h3>Perbaiki kotak mana pun</h3><p>Ketuk kotak untuk mengubahnya, atau ganti satu warna dengan warna lain di seluruh pola.</p></div><div class="card"><h3>Cetak lalu buat</h3><p>Dengan Pro, ekspor PDF untuk dicetak: daftar warna dan pola bersimbol, halaman demi halaman.</p></div><div class="card"><h3>Pixel art juga</h3><p>Ubah foto jadi pixel art, gambar mengikuti 110 contoh, dan buat animasi bingkai demi bingkai.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Versi gratis memungkinkan pola hingga satu papan (atau 40 tusukan), menyimpan 3 pola, dan membagikan gambar dengan tanda kecil. Pro menambahkan PDF untuk dicetak, pola hingga 4 × 4 papan atau 200 tusukan, penyimpanan tanpa batas, gambar tanpa tanda, dan semua alat pixel art. Pilih langganan bulanan atau tahunan, atau bayar sekali untuk akses seumur hidup.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Satu foto<br>jadi satu pola</h1>
+        <p class="lead">Pilih foto hewan peliharaan, wajahmu, atau karakter favorit. Hantam mengubahnya jadi pola manik setrika atau kristik, dengan warna yang bisa kamu beli.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Unduh gratis</a><a class="try" href="#try">Coba dengan foto ↓</a></div>
+        <p class="muted small">Gratis untuk pola seukuran satu papan. Foto tidak keluar dari iPhone-mu.</p>
+      </div>
+      <div class="phone"><img src="../img/id/detail.jpg" alt="Satu foto jadi satu pola" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing. Hantam tidak berafiliasi dengan perusahaan-perusahaan tersebut.<br>Pengembang: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Coba dengan foto</h2>
+      <p class="muted">Cara mencocokkan warnanya sama dengan di aplikasi, memakai bagan warna asli Perler. Ubah ukuran dan jumlah warna, atau coba fotomu sendiri.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Coba dengan foto&quot;, &quot;lead&quot;: &quot;Cara mencocokkan warnanya sama dengan di aplikasi, memakai bagan warna asli Perler. Ubah ukuran dan jumlah warna, atau coba fotomu sendiri.&quot;, &quot;size&quot;: &quot;Ukuran&quot;, &quot;boards&quot;: [&quot;1 papan&quot;, &quot;4 papan (Pro)&quot;], &quot;colors&quot;: &quot;Maksimal {n} warna&quot;, &quot;need&quot;: &quot;Warna yang kamu butuhkan&quot;, &quot;more&quot;: &quot;dan {n} warna lagi&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · sekitar {cw} × {ch} cm · {n} manik · {c} warna&quot;, &quot;mine&quot;: &quot;Coba fotoku&quot;, &quot;photo&quot;: &quot;Foto asli&quot;, &quot;alt&quot;: &quot;Pola manik yang dibuat dari foto&quot;, &quot;note&quot;: &quot;Fotomu diubah langsung di browser ini dan tidak pernah diunggah.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Membuat pola itu mudah. Mencocokkannya dengan manik asli yang sulit</h2>
+      <p>Kalau foto dibuat piksel di aplikasi edit biasa, hasilnya warna yang tidak dimiliki manik atau benang mana pun. Lalu kamu harus menebak tiap kotak pakai manik dari toples mana dan menghitung sendiri berapa yang harus dibeli. Hantam hanya memilih dari warna yang benar-benar dijual dan memberi tahu jumlah pastinya.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Warna asli, nomor asli</h2>
+        <p>Pilih manik Perler, Hama Midi, Artkal S, atau benang DMC. Tiap kotak mendapat warna yang benar-benar dijual merek itu, lengkap dengan nomornya.<br>Ukuran dan jumlah warna kamu tentukan sendiri. Pola besar dibagi per papan 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/id/maker.jpg" alt="Warna asli, nomor asli" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Bisa untuk kristik juga</h2>
+        <p>Pilih benang DMC dan foto yang sama jadi pola kristik. Pilih kain Aida 11, 14, 16, atau 18, lalu Hantam menunjukkan ukuran jadi dan jumlah tusukan tiap warna.</p>
+      </div>
+      <div class="phone"><img src="../img/id/stitch.jpg" alt="Bisa untuk kristik juga" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Tahu persis apa yang dibeli</h2>
+        <p>Beralih ke pola simbol untuk mengikuti kotak demi kotak, dengan garis tebal di tiap tepi papan atau setiap 10 tusukan. Lihat berapa manik tiap warna, lalu ketuk <code>Salin daftar belanja</code> sekali saja.<br>Ketuk kotak untuk mengubahnya, atau ganti satu warna dengan warna lain di seluruh pola.</p>
+      </div>
+      <div class="phone"><img src="../img/id/symbols.jpg" alt="Tahu persis apa yang dibeli" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Cetak lalu mulai</h2>
+        <p>Dengan Pro, ekspor <code>Pola untuk dicetak (PDF)</code>: halaman pertama berisi daftar warna, lalu pola simbol per papan.</p>
+      </div>
+      <div class="phone"><img src="../img/id/pdf.jpg" alt="Cetak lalu mulai" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Tiga langkah menuju pola</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Pilih foto</h3><p>Hewan peliharaan, wajah, logo, atau karakter, semuanya bisa. Foto dengan objek utama yang jelas hasilnya paling bagus.</p></li>
+<li class="card"><span class="n">2</span><h3>Pilih manik atau benang</h3><p>Tentukan merek, ukuran, dan jumlah warna.</p></li>
+<li class="card"><span class="n">3</span><h3>Mulai buat</h3><p>Ikuti pola di layar, atau cetak dengan Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Bahan dan ukuran</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Manik setrika, papan 29 × 29, tiap manik sekitar 5 mm</dd></div><div><dt>DMC</dt><dd>Benang kristik di kain Aida 11, 14, 16, atau 18</dd></div><div><dt>Gratis</dt><dd>Manik sampai 1 papan (29 kotak), benang sampai 40 tusukan di sisi terpanjang</dd></div><div><dt>Pro</dt><dd>Manik sampai 4 × 4 papan (116 kotak), benang sampai 200 tusukan</dd></div><div><dt>Warna</dt><dd>2 sampai 50 per pola</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal, dan DMC adalah merek dagang milik pemiliknya masing-masing. Hantam tidak berafiliasi dengan mereka. Warna di layar bisa sedikit berbeda dari aslinya.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Mulai gratis. Pola besar dan cetak pakai Pro.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Gratis</h3>
+          <ul><li>Pola sampai satu papan atau 40 tusukan</li><li>Semua merek: Perler, Hama, Artkal, dan DMC</li><li>Jumlah per warna, daftar belanja, dan ganti warna</li><li>Simpan sampai 3 pola</li><li>Bagikan gambar dengan tanda kecil Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Pola PDF untuk dicetak</li><li>Sampai 4 × 4 papan atau 200 tusukan</li><li>Simpan pola tanpa batas</li><li>Gambar tanpa tanda</li><li>Semua alat pixel art</li></ul>
+          <p class="muted">Langganan bulanan atau tahunan, atau sekali bayar seumur hidup</p>
+        </div>
+      </div>
+      <p class="muted">Kamu juga bisa menghadiahkan Pro ke teman langsung dari aplikasi.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Pertanyaan umum</h2>
+      <div class="faq"><details><summary>Apakah fotoku diunggah ke suatu tempat?</summary><p>Tidak. Foto dan pola diproses dan disimpan hanya di iPhone-mu.</p></details>
+<details><summary>Warnanya agak beda dengan manikku.</summary><p>Layar menampilkan warna berbeda dari plastik dan benang asli. Ketuk warna di daftar untuk menggantinya dengan warna yang lebih mirip dari merek yang sama.</p></details>
+<details><summary>Seberapa besar pola bisa dibuat?</summary><p>Versi gratis muat satu papan 29 × 29 atau 40 tusukan di sisi terpanjang. Dengan Pro sampai 4 × 4 papan (116 manik) atau 200 tusukan.</p></details>
+<details><summary>Foto seperti apa yang hasilnya bagus?</summary><p>Foto dengan satu objek dan latar sederhana. Makin sedikit warna, makin rapi polanya, jadi kalau terlihat ramai, kurangi jumlah warnanya.</p></details>
+<details><summary>Masih bisa bikin pixel art?</summary><p>Bisa. Mengubah foto jadi piksel, menggambar mengikuti 110 contoh, dan animasi per bingkai masih ada. Semua alat pixel art ada di Pro.</p></details>
+<details><summary>Bagaimana memulihkan pembelian?</summary><p>Buka pengaturan di aplikasi lalu ketuk <code>Pulihkan Pembelian</code>. Gunakan Akun Apple yang sama dengan saat membeli Pro.</p></details>
+<details><summary>Bagaimana membatalkan langganan?</summary><p>Buka Pengaturan iPhone › namamu › Langganan, lalu pilih Hantam. Akses seumur hidup dibayar sekali dan tidak diperpanjang.</p></details>
+<details><summary>Bagaimana melaporkan masalah atau memberi ide?</summary><p>Paling cepat lewat kirim masukan di pengaturan aplikasi. Kamu juga bisa mengirim email ke alamat di bawah atau DM Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Pertanyaan, laporan masalah, dan ide bisa dikirim ke <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Foto favoritmu,<br>satu manik demi satu</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Unduh gratis</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Bahasa"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id" aria-current="page">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Kebijakan Privasi</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

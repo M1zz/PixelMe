@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: fotoğraftan ütülenebilir boncuk ve kanaviçe şeması",
+  "description": "Bir fotoğraf seç, Hantam gerçekten satılan renklerle şema çıkarsın: Perler, Hama, Artkal boncukları ve DMC ipliği, her rengin adediyle birlikte.",
+  "hero": {
+    "headline": "Bir fotoğraf\nbir şemaya dönüşür",
+    "lead": "Evcil hayvanının, kendi yüzünün ya da sevdiğin karakterin fotoğrafını seç. Hantam onu satın alabileceğin renklerle ütülenebilir boncuk ya da kanaviçe şemasına çevirir.",
+    "cta": "Ücretsiz indir",
+    "note": "Tek pano boyutundaki şemalar ücretsiz. Fotoğrafların iPhone’undan çıkmaz."
+  },
+  "demo": {
+    "title": "Bir fotoğrafla dene",
+    "lead": "Uygulamadakiyle aynı renk eşleştirme, gerçek Perler renk kartıyla. Boyutu ve renk sayısını değiştir ya da kendi fotoğrafınla dene.",
+    "size": "Boyut",
+    "boards": ["1 pano", "4 pano (Pro)"],
+    "colors": "En fazla {n} renk",
+    "need": "İhtiyacın olan renkler",
+    "more": "ve {n} renk daha",
+    "info": "Perler · {w} × {h} · yaklaşık {cw} × {ch} cm · {n} boncuk · {c} renk",
+    "mine": "Kendi fotoğrafımla dene",
+    "photo": "Orijinal fotoğraf",
+    "alt": "Fotoğraftan yapılan boncuk şeması",
+    "note": "Fotoğrafın burada, bu tarayıcıda dönüştürülür ve hiçbir yere yüklenmez."
+  },
+  "problem": {
+    "title": "Şema yapmak kolay, gerçek boncuk renklerini tutturmak zor",
+    "text": "Bir fotoğrafı herhangi bir düzenleyicide pikselleştirirsen hiçbir boncukta ya da iplikte olmayan renkler çıkar. Sonra her karenin hangi kavanozdan geldiğini tahmin edip her renkten kaç tane alacağını saymak zorunda kalırsın. Hantam yalnızca gerçekten satılan renkler arasından seçer ve kaç tane gerektiğini tam olarak söyler."
+  },
+  "features": [
+    {
+      "title": "Gerçek renkler, gerçek numaralar",
+      "text": "Perler, Hama Midi, Artkal S boncukları ya da DMC ipliği seç. Her kare, o markanın gerçekten sattığı bir renge numarasıyla birlikte eşlenir.\nBoyutu ve renk sayısını sen belirlersin. Büyük şemalar 29 × 29 panolara bölünür.",
+      "shot": "maker"
+    },
+    {
+      "title": "Kanaviçe de olur",
+      "text": "DMC ipliği seç, aynı fotoğraf kanaviçe şemasına dönüşsün. 11, 14, 16 ya da 18 count Aida kumaş seçtiğinde Hantam bitmiş boyutu ve her rengin kaç ilmek tuttuğunu gösterir.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Ne alacağını tam olarak bilirsin",
+      "text": "Sembol şemasına geçip kare kare ilerle; her pano kenarında ya da her 10 ilmekte kalın çizgiler var. Her rengin kaç boncuk tuttuğunu gör ve `Alışveriş listesini kopyala` ile tek dokunuşta al.\nDeğiştirmek için bir kareye dokun ya da bir rengi tüm şemada başka bir renkle değiştir.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Yazdır ve başla",
+      "text": "Pro ile `Yazdırılabilir şema (PDF)` dışa aktar: önce renk listesi, ardından pano pano ayrılmış sembol şemaları.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Üç adımda şema",
+    "items": [
+      {"title": "Fotoğraf seç", "text": "Evcil hayvanlar, yüzler, logolar ve karakterler olur. Konusu net fotoğraflar en iyi sonucu verir."},
+      {"title": "Boncuk ya da iplik seç", "text": "Markayı, boyutu ve renk sayısını belirle."},
+      {"title": "Yapmaya başla", "text": "Ekrandaki şemayı takip et ya da Pro ile yazdır."}
+    ]
+  },
+  "reference": {
+    "title": "Malzemeler ve boyutlar",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Ütülenebilir boncuk, 29 × 29 panolar, her boncuk yaklaşık 5 mm"],
+      ["DMC", "11, 14, 16 ya da 18 count Aida üzerine kanaviçe ipliği"],
+      ["Ücretsiz", "Boncukta 1 pano (29 kare), iplikte uzun kenarda 40 ilmeğe kadar"],
+      ["Pro", "Boncukta 4 × 4 pano (116 kare), iplikte 200 ilmeğe kadar"],
+      ["Renkler", "Şema başına 2 ile 50 arası"]
+    ],
+    "note": "Perler, Hama, Artkal ve DMC, ilgili sahiplerinin ticari markalarıdır. Hantam'ın bunlarla bir bağlantısı yoktur. Ekrandaki renkler gerçeğinden biraz farklı görünebilir."
+  },
+  "pricing": {
+    "title": "Ücretsiz başla. Büyük şemalar ve yazdırma için Pro.",
+    "free": {
+      "name": "Ücretsiz",
+      "items": [
+        "Bir pano ya da 40 ilmeğe kadar şemalar",
+        "Tüm markalar: Perler, Hama, Artkal ve DMC",
+        "Renk başına adet, alışveriş listesi ve renk değiştirme",
+        "En fazla 3 kayıtlı şema",
+        "Küçük Hantam işaretli görsel paylaşma"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Yazdırılabilir PDF şemalar",
+        "4 × 4 pano ya da 200 ilmeğe kadar",
+        "Sınırsız kayıtlı şema",
+        "İşaretsiz görseller",
+        "Tüm piksel sanatı araçları"
+      ],
+      "note": "Aylık ya da yıllık abonelik veya tek seferlik ömür boyu satın alma"
+    },
+    "note": "Pro'yu uygulamadan bir arkadaşına hediye de edebilirsin."
+  },
+  "faq": {
+    "title": "Sık sorulan sorular",
+    "items": [
+      {"q": "Fotoğraflarım bir yere yükleniyor mu?", "a": "Hayır. Fotoğraflar ve şemalar yalnızca iPhone’unda işlenir ve kaydedilir."},
+      {"q": "Renkler boncuklarımdan biraz farklı görünüyor.", "a": "Ekran renkleri plastikten ve iplikten farklı gösterir. Listede bir renge dokunarak onu aynı markadan daha yakın bir renkle değiştirebilirsin."},
+      {"q": "Bir şema ne kadar büyük olabilir?", "a": "Ücretsizde bir 29 × 29 pano ya da uzun kenarda 40 ilmek. Pro ile 4 × 4 panoya (116 boncuk) ya da 200 ilmeğe kadar."},
+      {"q": "Hangi fotoğraflar en iyi sonucu verir?", "a": "Tek bir konusu ve sade bir arka planı olan fotoğraflar. Renk ne kadar azsa şema o kadar temiz olur; sonuç karışık görünüyorsa renk sayısını düşür."},
+      {"q": "Hâlâ piksel sanatı yapabilir miyim?", "a": "Evet. Fotoğrafları pikselleştirme, 110 örneğe bakarak çizme ve kare kare animasyon hâlâ var. Tüm piksel sanatı araçları Pro'da."},
+      {"q": "Satın alımımı nasıl geri yüklerim?", "a": "Uygulamanın ayarlarını aç ve `Satın Alımları Geri Yükle` düğmesine dokun. Pro'yu satın aldığın Apple Hesabı'nı kullan."},
+      {"q": "Aboneliği nasıl iptal ederim?", "a": "iPhone Ayarlar › adın › Abonelikler bölümünden Hantam'ı seç. Ömür boyu erişim tek seferlik ödemedir ve yenilenmez."},
+      {"q": "Bir hatayı nasıl bildiririm ya da öneride bulunurum?", "a": "En hızlısı uygulama ayarlarından geri bildirim göndermek. Aşağıdaki adrese e-posta da atabilir ya da Instagram'dan DM gönderebilirsin (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "En sevdiğin fotoğraf,\nboncuk boncuk",
+    "cta": "Ücretsiz indir"
+  },
+  "ui": {
+    "skip": "İçeriğe geç",
+    "languages": "Dil",
+    "privacy": "Gizlilik Politikası",
+    "contact": "Sorular, hatalar ve fikirler için {email} adresine yaz."
+  }
+}

@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="el">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Σχέδια για χάντρες σιδερώματος και σταυροβελονιά</title>
-<meta name="description" content="Μετάτρεψε οποιαδήποτε φωτογραφία σε σχέδιο για χάντρες σιδερώματος ή σταυροβελονιά με τα πραγματικά χρώματα των Perler, Hama, Artkal και DMC.">
-<meta property="og:title" content="Hantam — Σχέδια για χάντρες σιδερώματος και σταυροβελονιά">
-<meta property="og:description" content="Μετάτρεψε οποιαδήποτε φωτογραφία σε σχέδιο για χάντρες σιδερώματος ή σταυροβελονιά με τα πραγματικά χρώματα των Perler, Hama, Artkal και DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: σχέδια για χάντρες σιδερώματος και σταυροβελονιά από μια φωτογραφία</title>
+  <meta name="description" content="Διάλεξε μια φωτογραφία και το Hantam φτιάχνει σχέδιο με χρώματα που πουλιούνται: χάντρες Perler, Hama, Artkal και κλωστή DMC, με ποσότητες.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: σχέδια για χάντρες σιδερώματος και σταυροβελονιά από μια φωτογραφία">
+  <meta property="og:description" content="Διάλεξε μια φωτογραφία και το Hantam φτιάχνει σχέδιο με χρώματα που πουλιούνται: χάντρες Perler, Hama, Artkal και κλωστή DMC, με ποσότητες.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/el/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/el/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Αρχική</a><a href="support.html">Υποστήριξη</a><a href="privacy.html">Απόρρητο</a><a href="terms.html">Όροι</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el" aria-current="page">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <header class="bar">
+    <a class="brand" href="../el/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Γλώσσα</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Από μια φωτογραφία σχέδιο</h1>
-    <p>Διάλεξε μια φωτογραφία του κατοικιδίου σου, τη δική σου ή ενός αγαπημένου χαρακτήρα. Το Hantam τη μετατρέπει σε σχέδιο για χάντρες σιδερώματος ή σταυροβελονιά με χρώματα που μπορείς να αγοράσεις.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Λήψη από το App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Πραγματικά χρώματα</h3><p>Χάντρες Perler, Hama και Artkal και κλωστές DMC. Κάθε τετραγωνάκι δείχνει πραγματικό αριθμό χρώματος.</p></div><div class="card"><h3>Ξέρεις τι να αγοράσεις</h3><p>Δες πόσες χάντρες ή βελονιές χρειάζεται κάθε χρώμα και αντίγραψε μια λίστα αγορών.</p></div><div class="card"><h3>Πλακέτα προς πλακέτα</h3><p>Τα μεγάλα σχέδια χωρίζονται σε πλακέτες 29 × 29 με χοντρές γραμμές στα όρια.</p></div><div class="card"><h3>Διόρθωσε κάθε τετραγωνάκι</h3><p>Πάτα ένα τετραγωνάκι για να το αλλάξεις ή αντικατάστησε ένα χρώμα με άλλο παντού.</p></div><div class="card"><h3>Εκτύπωσε και φτιάξε</h3><p>Με το Pro εξάγεις PDF για εκτύπωση: λίστα χρωμάτων και σχέδια με σύμβολα, σελίδα προς σελίδα.</p></div><div class="card"><h3>Και pixel art</h3><p>Μετάτρεψε φωτογραφίες σε pixel art, ζωγράφισε πάνω σε 110 υποδείγματα και φτιάξε animation καρέ-καρέ.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Η δωρεάν έκδοση επιτρέπει σχέδια έως μία πλακέτα (ή 40 βελονιές), 3 αποθηκευμένα σχέδια και κοινοποίηση εικόνων με μικρό σήμα. Το Pro προσθέτει PDF για εκτύπωση, σχέδια έως 4 × 4 πλακέτες ή 200 βελονιές, απεριόριστη αποθήκευση, εικόνες χωρίς σήμα και όλα τα εργαλεία pixel art. Διάλεξε μηνιαία ή ετήσια συνδρομή ή εφάπαξ αγορά για πάντα.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Μια φωτογραφία<br>γίνεται σχέδιο</h1>
+        <p class="lead">Διάλεξε μια φωτογραφία του κατοικιδίου σου, του προσώπου σου ή του αγαπημένου σου ήρωα. Το Hantam τη μετατρέπει σε σχέδιο για χάντρες σιδερώματος ή σταυροβελονιά, με χρώματα που μπορείς να αγοράσεις.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Δωρεάν λήψη</a><a class="try" href="#try">Δοκίμασέ το σε μια φωτογραφία ↓</a></div>
+        <p class="muted small">Δωρεάν για σχέδια μίας πλάκας. Οι φωτογραφίες δεν φεύγουν από το iPhone σου.</p>
+      </div>
+      <div class="phone"><img src="../img/el/detail.jpg" alt="Μια φωτογραφία γίνεται σχέδιο" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Οι Perler, Hama, Artkal και DMC είναι εμπορικά σήματα των αντίστοιχων κατόχων τους. Το Hantam δεν συνδέεται με αυτές τις εταιρείες.<br>Προγραμματιστής: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Δοκίμασέ το σε μια φωτογραφία</h2>
+      <p class="muted">Η ίδια αντιστοίχιση χρωμάτων με την εφαρμογή, με το πραγματικό χρωματολόγιο της Perler. Άλλαξε μέγεθος και αριθμό χρωμάτων ή δοκίμασε με δική σου φωτογραφία.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Δοκίμασέ το σε μια φωτογραφία&quot;, &quot;lead&quot;: &quot;Η ίδια αντιστοίχιση χρωμάτων με την εφαρμογή, με το πραγματικό χρωματολόγιο της Perler. Άλλαξε μέγεθος και αριθμό χρωμάτων ή δοκίμασε με δική σου φωτογραφία.&quot;, &quot;size&quot;: &quot;Μέγεθος&quot;, &quot;boards&quot;: [&quot;1 πλάκα&quot;, &quot;4 πλάκες (Pro)&quot;], &quot;colors&quot;: &quot;Έως {n} χρώματα&quot;, &quot;need&quot;: &quot;Χρώματα που χρειάζεσαι&quot;, &quot;more&quot;: &quot;και άλλα {n} χρώματα&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · περίπου {cw} × {ch} εκ. · {n} χάντρες · {c} χρώματα&quot;, &quot;mine&quot;: &quot;Δοκίμασε με δική μου φωτογραφία&quot;, &quot;photo&quot;: &quot;Αρχική φωτογραφία&quot;, &quot;alt&quot;: &quot;Σχέδιο με χάντρες από τη φωτογραφία&quot;, &quot;note&quot;: &quot;Η φωτογραφία μετατρέπεται εδώ, μέσα σε αυτό το πρόγραμμα περιήγησης, και δεν ανεβαίνει πουθενά.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Το σχέδιο είναι εύκολο. Το να ταιριάξει με αληθινές χάντρες, όχι</h2>
+      <p>Αν κάνεις pixel μια φωτογραφία σε οποιοδήποτε πρόγραμμα, βγαίνουν χρώματα που δεν έχει καμία χάντρα και καμία κλωστή. Μετά πρέπει να μαντέψεις από ποιο βαζάκι είναι κάθε τετράγωνο και να μετρήσεις πόσα να αγοράσεις. Το Hantam διαλέγει μόνο από χρώματα που πουλιούνται και σου λέει ακριβώς πόσα χρειάζεσαι.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Πραγματικά χρώματα, πραγματικοί κωδικοί</h2>
+        <p>Διάλεξε χάντρες Perler, Hama Midi, Artkal S ή κλωστή DMC. Κάθε τετράγωνο παίρνει ένα χρώμα που η μάρκα πουλάει πραγματικά, μαζί με τον κωδικό του.<br>Το μέγεθος και τον αριθμό χρωμάτων τα ορίζεις εσύ. Τα μεγάλα σχέδια χωρίζονται σε πλάκες 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/el/maker.jpg" alt="Πραγματικά χρώματα, πραγματικοί κωδικοί" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Και για σταυροβελονιά</h2>
+        <p>Διάλεξε κλωστή DMC και η ίδια φωτογραφία γίνεται σχέδιο σταυροβελονιάς. Επίλεξε καμβά Aida 11, 14, 16 ή 18 και το Hantam δείχνει το τελικό μέγεθος και πόσες βελονιές θέλει κάθε χρώμα.</p>
+      </div>
+      <div class="phone"><img src="../img/el/stitch.jpg" alt="Και για σταυροβελονιά" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Ξέρεις ακριβώς τι να αγοράσεις</h2>
+        <p>Πέρνα στο σχέδιο με σύμβολα και προχώρα τετράγωνο-τετράγωνο, με χοντρές γραμμές σε κάθε άκρη πλάκας ή κάθε 10 βελονιές. Δες πόσες χάντρες θέλει κάθε χρώμα και πάτησε <code>Αντιγραφή λίστας αγορών</code> με ένα άγγιγμα.<br>Πάτησε ένα τετράγωνο για να το αλλάξεις ή αντικατάστησε ένα χρώμα με άλλο σε όλο το σχέδιο.</p>
+      </div>
+      <div class="phone"><img src="../img/el/symbols.jpg" alt="Ξέρεις ακριβώς τι να αγοράσεις" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Τύπωσέ το και ξεκίνα</h2>
+        <p>Με το Pro εξάγεις ένα <code>Σχέδιο για εκτύπωση (PDF)</code>: πρώτα η λίστα χρωμάτων, μετά τα σχέδια με σύμβολα, μία πλάκα τη φορά.</p>
+      </div>
+      <div class="phone"><img src="../img/el/pdf.jpg" alt="Τύπωσέ το και ξεκίνα" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Τρία βήματα ως το σχέδιο</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Επίλεξε φωτογραφία</h3><p>Κατοικίδια, πρόσωπα, λογότυπα, ήρωες, όλα κάνουν. Οι φωτογραφίες με ξεκάθαρο θέμα βγαίνουν καλύτερα.</p></li>
+<li class="card"><span class="n">2</span><h3>Διάλεξε χάντρες ή κλωστή</h3><p>Όρισε μάρκα, μέγεθος και αριθμό χρωμάτων.</p></li>
+<li class="card"><span class="n">3</span><h3>Φτιάξ' το</h3><p>Ακολούθησε το σχέδιο στην οθόνη ή τύπωσέ το με το Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Υλικά και μεγέθη</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Χάντρες σιδερώματος, πλάκες 29 × 29, κάθε χάντρα περίπου 5 χιλ.</dd></div><div><dt>DMC</dt><dd>Κλωστή σταυροβελονιάς σε καμβά Aida 11, 14, 16 ή 18</dd></div><div><dt>Δωρεάν</dt><dd>Χάντρες έως 1 πλάκα (29 τετράγωνα), κλωστή έως 40 βελονιές στη μεγάλη πλευρά</dd></div><div><dt>Pro</dt><dd>Χάντρες έως 4 × 4 πλάκες (116 τετράγωνα), κλωστή έως 200 βελονιές</dd></div><div><dt>Χρώματα</dt><dd>Από 2 έως 50 ανά σχέδιο</dd></div></dl>
+      </div>
+      <p class="muted">Τα Perler, Hama, Artkal και DMC είναι εμπορικά σήματα των αντίστοιχων κατόχων τους. Το Hantam δεν συνδέεται με αυτούς. Τα χρώματα στην οθόνη μπορεί να διαφέρουν λίγο από τα πραγματικά.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Ξεκίνα δωρεάν. Για μεγάλα σχέδια και εκτύπωση υπάρχει το Pro.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Δωρεάν</h3>
+          <ul><li>Σχέδια έως μία πλάκα ή 40 βελονιές</li><li>Όλες οι μάρκες: Perler, Hama, Artkal και DMC</li><li>Ποσότητες ανά χρώμα, λίστα αγορών και αλλαγή χρωμάτων</li><li>Έως 3 αποθηκευμένα σχέδια</li><li>Κοινοποίηση εικόνων με ένα μικρό σήμα Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Σχέδια PDF για εκτύπωση</li><li>Έως 4 × 4 πλάκες ή 200 βελονιές</li><li>Απεριόριστα αποθηκευμένα σχέδια</li><li>Εικόνες χωρίς σήμα</li><li>Όλα τα εργαλεία pixel art</li></ul>
+          <p class="muted">Μηνιαία ή ετήσια συνδρομή, ή εφάπαξ αγορά για πάντα</p>
+        </div>
+      </div>
+      <p class="muted">Μπορείς επίσης να κάνεις δώρο το Pro σε φίλο μέσα από την εφαρμογή.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Συχνές ερωτήσεις</h2>
+      <div class="faq"><details><summary>Ανεβαίνουν κάπου οι φωτογραφίες μου;</summary><p>Όχι. Οι φωτογραφίες και τα σχέδια επεξεργάζονται και αποθηκεύονται μόνο στο iPhone σου.</p></details>
+<details><summary>Τα χρώματα φαίνονται λίγο διαφορετικά από τις χάντρες μου.</summary><p>Η οθόνη δείχνει τα χρώματα διαφορετικά από το πλαστικό και την κλωστή. Πάτησε ένα χρώμα στη λίστα για να το αλλάξεις με κοντινότερο της ίδιας μάρκας.</p></details>
+<details><summary>Πόσο μεγάλο μπορεί να γίνει ένα σχέδιο;</summary><p>Δωρεάν χωράει σε μία πλάκα 29 × 29 ή 40 βελονιές στη μεγάλη πλευρά. Με το Pro έως 4 × 4 πλάκες (116 χάντρες) ή 200 βελονιές.</p></details>
+<details><summary>Ποιες φωτογραφίες βγαίνουν καλύτερα;</summary><p>Όσες έχουν ένα θέμα και απλό φόντο. Όσο λιγότερα χρώματα, τόσο πιο καθαρό το σχέδιο, οπότε αν φαίνεται φορτωμένο, μείωσε τον αριθμό χρωμάτων.</p></details>
+<details><summary>Μπορώ ακόμα να κάνω pixel art;</summary><p>Ναι. Pixel σε φωτογραφίες, σχέδιο με βάση 110 δείγματα και animation καρέ-καρέ υπάρχουν όλα. Όλα τα εργαλεία pixel art περιλαμβάνονται στο Pro.</p></details>
+<details><summary>Πώς επαναφέρω την αγορά μου;</summary><p>Άνοιξε τις ρυθμίσεις της εφαρμογής και πάτησε <code>Επαναφορά αγορών</code>. Χρησιμοποίησε τον ίδιο λογαριασμό Apple με τον οποίο αγόρασες το Pro.</p></details>
+<details><summary>Πώς ακυρώνω τη συνδρομή;</summary><p>Πήγαινε στις Ρυθμίσεις του iPhone › το όνομά σου › Συνδρομές και διάλεξε Hantam. Η πρόσβαση για πάντα είναι εφάπαξ πληρωμή και δεν ανανεώνεται.</p></details>
+<details><summary>Πώς αναφέρω ένα πρόβλημα ή προτείνω κάτι;</summary><p>Το πιο γρήγορο είναι να στείλεις σχόλια από τις ρυθμίσεις της εφαρμογής. Μπορείς επίσης να γράψεις στη διεύθυνση παρακάτω ή να στείλεις DM στο Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Ερωτήσεις, προβλήματα και ιδέες στο <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Η αγαπημένη σου φωτογραφία,<br>χάντρα-χάντρα</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Δωρεάν λήψη</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Γλώσσα"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el" aria-current="page">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Πολιτική απορρήτου</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

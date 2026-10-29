@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Schemi per perline da stirare e punto croce</title>
-<meta name="description" content="Trasforma qualsiasi foto in uno schema per perline da stirare o punto croce con i colori veri di Perler, Hama, Artkal e DMC.">
-<meta property="og:title" content="Hantam — Schemi per perline da stirare e punto croce">
-<meta property="og:description" content="Trasforma qualsiasi foto in uno schema per perline da stirare o punto croce con i colori veri di Perler, Hama, Artkal e DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: schemi per perline da stirare e punto croce da una foto</title>
+  <meta name="description" content="Scegli una foto e Hantam crea uno schema con colori in vendita davvero: perline Perler, Hama, Artkal e filo DMC, con le quantità per colore.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: schemi per perline da stirare e punto croce da una foto">
+  <meta property="og:description" content="Scegli una foto e Hantam crea uno schema con colori in vendita davvero: perline Perler, Hama, Artkal e filo DMC, con le quantità per colore.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/it/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/it/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Home</a><a href="support.html">Assistenza</a><a href="privacy.html">Privacy</a><a href="terms.html">Condizioni</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it" aria-current="page">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Vai al contenuto</a>
+  <header class="bar">
+    <a class="brand" href="../it/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Lingua</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Da una foto a uno schema</h1>
-    <p>Scegli la foto del tuo animale, di te o di un personaggio preferito. Hantam la trasforma in uno schema per perline da stirare o punto croce, con colori che puoi comprare.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Scarica dall’App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Colori veri</h3><p>Perline Perler, Hama e Artkal e fili DMC. Ogni casella mostra un vero numero di colore.</p></div><div class="card"><h3>Sai cosa comprare</h3><p>Vedi quante perline o punti servono per ogni colore e copia una lista della spesa.</p></div><div class="card"><h3>Base per base</h3><p>Gli schemi grandi sono divisi in basi da 29 × 29, con linee di bordo spesse.</p></div><div class="card"><h3>Correggi ogni casella</h3><p>Tocca una casella per cambiarla, oppure sostituisci un colore con un altro ovunque.</p></div><div class="card"><h3>Stampa e realizza</h3><p>Con Pro esporti un PDF da stampare: elenco dei colori e schemi con simboli, pagina per pagina.</p></div><div class="card"><h3>Anche pixel art</h3><p>Pixela le foto, ricalca 110 modelli e anima fotogramma per fotogramma.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>La versione gratuita consente schemi fino a una base (o 40 punti), 3 schemi salvati e la condivisione di immagini con un piccolo marchio. Pro aggiunge PDF da stampare, schemi fino a 4 × 4 basi o 200 punti, salvataggio illimitato, immagini senza marchio e tutti gli strumenti per il pixel art. Scegli un abbonamento mensile o annuale, oppure un acquisto unico a vita.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Da una foto<br>nasce uno schema</h1>
+        <p class="lead">Scegli una foto del tuo animale, del tuo viso o del tuo personaggio preferito. Hantam la trasforma in uno schema per perline da stirare o punto croce, con colori che puoi davvero comprare.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Scaricala gratis</a><a class="try" href="#try">Prova con una foto ↓</a></div>
+        <p class="muted small">Gratis per schemi di una basetta. Le foto non lasciano il tuo iPhone.</p>
+      </div>
+      <div class="phone"><img src="../img/it/detail.jpg" alt="Da una foto nasce uno schema" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a queste aziende.<br>Sviluppatore: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Prova con una foto</h2>
+      <p class="muted">Lo stesso abbinamento dei colori che usa l'app, con la vera cartella colori Perler. Cambia dimensione e numero di colori, o prova con una tua foto.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Prova con una foto&quot;, &quot;lead&quot;: &quot;Lo stesso abbinamento dei colori che usa l&#x27;app, con la vera cartella colori Perler. Cambia dimensione e numero di colori, o prova con una tua foto.&quot;, &quot;size&quot;: &quot;Dimensione&quot;, &quot;boards&quot;: [&quot;1 basetta&quot;, &quot;4 basette (Pro)&quot;], &quot;colors&quot;: &quot;Fino a {n} colori&quot;, &quot;need&quot;: &quot;Colori che ti servono&quot;, &quot;more&quot;: &quot;e altri {n} colori&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · circa {cw} × {ch} cm · {n} perline · {c} colori&quot;, &quot;mine&quot;: &quot;Prova con una mia foto&quot;, &quot;photo&quot;: &quot;Foto originale&quot;, &quot;alt&quot;: &quot;Schema di perline creato dalla foto&quot;, &quot;note&quot;: &quot;La foto viene convertita qui, in questo browser, e non viene mai caricata.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Fare uno schema è facile. Abbinarlo a perline vere, molto meno</h2>
+      <p>Se pixeli una foto con un qualsiasi editor, ottieni colori che nessuna perlina e nessun filo hanno. Poi devi indovinare da quale barattolo prendere ogni casella e contare quante comprarne per colore. Hantam sceglie solo tra colori in vendita e ti dice esattamente quante ne servono.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Colori veri, numeri veri</h2>
+        <p>Scegli perline Perler, Hama Midi o Artkal S, oppure filo DMC. Ogni casella prende un colore che il marchio vende davvero, con il suo numero.<br>Dimensione e numero di colori li decidi tu. Gli schemi grandi vengono divisi in basette 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/it/maker.jpg" alt="Colori veri, numeri veri" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Anche punto croce</h2>
+        <p>Scegli il filo DMC e la stessa foto diventa uno schema a punto croce. Seleziona la tela Aida da 11, 14, 16 o 18 e Hantam mostra la misura finale e quanti punti servono per ogni colore.</p>
+      </div>
+      <div class="phone"><img src="../img/it/stitch.jpg" alt="Anche punto croce" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Sai esattamente cosa comprare</h2>
+        <p>Passa allo schema a simboli e segui casella per casella, con linee spesse a ogni bordo di basetta o ogni 10 punti. Vedi quante perline servono per colore e usa <code>Copia la lista della spesa</code> con un tocco.<br>Tocca una casella per cambiarla o sostituisci un colore con un altro ovunque.</p>
+      </div>
+      <div class="phone"><img src="../img/it/symbols.jpg" alt="Sai esattamente cosa comprare" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Stampa e inizia</h2>
+        <p>Con Pro esporti uno <code>Schema da stampare (PDF)</code>: prima l'elenco dei colori, poi gli schemi a simboli, una basetta per pagina.</p>
+      </div>
+      <div class="phone"><img src="../img/it/pdf.jpg" alt="Stampa e inizia" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Tre passi fino allo schema</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Scegli una foto</h3><p>Animali, volti, loghi, personaggi: va bene tutto. Le foto con un soggetto ben chiaro vengono meglio.</p></li>
+<li class="card"><span class="n">2</span><h3>Scegli perline o filo</h3><p>Decidi marchio, dimensione e numero di colori.</p></li>
+<li class="card"><span class="n">3</span><h3>Crea</h3><p>Segui lo schema sullo schermo o stampalo con Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Materiali e dimensioni</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Perline da stirare, basette 29 × 29, ogni perlina circa 5 mm</dd></div><div><dt>DMC</dt><dd>Filo per punto croce su tela Aida da 11, 14, 16 o 18</dd></div><div><dt>Gratis</dt><dd>Perline fino a 1 basetta (29 caselle), filo fino a 40 punti sul lato lungo</dd></div><div><dt>Pro</dt><dd>Perline fino a 4 × 4 basette (116 caselle), filo fino a 200 punti</dd></div><div><dt>Colori</dt><dd>Da 2 a 50 per schema</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a nessuno di loro. I colori sullo schermo possono essere leggermente diversi da quelli reali.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Inizia gratis. Passa a Pro per schemi grandi e stampa.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Gratis</h3>
+          <ul><li>Schemi fino a una basetta o 40 punti</li><li>Tutti i marchi: Perler, Hama, Artkal e DMC</li><li>Quantità per colore, lista della spesa e cambio colori</li><li>Fino a 3 schemi salvati</li><li>Immagini da condividere con un piccolo marchio Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Schemi in PDF da stampare</li><li>Fino a 4 × 4 basette o 200 punti</li><li>Schemi salvati senza limiti</li><li>Immagini senza marchio</li><li>Tutti gli strumenti di pixel art</li></ul>
+          <p class="muted">Abbonamento mensile o annuale, oppure acquisto unico a vita</p>
+        </div>
+      </div>
+      <p class="muted">Puoi anche regalare Pro a un amico direttamente dall'app.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Domande frequenti</h2>
+      <div class="faq"><details><summary>Le mie foto vengono caricate da qualche parte?</summary><p>No. Foto e schemi vengono elaborati e salvati solo sul tuo iPhone.</p></details>
+<details><summary>I colori sono un po' diversi dalle mie perline.</summary><p>Lo schermo mostra i colori in modo diverso da plastica e filo. Tocca un colore nell'elenco per sostituirlo con uno più simile dello stesso marchio.</p></details>
+<details><summary>Quanto può essere grande uno schema?</summary><p>Gratis, una basetta 29 × 29 o 40 punti sul lato lungo. Con Pro, fino a 4 × 4 basette (116 perline) o 200 punti.</p></details>
+<details><summary>Quali foto vengono meglio?</summary><p>Quelle con un solo soggetto e uno sfondo semplice. Meno colori significa uno schema più pulito: se il risultato sembra confuso, riduci il numero di colori.</p></details>
+<details><summary>Posso ancora fare pixel art?</summary><p>Sì. Pixelare le foto, disegnare seguendo 110 esempi e animare fotogramma per fotogramma c'è ancora tutto. Tutti gli strumenti di pixel art sono inclusi in Pro.</p></details>
+<details><summary>Come ripristino l'acquisto?</summary><p>Apri le impostazioni dell'app e tocca <code>Ripristina acquisti</code>. Usa lo stesso Apple Account con cui hai comprato Pro.</p></details>
+<details><summary>Come annullo l'abbonamento?</summary><p>Vai in Impostazioni dell'iPhone › il tuo nome › Abbonamenti e scegli Hantam. L'accesso a vita è un pagamento unico e non si rinnova.</p></details>
+<details><summary>Come segnalo un problema o propongo un'idea?</summary><p>Il modo più rapido è inviare un feedback dalle impostazioni dell'app. Puoi anche scrivere all'indirizzo qui sotto o mandare un DM su Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Domande, segnalazioni e idee sono benvenute a <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>La tua foto preferita,<br>una perlina alla volta</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Scaricala gratis</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Lingua"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it" aria-current="page">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Informativa sulla privacy</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

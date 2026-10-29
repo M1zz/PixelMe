@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: wzory na koraliki do prasowania i haft krzyżykowy ze zdjęcia",
+  "description": "Wybierz zdjęcie, a Hantam zrobi z niego wzór w kolorach, które naprawdę są w sprzedaży: Perler, Hama, Artkal i mulina DMC, z liczbą każdego koloru.",
+  "hero": {
+    "headline": "Jedno zdjęcie,\ngotowy wzór",
+    "lead": "Wybierz zdjęcie swojego zwierzaka, siebie albo ulubionej postaci. Hantam zamieni je we wzór na koraliki do prasowania albo haft krzyżykowy w kolorach, które możesz kupić.",
+    "cta": "Pobierz za darmo",
+    "note": "Wzory na jedną tablicę są za darmo. Zdjęcia nie opuszczają Twojego iPhone’a."
+  },
+  "demo": {
+    "title": "Wypróbuj na zdjęciu",
+    "lead": "To samo dopasowanie kolorów co w aplikacji, na prawdziwej palecie Perler. Zmień rozmiar i liczbę kolorów albo spróbuj z własnym zdjęciem.",
+    "size": "Rozmiar",
+    "boards": ["1 tablica", "4 tablice (Pro)"],
+    "colors": "Do {n} kolorów",
+    "need": "Potrzebne kolory",
+    "more": "i jeszcze kolorów: {n}",
+    "info": "Perler · {w} × {h} · ok. {cw} × {ch} cm · koralików: {n} · kolorów: {c}",
+    "mine": "Spróbuj z moim zdjęciem",
+    "photo": "Oryginalne zdjęcie",
+    "alt": "Wzór z koralików utworzony ze zdjęcia",
+    "note": "Zdjęcie jest przetwarzane tutaj, w tej przeglądarce, i nigdzie nie jest wysyłane."
+  },
+  "problem": {
+    "title": "Wzór zrobić łatwo. Trafić w prawdziwe kolory koralików już nie",
+    "text": "Jeśli spikselujesz zdjęcie w zwykłym edytorze, wyjdą kolory, których nie ma żaden koralik ani żadna mulina. Potem zgadujesz, z którego pudełka jest każde pole, i liczysz, ile czego kupić. Hantam wybiera tylko spośród kolorów, które są w sprzedaży, i mówi dokładnie, ile potrzebujesz."
+  },
+  "features": [
+    {
+      "title": "Prawdziwe kolory, prawdziwe numery",
+      "text": "Wybierz koraliki Perler, Hama Midi, Artkal S albo mulinę DMC. Każde pole dostaje kolor, który ta marka naprawdę sprzedaje, razem z numerem.\nRozmiar i liczbę kolorów ustalasz sam. Duże wzory dzielą się na tablice 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Haft krzyżykowy też",
+      "text": "Wybierz mulinę DMC, a to samo zdjęcie stanie się wzorem do haftu krzyżykowego. Wybierz kanwę Aida 11, 14, 16 lub 18, a Hantam pokaże gotowy rozmiar i liczbę krzyżyków dla każdego koloru.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Wiesz dokładnie, co kupić",
+      "text": "Przełącz na wzór z symbolami i idź pole po polu, z grubą linią na każdej krawędzi tablicy albo co 10 krzyżyków. Zobacz, ile koralików potrzeba w każdym kolorze, i użyj `Kopiuj listę zakupów` jednym stuknięciem.\nStuknij pole, żeby je zmienić, albo zamień jeden kolor na inny w całym wzorze.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Wydrukuj i zaczynaj",
+      "text": "Z Pro wyeksportujesz `Wzór do druku (PDF)`: najpierw lista kolorów, potem wzory z symbolami, tablica po tablicy.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Trzy kroki do wzoru",
+    "items": [
+      {"title": "Wybierz zdjęcie", "text": "Zwierzaki, twarze, logo, postacie, wszystko się nada. Najlepiej wychodzą zdjęcia z wyraźnym głównym motywem."},
+      {"title": "Wybierz koraliki lub mulinę", "text": "Ustal markę, rozmiar i liczbę kolorów."},
+      {"title": "Do dzieła", "text": "Pracuj według wzoru na ekranie albo wydrukuj go z Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Materiały i rozmiary",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Koraliki do prasowania, tablice 29 × 29, koralik ok. 5 mm"],
+      ["DMC", "Mulina do haftu krzyżykowego na kanwie Aida 11, 14, 16 lub 18"],
+      ["Za darmo", "Koraliki do 1 tablicy (29 pól), mulina do 40 krzyżyków na dłuższym boku"],
+      ["Pro", "Koraliki do 4 × 4 tablic (116 pól), mulina do 200 krzyżyków"],
+      ["Kolory", "Od 2 do 50 w jednym wzorze"]
+    ],
+    "note": "Perler, Hama, Artkal i DMC są znakami towarowymi ich właścicieli. Hantam nie jest z nimi powiązany. Kolory na ekranie mogą nieco różnić się od prawdziwych."
+  },
+  "pricing": {
+    "title": "Zacznij za darmo. Duże wzory i druk w Pro.",
+    "free": {
+      "name": "Za darmo",
+      "items": [
+        "Wzory do jednej tablicy lub 40 krzyżyków",
+        "Wszystkie marki: Perler, Hama, Artkal i DMC",
+        "Liczba na kolor, lista zakupów i zamiana kolorów",
+        "Do 3 zapisanych wzorów",
+        "Udostępnianie obrazków z małym znakiem Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Wzory PDF do druku",
+        "Do 4 × 4 tablic lub 200 krzyżyków",
+        "Bez limitu zapisanych wzorów",
+        "Obrazki bez znaku",
+        "Wszystkie narzędzia do pixel artu"
+      ],
+      "note": "Subskrypcja miesięczna lub roczna albo jednorazowy zakup na zawsze"
+    },
+    "note": "Pro możesz też podarować znajomemu prosto z aplikacji."
+  },
+  "faq": {
+    "title": "Najczęstsze pytania",
+    "items": [
+      {"q": "Czy moje zdjęcia są gdzieś wysyłane?", "a": "Nie. Zdjęcia i wzory są przetwarzane i zapisywane tylko na Twoim iPhonie."},
+      {"q": "Kolory wyglądają trochę inaczej niż moje koraliki.", "a": "Ekran pokazuje kolory inaczej niż plastik i nici. Stuknij kolor na liście, aby zamienić go na bliższy odcień tej samej marki."},
+      {"q": "Jak duży może być wzór?", "a": "Za darmo mieści się na jednej tablicy 29 × 29 lub 40 krzyżykach na dłuższym boku. Z Pro do 4 × 4 tablic (116 koralików) lub 200 krzyżyków."},
+      {"q": "Jakie zdjęcia wychodzą najlepiej?", "a": "Z jednym motywem i prostym tłem. Im mniej kolorów, tym czystszy wzór, więc jeśli wynik wygląda chaotycznie, zmniejsz liczbę kolorów."},
+      {"q": "Czy nadal mogę robić pixel art?", "a": "Tak. Pikselizacja zdjęć, rysowanie według 110 wzorów i animacja klatka po klatce wciąż są w aplikacji. Wszystkie narzędzia do pixel artu są w Pro."},
+      {"q": "Jak przywrócić zakup?", "a": "Otwórz ustawienia w aplikacji i stuknij `Przywróć zakupy`. Użyj tego samego Konta Apple, na którym kupiłeś Pro."},
+      {"q": "Jak anulować subskrypcję?", "a": "Wejdź w Ustawienia iPhone’a › Twoje imię › Subskrypcje i wybierz Hantam. Dostęp na zawsze to jednorazowa płatność, która się nie odnawia."},
+      {"q": "Jak zgłosić błąd lub zaproponować pomysł?", "a": "Najszybciej wysłać opinię z ustawień aplikacji. Możesz też napisać na adres poniżej albo wysłać wiadomość na Instagramie (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Twoje ulubione zdjęcie,\nkoralik po koraliku",
+    "cta": "Pobierz za darmo"
+  },
+  "ui": {
+    "skip": "Przejdź do treści",
+    "languages": "Język",
+    "privacy": "Polityka prywatności",
+    "contact": "Pytania, błędy i pomysły wysyłaj na {email}."
+  }
+}

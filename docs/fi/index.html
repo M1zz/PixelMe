@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="fi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Silitettävien helmien ja ristipistotyön kuviot</title>
-<meta name="description" content="Muuta mikä tahansa kuva silitettävien helmien tai ristipistotyön kuvioksi Perlerin, Haman, Artkalin ja DMC:n oikeilla väreillä.">
-<meta property="og:title" content="Hantam — Silitettävien helmien ja ristipistotyön kuviot">
-<meta property="og:description" content="Muuta mikä tahansa kuva silitettävien helmien tai ristipistotyön kuvioksi Perlerin, Haman, Artkalin ja DMC:n oikeilla väreillä.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: silitettävien helmien ja ristipistotyön kuviot valokuvasta</title>
+  <meta name="description" content="Valitse kuva, niin Hantam tekee kuvion oikeasti myytävillä väreillä: Perler-, Hama- ja Artkal-helmet sekä DMC-lanka, määrineen.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: silitettävien helmien ja ristipistotyön kuviot valokuvasta">
+  <meta property="og:description" content="Valitse kuva, niin Hantam tekee kuvion oikeasti myytävillä väreillä: Perler-, Hama- ja Artkal-helmet sekä DMC-lanka, määrineen.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/fi/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/fi/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Etusivu</a><a href="support.html">Tuki</a><a href="privacy.html">Tietosuoja</a><a href="terms.html">Ehdot</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi" aria-current="page">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Siirry sisältöön</a>
+  <header class="bar">
+    <a class="brand" href="../fi/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Kieli</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Kuvasta kuvio</h1>
-    <p>Valitse kuva lemmikistäsi, itsestäsi tai lempihahmostasi. Hantam tekee siitä silitettävien helmien tai ristipistotyön kuvion väreillä, jotka voit ostaa.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Lataa App Storesta</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Oikeat värit</h3><p>Perlerin, Haman ja Artkalin helmet sekä DMC-langat. Jokaisessa ruudussa on oikea värinumero.</p></div><div class="card"><h3>Tiedät, mitä ostaa</h3><p>Näet, montako helmeä tai pistoa kukin väri vaatii, ja voit kopioida ostoslistan.</p></div><div class="card"><h3>Alusta alustalta</h3><p>Suuret kuviot jaetaan 29 × 29 -alustoihin, joiden rajat on merkitty paksuilla viivoilla.</p></div><div class="card"><h3>Korjaa mikä tahansa ruutu</h3><p>Napauta ruutua muuttaaksesi sen tai korvaa yksi väri toisella kaikkialla.</p></div><div class="card"><h3>Tulosta ja tee</h3><p>Pro-versiolla viet tulostettavan PDF:n: värilista ja symbolikuviot sivu sivulta.</p></div><div class="card"><h3>Myös pikselitaidetta</h3><p>Muuta kuvia pikselitaiteeksi, piirrä 110 mallin mukaan ja animoi kuva kuvalta.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Ilmaisversiolla voit tehdä kuvioita yhteen alustaan (tai 40 pistoon) asti, tallentaa 3 kuviota ja jakaa kuvia pienellä merkillä. Pro lisää tulostettavat PDF:t, kuviot aina 4 × 4 alustaan tai 200 pistoon asti, rajattoman tallennuksen, kuvat ilman merkkiä ja kaikki pikselitaiteen työkalut. Valitse kuukausi- tai vuositilaus tai kertamaksu, jolla saat käyttöoikeuden ikuisesti.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Yhdestä kuvasta<br>syntyy kuvio</h1>
+        <p class="lead">Valitse kuva lemmikistäsi, itsestäsi tai lempihahmostasi. Hantam tekee siitä kuvion silitettäville helmille tai ristipistoille väreillä, joita voit ostaa.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Lataa ilmaiseksi</a><a class="try" href="#try">Kokeile kuvalla ↓</a></div>
+        <p class="muted small">Yhden alustan kuviot ovat ilmaisia. Kuvat eivät lähde iPhonestasi.</p>
+      </div>
+      <div class="phone"><img src="../img/fi/detail.jpg" alt="Yhdestä kuvasta syntyy kuvio" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yhteydessä näihin yrityksiin.<br>Kehittäjä: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Kokeile kuvalla</h2>
+      <p class="muted">Sama värien sovitus kuin sovelluksessa, Perlerin oikealla värikartalla. Vaihda kokoa ja värien määrää tai kokeile omalla kuvallasi.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Kokeile kuvalla&quot;, &quot;lead&quot;: &quot;Sama värien sovitus kuin sovelluksessa, Perlerin oikealla värikartalla. Vaihda kokoa ja värien määrää tai kokeile omalla kuvallasi.&quot;, &quot;size&quot;: &quot;Koko&quot;, &quot;boards&quot;: [&quot;1 alusta&quot;, &quot;4 alustaa (Pro)&quot;], &quot;colors&quot;: &quot;Enintään {n} väriä&quot;, &quot;need&quot;: &quot;Tarvitsemasi värit&quot;, &quot;more&quot;: &quot;ja {n} muuta väriä&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · noin {cw} × {ch} cm · {n} helmeä · {c} väriä&quot;, &quot;mine&quot;: &quot;Kokeile omalla kuvalla&quot;, &quot;photo&quot;: &quot;Alkuperäinen kuva&quot;, &quot;alt&quot;: &quot;Kuvasta tehty helmikuvio&quot;, &quot;note&quot;: &quot;Kuva muunnetaan tässä selaimessa eikä sitä ladata minnekään.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Kuvion tekeminen on helppoa. Oikeiden helmivärien löytäminen ei</h2>
+      <p>Jos pikselöit kuvan millä tahansa kuvankäsittelyohjelmalla, tulee värejä, joita ei ole yhdessäkään helmessä tai langassa. Sitten pitää arvata, mistä purkista kukin ruutu tulee, ja laskea, montako mitäkin ostaa. Hantam valitsee vain myynnissä olevista väreistä ja kertoo tarkalleen, montako tarvitset.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Oikeat värit, oikeat numerot</h2>
+        <p>Valitse Perler-, Hama Midi- tai Artkal S -helmet tai DMC-lanka. Jokainen ruutu saa värin, jota merkki oikeasti myy, numeroineen.<br>Koon ja värien määrän päätät itse. Isot kuviot jaetaan 29 × 29 -alustoihin.</p>
+      </div>
+      <div class="phone"><img src="../img/fi/maker.jpg" alt="Oikeat värit, oikeat numerot" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Myös ristipistot</h2>
+        <p>Valitse DMC-lanka, niin samasta kuvasta tulee ristipistokuvio. Valitse Aida-kangas 11, 14, 16 tai 18, niin Hantam näyttää valmiin koon ja pistojen määrän väreittäin.</p>
+      </div>
+      <div class="phone"><img src="../img/fi/stitch.jpg" alt="Myös ristipistot" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Tiedät tarkalleen, mitä ostaa</h2>
+        <p>Vaihda symbolikuvioon ja etene ruutu kerrallaan. Jokaisen alustan reuna tai joka 10. pisto on merkitty paksulla viivalla. Näet, montako helmeä kukin väri vaatii, ja <code>Kopioi ostoslista</code> hoituu yhdellä napautuksella.<br>Napauta ruutua muuttaaksesi sitä tai vaihda yksi väri toiseen koko kuviossa.</p>
+      </div>
+      <div class="phone"><img src="../img/fi/symbols.jpg" alt="Tiedät tarkalleen, mitä ostaa" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Tulosta ja aloita</h2>
+        <p>Prolla viet ulos <code>Tulostettava kuvio (PDF)</code>: ensin värilista, sitten symbolikuviot alusta kerrallaan.</p>
+      </div>
+      <div class="phone"><img src="../img/fi/pdf.jpg" alt="Tulosta ja aloita" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Kuvioon kolmessa vaiheessa</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Valitse kuva</h3><p>Lemmikit, kasvot, logot ja hahmot käyvät. Selkeän pääkohteen kuvat onnistuvat parhaiten.</p></li>
+<li class="card"><span class="n">2</span><h3>Valitse helmet tai lanka</h3><p>Päätä merkki, koko ja värien määrä.</p></li>
+<li class="card"><span class="n">3</span><h3>Tee se</h3><p>Seuraa kuviota näytöltä tai tulosta se Prolla.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Materiaalit ja koot</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Silitettävät helmet, 29 × 29 -alustat, helmi noin 5 mm</dd></div><div><dt>DMC</dt><dd>Ristipistolanka Aida-kankaalle 11, 14, 16 tai 18</dd></div><div><dt>Ilmainen</dt><dd>Helmet 1 alustaan asti (29 ruutua), lanka 40 pistoon asti pidemmällä sivulla</dd></div><div><dt>Pro</dt><dd>Helmet 4 × 4 alustaan asti (116 ruutua), lanka 200 pistoon asti</dd></div><div><dt>Värit</dt><dd>2–50 yhdessä kuviossa</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei liity niihin. Näytön värit voivat erota hieman todellisista.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Aloita ilmaiseksi. Isot kuviot ja tulostus Prolla.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Ilmainen</h3>
+          <ul><li>Kuviot yhteen alustaan tai 40 pistoon asti</li><li>Kaikki merkit: Perler, Hama, Artkal ja DMC</li><li>Määrät väreittäin, ostoslista ja värien vaihto</li><li>Enintään 3 tallennettua kuviota</li><li>Kuvien jakaminen pienellä Hantam-merkillä</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Tulostettavat PDF-kuviot</li><li>Enintään 4 × 4 alustaa tai 200 pistoa</li><li>Rajattomasti tallennettuja kuvioita</li><li>Kuvat ilman merkkiä</li><li>Kaikki pikselitaidetyökalut</li></ul>
+          <p class="muted">Kuukausi- tai vuositilaus tai kertaostos loppuiäksi</p>
+        </div>
+      </div>
+      <p class="muted">Voit myös antaa Pron lahjaksi ystävälle suoraan sovelluksesta.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Usein kysyttyä</h2>
+      <div class="faq"><details><summary>Ladataanko kuvani jonnekin?</summary><p>Ei. Kuvat ja kuviot käsitellään ja tallennetaan vain iPhonellesi.</p></details>
+<details><summary>Värit näyttävät vähän erilaisilta kuin helmeni.</summary><p>Näyttö näyttää värit eri tavalla kuin muovi ja lanka. Napauta väriä listassa ja vaihda se saman merkin lähempään sävyyn.</p></details>
+<details><summary>Kuinka iso kuvio voi olla?</summary><p>Ilmaisena yksi 29 × 29 -alusta tai 40 pistoa pidemmällä sivulla. Prolla enintään 4 × 4 alustaa (116 helmeä) tai 200 pistoa.</p></details>
+<details><summary>Millaiset kuvat onnistuvat parhaiten?</summary><p>Kuvat, joissa on yksi kohde ja yksinkertainen tausta. Mitä vähemmän värejä, sitä siistimpi kuvio, joten jos tulos näyttää levottomalta, vähennä värejä.</p></details>
+<details><summary>Voinko yhä tehdä pikselitaidetta?</summary><p>Voit. Kuvien pikselöinti, piirtäminen 110 mallin mukaan ja animointi ruutu ruudulta ovat yhä mukana. Kaikki pikselitaidetyökalut kuuluvat Prohon.</p></details>
+<details><summary>Miten palautan ostokseni?</summary><p>Avaa sovelluksen asetukset ja napauta <code>Palauta ostokset</code>. Käytä samaa Apple-tiliä, jolla ostit Pron.</p></details>
+<details><summary>Miten peruutan tilauksen?</summary><p>Avaa iPhonen Asetukset › oma nimesi › Tilaukset ja valitse Hantam. Elinikäinen käyttö on kertamaksu eikä uusiudu.</p></details>
+<details><summary>Miten ilmoitan virheestä tai ehdotan ideaa?</summary><p>Nopeinta on lähettää palautetta sovelluksen asetuksista. Voit myös kirjoittaa alla olevaan osoitteeseen tai lähettää viestin Instagramissa (@lee25_ios).</p></details></div>
+      <p class="contact">Kysymykset, virheilmoitukset ja ideat osoitteeseen <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Lempikuvasi<br>helmi kerrallaan</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Lataa ilmaiseksi</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Kieli"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi" aria-current="page">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Tietosuojakäytäntö</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

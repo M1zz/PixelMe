@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: mønstre til strygeperler og korssting ud fra et foto",
+  "description": "Vælg et foto, så laver Hantam et mønster i farver, der faktisk findes i handlen: Perler, Hama, Artkal og DMC-garn, med antal for hver farve.",
+  "hero": {
+    "headline": "Et foto\nbliver til et mønster",
+    "lead": "Vælg et foto af dit kæledyr, dig selv eller din yndlingsfigur. Hantam laver det om til et mønster til strygeperler eller korssting i farver, du kan købe.",
+    "cta": "Hent gratis",
+    "note": "Gratis til mønstre på én perleplade. Dine fotos forlader aldrig din iPhone."
+  },
+  "demo": {
+    "title": "Prøv det på et foto",
+    "lead": "Det er den samme farvematchning som i appen, med Perlers rigtige farvekort. Skift størrelse og antal farver, eller prøv med dit eget foto.",
+    "size": "Størrelse",
+    "boards": ["1 perleplade", "4 perleplader (Pro)"],
+    "colors": "Op til {n} farver",
+    "need": "Farver, du skal bruge",
+    "more": "og {n} farver mere",
+    "info": "Perler · {w} × {h} · ca. {cw} × {ch} cm · {n} perler · {c} farver",
+    "mine": "Prøv med mit foto",
+    "photo": "Originalt foto",
+    "alt": "Perlemønster lavet ud fra fotoet",
+    "note": "Dit foto bliver omdannet her i browseren og bliver aldrig uploadet."
+  },
+  "problem": {
+    "title": "Et mønster er let. At ramme rigtige perlefarver er svært",
+    "text": "Pixelerer du et foto i et almindeligt redigeringsprogram, får du farver, som ingen perle eller garn findes i. Så skal du gætte, hvilken bøtte hvert felt hører til, og tælle, hvor mange af hver du skal købe. Hantam vælger kun mellem farver, der faktisk sælges, og fortæller præcis, hvor mange du skal bruge."
+  },
+  "features": [
+    {
+      "title": "Rigtige farver, rigtige numre",
+      "text": "Vælg perler fra Perler, Hama Midi eller Artkal S, eller DMC-garn. Hvert felt får en farve, mærket rent faktisk sælger, med farvenummer.\nDu bestemmer størrelse og antal farver. Store mønstre deles op i perleplader på 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Også korssting",
+      "text": "Vælg DMC-garn, så bliver det samme foto til et korsstingsmønster. Vælg Aida-stof med 11, 14, 16 eller 18 tråde, og Hantam viser den færdige størrelse og antal sting for hver farve.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Du ved præcis, hvad du skal købe",
+      "text": "Skift til symbolmønsteret og følg det felt for felt, med tykke streger ved hver pladekant eller for hvert 10. sting. Se, hvor mange perler hver farve kræver, og brug `Kopiér indkøbsliste` med ét tryk.\nTryk på et felt for at ændre det, eller skift én farve ud med en anden overalt.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Print og gå i gang",
+      "text": "Med Pro eksporterer du et `Mønster til print (PDF)`: først farvelisten, derefter symbolmønstre side for side, én perleplade ad gangen.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Tre trin til dit mønster",
+    "items": [
+      {"title": "Vælg et foto", "text": "Kæledyr, ansigter, logoer og figurer virker alle. Fotos med et tydeligt motiv bliver bedst."},
+      {"title": "Vælg perler eller garn", "text": "Vælg mærke, størrelse og antal farver."},
+      {"title": "Gå i gang", "text": "Følg mønsteret på skærmen, eller print det med Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Materialer og størrelser",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Strygeperler, perleplader på 29 × 29, hver perle ca. 5 mm"],
+      ["DMC", "Korsstingsgarn på Aida med 11, 14, 16 eller 18 tråde"],
+      ["Gratis", "Perler op til 1 plade (29 felter), garn op til 40 sting på den længste side"],
+      ["Pro", "Perler op til 4 × 4 plader (116 felter), garn op til 200 sting"],
+      ["Farver", "Fra 2 til 50 pr. mønster"]
+    ],
+    "note": "Perler, Hama, Artkal og DMC er varemærker tilhørende deres respektive ejere. Hantam har ingen tilknytning til dem. Farver på skærmen kan se lidt anderledes ud end i virkeligheden."
+  },
+  "pricing": {
+    "title": "Start gratis. Pro til store mønstre og print.",
+    "free": {
+      "name": "Gratis",
+      "items": [
+        "Mønstre op til én perleplade eller 40 sting",
+        "Alle mærker: Perler, Hama, Artkal og DMC",
+        "Antal pr. farve, indkøbsliste og farveskift",
+        "Op til 3 gemte mønstre",
+        "Del billeder med et lille Hantam-mærke"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "PDF-mønstre til print",
+        "Op til 4 × 4 perleplader eller 200 sting",
+        "Ubegrænset antal gemte mønstre",
+        "Billeder uden mærke",
+        "Alle pixel art-værktøjer"
+      ],
+      "note": "Måneds- eller årsabonnement, eller ét køb for altid"
+    },
+    "note": "Du kan også give Pro i gave til en ven direkte fra appen."
+  },
+  "faq": {
+    "title": "Spørgsmål og svar",
+    "items": [
+      {"q": "Bliver mine fotos uploadet?", "a": "Nej. Fotos og mønstre behandles og gemmes kun på din iPhone."},
+      {"q": "Farverne ser lidt anderledes ud end mine perler.", "a": "Skærme viser farver anderledes end plastik og garn. Tryk på en farve i listen for at skifte den ud med en tættere farve fra samme mærke."},
+      {"q": "Hvor stort kan et mønster blive?", "a": "Gratis fylder det én perleplade på 29 × 29 eller 40 sting på den længste side. Med Pro op til 4 × 4 plader (116 perler) eller 200 sting."},
+      {"q": "Hvilke fotos bliver bedst?", "a": "Fotos med ét motiv og en enkel baggrund. Jo færre farver, jo renere mønster, så sænk antallet af farver, hvis resultatet ser uroligt ud."},
+      {"q": "Kan jeg stadig lave pixel art?", "a": "Ja. Pixelering af fotos, tegning efter 110 forlæg og billede-for-billede-animation er der stadig. Alle pixel art-værktøjer er med i Pro."},
+      {"q": "Hvordan gendanner jeg mit køb?", "a": "Åbn indstillinger i appen og tryk på `Gendan køb`. Brug den samme Apple-konto, som du købte Pro med."},
+      {"q": "Hvordan opsiger jeg abonnementet?", "a": "Gå til Indstillinger på iPhone › dit navn › Abonnementer, og vælg Hantam. Livstidsadgang er en engangsbetaling og fornyes aldrig."},
+      {"q": "Hvordan melder jeg en fejl eller foreslår en idé?", "a": "Det hurtigste er at sende feedback fra appens indstillinger. Du kan også skrive til adressen nedenfor eller sende en DM på Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Dit yndlingsfoto,\nén perle ad gangen",
+    "cta": "Hent gratis"
+  },
+  "ui": {
+    "skip": "Gå til indhold",
+    "languages": "Sprog",
+    "privacy": "Privatlivspolitik",
+    "contact": "Spørgsmål, fejl og idéer er velkomne på {email}."
+  }
+}

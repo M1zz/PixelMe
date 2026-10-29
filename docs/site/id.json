@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: ubah foto jadi pola manik setrika dan kristik",
+  "description": "Pilih foto, Hantam membuat pola dengan warna yang benar-benar dijual: manik Perler, Hama, Artkal, dan benang DMC, lengkap dengan jumlah tiap warna.",
+  "hero": {
+    "headline": "Satu foto\njadi satu pola",
+    "lead": "Pilih foto hewan peliharaan, wajahmu, atau karakter favorit. Hantam mengubahnya jadi pola manik setrika atau kristik, dengan warna yang bisa kamu beli.",
+    "cta": "Unduh gratis",
+    "note": "Gratis untuk pola seukuran satu papan. Foto tidak keluar dari iPhone-mu."
+  },
+  "demo": {
+    "title": "Coba dengan foto",
+    "lead": "Cara mencocokkan warnanya sama dengan di aplikasi, memakai bagan warna asli Perler. Ubah ukuran dan jumlah warna, atau coba fotomu sendiri.",
+    "size": "Ukuran",
+    "boards": ["1 papan", "4 papan (Pro)"],
+    "colors": "Maksimal {n} warna",
+    "need": "Warna yang kamu butuhkan",
+    "more": "dan {n} warna lagi",
+    "info": "Perler · {w} × {h} · sekitar {cw} × {ch} cm · {n} manik · {c} warna",
+    "mine": "Coba fotoku",
+    "photo": "Foto asli",
+    "alt": "Pola manik yang dibuat dari foto",
+    "note": "Fotomu diubah langsung di browser ini dan tidak pernah diunggah."
+  },
+  "problem": {
+    "title": "Membuat pola itu mudah. Mencocokkannya dengan manik asli yang sulit",
+    "text": "Kalau foto dibuat piksel di aplikasi edit biasa, hasilnya warna yang tidak dimiliki manik atau benang mana pun. Lalu kamu harus menebak tiap kotak pakai manik dari toples mana dan menghitung sendiri berapa yang harus dibeli. Hantam hanya memilih dari warna yang benar-benar dijual dan memberi tahu jumlah pastinya."
+  },
+  "features": [
+    {
+      "title": "Warna asli, nomor asli",
+      "text": "Pilih manik Perler, Hama Midi, Artkal S, atau benang DMC. Tiap kotak mendapat warna yang benar-benar dijual merek itu, lengkap dengan nomornya.\nUkuran dan jumlah warna kamu tentukan sendiri. Pola besar dibagi per papan 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Bisa untuk kristik juga",
+      "text": "Pilih benang DMC dan foto yang sama jadi pola kristik. Pilih kain Aida 11, 14, 16, atau 18, lalu Hantam menunjukkan ukuran jadi dan jumlah tusukan tiap warna.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Tahu persis apa yang dibeli",
+      "text": "Beralih ke pola simbol untuk mengikuti kotak demi kotak, dengan garis tebal di tiap tepi papan atau setiap 10 tusukan. Lihat berapa manik tiap warna, lalu ketuk `Salin daftar belanja` sekali saja.\nKetuk kotak untuk mengubahnya, atau ganti satu warna dengan warna lain di seluruh pola.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Cetak lalu mulai",
+      "text": "Dengan Pro, ekspor `Pola untuk dicetak (PDF)`: halaman pertama berisi daftar warna, lalu pola simbol per papan.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Tiga langkah menuju pola",
+    "items": [
+      {"title": "Pilih foto", "text": "Hewan peliharaan, wajah, logo, atau karakter, semuanya bisa. Foto dengan objek utama yang jelas hasilnya paling bagus."},
+      {"title": "Pilih manik atau benang", "text": "Tentukan merek, ukuran, dan jumlah warna."},
+      {"title": "Mulai buat", "text": "Ikuti pola di layar, atau cetak dengan Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Bahan dan ukuran",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Manik setrika, papan 29 × 29, tiap manik sekitar 5 mm"],
+      ["DMC", "Benang kristik di kain Aida 11, 14, 16, atau 18"],
+      ["Gratis", "Manik sampai 1 papan (29 kotak), benang sampai 40 tusukan di sisi terpanjang"],
+      ["Pro", "Manik sampai 4 × 4 papan (116 kotak), benang sampai 200 tusukan"],
+      ["Warna", "2 sampai 50 per pola"]
+    ],
+    "note": "Perler, Hama, Artkal, dan DMC adalah merek dagang milik pemiliknya masing-masing. Hantam tidak berafiliasi dengan mereka. Warna di layar bisa sedikit berbeda dari aslinya."
+  },
+  "pricing": {
+    "title": "Mulai gratis. Pola besar dan cetak pakai Pro.",
+    "free": {
+      "name": "Gratis",
+      "items": [
+        "Pola sampai satu papan atau 40 tusukan",
+        "Semua merek: Perler, Hama, Artkal, dan DMC",
+        "Jumlah per warna, daftar belanja, dan ganti warna",
+        "Simpan sampai 3 pola",
+        "Bagikan gambar dengan tanda kecil Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Pola PDF untuk dicetak",
+        "Sampai 4 × 4 papan atau 200 tusukan",
+        "Simpan pola tanpa batas",
+        "Gambar tanpa tanda",
+        "Semua alat pixel art"
+      ],
+      "note": "Langganan bulanan atau tahunan, atau sekali bayar seumur hidup"
+    },
+    "note": "Kamu juga bisa menghadiahkan Pro ke teman langsung dari aplikasi."
+  },
+  "faq": {
+    "title": "Pertanyaan umum",
+    "items": [
+      {"q": "Apakah fotoku diunggah ke suatu tempat?", "a": "Tidak. Foto dan pola diproses dan disimpan hanya di iPhone-mu."},
+      {"q": "Warnanya agak beda dengan manikku.", "a": "Layar menampilkan warna berbeda dari plastik dan benang asli. Ketuk warna di daftar untuk menggantinya dengan warna yang lebih mirip dari merek yang sama."},
+      {"q": "Seberapa besar pola bisa dibuat?", "a": "Versi gratis muat satu papan 29 × 29 atau 40 tusukan di sisi terpanjang. Dengan Pro sampai 4 × 4 papan (116 manik) atau 200 tusukan."},
+      {"q": "Foto seperti apa yang hasilnya bagus?", "a": "Foto dengan satu objek dan latar sederhana. Makin sedikit warna, makin rapi polanya, jadi kalau terlihat ramai, kurangi jumlah warnanya."},
+      {"q": "Masih bisa bikin pixel art?", "a": "Bisa. Mengubah foto jadi piksel, menggambar mengikuti 110 contoh, dan animasi per bingkai masih ada. Semua alat pixel art ada di Pro."},
+      {"q": "Bagaimana memulihkan pembelian?", "a": "Buka pengaturan di aplikasi lalu ketuk `Pulihkan Pembelian`. Gunakan Akun Apple yang sama dengan saat membeli Pro."},
+      {"q": "Bagaimana membatalkan langganan?", "a": "Buka Pengaturan iPhone › namamu › Langganan, lalu pilih Hantam. Akses seumur hidup dibayar sekali dan tidak diperpanjang."},
+      {"q": "Bagaimana melaporkan masalah atau memberi ide?", "a": "Paling cepat lewat kirim masukan di pengaturan aplikasi. Kamu juga bisa mengirim email ke alamat di bawah atau DM Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Foto favoritmu,\nsatu manik demi satu",
+    "cta": "Unduh gratis"
+  },
+  "ui": {
+    "skip": "Langsung ke konten",
+    "languages": "Bahasa",
+    "privacy": "Kebijakan Privasi",
+    "contact": "Pertanyaan, laporan masalah, dan ide bisa dikirim ke {email}."
+  }
+}

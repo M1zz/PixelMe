@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: padrões de miçangas de passar e ponto cruz a partir de uma foto",
+  "description": "Escolha uma foto e o Hantam cria um padrão com cores que existem à venda: miçangas Perler, Hama, Artkal e linha DMC, com a quantidade de cada cor.",
+  "hero": {
+    "headline": "Uma foto\nvira um padrão",
+    "lead": "Escolha uma foto do seu pet, do seu rosto ou do seu personagem favorito. O Hantam transforma em um padrão de miçangas de passar ou de ponto cruz, com cores que você consegue comprar.",
+    "cta": "Baixe grátis",
+    "note": "Grátis para padrões de uma placa. Suas fotos não saem do iPhone."
+  },
+  "demo": {
+    "title": "Teste com uma foto",
+    "lead": "É o mesmo jeito de escolher cores que o app usa, com a cartela real da Perler. Mude o tamanho e o número de cores, ou teste com uma foto sua.",
+    "size": "Tamanho",
+    "boards": ["1 placa", "4 placas (Pro)"],
+    "colors": "Até {n} cores",
+    "need": "Cores de que você precisa",
+    "more": "e mais {n} cores",
+    "info": "Perler · {w} × {h} · cerca de {cw} × {ch} cm · {n} miçangas · {c} cores",
+    "mine": "Testar com minha foto",
+    "photo": "Foto original",
+    "alt": "Padrão de miçangas feito a partir da foto",
+    "note": "Sua foto é convertida aqui mesmo, neste navegador, e nunca é enviada."
+  },
+  "problem": {
+    "title": "Fazer um padrão é fácil. Bater com miçangas de verdade, nem tanto",
+    "text": "Pixelize uma foto em qualquer editor e você terá cores que nenhuma miçanga ou linha tem. Aí é preciso adivinhar de qual pote vem cada quadradinho e contar quantas comprar de cada cor. O Hantam escolhe só entre cores que existem à venda e diz exatamente quantas você precisa."
+  },
+  "features": [
+    {
+      "title": "Cores reais, números reais",
+      "text": "Escolha miçangas Perler, Hama Midi ou Artkal S, ou linha DMC. Cada quadradinho recebe uma cor que a marca vende de verdade, com o número dela.\nVocê define o tamanho e quantas cores usar. Padrões grandes são divididos em placas de 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Ponto cruz também",
+      "text": "Escolha linha DMC e a mesma foto vira um gráfico de ponto cruz. Selecione talagarça Aida 11, 14, 16 ou 18 e o Hantam mostra o tamanho final e quantos pontos cada cor leva.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Você sabe exatamente o que comprar",
+      "text": "Troque para o gráfico de símbolos e siga quadradinho por quadradinho, com linhas grossas em cada borda de placa ou a cada 10 pontos. Veja quantas miçangas cada cor leva e use `Copiar lista de compras` com um toque.\nToque em um quadradinho para mudar, ou troque uma cor por outra no padrão inteiro.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Imprima e comece",
+      "text": "Com o Pro, exporte um `Padrão para imprimir (PDF)`: primeiro a lista de cores, depois os gráficos de símbolos, placa por placa.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Três passos até o padrão",
+    "items": [
+      {"title": "Escolha uma foto", "text": "Pets, rostos, logos e personagens funcionam. Fotos com um tema bem claro ficam melhores."},
+      {"title": "Escolha miçangas ou linha", "text": "Defina a marca, o tamanho e quantas cores."},
+      {"title": "Mãos à obra", "text": "Siga o padrão na tela ou imprima com o Pro."}
+    ]
+  },
+  "reference": {
+    "title": "Materiais e tamanhos",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Miçangas de passar, placas de 29 × 29, cada miçanga com cerca de 5 mm"],
+      ["DMC", "Linha de ponto cruz em talagarça Aida 11, 14, 16 ou 18"],
+      ["Grátis", "Miçangas até 1 placa (29 quadradinhos), linha até 40 pontos no lado maior"],
+      ["Pro", "Miçangas até 4 × 4 placas (116 quadradinhos), linha até 200 pontos"],
+      ["Cores", "De 2 a 50 por padrão"]
+    ],
+    "note": "Perler, Hama, Artkal e DMC são marcas de seus respectivos donos. O Hantam não tem vínculo com elas. As cores na tela podem ficar um pouco diferentes das reais."
+  },
+  "pricing": {
+    "title": "Comece grátis. Use o Pro para padrões grandes e impressão.",
+    "free": {
+      "name": "Grátis",
+      "items": [
+        "Padrões de até uma placa ou 40 pontos",
+        "Todas as marcas: Perler, Hama, Artkal e DMC",
+        "Quantidade por cor, lista de compras e troca de cores",
+        "Até 3 padrões salvos",
+        "Imagens para compartilhar com uma pequena marca do Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Padrões em PDF para imprimir",
+        "Até 4 × 4 placas ou 200 pontos",
+        "Padrões salvos sem limite",
+        "Imagens sem marca",
+        "Todas as ferramentas de pixel art"
+      ],
+      "note": "Assinatura mensal ou anual, ou compra única vitalícia"
+    },
+    "note": "Você também pode dar o Pro de presente a um amigo pelo app."
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "items": [
+      {"q": "Minhas fotos são enviadas para algum lugar?", "a": "Não. Fotos e padrões são processados e salvos só no seu iPhone."},
+      {"q": "As cores parecem um pouco diferentes das minhas miçangas.", "a": "A tela mostra as cores de um jeito diferente do plástico e da linha. Toque em uma cor da lista para trocá-la por outra mais parecida da mesma marca."},
+      {"q": "Qual o tamanho máximo de um padrão?", "a": "No grátis, uma placa de 29 × 29 ou 40 pontos no lado maior. Com o Pro, até 4 × 4 placas (116 miçangas) ou 200 pontos."},
+      {"q": "Que fotos ficam melhores?", "a": "As que têm um só tema e um fundo simples. Quanto menos cores, mais limpo o padrão. Se o resultado parecer bagunçado, diminua o número de cores."},
+      {"q": "Ainda dá para fazer pixel art?", "a": "Dá. Pixelizar fotos, desenhar com 110 modelos e animar quadro a quadro continua tudo lá. Todas as ferramentas de pixel art estão no Pro."},
+      {"q": "Como restauro minha compra?", "a": "Abra os ajustes do app e toque em `Restaurar Compras`. Use a mesma Conta Apple com que você comprou o Pro."},
+      {"q": "Como cancelo a assinatura?", "a": "Vá em Ajustes do iPhone › seu nome › Assinaturas e escolha Hantam. O acesso vitalício é um pagamento único e nunca renova."},
+      {"q": "Como relato um erro ou sugiro uma ideia?", "a": "O jeito mais rápido é enviar feedback pelos ajustes do app. Você também pode escrever para o e-mail abaixo ou mandar uma DM no Instagram (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Sua foto favorita,\numa miçanga de cada vez",
+    "cta": "Baixe grátis"
+  },
+  "ui": {
+    "skip": "Pular para o conteúdo",
+    "languages": "Idioma",
+    "privacy": "Política de Privacidade",
+    "contact": "Dúvidas, erros e ideias são bem-vindos em {email}."
+  }
+}

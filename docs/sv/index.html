@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="sv">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Mönster för strykpärlor och korsstygn</title>
-<meta name="description" content="Förvandla vilket foto som helst till ett mönster för strykpärlor eller korsstygn i de äkta färgerna från Perler, Hama, Artkal och DMC.">
-<meta property="og:title" content="Hantam — Mönster för strykpärlor och korsstygn">
-<meta property="og:description" content="Förvandla vilket foto som helst till ett mönster för strykpärlor eller korsstygn i de äkta färgerna från Perler, Hama, Artkal och DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: mönster för strykpärlor och korsstygn från ett foto</title>
+  <meta name="description" content="Välj ett foto så gör Hantam ett mönster i färger som faktiskt säljs: Perler, Hama, Artkal och DMC-garn, med antal för varje färg.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: mönster för strykpärlor och korsstygn från ett foto">
+  <meta property="og:description" content="Välj ett foto så gör Hantam ett mönster i färger som faktiskt säljs: Perler, Hama, Artkal och DMC-garn, med antal för varje färg.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/sv/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/sv/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Hem</a><a href="support.html">Support</a><a href="privacy.html">Integritet</a><a href="terms.html">Villkor</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv" aria-current="page">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Hoppa till innehållet</a>
+  <header class="bar">
+    <a class="brand" href="../sv/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Språk</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Från foto till mönster</h1>
-    <p>Välj ett foto på ditt husdjur, dig själv eller en favoritfigur. Hantam gör det till ett mönster för strykpärlor eller korsstygn i färger du kan köpa.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Hämta i App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Äkta färger</h3><p>Strykpärlor från Perler, Hama och Artkal och DMC-garn. Varje ruta visar ett äkta färgnummer.</p></div><div class="card"><h3>Du vet vad du ska köpa</h3><p>Se hur många pärlor eller stygn varje färg kräver och kopiera en inköpslista.</p></div><div class="card"><h3>Platta för platta</h3><p>Stora mönster delas upp i plattor på 29 × 29 med tjocka linjer vid gränserna.</p></div><div class="card"><h3>Justera varje ruta</h3><p>Tryck på en ruta för att ändra den, eller byt ut en färg mot en annan överallt.</p></div><div class="card"><h3>Skriv ut och skapa</h3><p>Med Pro exporterar du en PDF att skriva ut: färglista och symbolmönster sida för sida.</p></div><div class="card"><h3>Även pixelkonst</h3><p>Förvandla foton till pixelkonst, rita av 110 förlagor och animera bild för bild.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Den kostnadsfria versionen ger mönster upp till en platta (eller 40 stygn), 3 sparade mönster och delning av bilder med ett litet märke. Pro lägger till PDF att skriva ut, mönster upp till 4 × 4 plattor eller 200 stygn, obegränsad sparning, bilder utan märke och alla verktyg för pixelkonst. Välj en månads- eller årsprenumeration, eller betala en gång för åtkomst för alltid.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Ett foto<br>blir ett mönster</h1>
+        <p class="lead">Välj ett foto på ditt husdjur, dig själv eller din favoritfigur. Hantam gör om det till ett mönster för strykpärlor eller korsstygn, i färger som du kan köpa.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Hämta gratis</a><a class="try" href="#try">Prova på ett foto ↓</a></div>
+        <p class="muted small">Gratis för mönster på en pärlplatta. Dina foton lämnar aldrig din iPhone.</p>
+      </div>
+      <div class="phone"><img src="../img/sv/detail.jpg" alt="Ett foto blir ett mönster" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare. Hantam är inte knutet till dessa företag.<br>Utvecklare: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Prova på ett foto</h2>
+      <p class="muted">Samma färgmatchning som i appen, med Perlers riktiga färgkarta. Ändra storlek och antal färger, eller prova med ett eget foto.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Prova på ett foto&quot;, &quot;lead&quot;: &quot;Samma färgmatchning som i appen, med Perlers riktiga färgkarta. Ändra storlek och antal färger, eller prova med ett eget foto.&quot;, &quot;size&quot;: &quot;Storlek&quot;, &quot;boards&quot;: [&quot;1 pärlplatta&quot;, &quot;4 pärlplattor (Pro)&quot;], &quot;colors&quot;: &quot;Upp till {n} färger&quot;, &quot;need&quot;: &quot;Färger du behöver&quot;, &quot;more&quot;: &quot;och {n} färger till&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · ca {cw} × {ch} cm · {n} pärlor · {c} färger&quot;, &quot;mine&quot;: &quot;Prova med mitt foto&quot;, &quot;photo&quot;: &quot;Originalfoto&quot;, &quot;alt&quot;: &quot;Pärlmönster gjort av fotot&quot;, &quot;note&quot;: &quot;Ditt foto görs om här i webbläsaren och laddas aldrig upp.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Ett mönster är lätt. Att träffa riktiga pärlfärger är svårt</h2>
+      <p>Pixlar du ett foto i ett vanligt redigeringsprogram blir det färger som ingen pärla eller garn finns i. Sedan får du gissa vilken burk varje ruta hör till och räkna hur många av varje du ska köpa. Hantam väljer bara bland färger som faktiskt säljs och säger exakt hur många du behöver.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Riktiga färger, riktiga nummer</h2>
+        <p>Välj pärlor från Perler, Hama Midi eller Artkal S, eller DMC-garn. Varje ruta får en färg som märket faktiskt säljer, med färgnummer.<br>Du bestämmer storlek och antal färger. Stora mönster delas upp i pärlplattor på 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/sv/maker.jpg" alt="Riktiga färger, riktiga nummer" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Korsstygn också</h2>
+        <p>Välj DMC-garn så blir samma foto ett korsstygnsmönster. Välj Aidaväv med 11, 14, 16 eller 18 rutor per tum så visar Hantam färdig storlek och antal stygn för varje färg.</p>
+      </div>
+      <div class="phone"><img src="../img/sv/stitch.jpg" alt="Korsstygn också" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Du vet exakt vad du ska köpa</h2>
+        <p>Växla till symbolmönstret och följ det ruta för ruta, med tjocka linjer vid varje plattkant eller vart tionde stygn. Se hur många pärlor varje färg behöver och använd <code>Kopiera inköpslista</code> med ett tryck.<br>Tryck på en ruta för att ändra den, eller byt en färg mot en annan överallt.</p>
+      </div>
+      <div class="phone"><img src="../img/sv/symbols.jpg" alt="Du vet exakt vad du ska köpa" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Skriv ut och sätt igång</h2>
+        <p>Med Pro exporterar du ett <code>Mönster att skriva ut (PDF)</code>: först färglistan, sedan symbolmönster sida för sida, en pärlplatta i taget.</p>
+      </div>
+      <div class="phone"><img src="../img/sv/pdf.jpg" alt="Skriv ut och sätt igång" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Tre steg till mönstret</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Välj ett foto</h3><p>Husdjur, ansikten, logotyper och figurer fungerar. Foton med ett tydligt motiv blir bäst.</p></li>
+<li class="card"><span class="n">2</span><h3>Välj pärlor eller garn</h3><p>Bestäm märke, storlek och antal färger.</p></li>
+<li class="card"><span class="n">3</span><h3>Sätt igång</h3><p>Följ mönstret på skärmen eller skriv ut det med Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Material och storlekar</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Strykpärlor, pärlplattor på 29 × 29, varje pärla ca 5 mm</dd></div><div><dt>DMC</dt><dd>Korsstygnsgarn på Aidaväv med 11, 14, 16 eller 18 rutor per tum</dd></div><div><dt>Gratis</dt><dd>Pärlor upp till 1 platta (29 rutor), garn upp till 40 stygn på längsta sidan</dd></div><div><dt>Pro</dt><dd>Pärlor upp till 4 × 4 plattor (116 rutor), garn upp till 200 stygn</dd></div><div><dt>Färger</dt><dd>Från 2 till 50 per mönster</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal och DMC är varumärken som tillhör respektive ägare. Hantam har ingen koppling till dem. Färger på skärmen kan se lite annorlunda ut än i verkligheten.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Börja gratis. Pro för stora mönster och utskrift.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Gratis</h3>
+          <ul><li>Mönster upp till en pärlplatta eller 40 stygn</li><li>Alla märken: Perler, Hama, Artkal och DMC</li><li>Antal per färg, inköpslista och färgbyte</li><li>Upp till 3 sparade mönster</li><li>Dela bilder med ett litet Hantam-märke</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>PDF-mönster att skriva ut</li><li>Upp till 4 × 4 pärlplattor eller 200 stygn</li><li>Obegränsat antal sparade mönster</li><li>Bilder utan märke</li><li>Alla pixelkonstverktyg</li></ul>
+          <p class="muted">Månads- eller årsabonnemang, eller ett köp för alltid</p>
+        </div>
+      </div>
+      <p class="muted">Du kan också ge bort Pro som present till en vän direkt i appen.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Vanliga frågor</h2>
+      <div class="faq"><details><summary>Laddas mina foton upp någonstans?</summary><p>Nej. Foton och mönster behandlas och sparas bara på din iPhone.</p></details>
+<details><summary>Färgerna ser lite annorlunda ut än mina pärlor.</summary><p>Skärmar visar färger annorlunda än plast och garn. Tryck på en färg i listan för att byta den mot en närmare färg från samma märke.</p></details>
+<details><summary>Hur stort kan ett mönster bli?</summary><p>Gratis ryms det på en pärlplatta på 29 × 29 eller 40 stygn på längsta sidan. Med Pro upp till 4 × 4 plattor (116 pärlor) eller 200 stygn.</p></details>
+<details><summary>Vilka foton blir bäst?</summary><p>Foton med ett motiv och en enkel bakgrund. Ju färre färger, desto renare mönster, så sänk antalet färger om resultatet ser rörigt ut.</p></details>
+<details><summary>Kan jag fortfarande göra pixelkonst?</summary><p>Ja. Pixla foton, rita efter 110 förlagor och animera bild för bild finns kvar. Alla pixelkonstverktyg ingår i Pro.</p></details>
+<details><summary>Hur återställer jag mitt köp?</summary><p>Öppna inställningarna i appen och tryck på <code>Återställ köp</code>. Använd samma Apple-konto som du köpte Pro med.</p></details>
+<details><summary>Hur avslutar jag prenumerationen?</summary><p>Gå till Inställningar på iPhone › ditt namn › Prenumerationer och välj Hantam. Livstidsåtkomst är en engångsbetalning och förnyas aldrig.</p></details>
+<details><summary>Hur rapporterar jag ett fel eller föreslår en idé?</summary><p>Snabbast är att skicka feedback från appens inställningar. Du kan också mejla till adressen nedan eller skicka ett DM på Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Frågor, fel och idéer tas gärna emot på <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Ditt favoritfoto,<br>en pärla i taget</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Hämta gratis</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Språk"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv" aria-current="page">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Integritetspolicy</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

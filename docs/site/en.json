@@ -1,0 +1,168 @@
+{
+  "title": "Hantam: turn a photo into a fuse bead or cross-stitch pattern",
+  "description": "Pick a photo and Hantam turns it into a Perler, Hama, Artkal or DMC pattern in colors you can actually buy, with a count for every color.",
+  "hero": {
+    "headline": "Turn a photo\ninto a pattern",
+    "lead": "Pick a photo of your pet, your face or a favorite character. Hantam turns it into a fuse bead or cross-stitch pattern, matched to colors you can actually buy.",
+    "cta": "Get it free on the App Store",
+    "note": "Free for one-pegboard patterns. Photos never leave your iPhone."
+  },
+  "demo": {
+    "title": "Try it on a photo",
+    "lead": "This is the same color matching the app uses, with the real Perler color chart. Change the size and the number of colors, or try one of your own photos.",
+    "size": "Size",
+    "boards": [
+      "1 pegboard",
+      "4 pegboards (Pro)"
+    ],
+    "colors": "Up to {n} colors",
+    "need": "Colors you need",
+    "more": "and {n} more colors",
+    "info": "Perler · {w} × {h} · about {cw} × {ch} cm · {n} beads · {c} colors",
+    "mine": "Try your own photo",
+    "photo": "Original photo",
+    "alt": "Bead pattern made from the photo",
+    "note": "Your photo is converted right here in this browser and never uploaded."
+  },
+  "problem": {
+    "title": "A pattern is easy. Matching it to real beads isn't.",
+    "text": "Pixelate a photo in any editor and you get colors no bead or thread actually comes in. Then you have to guess which jar each square belongs to and count how many of each to buy. Hantam picks from colors that are actually sold, and tells you exactly how many you need."
+  },
+  "features": [
+    {
+      "title": "Real colors, real numbers",
+      "text": "Choose Perler, Hama Midi, Artkal S beads or DMC thread. Every square is matched to a color that brand really sells, and labeled with its color number.\nSet the size and how many colors to use. Big patterns are split into 29 × 29 pegboards.",
+      "shot": "maker"
+    },
+    {
+      "title": "Cross-stitch, too",
+      "text": "Pick DMC thread and the same photo becomes a cross-stitch chart. Choose 11, 14, 16 or 18-count Aida and Hantam shows the finished size and how many stitches each color needs.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Know exactly what to buy",
+      "text": "Switch to the symbol chart to follow along square by square, with bold lines at every board edge or every 10 stitches. See how many beads each color takes and `Copy shopping list` in one tap.\nTap a square to change it, or swap one color for another everywhere.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Print it and start",
+      "text": "With Pro, export a `Printable pattern (PDF)`: the color list first, then symbol charts split page by page, one pegboard at a time.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Three steps to a pattern",
+    "items": [
+      {
+        "title": "Choose a photo",
+        "text": "Pets, faces, logos and characters all work. A clear subject turns out best."
+      },
+      {
+        "title": "Pick beads or thread",
+        "text": "Choose the brand, the size and how many colors."
+      },
+      {
+        "title": "Make it",
+        "text": "Follow the chart on screen, or print it with Pro."
+      }
+    ]
+  },
+  "reference": {
+    "title": "Materials and sizes",
+    "rows": [
+      [
+        "Perler · Hama Midi · Artkal S",
+        "Fuse beads, 29 × 29 pegboards, each bead about 5 mm"
+      ],
+      [
+        "DMC",
+        "Cross-stitch thread on 11, 14, 16 or 18-count Aida"
+      ],
+      [
+        "Free",
+        "Beads up to 1 pegboard (29 squares), thread up to 40 stitches on the longest side"
+      ],
+      [
+        "Pro",
+        "Beads up to 4 × 4 pegboards (116 squares), thread up to 200 stitches"
+      ],
+      [
+        "Colors",
+        "From 2 to 50 per pattern"
+      ]
+    ],
+    "note": "Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colors on screen may look slightly different from the real thing."
+  },
+  "pricing": {
+    "title": "Start free. Go Pro for bigger patterns and printing.",
+    "free": {
+      "name": "Free",
+      "items": [
+        "Patterns up to one pegboard, or 40 stitches",
+        "Every brand: Perler, Hama, Artkal and DMC",
+        "Color counts, shopping list and color swaps",
+        "Keep up to 3 patterns",
+        "Share images with a small Hantam mark"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Printable PDF patterns",
+        "Up to 4 × 4 pegboards, or 200 stitches",
+        "Unlimited saved patterns",
+        "Images without the mark",
+        "Every pixel art tool"
+      ],
+      "note": "Monthly or yearly subscription, or a one-time lifetime purchase"
+    },
+    "note": "You can also give Pro to a friend as a gift from inside the app."
+  },
+  "faq": {
+    "title": "Questions",
+    "items": [
+      {
+        "q": "Do you upload my photos?",
+        "a": "No. Photos and patterns are processed and saved on your iPhone only."
+      },
+      {
+        "q": "The colors look a little different from my beads.",
+        "a": "Screens show colors differently from real plastic and thread. Tap a color in the list to swap it for a closer one from the same brand."
+      },
+      {
+        "q": "How big can a pattern be?",
+        "a": "Free patterns fit one 29 × 29 pegboard, or 40 stitches on the longest side. Pro goes up to 4 × 4 pegboards (116 beads) or 200 stitches."
+      },
+      {
+        "q": "Which photos work best?",
+        "a": "Photos with one clear subject and a simple background. Fewer colors give cleaner patterns, so try lowering the color count if the result looks noisy."
+      },
+      {
+        "q": "Can I still make pixel art?",
+        "a": "Yes. You can pixelate photos, draw along with 110 samples and animate frame by frame. Every pixel art tool is included in Pro."
+      },
+      {
+        "q": "How do I restore my purchase?",
+        "a": "Open Settings in the app and tap `Restore Purchases`. Use the same Apple Account you bought Pro with."
+      },
+      {
+        "q": "How do I cancel a subscription?",
+        "a": "Go to iPhone Settings › your name › Subscriptions and choose Hantam. Lifetime access is a one-time purchase and never renews."
+      },
+      {
+        "q": "How do I report a bug or suggest an idea?",
+        "a": "The fastest way is Settings › Send Feedback inside the app. You can also email us at the address below or send an Instagram DM to @lee25_ios."
+      }
+    ]
+  },
+  "closing": {
+    "headline": "Your favorite photo,\none bead at a time",
+    "cta": "Get it free on the App Store"
+  },
+  "ui": {
+    "skip": "Skip to content",
+    "languages": "Language",
+    "privacy": "Privacy Policy",
+    "contact": "Questions, bug reports and ideas are all welcome at {email}."
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: vzory ze žehlicích korálků a křížkového stehu z fotky",
+  "description": "Vyber fotku a Hantam z ní udělá vzor v barvách, které se opravdu prodávají: korálky Perler, Hama, Artkal a příze DMC, i s počtem každé barvy.",
+  "hero": {
+    "headline": "Z jedné fotky\nje vzor",
+    "lead": "Vyber fotku svého mazlíčka, sebe nebo oblíbené postavičky. Hantam z ní udělá vzor na žehlicí korálky nebo křížkový steh v barvách, které si můžeš koupit.",
+    "cta": "Stáhnout zdarma",
+    "note": "Vzory na jednu podložku jsou zdarma. Fotky z iPhonu nikam neodcházejí."
+  },
+  "demo": {
+    "title": "Vyzkoušej to na fotce",
+    "lead": "Stejné přiřazování barev jako v aplikaci, se skutečným vzorníkem Perler. Změň velikost a počet barev, nebo zkus vlastní fotku.",
+    "size": "Velikost",
+    "boards": ["1 podložka", "4 podložky (Pro)"],
+    "colors": "Nejvýš {n} barev",
+    "need": "Barvy, které potřebuješ",
+    "more": "a další barvy: {n}",
+    "info": "Perler · {w} × {h} · asi {cw} × {ch} cm · korálků: {n} · barev: {c}",
+    "mine": "Zkusit vlastní fotku",
+    "photo": "Původní fotka",
+    "alt": "Vzor z korálků vytvořený z fotky",
+    "note": "Fotka se převádí přímo v tomhle prohlížeči a nikam se nenahrává."
+  },
+  "problem": {
+    "title": "Udělat vzor je snadné. Trefit skutečné barvy korálků už ne",
+    "text": "Když fotku rozpixeluješ v jakémkoli editoru, vyjdou barvy, které nemá žádný korálek ani příze. Pak hádáš, ze které krabičky je které políčko, a počítáš, kolik čeho koupit. Hantam vybírá jen z barev, které se prodávají, a řekne ti přesně, kolik jich potřebuješ."
+  },
+  "features": [
+    {
+      "title": "Skutečné barvy, skutečná čísla",
+      "text": "Vyber korálky Perler, Hama Midi, Artkal S nebo přízi DMC. Každé políčko dostane barvu, kterou ta značka opravdu prodává, i s číslem.\nVelikost a počet barev určíš sám. Velké vzory se dělí na podložky 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "I na křížkový steh",
+      "text": "Vyber přízi DMC a ze stejné fotky je vzor na křížkový steh. Zvol kanavu Aida 11, 14, 16 nebo 18 a Hantam ukáže hotovou velikost a počet stehů každé barvy.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Hned víš, co koupit",
+      "text": "Přepni na vzor se symboly a postupuj políčko po políčku, s tlustou čárou na každém okraji podložky nebo po 10 stezích. Uvidíš, kolik korálků která barva potřebuje, a `Zkopírovat nákupní seznam` stačí jedním klepnutím.\nKlepnutím na políčko ho změníš, nebo nahradíš jednu barvu jinou v celém vzoru.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Vytiskni a začni",
+      "text": "S Pro vyexportuješ `Vzor k tisku (PDF)`: nejdřív seznam barev, pak vzory se symboly po jednotlivých podložkách.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Ke vzoru ve třech krocích",
+    "items": [
+      {"title": "Vyber fotku", "text": "Mazlíčci, obličeje, loga i postavičky. Nejlíp dopadnou fotky s jasným hlavním motivem."},
+      {"title": "Vyber korálky nebo přízi", "text": "Urči značku, velikost a počet barev."},
+      {"title": "Tvoř", "text": "Řiď se vzorem na displeji, nebo si ho s Pro vytiskni."}
+    ]
+  },
+  "reference": {
+    "title": "Materiály a velikosti",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Žehlicí korálky, podložky 29 × 29, korálek asi 5 mm"],
+      ["DMC", "Příze na křížkový steh, kanava Aida 11, 14, 16 nebo 18"],
+      ["Zdarma", "Korálky do 1 podložky (29 políček), příze do 40 stehů na delší straně"],
+      ["Pro", "Korálky do 4 × 4 podložek (116 políček), příze do 200 stehů"],
+      ["Barvy", "2 až 50 v jednom vzoru"]
+    ],
+    "note": "Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s nimi není nijak spojen. Barvy na displeji se mohou od skutečnosti mírně lišit."
+  },
+  "pricing": {
+    "title": "Začni zdarma. Na velké vzory a tisk je Pro.",
+    "free": {
+      "name": "Zdarma",
+      "items": [
+        "Vzory do jedné podložky nebo 40 stehů",
+        "Všechny značky: Perler, Hama, Artkal a DMC",
+        "Počty podle barev, nákupní seznam a výměna barev",
+        "Až 3 uložené vzory",
+        "Sdílení obrázků s malou značkou Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Vzory v PDF k tisku",
+        "Až 4 × 4 podložky nebo 200 stehů",
+        "Neomezeně uložených vzorů",
+        "Obrázky bez značky",
+        "Všechny nástroje pro pixel art"
+      ],
+      "note": "Měsíční nebo roční předplatné, nebo jednorázový doživotní nákup"
+    },
+    "note": "Pro můžeš v aplikaci i darovat kamarádovi."
+  },
+  "faq": {
+    "title": "Časté otázky",
+    "items": [
+      {"q": "Nahrávají se moje fotky někam?", "a": "Ne. Fotky i vzory se zpracovávají a ukládají jen v tvém iPhonu."},
+      {"q": "Barvy vypadají trochu jinak než moje korálky.", "a": "Displej zobrazuje barvy jinak než plast a příze. Klepni na barvu v seznamu a vyměň ji za bližší odstín stejné značky."},
+      {"q": "Jak velký může vzor být?", "a": "Zdarma jedna podložka 29 × 29 nebo 40 stehů na delší straně. S Pro až 4 × 4 podložky (116 korálků) nebo 200 stehů."},
+      {"q": "Které fotky dopadnou nejlíp?", "a": "S jedním hlavním motivem a jednoduchým pozadím. Čím méně barev, tím čistší vzor, takže když výsledek působí neklidně, sniž počet barev."},
+      {"q": "Dá se pořád dělat pixel art?", "a": "Ano. Pixelizace fotek, kreslení podle 110 předloh i animace snímek po snímku zůstaly. Všechny nástroje pro pixel art jsou v Pro."},
+      {"q": "Jak obnovím nákup?", "a": "Otevři v aplikaci nastavení a klepni na `Obnovit nákupy`. Použij stejný Apple účet, kterým jsi Pro koupil."},
+      {"q": "Jak zruším předplatné?", "a": "V Nastavení iPhonu › tvoje jméno › Předplatné vyber Hantam. Doživotní přístup je jednorázová platba a neobnovuje se."},
+      {"q": "Jak nahlásit chybu nebo navrhnout nápad?", "a": "Nejrychlejší je poslat zpětnou vazbu z nastavení aplikace. Můžeš také napsat na adresu níže nebo poslat DM na Instagramu (@lee25_ios)."}
+    ]
+  },
+  "closing": {
+    "headline": "Tvoje oblíbená fotka,\nkorálek po korálku",
+    "cta": "Stáhnout zdarma"
+  },
+  "ui": {
+    "skip": "Přejít na obsah",
+    "languages": "Jazyk",
+    "privacy": "Zásady ochrany osobních údajů",
+    "contact": "Dotazy, chyby i nápady posílej na {email}."
+  }
+}

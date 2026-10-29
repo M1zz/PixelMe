@@ -1,0 +1,168 @@
+{
+  "title": "Hantam : des grilles de perles à repasser et de point de croix à partir d'une photo",
+  "description": "Choisissez une photo : Hantam en fait une grille aux couleurs vraiment vendues (Perler, Hama, Artkal, fil DMC), avec la quantité par couleur.",
+  "hero": {
+    "headline": "Une photo\ndevient une grille",
+    "lead": "Choisissez une photo de votre animal, de vous ou de votre personnage préféré. Hantam en fait une grille de perles à repasser ou de point de croix, dans des couleurs que vous pouvez acheter.",
+    "cta": "Télécharger gratuitement",
+    "note": "Gratuit pour les grilles d'une plaque. Vos photos restent sur votre iPhone."
+  },
+  "demo": {
+    "title": "Essayez sur une photo",
+    "lead": "La même correspondance des couleurs que dans l'app, avec le vrai nuancier Perler. Changez la taille et le nombre de couleurs, ou essayez avec votre propre photo.",
+    "size": "Taille",
+    "boards": [
+      "1 plaque",
+      "4 plaques (Pro)"
+    ],
+    "colors": "Jusqu'à {n} couleurs",
+    "need": "Couleurs nécessaires",
+    "more": "et {n} autres couleurs",
+    "info": "Perler · {w} × {h} · environ {cw} × {ch} cm · {n} perles · {c} couleurs",
+    "mine": "Essayer avec ma photo",
+    "photo": "Photo d'origine",
+    "alt": "Grille de perles créée à partir de la photo",
+    "note": "Votre photo est convertie ici même, dans ce navigateur, et n'est jamais envoyée."
+  },
+  "problem": {
+    "title": "Faire une grille, c'est facile. Retrouver les vraies couleurs de perles, beaucoup moins.",
+    "text": "Pixelisez une photo avec n'importe quel éditeur et vous obtenez des couleurs qui n'existent en aucune perle ni aucun fil. Il faut ensuite deviner de quel pot vient chaque case et compter combien en acheter. Hantam choisit uniquement parmi des couleurs vendues et vous dit exactement combien il en faut."
+  },
+  "features": [
+    {
+      "title": "De vraies couleurs, de vrais numéros",
+      "text": "Choisissez des perles Perler, Hama Midi ou Artkal S, ou du fil DMC. Chaque case reçoit une couleur que la marque vend vraiment, avec son numéro.\nVous fixez la taille et le nombre de couleurs. Les grandes grilles sont découpées en plaques de 29 × 29.",
+      "shot": "maker"
+    },
+    {
+      "title": "Le point de croix aussi",
+      "text": "Choisissez le fil DMC et la même photo devient une grille de point de croix. Sélectionnez une toile Aida 11, 14, 16 ou 18 points et Hantam affiche la taille finale et le nombre de points par couleur.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Vous savez quoi acheter",
+      "text": "Passez à la grille à symboles pour avancer case par case, avec un trait épais à chaque bord de plaque ou tous les 10 points. Voyez combien de perles il faut par couleur et faites `Copier la liste de courses` d'un toucher.\nTouchez une case pour la modifier, ou remplacez une couleur par une autre partout.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Imprimez et lancez-vous",
+      "text": "Avec Pro, exportez une `Grille à imprimer (PDF)` : d'abord la liste des couleurs, puis les grilles à symboles, plaque par plaque.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Trois étapes jusqu'à la grille",
+    "items": [
+      {
+        "title": "Choisir une photo",
+        "text": "Animaux, visages, logos, personnages : tout fonctionne. Une photo avec un sujet bien net donne le meilleur résultat."
+      },
+      {
+        "title": "Choisir perles ou fil",
+        "text": "Fixez la marque, la taille et le nombre de couleurs."
+      },
+      {
+        "title": "Créer",
+        "text": "Suivez la grille à l'écran ou imprimez-la avec Pro."
+      }
+    ]
+  },
+  "reference": {
+    "title": "Matériaux et tailles",
+    "rows": [
+      [
+        "Perler · Hama Midi · Artkal S",
+        "Perles à repasser, plaques de 29 × 29, perle d'environ 5 mm"
+      ],
+      [
+        "DMC",
+        "Fil à broder sur toile Aida 11, 14, 16 ou 18 points"
+      ],
+      [
+        "Gratuit",
+        "Perles jusqu'à 1 plaque (29 cases), fil jusqu'à 40 points sur le plus grand côté"
+      ],
+      [
+        "Pro",
+        "Perles jusqu'à 4 × 4 plaques (116 cases), fil jusqu'à 200 points"
+      ],
+      [
+        "Couleurs",
+        "De 2 à 50 par grille"
+      ]
+    ],
+    "note": "Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs. Hantam n'est affilié à aucune d'elles. Les couleurs à l'écran peuvent légèrement différer de la réalité."
+  },
+  "pricing": {
+    "title": "Commencez gratuitement. Passez à Pro pour les grandes grilles et l'impression.",
+    "free": {
+      "name": "Gratuit",
+      "items": [
+        "Grilles jusqu'à une plaque ou 40 points",
+        "Toutes les marques : Perler, Hama, Artkal et DMC",
+        "Quantités par couleur, liste de courses et échange de couleurs",
+        "Jusqu'à 3 grilles enregistrées",
+        "Images à partager avec un petit logo Hantam"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Grilles PDF à imprimer",
+        "Jusqu'à 4 × 4 plaques ou 200 points",
+        "Grilles enregistrées sans limite",
+        "Images sans logo",
+        "Tous les outils de pixel art"
+      ],
+      "note": "Abonnement mensuel ou annuel, ou achat unique à vie"
+    },
+    "note": "Vous pouvez aussi offrir Pro à un ami depuis l'app."
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": [
+      {
+        "q": "Mes photos sont-elles envoyées quelque part ?",
+        "a": "Non. Les photos et les grilles sont traitées et enregistrées uniquement sur votre iPhone."
+      },
+      {
+        "q": "Les couleurs diffèrent un peu de mes perles.",
+        "a": "Un écran n'affiche pas les couleurs comme le plastique ou le fil. Touchez une couleur dans la liste pour la remplacer par une teinte plus proche de la même marque."
+      },
+      {
+        "q": "Quelle taille peut faire une grille ?",
+        "a": "En gratuit, une plaque de 29 × 29 ou 40 points sur le plus grand côté. Avec Pro, jusqu'à 4 × 4 plaques (116 perles) ou 200 points."
+      },
+      {
+        "q": "Quelles photos donnent le meilleur résultat ?",
+        "a": "Celles avec un seul sujet et un fond simple. Moins il y a de couleurs, plus la grille est nette : si le résultat paraît chargé, réduisez le nombre de couleurs."
+      },
+      {
+        "q": "Peut-on encore faire du pixel art ?",
+        "a": "Oui. Pixelisation de photos, dessin d'après 110 modèles et animation image par image sont toujours là. Tous les outils de pixel art sont inclus dans Pro."
+      },
+      {
+        "q": "Comment restaurer mon achat ?",
+        "a": "Ouvrez les réglages de l'app et touchez `Restaurer les achats`. Utilisez le même compte Apple que pour l'achat de Pro."
+      },
+      {
+        "q": "Comment résilier l'abonnement ?",
+        "a": "Allez dans Réglages de l'iPhone › votre nom › Abonnements et choisissez Hantam. L'accès à vie est un paiement unique, jamais renouvelé."
+      },
+      {
+        "q": "Comment signaler un bug ou proposer une idée ?",
+        "a": "Le plus rapide est d'envoyer un avis depuis les réglages de l'app. Vous pouvez aussi écrire à l'adresse ci-dessous ou envoyer un message sur Instagram (@lee25_ios)."
+      }
+    ]
+  },
+  "closing": {
+    "headline": "Votre photo préférée,\nperle après perle",
+    "cta": "Télécharger gratuitement"
+  },
+  "ui": {
+    "skip": "Aller au contenu",
+    "languages": "Langue",
+    "privacy": "Politique de confidentialité",
+    "contact": "Questions, bugs et idées sont les bienvenus à {email}."
+  }
+}

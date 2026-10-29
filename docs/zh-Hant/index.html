@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — 拼豆與十字繡圖紙製作</title>
-<meta name="description" content="把任何照片變成對應 Perler、Hama、Artkal 拼豆及 DMC 繡線真實顏色的拼豆或十字繡圖紙。">
-<meta property="og:title" content="Hantam — 拼豆與十字繡圖紙製作">
-<meta property="og:description" content="把任何照片變成對應 Perler、Hama、Artkal 拼豆及 DMC 繡線真實顏色的拼豆或十字繡圖紙。">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam：用照片製作拼豆和十字繡圖紙</title>
+  <meta name="description" content="選一張照片，Hantam 就用真正買得到的 Perler、Hama、Artkal 拼豆與 DMC 繡線顏色做成圖紙，還會告訴你每種顏色要用多少。">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam：用照片製作拼豆和十字繡圖紙">
+  <meta property="og:description" content="選一張照片，Hantam 就用真正買得到的 Perler、Hama、Artkal 拼豆與 DMC 繡線顏色做成圖紙，還會告訴你每種顏色要用多少。">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/zh-Hant/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">首頁</a><a href="support.html">支援</a><a href="privacy.html">隱私權</a><a href="terms.html">條款</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant" aria-current="page">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="bar">
+    <a class="brand" href="../zh-Hant/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">語言</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>一張照片，變成一份圖紙</h1>
-    <p>選一張寵物、自己或喜愛角色的照片，Hantam 會把它做成拼豆或十字繡圖紙，用的都是買得到的顏色。</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">在 App Store 下載</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>真實顏色</h3><p>支援 Perler、Hama、Artkal 拼豆和 DMC 繡線，每個格子都標有真實色號。</p></div><div class="card"><h3>該買多少一看便知</h3><p>查看每種顏色需要的拼豆數或針數，還能複製購物清單。</p></div><div class="card"><h3>依底板分塊</h3><p>大圖紙依 29 × 29 的底板分塊，並用粗線標出分界。</p></div><div class="card"><h3>哪一格都能改</h3><p>點一下格子即可修改，也可以把某種顏色整個換成另一種。</p></div><div class="card"><h3>列印後直接做</h3><p>開通 Pro 即可匯出列印用 PDF：顏色清單加上逐頁的符號圖紙。</p></div><div class="card"><h3>也有像素畫</h3><p>把照片變成像素畫，對著 110 種範例描繪，還能製作逐格動畫。</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>免費版可製作一塊底板（十字繡為 40 針）以內的圖紙，最多儲存 3 個圖紙，分享的圖片會帶有小標記。Pro 版增加列印用 PDF、最大 4 × 4 塊底板或 200 針的圖紙、無限儲存、無標記圖片以及全部像素畫工具。可選擇按月或按年訂閱，也可以一次性買斷。</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>一張照片<br>就是一份圖紙</h1>
+        <p class="lead">選一張寵物、自己或喜歡的角色的照片。Hantam 會用真正買得到的顏色，把它變成拼豆或十字繡圖紙。</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">在 App Store 免費下載</a><a class="try" href="#try">用照片試試看 ↓</a></div>
+        <p class="muted small">一塊拼板以內的圖紙免費。照片不會離開你的 iPhone。</p>
+      </div>
+      <div class="phone"><img src="../img/zh-Hant/detail.jpg" alt="一張照片 就是一份圖紙" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler、Hama、Artkal 和 DMC 是各自所有者的商標。Hantam 與這些公司沒有關聯。<br>開發者：Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>用照片試試看</h2>
+      <p class="muted">和 App 用的是同一種配色方式，顏色來自真實的 Perler 色卡。可以調整尺寸和顏色數，也能換成你自己的照片。</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;用照片試試看&quot;, &quot;lead&quot;: &quot;和 App 用的是同一種配色方式，顏色來自真實的 Perler 色卡。可以調整尺寸和顏色數，也能換成你自己的照片。&quot;, &quot;size&quot;: &quot;尺寸&quot;, &quot;boards&quot;: [&quot;1 塊拼板&quot;, &quot;4 塊拼板（Pro）&quot;], &quot;colors&quot;: &quot;最多 {n} 色&quot;, &quot;need&quot;: &quot;需要的顏色&quot;, &quot;more&quot;: &quot;另有 {n} 色&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · 約 {cw} × {ch} cm · {n} 顆豆 · {c} 色&quot;, &quot;mine&quot;: &quot;用我的照片試試&quot;, &quot;photo&quot;: &quot;原始照片&quot;, &quot;alt&quot;: &quot;由照片做成的拼豆圖紙&quot;, &quot;note&quot;: &quot;照片只在這個瀏覽器裡轉換，不會上傳到任何地方。&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>做圖紙不難，難的是對上真實的豆子顏色</h2>
+      <p>用一般修圖 App 把照片像素化，做出來的顏色常常沒有任何豆子或繡線對得上。你得猜每一格該用哪一罐豆子，再一色一色算要買多少。Hantam 只從真正有在賣的顏色裡挑，還會精準告訴你需要多少。</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>真實顏色，真實色號</h2>
+        <p>可以選 Perler、Hama Midi、Artkal S 拼豆，或 DMC 繡線。每一格都會對應到該品牌真正販售的顏色，並標上色號。<br>尺寸和顏色數也能自己決定。大圖紙會依 29 × 29 拼板分塊。</p>
+      </div>
+      <div class="phone"><img src="../img/zh-Hant/maker.jpg" alt="真實顏色，真實色號" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>十字繡也可以</h2>
+        <p>選 DMC 繡線，同一張照片就變成十字繡圖紙。選擇 11、14、16 或 18 目的十字繡布，就能看到完成尺寸和每種顏色需要的針數。</p>
+      </div>
+      <div class="phone"><img src="../img/zh-Hant/stitch.jpg" alt="十字繡也可以" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>要買什麼一眼就懂</h2>
+        <p>切換到符號圖紙，一格一格跟著做。拼板邊界或每 10 格都有粗線。看清每種顏色需要幾顆豆子，點 <code>拷貝購物清單</code> 一次帶走。<br>點一下格子就能修改，也能把某個顏色整個換成另一個顏色。</p>
+      </div>
+      <div class="phone"><img src="../img/zh-Hant/symbols.jpg" alt="要買什麼一眼就懂" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>印出來就能開工</h2>
+        <p>有 Pro 就能匯出 <code>可列印圖紙 (PDF)</code>：第一頁是顏色清單，後面是依拼板一塊一塊分好的符號圖紙。</p>
+      </div>
+      <div class="phone"><img src="../img/zh-Hant/pdf.jpg" alt="印出來就能開工" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>三個步驟做出圖紙</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>選擇照片</h3><p>寵物、人像、標誌、角色都可以。主角清楚的照片效果最好。</p></li>
+<li class="card"><span class="n">2</span><h3>選拼豆或繡線</h3><p>決定品牌、尺寸和顏色數。</p></li>
+<li class="card"><span class="n">3</span><h3>開始製作</h3><p>看著螢幕上的圖紙做，或用 Pro 列印出來。</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>材料與尺寸</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>拼豆，29 × 29 拼板，每顆約 5 mm</dd></div><div><dt>DMC</dt><dd>十字繡線，可選 11、14、16、18 目十字繡布</dd></div><div><dt>免費</dt><dd>拼豆最多 1 塊拼板（29 格），繡線長邊最多 40 格</dd></div><div><dt>Pro</dt><dd>拼豆最多 4 × 4 塊拼板（116 格），繡線最多 200 格</dd></div><div><dt>顏色數</dt><dd>每份圖紙 2 到 50 色</dd></div></dl>
+      </div>
+      <p class="muted">Perler、Hama、Artkal 與 DMC 是各自所有者的商標，Hantam 與它們沒有關聯。螢幕上的顏色可能和實物略有差異。</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>免費開始，大圖紙和列印用 Pro</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>免費</h3>
+          <ul><li>1 塊拼板（十字繡 40 格）以內的圖紙</li><li>Perler、Hama、Artkal、DMC 所有品牌</li><li>每色用量、購物清單、換色</li><li>最多保存 3 份圖紙</li><li>分享帶有小 Hantam 標記的圖片</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>可列印的 PDF 圖紙</li><li>最多 4 × 4 塊拼板（十字繡 200 格）</li><li>無限保存圖紙</li><li>沒有標記的圖片</li><li>所有像素畫工具</li></ul>
+          <p class="muted">按月或按年訂閱，或一次付清終身使用</p>
+        </div>
+      </div>
+      <p class="muted">也可以在 App 裡把 Pro 當作禮物送給朋友。</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>常見問題</h2>
+      <div class="faq"><details><summary>照片會被上傳嗎？</summary><p>不會。照片和圖紙只在你的 iPhone 裡處理和儲存。</p></details>
+<details><summary>螢幕上的顏色和我的豆子有點不一樣。</summary><p>螢幕顯示的顏色和塑膠、繡線實物會有差異。在顏色清單裡點一下顏色，就能換成同品牌中更接近的顏色。</p></details>
+<details><summary>圖紙最大能做多大？</summary><p>免費版是 1 塊 29 × 29 拼板，十字繡長邊 40 格。Pro 最多 4 × 4 塊拼板（116 格），十字繡 200 格。</p></details>
+<details><summary>什麼樣的照片效果好？</summary><p>主角只有一個、背景單純的照片。顏色越少圖紙越乾淨，看起來太雜的話，試著減少顏色數。</p></details>
+<details><summary>還能畫像素畫嗎？</summary><p>可以。照片像素化、跟著 110 個範例畫、逐格動畫都還在。所有像素畫工具都包含在 Pro 裡。</p></details>
+<details><summary>要怎麼恢復購買？</summary><p>在 App 的設定裡點 <code>恢復購買項目</code>。請使用購買 Pro 時的同一個 Apple 帳號。</p></details>
+<details><summary>要怎麼取消訂閱？</summary><p>前往 iPhone 設定 › 你的名字 › 訂閱，選擇 Hantam 取消。終身版只付一次，不會續訂。</p></details>
+<details><summary>要怎麼回報問題或提出建議？</summary><p>最快的方式是 App 設定裡的意見回饋。也可以寄信到下方信箱，或在 Instagram 私訊 @lee25_ios。</p></details></div>
+      <p class="contact">問題、錯誤回報和建議，都歡迎寄到 <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>。</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>把喜歡的照片<br>一顆一顆拼出來</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">在 App Store 免費下載</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="語言"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant" aria-current="page">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">隱私權政策</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

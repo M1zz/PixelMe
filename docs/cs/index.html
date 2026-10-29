@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="cs">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Vzory ze žehlicích korálků a křížkový steh</title>
-<meta name="description" content="Z libovolné fotky udělej vzor ze žehlicích korálků nebo křížkového stehu ve skutečných barvách Perler, Hama, Artkal a DMC.">
-<meta property="og:title" content="Hantam — Vzory ze žehlicích korálků a křížkový steh">
-<meta property="og:description" content="Z libovolné fotky udělej vzor ze žehlicích korálků nebo křížkového stehu ve skutečných barvách Perler, Hama, Artkal a DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: vzory ze žehlicích korálků a křížkového stehu z fotky</title>
+  <meta name="description" content="Vyber fotku a Hantam z ní udělá vzor v barvách, které se opravdu prodávají: korálky Perler, Hama, Artkal a příze DMC, i s počtem každé barvy.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: vzory ze žehlicích korálků a křížkového stehu z fotky">
+  <meta property="og:description" content="Vyber fotku a Hantam z ní udělá vzor v barvách, které se opravdu prodávají: korálky Perler, Hama, Artkal a příze DMC, i s počtem každé barvy.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/cs/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/cs/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Domů</a><a href="support.html">Podpora</a><a href="privacy.html">Soukromí</a><a href="terms.html">Podmínky</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi">Tiếng Việt</a><a href="../cs/index.html" lang="cs" aria-current="page">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Přejít na obsah</a>
+  <header class="bar">
+    <a class="brand" href="../cs/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Jazyk</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Z fotky vzor</h1>
-    <p>Vyber fotku mazlíčka, sebe nebo oblíbené postavy. Hantam z ní udělá vzor ze žehlicích korálků nebo křížkového stehu v barvách, které si můžeš koupit.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Stáhnout z App Storu</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Skutečné barvy</h3><p>Korálky Perler, Hama a Artkal a nitě DMC. Každé políčko ukazuje skutečné číslo barvy.</p></div><div class="card"><h3>Víš, co koupit</h3><p>Uvidíš, kolik korálků nebo stehů která barva potřebuje, a zkopíruješ nákupní seznam.</p></div><div class="card"><h3>Podložku po podložce</h3><p>Velké vzory se dělí na podložky 29 × 29 s tlustými čarami na hranicích.</p></div><div class="card"><h3>Oprav každé políčko</h3><p>Klepnutím políčko změníš, nebo nahradíš jednu barvu jinou všude najednou.</p></div><div class="card"><h3>Vytiskni a tvoř</h3><p>S Pro exportuješ PDF k tisku: seznam barev a vzory se symboly, stránku po stránce.</p></div><div class="card"><h3>I pixel art</h3><p>Převeď fotky na pixel art, obkresluj 110 předloh a animuj po políčkách.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Bezplatná verze umožňuje vzory do jedné podložky (nebo 40 stehů), uložení 3 vzorů a sdílení obrázků s malou značkou. Pro přidává PDF k tisku, vzory až 4 × 4 podložky nebo 200 stehů, neomezené ukládání, obrázky bez značky a všechny nástroje pro pixel art. Vyber si měsíční nebo roční předplatné, nebo jednorázový nákup na celý život.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Z jedné fotky<br>je vzor</h1>
+        <p class="lead">Vyber fotku svého mazlíčka, sebe nebo oblíbené postavičky. Hantam z ní udělá vzor na žehlicí korálky nebo křížkový steh v barvách, které si můžeš koupit.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Stáhnout zdarma</a><a class="try" href="#try">Vyzkoušej to na fotce ↓</a></div>
+        <p class="muted small">Vzory na jednu podložku jsou zdarma. Fotky z iPhonu nikam neodcházejí.</p>
+      </div>
+      <div class="phone"><img src="../img/cs/detail.jpg" alt="Z jedné fotky je vzor" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s těmito společnostmi nijak nesouvisí.<br>Vývojář: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Vyzkoušej to na fotce</h2>
+      <p class="muted">Stejné přiřazování barev jako v aplikaci, se skutečným vzorníkem Perler. Změň velikost a počet barev, nebo zkus vlastní fotku.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Vyzkoušej to na fotce&quot;, &quot;lead&quot;: &quot;Stejné přiřazování barev jako v aplikaci, se skutečným vzorníkem Perler. Změň velikost a počet barev, nebo zkus vlastní fotku.&quot;, &quot;size&quot;: &quot;Velikost&quot;, &quot;boards&quot;: [&quot;1 podložka&quot;, &quot;4 podložky (Pro)&quot;], &quot;colors&quot;: &quot;Nejvýš {n} barev&quot;, &quot;need&quot;: &quot;Barvy, které potřebuješ&quot;, &quot;more&quot;: &quot;a další barvy: {n}&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · asi {cw} × {ch} cm · korálků: {n} · barev: {c}&quot;, &quot;mine&quot;: &quot;Zkusit vlastní fotku&quot;, &quot;photo&quot;: &quot;Původní fotka&quot;, &quot;alt&quot;: &quot;Vzor z korálků vytvořený z fotky&quot;, &quot;note&quot;: &quot;Fotka se převádí přímo v tomhle prohlížeči a nikam se nenahrává.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Udělat vzor je snadné. Trefit skutečné barvy korálků už ne</h2>
+      <p>Když fotku rozpixeluješ v jakémkoli editoru, vyjdou barvy, které nemá žádný korálek ani příze. Pak hádáš, ze které krabičky je které políčko, a počítáš, kolik čeho koupit. Hantam vybírá jen z barev, které se prodávají, a řekne ti přesně, kolik jich potřebuješ.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Skutečné barvy, skutečná čísla</h2>
+        <p>Vyber korálky Perler, Hama Midi, Artkal S nebo přízi DMC. Každé políčko dostane barvu, kterou ta značka opravdu prodává, i s číslem.<br>Velikost a počet barev určíš sám. Velké vzory se dělí na podložky 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/cs/maker.jpg" alt="Skutečné barvy, skutečná čísla" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>I na křížkový steh</h2>
+        <p>Vyber přízi DMC a ze stejné fotky je vzor na křížkový steh. Zvol kanavu Aida 11, 14, 16 nebo 18 a Hantam ukáže hotovou velikost a počet stehů každé barvy.</p>
+      </div>
+      <div class="phone"><img src="../img/cs/stitch.jpg" alt="I na křížkový steh" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Hned víš, co koupit</h2>
+        <p>Přepni na vzor se symboly a postupuj políčko po políčku, s tlustou čárou na každém okraji podložky nebo po 10 stezích. Uvidíš, kolik korálků která barva potřebuje, a <code>Zkopírovat nákupní seznam</code> stačí jedním klepnutím.<br>Klepnutím na políčko ho změníš, nebo nahradíš jednu barvu jinou v celém vzoru.</p>
+      </div>
+      <div class="phone"><img src="../img/cs/symbols.jpg" alt="Hned víš, co koupit" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Vytiskni a začni</h2>
+        <p>S Pro vyexportuješ <code>Vzor k tisku (PDF)</code>: nejdřív seznam barev, pak vzory se symboly po jednotlivých podložkách.</p>
+      </div>
+      <div class="phone"><img src="../img/cs/pdf.jpg" alt="Vytiskni a začni" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Ke vzoru ve třech krocích</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Vyber fotku</h3><p>Mazlíčci, obličeje, loga i postavičky. Nejlíp dopadnou fotky s jasným hlavním motivem.</p></li>
+<li class="card"><span class="n">2</span><h3>Vyber korálky nebo přízi</h3><p>Urči značku, velikost a počet barev.</p></li>
+<li class="card"><span class="n">3</span><h3>Tvoř</h3><p>Řiď se vzorem na displeji, nebo si ho s Pro vytiskni.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Materiály a velikosti</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Žehlicí korálky, podložky 29 × 29, korálek asi 5 mm</dd></div><div><dt>DMC</dt><dd>Příze na křížkový steh, kanava Aida 11, 14, 16 nebo 18</dd></div><div><dt>Zdarma</dt><dd>Korálky do 1 podložky (29 políček), příze do 40 stehů na delší straně</dd></div><div><dt>Pro</dt><dd>Korálky do 4 × 4 podložek (116 políček), příze do 200 stehů</dd></div><div><dt>Barvy</dt><dd>2 až 50 v jednom vzoru</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s nimi není nijak spojen. Barvy na displeji se mohou od skutečnosti mírně lišit.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Začni zdarma. Na velké vzory a tisk je Pro.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Zdarma</h3>
+          <ul><li>Vzory do jedné podložky nebo 40 stehů</li><li>Všechny značky: Perler, Hama, Artkal a DMC</li><li>Počty podle barev, nákupní seznam a výměna barev</li><li>Až 3 uložené vzory</li><li>Sdílení obrázků s malou značkou Hantam</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Vzory v PDF k tisku</li><li>Až 4 × 4 podložky nebo 200 stehů</li><li>Neomezeně uložených vzorů</li><li>Obrázky bez značky</li><li>Všechny nástroje pro pixel art</li></ul>
+          <p class="muted">Měsíční nebo roční předplatné, nebo jednorázový doživotní nákup</p>
+        </div>
+      </div>
+      <p class="muted">Pro můžeš v aplikaci i darovat kamarádovi.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Časté otázky</h2>
+      <div class="faq"><details><summary>Nahrávají se moje fotky někam?</summary><p>Ne. Fotky i vzory se zpracovávají a ukládají jen v tvém iPhonu.</p></details>
+<details><summary>Barvy vypadají trochu jinak než moje korálky.</summary><p>Displej zobrazuje barvy jinak než plast a příze. Klepni na barvu v seznamu a vyměň ji za bližší odstín stejné značky.</p></details>
+<details><summary>Jak velký může vzor být?</summary><p>Zdarma jedna podložka 29 × 29 nebo 40 stehů na delší straně. S Pro až 4 × 4 podložky (116 korálků) nebo 200 stehů.</p></details>
+<details><summary>Které fotky dopadnou nejlíp?</summary><p>S jedním hlavním motivem a jednoduchým pozadím. Čím méně barev, tím čistší vzor, takže když výsledek působí neklidně, sniž počet barev.</p></details>
+<details><summary>Dá se pořád dělat pixel art?</summary><p>Ano. Pixelizace fotek, kreslení podle 110 předloh i animace snímek po snímku zůstaly. Všechny nástroje pro pixel art jsou v Pro.</p></details>
+<details><summary>Jak obnovím nákup?</summary><p>Otevři v aplikaci nastavení a klepni na <code>Obnovit nákupy</code>. Použij stejný Apple účet, kterým jsi Pro koupil.</p></details>
+<details><summary>Jak zruším předplatné?</summary><p>V Nastavení iPhonu › tvoje jméno › Předplatné vyber Hantam. Doživotní přístup je jednorázová platba a neobnovuje se.</p></details>
+<details><summary>Jak nahlásit chybu nebo navrhnout nápad?</summary><p>Nejrychlejší je poslat zpětnou vazbu z nastavení aplikace. Můžeš také napsat na adresu níže nebo poslat DM na Instagramu (@lee25_ios).</p></details></div>
+      <p class="contact">Dotazy, chyby i nápady posílej na <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Tvoje oblíbená fotka,<br>korálek po korálku</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Stáhnout zdarma</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Jazyk"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs" aria-current="page">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Zásady ochrany osobních údajů</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

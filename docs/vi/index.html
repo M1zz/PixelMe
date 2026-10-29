@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Mẫu hạt ủi và thêu chữ thập</title>
-<meta name="description" content="Biến mọi bức ảnh thành mẫu hạt ủi hoặc thêu chữ thập với màu thật của Perler, Hama, Artkal và DMC.">
-<meta property="og:title" content="Hantam — Mẫu hạt ủi và thêu chữ thập">
-<meta property="og:description" content="Biến mọi bức ảnh thành mẫu hạt ủi hoặc thêu chữ thập với màu thật của Perler, Hama, Artkal và DMC.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: biến ảnh thành mẫu hạt ủi và thêu chữ thập</title>
+  <meta name="description" content="Chọn một tấm ảnh, Hantam làm mẫu bằng những màu có bán thật của hạt Perler, Hama, Artkal và chỉ DMC, kèm số lượng cần cho từng màu.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: biến ảnh thành mẫu hạt ủi và thêu chữ thập">
+  <meta property="og:description" content="Chọn một tấm ảnh, Hantam làm mẫu bằng những màu có bán thật của hạt Perler, Hama, Artkal và chỉ DMC, kèm số lượng cần cho từng màu.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/vi/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/vi/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../sitegen.css">
+  <link rel="stylesheet" href="../demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="../assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Trang chủ</a><a href="support.html">Hỗ trợ</a><a href="privacy.html">Quyền riêng tư</a><a href="terms.html">Điều khoản</a></nav>
-  <div class="langs"><a href="../index.html" lang="en">English</a><a href="../ko/index.html" lang="ko">한국어</a><a href="../ja/index.html" lang="ja">日本語</a><a href="../zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="../zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="../ru/index.html" lang="ru">Русский</a><a href="../es/index.html" lang="es">Español</a><a href="../de/index.html" lang="de">Deutsch</a><a href="../fr/index.html" lang="fr">Français</a><a href="../it/index.html" lang="it">Italiano</a><a href="../pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="../th/index.html" lang="th">ไทย</a><a href="../vi/index.html" lang="vi" aria-current="page">Tiếng Việt</a><a href="../cs/index.html" lang="cs">Čeština</a><a href="../da/index.html" lang="da">Dansk</a><a href="../el/index.html" lang="el">Ελληνικά</a><a href="../fi/index.html" lang="fi">Suomi</a><a href="../id/index.html" lang="id">Bahasa Indonesia</a><a href="../nb/index.html" lang="nb">Norsk bokmål</a><a href="../nl/index.html" lang="nl">Nederlands</a><a href="../pl/index.html" lang="pl">Polski</a><a href="../sv/index.html" lang="sv">Svenska</a><a href="../tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Chuyển đến nội dung</a>
+  <header class="bar">
+    <a class="brand" href="../vi/"><img src="../icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Ngôn ngữ</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Từ một tấm ảnh thành một mẫu</h1>
-    <p>Chọn ảnh thú cưng, ảnh của bạn hoặc nhân vật yêu thích. Hantam biến nó thành mẫu hạt ủi hoặc thêu chữ thập với những màu bạn có thể mua được.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Tải trên App Store</a>
-  </div>
-  <img class="shot" src="../screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Màu thật</h3><p>Hạt Perler, Hama, Artkal và chỉ DMC. Mỗi ô hiển thị một mã màu thật.</p></div><div class="card"><h3>Biết cần mua bao nhiêu</h3><p>Xem mỗi màu cần bao nhiêu hạt hoặc mũi thêu, và sao chép danh sách mua sắm.</p></div><div class="card"><h3>Từng đế một</h3><p>Mẫu lớn được chia theo đế 29 × 29 với đường viền giữa các đế được kẻ đậm.</p></div><div class="card"><h3>Sửa được mọi ô</h3><p>Chạm vào ô để đổi, hoặc thay một màu bằng màu khác trên toàn bộ mẫu.</p></div><div class="card"><h3>In ra là làm</h3><p>Với Pro, xuất PDF để in: danh sách màu cùng mẫu ký hiệu theo từng trang.</p></div><div class="card"><h3>Có cả pixel art</h3><p>Biến ảnh thành pixel art, tô theo 110 mẫu có sẵn và làm hoạt ảnh từng khung hình.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Bản miễn phí cho phép tạo mẫu tối đa một đế (hoặc 40 mũi), lưu 3 mẫu và chia sẻ ảnh có dấu nhỏ. Pro bổ sung PDF để in, mẫu tối đa 4 × 4 đế hoặc 200 mũi, lưu không giới hạn, ảnh không có dấu và toàn bộ công cụ pixel art. Chọn gói theo tháng hoặc theo năm, hoặc mua một lần dùng mãi mãi.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Một tấm ảnh<br>thành một mẫu</h1>
+        <p class="lead">Chọn ảnh thú cưng, ảnh chân dung hay nhân vật bạn thích. Hantam biến nó thành mẫu hạt ủi hoặc thêu chữ thập, khớp với những màu bạn mua được.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Tải miễn phí</a><a class="try" href="#try">Thử với một tấm ảnh ↓</a></div>
+        <p class="muted small">Miễn phí cho mẫu cỡ một bảng. Ảnh không rời khỏi iPhone của bạn.</p>
+      </div>
+      <div class="phone"><img src="../img/vi/detail.jpg" alt="Một tấm ảnh thành một mẫu" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với các công ty này.<br>Nhà phát triển: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Thử với một tấm ảnh</h2>
+      <p class="muted">Cùng cách ghép màu như trong ứng dụng, dùng bảng màu thật của Perler. Đổi kích thước, số màu, hoặc thử bằng ảnh của bạn.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Thử với một tấm ảnh&quot;, &quot;lead&quot;: &quot;Cùng cách ghép màu như trong ứng dụng, dùng bảng màu thật của Perler. Đổi kích thước, số màu, hoặc thử bằng ảnh của bạn.&quot;, &quot;size&quot;: &quot;Kích thước&quot;, &quot;boards&quot;: [&quot;1 bảng&quot;, &quot;4 bảng (Pro)&quot;], &quot;colors&quot;: &quot;Tối đa {n} màu&quot;, &quot;need&quot;: &quot;Màu bạn cần&quot;, &quot;more&quot;: &quot;và {n} màu khác&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · khoảng {cw} × {ch} cm · {n} hạt · {c} màu&quot;, &quot;mine&quot;: &quot;Thử với ảnh của tôi&quot;, &quot;photo&quot;: &quot;Ảnh gốc&quot;, &quot;alt&quot;: &quot;Mẫu hạt làm từ ảnh&quot;, &quot;note&quot;: &quot;Ảnh được chuyển đổi ngay trong trình duyệt này và không bao giờ được tải lên.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>Làm mẫu thì dễ, khớp với hạt thật mới khó</h2>
+      <p>Pixel hóa ảnh bằng ứng dụng chỉnh ảnh thông thường sẽ ra những màu không loại hạt hay chỉ nào có. Rồi bạn phải đoán mỗi ô lấy hạt từ hũ nào và tự đếm cần mua bao nhiêu mỗi màu. Hantam chỉ chọn trong những màu có bán thật và cho biết chính xác bạn cần bao nhiêu.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Màu thật, mã màu thật</h2>
+        <p>Chọn hạt Perler, Hama Midi, Artkal S hoặc chỉ DMC. Mỗi ô được gán một màu mà hãng đó thật sự bán, kèm mã màu.<br>Bạn tự chọn kích thước và số màu. Mẫu lớn được chia thành các bảng 29 × 29.</p>
+      </div>
+      <div class="phone"><img src="../img/vi/maker.jpg" alt="Màu thật, mã màu thật" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Thêu chữ thập cũng được</h2>
+        <p>Chọn chỉ DMC, cùng tấm ảnh sẽ thành mẫu thêu chữ thập. Chọn vải Aida 11, 14, 16 hoặc 18 count, Hantam cho thấy kích thước thành phẩm và số mũi của từng màu.</p>
+      </div>
+      <div class="phone"><img src="../img/vi/stitch.jpg" alt="Thêu chữ thập cũng được" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Biết ngay cần mua gì</h2>
+        <p>Chuyển sang mẫu ký hiệu để làm theo từng ô, có đường đậm ở mỗi mép bảng hoặc mỗi 10 mũi. Xem mỗi màu cần bao nhiêu hạt rồi chạm <code>Sao chép danh sách mua sắm</code> một lần là xong.<br>Chạm vào một ô để đổi, hoặc thay một màu bằng màu khác trên toàn mẫu.</p>
+      </div>
+      <div class="phone"><img src="../img/vi/symbols.jpg" alt="Biết ngay cần mua gì" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>In ra và bắt tay làm</h2>
+        <p>Với Pro, xuất <code>Mẫu để in (PDF)</code>: trang đầu là danh sách màu, các trang sau là mẫu ký hiệu chia theo từng bảng.</p>
+      </div>
+      <div class="phone"><img src="../img/vi/pdf.jpg" alt="In ra và bắt tay làm" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Ba bước là có mẫu</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Chọn ảnh</h3><p>Thú cưng, khuôn mặt, logo, nhân vật đều được. Ảnh có chủ thể rõ ràng sẽ đẹp nhất.</p></li>
+<li class="card"><span class="n">2</span><h3>Chọn hạt hoặc chỉ</h3><p>Chọn hãng, kích thước và số màu.</p></li>
+<li class="card"><span class="n">3</span><h3>Bắt tay làm</h3><p>Làm theo mẫu trên màn hình hoặc in ra với Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Chất liệu và kích thước</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Hạt ủi, bảng 29 × 29, mỗi hạt khoảng 5 mm</dd></div><div><dt>DMC</dt><dd>Chỉ thêu chữ thập trên vải Aida 11, 14, 16 hoặc 18 count</dd></div><div><dt>Miễn phí</dt><dd>Hạt tối đa 1 bảng (29 ô), chỉ tối đa 40 mũi ở cạnh dài</dd></div><div><dt>Pro</dt><dd>Hạt tối đa 4 × 4 bảng (116 ô), chỉ tối đa 200 mũi</dd></div><div><dt>Số màu</dt><dd>Từ 2 đến 50 màu mỗi mẫu</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với họ. Màu trên màn hình có thể hơi khác so với thực tế.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Bắt đầu miễn phí, mẫu lớn và in ấn có Pro</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Miễn phí</h3>
+          <ul><li>Mẫu tối đa một bảng (thêu 40 mũi)</li><li>Mọi hãng: Perler, Hama, Artkal và DMC</li><li>Số lượng từng màu, danh sách mua sắm, đổi màu</li><li>Lưu tối đa 3 mẫu</li><li>Chia sẻ ảnh có dấu Hantam nhỏ</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Mẫu PDF để in</li><li>Tối đa 4 × 4 bảng (thêu 200 mũi)</li><li>Lưu mẫu không giới hạn</li><li>Ảnh không có dấu</li><li>Mọi công cụ pixel art</li></ul>
+          <p class="muted">Gói tháng hoặc gói năm, hoặc mua một lần dùng trọn đời</p>
+        </div>
+      </div>
+      <p class="muted">Bạn cũng có thể tặng Pro cho bạn bè ngay trong ứng dụng.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <div class="faq"><details><summary>Ảnh của tôi có bị tải lên đâu không?</summary><p>Không. Ảnh và mẫu chỉ được xử lý và lưu trên iPhone của bạn.</p></details>
+<details><summary>Màu trên màn hình hơi khác hạt của tôi.</summary><p>Màn hình hiển thị màu khác với nhựa và chỉ thật. Chạm vào một màu trong danh sách để đổi sang màu gần hơn cùng hãng.</p></details>
+<details><summary>Mẫu có thể lớn đến đâu?</summary><p>Bản miễn phí là một bảng 29 × 29, thêu tối đa 40 mũi ở cạnh dài. Pro lên tới 4 × 4 bảng (116 hạt) hoặc 200 mũi.</p></details>
+<details><summary>Ảnh nào cho kết quả đẹp?</summary><p>Ảnh chỉ có một chủ thể và nền đơn giản. Càng ít màu mẫu càng gọn, nên nếu trông rối, hãy giảm số màu.</p></details>
+<details><summary>Tôi vẫn vẽ pixel art được chứ?</summary><p>Được. Pixel hóa ảnh, vẽ theo 110 mẫu và làm hoạt ảnh từng khung hình vẫn còn đủ. Mọi công cụ pixel art đều có trong Pro.</p></details>
+<details><summary>Làm sao khôi phục giao dịch mua?</summary><p>Mở cài đặt trong ứng dụng và chạm <code>Khôi phục giao dịch mua</code>. Dùng đúng Tài khoản Apple đã mua Pro.</p></details>
+<details><summary>Làm sao hủy gói đăng ký?</summary><p>Vào Cài đặt iPhone › tên của bạn › Đăng ký và chọn Hantam. Gói trọn đời chỉ trả một lần và không gia hạn.</p></details>
+<details><summary>Báo lỗi hoặc góp ý ở đâu?</summary><p>Nhanh nhất là gửi phản hồi từ cài đặt trong ứng dụng. Bạn cũng có thể gửi email đến địa chỉ bên dưới hoặc nhắn Instagram (@lee25_ios).</p></details></div>
+      <p class="contact">Câu hỏi, báo lỗi và ý tưởng xin gửi về <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Bức ảnh bạn yêu thích,<br>từng hạt một</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Tải miễn phí</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Ngôn ngữ"><a href="../" hreflang="en" lang="en">English</a>
+<a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="../ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="../es/" hreflang="es" lang="es">Español</a>
+<a href="../de/" hreflang="de" lang="de">Deutsch</a>
+<a href="../fr/" hreflang="fr" lang="fr">Français</a>
+<a href="../it/" hreflang="it" lang="it">Italiano</a>
+<a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="../th/" hreflang="th" lang="th">ไทย</a>
+<a href="../vi/" hreflang="vi" lang="vi" aria-current="page">Tiếng Việt</a>
+<a href="../cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="../da/" hreflang="da" lang="da">Dansk</a>
+<a href="../el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="../fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="../nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="../pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="../sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Chính sách quyền riêng tư</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="../demo.js"></script>
 </body>
 </html>

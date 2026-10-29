@@ -1,0 +1,168 @@
+{
+  "title": "Hantam: silitettävien helmien ja ristipistotyön kuviot valokuvasta",
+  "description": "Valitse kuva, niin Hantam tekee kuvion oikeasti myytävillä väreillä: Perler-, Hama- ja Artkal-helmet sekä DMC-lanka, määrineen.",
+  "hero": {
+    "headline": "Yhdestä kuvasta\nsyntyy kuvio",
+    "lead": "Valitse kuva lemmikistäsi, itsestäsi tai lempihahmostasi. Hantam tekee siitä kuvion silitettäville helmille tai ristipistoille väreillä, joita voit ostaa.",
+    "cta": "Lataa ilmaiseksi",
+    "note": "Yhden alustan kuviot ovat ilmaisia. Kuvat eivät lähde iPhonestasi."
+  },
+  "demo": {
+    "title": "Kokeile kuvalla",
+    "lead": "Sama värien sovitus kuin sovelluksessa, Perlerin oikealla värikartalla. Vaihda kokoa ja värien määrää tai kokeile omalla kuvallasi.",
+    "size": "Koko",
+    "boards": [
+      "1 alusta",
+      "4 alustaa (Pro)"
+    ],
+    "colors": "Enintään {n} väriä",
+    "need": "Tarvitsemasi värit",
+    "more": "ja {n} muuta väriä",
+    "info": "Perler · {w} × {h} · noin {cw} × {ch} cm · {n} helmeä · {c} väriä",
+    "mine": "Kokeile omalla kuvalla",
+    "photo": "Alkuperäinen kuva",
+    "alt": "Kuvasta tehty helmikuvio",
+    "note": "Kuva muunnetaan tässä selaimessa eikä sitä ladata minnekään."
+  },
+  "problem": {
+    "title": "Kuvion tekeminen on helppoa. Oikeiden helmivärien löytäminen ei",
+    "text": "Jos pikselöit kuvan millä tahansa kuvankäsittelyohjelmalla, tulee värejä, joita ei ole yhdessäkään helmessä tai langassa. Sitten pitää arvata, mistä purkista kukin ruutu tulee, ja laskea, montako mitäkin ostaa. Hantam valitsee vain myynnissä olevista väreistä ja kertoo tarkalleen, montako tarvitset."
+  },
+  "features": [
+    {
+      "title": "Oikeat värit, oikeat numerot",
+      "text": "Valitse Perler-, Hama Midi- tai Artkal S -helmet tai DMC-lanka. Jokainen ruutu saa värin, jota merkki oikeasti myy, numeroineen.\nKoon ja värien määrän päätät itse. Isot kuviot jaetaan 29 × 29 -alustoihin.",
+      "shot": "maker"
+    },
+    {
+      "title": "Myös ristipistot",
+      "text": "Valitse DMC-lanka, niin samasta kuvasta tulee ristipistokuvio. Valitse Aida-kangas 11, 14, 16 tai 18, niin Hantam näyttää valmiin koon ja pistojen määrän väreittäin.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Tiedät tarkalleen, mitä ostaa",
+      "text": "Vaihda symbolikuvioon ja etene ruutu kerrallaan. Jokaisen alustan reuna tai joka 10. pisto on merkitty paksulla viivalla. Näet, montako helmeä kukin väri vaatii, ja `Kopioi ostoslista` hoituu yhdellä napautuksella.\nNapauta ruutua muuttaaksesi sitä tai vaihda yksi väri toiseen koko kuviossa.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Tulosta ja aloita",
+      "text": "Prolla viet ulos `Tulostettava kuvio (PDF)`: ensin värilista, sitten symbolikuviot alusta kerrallaan.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "Kuvioon kolmessa vaiheessa",
+    "items": [
+      {
+        "title": "Valitse kuva",
+        "text": "Lemmikit, kasvot, logot ja hahmot käyvät. Selkeän pääkohteen kuvat onnistuvat parhaiten."
+      },
+      {
+        "title": "Valitse helmet tai lanka",
+        "text": "Päätä merkki, koko ja värien määrä."
+      },
+      {
+        "title": "Tee se",
+        "text": "Seuraa kuviota näytöltä tai tulosta se Prolla."
+      }
+    ]
+  },
+  "reference": {
+    "title": "Materiaalit ja koot",
+    "rows": [
+      [
+        "Perler · Hama Midi · Artkal S",
+        "Silitettävät helmet, 29 × 29 -alustat, helmi noin 5 mm"
+      ],
+      [
+        "DMC",
+        "Ristipistolanka Aida-kankaalle 11, 14, 16 tai 18"
+      ],
+      [
+        "Ilmainen",
+        "Helmet 1 alustaan asti (29 ruutua), lanka 40 pistoon asti pidemmällä sivulla"
+      ],
+      [
+        "Pro",
+        "Helmet 4 × 4 alustaan asti (116 ruutua), lanka 200 pistoon asti"
+      ],
+      [
+        "Värit",
+        "2–50 yhdessä kuviossa"
+      ]
+    ],
+    "note": "Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei liity niihin. Näytön värit voivat erota hieman todellisista."
+  },
+  "pricing": {
+    "title": "Aloita ilmaiseksi. Isot kuviot ja tulostus Prolla.",
+    "free": {
+      "name": "Ilmainen",
+      "items": [
+        "Kuviot yhteen alustaan tai 40 pistoon asti",
+        "Kaikki merkit: Perler, Hama, Artkal ja DMC",
+        "Määrät väreittäin, ostoslista ja värien vaihto",
+        "Enintään 3 tallennettua kuviota",
+        "Kuvien jakaminen pienellä Hantam-merkillä"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Tulostettavat PDF-kuviot",
+        "Enintään 4 × 4 alustaa tai 200 pistoa",
+        "Rajattomasti tallennettuja kuvioita",
+        "Kuvat ilman merkkiä",
+        "Kaikki pikselitaidetyökalut"
+      ],
+      "note": "Kuukausi- tai vuositilaus tai kertaostos loppuiäksi"
+    },
+    "note": "Voit myös antaa Pron lahjaksi ystävälle suoraan sovelluksesta."
+  },
+  "faq": {
+    "title": "Usein kysyttyä",
+    "items": [
+      {
+        "q": "Ladataanko kuvani jonnekin?",
+        "a": "Ei. Kuvat ja kuviot käsitellään ja tallennetaan vain iPhonellesi."
+      },
+      {
+        "q": "Värit näyttävät vähän erilaisilta kuin helmeni.",
+        "a": "Näyttö näyttää värit eri tavalla kuin muovi ja lanka. Napauta väriä listassa ja vaihda se saman merkin lähempään sävyyn."
+      },
+      {
+        "q": "Kuinka iso kuvio voi olla?",
+        "a": "Ilmaisena yksi 29 × 29 -alusta tai 40 pistoa pidemmällä sivulla. Prolla enintään 4 × 4 alustaa (116 helmeä) tai 200 pistoa."
+      },
+      {
+        "q": "Millaiset kuvat onnistuvat parhaiten?",
+        "a": "Kuvat, joissa on yksi kohde ja yksinkertainen tausta. Mitä vähemmän värejä, sitä siistimpi kuvio, joten jos tulos näyttää levottomalta, vähennä värejä."
+      },
+      {
+        "q": "Voinko yhä tehdä pikselitaidetta?",
+        "a": "Voit. Kuvien pikselöinti, piirtäminen 110 mallin mukaan ja animointi ruutu ruudulta ovat yhä mukana. Kaikki pikselitaidetyökalut kuuluvat Prohon."
+      },
+      {
+        "q": "Miten palautan ostokseni?",
+        "a": "Avaa sovelluksen asetukset ja napauta `Palauta ostokset`. Käytä samaa Apple-tiliä, jolla ostit Pron."
+      },
+      {
+        "q": "Miten peruutan tilauksen?",
+        "a": "Avaa iPhonen Asetukset › oma nimesi › Tilaukset ja valitse Hantam. Elinikäinen käyttö on kertamaksu eikä uusiudu."
+      },
+      {
+        "q": "Miten ilmoitan virheestä tai ehdotan ideaa?",
+        "a": "Nopeinta on lähettää palautetta sovelluksen asetuksista. Voit myös kirjoittaa alla olevaan osoitteeseen tai lähettää viestin Instagramissa (@lee25_ios)."
+      }
+    ]
+  },
+  "closing": {
+    "headline": "Lempikuvasi\nhelmi kerrallaan",
+    "cta": "Lataa ilmaiseksi"
+  },
+  "ui": {
+    "skip": "Siirry sisältöön",
+    "languages": "Kieli",
+    "privacy": "Tietosuojakäytäntö",
+    "contact": "Kysymykset, virheilmoitukset ja ideat osoitteeseen {email}."
+  }
+}

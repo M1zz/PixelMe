@@ -1,0 +1,117 @@
+{
+  "title": "Hantam: Vorlagen für Bügelperlen und Kreuzstich aus deinem Foto",
+  "description": "Wähl ein Foto, und Hantam macht daraus eine Vorlage in Farben, die es wirklich gibt: Perler, Hama, Artkal und DMC-Garn, mit der Anzahl pro Farbe.",
+  "hero": {
+    "headline": "Aus einem Foto\nwird eine Vorlage",
+    "lead": "Wähl ein Foto von deinem Haustier, dir selbst oder deiner Lieblingsfigur. Hantam macht daraus eine Vorlage für Bügelperlen oder Kreuzstich, abgestimmt auf Farben, die du kaufen kannst.",
+    "cta": "Kostenlos laden",
+    "note": "Vorlagen bis zu einer Steckplatte sind kostenlos. Deine Fotos bleiben auf dem iPhone."
+  },
+  "demo": {
+    "title": "Probier es mit einem Foto",
+    "lead": "Dieselbe Farbzuordnung wie in der App, mit der echten Perler-Farbtabelle. Ändere Größe und Farbanzahl oder nimm ein eigenes Foto.",
+    "size": "Größe",
+    "boards": ["1 Steckplatte", "4 Steckplatten (Pro)"],
+    "colors": "Bis zu {n} Farben",
+    "need": "Benötigte Farben",
+    "more": "und {n} weitere Farben",
+    "info": "Perler · {w} × {h} · etwa {cw} × {ch} cm · {n} Perlen · {c} Farben",
+    "mine": "Eigenes Foto ausprobieren",
+    "photo": "Originalfoto",
+    "alt": "Perlenvorlage aus dem Foto",
+    "note": "Dein Foto wird direkt hier im Browser umgewandelt und nie hochgeladen."
+  },
+  "problem": {
+    "title": "Eine Vorlage ist schnell gemacht. Echte Perlenfarben zu treffen nicht.",
+    "text": "Verpixelst du ein Foto in irgendeiner Bildbearbeitung, entstehen Farben, die es bei keiner Perle und keinem Garn gibt. Dann musst du raten, aus welcher Dose jedes Feld kommt, und zählen, wie viele du von jeder Farbe kaufen musst. Hantam wählt nur aus Farben, die es wirklich zu kaufen gibt, und sagt dir genau, wie viele du brauchst."
+  },
+  "features": [
+    {
+      "title": "Echte Farben, echte Nummern",
+      "text": "Wähle Perler-, Hama-Midi- oder Artkal-S-Perlen oder DMC-Garn. Jedes Feld bekommt eine Farbe, die die Marke wirklich verkauft, samt Farbnummer.\nGröße und Farbanzahl legst du selbst fest. Große Vorlagen werden in Steckplatten von 29 × 29 aufgeteilt.",
+      "shot": "maker"
+    },
+    {
+      "title": "Auch für Kreuzstich",
+      "text": "Wähl DMC-Garn, und aus demselben Foto wird eine Kreuzstichvorlage. Such dir Aida-Stoff mit 11, 14, 16 oder 18 Kästchen pro Zoll aus, und Hantam zeigt die fertige Größe und wie viele Stiche jede Farbe braucht.",
+      "shot": "stitch"
+    },
+    {
+      "title": "Du weißt genau, was du kaufen musst",
+      "text": "Wechsle zur Symbolvorlage und arbeite Feld für Feld, mit dicken Linien an jeder Plattengrenze oder alle 10 Stiche. Sieh, wie viele Perlen jede Farbe braucht, und nutze `Einkaufsliste kopieren` mit einem Tipp.\nTippe ein Feld an, um es zu ändern, oder ersetze eine Farbe überall durch eine andere.",
+      "shot": "symbols"
+    },
+    {
+      "title": "Ausdrucken und loslegen",
+      "text": "Mit Pro exportierst du eine `Druckbare Vorlage (PDF)`: zuerst die Farbliste, dann Symbolvorlagen Seite für Seite, eine Steckplatte nach der anderen.",
+      "shot": "pdf"
+    }
+  ],
+  "steps": {
+    "title": "In drei Schritten zur Vorlage",
+    "items": [
+      {"title": "Foto auswählen", "text": "Haustiere, Gesichter, Logos und Figuren klappen alle. Fotos mit einem klaren Motiv werden am schönsten."},
+      {"title": "Perlen oder Garn wählen", "text": "Leg Marke, Größe und Farbanzahl fest."},
+      {"title": "Loslegen", "text": "Folge der Vorlage am Bildschirm oder druck sie mit Pro aus."}
+    ]
+  },
+  "reference": {
+    "title": "Materialien und Größen",
+    "rows": [
+      ["Perler · Hama Midi · Artkal S", "Bügelperlen, Steckplatten 29 × 29, jede Perle etwa 5 mm"],
+      ["DMC", "Kreuzstichgarn auf Aida mit 11, 14, 16 oder 18 Kästchen pro Zoll"],
+      ["Kostenlos", "Perlen bis 1 Steckplatte (29 Felder), Garn bis 40 Stiche an der längsten Seite"],
+      ["Pro", "Perlen bis 4 × 4 Steckplatten (116 Felder), Garn bis 200 Stiche"],
+      ["Farben", "2 bis 50 pro Vorlage"]
+    ],
+    "note": "Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht in keiner Verbindung zu ihnen. Farben auf dem Bildschirm können leicht vom Original abweichen."
+  },
+  "pricing": {
+    "title": "Kostenlos starten. Pro für große Vorlagen und zum Drucken.",
+    "free": {
+      "name": "Kostenlos",
+      "items": [
+        "Vorlagen bis zu einer Steckplatte oder 40 Stichen",
+        "Alle Marken: Perler, Hama, Artkal und DMC",
+        "Anzahl pro Farbe, Einkaufsliste und Farbtausch",
+        "Bis zu 3 gespeicherte Vorlagen",
+        "Bilder teilen mit kleinem Hantam-Zeichen"
+      ]
+    },
+    "pro": {
+      "name": "Hantam Pro",
+      "items": [
+        "Druckbare PDF-Vorlagen",
+        "Bis zu 4 × 4 Steckplatten oder 200 Stiche",
+        "Unbegrenzt viele gespeicherte Vorlagen",
+        "Bilder ohne Zeichen",
+        "Alle Pixel-Art-Werkzeuge"
+      ],
+      "note": "Monats- oder Jahresabo oder ein einmaliger Kauf auf Lebenszeit"
+    },
+    "note": "Du kannst Pro auch direkt in der App an Freunde verschenken."
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "items": [
+      {"q": "Werden meine Fotos hochgeladen?", "a": "Nein. Fotos und Vorlagen werden nur auf deinem iPhone verarbeitet und gespeichert."},
+      {"q": "Die Farben sehen etwas anders aus als meine Perlen.", "a": "Bildschirme zeigen Farben anders als Kunststoff und Garn. Tippe in der Liste auf eine Farbe, um sie durch eine passendere derselben Marke zu ersetzen."},
+      {"q": "Wie groß kann eine Vorlage werden?", "a": "Kostenlos passt sie auf eine Steckplatte von 29 × 29 oder 40 Stiche an der längsten Seite. Mit Pro bis zu 4 × 4 Steckplatten (116 Perlen) oder 200 Stiche."},
+      {"q": "Welche Fotos eignen sich am besten?", "a": "Fotos mit einem klaren Motiv und schlichtem Hintergrund. Je weniger Farben, desto sauberer die Vorlage. Wirkt das Ergebnis unruhig, reduzier die Farbanzahl."},
+      {"q": "Kann ich weiterhin Pixel-Art machen?", "a": "Ja. Fotos verpixeln, nach 110 Beispielen zeichnen und Bild für Bild animieren ist alles noch da. Alle Pixel-Art-Werkzeuge sind in Pro enthalten."},
+      {"q": "Wie stelle ich meinen Kauf wieder her?", "a": "Öffne in der App die Einstellungen und tippe auf `Käufe wiederherstellen`. Verwende denselben Apple Account, mit dem du Pro gekauft hast."},
+      {"q": "Wie kündige ich das Abo?", "a": "In den iPhone-Einstellungen › dein Name › Abonnements Hantam auswählen. Der Kauf auf Lebenszeit ist eine einmalige Zahlung und verlängert sich nie."},
+      {"q": "Wie melde ich einen Fehler oder schlage etwas vor?", "a": "Am schnellsten über das Feedback in den Einstellungen der App. Du kannst uns auch an die Adresse unten schreiben oder eine Instagram-DM an @lee25_ios schicken."}
+    ]
+  },
+  "closing": {
+    "headline": "Dein Lieblingsfoto,\nPerle für Perle",
+    "cta": "Kostenlos laden"
+  },
+  "ui": {
+    "skip": "Zum Inhalt springen",
+    "languages": "Sprache",
+    "privacy": "Datenschutzerklärung",
+    "contact": "Fragen, Fehlermeldungen und Ideen gern an {email}."
+  }
+}

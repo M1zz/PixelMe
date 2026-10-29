@@ -1,99 +1,198 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hantam — Bead &amp; Cross-Stitch Pattern Maker</title>
-<meta name="description" content="Turn any photo into a fuse bead or cross-stitch pattern matched to real Perler, Hama, Artkal and DMC colors.">
-<meta property="og:title" content="Hantam — Bead &amp; Cross-Stitch Pattern Maker">
-<meta property="og:description" content="Turn any photo into a fuse bead or cross-stitch pattern matched to real Perler, Hama, Artkal and DMC colors.">
-<meta property="og:image" content="https://m1zz.github.io/PixelMe/assets/app-icon.png">
-<link rel="icon" type="image/png" href="assets/app-icon.png">
-<link rel="canonical" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/index.html">
-<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/index.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/index.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/index.html">
-<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/index.html">
-<link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/index.html">
-<link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/index.html">
-<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/index.html">
-<link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/index.html">
-<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/index.html">
-<link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/index.html">
-<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/index.html">
-<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/index.html">
-<link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/index.html">
-<link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/index.html">
-<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/index.html">
-<link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/index.html">
-<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/index.html">
-<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/index.html">
-<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/index.html">
-<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/index.html">
-<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/index.html">
-<link rel="alternate" hreflang="en-GB" href="https://m1zz.github.io/PixelMe/index.html">
-<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/index.html">
-<style>
-:root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-:lang(ko) body{word-break:keep-all}
-a{color:var(--accent)}
-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
-header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
-header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
-header nav a{color:var(--muted);text-decoration:none}
-header nav a:hover{color:var(--accent)}
-.langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
-.langs a[aria-current]{color:var(--ink);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);margin:18px 0 26px}
-.hero img.shot{width:100%;max-width:340px;justify-self:center;border-radius:36px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:14px;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:30px 0}
-.card{background:var(--card);border-radius:18px;padding:20px;border:1px solid var(--line)}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:15px}
-section.pro{background:var(--card);border:2px dashed var(--accent);border-radius:22px;padding:24px;margin:30px 0}
-section.pro h2{color:var(--accent);margin-bottom:8px}
-.doc h1{font-size:34px;margin:10px 0 4px}
-.doc .updated{color:var(--muted);font-size:14px;margin-bottom:24px}
-.doc h2{font-size:20px;margin:28px 0 8px;color:var(--accent)}
-.doc p{margin-bottom:10px}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin-top:8px;color:var(--muted)}
-footer{max-width:960px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.shot{max-width:260px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hantam: turn a photo into a fuse bead or cross-stitch pattern</title>
+  <meta name="description" content="Pick a photo and Hantam turns it into a Perler, Hama, Artkal or DMC pattern in colors you can actually buy, with a count for every color.">
+  <meta name="theme-color" content="#CC3D36" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6449769987">
+  <link rel="canonical" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="en" href="https://m1zz.github.io/PixelMe/">
+  <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/PixelMe/ko/">
+  <link rel="alternate" hreflang="ja" href="https://m1zz.github.io/PixelMe/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/PixelMe/zh-Hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/PixelMe/zh-Hant/">
+  <link rel="alternate" hreflang="ru" href="https://m1zz.github.io/PixelMe/ru/">
+  <link rel="alternate" hreflang="es" href="https://m1zz.github.io/PixelMe/es/">
+  <link rel="alternate" hreflang="de" href="https://m1zz.github.io/PixelMe/de/">
+  <link rel="alternate" hreflang="fr" href="https://m1zz.github.io/PixelMe/fr/">
+  <link rel="alternate" hreflang="it" href="https://m1zz.github.io/PixelMe/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/PixelMe/pt-BR/">
+  <link rel="alternate" hreflang="th" href="https://m1zz.github.io/PixelMe/th/">
+  <link rel="alternate" hreflang="vi" href="https://m1zz.github.io/PixelMe/vi/">
+  <link rel="alternate" hreflang="cs" href="https://m1zz.github.io/PixelMe/cs/">
+  <link rel="alternate" hreflang="da" href="https://m1zz.github.io/PixelMe/da/">
+  <link rel="alternate" hreflang="el" href="https://m1zz.github.io/PixelMe/el/">
+  <link rel="alternate" hreflang="fi" href="https://m1zz.github.io/PixelMe/fi/">
+  <link rel="alternate" hreflang="id" href="https://m1zz.github.io/PixelMe/id/">
+  <link rel="alternate" hreflang="nb" href="https://m1zz.github.io/PixelMe/nb/">
+  <link rel="alternate" hreflang="nl" href="https://m1zz.github.io/PixelMe/nl/">
+  <link rel="alternate" hreflang="pl" href="https://m1zz.github.io/PixelMe/pl/">
+  <link rel="alternate" hreflang="sv" href="https://m1zz.github.io/PixelMe/sv/">
+  <link rel="alternate" hreflang="tr" href="https://m1zz.github.io/PixelMe/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/PixelMe/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hantam: turn a photo into a fuse bead or cross-stitch pattern">
+  <meta property="og:description" content="Pick a photo and Hantam turns it into a Perler, Hama, Artkal or DMC pattern in colors you can actually buy, with a count for every color.">
+  <meta property="og:url" content="https://m1zz.github.io/PixelMe/">
+  <meta property="og:image" content="https://m1zz.github.io/PixelMe/img/en/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="sitegen.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>:root{--accent:#CC3D36}@media (prefers-color-scheme:dark){:root{--accent:#FF7366}}</style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header>
-  <a class="logo" href="index.html"><img src="assets/app-icon.png" alt="">Hantam</a>
-  <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
-  <div class="langs"><a href="index.html" lang="en" aria-current="page">English</a><a href="ko/index.html" lang="ko">한국어</a><a href="ja/index.html" lang="ja">日本語</a><a href="zh-Hans/index.html" lang="zh-Hans">简体中文</a><a href="zh-Hant/index.html" lang="zh-Hant">繁體中文</a><a href="ru/index.html" lang="ru">Русский</a><a href="es/index.html" lang="es">Español</a><a href="de/index.html" lang="de">Deutsch</a><a href="fr/index.html" lang="fr">Français</a><a href="it/index.html" lang="it">Italiano</a><a href="pt-BR/index.html" lang="pt-BR">Português (Brasil)</a><a href="th/index.html" lang="th">ไทย</a><a href="vi/index.html" lang="vi">Tiếng Việt</a><a href="cs/index.html" lang="cs">Čeština</a><a href="da/index.html" lang="da">Dansk</a><a href="el/index.html" lang="el">Ελληνικά</a><a href="fi/index.html" lang="fi">Suomi</a><a href="id/index.html" lang="id">Bahasa Indonesia</a><a href="nb/index.html" lang="nb">Norsk bokmål</a><a href="nl/index.html" lang="nl">Nederlands</a><a href="pl/index.html" lang="pl">Polski</a><a href="sv/index.html" lang="sv">Svenska</a><a href="tr/index.html" lang="tr">Türkçe</a></div>
-</header>
-<main>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <a class="brand" href=""><img src="icon.png" alt="" width="32" height="32">Hantam</a>
+    <a class="lang-link" href="#languages">Language</a>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1>Turn a photo into a pattern</h1>
-    <p>Pick a photo of your pet, your face or a favorite character. Hantam turns it into a fuse bead or cross-stitch pattern, matched to colors you can actually buy.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6449769987">Download on the App Store</a>
-  </div>
-  <img class="shot" src="screenshots/marketing/en-US/01-photo.png" alt="">
-</section>
-<div class="grid"><div class="card"><h3>Real colors</h3><p>Perler, Hama and Artkal beads and DMC thread. Every square shows a real color number.</p></div><div class="card"><h3>Know what to buy</h3><p>See how many beads or stitches each color needs, and copy a shopping list.</p></div><div class="card"><h3>Board by board</h3><p>Big patterns split into 29 × 29 pegboards, with bold board lines.</p></div><div class="card"><h3>Fix any square</h3><p>Tap a square to change it, or swap one color for another everywhere.</p></div><div class="card"><h3>Print and make</h3><p>With Pro, export a printable PDF: a color list plus symbol charts, page by page.</p></div><div class="card"><h3>Pixel art too</h3><p>Pixelate photos, draw along with 110 samples, and animate frame by frame.</p></div></div>
-<section class="pro"><h2>Hantam Pro</h2><p>Free lets you make patterns up to one pegboard (or 40 stitches), keep 3 patterns and share images with a small mark. Pro adds printable PDFs, patterns up to 4 × 4 boards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Choose a monthly or yearly subscription, or pay once for lifetime access.</p></section>
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>Turn a photo<br>into a pattern</h1>
+        <p class="lead">Pick a photo of your pet, your face or a favorite character. Hantam turns it into a fuse bead or cross-stitch pattern, matched to colors you can actually buy.</p>
+        <div class="actions"><a class="cta" href="https://apps.apple.com/app/id6449769987">Get it free on the App Store</a><a class="try" href="#try">Try it on a photo ↓</a></div>
+        <p class="muted small">Free for one-pegboard patterns. Photos never leave your iPhone.</p>
+      </div>
+      <div class="phone"><img src="img/en/detail.jpg" alt="Turn a photo into a pattern" width="600" height="1303" decoding="async"></div>
+    </section>
 
-</main>
-<footer>Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them.<br>Developer: Hyunho Lee · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a></footer>
+
+    <section class="reveal" id="try">
+      <h2>Try it on a photo</h2>
+      <p class="muted">This is the same color matching the app uses, with the real Perler color chart. Change the size and the number of colors, or try one of your own photos.</p>
+      <div id="demo" class="card demo-card" data-text="{&quot;title&quot;: &quot;Try it on a photo&quot;, &quot;lead&quot;: &quot;This is the same color matching the app uses, with the real Perler color chart. Change the size and the number of colors, or try one of your own photos.&quot;, &quot;size&quot;: &quot;Size&quot;, &quot;boards&quot;: [&quot;1 pegboard&quot;, &quot;4 pegboards (Pro)&quot;], &quot;colors&quot;: &quot;Up to {n} colors&quot;, &quot;need&quot;: &quot;Colors you need&quot;, &quot;more&quot;: &quot;and {n} more colors&quot;, &quot;info&quot;: &quot;Perler · {w} × {h} · about {cw} × {ch} cm · {n} beads · {c} colors&quot;, &quot;mine&quot;: &quot;Try your own photo&quot;, &quot;photo&quot;: &quot;Original photo&quot;, &quot;alt&quot;: &quot;Bead pattern made from the photo&quot;, &quot;note&quot;: &quot;Your photo is converted right here in this browser and never uploaded.&quot;}"></div>
+    </section>
+
+    <section class="problem reveal">
+      <h2>A pattern is easy. Matching it to real beads isn't.</h2>
+      <p>Pixelate a photo in any editor and you get colors no bead or thread actually comes in. Then you have to guess which jar each square belongs to and count how many of each to buy. Hantam picks from colors that are actually sold, and tells you exactly how many you need.</p>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Real colors, real numbers</h2>
+        <p>Choose Perler, Hama Midi, Artkal S beads or DMC thread. Every square is matched to a color that brand really sells, and labeled with its color number.<br>Set the size and how many colors to use. Big patterns are split into 29 × 29 pegboards.</p>
+      </div>
+      <div class="phone"><img src="img/en/maker.jpg" alt="Real colors, real numbers" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Cross-stitch, too</h2>
+        <p>Pick DMC thread and the same photo becomes a cross-stitch chart. Choose 11, 14, 16 or 18-count Aida and Hantam shows the finished size and how many stitches each color needs.</p>
+      </div>
+      <div class="phone"><img src="img/en/stitch.jpg" alt="Cross-stitch, too" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Know exactly what to buy</h2>
+        <p>Switch to the symbol chart to follow along square by square, with bold lines at every board edge or every 10 stitches. See how many beads each color takes and <code>Copy shopping list</code> in one tap.<br>Tap a square to change it, or swap one color for another everywhere.</p>
+      </div>
+      <div class="phone"><img src="img/en/symbols.jpg" alt="Know exactly what to buy" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="feature reveal">
+      <div class="copy">
+        <h2>Print it and start</h2>
+        <p>With Pro, export a <code>Printable pattern (PDF)</code>: the color list first, then symbol charts split page by page, one pegboard at a time.</p>
+      </div>
+      <div class="phone"><img src="img/en/pdf.jpg" alt="Print it and start" width="600" height="1303" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Three steps to a pattern</h2>
+      <ol class="steps"><li class="card"><span class="n">1</span><h3>Choose a photo</h3><p>Pets, faces, logos and characters all work. A clear subject turns out best.</p></li>
+<li class="card"><span class="n">2</span><h3>Pick beads or thread</h3><p>Choose the brand, the size and how many colors.</p></li>
+<li class="card"><span class="n">3</span><h3>Make it</h3><p>Follow the chart on screen, or print it with Pro.</p></li></ol>
+    </section>
+
+    <section class="reveal" id="commands">
+      <h2>Materials and sizes</h2>
+      <div class="card table">
+        <dl><div><dt>Perler · Hama Midi · Artkal S</dt><dd>Fuse beads, 29 × 29 pegboards, each bead about 5 mm</dd></div><div><dt>DMC</dt><dd>Cross-stitch thread on 11, 14, 16 or 18-count Aida</dd></div><div><dt>Free</dt><dd>Beads up to 1 pegboard (29 squares), thread up to 40 stitches on the longest side</dd></div><div><dt>Pro</dt><dd>Beads up to 4 × 4 pegboards (116 squares), thread up to 200 stitches</dd></div><div><dt>Colors</dt><dd>From 2 to 50 per pattern</dd></div></dl>
+      </div>
+      <p class="muted">Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colors on screen may look slightly different from the real thing.</p>
+    </section>
+
+
+    <section class="reveal" id="pricing">
+      <h2>Start free. Go Pro for bigger patterns and printing.</h2>
+      <div class="plans">
+        <div class="card plan free">
+          <h3>Free</h3>
+          <ul><li>Patterns up to one pegboard, or 40 stitches</li><li>Every brand: Perler, Hama, Artkal and DMC</li><li>Color counts, shopping list and color swaps</li><li>Keep up to 3 patterns</li><li>Share images with a small Hantam mark</li></ul>
+          
+        </div>
+        <div class="card plan pro">
+          <h3>Hantam Pro</h3>
+          <ul><li>Printable PDF patterns</li><li>Up to 4 × 4 pegboards, or 200 stitches</li><li>Unlimited saved patterns</li><li>Images without the mark</li><li>Every pixel art tool</li></ul>
+          <p class="muted">Monthly or yearly subscription, or a one-time lifetime purchase</p>
+        </div>
+      </div>
+      <p class="muted">You can also give Pro to a friend as a gift from inside the app.</p>
+    </section>
+
+    <section class="reveal" id="faq">
+      <h2>Questions</h2>
+      <div class="faq"><details><summary>Do you upload my photos?</summary><p>No. Photos and patterns are processed and saved on your iPhone only.</p></details>
+<details><summary>The colors look a little different from my beads.</summary><p>Screens show colors differently from real plastic and thread. Tap a color in the list to swap it for a closer one from the same brand.</p></details>
+<details><summary>How big can a pattern be?</summary><p>Free patterns fit one 29 × 29 pegboard, or 40 stitches on the longest side. Pro goes up to 4 × 4 pegboards (116 beads) or 200 stitches.</p></details>
+<details><summary>Which photos work best?</summary><p>Photos with one clear subject and a simple background. Fewer colors give cleaner patterns, so try lowering the color count if the result looks noisy.</p></details>
+<details><summary>Can I still make pixel art?</summary><p>Yes. You can pixelate photos, draw along with 110 samples and animate frame by frame. Every pixel art tool is included in Pro.</p></details>
+<details><summary>How do I restore my purchase?</summary><p>Open Settings in the app and tap <code>Restore Purchases</code>. Use the same Apple Account you bought Pro with.</p></details>
+<details><summary>How do I cancel a subscription?</summary><p>Go to iPhone Settings › your name › Subscriptions and choose Hantam. Lifetime access is a one-time purchase and never renews.</p></details>
+<details><summary>How do I report a bug or suggest an idea?</summary><p>The fastest way is Settings › Send Feedback inside the app. You can also email us at the address below or send an Instagram DM to @lee25_ios.</p></details></div>
+      <p class="contact">Questions, bug reports and ideas are all welcome at <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>.</p>
+    </section>
+
+    <section class="closing reveal">
+      <h2>Your favorite photo,<br>one bead at a time</h2>
+      <a class="cta" href="https://apps.apple.com/app/id6449769987">Get it free on the App Store</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav id="languages" class="langs" aria-label="Language"><a href="" hreflang="en" lang="en" aria-current="page">English</a>
+<a href="ko/" hreflang="ko" lang="ko">한국어</a>
+<a href="ja/" hreflang="ja" lang="ja">日本語</a>
+<a href="zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<a href="zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+<a href="ru/" hreflang="ru" lang="ru">Русский</a>
+<a href="es/" hreflang="es" lang="es">Español</a>
+<a href="de/" hreflang="de" lang="de">Deutsch</a>
+<a href="fr/" hreflang="fr" lang="fr">Français</a>
+<a href="it/" hreflang="it" lang="it">Italiano</a>
+<a href="pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+<a href="th/" hreflang="th" lang="th">ไทย</a>
+<a href="vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
+<a href="cs/" hreflang="cs" lang="cs">Čeština</a>
+<a href="da/" hreflang="da" lang="da">Dansk</a>
+<a href="el/" hreflang="el" lang="el">Ελληνικά</a>
+<a href="fi/" hreflang="fi" lang="fi">Suomi</a>
+<a href="id/" hreflang="id" lang="id">Bahasa Indonesia</a>
+<a href="nb/" hreflang="nb" lang="nb">Norsk bokmål</a>
+<a href="nl/" hreflang="nl" lang="nl">Nederlands</a>
+<a href="pl/" hreflang="pl" lang="pl">Polski</a>
+<a href="sv/" hreflang="sv" lang="sv">Svenska</a>
+<a href="tr/" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <p><a href="privacy.html">Privacy Policy</a> · <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> · © 2026 Hantam</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) }
+    }), { rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+  <script src="demo.js"></script>
 </body>
 </html>
