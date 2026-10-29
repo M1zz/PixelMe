@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var isPresented: Bool
     @State private var currentPage = 0
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private let totalPages = 3
 
@@ -22,13 +23,13 @@ struct OnboardingView: View {
                     Spacer()
                     if currentPage < totalPages - 1 {
                         Button("Skip") { completeOnboarding() }
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.subheadline.weight(.medium))
                             .foregroundStyle(.secondary)
                             .padding(.horizontal, 24)
                             .padding(.top, 16)
                     }
                 }
-                .frame(height: 44)
+                .frame(minHeight: 44)
 
                 TabView(selection: $currentPage) {
                     OnboardingPage(
@@ -54,7 +55,7 @@ struct OnboardingView: View {
                         Capsule()
                             .fill(currentPage == i ? Color.hantamAccent : Color.hantamInk.opacity(0.15))
                             .frame(width: currentPage == i ? 24 : 8, height: 8)
-                            .animation(.spring(response: 0.3), value: currentPage)
+                            .animation(reduceMotion ? nil : .spring(response: 0.3), value: currentPage)
                     }
                 }
                 .padding(.bottom, 24)
@@ -62,17 +63,17 @@ struct OnboardingView: View {
 
                 Button {
                     if currentPage < totalPages - 1 {
-                        withAnimation(.easeInOut) { currentPage += 1 }
+                        withAnimation(reduceMotion ? nil : .easeInOut) { currentPage += 1 }
                     } else {
                         completeOnboarding()
                     }
                 } label: {
                     Text(currentPage < totalPages - 1 ? "Next" : "Make my first pattern")
-                        .font(.system(size: 18, weight: .bold))
+                        .font(.headline)
                         .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 56)
-                        .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
+                        .padding(.vertical, 8)
+                        .frame(maxWidth: .infinity, minHeight: 56)
+                        .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 16))
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 40)
@@ -91,24 +92,35 @@ private struct OnboardingPage: View {
     let title: LocalizedStringKey
     let detail: LocalizedStringKey
     let visual: AnyView
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
-        VStack(spacing: 28) {
-            Spacer()
-            visual
-                .frame(height: 280)
-            VStack(spacing: 12) {
-                Text(title)
-                    .font(.system(size: 26, weight: .heavy))
-                    .foregroundStyle(Color.hantamInk)
-                    .multilineTextAlignment(.center)
-                Text(detail)
-                    .font(.system(size: 16))
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 28)
+        if typeSize.isAccessibilitySize {
+            // 아주 큰 글자 — 꾸밈 그림은 빼고 글만 넘겨 읽게 한다.
+            ScrollView { texts.padding(.vertical, 24) }
+        } else {
+            VStack(spacing: 28) {
+                Spacer()
+                visual
+                    .frame(height: 280)
+                texts
+                Spacer()
             }
-            Spacer()
+        }
+    }
+
+    private var texts: some View {
+        VStack(spacing: 12) {
+            Text(title)
+                .font(.title.weight(.heavy))
+                .foregroundStyle(Color.hantamInk)
+                .multilineTextAlignment(.center)
+                .accessibilityAddTraits(.isHeader)
+            Text(detail)
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 28)
         }
     }
 }
@@ -196,7 +208,7 @@ private struct PrintVisual: View {
                 .font(.system(size: 30))
                 .foregroundStyle(.white)
                 .frame(width: 64, height: 64)
-                .background(Color.hantamAccent, in: Circle())
+                .background(Color.hantamAccentFill, in: Circle())
                 .offset(x: 90, y: 100)
         }
         .accessibilityHidden(true)

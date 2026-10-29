@@ -77,6 +77,7 @@ struct PixelEditorView: View {
                             .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
+                    .accessibilityLabel(Text("Zoom in"))
 
                     Button {
                         withAnimation(.easeInOut(duration: 0.15)) {
@@ -89,6 +90,7 @@ struct PixelEditorView: View {
                             .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
+                    .accessibilityLabel(Text("Zoom out"))
 
                     Button {
                         withAnimation(.easeInOut(duration: 0.2)) {
@@ -102,6 +104,7 @@ struct PixelEditorView: View {
                             .background(Color(AppConfig.toolBackgroundColor))
                             .clipShape(Circle())
                     }
+                    .accessibilityLabel(Text("Reset zoom"))
                 }
                 .padding(12)
             }
@@ -196,6 +199,7 @@ struct PixelEditorView: View {
                 Image(systemName: "xmark")
                     .font(.title3)
             }
+            .accessibilityLabel(Text("Close"))
             .alert("작업을 종료할까요?", isPresented: $showDiscardAlert) {
                 Button("저장하지 않고 닫기", role: .destructive) { dismiss() }
                 Button("계속 편집", role: .cancel) {}
@@ -217,6 +221,8 @@ struct PixelEditorView: View {
                         .font(.caption)
                         .foregroundStyle(viewModel.showReferenceSample ? .blue : .secondary)
                 }
+                .accessibilityLabel(Text("참고 이미지"))
+                .accessibilityValue(viewModel.showReferenceSample ? Text("표시 중") : Text("숨김"))
             }
 
             Spacer()
@@ -226,23 +232,28 @@ struct PixelEditorView: View {
                     Image(systemName: "arrow.uturn.backward")
                 }
                 .disabled(!viewModel.canUndo)
+                .accessibilityLabel(Text("Undo"))
 
                 Button { viewModel.redo() } label: {
                     Image(systemName: "arrow.uturn.forward")
                 }
                 .disabled(!viewModel.canRedo)
+                .accessibilityLabel(Text("Redo"))
 
                 Button { showLayerPanel = true } label: {
                     Image(systemName: "square.3.layers.3d")
                 }
+                .accessibilityLabel(Text("Layers"))
 
                 Button { showAnimationTimeline = true } label: {
                     Image(systemName: "film")
                 }
+                .accessibilityLabel(Text("Animation"))
 
                 Button { showExportSheet = true } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
+                .accessibilityLabel(Text("Export"))
 
                 Menu {
                     Toggle("그리드", isOn: $viewModel.showGrid)
@@ -274,6 +285,7 @@ struct PixelEditorView: View {
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
+                .accessibilityLabel(Text("More"))
             }
         }
         .padding(.horizontal, 16)
@@ -297,6 +309,7 @@ struct PixelEditorView: View {
                 ))
                 .labelsHidden()
                 .frame(width: 32, height: 32)
+                .accessibilityLabel(Text("Color picker"))
                 
                 // 고급 색상 피커 버튼
                 Button { showAdvancedColorPicker = true } label: {
@@ -305,6 +318,7 @@ struct PixelEditorView: View {
                         .background(Color.blue.opacity(0.2))
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
+                .accessibilityLabel(Text("Color picker"))
 
                 // AI 팔레트 추천 버튼
                 Button { viewModel.generateAIPalette() } label: {
@@ -313,6 +327,7 @@ struct PixelEditorView: View {
                         .background(Color.purple.opacity(0.2))
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
+                .accessibilityLabel(Text("AI Palette"))
 
                 // Lospec 팔레트 전환
                 Menu {
@@ -341,6 +356,7 @@ struct PixelEditorView: View {
                         .background(Color.green.opacity(0.2))
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
+                .accessibilityLabel(Text("Palette"))
 
                 Divider().frame(height: 24)
 
@@ -405,6 +421,7 @@ struct PixelEditorView: View {
                             Image(systemName: "minus")
                                 .font(.system(size: 10, weight: .bold))
                         }
+                        .accessibilityLabel(Text("Smaller brush"))
                         Text("\(viewModel.brushSize)")
                             .font(.system(size: 14, weight: .bold))
                             .frame(width: 16)
@@ -412,6 +429,7 @@ struct PixelEditorView: View {
                             Image(systemName: "plus")
                                 .font(.system(size: 10, weight: .bold))
                         }
+                        .accessibilityLabel(Text("Larger brush"))
                     }
                     .frame(width: 56, height: 36)
                     .background(Color.gray.opacity(0.2))
@@ -446,6 +464,7 @@ struct PixelEditorView: View {
                         }
                     }
                     .tint(viewModel.selectedTool == tool ? .blue : .primary)
+                    .accessibilityAddTraits(viewModel.selectedTool == tool ? .isSelected : [])
                 }
             }
             .padding(.horizontal, 12)
@@ -474,6 +493,8 @@ struct LayerPanelView: View {
                                     .foregroundStyle(layer.isVisible ? .primary : .secondary)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityLabel(Text(verbatim: layer.name))
+                            .accessibilityValue(layer.isVisible ? Text("표시 중") : Text("숨김"))
 
                             Text(layer.name)
                                 .fontWeight(viewModel.activeLayerIndex == index ? .bold : .regular)
@@ -528,6 +549,7 @@ struct LayerPanelView: View {
                     Button { viewModel.addLayer() } label: {
                         Image(systemName: "plus")
                     }
+                    .accessibilityLabel(Text("Add layer"))
                 }
             }
         }

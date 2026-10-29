@@ -15,6 +15,7 @@ struct PixelAnimatedIcon: View {
 
     @State private var currentFrame: Int = 0
     @State private var timer: Timer?
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         Canvas { context, canvasSize in
@@ -37,15 +38,20 @@ struct PixelAnimatedIcon: View {
             }
         }
         .frame(width: size, height: size)
+        .accessibilityHidden(true)
         .onAppear { startAnimation() }
         .onDisappear { stopAnimation() }
         .onChange(of: animating) { _, newValue in
             if newValue { startAnimation() } else { stopAnimation() }
         }
+        .onChange(of: reduceMotion) { _, reduce in
+            if reduce { stopAnimation() } else { startAnimation() }
+        }
     }
 
     private func startAnimation() {
-        guard animating, icon.frames.count > 1, timer == nil else { return }
+        // 동작 줄이기를 켠 사람에게는 첫 장면만 보인다.
+        guard animating, !reduceMotion, icon.frames.count > 1, timer == nil else { return }
         timer = Timer.scheduledTimer(withTimeInterval: 1.0 / icon.fps, repeats: true) { _ in
             currentFrame = (currentFrame + 1) % icon.frames.count
         }

@@ -1586,3 +1586,17 @@ Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu
 
 Kullanım Koşulları: https://m1zz.github.io/PixelMe/tr/terms.html
 Gizlilik Politikası: https://m1zz.github.io/PixelMe/tr/privacy.html
+
+## 손쉬운 사용
+
+<!-- DeployBar 가 App Store Connect '앱의 손쉬운 사용' 에 올린다. 실제로 확인한 것만 적는다. -->
+<!-- 기준은 주 기능(사진 → 비즈·십자수 도안 → 색 목록 · PDF 내보내기). 픽셀 아트 도구의 그리기 화면은 손가락·색 중심이라 이 선언의 근거가 아니다. -->
+
+### iPhone
+voiceOver
+voiceControl
+largerText
+darkInterface
+differentiateWithoutColor
+sufficientContrast
+reducedMotion

@@ -104,6 +104,7 @@ struct PatternMakerView: View {
             Image(systemName: "photo.badge.plus")
                 .font(.system(size: 54))
                 .foregroundStyle(Color.hantamAccent)
+                .accessibilityHidden(true)
             Text("Pick a photo to turn into a pattern")
                 .font(.headline)
                 .foregroundStyle(Color.hantamInk)
@@ -116,8 +117,9 @@ struct PatternMakerView: View {
                 Text("Choose a photo")
                     .font(.headline)
                     .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
                     .frame(maxWidth: 260, minHeight: 50)
-                    .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 14))
+                    .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 14))
             }
         }
         .padding(32)
@@ -196,6 +198,9 @@ struct PatternMakerView: View {
                                 sizeChip(side: side, locked: locked, selected: settings.longestSide == side)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityAddTraits(settings.longestSide == side ? .isSelected : [])
+                            .accessibilityValue(locked ? Text("Pro") : Text(verbatim: ""))
+                            .accessibilityInputLabels([Text("\(side)")])
                         }
                     }
                 }
@@ -225,23 +230,23 @@ struct PatternMakerView: View {
         return VStack(spacing: 2) {
             HStack(spacing: 3) {
                 Text("\(side)")
-                    .font(.system(size: 16, weight: .bold))
-                if locked { Image(systemName: "lock.fill").font(.system(size: 10)) }
+                    .font(.callout.bold())
+                if locked { Image(systemName: "lock.fill").font(.caption2).accessibilityHidden(true) }
             }
             if let b = m.boardSize {
                 let n = (side + b - 1) / b
                 Text("\(n * n) boards")
-                    .font(.system(size: 11))
+                    .font(.caption2)
             } else {
                 let cm = Double(side) / (Double(settings.fabricCount) / 2.54)
                 Text(String(format: "%.0f cm", cm))
-                    .font(.system(size: 11))
+                    .font(.caption2)
             }
         }
         .foregroundStyle(selected ? Color.white : Color.hantamInk)
         .frame(minWidth: 64, minHeight: 50)
         .padding(.horizontal, 6)
-        .background(selected ? Color.hantamAccent : Color.hantamCard, in: RoundedRectangle(cornerRadius: 12))
+        .background(selected ? Color.hantamAccentFill : Color.hantamCard, in: RoundedRectangle(cornerRadius: 12))
         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.hantamInk.opacity(0.1)))
         .accessibilityElement(children: .combine)
     }
@@ -259,7 +264,10 @@ struct PatternMakerView: View {
                 Slider(value: Binding(
                     get: { Double(settings.maxColors) },
                     set: { settings.maxColors = Int($0.rounded()) }
-                ), in: 2...50, step: 1)
+                ), in: 2...50, step: 1) {
+                    Text("Colors")
+                }
+                .accessibilityValue(Text("Up to \(settings.maxColors) colors"))
                 Text("Fewer colors means fewer bags of beads to buy.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
@@ -302,7 +310,7 @@ struct PatternMakerView: View {
                 .font(.headline)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, minHeight: 54)
-                .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
+                .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 16))
         }
         .disabled(preview == nil || isWorking)
         .padding(.horizontal, 16)

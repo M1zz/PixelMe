@@ -83,6 +83,8 @@ struct PaywallView: View {
                         .foregroundStyle(Color.hantamInk.opacity(0.6))
                         .frame(width: 34, height: 34)
                         .background(Color.hantamCard, in: Circle())
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
                 }
                 .accessibilityLabel(Text("Close"))
                 Spacer()
@@ -97,7 +99,8 @@ struct PaywallView: View {
         VStack(spacing: 12) {
             BeadHeartMark(size: 84)
             Text("Hantam Pro")
-                .font(.system(size: 30, weight: .heavy))
+                .font(.title.weight(.heavy))
+                .accessibilityAddTraits(.isHeader)
                 .foregroundStyle(Color.hantamInk)
             Text(headline)
                 .font(.headline)
@@ -225,7 +228,7 @@ struct PaywallView: View {
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, minHeight: 56)
-                    .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 16))
+                    .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 16))
                 }
                 .disabled((!subscriptionManager.hasLoadedProducts && !Self.isReviewShot) || isProcessing)
 
@@ -334,9 +337,10 @@ private struct BenefitRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Image(systemName: icon)
-                .font(.system(size: 16, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .foregroundStyle(Color.hantamAccent)
                 .frame(width: 26)
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title).font(.subheadline.weight(.semibold)).foregroundStyle(Color.hantamInk)
                 Text(detail).font(.caption).foregroundStyle(.secondary)
@@ -359,15 +363,17 @@ private struct PlanRow: View {
         Button(action: action) {
             HStack(spacing: 12) {
                 Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
-                    .font(.system(size: 22))
+                    .font(.title2)
+                    .accessibilityHidden(true)
                     .foregroundStyle(isSelected ? Color.hantamAccent : Color.hantamInk.opacity(0.3))
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(spacing: 6) {
                         Text(title).font(.headline)
                         if let badge {
                             Text(badge)
-                                .font(.system(size: 11, weight: .bold))
-                                .foregroundStyle(.white)
+                                .font(.caption2.bold())
+                                // 겨자색 위 흰 글자는 대비가 모자라 어두운 글자를 쓴다.
+                                .foregroundStyle(Color.black.opacity(0.85))
                                 .padding(.horizontal, 7).padding(.vertical, 2)
                                 .background(Color.hantamMustard, in: Capsule())
                         }

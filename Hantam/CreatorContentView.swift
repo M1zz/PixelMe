@@ -24,6 +24,7 @@ struct CreatorContentView: View {
     @State private var showPatternMaker = false
     @State private var openedPattern: BeadPattern?
     @State private var showHantamSettings = false
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     // MARK: - Main rendering function
     var body: some View {
@@ -187,11 +188,12 @@ struct CreatorContentView: View {
     private var HomeToolGrid: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Pixel art tools")
-                .font(.system(size: 20, weight: .bold))
+                .font(.title3.bold())
                 .foregroundColor(Color.hantamInk)
                 .accessibilityAddTraits(.isHeader)
 
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
+            // 아주 큰 글자에서는 한 줄에 하나씩.
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: typeSize.isAccessibilitySize ? 1 : 2), spacing: 12) {
 
                 // Pixelate Photo
                 Button {
@@ -252,25 +254,26 @@ struct CreatorContentView: View {
         } label: {
             HStack(spacing: 12) {
                 Image(systemName: "printer.fill")
-                    .font(.system(size: 20))
+                    .font(.title3)
                     .foregroundStyle(Color.hantamAccent)
                     .frame(width: 40, height: 40)
                     .background(Color.hantamAccent.opacity(0.12), in: Circle())
+                    .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Hantam Pro")
-                        .font(.system(size: 15, weight: .bold))
+                        .font(.subheadline.bold())
                         .foregroundColor(Color.hantamInk)
                     Text("Printable PDFs · Bigger patterns · No mark")
-                        .font(.system(size: 12))
+                        .font(.caption)
                         .foregroundColor(.secondary)
-                        .lineLimit(2)
                 }
 
                 Spacer()
 
                 Image(systemName: "chevron.right")
                     .foregroundStyle(.tertiary)
+                    .accessibilityHidden(true)
             }
             .padding(14)
             .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 16))
@@ -828,15 +831,16 @@ struct HomeToolCard: View {
 
             VStack(spacing: 3) {
                 Text(title)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.callout.bold())
                     .foregroundColor(Color.hantamInk)
                 Text(subtitle)
-                    .font(.system(size: 12))
+                    .font(.caption)
                     .foregroundColor(.secondary)
-                    .lineLimit(1)
             }
+            .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, 6)
         .padding(.vertical, 20)
         .background(Color.hantamCard)
         .cornerRadius(12)

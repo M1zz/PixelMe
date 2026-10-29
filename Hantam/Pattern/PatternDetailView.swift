@@ -157,8 +157,13 @@ struct PatternDetailView: View {
                 .onChanged { v in zoom = min(6, max(0.5, baseZoom * v)) }
                 .onEnded { _ in baseZoom = zoom }
         )
+        // VoiceOver 에는 그림 하나로 보인다 — 크기·색 수를 읽어 주고, 색 바꾸기는 아래 색 목록에서 한다.
+        // (칸 하나하나를 손가락 없이 고치는 길은 없다. 두 번 탭이 엉뚱한 칸을 칠하지 않게 자식 동작을 숨긴다.)
+        .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text("Pattern chart"))
-        .accessibilityHint(isEditing ? Text("Tap a square to fill it with the selected color.") : Text("Pinch to zoom."))
+        .accessibilityValue(Text(PatternRenderer.infoLines(for: pattern).joined(separator: ", ")))
+        .accessibilityAddTraits(.isImage)
+        .accessibilityHint(Text("Swap colors from the color list below."))
     }
 
     private var stylePicker: some View {
@@ -172,7 +177,8 @@ struct PatternDetailView: View {
 
     /// 고치기 붓 — 도안에 쓰인 색 + 빈칸.
     private var brushPalette: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        let symbols = pattern.symbols
+        return VStack(alignment: .leading, spacing: 8) {
             Text("Tap a square to change it")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
@@ -187,14 +193,21 @@ struct PatternDetailView: View {
                         .overlay(Circle().stroke(Color.hantamAccent, lineWidth: brush == -1 ? 3 : 0).padding(-3))
                     }
                     .accessibilityLabel(Text("Empty"))
+                    .accessibilityAddTraits(brush == -1 ? .isSelected : [])
                     ForEach(Array(pattern.colors.enumerated()), id: \.offset) { i, c in
                         Button { brush = i } label: {
                             Circle().fill(c.color)
                                 .frame(width: 36, height: 36)
                                 .overlay(Circle().stroke(Color.black.opacity(0.1)))
+                                // 색만으로 고르지 않게 — 기호 보기·색 목록과 같은 기호를 얹는다.
+                                .overlay(Text(symbols[i] ?? "")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundStyle(c.isLight ? Color.black : Color.white))
                                 .overlay(Circle().stroke(Color.hantamAccent, lineWidth: brush == i ? 3 : 0).padding(-3))
                         }
                         .accessibilityLabel(Text("\(c.code) \(c.name)"))
+                        .accessibilityAddTraits(brush == i ? .isSelected : [])
+                        .accessibilityInputLabels([Text(c.code), Text(c.name)])
                     }
                 }
                 .padding(4)
@@ -221,7 +234,7 @@ struct PatternDetailView: View {
         VStack(spacing: 10) {
             Button { exportPDF() } label: {
                 HStack {
-                    Image(systemName: "printer.fill")
+                    Image(systemName: "printer.fill").accessibilityHidden(true)
                     Text("Printable pattern (PDF)")
                     Spacer()
                     if !isPro { proBadge }
@@ -230,7 +243,7 @@ struct PatternDetailView: View {
                 .foregroundStyle(.white)
                 .padding(.horizontal, 16)
                 .frame(minHeight: 52)
-                .background(Color.hantamAccent, in: RoundedRectangle(cornerRadius: 14))
+                .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 14))
             }
             HStack(spacing: 10) {
                 Button { shareImage() } label: {
@@ -257,8 +270,8 @@ struct PatternDetailView: View {
 
     private var proBadge: some View {
         Text("PRO")
-            .font(.system(size: 11, weight: .heavy))
-            .foregroundStyle(Color.hantamAccent)
+            .font(.caption2.weight(.heavy))
+            .foregroundStyle(Color.hantamAccentFill)
             .padding(.horizontal, 7).padding(.vertical, 3)
             .background(Color.white, in: Capsule())
     }
@@ -266,7 +279,7 @@ struct PatternDetailView: View {
     private var saveLimitBanner: some View {
         Button { paywallReason = .patternSaveLimit } label: {
             HStack(spacing: 10) {
-                Image(systemName: "tray.full.fill")
+                Image(systemName: "tray.full.fill").accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 2) {
                     Text("This pattern isn’t saved")
                         .font(.subheadline.weight(.semibold))
@@ -274,7 +287,7 @@ struct PatternDetailView: View {
                         .font(.caption)
                 }
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.right").accessibilityHidden(true)
             }
             .foregroundStyle(Color.hantamInk)
             .padding(12)
@@ -291,6 +304,7 @@ struct PatternDetailView: View {
             HStack {
                 Text("Colors you need")
                     .font(.headline)
+                    .accessibilityAddTraits(.isHeader)
                 Spacer()
                 Text("Tap to swap")
                     .font(.caption)
@@ -316,6 +330,7 @@ struct PatternDetailView: View {
                         Text("\(u.count)")
                             .font(.subheadline.monospacedDigit().weight(.semibold))
                         Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
+                            .accessibilityHidden(true)
                     }
                     .foregroundStyle(Color.hantamInk)
                     .padding(.vertical, 7)
@@ -324,6 +339,7 @@ struct PatternDetailView: View {
                 .buttonStyle(.plain)
                 .accessibilityElement(children: .combine)
                 .accessibilityHint(Text("Swap this color for another"))
+                .accessibilityInputLabels([Text(u.color.code), Text(u.color.name)])
                 Divider()
             }
             Text("Perler, Hama, Artkal and DMC are trademarks of their owners. Colors on screen may differ slightly from the real thing.")
@@ -457,10 +473,13 @@ struct ColorReplaceSheet: View {
                             Text(c.name).font(.caption).foregroundStyle(.secondary)
                         }
                         Spacer()
-                        if c == current { Image(systemName: "checkmark").foregroundStyle(Color.hantamAccent) }
+                        if c == current { Image(systemName: "checkmark").foregroundStyle(Color.hantamAccent).accessibilityHidden(true) }
                     }
                 }
                 .foregroundStyle(.primary)
+                .accessibilityElement(children: .combine)
+                .accessibilityAddTraits(c == current ? .isSelected : [])
+                .accessibilityInputLabels([Text(c.code), Text(c.name)])
             }
             .searchable(text: $query, prompt: Text("Color number or name"))
             .navigationTitle(Text("Swap \(current.code)"))

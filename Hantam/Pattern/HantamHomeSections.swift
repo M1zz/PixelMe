@@ -16,13 +16,13 @@ struct HantamHomeHeader: View {
         HStack(spacing: 10) {
             BeadHeartMark(size: 34)
             Text("Hantam")
-                .font(.system(size: 26, weight: .heavy))
+                .font(.title.weight(.heavy))
                 .foregroundStyle(Color.hantamInk)
                 .accessibilityAddTraits(.isHeader)
             Spacer()
             Button(action: onSettings) {
                 Image(systemName: "gearshape.fill")
-                    .font(.system(size: 20))
+                    .font(.title3)
                     .foregroundStyle(Color.hantamInk.opacity(0.7))
                     .frame(width: 44, height: 44)
             }
@@ -41,7 +41,7 @@ struct PatternHeroCard: View {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Turn a photo into a pattern")
-                            .font(.system(size: 22, weight: .bold))
+                            .font(.title2.bold())
                             .multilineTextAlignment(.leading)
                         Text("Fuse beads or cross-stitch, matched to real colors.")
                             .font(.subheadline)
@@ -58,7 +58,7 @@ struct PatternHeroCard: View {
                     Text("Choose a photo")
                 }
                 .font(.headline)
-                .foregroundStyle(Color.hantamAccent)
+                .foregroundStyle(Color.hantamAccentFill)
                 .padding(.horizontal, 16)
                 .frame(minHeight: 44)
                 .background(Color.white, in: Capsule())
@@ -68,7 +68,7 @@ struct PatternHeroCard: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 22)
-                    .fill(Color.hantamAccent)
+                    .fill(Color.hantamAccentFill)
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
                             .stroke(Color.white.opacity(0.6), style: StrokeStyle(lineWidth: 1.5, dash: [6, 5]))
@@ -77,13 +77,19 @@ struct PatternHeroCard: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityInputLabels([Text("Choose a photo"), Text("New pattern")])
     }
 }
 
 /// 세 걸음 안내 — 처음 쓰는 사람에게 무엇을 하는 앱인지.
 struct PatternStepsRow: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
+    @ScaledMetric(relativeTo: .subheadline) private var badge: CGFloat = 26
+
     var body: some View {
-        HStack(spacing: 8) {
+        // 아주 큰 글자에서는 세 칸을 세로로 쌓아 글이 잘리지 않게 한다.
+        let layout = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 8)) : AnyLayout(HStackLayout(spacing: 8))
+        layout {
             step("1", "Pick a photo")
             step("2", "Choose beads or thread")
             step("3", "Print and make")
@@ -93,16 +99,15 @@ struct PatternStepsRow: View {
     private func step(_ n: String, _ text: LocalizedStringKey) -> some View {
         VStack(spacing: 6) {
             Text(n)
-                .font(.system(size: 14, weight: .heavy))
-                .foregroundStyle(.white)
-                .frame(width: 26, height: 26)
+                .font(.subheadline.weight(.heavy))
+                .foregroundStyle(Color.hantamBackground)
+                .frame(width: badge, height: badge)
                 .background(Color.hantamTeal, in: Circle())
             Text(text)
                 .font(.caption.weight(.medium))
                 .foregroundStyle(Color.hantamInk)
                 .multilineTextAlignment(.center)
-                .lineLimit(2)
-                .minimumScaleFactor(0.8)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity, minHeight: 74)
         .padding(.vertical, 8)
@@ -120,7 +125,7 @@ struct MyPatternsSection: View {
         if !store.patterns.isEmpty {
             VStack(alignment: .leading, spacing: 10) {
                 Text("My patterns")
-                    .font(.system(size: 20, weight: .bold))
+                    .font(.title3.bold())
                     .foregroundStyle(Color.hantamInk)
                     .accessibilityAddTraits(.isHeader)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -128,6 +133,7 @@ struct MyPatternsSection: View {
                         ForEach(store.patterns) { p in
                             Button { onOpen(p) } label: { PatternThumb(pattern: p) }
                                 .buttonStyle(.plain)
+                                .accessibilityInputLabels([Text(p.title)])
                         }
                     }
                 }
@@ -146,6 +152,7 @@ struct PatternThumb: View {
                 RoundedRectangle(cornerRadius: 12).fill(Color.white)
                 if let image {
                     Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).padding(8)
+                        .accessibilityHidden(true)
                 }
             }
             .frame(width: 130, height: 130)

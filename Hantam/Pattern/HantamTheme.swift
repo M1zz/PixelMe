@@ -12,7 +12,10 @@ extension Color {
     /// 빨간 실 — 주 버튼 · 강조.
     static let hantamAccent = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark
         ? UIColor(red: 1.00, green: 0.45, blue: 0.40, alpha: 1)
-        : UIColor(red: 0.85, green: 0.27, blue: 0.24, alpha: 1) })
+        : UIColor(red: 0.80, green: 0.24, blue: 0.21, alpha: 1) })
+
+    /// 흰 글자를 얹는 빨간 바탕(주 버튼 · 큰 카드). 어두운 화면에서도 같은 색이라 흰 글자 대비 4.5:1 을 지킨다.
+    static let hantamAccentFill = Color(red: 0.80, green: 0.24, blue: 0.21)
 
     /// 겨자색 — 뱃지 · 보조 강조.
     static let hantamMustard = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark
@@ -22,7 +25,7 @@ extension Color {
     /// 청록 실 — 세 번째 색.
     static let hantamTeal = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark
         ? UIColor(red: 0.36, green: 0.78, blue: 0.72, alpha: 1)
-        : UIColor(red: 0.13, green: 0.55, blue: 0.50, alpha: 1) })
+        : UIColor(red: 0.10, green: 0.48, blue: 0.44, alpha: 1) })
 
     /// 면천 바탕.
     static let hantamBackground = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark
