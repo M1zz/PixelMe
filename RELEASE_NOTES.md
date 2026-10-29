@@ -3,6 +3,200 @@
 App Store 의 "이 버전의 새로운 기능" 에 그대로 올라가는 글이다.
 평문만 쓴다. 한 줄에 한 문장, 3~5줄, 한 줄 40자 이내. 언어마다 항목 수와 순서를 맞춘다.
 
+## 2.1.2
+
+### 앱스토어 (한국어)
+
+고마울 때 개발자에게 작은 팁을 보낼 수 있어요
+친구에게 Pro를 선물할 수 있어요
+VoiceOver로 도안을 살펴볼 수 있어요
+큰 글씨와 다크 모드에서도 또렷하게 보여요
+붓 색마다 기호가 있어 색을 쉽게 구별해요
+
+### App Store (en-US)
+
+Say thanks to the developer with a tip
+Now you can gift Pro to a friend
+Use VoiceOver to explore your patterns
+Clearer with large text and Dark Mode
+Brush colors now show their symbols
+
+### App Store (en-GB)
+
+Say thanks to the developer with a tip
+Now you can gift Pro to a friend
+Use VoiceOver to explore your charts
+Clearer with large text and Dark Mode
+Brush colours now show their symbols
+
+### 앱스토어 (일본어)
+
+感謝の気持ちを小さなチップで開発者に送れます
+友だちにProをプレゼントできます
+VoiceOverで図案を確かめられます
+大きな文字やダークモードでも見やすくなりました
+ブラシの色に記号が付き、見分けやすくなりました
+
+### 앱스토어 (중국어 간체)
+
+可以给开发者送一点小费表达感谢
+可以把 Pro 送给朋友
+可用 VoiceOver 查看图纸
+大字体和深色模式下也更清晰
+画笔颜色带上符号，更容易分辨
+
+### 앱스토어 (중국어 번체)
+
+可以送開發者一點小費表達感謝
+可以把 Pro 送給朋友
+可用 VoiceOver 查看圖紙
+大字體與深色模式下也更清晰
+畫筆顏色加上符號，更容易分辨
+
+### 앱스토어 (러시아어)
+
+Можно оставить разработчику чаевые
+Pro теперь можно подарить другу
+Схемы теперь можно изучать с VoiceOver
+Чётче с крупным шрифтом и в тёмной теме
+Цвета кисти помечены символами
+
+### 앱스토어 (스페인어)
+
+Deja una propina al desarrollador
+Ahora puedes regalar Pro a un amigo
+Explora tus patrones con VoiceOver
+Más claro con texto grande y modo oscuro
+Cada color de pincel lleva su símbolo
+
+### 앱스토어 (독일어)
+
+Sag Danke mit einem kleinen Trinkgeld
+Verschenke Pro jetzt an Freunde
+Erkunde deine Vorlagen mit VoiceOver
+Besser lesbar, auch im Dunkelmodus
+Pinselfarben zeigen jetzt ihr Symbol
+
+### 앱스토어 (프랑스어)
+
+Laissez un pourboire au développeur
+Offrez Pro à un ami
+Explorez vos grilles avec VoiceOver
+Plus lisible, même en mode sombre
+Chaque couleur de pinceau a son symbole
+
+### 앱스토어 (이탈리아어)
+
+Lascia una mancia allo sviluppatore
+Regala Pro a un amico
+Esplora i tuoi schemi con VoiceOver
+Più leggibile anche in modalità scura
+I colori del pennello hanno un simbolo
+
+### 앱스토어 (포르투갈어 브라질)
+
+Deixe uma gorjeta para o desenvolvedor
+Dê o Pro de presente a um amigo
+Explore seus gráficos com o VoiceOver
+Mais legível, até no modo escuro
+Cada cor do pincel tem seu símbolo
+
+### 앱스토어 (태국어)
+
+ส่งทิปเล็กๆ ให้นักพัฒนาเพื่อขอบคุณได้
+มอบ Pro เป็นของขวัญให้เพื่อนได้แล้ว
+สำรวจแพตเทิร์นได้ด้วย VoiceOver
+ตัวอักษรใหญ่และโหมดมืดก็ยังดูชัดเจน
+สีพู่กันมีสัญลักษณ์ แยกสีได้ง่ายขึ้น
+
+### 앱스토어 (베트남어)
+
+Gửi nhà phát triển chút tiền tip cảm ơn
+Giờ đây có thể tặng Pro cho bạn bè
+Khám phá mẫu của bạn bằng VoiceOver
+Rõ hơn khi dùng chữ lớn và chế độ tối
+Màu cọ có ký hiệu riêng, dễ phân biệt
+
+### 앱스토어 (체코어)
+
+Poděkujte vývojáři malým spropitným
+Pro teď můžete darovat příteli
+Prozkoumejte předlohy s VoiceOverem
+Čitelnější i v tmavém režimu
+Barvy štětce mají vlastní symboly
+
+### 앱스토어 (덴마크어)
+
+Giv udvikleren lidt drikkepenge som tak
+Nu kan du give Pro i gave til en ven
+Udforsk dine mønstre med VoiceOver
+Tydeligere, også i mørk tilstand
+Penselfarver viser nu deres symbol
+
+### 앱스토어 (그리스어)
+
+Στείλτε ένα φιλοδώρημα στον δημιουργό
+Χαρίστε το Pro σε έναν φίλο
+Εξερευνήστε τα σχέδιά σας με VoiceOver
+Πιο ευανάγνωστο και σε σκούρο θέμα
+Τα χρώματα του πινέλου έχουν σύμβολα
+
+### 앱스토어 (핀란드어)
+
+Kiitä kehittäjää pienellä tipillä
+Anna Pro lahjaksi ystävälle
+Tutki malleja VoiceOverilla
+Selkeämpi isolla tekstillä ja tummana
+Siveltimen väreissä näkyy symboli
+
+### 앱스토어 (인도네시아어)
+
+Beri tip kecil untuk pengembang
+Kini bisa menghadiahkan Pro ke teman
+Jelajahi pola dengan VoiceOver
+Lebih jelas di teks besar dan mode gelap
+Warna kuas kini punya simbol
+
+### 앱스토어 (노르웨이어 보크말)
+
+Gi utvikleren litt tips som takk
+Nå kan du gi bort Pro til en venn
+Utforsk mønstrene dine med VoiceOver
+Tydeligere med stor tekst og mørk modus
+Penselfarger viser nå symbolet sitt
+
+### 앱스토어 (네덜란드어)
+
+Bedank de maker met een kleine fooi
+Geef Pro cadeau aan een vriend
+Verken je patronen met VoiceOver
+Beter leesbaar, ook in donkere modus
+Penseelkleuren tonen nu hun symbool
+
+### 앱스토어 (폴란드어)
+
+Podziękuj twórcy drobnym napiwkiem
+Podaruj Pro znajomemu
+Przeglądaj wzory z VoiceOver
+Czytelniej także w trybie ciemnym
+Kolory pędzla mają teraz symbole
+
+### 앱스토어 (스웨덴어)
+
+Tacka utvecklaren med lite dricks
+Ge bort Pro i present till en vän
+Utforska dina mönster med VoiceOver
+Tydligare med stor text och mörkt läge
+Penselfärger visar nu sin symbol
+
+### 앱스토어 (튀르키예어)
+
+Geliştiriciye küçük bir bahşiş bırakın
+Pro’yu bir arkadaşınıza hediye edin
+Şemalarınızı VoiceOver ile keşfedin
+Büyük yazı ve karanlık modda daha net
+Fırça renklerinde artık simge var
+
 ## 2.1.1
 
 ### 앱스토어 (한국어)
