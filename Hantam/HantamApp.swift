@@ -28,6 +28,8 @@ struct HantamApp: App {
                 .onOpenURL { url in
                     handleAsepriteFile(url)
                 }
+                // 아이폰 듀오: 접힘을 재서 아래로 흘린다. 시트 · 알림창도 접힌 선을 비킨다 (LeeoKit Fold).
+                .foldAware()
         }
     }
 

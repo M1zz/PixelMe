@@ -240,7 +240,9 @@ struct HantamSettingsView: View {
             .navigationTitle(Text("Settings"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button { dismiss() } label: { Label("Done", systemImage: "checkmark") }
+                }
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView(isProUser: .constant(false), reason: .settings)

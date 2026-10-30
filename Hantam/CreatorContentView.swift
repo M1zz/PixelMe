@@ -24,7 +24,11 @@ struct CreatorContentView: View {
     @State private var showPatternMaker = false
     @State private var openedPattern: BeadPattern?
     @State private var showHantamSettings = false
+    /// 펼친 화면에서 결과 쪽 판에 세울 내 도안. 없으면 가장 최근 도안.
+    @State private var paneSelection: BeadPattern.ID?
+    @ObservedObject private var patternStore = PatternStore.shared
     @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.foldLayout) private var fold
 
     // MARK: - Main rendering function
     var body: some View {
@@ -80,6 +84,7 @@ struct CreatorContentView: View {
                         width: firstLayer.canvas.width,
                         height: firstLayer.canvas.height
                     )
+                    .foldConfined()
                 }
             }
             .sheet(isPresented: $showNewCanvasSheet) {
@@ -89,9 +94,16 @@ struct CreatorContentView: View {
 
     // MARK: - Sheet layer (primary sheets & covers)
     private var sheetLayer: some View {
-        ZStack {
-            Color.hantamBackground.ignoresSafeArea()
-            HomeScreenView
+        // 아이폰 듀오를 펴면 고르는 쪽(가로면 왼쪽, 세로면 아래)에 홈, 결과 쪽에 내 도안이 선다.
+        // 접혀 있거나 보통 아이폰이면 지금 화면 그대로다 (LeeoKit Fold).
+        FoldSplitView {
+            ZStack {
+                Color.hantamBackground.ignoresSafeArea()
+                HomeScreenView
+            }
+        } result: {
+            homeResultPane
+                .environment(\.foldLayout, .single)
         }
         .fullScreenCover(isPresented: $showPatternMaker) {
             PatternMakerView()
@@ -104,6 +116,7 @@ struct CreatorContentView: View {
         }
         .fullScreenCover(isPresented: $viewModel.showOnboarding) {
             OnboardingView(isPresented: $viewModel.showOnboarding)
+                .foldConfined()
         }
         .sheet(isPresented: $viewModel.showSampleGallery, onDismiss: {
             if viewModel.selectedSample != nil { showFollowAlongEditor = true }
@@ -123,6 +136,7 @@ struct CreatorContentView: View {
                     Text("Setting")
                 }
             }
+            .foldConfined()
         }
         .sheet(isPresented: $viewModel.showPhotoPicker) {
             PhotoPicker { image in
@@ -149,6 +163,7 @@ struct CreatorContentView: View {
         .fullScreenCover(isPresented: $showFollowAlongEditor) {
             if let sample = viewModel.selectedSample {
                 PixelEditorView(referenceSample: sample)
+                    .foldConfined()
             }
         }
     }
@@ -165,10 +180,15 @@ struct CreatorContentView: View {
                     HantamEvent.track("home_pattern_tapped")
                     showPatternMaker = true
                 }
-                PatternStepsRow()
+                // 펼친 화면에서 도안이 아직 없으면 세 걸음 안내는 결과 쪽 판에 선다.
+                if !(fold.isUnfolded && patternStore.patterns.isEmpty) {
+                    PatternStepsRow()
+                }
 
-                // ── 2) 내 도안 ──
-                MyPatternsSection { openedPattern = $0 }
+                // ── 2) 내 도안 ── (펼친 화면에서는 띄우지 않고 결과 쪽 판에 연다)
+                MyPatternsSection {
+                    if fold.isUnfolded { paneSelection = $0.id } else { openedPattern = $0 }
+                }
 
                 // ── 3) 픽셀 아트 도구 ──
                 HomeToolGrid
@@ -181,6 +201,24 @@ struct CreatorContentView: View {
                 Spacer(minLength: 40)
             }
             .padding(.horizontal, 20)
+        }
+    }
+
+    // MARK: - 아이폰 듀오: 결과 쪽
+
+    /// 펼친 화면의 결과 쪽 판. 고른 도안(없으면 가장 최근 도안)을 그 자리에서 보고 고친다.
+    /// 도안이 하나도 없으면 무엇을 하는 앱인지 세 걸음 안내.
+    @ViewBuilder
+    private var homeResultPane: some View {
+        let patterns = patternStore.patterns
+        if let pattern = patterns.first(where: { $0.id == paneSelection }) ?? patterns.first {
+            PatternDetailView(pattern: pattern, isPane: true)
+                .id(pattern.id)
+        } else {
+            ZStack {
+                Color.hantamBackground.ignoresSafeArea()
+                PatternStepsRow().padding(24)
+            }
         }
     }
 

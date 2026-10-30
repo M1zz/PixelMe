@@ -7,9 +7,11 @@
 
 import SwiftUI
 import PhotosUI
+import LeeoKit
 
 struct PatternMakerView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.foldLayout) private var fold
     @ObservedObject private var subscription = SubscriptionManager.shared
     @ObservedObject private var store = PatternStore.shared
 
@@ -39,6 +41,17 @@ struct PatternMakerView: View {
     private var isPro: Bool { subscription.isProUser }
 
     var body: some View {
+        // 아이폰 듀오를 펴면 고르는 쪽(가로면 왼쪽, 세로면 아래)에 재료 · 크기 · 색, 결과 쪽에 미리보기가 선다.
+        // 접혀 있거나 보통 아이폰이면 지금 화면 그대로다 (LeeoKit Fold).
+        FoldSplitView {
+            chooseSide
+        } result: {
+            foldPreviewPane
+        }
+        .tint(.hantamAccent)
+    }
+
+    private var chooseSide: some View {
         NavigationStack {
             ZStack {
                 Color.hantamBackground.ignoresSafeArea()
@@ -47,7 +60,8 @@ struct PatternMakerView: View {
                 } else {
                     ScrollView {
                         VStack(spacing: 18) {
-                            previewCard
+                            // 펼친 화면에서는 결과 쪽 판에 크게 서므로 여기서는 그리지 않는다.
+                            if !fold.isUnfolded { previewCard }
                             materialSection
                             sizeSection
                             colorSection
@@ -64,7 +78,9 @@ struct PatternMakerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button { dismiss() } label: {
+                        Label("Cancel", systemImage: "xmark")
+                    }
                 }
                 if original != nil {
                     ToolbarItem(placement: .primaryAction) {
@@ -94,7 +110,22 @@ struct PatternMakerView: View {
                 PatternDetailView(pattern: pattern, justCreated: true)
             }
         }
-        .tint(.hantamAccent)
+    }
+
+    /// 펼친 화면의 결과 쪽 판. 사진을 고르기 전에는 세 걸음 안내, 고른 뒤에는 판을 가득 채운 미리보기.
+    private var foldPreviewPane: some View {
+        ZStack {
+            Color.hantamBackground.ignoresSafeArea()
+            if original == nil {
+                PatternStepsRow().padding(24)
+            } else {
+                VStack(spacing: 12) {
+                    previewImageBox
+                    previewInfo
+                }
+                .padding(16)
+            }
+        }
     }
 
     // MARK: - 사진 없음
@@ -129,28 +160,36 @@ struct PatternMakerView: View {
 
     private var previewCard: some View {
         VStack(spacing: 10) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 16).fill(Color.hantamCard)
-                if let previewImage {
-                    Image(uiImage: previewImage)
-                        .resizable()
-                        .interpolation(.high)
-                        .aspectRatio(contentMode: .fit)
-                        .padding(12)
-                        .accessibilityLabel(Text("Pattern preview"))
-                }
-                if isWorking || isRemovingBackground {
-                    ProgressView().controlSize(.large)
-                }
-            }
-            .frame(height: 300)
+            previewImageBox
+                .frame(height: 300)
+            previewInfo
+        }
+    }
 
-            if let preview {
-                Text(PatternRenderer.infoLines(for: preview).dropFirst().joined(separator: " · "))
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+    private var previewImageBox: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 16).fill(Color.hantamCard)
+            if let previewImage {
+                Image(uiImage: previewImage)
+                    .resizable()
+                    .interpolation(.high)
+                    .aspectRatio(contentMode: .fit)
+                    .padding(12)
+                    .accessibilityLabel(Text("Pattern preview"))
             }
+            if isWorking || isRemovingBackground {
+                ProgressView().controlSize(.large)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var previewInfo: some View {
+        if let preview {
+            Text(PatternRenderer.infoLines(for: preview).dropFirst().joined(separator: " · "))
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
         }
     }
 

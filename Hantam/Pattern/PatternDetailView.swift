@@ -11,6 +11,7 @@ import LeeoKit
 
 struct PatternDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.foldLayout) private var fold
     @ObservedObject private var subscription = SubscriptionManager.shared
     @ObservedObject private var store = PatternStore.shared
 
@@ -30,10 +31,13 @@ struct PatternDetailView: View {
     @State private var copiedList = false
     /// 방금 만든 도안인가. 그때만 응원 카드를 세운다.
     private let justCreated: Bool
+    /// 띄운 화면이 아니라 홈 옆 판에 서 있는가(아이폰 듀오를 폈을 때). 그러면 닫을 것이 없다.
+    private let isPane: Bool
 
     init(pattern: BeadPattern, initialStyle: PatternDisplayStyle = .preview, initialZoom: CGFloat = 1,
-         justCreated: Bool = false) {
+         justCreated: Bool = false, isPane: Bool = false) {
         self.justCreated = justCreated
+        self.isPane = isPane
         _pattern = State(initialValue: pattern)
         _style = State(initialValue: initialStyle)
         _zoom = State(initialValue: initialZoom)
@@ -43,20 +47,40 @@ struct PatternDetailView: View {
     private var isPro: Bool { subscription.isProUser }
     private var isSaved: Bool { store.contains(pattern) }
 
-    /// 화면에서 한 칸의 기본 크기 (pt).
-    private var baseCell: CGFloat {
-        let fit = (UIScreen.main.bounds.width - 32) / CGFloat(pattern.width)
-        return max(6, min(28, fit))
+    /// 화면에서 한 칸의 기본 크기 (pt). `fit` 은 도안 판이 설 자리. 없으면 화면 폭에 맞춘다.
+    private func baseCell(fit: CGSize? = nil) -> CGFloat {
+        guard let fit else {
+            return max(6, min(28, (UIScreen.main.bounds.width - 32) / CGFloat(pattern.width)))
+        }
+        let cell = min((fit.width - 16) / CGFloat(pattern.width), (fit.height - 16) / CGFloat(pattern.height))
+        return max(6, min(28, cell))
     }
 
     var body: some View {
+        // 아이폰 듀오를 펴면 고르는 쪽(가로면 왼쪽, 세로면 아래)에 보기 · 붓 · 색 목록 · 내보내기,
+        // 결과 쪽에 도안 판이 선다. 고치기를 켜면 왼쪽에서 붓을 고르고 오른쪽 판을 눌러 칠한다.
+        // 접혀 있거나 보통 아이폰이면 지금 화면 그대로다 (LeeoKit Fold).
+        FoldSplitView {
+            chooseSide
+        } result: {
+            GeometryReader { proxy in
+                chart(fit: CGSize(width: proxy.size.width - 32, height: proxy.size.height - 32))
+                    .padding(16)
+            }
+            .background(Color.hantamBackground.ignoresSafeArea())
+        }
+        .tint(.hantamAccent)
+    }
+
+    private var chooseSide: some View {
         NavigationStack {
             ZStack {
                 Color.hantamBackground.ignoresSafeArea()
                 ScrollView {
                     VStack(spacing: 16) {
                         if !isSaved { saveLimitBanner }
-                        chart
+                        // 펼친 화면에서는 결과 쪽 판에 크게 서므로 여기서는 그리지 않는다.
+                        if !fold.isUnfolded { chart() }
                         stylePicker
                         if isEditing { brushPalette }
                         infoCard
@@ -75,24 +99,37 @@ struct PatternDetailView: View {
             .navigationTitle(pattern.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") { dismiss() }
+                if !isPane {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button { dismiss() } label: {
+                            Label("Done", systemImage: "checkmark")
+                        }
+                    }
                 }
                 ToolbarItemGroup(placement: .primaryAction) {
                     if isEditing && !undoStack.isEmpty {
                         Button { undo() } label: { Image(systemName: "arrow.uturn.backward") }
                             .accessibilityLabel(Text("Undo"))
                     }
-                    Button(isEditing ? "Finish editing" : "Edit") {
+                    Button {
                         isEditing.toggle()
                         if !isEditing { persist() }
+                    } label: {
+                        if isEditing {
+                            Label("Finish editing", systemImage: "checkmark.circle")
+                        } else {
+                            Label("Edit", systemImage: "pencil.tip")
+                        }
                     }
                     Menu {
                         Button { titleDraft = pattern.title; showRename = true } label: {
                             Label("Rename", systemImage: "pencil")
                         }
                         if isSaved {
-                            Button(role: .destructive) { store.delete(pattern); dismiss() } label: {
+                            Button(role: .destructive) {
+                                store.delete(pattern)
+                                if !isPane { dismiss() }
+                            } label: {
                                 Label("Delete pattern", systemImage: "trash")
                             }
                         }
@@ -123,13 +160,13 @@ struct PatternDetailView: View {
             .onChange(of: style) { _, _ in rerender() }
             .onChange(of: pattern) { _, _ in rerender() }
         }
-        .tint(.hantamAccent)
     }
 
     // MARK: - 도안 판
 
-    private var chart: some View {
-        let cell = baseCell * zoom
+    /// 도안 판. `fit` 이 있으면(펼친 화면의 결과 쪽) 그 자리를 다 쓴다.
+    private func chart(fit: CGSize? = nil) -> some View {
+        let cell = baseCell(fit: fit) * zoom
         let w = CGFloat(pattern.width) * cell
         let h = CGFloat(pattern.height) * cell
         return ScrollView([.horizontal, .vertical], showsIndicators: true) {
@@ -149,7 +186,7 @@ struct PatternDetailView: View {
             }
             .padding(8)
         }
-        .frame(height: min(max(h + 16, 220), 460))
+        .frame(height: fit == nil ? min(max(h + 16, 220), 460) : nil)
         .background(Color.white, in: RoundedRectangle(cornerRadius: 16))
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(isEditing ? Color.hantamAccent : Color.clear, lineWidth: 2))
         .gesture(
@@ -485,7 +522,9 @@ struct ColorReplaceSheet: View {
             .navigationTitle(Text("Swap \(current.code)"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button { dismiss() } label: { Label("Cancel", systemImage: "xmark") }
+                }
             }
         }
         .tint(.hantamAccent)
