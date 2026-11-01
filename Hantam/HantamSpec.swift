@@ -8,7 +8,7 @@ import LeeoKit
 
 enum HantamSpec: LeeoAppSpec {
     static let appName = "PixelMe"
-    static let developerEmail = "mizzking75@gmail.com"
+    static let developerEmail = "leeo@kakao.com"
     static let feedback = LeeoFeedbackConfig(containerIdentifier: "iCloud.com.Ysoup.FeedbackHub", appIdentifier: "com.leeo.PixelMe")
 
     /// 개인정보 처리방침·지원·약관 페이지 (README 에 공개된 링크, docs/ 를 GitHub Pages 로 서빙).
