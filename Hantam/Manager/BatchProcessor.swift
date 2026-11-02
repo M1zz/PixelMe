@@ -116,7 +116,7 @@ class BatchProcessor: ObservableObject {
         if config.colorPalette != .none {
             let palette = config.colorPalette.colors
             if !palette.isEmpty {
-                processedImage = ColorReductionEngine.applyColorReduction(to: processedImage!, colorCount: 0, palette: palette)
+                processedImage = processedImage.flatMap { ColorReductionEngine.applyColorReduction(to: $0, colorCount: 0, palette: palette) }
             }
         }
 
@@ -126,19 +126,19 @@ class BatchProcessor: ObservableObject {
                 // Use dithering
                 let palette = config.colorPalette != .none ? config.colorPalette.colors : []
                 if !palette.isEmpty {
-                    processedImage = ColorReductionEngine.applyDithering(to: processedImage!, type: config.ditheringType, palette: palette)
+                    processedImage = processedImage.flatMap { ColorReductionEngine.applyDithering(to: $0, type: config.ditheringType, palette: palette) }
                 } else {
                     // Generate palette from image
-                    processedImage = ColorReductionEngine.applyColorReduction(to: processedImage!, colorCount: config.colorReduction.colorCount)
+                    processedImage = processedImage.flatMap { ColorReductionEngine.applyColorReduction(to: $0, colorCount: config.colorReduction.colorCount) }
                 }
             } else {
-                processedImage = ColorReductionEngine.applyColorReduction(to: processedImage!, colorCount: config.colorReduction.colorCount)
+                processedImage = processedImage.flatMap { ColorReductionEngine.applyColorReduction(to: $0, colorCount: config.colorReduction.colorCount) }
             }
         }
 
         // Step 4: Apply filter effects
         if config.filterEffect != .none {
-            processedImage = FilterEffectsEngine.applyFilter(to: processedImage!, type: config.filterEffect, intensity: config.filterIntensity)
+            processedImage = processedImage.flatMap { FilterEffectsEngine.applyFilter(to: $0, type: config.filterEffect, intensity: config.filterIntensity) }
         }
 
         // Step 5: Resize to export size if needed

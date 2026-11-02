@@ -10,15 +10,15 @@ import UIKit
 // MARK: - Crop the image to a square even if the user select a rectangular image
 extension UIImage {
     var crop: UIImage? {
-        let refWidth = CGFloat((self.cgImage!.width))
-        let refHeight = CGFloat((self.cgImage!.height))
+        guard let cgImage else { return nil }
+        let refWidth = CGFloat(cgImage.width)
+        let refHeight = CGFloat(cgImage.height)
         let cropSize = refWidth > refHeight ? refHeight : refWidth
         let x = (refWidth - cropSize) / 2.0
         let y = (refHeight - cropSize) / 2.0
         let cropRect = CGRect(x: x, y: y, width: cropSize, height: cropSize)
-        let imageRef = self.cgImage?.cropping(to: cropRect)
-        let cropped = UIImage(cgImage: imageRef!, scale: 0.0, orientation: self.imageOrientation)
-        return cropped
+        guard let imageRef = cgImage.cropping(to: cropRect) else { return nil }
+        return UIImage(cgImage: imageRef, scale: 0.0, orientation: self.imageOrientation)
     }
     
     /// Crop any transparent pixels after applying any filters

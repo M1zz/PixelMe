@@ -59,15 +59,16 @@ enum ExportFormat: String, CaseIterable, Identifiable {
 
     private func createPDFData(from image: UIImage) -> Data? {
         let pdfData = NSMutableData()
-        let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
         var mediaBox = CGRect(origin: .zero, size: image.size)
 
-        guard let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil) else {
+        guard let cgImage = image.cgImage,
+              let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData),
+              let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil) else {
             return nil
         }
 
         pdfContext.beginPage(mediaBox: &mediaBox)
-        pdfContext.draw(image.cgImage!, in: mediaBox)
+        pdfContext.draw(cgImage, in: mediaBox)
         pdfContext.endPage()
         pdfContext.closePDF()
 

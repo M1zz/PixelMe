@@ -230,12 +230,12 @@ final class AsepriteManager {
 private extension Data {
     func readUInt16(at offset: Int) -> UInt16 {
         guard offset + 2 <= count else { return 0 }
-        return withUnsafeBytes { $0.load(fromByteOffset: offset, as: UInt16.self) }
+        return withUnsafeBytes { $0.loadUnaligned(fromByteOffset: offset, as: UInt16.self) }
     }
 
     func readUInt32(at offset: Int) -> UInt32 {
         guard offset + 4 <= count else { return 0 }
-        return withUnsafeBytes { $0.load(fromByteOffset: offset, as: UInt32.self) }
+        return withUnsafeBytes { $0.loadUnaligned(fromByteOffset: offset, as: UInt32.self) }
     }
 
     mutating func appendUInt16(_ value: UInt16) {
