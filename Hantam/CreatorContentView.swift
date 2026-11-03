@@ -22,6 +22,8 @@ struct CreatorContentView: View {
     @State private var showFollowAlongEditor = false
     @State private var importedAsepriteFrames: [AnimationFrame]? = nil
     @State private var showPatternMaker = false
+    /// Siri · 단축어로 들어온 도안 만들기 (→ Pattern/PatternIntents.swift)
+    @Bindable private var patternRouter = PatternRouter.shared
     @State private var openedPattern: BeadPattern?
     @State private var showHantamSettings = false
     /// 펼친 화면에서 결과 쪽 판에 세울 내 도안. 없으면 가장 최근 도안.
@@ -107,6 +109,12 @@ struct CreatorContentView: View {
         }
         .fullScreenCover(isPresented: $showPatternMaker) {
             PatternMakerView()
+        }
+        .fullScreenCover(item: $patternRouter.photo) { photo in
+            PatternMakerView(startWithPicker: false, initialImage: photo.image)
+        }
+        .onChange(of: patternRouter.makerRequest, initial: true) { _, request in
+            if request > 0 { showPatternMaker = true }
         }
         .fullScreenCover(item: $openedPattern) { pattern in
             PatternDetailView(pattern: pattern)

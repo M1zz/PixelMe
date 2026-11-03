@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01DA848155968674E57BB5F2 /* PatternDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860605EA74056A85F8885B8 /* PatternDetailView.swift */; };
 		06C17EF61AB36CE578CD1AB9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 11A1F0AFD814ABEA66A8341C /* InfoPlist.xcstrings */; };
+		099CF0E9F154E764C68A7CF2 /* PatternIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D4C60CBB1B222CAB0FB201 /* PatternIntents.swift */; };
 		0EA3D141D0A51A051C80BECA /* HantamSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8C1650184DBD36BA8315B /* HantamSpec.swift */; };
 		0EF41573D2BE171F5F243C6E /* SamplePixelArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */; };
 		16761F1B391903E72AF42D60 /* PatternColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8655DC2C480AE3CF1C25D /* PatternColorData.swift */; };
@@ -57,6 +58,7 @@
 		AA5B2C3D4E5F6A7B8C9D0001 /* PixelIconDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1001 /* PixelIconDefinition.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0002 /* PixelAnimatedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1002 /* PixelAnimatedIcon.swift */; };
 		AA5B2C3D4E5F6A7B8C9D0003 /* PixelIconCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2C3D4E5F6A7B8C9D1003 /* PixelIconCatalog.swift */; };
+		AB1D861AAD74A2791AC7427C /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5B0C209A97AD57796E17DF36 /* AppShortcuts.xcstrings */; };
 		B13F52AED2F3481862A5B3C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF32BADE975806E619CC8A1 /* Foundation.framework */; };
 		B6A919CB9550B77BFF826B21 /* HantamHomeSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */; };
 		BD3A58F87C44C1B2CB740AD8 /* PatternEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67102759E10EF5218DB451C2 /* PatternEngine.swift */; };
@@ -135,10 +137,12 @@
 		58D576222A4E640B006277FB /* PixelatedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelatedPhotoView.swift; sourceTree = "<group>"; };
 		58D576242A4E6445006277FB /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		5A7F20851D6E162FE747C23C /* HantamAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamAnalytics.swift; sourceTree = "<group>"; };
+		5B0C209A97AD57796E17DF36 /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
 		5B30D18E33FDF8BC259C4587 /* ShareSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		623496F3F91604473477213F /* HantamTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamTheme.swift; sourceTree = "<group>"; };
 		67102759E10EF5218DB451C2 /* PatternEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternEngine.swift; sourceTree = "<group>"; };
 		6B1A5E1B0854AF215211339D /* SamplePixelArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePixelArt.swift; sourceTree = "<group>"; };
+		77D4C60CBB1B222CAB0FB201 /* PatternIntents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternIntents.swift; sourceTree = "<group>"; };
 		84517E9BEB3A4885A65B56E7 /* CreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorViewModel.swift; path = ViewModels/CreatorViewModel.swift; sourceTree = "<group>"; };
 		9B1638E02C7BE4CAAD372600 /* ScreenshotScenes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotScenes.swift; sourceTree = "<group>"; };
 		AA0001012A4E640C006277FB /* SNSSizePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SNSSizePreset.swift; path = Models/SNSSizePreset.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 				DAFDD328E6EB4B2DBE4765A8 /* HantamRoadmap.swift */,
 				C213E30E2E7B04AFD7650409 /* Pattern */,
 				11A1F0AFD814ABEA66A8341C /* InfoPlist.xcstrings */,
+				5B0C209A97AD57796E17DF36 /* AppShortcuts.xcstrings */,
 			);
 			path = Hantam;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				332F9D4B81A004228DC952CA /* PatternRenderer.swift */,
 				C90E358AF1AA3623D30D216C /* PatternStore.swift */,
 				9B1638E02C7BE4CAAD372600 /* ScreenshotScenes.swift */,
+				77D4C60CBB1B222CAB0FB201 /* PatternIntents.swift */,
 			);
 			name = Pattern;
 			path = Pattern;
@@ -512,6 +518,7 @@
 				58D012442A28147D00668585 /* Preview Assets.xcassets in Resources */,
 				587D176A2F1FB4DF006DED5B /* Localizable.xcstrings in Resources */,
 				06C17EF61AB36CE578CD1AB9 /* InfoPlist.xcstrings in Resources */,
+				AB1D861AAD74A2791AC7427C /* AppShortcuts.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +623,7 @@
 				6C7621FA2729C25CB691D945 /* ScreenshotScenes.swift in Sources */,
 				EC1CBAD32DBFBCCC53E4CD2D /* Watermark.swift in Sources */,
 				EE59556EBD30C625B96C32EF /* ShareSheet.swift in Sources */,
+				099CF0E9F154E764C68A7CF2 /* PatternIntents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
