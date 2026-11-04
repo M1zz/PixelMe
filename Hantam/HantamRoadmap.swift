@@ -80,6 +80,9 @@ extension HantamSpec {
         .init(id: "data.delete", status: .planned,
               title: NSLocalizedString("Delete all my data", comment: "Roadmap item: delete all data"),
               detail: NSLocalizedString("Erase all your saved work and settings right in the app.", comment: "Roadmap item detail: delete all data")),
+        .init(id: "siri-ai", status: .planned,
+              title: NSLocalizedString("Just Ask Siri", comment: "Roadmap item: ask Siri without naming the app"),
+              detail: NSLocalizedString("Siri will find your saved patterns and open them right away, even if you don't say the app's name.", comment: "Roadmap item detail: ask Siri without naming the app")),
     ]}
 }
 

@@ -116,6 +116,14 @@ struct CreatorContentView: View {
         .onChange(of: patternRouter.makerRequest, initial: true) { _, request in
             if request > 0 { showPatternMaker = true }
         }
+        // Siri · Spotlight 에서 고른 내 도안 → 그 도안
+        .onChange(of: patternRouter.patternID, initial: true) { _, id in
+            guard let id else { return }
+            patternRouter.patternID = nil
+            if let pattern = patternStore.patterns.first(where: { $0.id == id }) {
+                openedPattern = pattern
+            }
+        }
         .fullScreenCover(item: $openedPattern) { pattern in
             PatternDetailView(pattern: pattern)
         }
