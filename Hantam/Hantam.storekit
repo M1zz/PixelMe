@@ -1,0 +1,278 @@
+{
+  "identifier": "6F03F8F9-6DBE-4F5F-BD84-B4E3E407C822",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "29.99",
+      "familyShareable": false,
+      "internalID": "A73F06E6-BB00-483E-AE55-A68EBC717747",
+      "localizations": [
+        {
+          "description": "큰 도안 · 도안 무제한 보관 · 표시 없는 이미지",
+          "displayName": "한땀 Plus (평생)",
+          "locale": "ko"
+        },
+        {
+          "description": "Bigger patterns, unlimited saves, no mark",
+          "displayName": "Hantam Plus (Lifetime)",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.leeo.PixelMe.plus.lifetime",
+      "referenceName": "Plus Lifetime",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "44.99",
+      "familyShareable": false,
+      "internalID": "C442B83F-9979-4301-AEBD-9BB63EA37282",
+      "localizations": [
+        {
+          "description": "인쇄용 PDF 도안과 Plus의 모든 기능",
+          "displayName": "한땀 Pro (평생)",
+          "locale": "ko"
+        },
+        {
+          "description": "Printable PDF charts and everything in Plus",
+          "displayName": "Hantam Pro (Lifetime)",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.pixelme.pro.lifetime",
+      "referenceName": "Pro Lifetime",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "14.99",
+      "familyShareable": false,
+      "internalID": "C3A52B52-DB98-4EEE-81B1-CA1333021E64",
+      "localizations": [
+        {
+          "description": "Plus 평생에서 Pro 평생으로 올립니다",
+          "displayName": "한땀 Pro로 올리기",
+          "locale": "ko"
+        },
+        {
+          "description": "Upgrade Plus Lifetime to Pro",
+          "displayName": "Upgrade to Hantam Pro",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.leeo.PixelMe.pro.upgrade",
+      "referenceName": "Pro Upgrade from Plus",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "29.99",
+      "familyShareable": false,
+      "internalID": "B2AF3C2E-1FCF-494F-823D-6C0DB7D9878B",
+      "localizations": [
+        {
+          "description": "구독하던 분께 드리는 Pro 평생",
+          "displayName": "한땀 Pro 평생 (구독자)",
+          "locale": "ko"
+        },
+        {
+          "description": "Pro Lifetime for subscribers",
+          "displayName": "Hantam Pro for Subscribers",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.leeo.PixelMe.pro.graduate",
+      "referenceName": "Pro Lifetime Graduate",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_applicationInternalID": "",
+    "_developerTeamID": "QGAQ3AY3R3",
+    "_failTransactionsEnabled": false,
+    "_lastSynchronizedDate": 0,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [
+    {
+      "id": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+      "localizations": [],
+      "name": "Hantam Plus · Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "1.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "EAEDA069-5FAD-4780-A480-447482F12E81",
+          "localizations": [
+            {
+              "description": "인쇄용 PDF 도안과 Plus의 모든 기능",
+              "displayName": "한땀 Pro 주 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Printable PDF charts and everything in Plus",
+              "displayName": "Hantam Pro Weekly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.leeo.PixelMe.pro.weekly",
+          "recurringSubscriptionPeriod": "P1W",
+          "referenceName": "Pro Weekly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "4.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "BBE1D957-C681-4C32-ABC6-74D61614C59A",
+          "localizations": [
+            {
+              "description": "인쇄용 PDF 도안과 Plus의 모든 기능",
+              "displayName": "한땀 Pro 월 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Printable PDF charts and everything in Plus",
+              "displayName": "Hantam Pro Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.hantam.pro.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Pro Monthly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "14.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "C94E3C0F-5829-4ECC-9F8B-096AF02B6AB4",
+          "localizations": [
+            {
+              "description": "인쇄용 PDF 도안과 Plus의 모든 기능",
+              "displayName": "한땀 Pro 연 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Printable PDF charts and everything in Plus",
+              "displayName": "Hantam Pro Yearly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.hantam.pro.yearly",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Pro Yearly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": [],
+          "introductoryOffer": {
+            "displayPrice": "7.49",
+            "internalID": "D1EB2201-A983-4CA6-9B8B-8FF173C1FE01",
+            "numberOfPeriods": 1,
+            "paymentMode": "payUpFront",
+            "subscriptionPeriod": "P1Y"
+          }
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "1.49",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "4CA796F0-5A75-4624-9E2D-B983C5A172E2",
+          "localizations": [
+            {
+              "description": "큰 도안 · 도안 무제한 보관 · 표시 없는 이미지",
+              "displayName": "한땀 Plus 주 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Bigger patterns, unlimited saves, no mark",
+              "displayName": "Hantam Plus Weekly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.leeo.PixelMe.plus.weekly",
+          "recurringSubscriptionPeriod": "P1W",
+          "referenceName": "Plus Weekly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "3.49",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "3DAEDE74-E61E-4051-B0E3-24154D35AF46",
+          "localizations": [
+            {
+              "description": "큰 도안 · 도안 무제한 보관 · 표시 없는 이미지",
+              "displayName": "한땀 Plus 월 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Bigger patterns, unlimited saves, no mark",
+              "displayName": "Hantam Plus Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.leeo.PixelMe.plus.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Plus Monthly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "9.99",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "725C69E8-23E2-41C1-BD96-6C05F01629E3",
+          "localizations": [
+            {
+              "description": "큰 도안 · 도안 무제한 보관 · 표시 없는 이미지",
+              "displayName": "한땀 Plus 연 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "Bigger patterns, unlimited saves, no mark",
+              "displayName": "Hantam Plus Yearly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.leeo.PixelMe.plus.yearly",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Plus Yearly",
+          "subscriptionGroupID": "1DCE3ADF-7E20-4C89-8146-77272967FBE5",
+          "type": "RecurringSubscription",
+          "winbackOffers": [],
+          "introductoryOffer": {
+            "displayPrice": "4.99",
+            "internalID": "923535B2-C196-4ACC-91B9-054A764F7F56",
+            "numberOfPeriods": 1,
+            "paymentMode": "payUpFront",
+            "subscriptionPeriod": "P1Y"
+          }
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

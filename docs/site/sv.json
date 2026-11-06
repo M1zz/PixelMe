@@ -11,7 +11,7 @@
     "title": "Prova på ett foto",
     "lead": "Samma färgmatchning som i appen, med Perlers riktiga färgkarta. Ändra storlek och antal färger, eller prova med ett eget foto.",
     "size": "Storlek",
-    "boards": ["1 pärlplatta", "4 pärlplattor (Pro)"],
+    "boards": ["1 pärlplatta", "4 pärlplattor (Plus)"],
     "colors": "Upp till {n} färger",
     "need": "Färger du behöver",
     "more": "och {n} färger till",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Strykpärlor, pärlplattor på 29 × 29, varje pärla ca 5 mm"],
       ["DMC", "Korsstygnsgarn på Aidaväv med 11, 14, 16 eller 18 rutor per tum"],
       ["Gratis", "Pärlor upp till 1 platta (29 rutor), garn upp till 40 stygn på längsta sidan"],
-      ["Pro", "Pärlor upp till 4 × 4 plattor (116 rutor), garn upp till 200 stygn"],
+      ["Plus · Pro", "Pärlor upp till 4 × 4 plattor (116 rutor), garn upp till 200 stygn"],
       ["Färger", "Från 2 till 50 per mönster"]
     ],
     "note": "Perler, Hama, Artkal och DMC är varumärken som tillhör respektive ägare. Hantam har ingen koppling till dem. Färger på skärmen kan se lite annorlunda ut än i verkligheten."
   },
   "pricing": {
-    "title": "Börja gratis. Pro för stora mönster och utskrift.",
+    "title": "Börja gratis. Plus för stora mönster, Pro för utskrift.",
     "free": {
       "name": "Gratis",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "PDF-mönster att skriva ut",
-        "Upp till 4 × 4 pärlplattor eller 200 stygn",
-        "Obegränsat antal sparade mönster",
-        "Bilder utan märke",
-        "Alla pixelkonstverktyg"
+        "Plus · Upp till 4 × 4 pärlplattor eller 200 stygn",
+        "Plus · Obegränsat antal sparade mönster",
+        "Plus · Bilder utan märke",
+        "Plus · Alla pixelkonstverktyg",
+        "Pro · PDF-mönster att skriva ut",
+        "Pro · Före och efter-videor utan Hantam-text, 3 filterpaket"
       ],
-      "note": "Månads- eller årsabonnemang, eller ett köp för alltid"
+      "note": "Vecko-, månads- eller årsprenumeration, eller ett engångsköp för alltid"
     },
     "note": "Du kan också ge bort Pro som present till en vän direkt i appen."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Laddas mina foton upp någonstans?", "a": "Nej. Foton och mönster behandlas och sparas bara på din iPhone."},
       {"q": "Färgerna ser lite annorlunda ut än mina pärlor.", "a": "Skärmar visar färger annorlunda än plast och garn. Tryck på en färg i listan för att byta den mot en närmare färg från samma märke."},
-      {"q": "Hur stort kan ett mönster bli?", "a": "Gratis ryms det på en pärlplatta på 29 × 29 eller 40 stygn på längsta sidan. Med Pro upp till 4 × 4 plattor (116 pärlor) eller 200 stygn."},
+      {"q": "Hur stort kan ett mönster bli?", "a": "Gratis ryms det på en pärlplatta på 29 × 29 eller 40 stygn på längsta sidan. Med Plus upp till 4 × 4 plattor (116 pärlor) eller 200 stygn."},
       {"q": "Vilka foton blir bäst?", "a": "Foton med ett motiv och en enkel bakgrund. Ju färre färger, desto renare mönster, så sänk antalet färger om resultatet ser rörigt ut."},
-      {"q": "Kan jag fortfarande göra pixelkonst?", "a": "Ja. Pixla foton, rita efter 110 förlagor och animera bild för bild finns kvar. Alla pixelkonstverktyg ingår i Pro."},
+      {"q": "Kan jag fortfarande göra pixelkonst?", "a": "Ja. Pixla foton, rita efter 110 förlagor och animera bild för bild finns kvar. Alla pixelkonstverktyg ingår i Plus."},
       {"q": "Hur återställer jag mitt köp?", "a": "Öppna inställningarna i appen och tryck på `Återställ köp`. Använd samma Apple-konto som du köpte Pro med."},
       {"q": "Hur avslutar jag prenumerationen?", "a": "Gå till Inställningar på iPhone › ditt namn › Prenumerationer och välj Hantam. Livstidsåtkomst är en engångsbetalning och förnyas aldrig."},
       {"q": "Hur rapporterar jag ett fel eller föreslår en idé?", "a": "Snabbast är att skicka feedback från appens inställningar. Du kan också mejla till adressen nedan eller skicka ett DM på Instagram (@lee25_ios)."}

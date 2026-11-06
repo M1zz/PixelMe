@@ -23,6 +23,8 @@ struct HantamApp: App {
             rootView
                 .environmentObject(manager)
                 .leeoSatisfactionCheck(HantamSpec.self)
+                // 유료 다운로드 시절 구매자에게 고마움 한 번, 구독자에게 구독 졸업 제안.
+                .modifier(PlanMoments())
                 .onAppear {
                     ReviewManager.shared.trackAppLaunch()
                 }
@@ -67,6 +69,42 @@ struct HantamApp: App {
         } catch {
             presentAlert(title: "Aseprite 가져오기 실패", message: error.localizedDescription)
         }
+    }
+}
+
+// MARK: - 요금제가 말을 거는 순간
+
+/// 앱을 열 때 한 번씩 보는 요금제 안내.
+///  - 앱을 돈 내고 받았던 사람: 이제 무료가 됐고 Pro 는 평생 당신 것이라는 고마움 한 번.
+///  - 구독 중인 사람: 6개월째 · 갱신 7일 전에 구독 졸업 평생가 한 번씩(LeeoGraduation). 산 뒤 해지 화면으로 안내.
+private struct PlanMoments: ViewModifier {
+    @ObservedObject private var subscription = SubscriptionManager.shared
+    @State private var showsThanks = false
+    @State private var showsGraduation = false
+
+    func body(content: Content) -> some View {
+        content
+            .task {
+                if subscription.owesPaidDownloadThanks {
+                    showsThanks = true
+                } else if await subscription.takeGraduationOffer() {
+                    showsGraduation = true
+                }
+            }
+            // 그랜드파더링 확인은 앱이 뜬 뒤에 끝나므로 바뀌는 때도 본다.
+            .onChange(of: subscription.owesPaidDownloadThanks) { _, owes in
+                if owes { showsThanks = true }
+            }
+            .alert("Thank you for buying Hantam", isPresented: $showsThanks) {
+                Button("OK", role: .cancel) { subscription.markPaidDownloadThanked() }
+            } message: {
+                Text("Hantam is now free to download. Because you bought it, Pro is yours for life, printable PDF patterns included.")
+            }
+            .sheet(isPresented: $showsGraduation) {
+                LeeoGraduationOfferView(
+                    graduate: subscription.product(AppConfig.proGraduateProductID),
+                    onPurchased: { await subscription.checkSubscriptionStatus() })
+            }
     }
 }
 

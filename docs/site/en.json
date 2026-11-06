@@ -13,7 +13,7 @@
     "size": "Size",
     "boards": [
       "1 pegboard",
-      "4 pegboards (Pro)"
+      "4 pegboards (Plus)"
     ],
     "colors": "Up to {n} colors",
     "need": "Colors you need",
@@ -83,7 +83,7 @@
         "Beads up to 1 pegboard (29 squares), thread up to 40 stitches on the longest side"
       ],
       [
-        "Pro",
+        "Plus · Pro",
         "Beads up to 4 × 4 pegboards (116 squares), thread up to 200 stitches"
       ],
       [
@@ -94,7 +94,7 @@
     "note": "Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colors on screen may look slightly different from the real thing."
   },
   "pricing": {
-    "title": "Start free. Go Pro for bigger patterns and printing.",
+    "title": "Start free. Plus for bigger patterns, Pro for printing.",
     "free": {
       "name": "Free",
       "items": [
@@ -106,15 +106,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Printable PDF patterns",
-        "Up to 4 × 4 pegboards, or 200 stitches",
-        "Unlimited saved patterns",
-        "Images without the mark",
-        "Every pixel art tool"
+        "Plus · Up to 4 × 4 pegboards, or 200 stitches",
+        "Plus · Unlimited saved patterns",
+        "Plus · Images without the mark",
+        "Plus · Every pixel art tool",
+        "Pro · Printable PDF patterns",
+        "Pro · Before-and-after videos without the caption, and 3 filter packs"
       ],
-      "note": "Monthly or yearly subscription, or a one-time lifetime purchase"
+      "note": "Weekly, monthly or yearly subscription, or a one-time lifetime purchase"
     },
     "note": "You can also give Pro to a friend as a gift from inside the app."
   },
@@ -131,7 +132,7 @@
       },
       {
         "q": "How big can a pattern be?",
-        "a": "Free patterns fit one 29 × 29 pegboard, or 40 stitches on the longest side. Pro goes up to 4 × 4 pegboards (116 beads) or 200 stitches."
+        "a": "Free patterns fit one 29 × 29 pegboard, or 40 stitches on the longest side. Plus goes up to 4 × 4 pegboards (116 beads) or 200 stitches."
       },
       {
         "q": "Which photos work best?",
@@ -139,7 +140,7 @@
       },
       {
         "q": "Can I still make pixel art?",
-        "a": "Yes. You can pixelate photos, draw along with 110 samples and animate frame by frame. Every pixel art tool is included in Pro."
+        "a": "Yes. You can pixelate photos, draw along with 110 samples and animate frame by frame. Every pixel art tool is included in Plus."
       },
       {
         "q": "How do I restore my purchase?",

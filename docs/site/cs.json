@@ -11,7 +11,7 @@
     "title": "Vyzkoušej to na fotce",
     "lead": "Stejné přiřazování barev jako v aplikaci, se skutečným vzorníkem Perler. Změň velikost a počet barev, nebo zkus vlastní fotku.",
     "size": "Velikost",
-    "boards": ["1 podložka", "4 podložky (Pro)"],
+    "boards": ["1 podložka", "4 podložky (Plus)"],
     "colors": "Nejvýš {n} barev",
     "need": "Barvy, které potřebuješ",
     "more": "a další barvy: {n}",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Žehlicí korálky, podložky 29 × 29, korálek asi 5 mm"],
       ["DMC", "Příze na křížkový steh, kanava Aida 11, 14, 16 nebo 18"],
       ["Zdarma", "Korálky do 1 podložky (29 políček), příze do 40 stehů na delší straně"],
-      ["Pro", "Korálky do 4 × 4 podložek (116 políček), příze do 200 stehů"],
+      ["Plus · Pro", "Korálky do 4 × 4 podložek (116 políček), příze do 200 stehů"],
       ["Barvy", "2 až 50 v jednom vzoru"]
     ],
     "note": "Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s nimi není nijak spojen. Barvy na displeji se mohou od skutečnosti mírně lišit."
   },
   "pricing": {
-    "title": "Začni zdarma. Na velké vzory a tisk je Pro.",
+    "title": "Začni zdarma. Plus pro velké vzory, Pro pro tisk.",
     "free": {
       "name": "Zdarma",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Vzory v PDF k tisku",
-        "Až 4 × 4 podložky nebo 200 stehů",
-        "Neomezeně uložených vzorů",
-        "Obrázky bez značky",
-        "Všechny nástroje pro pixel art"
+        "Plus · Až 4 × 4 podložky nebo 200 stehů",
+        "Plus · Neomezeně uložených vzorů",
+        "Plus · Obrázky bez značky",
+        "Plus · Všechny nástroje pro pixel art",
+        "Pro · Vzory v PDF k tisku",
+        "Pro · Videa před a po bez nápisu Hantam, 3 balíčky filtrů"
       ],
-      "note": "Měsíční nebo roční předplatné, nebo jednorázový doživotní nákup"
+      "note": "Týdenní, měsíční nebo roční předplatné, nebo jednorázový nákup navždy"
     },
     "note": "Pro můžeš v aplikaci i darovat kamarádovi."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Nahrávají se moje fotky někam?", "a": "Ne. Fotky i vzory se zpracovávají a ukládají jen v tvém iPhonu."},
       {"q": "Barvy vypadají trochu jinak než moje korálky.", "a": "Displej zobrazuje barvy jinak než plast a příze. Klepni na barvu v seznamu a vyměň ji za bližší odstín stejné značky."},
-      {"q": "Jak velký může vzor být?", "a": "Zdarma jedna podložka 29 × 29 nebo 40 stehů na delší straně. S Pro až 4 × 4 podložky (116 korálků) nebo 200 stehů."},
+      {"q": "Jak velký může vzor být?", "a": "Zdarma jedna podložka 29 × 29 nebo 40 stehů na delší straně. S Plus až 4 × 4 podložky (116 korálků) nebo 200 stehů."},
       {"q": "Které fotky dopadnou nejlíp?", "a": "S jedním hlavním motivem a jednoduchým pozadím. Čím méně barev, tím čistší vzor, takže když výsledek působí neklidně, sniž počet barev."},
-      {"q": "Dá se pořád dělat pixel art?", "a": "Ano. Pixelizace fotek, kreslení podle 110 předloh i animace snímek po snímku zůstaly. Všechny nástroje pro pixel art jsou v Pro."},
+      {"q": "Dá se pořád dělat pixel art?", "a": "Ano. Pixelizace fotek, kreslení podle 110 předloh i animace snímek po snímku zůstaly. Všechny nástroje pro pixel art jsou v Plus."},
       {"q": "Jak obnovím nákup?", "a": "Otevři v aplikaci nastavení a klepni na `Obnovit nákupy`. Použij stejný Apple účet, kterým jsi Pro koupil."},
       {"q": "Jak zruším předplatné?", "a": "V Nastavení iPhonu › tvoje jméno › Předplatné vyber Hantam. Doživotní přístup je jednorázová platba a neobnovuje se."},
       {"q": "Jak nahlásit chybu nebo navrhnout nápad?", "a": "Nejrychlejší je poslat zpětnou vazbu z nastavení aplikace. Můžeš také napsat na adresu níže nebo poslat DM na Instagramu (@lee25_ios)."}

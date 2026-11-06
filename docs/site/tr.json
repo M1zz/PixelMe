@@ -11,7 +11,7 @@
     "title": "Bir fotoğrafla dene",
     "lead": "Uygulamadakiyle aynı renk eşleştirme, gerçek Perler renk kartıyla. Boyutu ve renk sayısını değiştir ya da kendi fotoğrafınla dene.",
     "size": "Boyut",
-    "boards": ["1 pano", "4 pano (Pro)"],
+    "boards": ["1 pano", "4 pano (Plus)"],
     "colors": "En fazla {n} renk",
     "need": "İhtiyacın olan renkler",
     "more": "ve {n} renk daha",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Ütülenebilir boncuk, 29 × 29 panolar, her boncuk yaklaşık 5 mm"],
       ["DMC", "11, 14, 16 ya da 18 count Aida üzerine kanaviçe ipliği"],
       ["Ücretsiz", "Boncukta 1 pano (29 kare), iplikte uzun kenarda 40 ilmeğe kadar"],
-      ["Pro", "Boncukta 4 × 4 pano (116 kare), iplikte 200 ilmeğe kadar"],
+      ["Plus · Pro", "Boncukta 4 × 4 pano (116 kare), iplikte 200 ilmeğe kadar"],
       ["Renkler", "Şema başına 2 ile 50 arası"]
     ],
     "note": "Perler, Hama, Artkal ve DMC, ilgili sahiplerinin ticari markalarıdır. Hantam'ın bunlarla bir bağlantısı yoktur. Ekrandaki renkler gerçeğinden biraz farklı görünebilir."
   },
   "pricing": {
-    "title": "Ücretsiz başla. Büyük şemalar ve yazdırma için Pro.",
+    "title": "Ücretsiz başla. Büyük şemalar için Plus, yazdırmak için Pro.",
     "free": {
       "name": "Ücretsiz",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Yazdırılabilir PDF şemalar",
-        "4 × 4 pano ya da 200 ilmeğe kadar",
-        "Sınırsız kayıtlı şema",
-        "İşaretsiz görseller",
-        "Tüm piksel sanatı araçları"
+        "Plus · 4 × 4 pano ya da 200 ilmeğe kadar",
+        "Plus · Sınırsız kayıtlı şema",
+        "Plus · İşaretsiz görseller",
+        "Plus · Tüm piksel sanatı araçları",
+        "Pro · Yazdırılabilir PDF şemalar",
+        "Pro · Hantam yazısı olmadan önce-sonra videoları, 3 filtre paketi"
       ],
-      "note": "Aylık ya da yıllık abonelik veya tek seferlik ömür boyu satın alma"
+      "note": "Haftalık, aylık ya da yıllık abonelik veya tek seferlik ömür boyu satın alma"
     },
     "note": "Pro'yu uygulamadan bir arkadaşına hediye de edebilirsin."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Fotoğraflarım bir yere yükleniyor mu?", "a": "Hayır. Fotoğraflar ve şemalar yalnızca iPhone’unda işlenir ve kaydedilir."},
       {"q": "Renkler boncuklarımdan biraz farklı görünüyor.", "a": "Ekran renkleri plastikten ve iplikten farklı gösterir. Listede bir renge dokunarak onu aynı markadan daha yakın bir renkle değiştirebilirsin."},
-      {"q": "Bir şema ne kadar büyük olabilir?", "a": "Ücretsizde bir 29 × 29 pano ya da uzun kenarda 40 ilmek. Pro ile 4 × 4 panoya (116 boncuk) ya da 200 ilmeğe kadar."},
+      {"q": "Bir şema ne kadar büyük olabilir?", "a": "Ücretsizde bir 29 × 29 pano ya da uzun kenarda 40 ilmek. Plus ile 4 × 4 panoya (116 boncuk) ya da 200 ilmeğe kadar."},
       {"q": "Hangi fotoğraflar en iyi sonucu verir?", "a": "Tek bir konusu ve sade bir arka planı olan fotoğraflar. Renk ne kadar azsa şema o kadar temiz olur; sonuç karışık görünüyorsa renk sayısını düşür."},
-      {"q": "Hâlâ piksel sanatı yapabilir miyim?", "a": "Evet. Fotoğrafları pikselleştirme, 110 örneğe bakarak çizme ve kare kare animasyon hâlâ var. Tüm piksel sanatı araçları Pro'da."},
+      {"q": "Hâlâ piksel sanatı yapabilir miyim?", "a": "Evet. Fotoğrafları pikselleştirme, 110 örneğe bakarak çizme ve kare kare animasyon hâlâ var. Tüm piksel sanatı araçları Plus'ta."},
       {"q": "Satın alımımı nasıl geri yüklerim?", "a": "Uygulamanın ayarlarını aç ve `Satın Alımları Geri Yükle` düğmesine dokun. Pro'yu satın aldığın Apple Hesabı'nı kullan."},
       {"q": "Aboneliği nasıl iptal ederim?", "a": "iPhone Ayarlar › adın › Abonelikler bölümünden Hantam'ı seç. Ömür boyu erişim tek seferlik ödemedir ve yenilenmez."},
       {"q": "Bir hatayı nasıl bildiririm ya da öneride bulunurum?", "a": "En hızlısı uygulama ayarlarından geri bildirim göndermek. Aşağıdaki adrese e-posta da atabilir ya da Instagram'dan DM gönderebilirsin (@lee25_ios)."}

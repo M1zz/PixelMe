@@ -44,7 +44,9 @@ struct PatternDetailView: View {
         _baseZoom = State(initialValue: initialZoom)
     }
 
-    private var isPro: Bool { subscription.isProUser }
+    /// 인쇄용 PDF 는 Pro, 표시 없는 이미지는 Plus.
+    private var canPrint: Bool { subscription.allows(.printablePDF) }
+    private var cleanImage: Bool { subscription.allows(.cleanImage) }
     private var isSaved: Bool { store.contains(pattern) }
 
     /// 화면에서 한 칸의 기본 크기 (pt). `fit` 은 도안 판이 설 자리. 없으면 화면 폭에 맞춘다.
@@ -86,7 +88,7 @@ struct PatternDetailView: View {
                         infoCard
                         // 이미 Pro 인 사람이 도안을 또 하나 만든 순간에만 응원을 부탁한다.
                         // 아직 안 산 사람에게는 페이월이 맞는 길이다.
-                        if justCreated, isPro, let tipJar = subscription.tipJar {
+                        if justCreated, subscription.ownedTier == .pro, let tipJar = subscription.tipJar {
                             LeeoTipAskSlot<HantamSpec>(tipJar: tipJar, reached: HantamTipMoments.reachedNow)
                         }
                         exportCard
@@ -151,7 +153,7 @@ struct PatternDetailView: View {
                 }
             }
             .sheet(item: $paywallReason) { reason in
-                PaywallView(isProUser: .constant(false), reason: reason)
+                PaywallView(reason: reason)
             }
             .sheet(item: $shareItems) { items in
                 ActivityView(items: items.items)
@@ -274,7 +276,7 @@ struct PatternDetailView: View {
                     Image(systemName: "printer.fill").accessibilityHidden(true)
                     Text("Printable pattern (PDF)")
                     Spacer()
-                    if !isPro { proBadge }
+                    if !canPrint { proBadge }
                 }
                 .font(.headline)
                 .foregroundStyle(.white)
@@ -297,10 +299,13 @@ struct PatternDetailView: View {
             }
             .font(.subheadline.weight(.semibold))
             .foregroundStyle(Color.hantamInk)
-            if !isPro {
-                Text("Free images carry a small Hantam mark.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+            if !cleanImage {
+                // 표시 없는 이미지는 Plus — 누르면 그 자리에서 페이월.
+                Button { paywallReason = .patternCleanImage } label: {
+                    Label("Free images carry a small Hantam mark.", systemImage: "lock.fill")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
             }
         }
     }
@@ -320,7 +325,7 @@ struct PatternDetailView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("This pattern isn’t saved")
                         .font(.subheadline.weight(.semibold))
-                    Text("Free keeps \(PatternStore.freeSaveLimit) patterns. Pro keeps them all.")
+                    Text("Free keeps \(PatternStore.freeSaveLimit) patterns. Plus keeps them all.")
                         .font(.caption)
                 }
                 Spacer()
@@ -432,7 +437,7 @@ struct PatternDetailView: View {
     }
 
     private func exportPDF() {
-        guard isPro else { paywallReason = .patternPDF; return }
+        guard canPrint else { paywallReason = .patternPDF; return }
         let data = PatternRenderer.pdfData(for: pattern)
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent(safeFileName(pattern.title) + ".pdf")
@@ -448,9 +453,9 @@ struct PatternDetailView: View {
 
     private func shareImage() {
         let style = self.style == .preview ? PatternDisplayStyle.preview : self.style
-        let img = PatternRenderer.shareImage(for: pattern, style: style, watermark: !isPro)
+        let img = PatternRenderer.shareImage(for: pattern, style: style, watermark: !cleanImage)
         shareItems = ShareItems(items: [img])
-        HantamEvent.track(isPro ? "pattern_image_shared" : "pattern_image_shared.watermarked")
+        HantamEvent.track(cleanImage ? "pattern_image_shared" : "pattern_image_shared.watermarked")
     }
 
     private func copyShoppingList() {

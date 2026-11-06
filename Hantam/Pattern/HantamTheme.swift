@@ -65,5 +65,6 @@ enum PaywallReason: String {
     case palette
     case dithering
     case boardSize = "board_size"
+    case filterPack = "filter_pack"
     case advanced
 }

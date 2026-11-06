@@ -38,7 +38,8 @@ struct PatternMakerView: View {
         self.initialImage = initialImage
     }
 
-    private var isPro: Bool { subscription.isProUser }
+    /// 큰 도안(보드 2장 이상 · 40칸 넘게)은 Plus.
+    private var bigAllowed: Bool { subscription.allows(.biggerPatterns) }
 
     var body: some View {
         // 아이폰 듀오를 펴면 고르는 쪽(가로면 왼쪽, 세로면 아래)에 재료 · 크기 · 색, 결과 쪽에 미리보기가 선다.
@@ -104,7 +105,7 @@ struct PatternMakerView: View {
                 }
             }
             .sheet(item: $paywallReason) { reason in
-                PaywallView(isProUser: .constant(false), reason: reason)
+                PaywallView(reason: reason)
             }
             .fullScreenCover(item: $created, onDismiss: { dismiss() }) { pattern in
                 PatternDetailView(pattern: pattern, justCreated: true)
@@ -205,7 +206,7 @@ struct PatternMakerView: View {
                 }
                 .pickerStyle(.segmented)
                 .onChange(of: settings.material) { _, m in
-                    settings.longestSide = min(max(settings.longestSide, m.minSide), isPro ? m.proMaxSide : m.freeMaxSide)
+                    settings.longestSide = min(max(settings.longestSide, m.minSide), bigAllowed ? m.proMaxSide : m.freeMaxSide)
                     if !m.sizePresets.contains(settings.longestSide) { settings.longestSide = m.defaultSide }
                     settings.maxColors = m.defaultMaxColors
                     HantamEvent.track("pattern_material.\(m.rawValue)")
@@ -226,7 +227,7 @@ struct PatternMakerView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(m.sizePresets, id: \.self) { side in
-                            let locked = !isPro && side > m.freeMaxSide
+                            let locked = !bigAllowed && side > m.freeMaxSide
                             Button {
                                 if locked {
                                     paywallReason = .patternSize
@@ -238,22 +239,22 @@ struct PatternMakerView: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityAddTraits(settings.longestSide == side ? .isSelected : [])
-                            .accessibilityValue(locked ? Text("Pro") : Text(verbatim: ""))
+                            .accessibilityValue(locked ? Text("Plus") : Text(verbatim: ""))
                             .accessibilityInputLabels([Text("\(side)")])
                         }
                     }
                 }
-                Stepper(value: $settings.longestSide, in: m.minSide...(isPro ? m.proMaxSide : m.freeMaxSide)) {
+                Stepper(value: $settings.longestSide, in: m.minSide...(bigAllowed ? m.proMaxSide : m.freeMaxSide)) {
                     Text("Longest side: \(settings.longestSide)")
                         .font(.subheadline)
                 }
-                if !isPro {
+                if !bigAllowed {
                     Button {
                         paywallReason = .patternSize
                     } label: {
                         Label(m.kind == .bead
-                              ? LocalizedStringKey("Free patterns fit one pegboard. Pro goes up to 4 × 4 boards.")
-                              : LocalizedStringKey("Free patterns go up to 40 stitches. Pro goes up to 200."),
+                              ? LocalizedStringKey("Free patterns fit one pegboard. Plus goes up to 4 × 4 boards.")
+                              : LocalizedStringKey("Free patterns go up to 40 stitches. Plus goes up to 200."),
                               systemImage: "lock.fill")
                             .font(.footnote)
                             .foregroundStyle(Color.hantamAccent)

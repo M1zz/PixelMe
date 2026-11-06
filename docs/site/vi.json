@@ -11,7 +11,7 @@
     "title": "Thử với một tấm ảnh",
     "lead": "Cùng cách ghép màu như trong ứng dụng, dùng bảng màu thật của Perler. Đổi kích thước, số màu, hoặc thử bằng ảnh của bạn.",
     "size": "Kích thước",
-    "boards": ["1 bảng", "4 bảng (Pro)"],
+    "boards": ["1 bảng", "4 bảng (Plus)"],
     "colors": "Tối đa {n} màu",
     "need": "Màu bạn cần",
     "more": "và {n} màu khác",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Hạt ủi, bảng 29 × 29, mỗi hạt khoảng 5 mm"],
       ["DMC", "Chỉ thêu chữ thập trên vải Aida 11, 14, 16 hoặc 18 count"],
       ["Miễn phí", "Hạt tối đa 1 bảng (29 ô), chỉ tối đa 40 mũi ở cạnh dài"],
-      ["Pro", "Hạt tối đa 4 × 4 bảng (116 ô), chỉ tối đa 200 mũi"],
+      ["Plus · Pro", "Hạt tối đa 4 × 4 bảng (116 ô), chỉ tối đa 200 mũi"],
       ["Số màu", "Từ 2 đến 50 màu mỗi mẫu"]
     ],
     "note": "Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với họ. Màu trên màn hình có thể hơi khác so với thực tế."
   },
   "pricing": {
-    "title": "Bắt đầu miễn phí, mẫu lớn và in ấn có Pro",
+    "title": "Bắt đầu miễn phí. Plus cho mẫu lớn, Pro để in.",
     "free": {
       "name": "Miễn phí",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Mẫu PDF để in",
-        "Tối đa 4 × 4 bảng (thêu 200 mũi)",
-        "Lưu mẫu không giới hạn",
-        "Ảnh không có dấu",
-        "Mọi công cụ pixel art"
+        "Plus · Tối đa 4 × 4 bảng (thêu 200 mũi)",
+        "Plus · Lưu mẫu không giới hạn",
+        "Plus · Ảnh không có dấu",
+        "Plus · Mọi công cụ pixel art",
+        "Pro · Mẫu PDF để in",
+        "Pro · Video trước và sau không có dòng chữ Hantam, 3 gói bộ lọc"
       ],
-      "note": "Gói tháng hoặc gói năm, hoặc mua một lần dùng trọn đời"
+      "note": "Gói theo tuần, theo tháng hoặc theo năm, hoặc mua một lần dùng trọn đời"
     },
     "note": "Bạn cũng có thể tặng Pro cho bạn bè ngay trong ứng dụng."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Ảnh của tôi có bị tải lên đâu không?", "a": "Không. Ảnh và mẫu chỉ được xử lý và lưu trên iPhone của bạn."},
       {"q": "Màu trên màn hình hơi khác hạt của tôi.", "a": "Màn hình hiển thị màu khác với nhựa và chỉ thật. Chạm vào một màu trong danh sách để đổi sang màu gần hơn cùng hãng."},
-      {"q": "Mẫu có thể lớn đến đâu?", "a": "Bản miễn phí là một bảng 29 × 29, thêu tối đa 40 mũi ở cạnh dài. Pro lên tới 4 × 4 bảng (116 hạt) hoặc 200 mũi."},
+      {"q": "Mẫu có thể lớn đến đâu?", "a": "Bản miễn phí là một bảng 29 × 29, thêu tối đa 40 mũi ở cạnh dài. Plus lên tới 4 × 4 bảng (116 hạt) hoặc 200 mũi."},
       {"q": "Ảnh nào cho kết quả đẹp?", "a": "Ảnh chỉ có một chủ thể và nền đơn giản. Càng ít màu mẫu càng gọn, nên nếu trông rối, hãy giảm số màu."},
-      {"q": "Tôi vẫn vẽ pixel art được chứ?", "a": "Được. Pixel hóa ảnh, vẽ theo 110 mẫu và làm hoạt ảnh từng khung hình vẫn còn đủ. Mọi công cụ pixel art đều có trong Pro."},
+      {"q": "Tôi vẫn vẽ pixel art được chứ?", "a": "Được. Pixel hóa ảnh, vẽ theo 110 mẫu và làm hoạt ảnh từng khung hình vẫn còn đủ. Mọi công cụ pixel art đều có trong Plus."},
       {"q": "Làm sao khôi phục giao dịch mua?", "a": "Mở cài đặt trong ứng dụng và chạm `Khôi phục giao dịch mua`. Dùng đúng Tài khoản Apple đã mua Pro."},
       {"q": "Làm sao hủy gói đăng ký?", "a": "Vào Cài đặt iPhone › tên của bạn › Đăng ký và chọn Hantam. Gói trọn đời chỉ trả một lần và không gia hạn."},
       {"q": "Báo lỗi hoặc góp ý ở đâu?", "a": "Nhanh nhất là gửi phản hồi từ cài đặt trong ứng dụng. Bạn cũng có thể gửi email đến địa chỉ bên dưới hoặc nhắn Instagram (@lee25_ios)."}

@@ -65,7 +65,7 @@ class BeforeAfterVideoGenerator {
         format: VideoFormat = .reels,
         completion: @escaping (Result<URL, VideoError>) -> Void
     ) {
-        let isPro = SubscriptionManager.shared.isProUser
+        let isPro = SubscriptionManager.shared.allows(.cleanVideo)
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 let url = try createVideo(original: original, pixelated: pixelated, format: format, isPro: isPro)

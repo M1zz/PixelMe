@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 import LeeoKit
 
 /// 로고 · 이름 · 설정 버튼.
@@ -181,33 +182,52 @@ struct HantamSettingsView: View {
     @ObservedObject private var subscription = SubscriptionManager.shared
     @State private var showPaywall = false
     @State private var restoreMessage: String?
+    /// 구독 중이면 구독 관리 바로 옆에 '평생으로 바꾸기' 를 늘 둔다.
+    @State private var isSubscribed = false
+    @State private var showManage = false
+    @State private var showGraduation = false
 
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    if subscription.isProUser {
+                    switch subscription.ownedTier {
+                    case .pro:
                         Label("Pro is active", systemImage: "checkmark.seal.fill")
                             .foregroundStyle(Color.hantamTeal)
-                    } else {
+                    case .plus:
+                        Label("Plus is active", systemImage: "checkmark.seal.fill")
+                            .foregroundStyle(Color.hantamTeal)
                         Button { showPaywall = true } label: {
-                            Label("Get Hantam Pro", systemImage: "sparkles")
+                            Label("Upgrade to Pro", systemImage: "sparkles")
+                        }
+                    case .free:
+                        Button { showPaywall = true } label: {
+                            Label("Hantam Plus · Pro", systemImage: "sparkles")
+                        }
+                    }
+                    if isSubscribed {
+                        Button { showManage = true } label: {
+                            Label(LeeoLadderText.manageSubscription, systemImage: "creditcard")
+                        }
+                        Button { showGraduation = true } label: {
+                            Label(LeeoLadderText.switchToLifetimeEntry, systemImage: "infinity")
                         }
                     }
                     Button {
                         Task {
                             await subscription.restorePurchases()
-                            restoreMessage = subscription.isProUser
+                            restoreMessage = subscription.ownedTier > .free
                                 ? NSLocalizedString("Your purchase has been restored.", comment: "Restore success")
-                                : (subscription.errorMessage ?? NSLocalizedString("No previous purchases found.", comment: ""))
+                                : (subscription.lastError ?? NSLocalizedString("No previous purchases found.", comment: ""))
                         }
                     } label: {
                         Label("Restore Purchases", systemImage: "arrow.clockwise")
                     }
-                } header: { Text("Hantam Pro") }
+                } header: { Text("Hantam Plus · Pro") }
 
                 if let gift = subscription.gift {
-                    GiftRows(gift: gift, isPro: subscription.isProUser)
+                    GiftRows(gift: gift, isPro: subscription.ownedTier == .pro)
                 }
 
                 if let tipJar = subscription.tipJar {
@@ -245,8 +265,15 @@ struct HantamSettingsView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView(isProUser: .constant(false), reason: .settings)
+                PaywallView(reason: .settings)
             }
+            .sheet(isPresented: $showGraduation) {
+                LeeoGraduationOfferView(
+                    graduate: subscription.product(AppConfig.proGraduateProductID) ?? subscription.product(.pro, .lifetime),
+                    onPurchased: { await subscription.checkSubscriptionStatus() })
+            }
+            .manageSubscriptionsSheet(isPresented: $showManage)
+            .task(id: subscription.ownedTier) { isSubscribed = await subscription.currentSubscription() != nil }
             .alert(restoreMessage ?? "", isPresented: Binding(
                 get: { restoreMessage != nil }, set: { if !$0 { restoreMessage = nil } }
             )) {

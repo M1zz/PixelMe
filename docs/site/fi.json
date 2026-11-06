@@ -13,7 +13,7 @@
     "size": "Koko",
     "boards": [
       "1 alusta",
-      "4 alustaa (Pro)"
+      "4 alustaa (Plus)"
     ],
     "colors": "Enintään {n} väriä",
     "need": "Tarvitsemasi värit",
@@ -83,7 +83,7 @@
         "Helmet 1 alustaan asti (29 ruutua), lanka 40 pistoon asti pidemmällä sivulla"
       ],
       [
-        "Pro",
+        "Plus · Pro",
         "Helmet 4 × 4 alustaan asti (116 ruutua), lanka 200 pistoon asti"
       ],
       [
@@ -94,7 +94,7 @@
     "note": "Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei liity niihin. Näytön värit voivat erota hieman todellisista."
   },
   "pricing": {
-    "title": "Aloita ilmaiseksi. Isot kuviot ja tulostus Prolla.",
+    "title": "Aloita ilmaiseksi. Plus isoihin kuvioihin, Pro tulostamiseen.",
     "free": {
       "name": "Ilmainen",
       "items": [
@@ -106,15 +106,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Tulostettavat PDF-kuviot",
-        "Enintään 4 × 4 alustaa tai 200 pistoa",
-        "Rajattomasti tallennettuja kuvioita",
-        "Kuvat ilman merkkiä",
-        "Kaikki pikselitaidetyökalut"
+        "Plus · Enintään 4 × 4 alustaa tai 200 pistoa",
+        "Plus · Rajattomasti tallennettuja kuvioita",
+        "Plus · Kuvat ilman merkkiä",
+        "Plus · Kaikki pikselitaidetyökalut",
+        "Pro · Tulostettavat PDF-kuviot",
+        "Pro · Ennen ja jälkeen -videot ilman Hantam-tekstiä, 3 suodatinpakettia"
       ],
-      "note": "Kuukausi- tai vuositilaus tai kertaostos loppuiäksi"
+      "note": "Viikko-, kuukausi- tai vuositilaus tai kertaosto loppuiäksi"
     },
     "note": "Voit myös antaa Pron lahjaksi ystävälle suoraan sovelluksesta."
   },
@@ -131,7 +132,7 @@
       },
       {
         "q": "Kuinka iso kuvio voi olla?",
-        "a": "Ilmaisena yksi 29 × 29 -alusta tai 40 pistoa pidemmällä sivulla. Prolla enintään 4 × 4 alustaa (116 helmeä) tai 200 pistoa."
+        "a": "Ilmaisena yksi 29 × 29 -alusta tai 40 pistoa pidemmällä sivulla. Plussalla enintään 4 × 4 alustaa (116 helmeä) tai 200 pistoa."
       },
       {
         "q": "Millaiset kuvat onnistuvat parhaiten?",
@@ -139,7 +140,7 @@
       },
       {
         "q": "Voinko yhä tehdä pikselitaidetta?",
-        "a": "Voit. Kuvien pikselöinti, piirtäminen 110 mallin mukaan ja animointi ruutu ruudulta ovat yhä mukana. Kaikki pikselitaidetyökalut kuuluvat Prohon."
+        "a": "Voit. Kuvien pikselöinti, piirtäminen 110 mallin mukaan ja animointi ruutu ruudulta ovat yhä mukana. Kaikki pikselitaidetyökalut kuuluvat Plussaan."
       },
       {
         "q": "Miten palautan ostokseni?",

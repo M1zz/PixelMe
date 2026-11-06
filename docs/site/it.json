@@ -13,7 +13,7 @@
     "size": "Dimensione",
     "boards": [
       "1 basetta",
-      "4 basette (Pro)"
+      "4 basette (Plus)"
     ],
     "colors": "Fino a {n} colori",
     "need": "Colori che ti servono",
@@ -83,7 +83,7 @@
         "Perline fino a 1 basetta (29 caselle), filo fino a 40 punti sul lato lungo"
       ],
       [
-        "Pro",
+        "Plus · Pro",
         "Perline fino a 4 × 4 basette (116 caselle), filo fino a 200 punti"
       ],
       [
@@ -94,7 +94,7 @@
     "note": "Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a nessuno di loro. I colori sullo schermo possono essere leggermente diversi da quelli reali."
   },
   "pricing": {
-    "title": "Inizia gratis. Passa a Pro per schemi grandi e stampa.",
+    "title": "Inizia gratis. Plus per schemi grandi, Pro per stampare.",
     "free": {
       "name": "Gratis",
       "items": [
@@ -106,15 +106,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Schemi in PDF da stampare",
-        "Fino a 4 × 4 basette o 200 punti",
-        "Schemi salvati senza limiti",
-        "Immagini senza marchio",
-        "Tutti gli strumenti di pixel art"
+        "Plus · Fino a 4 × 4 basette o 200 punti",
+        "Plus · Schemi salvati senza limiti",
+        "Plus · Immagini senza marchio",
+        "Plus · Tutti gli strumenti di pixel art",
+        "Pro · Schemi in PDF da stampare",
+        "Pro · Video prima e dopo senza la scritta Hantam, 3 pacchetti di filtri"
       ],
-      "note": "Abbonamento mensile o annuale, oppure acquisto unico a vita"
+      "note": "Abbonamento settimanale, mensile o annuale, oppure acquisto unico a vita"
     },
     "note": "Puoi anche regalare Pro a un amico direttamente dall'app."
   },
@@ -131,7 +132,7 @@
       },
       {
         "q": "Quanto può essere grande uno schema?",
-        "a": "Gratis, una basetta 29 × 29 o 40 punti sul lato lungo. Con Pro, fino a 4 × 4 basette (116 perline) o 200 punti."
+        "a": "Gratis, una basetta 29 × 29 o 40 punti sul lato lungo. Con Plus, fino a 4 × 4 basette (116 perline) o 200 punti."
       },
       {
         "q": "Quali foto vengono meglio?",
@@ -139,7 +140,7 @@
       },
       {
         "q": "Posso ancora fare pixel art?",
-        "a": "Sì. Pixelare le foto, disegnare seguendo 110 esempi e animare fotogramma per fotogramma c'è ancora tutto. Tutti gli strumenti di pixel art sono inclusi in Pro."
+        "a": "Sì. Pixelare le foto, disegnare seguendo 110 esempi e animare fotogramma per fotogramma c'è ancora tutto. Tutti gli strumenti di pixel art sono inclusi in Plus."
       },
       {
         "q": "Come ripristino l'acquisto?",

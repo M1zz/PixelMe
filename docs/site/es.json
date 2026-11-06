@@ -13,7 +13,7 @@
     "size": "Tamaño",
     "boards": [
       "1 panel",
-      "4 paneles (Pro)"
+      "4 paneles (Plus)"
     ],
     "colors": "Hasta {n} colores",
     "need": "Colores que necesitas",
@@ -83,7 +83,7 @@
         "Cuentas hasta 1 panel (29 cuadros), hilo hasta 40 puntadas en el lado más largo"
       ],
       [
-        "Pro",
+        "Plus · Pro",
         "Cuentas hasta 4 × 4 paneles (116 cuadros), hilo hasta 200 puntadas"
       ],
       [
@@ -94,7 +94,7 @@
     "note": "Perler, Hama, Artkal y DMC son marcas registradas de sus respectivos propietarios. Hantam no está afiliada a ellas. Los colores en pantalla pueden verse algo distintos de los reales."
   },
   "pricing": {
-    "title": "Empieza gratis. Pro para patrones grandes y para imprimir",
+    "title": "Empieza gratis. Plus para patrones grandes, Pro para imprimir.",
     "free": {
       "name": "Gratis",
       "items": [
@@ -106,15 +106,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Patrones en PDF para imprimir",
-        "Hasta 4 × 4 paneles o 200 puntadas",
-        "Patrones guardados sin límite",
-        "Imágenes sin marca",
-        "Todas las herramientas de pixel art"
+        "Plus · Hasta 4 × 4 paneles o 200 puntadas",
+        "Plus · Patrones guardados sin límite",
+        "Plus · Imágenes sin marca",
+        "Plus · Todas las herramientas de pixel art",
+        "Pro · Patrones en PDF para imprimir",
+        "Pro · Vídeos de antes y después sin el texto de Hantam, 3 packs de filtros"
       ],
-      "note": "Suscripción mensual o anual, o un pago único de por vida"
+      "note": "Suscripción semanal, mensual o anual, o un pago único de por vida"
     },
     "note": "También puedes regalar Pro a un amigo desde la app."
   },
@@ -131,7 +132,7 @@
       },
       {
         "q": "¿Qué tamaño puede tener un patrón?",
-        "a": "Gratis, un panel de 29 × 29 o 40 puntadas en el lado más largo. Con Pro, hasta 4 × 4 paneles (116 cuentas) o 200 puntadas."
+        "a": "Gratis, un panel de 29 × 29 o 40 puntadas en el lado más largo. Con Plus, hasta 4 × 4 paneles (116 cuentas) o 200 puntadas."
       },
       {
         "q": "¿Qué fotos quedan mejor?",
@@ -139,7 +140,7 @@
       },
       {
         "q": "¿Puedo seguir haciendo pixel art?",
-        "a": "Sí. Puedes pixelar fotos, dibujar siguiendo 110 ejemplos y animar fotograma a fotograma. Todas las herramientas de pixel art están en Pro."
+        "a": "Sí. Puedes pixelar fotos, dibujar siguiendo 110 ejemplos y animar fotograma a fotograma. Todas las herramientas de pixel art están en Plus."
       },
       {
         "q": "¿Cómo restauro mi compra?",

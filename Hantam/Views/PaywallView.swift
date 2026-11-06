@@ -2,42 +2,37 @@
 //  PaywallView.swift
 //  Hantam
 //
-//  한땀 Pro 결제 화면. 공예는 가끔 하는 취미라 평생 이용권을 맨 앞에 둔다.
-//  - 무료 체험 문구는 App Store 에 실제로 걸린 체험(introductoryOffer)과 자격이 있을 때만 보인다.
-//  - 평점·사용자 수 같은 숫자는 지어내지 않는다.
+//  한땀 Plus · Pro 결제 화면 — 무료 · Plus · Pro 세 칸.
+//  - 칸 카드 두 장(Plus · Pro)에서 고르고, 그 칸의 연 구독 · 평생을 먼저, 월 · 주는 펼쳐서 고른다.
+//  - 띄운 자리(reason)에 맞는 칸을 먼저 고른다: 인쇄용 PDF · 필터 팩은 Pro, 크기 · 저장 · 표시는 Plus.
+//  - Plus 평생을 가진 사람에게 Pro 평생은 올리기 값으로 판다.
+//  - 불러온 상품만 보인다. 스토어에 아직 없는 상품의 단추는 서지 않는다.
+//  - 첫 해 할인 문구는 App Store 에 실제로 걸린 할인과 자격이 있을 때만 보인다. 숫자를 지어내지 않는다.
 //  - 어디서 띄웠는지(reason)를 허브로 보낸다 — 어느 순간에 사려고 하는지 본다.
-//  - 판매는 월간 · 연간 · 평생. 팔지 않는 예전 ID 의 권한은 HantamSpec.entitlementIDs 가 지킨다.
 //
 
 import SwiftUI
 import StoreKit
+import LeeoKit
 
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var subscriptionManager = SubscriptionManager.shared
-    @Binding var isProUser: Bool
-    var reason: PaywallReason = .advanced
+    @Environment(\.purchase) private var purchase
+    @ObservedObject private var subscription = SubscriptionManager.shared
+    let reason: PaywallReason
 
-    @State private var selectedPlan: SubscriptionPlan
-
-    init(isProUser: Binding<Bool>, reason: PaywallReason = .advanced, initialPlan: SubscriptionPlan = .lifetime) {
-        _isProUser = isProUser
-        self.reason = reason
-        _selectedPlan = State(initialValue: initialPlan)
-    }
-
-    /// 심사용 스크린샷 장면(DEBUG) — 상품을 못 불러오는 시뮬레이터에서 정한 가격 · 체험으로 그린다.
-    static var isReviewShot: Bool {
-        #if DEBUG
-        return ScreenshotScene.current == "paywall"
-        #else
-        return false
-        #endif
-    }
-    @State private var showingError = false
+    @State private var selectedTier: HantamTier
+    @State private var term: PlanTerm = .yearly
+    @State private var showsMoreTerms = false
     @State private var isProcessing = false
-    /// 상품 ID → 무료 체험 일수 (자격이 있을 때만).
-    @State private var trialDays: [String: Int] = [:]
+    @State private var showingError = false
+    /// 첫 구독 할인을 받을 수 있는 연 구독 상품.
+    @State private var introEligible: Set<String> = []
+
+    init(reason: PaywallReason = .advanced) {
+        self.reason = reason
+        _selectedTier = State(initialValue: reason.suggestedTier)
+    }
 
     var body: some View {
         ZStack {
@@ -45,30 +40,46 @@ struct PaywallView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 22) {
                     header
-                    benefits
-                    planSelector
-                    ctaButton
+                    if subscription.ownedTier == .pro {
+                        activeBadge
+                    } else if offeredTiers.isEmpty {
+                        unavailable
+                    } else {
+                        tierCards
+                        termOptions
+                        ctaButton
+                    }
+                    comparison
                     trustSection
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 56)
                 .padding(.bottom, 30)
+                .frame(maxWidth: 640)
+                .frame(maxWidth: .infinity)
             }
             closeButton
         }
         .tint(.hantamAccent)
-        .onAppear { HantamEvent.paywallShown(reason) }
-        .task { await loadTrials() }
-        .onChange(of: subscriptionManager.isProUser) { _, pro in
-            if pro {
-                isProUser = true
+        .onAppear {
+            HantamEvent.paywallShown(reason)
+            fitSelection()
+        }
+        .task {
+            if subscription.store.products.count < HantamPlan.productIDs.count { await subscription.loadProducts() }
+            fitSelection()
+            await loadIntroEligibility()
+        }
+        .onChange(of: subscription.ownedTier) { _, owned in
+            fitSelection()
+            if owned >= selectedTier {
                 DispatchQueue.main.asyncAfter(deadline: .now() + AppConfig.subscriptionSuccessDelay) { dismiss() }
             }
         }
         .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) { subscriptionManager.errorMessage = nil }
+            Button("OK", role: .cancel) {}
         } message: {
-            Text(subscriptionManager.errorMessage ?? NSLocalizedString("An unknown error occurred", comment: ""))
+            Text(subscription.lastError ?? NSLocalizedString("An unknown error occurred", comment: ""))
         }
     }
 
@@ -79,7 +90,7 @@ struct PaywallView: View {
             HStack {
                 Button { dismiss() } label: {
                     Image(systemName: "xmark")
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.body.weight(.semibold))
                         .foregroundStyle(Color.hantamInk.opacity(0.6))
                         .frame(width: 34, height: 34)
                         .background(Color.hantamCard, in: Circle())
@@ -98,169 +109,254 @@ struct PaywallView: View {
     private var header: some View {
         VStack(spacing: 12) {
             BeadHeartMark(size: 84)
-            Text("Hantam Pro")
+            Text("Hantam Plus · Pro")
                 .font(.title.weight(.heavy))
                 .accessibilityAddTraits(.isHeader)
                 .foregroundStyle(Color.hantamInk)
-            Text(headline)
-                .font(.headline)
+                .multilineTextAlignment(.center)
+            if let headline {
+                Text(headline)
+                    .font(.headline)
+                    .foregroundStyle(Color.hantamInk)
+                    .multilineTextAlignment(.center)
+            }
+            Text("Bigger patterns, and printable charts you can start beading from. Choose yearly or lifetime.")
+                .font(.body)
                 .foregroundStyle(Color.hantamInk.opacity(0.75))
                 .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
-    private var headline: LocalizedStringKey {
+    /// 띄운 자리에 맞는 한 줄. 일반 진입이면 없다.
+    private var headline: LocalizedStringKey? {
         switch reason {
         case .patternPDF:        return "Print your pattern and start making"
         case .patternSize:       return "Make patterns as big as you like"
         case .patternSaveLimit:  return "Keep every pattern you make"
         case .patternCleanImage: return "Share patterns without the mark"
-        default:                 return "Everything for bead and stitch patterns"
+        case .filterPack:        return "Every filter pack comes with Pro"
+        default:                 return nil
         }
     }
 
-    // MARK: - 혜택 (앱에 실제로 있는 것만)
-
-    private var benefits: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            BenefitRow(icon: "printer.fill", title: "Printable PDF patterns",
-                       detail: "Symbol charts split board by board, with a color list.")
-            BenefitRow(icon: "square.grid.3x3.fill", title: "Bigger patterns",
-                       detail: "Up to 4 × 4 pegboards, or 200 stitches across.")
-            BenefitRow(icon: "tray.full.fill", title: "Keep every pattern",
-                       detail: "Free keeps 3. Pro has no limit.")
-            BenefitRow(icon: "photo.fill", title: "No Hantam mark",
-                       detail: "Clean images of your patterns and pixel art.")
-            BenefitRow(icon: "paintpalette.fill", title: "All pixel art tools",
-                       detail: "Every grid size, palette, filter and dithering style, plus 4K export.")
-        }
-        .padding(16)
-        .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 18))
+    private var activeBadge: some View {
+        Label("Pro is active", systemImage: "checkmark.seal.fill")
+            .font(.headline)
+            .foregroundStyle(Color.hantamTeal)
+            .frame(maxWidth: .infinity, minHeight: 56)
+            .background(Color.hantamTeal.opacity(0.15), in: RoundedRectangle(cornerRadius: 16))
     }
 
-    // MARK: - 요금제
+    /// 상품을 하나도 못 불러왔을 때. 막힌 단추 대신 다시 불러오는 길을 둔다.
+    @ViewBuilder
+    private var unavailable: some View {
+        if subscription.isLoading {
+            ProgressView().controlSize(.large).frame(minHeight: 120)
+        } else {
+            VStack(spacing: 12) {
+                Text("Couldn’t load the plans. Check your connection and try again.")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                Button("Try again") { Task { await subscription.loadProducts(); fitSelection() } }
+                    .font(.headline)
+                    .frame(minHeight: 44)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(16)
+            .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 16))
+        }
+    }
 
-    private var planSelector: some View {
+    // MARK: - 칸
+
+    /// 지금 고를 수 있는 칸 — 상품이 있고, 가진 칸보다 높은 것.
+    private var offeredTiers: [HantamTier] {
+        [HantamTier.plus, .pro].filter { $0 > subscription.ownedTier && subscription.sells($0) }
+    }
+
+    private var tierCards: some View {
+        VStack(spacing: 12) {
+            ForEach([HantamTier.plus, .pro]) { tier in
+                if tier == subscription.ownedTier || offeredTiers.contains(tier) {
+                    TierCard(tier: tier,
+                             isOwned: tier == subscription.ownedTier,
+                             isSelected: tier == selectedTier) {
+                        guard tier != subscription.ownedTier else { return }
+                        selectedTier = tier
+                        fitSelection()
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - 기간
+
+    private var termOptions: some View {
         VStack(spacing: 10) {
-            PlanRow(
-                title: "Lifetime",
-                price: subscriptionManager.getLifetimePrice(),
-                detail: "Pay once, yours forever",
-                badge: "Pay once",
-                isSelected: selectedPlan == .lifetime
-            ) { selectedPlan = .lifetime }
-
-            PlanRow(
-                title: "Yearly",
-                price: subscriptionManager.getYearlyPrice(),
-                detail: yearlyDetail,
-                badge: yearlySavingsBadge,
-                isSelected: selectedPlan == .yearly
-            ) { selectedPlan = .yearly }
-
-            PlanRow(
-                title: "Monthly",
-                price: subscriptionManager.getMonthlyPrice(),
-                detail: trialText(for: AppConfig.monthlyProductID) ?? LocalizedStringKey("Billed every month"),
-                badge: nil,
-                isSelected: selectedPlan == .monthly
-            ) { selectedPlan = .monthly }
+            ForEach([PlanTerm.yearly, .lifetime], id: \.self) { t in termRow(t) }
+            if hasShortTerms {
+                if showsMoreTerms {
+                    ForEach([PlanTerm.monthly, .weekly], id: \.self) { t in termRow(t) }
+                } else {
+                    Button { withAnimation { showsMoreTerms = true } } label: {
+                        Label("More options", systemImage: "chevron.down")
+                            .font(.body.weight(.semibold))
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                    }
+                }
+            }
         }
     }
 
-    private var yearlyDetail: LocalizedStringKey {
-        if let t = trialText(for: AppConfig.yearlyProductID) { return t }
-        return "\(subscriptionManager.getYearlyMonthlyPrice()) a month, billed yearly"
+    private var hasShortTerms: Bool {
+        subscription.product(selectedTier, .monthly) != nil || subscription.product(selectedTier, .weekly) != nil
     }
 
-    /// 연간이 월간 12개월보다 얼마나 싼지 — 상품이 둘 다 있을 때만.
-    private var yearlySavingsBadge: LocalizedStringKey? {
-        if Self.isReviewShot { return "Save 48%" }
-        guard let y = subscriptionManager.getYearlyProduct()?.price,
-              let m = subscriptionManager.getMonthlyProduct()?.price, m > 0 else { return nil }
-        let ratio = NSDecimalNumber(decimal: y / (m * 12)).doubleValue
-        let pct = Int(((1 - ratio) * 100).rounded())
-        return pct >= 5 ? "Save \(pct)%" : nil
-    }
-
-    private func trialText(for productID: String) -> LocalizedStringKey? {
-        guard let days = trialDays[productID] else { return nil }
-        return "\(days)-day free trial"
-    }
-
-    private var selectedProductID: String {
-        switch selectedPlan {
-        case .monthly:  return AppConfig.monthlyProductID
-        case .yearly:   return AppConfig.yearlyProductID
-        case .lifetime: return AppConfig.lifetimeProductID
+    @ViewBuilder
+    private func termRow(_ t: PlanTerm) -> some View {
+        if let product = subscription.product(selectedTier, t) {
+            PlanRow(title: title(of: t),
+                    price: price(of: t, product),
+                    detail: detail(of: t, product),
+                    isSelected: term == t) { term = t }
         }
     }
 
-    private var selectedProduct: Product? {
-        switch selectedPlan {
-        case .monthly:  return subscriptionManager.getMonthlyProduct()
-        case .yearly:   return subscriptionManager.getYearlyProduct()
-        case .lifetime: return subscriptionManager.getLifetimeProduct()
+    private func title(of t: PlanTerm) -> String {
+        switch t {
+        case .yearly:   return LeeoLadderText.yearly
+        case .lifetime: return LeeoLadderText.lifetime
+        case .monthly:  return String(localized: "Monthly")
+        case .weekly:   return String(localized: "Weekly")
         }
     }
 
-    // MARK: - 결제 버튼
+    private func price(of t: PlanTerm, _ product: Product) -> String {
+        t == .yearly ? String(format: LeeoLadderText.perYearFormat, product.displayPrice) : product.displayPrice
+    }
+
+    private func detail(of t: PlanTerm, _ product: Product) -> String? {
+        switch t {
+        case .yearly:
+            if let intro = introPrice(product) { return String(format: LeeoLadderText.introFormat, intro) }
+            let perMonth = (product.price / 12).formatted(product.priceFormatStyle)
+            return String(localized: "\(perMonth) a month, billed yearly")
+        case .lifetime:
+            if product.id == AppConfig.proUpgradeProductID { return String(localized: "Upgrade price for Plus lifetime owners") }
+            let yearly = subscription.product(selectedTier, .yearly)
+            if let yearly, yearly.price > 0 {
+                let years = Int(NSDecimalNumber(decimal: product.price / yearly.price).doubleValue.rounded(.down))
+                if years >= 2 { return String(format: LeeoLadderText.lifetimeWorthFormat, years) }
+            }
+            return String(localized: "Pay once, yours forever")
+        case .monthly:
+            return String(localized: "Billed every month")
+        case .weekly:
+            return nil
+        }
+    }
+
+    /// 첫 해 할인가 — App Store 에 걸려 있고 이 사람이 받을 수 있을 때만.
+    private func introPrice(_ product: Product) -> String? {
+        guard introEligible.contains(product.id),
+              let offer = product.subscription?.introductoryOffer,
+              offer.paymentMode == .payUpFront || offer.paymentMode == .payAsYouGo else { return nil }
+        return offer.displayPrice
+    }
+
+    private var selectedProduct: Product? { subscription.product(selectedTier, term) }
+
+    // MARK: - 결제 단추
 
     private var ctaButton: some View {
         VStack(spacing: 10) {
-            if subscriptionManager.isProUser {
-                Label("Pro is active", systemImage: "checkmark.seal.fill")
-                    .font(.headline)
-                    .foregroundStyle(Color.hantamTeal)
-                    .frame(maxWidth: .infinity, minHeight: 56)
-                    .background(Color.hantamTeal.opacity(0.15), in: RoundedRectangle(cornerRadius: 16))
-            } else {
-                Button {
-                    Task { await purchaseSelectedPlan() }
-                } label: {
-                    ZStack {
-                        if isProcessing || (subscriptionManager.isLoading && !Self.isReviewShot) {
-                            ProgressView().tint(.white)
-                        } else {
-                            Text(ctaTitle)
-                        }
+            Button {
+                Task { await buy() }
+            } label: {
+                ZStack {
+                    if isProcessing {
+                        ProgressView().tint(.white)
+                    } else {
+                        Text(ctaTitle)
                     }
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity, minHeight: 56)
-                    .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 16))
                 }
-                .disabled((!subscriptionManager.hasLoadedProducts && !Self.isReviewShot) || isProcessing)
+                .font(.headline)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, minHeight: 56)
+                .background(Color.hantamAccentFill, in: RoundedRectangle(cornerRadius: 16))
+            }
+            .disabled(selectedProduct == nil || isProcessing)
 
+            if let disclosure {
                 Text(disclosure)
-                    .font(.caption)
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
     }
 
-    private var ctaTitle: LocalizedStringKey {
-        if selectedPlan == .lifetime { return "Buy once for \(subscriptionManager.getLifetimePrice())" }
-        if let days = trialDays[selectedProductID] { return "Start \(days)-day free trial" }
-        return "Continue"
+    private var ctaTitle: String {
+        if term == .lifetime, let p = selectedProduct { return String(localized: "Buy once for \(p.displayPrice)") }
+        return String(localized: "Continue")
     }
 
-    private var disclosure: LocalizedStringKey {
-        switch selectedPlan {
+    private var disclosure: String? {
+        guard let p = selectedProduct else { return nil }
+        switch term {
         case .lifetime:
-            return "One-time purchase. No subscription."
+            return String(localized: "One-time purchase. No subscription.")
         case .yearly:
-            if trialDays[selectedProductID] != nil {
-                return "Free during the trial, then \(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
+            if let intro = introPrice(p) {
+                return String(localized: "First year \(intro), then \(p.displayPrice) a year. Renews automatically unless canceled at least 24 hours before the period ends.")
             }
-            return "\(subscriptionManager.getYearlyPrice()) a year. Renews automatically unless canceled at least 24 hours before the period ends."
+            return String(localized: "\(p.displayPrice) a year. Renews automatically unless canceled at least 24 hours before the period ends.")
         case .monthly:
-            if trialDays[selectedProductID] != nil {
-                return "Free during the trial, then \(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
-            }
-            return "\(subscriptionManager.getMonthlyPrice()) a month. Renews automatically unless canceled at least 24 hours before the period ends."
+            return String(localized: "\(p.displayPrice) a month. Renews automatically unless canceled at least 24 hours before the period ends.")
+        case .weekly:
+            return String(localized: "\(p.displayPrice) a week. Renews automatically unless canceled at least 24 hours before the period ends.")
         }
+    }
+
+    // MARK: - 비교표
+
+    private var comparison: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("Compare plans")
+                .font(.headline)
+                .foregroundStyle(Color.hantamInk)
+                .accessibilityAddTraits(.isHeader)
+            ForEach(ComparisonRow.all) { row in
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(row.title)
+                        .font(.body.weight(.semibold))
+                        .foregroundStyle(Color.hantamInk)
+                        .fixedSize(horizontal: false, vertical: true)
+                    HStack(alignment: .top, spacing: 8) {
+                        ForEach(HantamTier.allCases) { tier in
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(tier.shortName)
+                                    .font(.footnote.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                                row.value(for: tier)
+                                    .font(.body)
+                                    .foregroundStyle(Color.hantamInk)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    }
+                }
+                .accessibilityElement(children: .combine)
+                if row.id != ComparisonRow.all.last?.id { Divider() }
+            }
+        }
+        .padding(16)
+        .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 18))
     }
 
     // MARK: - 복원 · 약관
@@ -269,93 +365,186 @@ struct PaywallView: View {
         VStack(spacing: 12) {
             Button {
                 Task {
-                    await subscriptionManager.restorePurchases()
-                    isProUser = subscriptionManager.isProUser
-                    if subscriptionManager.errorMessage != nil { showingError = true }
+                    await subscription.restorePurchases()
+                    if subscription.ownedTier == .free {
+                        if subscription.lastError == nil {
+                            subscription.store.lastError = NSLocalizedString("No previous purchases found.", comment: "")
+                        }
+                        showingError = true
+                    }
                 }
             } label: {
                 Text("Restore Purchases")
-                    .font(.subheadline.weight(.semibold))
+                    .font(.body.weight(.semibold))
+                    .frame(minHeight: 44)
             }
             HStack(spacing: 20) {
                 Link("Terms of Use", destination: AppConfig.termsAndConditionsURL)
                 Link("Privacy Policy", destination: AppConfig.privacyURL)
             }
-            .font(.caption)
+            .font(.footnote)
             .foregroundStyle(.secondary)
         }
     }
 
     // MARK: - 동작
 
-    private func loadTrials() async {
-        if Self.isReviewShot { trialDays = [AppConfig.yearlyProductID: 7]; return }
-        if !subscriptionManager.hasLoadedProducts { await subscriptionManager.loadProducts() }
-        var found: [String: Int] = [:]
-        for product in [subscriptionManager.getYearlyProduct(), subscriptionManager.getMonthlyProduct()].compactMap({ $0 }) {
-            guard let sub = product.subscription,
-                  let offer = sub.introductoryOffer,
-                  offer.paymentMode == .freeTrial,
-                  await sub.isEligibleForIntroOffer else { continue }
-            let unitDays: Int
-            switch offer.period.unit {
-            case .day: unitDays = 1
-            case .week: unitDays = 7
-            case .month: unitDays = 30
-            case .year: unitDays = 365
-            @unknown default: unitDays = 1
-            }
-            found[product.id] = offer.period.value * unitDays
+    /// 고른 칸 · 기간을 지금 팔 수 있는 것으로 맞춘다.
+    private func fitSelection() {
+        let tiers = offeredTiers
+        if !tiers.contains(selectedTier), let first = tiers.last(where: { $0 == reason.suggestedTier }) ?? tiers.last {
+            selectedTier = first
         }
-        trialDays = found
+        if subscription.product(selectedTier, term) == nil,
+           let t = PlanTerm.allCases.first(where: { subscription.product(selectedTier, $0) != nil }) {
+            term = t
+            if t == .monthly || t == .weekly { showsMoreTerms = true }
+        }
     }
 
-    private func purchaseSelectedPlan() async {
-        guard let product = selectedProduct else {
-            subscriptionManager.errorMessage = NSLocalizedString("Product not available. Please try again later.", comment: "")
-            showingError = true
-            return
+    private func loadIntroEligibility() async {
+        var found: Set<String> = []
+        for tier in [HantamTier.plus, .pro] {
+            guard let p = subscription.product(tier, .yearly), let sub = p.subscription,
+                  sub.introductoryOffer != nil, await sub.isEligibleForIntroOffer else { continue }
+            found.insert(p.id)
         }
+        introEligible = found
+    }
+
+    private func buy() async {
+        guard let product = selectedProduct else { return }
         isProcessing = true
-        let success = await subscriptionManager.purchaseSubscription(product)
+        let success = await subscription.purchase(product, using: purchase)
         isProcessing = false
-        if success {
-            isProUser = true
-        } else if subscriptionManager.errorMessage != nil {
-            showingError = true
+        if !success, subscription.lastError != nil { showingError = true }
+    }
+}
+
+// MARK: - 띄운 자리 → 먼저 고를 칸
+
+extension PaywallReason {
+    /// 인쇄용 PDF · 필터 팩 · 홈 배너 · 설정은 Pro 카드를, 크기 · 저장 · 표시 · 픽셀 아트 도구는 Plus 카드를 앞에.
+    var suggestedTier: HantamTier {
+        switch self {
+        case .patternPDF, .filterPack, .homeBanner, .settings: return .pro
+        default: return .plus
         }
     }
+}
+
+// MARK: - 비교표 줄 (요청서의 표 그대로)
+
+private struct ComparisonRow: Identifiable {
+    enum Cell {
+        case yes, no
+        case text(LocalizedStringKey)
+        case number(Int)
+    }
+
+    let id: Int
+    let title: LocalizedStringKey
+    let free: Cell
+    let plus: Cell
+    let pro: Cell
+
+    @ViewBuilder
+    func value(for tier: HantamTier) -> some View {
+        switch tier == .free ? free : tier == .plus ? plus : pro {
+        case .yes:             Text(verbatim: "✓").accessibilityLabel(Text("Included"))
+        case .no:              Text(verbatim: "–").accessibilityLabel(Text("Not included"))
+        case .text(let key):   Text(key)
+        case .number(let n):   Text(verbatim: "\(n)")
+        }
+    }
+
+    static let all: [ComparisonRow] = [
+        ComparisonRow(id: 0, title: "Make bead and cross-stitch patterns from photos", free: .yes, plus: .yes, pro: .yes),
+        ComparisonRow(id: 1, title: "See color numbers and counts, copy the shopping list", free: .yes, plus: .yes, pro: .yes),
+        ComparisonRow(id: 2, title: "Pattern size", free: .text("1 board · 40 stitches"),
+                      plus: .text("4 × 4 boards · 200 stitches"), pro: .text("4 × 4 boards · 200 stitches")),
+        ComparisonRow(id: 3, title: "Saved patterns", free: .number(HantamPlan.freeSaveLimit), plus: .text("Unlimited"), pro: .text("Unlimited")),
+        ComparisonRow(id: 4, title: "Images without the mark", free: .no, plus: .yes, pro: .yes),
+        ComparisonRow(id: 5, title: "Pixel art grid sizes, palettes and dithering", free: .text("Basic 3"), plus: .text("All"), pro: .text("All")),
+        ComparisonRow(id: 6, title: "Printable PDF patterns", free: .no, plus: .no, pro: .yes),
+        ComparisonRow(id: 7, title: "Before-and-after videos without the caption", free: .no, plus: .no, pro: .yes),
+        ComparisonRow(id: 8, title: "3 filter packs", free: .no, plus: .no, pro: .yes),
+    ]
 }
 
 // MARK: - 부품
 
-private struct BenefitRow: View {
-    let icon: String
-    let title: LocalizedStringKey
-    let detail: LocalizedStringKey
+private struct TierCard: View {
+    let tier: HantamTier
+    let isOwned: Bool
+    let isSelected: Bool
+    let action: () -> Void
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            Image(systemName: icon)
-                .font(.callout.weight(.semibold))
-                .foregroundStyle(Color.hantamAccent)
-                .frame(width: 26)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.subheadline.weight(.semibold)).foregroundStyle(Color.hantamInk)
-                Text(detail).font(.caption).foregroundStyle(.secondary)
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 8) {
+                    Image(systemName: isOwned ? "checkmark.seal.fill" : isSelected ? "largecircle.fill.circle" : "circle")
+                        .font(.title2)
+                        .foregroundStyle(isOwned ? Color.hantamTeal : isSelected ? Color.hantamAccent : Color.hantamInk.opacity(0.3))
+                        .accessibilityHidden(true)
+                    Text(tier.name)
+                        .font(.title3.weight(.bold))
+                    Spacer(minLength: 0)
+                    if isOwned {
+                        Text("Your plan")
+                            .font(.footnote.bold())
+                            .foregroundStyle(Color.black.opacity(0.85))
+                            .padding(.horizontal, 8).padding(.vertical, 3)
+                            .background(Color.hantamMustard, in: Capsule())
+                    }
+                }
+                Text(tier.pitch)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                VStack(alignment: .leading, spacing: 6) {
+                    if tier == .pro {
+                        featureLine("Everything in Plus", icon: "checkmark")
+                    }
+                    ForEach(HantamFeature.opened(by: tier)) { f in
+                        featureLine(f.title, icon: f.systemImage)
+                    }
+                }
             }
-            Spacer(minLength: 0)
+            .foregroundStyle(Color.hantamInk)
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.hantamCard, in: RoundedRectangle(cornerRadius: 18))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(isSelected && !isOwned ? Color.hantamAccent : Color.hantamInk.opacity(0.08),
+                            lineWidth: isSelected && !isOwned ? 2 : 1)
+            )
         }
+        .buttonStyle(.plain)
         .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+    }
+
+    private func featureLine(_ title: LocalizedStringKey, icon: String) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 10) {
+            Image(systemName: icon)
+                .font(.body.weight(.semibold))
+                .foregroundStyle(Color.hantamAccent)
+                .frame(width: 24)
+                .accessibilityHidden(true)
+            Text(title)
+                .font(.body)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 }
 
 private struct PlanRow: View {
-    let title: LocalizedStringKey
+    let title: String
     let price: String
-    let detail: LocalizedStringKey
-    let badge: LocalizedStringKey?
+    let detail: String?
     let isSelected: Bool
     let action: () -> Void
 
@@ -367,24 +556,18 @@ private struct PlanRow: View {
                     .accessibilityHidden(true)
                     .foregroundStyle(isSelected ? Color.hantamAccent : Color.hantamInk.opacity(0.3))
                 VStack(alignment: .leading, spacing: 3) {
-                    HStack(spacing: 6) {
-                        Text(title).font(.headline)
-                        if let badge {
-                            Text(badge)
-                                .font(.caption2.bold())
-                                // 겨자색 위 흰 글자는 대비가 모자라 어두운 글자를 쓴다.
-                                .foregroundStyle(Color.black.opacity(0.85))
-                                .padding(.horizontal, 7).padding(.vertical, 2)
-                                .background(Color.hantamMustard, in: Capsule())
-                        }
+                    Text(title).font(.headline)
+                    if let detail {
+                        Text(detail)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    Text(detail).font(.caption).foregroundStyle(.secondary)
                 }
                 Spacer()
                 Text(price)
                     .font(.headline.monospacedDigit())
-                    .minimumScaleFactor(0.7)
-                    .lineLimit(1)
+                    .multilineTextAlignment(.trailing)
             }
             .foregroundStyle(Color.hantamInk)
             .padding(14)
@@ -395,6 +578,7 @@ private struct PlanRow: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
@@ -441,16 +625,8 @@ struct BeadHeartMark: View {
     }
 }
 
-// MARK: - Supporting Enums
-
-enum SubscriptionPlan: String, CaseIterable {
-    case monthly = "Monthly"
-    case yearly = "Yearly"
-    case lifetime = "Lifetime"
-}
-
 // MARK: - Preview
 
 #Preview {
-    PaywallView(isProUser: .constant(false), reason: .patternPDF)
+    PaywallView(reason: .patternPDF)
 }

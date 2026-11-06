@@ -11,7 +11,7 @@
     "title": "Probeer het met een foto",
     "lead": "Dezelfde kleurkoppeling als in de app, met de echte Perler-kleurenkaart. Pas de grootte en het aantal kleuren aan, of probeer een eigen foto.",
     "size": "Grootte",
-    "boards": ["1 strijkplaat", "4 strijkplaten (Pro)"],
+    "boards": ["1 strijkplaat", "4 strijkplaten (Plus)"],
     "colors": "Tot {n} kleuren",
     "need": "Kleuren die je nodig hebt",
     "more": "en nog {n} kleuren",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Strijkkralen, strijkplaten van 29 × 29, elke kraal ongeveer 5 mm"],
       ["DMC", "Kruissteekgaren op Aida van 11, 14, 16 of 18 count"],
       ["Gratis", "Kralen tot 1 strijkplaat (29 vakjes), garen tot 40 steken aan de langste kant"],
-      ["Pro", "Kralen tot 4 × 4 strijkplaten (116 vakjes), garen tot 200 steken"],
+      ["Plus · Pro", "Kralen tot 4 × 4 strijkplaten (116 vakjes), garen tot 200 steken"],
       ["Kleuren", "Van 2 tot 50 per patroon"]
     ],
     "note": "Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Hantam is niet aan hen verbonden. Kleuren op het scherm kunnen iets afwijken van het echte materiaal."
   },
   "pricing": {
-    "title": "Begin gratis. Pro voor grote patronen en printen.",
+    "title": "Begin gratis. Plus voor grote patronen, Pro om te printen.",
     "free": {
       "name": "Gratis",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Pdf-patronen om te printen",
-        "Tot 4 × 4 strijkplaten of 200 steken",
-        "Onbeperkt patronen bewaren",
-        "Afbeeldingen zonder merkje",
-        "Alle pixelart-tools"
+        "Plus · Tot 4 × 4 strijkplaten of 200 steken",
+        "Plus · Onbeperkt patronen bewaren",
+        "Plus · Afbeeldingen zonder merkje",
+        "Plus · Alle pixelart-tools",
+        "Pro · Pdf-patronen om te printen",
+        "Pro · Voor-en-na-video’s zonder Hantam-tekst, 3 filterpakketten"
       ],
-      "note": "Maand- of jaarabonnement, of een eenmalige aankoop voor altijd"
+      "note": "Week-, maand- of jaarabonnement, of een eenmalige aankoop voor altijd"
     },
     "note": "Je kunt Pro ook cadeau doen aan een vriend, rechtstreeks vanuit de app."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Worden mijn foto's ergens geüpload?", "a": "Nee. Foto's en patronen worden alleen op je iPhone verwerkt en bewaard."},
       {"q": "De kleuren zien er iets anders uit dan mijn kralen.", "a": "Een scherm toont kleuren anders dan plastic en garen. Tik op een kleur in de lijst om hem te vervangen door een kleur van hetzelfde merk die er dichter bij zit."},
-      {"q": "Hoe groot kan een patroon worden?", "a": "Gratis past het op één strijkplaat van 29 × 29 of 40 steken aan de langste kant. Met Pro tot 4 × 4 strijkplaten (116 kralen) of 200 steken."},
+      {"q": "Hoe groot kan een patroon worden?", "a": "Gratis past het op één strijkplaat van 29 × 29 of 40 steken aan de langste kant. Met Plus tot 4 × 4 strijkplaten (116 kralen) of 200 steken."},
       {"q": "Welke foto's werken het best?", "a": "Foto's met één onderwerp en een rustige achtergrond. Hoe minder kleuren, hoe strakker het patroon, dus verlaag het aantal kleuren als het resultaat druk oogt."},
-      {"q": "Kan ik nog steeds pixelart maken?", "a": "Ja. Foto's pixelen, tekenen aan de hand van 110 voorbeelden en beeld-voor-beeldanimatie zitten er nog allemaal in. Alle pixelart-tools zitten in Pro."},
+      {"q": "Kan ik nog steeds pixelart maken?", "a": "Ja. Foto's pixelen, tekenen aan de hand van 110 voorbeelden en beeld-voor-beeldanimatie zitten er nog allemaal in. Alle pixelart-tools zitten in Plus."},
       {"q": "Hoe herstel ik mijn aankoop?", "a": "Open de instellingen in de app en tik op `Aankopen herstellen`. Gebruik hetzelfde Apple-account waarmee je Pro hebt gekocht."},
       {"q": "Hoe zeg ik mijn abonnement op?", "a": "Ga naar Instellingen op je iPhone › je naam › Abonnementen en kies Hantam. Toegang voor altijd is een eenmalige betaling en wordt nooit verlengd."},
       {"q": "Hoe meld ik een fout of stel ik iets voor?", "a": "Het snelst is feedback sturen vanuit de instellingen van de app. Je kunt ook mailen naar het adres hieronder of een DM sturen op Instagram (@lee25_ios)."}

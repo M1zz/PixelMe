@@ -12,7 +12,7 @@ final class PatternStore: ObservableObject {
     static let shared = PatternStore()
 
     /// 무료로 저장해 둘 수 있는 도안 수.
-    static let freeSaveLimit = 3
+    static let freeSaveLimit = HantamPlan.freeSaveLimit
 
     @Published private(set) var patterns: [BeadPattern] = []
 
@@ -24,7 +24,7 @@ final class PatternStore: ObservableObject {
     private init() { load() }
 
     var canSaveMore: Bool {
-        SubscriptionManager.shared.isProUser || patterns.count < Self.freeSaveLimit
+        SubscriptionManager.shared.allows(.keepPatterns) || patterns.count < Self.freeSaveLimit
     }
 
     func contains(_ pattern: BeadPattern) -> Bool {

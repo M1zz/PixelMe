@@ -63,6 +63,7 @@
 		B6A919CB9550B77BFF826B21 /* HantamHomeSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */; };
 		BD3A58F87C44C1B2CB740AD8 /* PatternEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67102759E10EF5218DB451C2 /* PatternEngine.swift */; };
 		BE7CF64AECD03B6D0B247AFA /* PatternEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */; };
+		5A1A2B3C4D5E6F7A8B9C0D1E /* PlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A2B3C4D5E6F7A8B9C0D2F /* PlanTests.swift */; };
 		C7F4DA78D2E6DD5D61FF1555 /* PatternRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F9D4B81A004228DC952CA /* PatternRenderer.swift */; };
 		CE68B4F96E976C24A2733ED7 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */; };
 		D745E85BC8AA38EF45722774 /* BeforeAfterVideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215E58C31CE4A05963417C1 /* BeforeAfterVideoGenerator.swift */; };
@@ -110,6 +111,7 @@
 		37F1792AA87F47AFB4A44588 /* CreatorToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatorToolbarView.swift; path = Views/CreatorSubviews/CreatorToolbarView.swift; sourceTree = "<group>"; };
 		424D07EFD0EFFE87BD7B4C88 /* HantamHomeSections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HantamHomeSections.swift; sourceTree = "<group>"; };
 		4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternEngineTests.swift; sourceTree = "<group>"; };
+		5A1A2B3C4D5E6F7A8B9C0D2F /* PlanTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlanTests.swift; sourceTree = "<group>"; };
 		4FF32BADE975806E619CC8A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		559C34DD83D4AC4A983ABFCB /* ReviewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		587D17692F1FB4DF006DED5B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				4265C83650DC492E8A06ADF9 /* PatternEngineTests.swift */,
+				5A1A2B3C4D5E6F7A8B9C0D2F /* PlanTests.swift */,
 			);
 			name = HantamTests;
 			path = HantamTests;
@@ -552,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7CF64AECD03B6D0B247AFA /* PatternEngineTests.swift in Sources */,
+				5A1A2B3C4D5E6F7A8B9C0D1E /* PlanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

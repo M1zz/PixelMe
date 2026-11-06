@@ -148,7 +148,7 @@ struct PixelatedPhotoView: View {
                 .environmentObject(manager)
         }
         .sheet(item: $paywallReason) { reason in
-            PaywallView(isProUser: .constant(false), reason: reason)
+            PaywallView(reason: reason)
         }
         .sheet(isPresented: $showShareSheet) {
             if let original = manager.selectedImage,
@@ -444,7 +444,7 @@ struct PixelatedPhotoView: View {
                     .foregroundColor(.white)
                 Spacer()
                 Button {
-                    showFilterPackStore = true
+                    openFilterPacks()
                 } label: {
                     Text("See All")
                         .font(.caption)
@@ -457,7 +457,7 @@ struct PixelatedPhotoView: View {
             if ownedFilters.isEmpty {
                 // Promo card
                 Button {
-                    showFilterPackStore = true
+                    openFilterPacks()
                 } label: {
                     HStack(spacing: 12) {
                         Image(systemName: "sparkles")
@@ -495,6 +495,15 @@ struct PixelatedPhotoView: View {
         }
         .sheet(isPresented: $showFilterPackStore) {
             FilterPackStoreView()
+        }
+    }
+
+    /// 필터 팩은 Pro 에 든다(따로 팔지 않는다). Pro 가 아니면 페이월, Pro 면 팩 목록.
+    private func openFilterPacks() {
+        if SubscriptionManager.shared.allows(.filterPacks) {
+            showFilterPackStore = true
+        } else {
+            paywallReason = .filterPack
         }
     }
 
@@ -563,8 +572,8 @@ struct PixelatedPhotoView: View {
 
     @ViewBuilder
     private func FilterEffectItem(_ filter: FilterEffectType) -> some View {
-        // Note: FilterType in FeatureGating might be different, need to map
-        let isLocked = !SubscriptionManager.shared.hasAccess(to: .pro) && filter != .crt
+        // 픽셀 아트 필터는 Plus 의 '픽셀 아트 도구 전부'에 든다. CRT 하나는 무료로 맛보기.
+        let isLocked = !SubscriptionManager.shared.allows(.pixelTools) && filter != .crt
         
         Button {
             if isLocked {

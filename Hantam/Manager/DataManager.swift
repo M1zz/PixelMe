@@ -95,9 +95,9 @@ class DataManager: NSObject, ObservableObject {
         activeProcessingTasks.removeValue(forKey: name)
     }
 
-    /// Pro 여부 — 판정은 SubscriptionManager 한 곳에서만 한다.
-    @MainActor var isProUser: Bool {
-        return SubscriptionManager.shared.isProUser
+    /// 한땀 표시 없는 이미지를 쓰는가(Plus 이상) — 판정은 SubscriptionManager 한 곳에서만 한다.
+    @MainActor var savesCleanImages: Bool {
+        return SubscriptionManager.shared.allows(.cleanImage)
     }
 
     override init() {
@@ -509,11 +509,11 @@ extension DataManager {
 
 // MARK: - Save pixel art image
 extension DataManager {
-    /// Save pixelated board as image (with watermark for non-Pro users)
+    /// Save pixelated board as image (with watermark below Plus)
     @MainActor func savePixelatedImage() {
         var nftImage = PixelatedImage(exportMode: true).environmentObject(self)
             .image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        if !isProUser {
+        if !savesCleanImages {
             nftImage = Watermark.applyWatermark(to: nftImage)
         }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -521,7 +521,7 @@ extension DataManager {
     
     @MainActor func savePixelGrid(view: AnyView) {
         var nftImage = view.image(size: CGSize(width: AppConfig.exportSize, height: AppConfig.exportSize))
-        if !isProUser {
+        if !savesCleanImages {
             nftImage = Watermark.applyWatermark(to: nftImage)
         }
         UIImageWriteToSavedPhotosAlbum(nftImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)

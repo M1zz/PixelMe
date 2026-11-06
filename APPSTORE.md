@@ -59,8 +59,8 @@ Pixelate photos with retro palettes and filters, draw along with 110 samples, an
 PRIVATE BY DESIGN
 Your photos and patterns stay on your iPhone.
 
-HANTAM PRO
-Free lets you make patterns up to one pegboard or 40 stitches, keep 3 patterns and share images with a small Hantam mark. Pro adds printable PDF patterns, patterns up to 4 by 4 pegboards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Choose a monthly or yearly subscription, or pay once for lifetime access.
+HANTAM PLUS AND PRO
+Hantam is free to download. Free lets you make patterns up to one pegboard or 40 stitches, see every color number and count, copy the shopping list, keep 3 patterns and share images with a small Hantam mark. Plus adds patterns up to 4 by 4 pegboards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Pro adds printable PDF patterns, before-and-after videos without the caption and 3 filter packs on top of everything in Plus. Choose a weekly, monthly or yearly subscription, or pay once for lifetime access.
 
 Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. Your Apple Account is charged within 24 hours before renewal. Manage or cancel anytime in your Apple Account settings.
 
@@ -125,8 +125,8 @@ Perler, Hama Midi, Artkal S 아이롱 비즈와 DMC 자수실의 색표로 도�
 사진은 내 폰에만
 사진과 도안은 내 iPhone 밖으로 나가지 않아요.
 
-한땀 Pro
-무료로는 보드 1장 또는 40칸까지의 도안을 만들고, 3개까지 보관하고, 작은 한땀 표시가 든 이미지를 공유할 수 있어요. Pro는 인쇄용 PDF 도안, 보드 4 × 4장 또는 200칸까지의 도안, 무제한 보관, 표시 없는 이미지, 모든 픽셀 아트 도구를 열어 줘요. 월간·연간 구독과 한 번 결제하는 평생 이용권 중에서 고를 수 있어요.
+한땀 Plus · Pro
+한땀은 무료로 받을 수 있어요. 무료로도 보드 1장 또는 40칸까지의 도안을 만들고, 색 번호와 개수를 보고, 구매 목록을 복사하고, 도안 3개를 보관하고, 작은 한땀 표시가 든 이미지를 공유할 수 있어요. Plus는 보드 4 × 4장 또는 200칸까지의 도안, 무제한 보관, 표시 없는 이미지, 모든 픽셀 아트 도구를 열어 줘요. Pro는 Plus의 모든 기능에 인쇄용 PDF 도안, 한땀 문구 없는 전후 비교 영상, 필터 팩 3종을 더해요. 주간·월간·연간 구독과 한 번 결제하는 평생 이용권 중에서 고를 수 있어요.
 
 구독은 현재 기간이 끝나기 최소 24시간 전에 해지하지 않으면 자동으로 갱신되고, 갱신 전 24시간 안에 Apple 계정으로 결제돼요. Apple 계정 설정에서 언제든 관리하고 해지할 수 있어요.
 
@@ -191,8 +191,8 @@ Perler、Hama Midi、Artkal Sのアイロンビーズと、DMCの刺しゅう糸
 写真はiPhoneの中だけ
 写真も図案も、お使いのiPhoneの外に出ることはありません。
 
-Hantam Pro
-無料版では、プレート1枚分または40目までの図案づくり、3個までの保存、小さなHantamのマーク入りの画像の共有ができます。Proでは、印刷用PDF図案、プレート4 × 4枚分または200目までの図案、無制限の保存、マークなしの画像、すべてのドット絵ツールが使えます。月額・年額のサブスクリプションか、1回払いの買い切りから選べます。
+Hantam Plus・Pro
+Hantamは無料でダウンロードできます。無料版でも、プレート1枚分または40目までの図案づくり、色番号と個数の確認、買い物リストのコピー、3個までの保存、小さなHantamのマーク入りの画像の共有ができます。Plusでは、プレート4 × 4枚分または200目までの図案、無制限の保存、マークなしの画像、すべてのドット絵ツールが使えます。Proでは、Plusのすべての機能に加えて、印刷用PDF図案、Hantamの文字なしのビフォーアフター動画、フィルタパック3種が使えます。週額・月額・年額のサブスクリプションか、1回払いの買い切りから選べます。
 
 サブスクリプションは、現在の期間が終わる24時間前までに解約しない限り自動で更新され、更新前の24時間以内にApple Accountに請求されます。Apple Accountの設定からいつでも管理・解約できます。
 
@@ -257,8 +257,8 @@ Pixelate photos with retro palettes and filters, draw along with 110 samples, an
 PRIVATE BY DESIGN
 Your photos and patterns stay on your iPhone.
 
-HANTAM PRO
-Free lets you make patterns up to one pegboard or 40 stitches, keep 3 patterns and share images with a small Hantam mark. Pro adds printable PDF patterns, patterns up to 4 by 4 pegboards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Choose a monthly or yearly subscription, or pay once for lifetime access.
+HANTAM PLUS AND PRO
+Hantam is free to download. Free lets you make patterns up to one pegboard or 40 stitches, see every colour number and count, copy the shopping list, keep 3 patterns and share images with a small Hantam mark. Plus adds patterns up to 4 by 4 pegboards or 200 stitches, unlimited saved patterns, images without the mark and every pixel art tool. Pro adds printable PDF patterns, before-and-after videos without the caption and 3 filter packs on top of everything in Plus. Choose a weekly, monthly or yearly subscription, or pay once for lifetime access.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Your Apple Account is charged within 24 hours before renewal. Manage or cancel anytime in your Apple Account settings.
 
@@ -323,8 +323,8 @@ Hantam：拼豆与十字绣图纸
 照片只留在你的 iPhone 里
 照片和图纸都不会离开你的 iPhone。
 
-Hantam Pro
-免费版可制作一块底板或 40 针以内的图纸，最多保存 3 个，分享的图片带有小小的 Hantam 标记。Pro 版支持打印用 PDF 图纸、最大 4 × 4 块底板或 200 针的图纸、无限保存、无标记图片，以及全部像素画工具。可选择按月或按年订阅，也可以一次买断。
+Hantam Plus · Pro
+Hantam 可免费下载。免费版可制作一块底板或 40 针以内的图纸，查看色号和数量，复制购物清单，最多保存 3 个图纸，分享的图片带有小小的 Hantam 标记。Plus 支持最大 4 × 4 块底板或 200 针的图纸、无限保存、无标记图片，以及全部像素画工具。Pro 在 Plus 全部功能之外，还提供打印用 PDF 图纸、不带 Hantam 字样的前后对比视频和 3 个滤镜包。可选择按周、按月或按年订阅，也可以一次买断。
 
 订阅会自动续订，除非在当前订阅期结束前至少 24 小时取消；续订费用会在结束前 24 小时内从你的 Apple 账户扣除。你可以随时在 Apple 账户设置中管理或取消订阅。
 
@@ -389,8 +389,8 @@ Hantam：拼豆與十字繡圖紙
 照片只留在你的 iPhone 裡
 照片和圖紙都不會離開你的 iPhone。
 
-Hantam Pro
-免費版可製作一塊底板或 40 針以內的圖紙，最多儲存 3 個，分享的圖片會帶有小小的 Hantam 標記。Pro 版支援列印用 PDF 圖紙、最大 4 × 4 塊底板或 200 針的圖紙、無限儲存、無標記圖片，以及全部像素畫工具。可選擇按月或按年訂閱，也可以一次買斷。
+Hantam Plus · Pro
+Hantam 可免費下載。免費版可製作一塊底板或 40 針以內的圖紙，查看色號和數量，拷貝購物清單，最多儲存 3 個圖紙，分享的圖片會帶有小小的 Hantam 標記。Plus 支援最大 4 × 4 塊底板或 200 針的圖紙、無限儲存、無標記圖片，以及全部像素畫工具。Pro 在 Plus 全部功能之外，還提供列印用 PDF 圖紙、不帶 Hantam 字樣的前後對比影片和 3 個濾鏡包。可選擇按週、按月或按年訂閱，也可以一次買斷。
 
 訂閱會自動續訂，除非在目前訂閱期結束前至少 24 小時取消；續訂費用會在結束前 24 小時內從你的 Apple 帳號扣款。你可以隨時在 Apple 帳號設定中管理或取消訂閱。
 
@@ -455,8 +455,8 @@ Hantam: схемы для мозаики
 Фото остаются на вашем iPhone
 Ни фото, ни схемы не покидают ваш iPhone.
 
-Hantam Pro
-В бесплатной версии можно делать схемы до одной основы или до 40 крестиков, хранить до 3 схем и делиться изображениями с маленьким знаком Hantam. В Pro доступны схемы в PDF для печати, схемы до 4 × 4 основ или 200 крестиков, неограниченное хранение, изображения без знака и все инструменты пиксель-арта. Выбирайте подписку на месяц или на год либо однократную покупку навсегда.
+Hantam Plus и Pro
+Hantam можно скачать бесплатно. В бесплатной версии можно делать схемы до одной основы или до 40 крестиков, смотреть номера и количество цветов, копировать список покупок, хранить до 3 схем и делиться изображениями с маленьким знаком Hantam. Plus открывает схемы до 4 × 4 основ или 200 крестиков, неограниченное хранение, изображения без знака и все инструменты пиксель-арта. Pro добавляет ко всему, что есть в Plus, схемы в PDF для печати, видео «до и после» без подписи Hantam и 3 набора фильтров. Выбирайте подписку на неделю, месяц или год либо однократную покупку навсегда.
 
 Подписка продлевается автоматически, если не отменить её минимум за 24 часа до конца текущего периода; плата за продление списывается с вашей учётной записи Apple в течение 24 часов до окончания периода. Управлять подпиской и отменять её можно в любой момент в настройках учётной записи Apple.
 
@@ -521,8 +521,8 @@ Convierte fotos en pixel art con paletas retro y filtros, calca 110 modelos y cr
 Tus fotos se quedan en tu iPhone
 Ni las fotos ni los patrones salen de tu iPhone.
 
-Hantam Pro
-La versión gratuita permite patrones de hasta una placa o 40 puntos, guardar hasta 3 patrones y compartir imágenes con una pequeña marca de Hantam. Pro añade patrones en PDF para imprimir, patrones de hasta 4 × 4 placas o 200 puntos, guardado ilimitado, imágenes sin marca y todas las herramientas de pixel art. Elige una suscripción mensual o anual, o un pago único para siempre.
+Hantam Plus y Pro
+Hantam se descarga gratis. La versión gratuita permite patrones de hasta una placa o 40 puntos, ver los números de color y las cantidades, copiar la lista de la compra, guardar hasta 3 patrones y compartir imágenes con una pequeña marca de Hantam. Plus añade patrones de hasta 4 × 4 placas o 200 puntos, guardado ilimitado, imágenes sin marca y todas las herramientas de pixel art. Pro suma a todo lo de Plus los patrones en PDF para imprimir, los vídeos de antes y después sin el texto de Hantam y 3 packs de filtros. Elige una suscripción semanal, mensual o anual, o un pago único para siempre.
 
 La suscripción se renueva automáticamente salvo que la canceles al menos 24 horas antes de que termine el periodo en curso, y el cargo se hace a tu cuenta de Apple en las 24 horas previas a la renovación. Puedes gestionarla o cancelarla en cualquier momento en los ajustes de tu cuenta de Apple.
 
@@ -587,8 +587,8 @@ Verwandle Fotos mit Retro-Paletten und Filtern in Pixelart, zeichne 110 Vorlagen
 Deine Fotos bleiben auf dem iPhone
 Weder Fotos noch Vorlagen verlassen dein iPhone.
 
-Hantam Pro
-Die kostenlose Version erlaubt Vorlagen bis zu einer Steckplatte oder 40 Stichen, 3 gespeicherte Vorlagen und das Teilen von Bildern mit einem kleinen Hantam-Zeichen. Pro bietet druckbare PDF-Vorlagen, Vorlagen bis 4 × 4 Platten oder 200 Stiche, unbegrenztes Speichern, Bilder ohne Zeichen und alle Pixelart-Werkzeuge. Wähle ein Abo für einen Monat oder ein Jahr oder einen einmaligen Kauf.
+Hantam Plus und Pro
+Hantam ist kostenlos. Die kostenlose Version erlaubt Vorlagen bis zu einer Steckplatte oder 40 Stichen, zeigt Farbnummern und Mengen, kopiert die Einkaufsliste, speichert 3 Vorlagen und teilt Bilder mit einem kleinen Hantam-Zeichen. Plus bietet Vorlagen bis 4 × 4 Platten oder 200 Stiche, unbegrenztes Speichern, Bilder ohne Zeichen und alle Pixelart-Werkzeuge. Pro ergänzt alles aus Plus um druckbare PDF-Vorlagen, Vorher-nachher-Videos ohne Hantam-Schriftzug und 3 Filterpakete. Wähle ein Abo für eine Woche, einen Monat oder ein Jahr oder einen einmaligen Kauf.
 
 Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ablauf des aktuellen Zeitraums gekündigt wird. Die Abbuchung von deinem Apple-Account erfolgt innerhalb von 24 Stunden vor der Verlängerung. Du kannst das Abo jederzeit in den Einstellungen deines Apple-Accounts verwalten oder kündigen.
 
@@ -653,8 +653,8 @@ Transformez vos photos en pixel art avec des palettes rétro et des filtres, cal
 Vos photos restent sur votre iPhone
 Ni les photos ni les grilles ne quittent votre iPhone.
 
-Hantam Pro
-La version gratuite permet des grilles jusqu’à une plaque ou 40 points, 3 grilles enregistrées et le partage d’images avec une petite marque Hantam. Pro ajoute les grilles PDF à imprimer, des grilles jusqu’à 4 × 4 plaques ou 200 points, l’enregistrement illimité, les images sans marque et tous les outils de pixel art. Choisissez un abonnement mensuel ou annuel, ou un achat unique.
+Hantam Plus et Pro
+Hantam se télécharge gratuitement. La version gratuite permet des grilles jusqu’à une plaque ou 40 points, affiche les numéros de couleur et les quantités, copie la liste de courses, garde 3 grilles et partage des images avec une petite marque Hantam. Plus ajoute des grilles jusqu’à 4 × 4 plaques ou 200 points, l’enregistrement illimité, les images sans marque et tous les outils de pixel art. Pro ajoute à tout ce qu’inclut Plus les grilles PDF à imprimer, les vidéos avant-après sans la mention Hantam et 3 packs de filtres. Choisissez un abonnement hebdomadaire, mensuel ou annuel, ou un achat unique.
 
 L’abonnement se renouvelle automatiquement, sauf annulation au moins 24 heures avant la fin de la période en cours ; le paiement est prélevé sur votre compte Apple dans les 24 heures précédant le renouvellement. Vous pouvez gérer ou annuler votre abonnement à tout moment dans les réglages de votre compte Apple.
 
@@ -719,8 +719,8 @@ Trasforma le foto in pixel art con palette retrò e filtri, ricalca 110 modelli 
 Le tue foto restano sul tuo iPhone
 Né le foto né gli schemi escono dal tuo iPhone.
 
-Hantam Pro
-La versione gratuita consente schemi fino a una base o 40 punti, 3 schemi salvati e la condivisione di immagini con un piccolo marchio Hantam. Pro aggiunge schemi PDF da stampare, schemi fino a 4 × 4 basi o 200 punti, salvataggio illimitato, immagini senza marchio e tutti gli strumenti per il pixel art. Scegli un abbonamento mensile o annuale, oppure un acquisto unico.
+Hantam Plus e Pro
+Hantam si scarica gratis. La versione gratuita consente schemi fino a una base o 40 punti, mostra numeri di colore e quantità, copia la lista della spesa, conserva 3 schemi e condivide immagini con un piccolo marchio Hantam. Plus aggiunge schemi fino a 4 × 4 basi o 200 punti, salvataggio illimitato, immagini senza marchio e tutti gli strumenti per il pixel art. Pro aggiunge a tutto ciò che c’è in Plus gli schemi PDF da stampare, i video prima e dopo senza la scritta Hantam e 3 pacchetti di filtri. Scegli un abbonamento settimanale, mensile o annuale, oppure un acquisto unico.
 
 L’abbonamento si rinnova automaticamente, a meno che non venga annullato almeno 24 ore prima della fine del periodo in corso; l’addebito sul tuo account Apple avviene nelle 24 ore precedenti il rinnovo. Puoi gestire o annullare l’abbonamento in qualsiasi momento dalle impostazioni del tuo account Apple.
 
@@ -785,8 +785,8 @@ Transforme fotos em pixel art com paletas retrô e filtros, desenhe por cima de 
 Suas fotos ficam no seu iPhone
 Nem as fotos nem os padrões saem do seu iPhone.
 
-Hantam Pro
-A versão gratuita permite padrões de até uma placa ou 40 pontos, 3 padrões salvos e o compartilhamento de imagens com uma pequena marca do Hantam. O Pro adiciona padrões em PDF para imprimir, padrões de até 4 × 4 placas ou 200 pontos, salvamento ilimitado, imagens sem marca e todas as ferramentas de pixel art. Escolha uma assinatura mensal ou anual, ou um pagamento único.
+Hantam Plus e Pro
+O Hantam é gratuito para baixar. A versão gratuita permite padrões de até uma placa ou 40 pontos, mostra números de cor e quantidades, copia a lista de compras, guarda 3 padrões e compartilha imagens com uma pequena marca do Hantam. O Plus adiciona padrões de até 4 × 4 placas ou 200 pontos, salvamento ilimitado, imagens sem marca e todas as ferramentas de pixel art. O Pro soma a tudo do Plus os padrões em PDF para imprimir, os vídeos de antes e depois sem o texto do Hantam e 3 pacotes de filtros. Escolha uma assinatura semanal, mensal ou anual, ou pague uma vez só.
 
 A assinatura é renovada automaticamente, a menos que seja cancelada pelo menos 24 horas antes do fim do período atual; a cobrança é feita na sua conta Apple nas 24 horas anteriores à renovação. Você pode gerenciar ou cancelar a assinatura a qualquer momento nos ajustes da sua conta Apple.
 
@@ -851,8 +851,8 @@ Hantam: แพตเทิร์นลูกปัด
 รูปของคุณอยู่แค่ใน iPhone
 ทั้งรูปและแพตเทิร์นไม่ออกจาก iPhone ของคุณ
 
-Hantam Pro
-เวอร์ชันฟรีทำแพตเทิร์นได้ไม่เกิน 1 แผ่นบอร์ดหรือ 40 เข็ม บันทึกได้ 3 แบบ และแชร์รูปที่มีเครื่องหมาย Hantam เล็กๆ ส่วน Pro เพิ่ม PDF สำหรับพิมพ์ แพตเทิร์นสูงสุด 4 × 4 แผ่นบอร์ดหรือ 200 เข็ม บันทึกไม่จำกัด รูปที่ไม่มีเครื่องหมาย และเครื่องมือพิกเซลอาร์ตทั้งหมด เลือกสมัครรายเดือน รายปี หรือจ่ายครั้งเดียว
+Hantam Plus และ Pro
+ดาวน์โหลด Hantam ได้ฟรี เวอร์ชันฟรีสร้างแพตเทิร์นได้ถึงหนึ่งบอร์ดหรือ 40 เข็ม ดูหมายเลขสีและจำนวน คัดลอกรายการซื้อของ เก็บแพตเทิร์นได้ 3 แบบ และแชร์รูปที่มีเครื่องหมาย Hantam เล็กๆ Plus เพิ่มแพตเทิร์นใหญ่สุด 4 × 4 บอร์ดหรือ 200 เข็ม เก็บได้ไม่จำกัด รูปไม่มีเครื่องหมาย และเครื่องมือพิกเซลอาร์ตทั้งหมด Pro เพิ่มแพตเทิร์น PDF สำหรับพิมพ์ วิดีโอก่อน-หลังโดยไม่มีข้อความ Hantam และแพ็กฟิลเตอร์ 3 ชุด นอกเหนือจากทุกอย่างใน Plus เลือกสมัครรายสัปดาห์ รายเดือน หรือรายปี หรือจ่ายครั้งเดียวใช้ตลอดชีพ
 
 การสมัครสมาชิกจะต่ออายุอัตโนมัติ เว้นแต่จะยกเลิกก่อนสิ้นสุดรอบปัจจุบันอย่างน้อย 24 ชั่วโมง โดยจะเรียกเก็บเงินจากบัญชี Apple ของคุณภายใน 24 ชั่วโมงก่อนต่ออายุ คุณจัดการหรือยกเลิกได้ทุกเมื่อในการตั้งค่าบัญชี Apple
 
@@ -917,8 +917,8 @@ Biến ảnh thành pixel art với bảng màu retro và bộ lọc, tô theo 1
 Ảnh của bạn chỉ nằm trong iPhone
 Ảnh và mẫu đều không rời khỏi iPhone của bạn.
 
-Hantam Pro
-Bản miễn phí cho phép tạo mẫu tối đa một đế hoặc 40 mũi, lưu 3 mẫu và chia sẻ ảnh có dấu Hantam nhỏ. Pro bổ sung mẫu PDF để in, mẫu tối đa 4 × 4 đế hoặc 200 mũi, lưu không giới hạn, ảnh không có dấu và toàn bộ công cụ pixel art. Chọn gói theo tháng, theo năm hoặc mua một lần.
+Hantam Plus và Pro
+Hantam được tải về miễn phí. Bản miễn phí cho phép làm mẫu tối đa một đế hoặc 40 mũi, xem mã màu và số lượng, sao chép danh sách mua sắm, lưu 3 mẫu và chia sẻ ảnh có dấu Hantam nhỏ. Plus mở mẫu lên tới 4 × 4 đế hoặc 200 mũi, lưu không giới hạn, ảnh không có dấu và mọi công cụ pixel art. Pro thêm vào mọi thứ của Plus mẫu PDF để in, video trước và sau không có dòng chữ Hantam và 3 gói bộ lọc. Chọn gói theo tuần, theo tháng hoặc theo năm, hoặc trả một lần dùng trọn đời.
 
 Gói đăng ký tự động gia hạn trừ khi bạn hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc; tài khoản Apple của bạn bị tính phí trong vòng 24 giờ trước khi gia hạn. Bạn có thể quản lý hoặc hủy bất cứ lúc nào trong phần cài đặt tài khoản Apple.
 
@@ -983,8 +983,8 @@ Měň fotky na pixel art s retro paletami a filtry, obkresluj 110 předloh a vyt
 Fotky zůstanou v tvém iPhonu
 Fotky ani vzory nikdy neopustí tvůj iPhone.
 
-Hantam Pro
-Bezplatná verze umožňuje vzory do jedné podložky nebo 40 stehů, uložení 3 vzorů a sdílení obrázků s malou značkou Hantam. Pro přidává vzory v PDF k tisku, vzory až 4 × 4 podložky nebo 200 stehů, neomezené ukládání, obrázky bez značky a všechny nástroje pro pixel art. Vyber si měsíční nebo roční předplatné, nebo jednorázový nákup.
+Hantam Plus a Pro
+Hantam si stáhneš zdarma. Bezplatná verze umožňuje vzory do jedné podložky nebo 40 stehů, ukáže čísla barev a počty, zkopíruje nákupní seznam, uloží 3 vzory a sdílí obrázky s malou značkou Hantam. Plus přidává vzory až 4 × 4 podložky nebo 200 stehů, neomezené ukládání, obrázky bez značky a všechny nástroje pro pixel art. Pro přidává ke všemu z Plus vzory v PDF k tisku, videa před a po bez nápisu Hantam a 3 balíčky filtrů. Vyber si týdenní, měsíční nebo roční předplatné, nebo jednorázový nákup.
 
 Předplatné se automaticky obnovuje, pokud ho nezrušíš alespoň 24 hodin před koncem aktuálního období; platba se strhne z tvého účtu Apple do 24 hodin před obnovením. Předplatné můžeš kdykoli spravovat nebo zrušit v nastavení účtu Apple.
 
@@ -1049,8 +1049,8 @@ Lav fotos om til pixelkunst med retropaletter og filtre, tegn efter 110 forlæg,
 Dine fotos bliver på din iPhone
 Hverken fotos eller mønstre forlader din iPhone.
 
-Hantam Pro
-Den gratis version giver mønstre op til én plade eller 40 sting, 3 gemte mønstre og deling af billeder med et lille Hantam-mærke. Pro tilføjer PDF-mønstre til print, mønstre op til 4 × 4 plader eller 200 sting, ubegrænset lagring, billeder uden mærke og alle værktøjer til pixelkunst. Vælg et månedligt eller årligt abonnement, eller betal én gang.
+Hantam Plus og Pro
+Hantam er gratis at hente. Den gratis version giver mønstre op til én plade eller 40 sting, viser farvenumre og antal, kopierer indkøbslisten, gemmer 3 mønstre og deler billeder med et lille Hantam-mærke. Plus tilføjer mønstre op til 4 × 4 plader eller 200 sting, ubegrænset lagring, billeder uden mærke og alle værktøjer til pixelkunst. Pro lægger PDF-mønstre til print, før og efter-videoer uden Hantam-tekst og 3 filterpakker oven i alt i Plus. Vælg et ugentligt, månedligt eller årligt abonnement, eller betal én gang.
 
 Abonnementet fornyes automatisk, medmindre det opsiges mindst 24 timer før udgangen af den igangværende periode; betalingen trækkes på din Apple-konto inden for 24 timer før fornyelsen. Du kan til enhver tid administrere eller opsige abonnementet i indstillingerne for din Apple-konto.
 
@@ -1115,8 +1115,8 @@ Hantam: σχέδια με χάντρες
 Οι φωτογραφίες μένουν στο iPhone σου
 Ούτε οι φωτογραφίες ούτε τα σχέδια βγαίνουν από το iPhone σου.
 
-Hantam Pro
-Η δωρεάν έκδοση επιτρέπει σχέδια έως μία πλακέτα ή 40 βελονιές, 3 αποθηκευμένα σχέδια και κοινοποίηση εικόνων με ένα μικρό σήμα Hantam. Το Pro προσθέτει σχέδια PDF για εκτύπωση, σχέδια έως 4 × 4 πλακέτες ή 200 βελονιές, απεριόριστη αποθήκευση, εικόνες χωρίς σήμα και όλα τα εργαλεία pixel art. Διάλεξε μηνιαία ή ετήσια συνδρομή ή εφάπαξ αγορά.
+Hantam Plus και Pro
+Το Hantam κατεβαίνει δωρεάν. Η δωρεάν έκδοση επιτρέπει σχέδια έως μία πλακέτα ή 40 βελονιές, δείχνει αριθμούς και ποσότητες χρωμάτων, αντιγράφει τη λίστα αγορών, κρατά 3 σχέδια και κοινοποιεί εικόνες με ένα μικρό σήμα Hantam. Το Plus προσθέτει σχέδια έως 4 × 4 πλακέτες ή 200 βελονιές, απεριόριστη αποθήκευση, εικόνες χωρίς σήμα και όλα τα εργαλεία pixel art. Το Pro προσθέτει σε όλα όσα περιλαμβάνει το Plus σχέδια PDF για εκτύπωση, βίντεο πριν και μετά χωρίς τη λεζάντα Hantam και 3 πακέτα φίλτρων. Διάλεξε εβδομαδιαία, μηνιαία ή ετήσια συνδρομή ή εφάπαξ αγορά.
 
 Η συνδρομή ανανεώνεται αυτόματα, εκτός αν ακυρωθεί τουλάχιστον 24 ώρες πριν από το τέλος της τρέχουσας περιόδου· η χρέωση γίνεται στον λογαριασμό σου Apple εντός 24 ωρών πριν από την ανανέωση. Μπορείς να τη διαχειριστείς ή να την ακυρώσεις οποτεδήποτε στις ρυθμίσεις του λογαριασμού σου Apple.
 
@@ -1181,8 +1181,8 @@ Muuta kuvat pikselitaiteeksi retropaleteilla ja suodattimilla, piirrä 110 malli
 Kuvasi pysyvät iPhonessasi
 Kuvat ja kuviot eivät poistu iPhonestasi.
 
-Hantam Pro
-Ilmaisversiolla voit tehdä kuvioita yhteen alustaan tai 40 pistoon asti, tallentaa 3 kuviota ja jakaa kuvia pienellä Hantam-merkillä. Pro lisää tulostettavat PDF-kuviot, kuviot aina 4 × 4 alustaan tai 200 pistoon asti, rajattoman tallennuksen, kuvat ilman merkkiä ja kaikki pikselitaiteen työkalut. Valitse kuukausi- tai vuositilaus tai kertamaksu.
+Hantam Plus ja Pro
+Hantamin voi ladata ilmaiseksi. Ilmaisversiolla voit tehdä kuvioita yhteen alustaan tai 40 pistoon asti, nähdä värinumerot ja määrät, kopioida ostoslistan, tallentaa 3 kuviota ja jakaa kuvia pienellä Hantam-merkillä. Plus lisää kuviot aina 4 × 4 alustaan tai 200 pistoon asti, rajattoman tallennuksen, kuvat ilman merkkiä ja kaikki pikselitaiteen työkalut. Pro lisää kaikkiin Plussan ominaisuuksiin tulostettavat PDF-kuviot, ennen ja jälkeen -videot ilman Hantam-tekstiä ja 3 suodatinpakettia. Valitse viikko-, kuukausi- tai vuositilaus tai kertamaksu.
 
 Tilaus uusiutuu automaattisesti, ellei sitä peruuteta vähintään 24 tuntia ennen kuluvan jakson päättymistä. Maksu veloitetaan Apple-tililtäsi 24 tunnin sisällä ennen uusiutumista. Voit hallita tai peruuttaa tilauksen milloin tahansa Apple-tilisi asetuksista.
 
@@ -1247,8 +1247,8 @@ Ubah foto jadi pixel art dengan palet retro dan filter, gambar mengikuti 110 con
 Fotomu tetap di iPhone
 Foto maupun pola tidak pernah keluar dari iPhone-mu.
 
-Hantam Pro
-Versi gratis memungkinkan pola hingga satu papan atau 40 tusukan, menyimpan 3 pola, dan membagikan gambar dengan tanda Hantam kecil. Pro menambahkan pola PDF untuk dicetak, pola hingga 4 × 4 papan atau 200 tusukan, penyimpanan tanpa batas, gambar tanpa tanda, dan semua alat pixel art. Pilih langganan bulanan atau tahunan, atau bayar sekali saja.
+Hantam Plus dan Pro
+Hantam gratis diunduh. Versi gratis memungkinkan pola hingga satu papan atau 40 tusukan, melihat nomor warna dan jumlahnya, menyalin daftar belanja, menyimpan 3 pola, dan membagikan gambar dengan tanda Hantam kecil. Plus menambahkan pola hingga 4 × 4 papan atau 200 tusukan, penyimpanan tanpa batas, gambar tanpa tanda, dan semua alat pixel art. Pro menambahkan pola PDF untuk dicetak, video sebelum-sesudah tanpa tulisan Hantam, dan 3 paket filter ke semua yang ada di Plus. Pilih langganan mingguan, bulanan, atau tahunan, atau bayar sekali saja.
 
 Langganan diperpanjang otomatis kecuali dibatalkan paling lambat 24 jam sebelum periode berjalan berakhir; biaya ditagihkan ke akun Apple-mu dalam 24 jam sebelum perpanjangan. Kamu bisa mengelola atau membatalkannya kapan saja di pengaturan akun Apple.
 
@@ -1313,8 +1313,8 @@ Gjør bilder om til pikselkunst med retropaletter og filtre, tegn etter 110 forl
 Bildene dine blir på iPhonen
 Verken bilder eller mønstre forlater iPhonen din.
 
-Hantam Pro
-Gratisversjonen gir mønstre opptil ett brett eller 40 sting, 3 lagrede mønstre og deling av bilder med et lite Hantam-merke. Pro legger til PDF-mønstre til utskrift, mønstre opptil 4 × 4 brett eller 200 sting, ubegrenset lagring, bilder uten merke og alle verktøyene for pikselkunst. Velg et månedlig eller årlig abonnement, eller betal én gang.
+Hantam Plus og Pro
+Hantam er gratis å laste ned. Gratisversjonen gir mønstre opptil ett brett eller 40 sting, viser fargenumre og antall, kopierer handlelisten, lagrer 3 mønstre og deler bilder med et lite Hantam-merke. Plus legger til mønstre opptil 4 × 4 brett eller 200 sting, ubegrenset lagring, bilder uten merke og alle verktøyene for pikselkunst. Pro legger PDF-mønstre til utskrift, før og etter-videoer uten Hantam-tekst og 3 filterpakker oppå alt i Plus. Velg et ukentlig, månedlig eller årlig abonnement, eller betal én gang.
 
 Abonnementet fornyes automatisk med mindre det sies opp minst 24 timer før utløpet av gjeldende periode. Betalingen belastes Apple-kontoen din innen 24 timer før fornyelsen. Du kan når som helst administrere eller si opp abonnementet i innstillingene for Apple-kontoen din.
 
@@ -1379,8 +1379,8 @@ Maak van foto’s pixelart met retropaletten en filters, teken 110 voorbeelden n
 Je foto’s blijven op je iPhone
 Foto’s en patronen verlaten je iPhone nooit.
 
-Hantam Pro
-De gratis versie biedt patronen tot één bord of 40 steken, 3 bewaarde patronen en het delen van afbeeldingen met een klein Hantam-merkje. Pro voegt pdf-patronen om te printen toe, patronen tot 4 × 4 borden of 200 steken, onbeperkt bewaren, afbeeldingen zonder merkje en alle pixelart-tools. Kies een maand- of jaarabonnement, of betaal eenmalig.
+Hantam Plus en Pro
+Hantam is gratis te downloaden. De gratis versie biedt patronen tot één bord of 40 steken, toont kleurnummers en aantallen, kopieert de boodschappenlijst, bewaart 3 patronen en deelt afbeeldingen met een klein Hantam-merkje. Plus voegt patronen tot 4 × 4 borden of 200 steken toe, onbeperkt bewaren, afbeeldingen zonder merkje en alle pixelart-tools. Pro voegt aan alles wat in Plus zit pdf-patronen om te printen, voor-en-na-video’s zonder Hantam-tekst en 3 filterpakketten toe. Kies een week-, maand- of jaarabonnement, of betaal eenmalig.
 
 Het abonnement wordt automatisch verlengd, tenzij je minstens 24 uur voor het einde van de lopende periode opzegt. Het bedrag wordt binnen 24 uur voor de verlenging van je Apple-account afgeschreven. Je kunt je abonnement op elk moment beheren of opzeggen in de instellingen van je Apple-account.
 
@@ -1445,8 +1445,8 @@ Zamieniaj zdjęcia w pixel art za pomocą retro palet i filtrów, odrysowuj 110 
 Zdjęcia zostają w Twoim iPhonie
 Ani zdjęcia, ani wzory nigdy nie opuszczają Twojego iPhone’a.
 
-Hantam Pro
-Wersja darmowa pozwala tworzyć wzory do jednej podkładki lub 40 krzyżyków, zapisać 3 wzory i udostępniać obrazy z małym znakiem Hantam. Pro dodaje wzory PDF do druku, wzory do 4 × 4 podkładek lub 200 krzyżyków, nieograniczone zapisywanie, obrazy bez znaku i wszystkie narzędzia do pixel artu. Wybierz subskrypcję miesięczną lub roczną albo jednorazowy zakup.
+Hantam Plus i Pro
+Hantam można pobrać za darmo. Wersja darmowa pozwala tworzyć wzory do jednej podkładki lub 40 krzyżyków, pokazuje numery kolorów i ilości, kopiuje listę zakupów, zapisuje 3 wzory i udostępnia obrazy z małym znakiem Hantam. Plus dodaje wzory do 4 × 4 podkładek lub 200 krzyżyków, nieograniczone zapisywanie, obrazy bez znaku i wszystkie narzędzia do pixel artu. Pro dokłada do wszystkiego z Plus wzory PDF do druku, filmy przed i po bez napisu Hantam oraz 3 pakiety filtrów. Wybierz subskrypcję tygodniową, miesięczną lub roczną albo jednorazowy zakup.
 
 Subskrypcja odnawia się automatycznie, o ile nie zostanie anulowana co najmniej 24 godziny przed końcem bieżącego okresu; opłata jest pobierana z konta Apple w ciągu 24 godzin przed odnowieniem. Subskrypcją możesz zarządzać lub ją anulować w dowolnym momencie w ustawieniach konta Apple.
 
@@ -1511,8 +1511,8 @@ Förvandla foton till pixelkonst med retropaletter och filter, rita av 110 förl
 Dina foton stannar på din iPhone
 Varken foton eller mönster lämnar din iPhone.
 
-Hantam Pro
-Den kostnadsfria versionen ger mönster upp till en platta eller 40 stygn, 3 sparade mönster och delning av bilder med ett litet Hantam-märke. Pro lägger till PDF-mönster att skriva ut, mönster upp till 4 × 4 plattor eller 200 stygn, obegränsad sparning, bilder utan märke och alla verktyg för pixelkonst. Välj en månads- eller årsprenumeration, eller betala en gång.
+Hantam Plus och Pro
+Hantam är gratis att ladda ned. Den kostnadsfria versionen ger mönster upp till en platta eller 40 stygn, visar färgnummer och antal, kopierar inköpslistan, sparar 3 mönster och delar bilder med ett litet Hantam-märke. Plus lägger till mönster upp till 4 × 4 plattor eller 200 stygn, obegränsad sparning, bilder utan märke och alla verktyg för pixelkonst. Pro lägger PDF-mönster att skriva ut, före och efter-videor utan Hantam-text och 3 filterpaket ovanpå allt i Plus. Välj en vecko-, månads- eller årsprenumeration, eller betala en gång.
 
 Prenumerationen förnyas automatiskt om den inte sägs upp minst 24 timmar före utgången av den pågående perioden. Betalningen debiteras ditt Apple-konto inom 24 timmar före förnyelsen. Du kan när som helst hantera eller säga upp prenumerationen i inställningarna för ditt Apple-konto.
 
@@ -1577,8 +1577,8 @@ Fotoğrafları retro paletler ve filtrelerle piksel sanata çevir, 110 örneğin
 Fotoğrafların iPhone'unda kalır
 Ne fotoğraflar ne de şemalar iPhone'unun dışına çıkmaz.
 
-Hantam Pro
-Ücretsiz sürümde bir plakaya veya 40 dikişe kadar şema yapabilir, 3 şema kaydedebilir ve küçük bir Hantam işaretiyle görsel paylaşabilirsin. Pro; yazdırılabilir PDF şemalar, 4 × 4 plakaya veya 200 dikişe kadar şemalar, sınırsız kayıt, işaretsiz görseller ve tüm piksel sanat araçlarını ekler. Aylık ya da yıllık abonelik veya tek seferlik ödeme seçebilirsin.
+Hantam Plus ve Pro
+Hantam'ı ücretsiz indirebilirsin. Ücretsiz sürümde bir plakaya veya 40 dikişe kadar şema yapabilir, renk numaralarını ve adetlerini görebilir, alışveriş listesini kopyalayabilir, 3 şema kaydedebilir ve küçük bir Hantam işaretiyle görsel paylaşabilirsin. Plus; 4 × 4 plakaya veya 200 dikişe kadar şemalar, sınırsız kayıt, işaretsiz görseller ve tüm piksel sanat araçlarını ekler. Pro, Plus'taki her şeyin üstüne yazdırılabilir PDF şemalar, Hantam yazısı olmadan önce-sonra videoları ve 3 filtre paketi ekler. Haftalık, aylık ya da yıllık abonelik veya tek seferlik ödeme seçebilirsin.
 
 Abonelik, geçerli dönemin bitiminden en az 24 saat önce iptal edilmezse otomatik olarak yenilenir; ücret, yenilemeden önceki 24 saat içinde Apple Hesabından tahsil edilir. Aboneliğini istediğin zaman Apple Hesabı ayarlarından yönetebilir veya iptal edebilirsin.
 

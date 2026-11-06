@@ -171,7 +171,7 @@ struct CreatorContentView: View {
             }
         }
         .sheet(isPresented: $viewModel.showPaywall) {
-            PaywallView(isProUser: .constant(false), reason: viewModel.paywallReason)
+            PaywallView(reason: viewModel.paywallReason)
         }
         .sheet(isPresented: $viewModel.showBoardSizeChanger) {
             BoardSizeChangerSheet
@@ -209,8 +209,8 @@ struct CreatorContentView: View {
                 // ── 3) 픽셀 아트 도구 ──
                 HomeToolGrid
 
-                // ── 4) Pro ──
-                if !SubscriptionManager.shared.isProUser {
+                // ── 4) Plus · Pro ── 파는 중이고 아직 Pro 가 아닐 때만
+                if SubscriptionManager.shared.isSelling && SubscriptionManager.shared.ownedTier < .pro {
                     HomeProBanner
                 }
 
@@ -315,7 +315,7 @@ struct CreatorContentView: View {
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Hantam Pro")
+                    Text("Hantam Plus · Pro")
                         .font(.subheadline.bold())
                         .foregroundColor(Color.hantamInk)
                     Text("Printable PDFs · Bigger patterns · No mark")

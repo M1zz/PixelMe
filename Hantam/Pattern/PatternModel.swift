@@ -89,7 +89,7 @@ enum PatternMaterial: String, CaseIterable, Codable, Identifiable {
     /// 무료로 만들 수 있는 가장 긴 변의 칸 수.
     var freeMaxSide: Int { kind == .bead ? 29 : 40 }
 
-    /// Pro 로 만들 수 있는 가장 긴 변의 칸 수.
+    /// Plus 이상으로 만들 수 있는 가장 긴 변의 칸 수.
     var proMaxSide: Int { kind == .bead ? 116 : 200 }
 
     var minSide: Int { kind == .bead ? 10 : 20 }

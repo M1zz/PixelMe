@@ -11,7 +11,7 @@
     "title": "Wypróbuj na zdjęciu",
     "lead": "To samo dopasowanie kolorów co w aplikacji, na prawdziwej palecie Perler. Zmień rozmiar i liczbę kolorów albo spróbuj z własnym zdjęciem.",
     "size": "Rozmiar",
-    "boards": ["1 tablica", "4 tablice (Pro)"],
+    "boards": ["1 tablica", "4 tablice (Plus)"],
     "colors": "Do {n} kolorów",
     "need": "Potrzebne kolory",
     "more": "i jeszcze kolorów: {n}",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Koraliki do prasowania, tablice 29 × 29, koralik ok. 5 mm"],
       ["DMC", "Mulina do haftu krzyżykowego na kanwie Aida 11, 14, 16 lub 18"],
       ["Za darmo", "Koraliki do 1 tablicy (29 pól), mulina do 40 krzyżyków na dłuższym boku"],
-      ["Pro", "Koraliki do 4 × 4 tablic (116 pól), mulina do 200 krzyżyków"],
+      ["Plus · Pro", "Koraliki do 4 × 4 tablic (116 pól), mulina do 200 krzyżyków"],
       ["Kolory", "Od 2 do 50 w jednym wzorze"]
     ],
     "note": "Perler, Hama, Artkal i DMC są znakami towarowymi ich właścicieli. Hantam nie jest z nimi powiązany. Kolory na ekranie mogą nieco różnić się od prawdziwych."
   },
   "pricing": {
-    "title": "Zacznij za darmo. Duże wzory i druk w Pro.",
+    "title": "Zacznij za darmo. Plus do dużych wzorów, Pro do druku.",
     "free": {
       "name": "Za darmo",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "Wzory PDF do druku",
-        "Do 4 × 4 tablic lub 200 krzyżyków",
-        "Bez limitu zapisanych wzorów",
-        "Obrazki bez znaku",
-        "Wszystkie narzędzia do pixel artu"
+        "Plus · Do 4 × 4 tablic lub 200 krzyżyków",
+        "Plus · Bez limitu zapisanych wzorów",
+        "Plus · Obrazki bez znaku",
+        "Plus · Wszystkie narzędzia do pixel artu",
+        "Pro · Wzory PDF do druku",
+        "Pro · Filmy przed i po bez napisu Hantam, 3 pakiety filtrów"
       ],
-      "note": "Subskrypcja miesięczna lub roczna albo jednorazowy zakup na zawsze"
+      "note": "Subskrypcja tygodniowa, miesięczna lub roczna albo jednorazowy zakup dożywotni"
     },
     "note": "Pro możesz też podarować znajomemu prosto z aplikacji."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Czy moje zdjęcia są gdzieś wysyłane?", "a": "Nie. Zdjęcia i wzory są przetwarzane i zapisywane tylko na Twoim iPhonie."},
       {"q": "Kolory wyglądają trochę inaczej niż moje koraliki.", "a": "Ekran pokazuje kolory inaczej niż plastik i nici. Stuknij kolor na liście, aby zamienić go na bliższy odcień tej samej marki."},
-      {"q": "Jak duży może być wzór?", "a": "Za darmo mieści się na jednej tablicy 29 × 29 lub 40 krzyżykach na dłuższym boku. Z Pro do 4 × 4 tablic (116 koralików) lub 200 krzyżyków."},
+      {"q": "Jak duży może być wzór?", "a": "Za darmo mieści się na jednej tablicy 29 × 29 lub 40 krzyżykach na dłuższym boku. Z Plus do 4 × 4 tablic (116 koralików) lub 200 krzyżyków."},
       {"q": "Jakie zdjęcia wychodzą najlepiej?", "a": "Z jednym motywem i prostym tłem. Im mniej kolorów, tym czystszy wzór, więc jeśli wynik wygląda chaotycznie, zmniejsz liczbę kolorów."},
-      {"q": "Czy nadal mogę robić pixel art?", "a": "Tak. Pikselizacja zdjęć, rysowanie według 110 wzorów i animacja klatka po klatce wciąż są w aplikacji. Wszystkie narzędzia do pixel artu są w Pro."},
+      {"q": "Czy nadal mogę robić pixel art?", "a": "Tak. Pikselizacja zdjęć, rysowanie według 110 wzorów i animacja klatka po klatce wciąż są w aplikacji. Wszystkie narzędzia do pixel artu są w Plus."},
       {"q": "Jak przywrócić zakup?", "a": "Otwórz ustawienia w aplikacji i stuknij `Przywróć zakupy`. Użyj tego samego Konta Apple, na którym kupiłeś Pro."},
       {"q": "Jak anulować subskrypcję?", "a": "Wejdź w Ustawienia iPhone’a › Twoje imię › Subskrypcje i wybierz Hantam. Dostęp na zawsze to jednorazowa płatność, która się nie odnawia."},
       {"q": "Jak zgłosić błąd lub zaproponować pomysł?", "a": "Najszybciej wysłać opinię z ustawień aplikacji. Możesz też napisać na adres poniżej albo wysłać wiadomość na Instagramie (@lee25_ios)."}

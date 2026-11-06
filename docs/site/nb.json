@@ -11,7 +11,7 @@
     "title": "Prøv på et bilde",
     "lead": "Samme fargematching som i appen, med Perlers ekte fargekart. Endre størrelse og antall farger, eller prøv med ditt eget bilde.",
     "size": "Størrelse",
-    "boards": ["1 perlebrett", "4 perlebrett (Pro)"],
+    "boards": ["1 perlebrett", "4 perlebrett (Plus)"],
     "colors": "Opptil {n} farger",
     "need": "Farger du trenger",
     "more": "og {n} farger til",
@@ -61,13 +61,13 @@
       ["Perler · Hama Midi · Artkal S", "Strykeperler, perlebrett på 29 × 29, hver perle ca. 5 mm"],
       ["DMC", "Korsstingsgarn på Aida med 11, 14, 16 eller 18 ruter per tomme"],
       ["Gratis", "Perler opptil 1 brett (29 ruter), garn opptil 40 sting på den lengste siden"],
-      ["Pro", "Perler opptil 4 × 4 brett (116 ruter), garn opptil 200 sting"],
+      ["Plus · Pro", "Perler opptil 4 × 4 brett (116 ruter), garn opptil 200 sting"],
       ["Farger", "Fra 2 til 50 per mønster"]
     ],
     "note": "Perler, Hama, Artkal og DMC er varemerker for sine respektive eiere. Hantam har ingen tilknytning til dem. Farger på skjermen kan se litt annerledes ut enn i virkeligheten."
   },
   "pricing": {
-    "title": "Start gratis. Pro for store mønstre og utskrift.",
+    "title": "Start gratis. Plus for store mønstre, Pro for utskrift.",
     "free": {
       "name": "Gratis",
       "items": [
@@ -79,15 +79,16 @@
       ]
     },
     "pro": {
-      "name": "Hantam Pro",
+      "name": "Hantam Plus · Pro",
       "items": [
-        "PDF-mønstre til utskrift",
-        "Opptil 4 × 4 perlebrett eller 200 sting",
-        "Ubegrenset antall lagrede mønstre",
-        "Bilder uten merke",
-        "Alle pikselkunstverktøy"
+        "Plus · Opptil 4 × 4 perlebrett eller 200 sting",
+        "Plus · Ubegrenset antall lagrede mønstre",
+        "Plus · Bilder uten merke",
+        "Plus · Alle pikselkunstverktøy",
+        "Pro · PDF-mønstre til utskrift",
+        "Pro · Før og etter-videoer uten Hantam-tekst, 3 filterpakker"
       ],
-      "note": "Måneds- eller årsabonnement, eller ett kjøp for alltid"
+      "note": "Ukentlig, månedlig eller årlig abonnement, eller ett kjøp for livet"
     },
     "note": "Du kan også gi Pro i gave til en venn rett fra appen."
   },
@@ -96,9 +97,9 @@
     "items": [
       {"q": "Blir bildene mine lastet opp?", "a": "Nei. Bilder og mønstre behandles og lagres bare på iPhonen din."},
       {"q": "Fargene ser litt annerledes ut enn perlene mine.", "a": "Skjermer viser farger annerledes enn plast og garn. Trykk på en farge i listen for å bytte den med en nærmere farge fra samme merke."},
-      {"q": "Hvor stort kan et mønster bli?", "a": "Gratis passer det på ett perlebrett på 29 × 29 eller 40 sting på den lengste siden. Med Pro opptil 4 × 4 brett (116 perler) eller 200 sting."},
+      {"q": "Hvor stort kan et mønster bli?", "a": "Gratis passer det på ett perlebrett på 29 × 29 eller 40 sting på den lengste siden. Med Plus opptil 4 × 4 brett (116 perler) eller 200 sting."},
       {"q": "Hvilke bilder blir best?", "a": "Bilder med ett motiv og en enkel bakgrunn. Jo færre farger, jo renere mønster, så senk antall farger hvis resultatet ser urolig ut."},
-      {"q": "Kan jeg fortsatt lage pikselkunst?", "a": "Ja. Pikselering av bilder, tegning etter 110 forbilder og bilde-for-bilde-animasjon finnes fortsatt. Alle pikselkunstverktøyene er med i Pro."},
+      {"q": "Kan jeg fortsatt lage pikselkunst?", "a": "Ja. Pikselering av bilder, tegning etter 110 forbilder og bilde-for-bilde-animasjon finnes fortsatt. Alle pikselkunstverktøyene er med i Plus."},
       {"q": "Hvordan gjenoppretter jeg kjøpet?", "a": "Åpne innstillingene i appen og trykk på `Gjenopprett kjøp`. Bruk den samme Apple-kontoen som du kjøpte Pro med."},
       {"q": "Hvordan sier jeg opp abonnementet?", "a": "Gå til Innstillinger på iPhone › navnet ditt › Abonnementer og velg Hantam. Livstidstilgang er en engangsbetaling og fornyes aldri."},
       {"q": "Hvordan melder jeg fra om feil eller foreslår en idé?", "a": "Raskest er å sende tilbakemelding fra innstillingene i appen. Du kan også skrive til adressen nedenfor eller sende en DM på Instagram (@lee25_ios)."}

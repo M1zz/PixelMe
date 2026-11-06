@@ -88,13 +88,13 @@ class FilterPackManager: ObservableObject {
 
     /// 특정 팩이 구매되었거나 Pro 사용자인지 확인
     func hasAccess(to pack: FilterPack) -> Bool {
-        if SubscriptionManager.shared.isProUser { return true }
+        if SubscriptionManager.shared.allows(.filterPacks) { return true }
         return purchasedPackIDs.contains(pack.id)
     }
 
     /// 특정 PackFilter에 접근 가능한지 확인
     func hasAccessToFilter(_ filterId: String) -> Bool {
-        if SubscriptionManager.shared.isProUser { return true }
+        if SubscriptionManager.shared.allows(.filterPacks) { return true }
         for pack in allPacks {
             if pack.filters.contains(where: { $0.id == filterId }) {
                 return purchasedPackIDs.contains(pack.id)
