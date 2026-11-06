@@ -3,6 +3,200 @@
 App Store 의 "이 버전의 새로운 기능" 에 그대로 올라가는 글이다.
 평문만 쓴다. 한 줄에 한 문장, 3~5줄, 한 줄 40자 이내. 언어마다 항목 수와 순서를 맞춘다.
 
+## 2.1.3
+
+### 앱스토어 (한국어)
+
+Siri에게 도안을 만들어 달라고 하면 바로 시작해요
+단축어로 넘긴 사진으로 바로 도안을 만들어요
+iPhone 검색에서 내 도안을 찾아 바로 열 수 있어요
+도안이 매일 자동 백업되고 iCloud나 파일로 되살려요
+일부 파일을 가져오거나 내보낼 때 꺼지던 문제를 고쳤어요
+
+### App Store (en-US)
+
+Ask Siri to make a pattern and start right away
+Turn a photo from Shortcuts into a pattern
+Find your patterns in iPhone search and open them
+Daily backups, restore from iCloud or a file
+Fixed crashes when importing or exporting some files
+
+### App Store (en-GB)
+
+Ask Siri to make a chart and start straight away
+Turn a photo from Shortcuts into a chart
+Find your charts in iPhone search and open them
+Daily backups, restore from iCloud or a file
+Fixed crashes when importing or exporting some files
+
+### 앱스토어 (일본어)
+
+Siriに頼めばすぐに図案づくりを始められます
+ショートカットから渡した写真をそのまま図案にできます
+iPhoneの検索で図案を見つけてすぐ開けます
+図案を毎日自動バックアップ、iCloudやファイルから復元できます
+一部のファイルの読み込みや書き出しで落ちる問題を修正しました
+
+### 앱스토어 (중국어 간체)
+
+让 Siri 做图纸，马上就能开始
+用快捷指令传来的照片直接生成图纸
+在 iPhone 搜索中找到图纸并直接打开
+图纸每天自动备份，可从 iCloud 或文件恢复
+修复了导入或导出部分文件时闪退的问题
+
+### 앱스토어 (중국어 번체)
+
+請 Siri 做圖紙，馬上就能開始
+用捷徑傳來的照片直接生成圖紙
+在 iPhone 搜尋中找到圖紙並直接打開
+圖紙每天自動備份，可從 iCloud 或檔案還原
+修正了匯入或匯出部分檔案時閃退的問題
+
+### 앱스토어 (러시아어)
+
+Попросите Siri создать схему и начните сразу
+Фото из «Быстрых команд» сразу станет схемой
+Ищите схемы в поиске iPhone и сразу открывайте
+Ежедневная копия, восстановление из iCloud или файла
+Исправлены вылеты при импорте и экспорте файлов
+
+### 앱스토어 (스페인어)
+
+Pide a Siri un patrón y empieza al instante
+Convierte en patrón una foto desde Atajos
+Busca tus patrones en el iPhone y ábrelos
+Copia diaria, restaura desde iCloud o un archivo
+Corregidos cierres al importar o exportar archivos
+
+### 앱스토어 (독일어)
+
+Bitte Siri um eine Vorlage und leg sofort los
+Mach aus einem Foto aus Kurzbefehle eine Vorlage
+Finde deine Vorlagen in der iPhone-Suche
+Tägliche Backups, wiederherstellbar aus iCloud oder Datei
+Abstürze beim Import und Export einiger Dateien behoben
+
+### 앱스토어 (프랑스어)
+
+Demandez une grille à Siri et commencez aussitôt
+Transformez une photo de Raccourcis en grille
+Trouvez vos grilles dans la recherche de l’iPhone
+Sauvegarde quotidienne, restauration via iCloud ou fichier
+Corrige des plantages à l’import ou à l’export de fichiers
+
+### 앱스토어 (이탈리아어)
+
+Chiedi a Siri uno schema e inizia subito
+Trasforma in schema una foto da Comandi Rapidi
+Trova i tuoi schemi nella ricerca di iPhone
+Backup giornaliero, ripristino da iCloud o da file
+Risolti arresti durante import ed export di alcuni file
+
+### 앱스토어 (포르투갈어 브라질)
+
+Peça um gráfico à Siri e comece na hora
+Transforme uma foto dos Atalhos em gráfico
+Ache seus gráficos na busca do iPhone
+Backup diário, restaure do iCloud ou de um arquivo
+Corrigimos travamentos ao importar ou exportar arquivos
+
+### 앱스토어 (태국어)
+
+ขอให้ Siri สร้างแพตเทิร์นแล้วเริ่มได้ทันที
+เปลี่ยนรูปจากคำสั่งลัดเป็นแพตเทิร์นได้เลย
+ค้นหาแพตเทิร์นในการค้นหาของ iPhone แล้วเปิดได้ทันที
+สำรองข้อมูลทุกวัน กู้คืนจาก iCloud หรือไฟล์ได้
+แก้ปัญหาแอปปิดเองเมื่อนำเข้าหรือส่งออกบางไฟล์
+
+### 앱스토어 (베트남어)
+
+Nhờ Siri tạo mẫu và bắt đầu ngay
+Biến ảnh từ Phím tắt thành mẫu ngay lập tức
+Tìm mẫu trong tìm kiếm của iPhone và mở ngay
+Sao lưu mỗi ngày, khôi phục từ iCloud hoặc tệp
+Đã sửa lỗi văng app khi nhập hoặc xuất một số tệp
+
+### 앱스토어 (체코어)
+
+Požádejte Siri o předlohu a hned začněte
+Udělejte z fotky ze Zkratek předlohu
+Najděte předlohy ve vyhledávání na iPhonu
+Denní zálohy, obnova z iCloudu nebo ze souboru
+Opraveny pády při importu a exportu některých souborů
+
+### 앱스토어 (덴마크어)
+
+Bed Siri om et mønster, og gå i gang med det samme
+Gør et foto fra Genveje til et mønster
+Find dine mønstre i iPhone-søgning og åbn dem
+Daglig backup, gendan fra iCloud eller en fil
+Rettet nedbrud ved import og eksport af visse filer
+
+### 앱스토어 (그리스어)
+
+Ζητήστε από τη Siri ένα σχέδιο και ξεκινήστε αμέσως
+Κάντε σχέδιο μια φωτογραφία από τις Συντομεύσεις
+Βρείτε τα σχέδιά σας στην αναζήτηση του iPhone
+Καθημερινό αντίγραφο, επαναφορά από iCloud ή αρχείο
+Διορθώθηκαν κλεισίματα σε εισαγωγή και εξαγωγή αρχείων
+
+### 앱스토어 (핀란드어)
+
+Pyydä Siriltä malli ja aloita heti
+Tee Pikakomennoista saadusta kuvasta malli
+Löydä mallisi iPhonen haulla ja avaa ne heti
+Päivittäinen varmuuskopio, palautus iCloudista tai tiedostosta
+Korjattu kaatumiset joidenkin tiedostojen tuonnissa ja viennissä
+
+### 앱스토어 (인도네시아어)
+
+Minta Siri membuat pola dan langsung mulai
+Ubah foto dari Pintasan menjadi pola
+Temukan pola di pencarian iPhone dan langsung buka
+Cadangan harian, pulihkan dari iCloud atau file
+Memperbaiki crash saat impor atau ekspor beberapa file
+
+### 앱스토어 (노르웨이어 보크말)
+
+Be Siri om et mønster og kom i gang med en gang
+Gjør et bilde fra Snarveier til et mønster
+Finn mønstrene dine i iPhone-søk og åpne dem
+Daglig sikkerhetskopi, gjenopprett fra iCloud eller fil
+Rettet krasj ved import og eksport av enkelte filer
+
+### 앱스토어 (네덜란드어)
+
+Vraag Siri om een patroon en begin meteen
+Maak van een foto uit Opdrachten een patroon
+Vind je patronen via zoeken op iPhone en open ze
+Dagelijkse back-up, terugzetten via iCloud of bestand
+Crashes bij importeren en exporteren van bestanden opgelost
+
+### 앱스토어 (폴란드어)
+
+Poproś Siri o wzór i zacznij od razu
+Zamień zdjęcie ze Skrótów we wzór
+Znajdź swoje wzory w wyszukiwaniu iPhone’a
+Codzienna kopia, przywracanie z iCloud lub pliku
+Naprawiono awarie przy imporcie i eksporcie plików
+
+### 앱스토어 (스웨덴어)
+
+Be Siri om ett mönster och kom igång direkt
+Gör ett foto från Genvägar till ett mönster
+Hitta dina mönster i iPhone-sökningen och öppna dem
+Daglig säkerhetskopia, återställ från iCloud eller fil
+Åtgärdat krascher vid import och export av vissa filer
+
+### 앱스토어 (튀르키예어)
+
+Siri'den şema isteyin ve hemen başlayın
+Kestirmeler’den gelen fotoğrafı şemaya çevirin
+Şemalarınızı iPhone aramasında bulup hemen açın
+Günlük yedekleme, iCloud’dan veya dosyadan geri yükleyin
+Bazı dosyaları içe ve dışa aktarırken çökme düzeltildi
+
 ## 2.1.2
 
 ### 앱스토어 (한국어)
