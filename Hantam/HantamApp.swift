@@ -23,6 +23,8 @@ struct HantamApp: App {
             rootView
                 .environmentObject(manager)
                 .leeoSatisfactionCheck(HantamSpec.self)
+                // 개발자가 보낸 의견에 답장하면, 앱이 앞으로 올 때 답장을 시트로 보여 준다 (LeeoKit).
+                .leeoFeedbackReplyNotice(HantamSpec.self)
                 // 유료 다운로드 시절 구매자에게 고마움 한 번, 구독자에게 구독 졸업 제안.
                 .modifier(PlanMoments())
                 .onAppear {
