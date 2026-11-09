@@ -66,7 +66,7 @@ Subscriptions renew automatically unless canceled at least 24 hours before the e
 
 Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colors on screen may differ slightly from the real products.
 
-Terms of Use: https://m1zz.github.io/PixelMe/terms.html
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privacy Policy: https://m1zz.github.io/PixelMe/privacy.html
 
 ## ko
@@ -132,7 +132,7 @@ Perler, Hama Midi, Artkal S 아이롱 비즈와 DMC 자수실의 색표로 도�
 
 Perler, Hama, Artkal, DMC는 각 회사의 상표이며, 한땀은 이 회사들과 관계가 없어요. 화면의 색은 실제 제품과 조금 다를 수 있어요.
 
-이용약관: https://m1zz.github.io/PixelMe/ko/terms.html
+이용약관 (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 개인정보처리방침: https://m1zz.github.io/PixelMe/ko/privacy.html
 
 ## ja
@@ -198,7 +198,7 @@ Hantamは無料でダウンロードできます。無料版でも、プレー�
 
 Perler、Hama、Artkal、DMCは各社の商標です。Hantamはこれらの会社とは関係ありません。画面の色は実際の製品と少し異なる場合があります。
 
-利用規約：https://m1zz.github.io/PixelMe/ja/terms.html
+利用規約 (EULA)：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 プライバシーポリシー：https://m1zz.github.io/PixelMe/ja/privacy.html
 
 ## en-GB
@@ -264,7 +264,7 @@ Subscriptions renew automatically unless cancelled at least 24 hours before the 
 
 Perler, Hama, Artkal and DMC are trademarks of their respective owners. Hantam is not affiliated with them. Colours on screen may differ slightly from the real products.
 
-Terms of Use: https://m1zz.github.io/PixelMe/terms.html
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privacy Policy: https://m1zz.github.io/PixelMe/privacy.html
 
 ## zh-Hans
@@ -330,7 +330,7 @@ Hantam 可免费下载。免费版可制作一块底板或 40 针以内的图纸
 
 Perler、Hama、Artkal 和 DMC 是各自所有者的商标，Hantam 与这些公司没有关联。屏幕上的颜色可能与实物略有差异。
 
-使用条款：https://m1zz.github.io/PixelMe/zh-Hans/terms.html
+使用条款 (EULA)：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 隐私政策：https://m1zz.github.io/PixelMe/zh-Hans/privacy.html
 
 ## zh-Hant
@@ -396,7 +396,7 @@ Hantam 可免費下載。免費版可製作一塊底板或 40 針以內的圖紙
 
 Perler、Hama、Artkal 和 DMC 是各自所有者的商標，Hantam 與這些公司沒有關聯。螢幕上的顏色可能與實品略有差異。
 
-使用條款：https://m1zz.github.io/PixelMe/zh-Hant/terms.html
+使用條款 (EULA)：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 隱私權政策：https://m1zz.github.io/PixelMe/zh-Hant/privacy.html
 
 ## ru
@@ -462,7 +462,7 @@ Hantam можно скачать бесплатно. В бесплатной в�
 
 Perler, Hama, Artkal и DMC — товарные знаки их владельцев. Hantam не связан с этими компаниями. Цвета на экране могут немного отличаться от настоящих.
 
-Условия использования: https://m1zz.github.io/PixelMe/ru/terms.html
+Условия использования (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Политика конфиденциальности: https://m1zz.github.io/PixelMe/ru/privacy.html
 
 ## es-ES
@@ -528,7 +528,7 @@ La suscripción se renueva automáticamente salvo que la canceles al menos 24 ho
 
 Perler, Hama, Artkal y DMC son marcas comerciales de sus respectivos propietarios. Hantam no está afiliada con estas empresas. Los colores en pantalla pueden diferir un poco de los reales.
 
-Términos de uso: https://m1zz.github.io/PixelMe/es/terms.html
+Términos de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Política de privacidad: https://m1zz.github.io/PixelMe/es/privacy.html
 
 ## de-DE
@@ -594,7 +594,7 @@ Das Abo verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor 
 
 Perler, Hama, Artkal und DMC sind Marken ihrer jeweiligen Inhaber. Hantam steht in keiner Verbindung zu diesen Unternehmen. Die Farben auf dem Bildschirm können leicht von den echten abweichen.
 
-Nutzungsbedingungen: https://m1zz.github.io/PixelMe/de/terms.html
+Nutzungsbedingungen (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Datenschutzerklärung: https://m1zz.github.io/PixelMe/de/privacy.html
 
 ## fr-FR
@@ -660,7 +660,7 @@ L’abonnement se renouvelle automatiquement, sauf annulation au moins 24 heures
 
 Perler, Hama, Artkal et DMC sont des marques de leurs propriétaires respectifs. Hantam n’est affilié à aucune de ces sociétés. Les couleurs à l’écran peuvent différer légèrement des produits réels.
 
-Conditions d’utilisation : https://m1zz.github.io/PixelMe/fr/terms.html
+Conditions d’utilisation (EULA) : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Politique de confidentialité : https://m1zz.github.io/PixelMe/fr/privacy.html
 
 ## it
@@ -726,7 +726,7 @@ L’abbonamento si rinnova automaticamente, a meno che non venga annullato almen
 
 Perler, Hama, Artkal e DMC sono marchi dei rispettivi proprietari. Hantam non è affiliata a queste aziende. I colori sullo schermo possono differire leggermente da quelli reali.
 
-Condizioni d’uso: https://m1zz.github.io/PixelMe/it/terms.html
+Condizioni d’uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Informativa sulla privacy: https://m1zz.github.io/PixelMe/it/privacy.html
 
 ## pt-BR
@@ -792,7 +792,7 @@ A assinatura é renovada automaticamente, a menos que seja cancelada pelo menos 
 
 Perler, Hama, Artkal e DMC são marcas registradas de seus respectivos proprietários. O Hantam não é afiliado a essas empresas. As cores na tela podem diferir um pouco das reais.
 
-Termos de Uso: https://m1zz.github.io/PixelMe/pt-BR/terms.html
+Termos de Uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Política de Privacidade: https://m1zz.github.io/PixelMe/pt-BR/privacy.html
 
 ## th
@@ -858,7 +858,7 @@ Hantam Plus และ Pro
 
 Perler, Hama, Artkal และ DMC เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย Hantam ไม่มีส่วนเกี่ยวข้องกับบริษัทเหล่านี้ สีบนหน้าจออาจต่างจากของจริงเล็กน้อย
 
-เงื่อนไขการใช้งาน: https://m1zz.github.io/PixelMe/th/terms.html
+เงื่อนไขการใช้งาน (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 นโยบายความเป็นส่วนตัว: https://m1zz.github.io/PixelMe/th/privacy.html
 
 ## vi
@@ -924,7 +924,7 @@ Gói đăng ký tự động gia hạn trừ khi bạn hủy ít nhất 24 giờ
 
 Perler, Hama, Artkal và DMC là nhãn hiệu của các chủ sở hữu tương ứng. Hantam không liên kết với các công ty này. Màu trên màn hình có thể khác đôi chút so với thực tế.
 
-Điều khoản sử dụng: https://m1zz.github.io/PixelMe/vi/terms.html
+Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Chính sách quyền riêng tư: https://m1zz.github.io/PixelMe/vi/privacy.html
 
 ## cs
@@ -990,7 +990,7 @@ Předplatné se automaticky obnovuje, pokud ho nezrušíš alespoň 24 hodin př
 
 Perler, Hama, Artkal a DMC jsou ochranné známky svých vlastníků. Hantam s těmito společnostmi nijak nesouvisí. Barvy na obrazovce se mohou od skutečných mírně lišit.
 
-Podmínky použití: https://m1zz.github.io/PixelMe/cs/terms.html
+Podmínky použití (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Zásady ochrany soukromí: https://m1zz.github.io/PixelMe/cs/privacy.html
 
 ## da
@@ -1056,7 +1056,7 @@ Abonnementet fornyes automatisk, medmindre det opsiges mindst 24 timer før udga
 
 Perler, Hama, Artkal og DMC er varemærker tilhørende deres respektive ejere. Hantam er ikke tilknyttet disse virksomheder. Farverne på skærmen kan afvige lidt fra de virkelige.
 
-Brugsvilkår: https://m1zz.github.io/PixelMe/da/terms.html
+Brugsvilkår (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privatlivspolitik: https://m1zz.github.io/PixelMe/da/privacy.html
 
 ## el
@@ -1122,7 +1122,7 @@ Hantam Plus και Pro
 
 Οι Perler, Hama, Artkal και DMC είναι εμπορικά σήματα των αντίστοιχων κατόχων τους. Το Hantam δεν συνδέεται με αυτές τις εταιρείες. Τα χρώματα στην οθόνη μπορεί να διαφέρουν ελαφρά από τα πραγματικά.
 
-Όροι χρήσης: https://m1zz.github.io/PixelMe/el/terms.html
+Όροι χρήσης (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Πολιτική απορρήτου: https://m1zz.github.io/PixelMe/el/privacy.html
 
 ## fi
@@ -1188,7 +1188,7 @@ Tilaus uusiutuu automaattisesti, ellei sitä peruuteta vähintään 24 tuntia en
 
 Perler, Hama, Artkal ja DMC ovat omistajiensa tavaramerkkejä. Hantam ei ole yhteydessä näihin yrityksiin. Näytön värit voivat poiketa hieman todellisista.
 
-Käyttöehdot: https://m1zz.github.io/PixelMe/fi/terms.html
+Käyttöehdot (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Tietosuojakäytäntö: https://m1zz.github.io/PixelMe/fi/privacy.html
 
 ## id
@@ -1254,7 +1254,7 @@ Langganan diperpanjang otomatis kecuali dibatalkan paling lambat 24 jam sebelum 
 
 Perler, Hama, Artkal, dan DMC adalah merek dagang dari pemiliknya masing-masing. Hantam tidak berafiliasi dengan perusahaan-perusahaan tersebut. Warna di layar bisa sedikit berbeda dari aslinya.
 
-Ketentuan Penggunaan: https://m1zz.github.io/PixelMe/id/terms.html
+Ketentuan Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Kebijakan Privasi: https://m1zz.github.io/PixelMe/id/privacy.html
 
 ## nb
@@ -1320,7 +1320,7 @@ Abonnementet fornyes automatisk med mindre det sies opp minst 24 timer før utl�
 
 Perler, Hama, Artkal og DMC er varemerker som tilhører sine respektive eiere. Hantam er ikke tilknyttet disse selskapene. Fargene på skjermen kan avvike litt fra de virkelige.
 
-Vilkår for bruk: https://m1zz.github.io/PixelMe/nb/terms.html
+Vilkår for bruk (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Personvernerklæring: https://m1zz.github.io/PixelMe/nb/privacy.html
 
 ## nl-NL
@@ -1386,7 +1386,7 @@ Het abonnement wordt automatisch verlengd, tenzij je minstens 24 uur voor het ei
 
 Perler, Hama, Artkal en DMC zijn handelsmerken van hun respectieve eigenaren. Hantam is niet gelieerd aan deze bedrijven. Kleuren op het scherm kunnen een beetje afwijken van de echte kleuren.
 
-Gebruiksvoorwaarden: https://m1zz.github.io/PixelMe/nl/terms.html
+Gebruiksvoorwaarden (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privacybeleid: https://m1zz.github.io/PixelMe/nl/privacy.html
 
 ## pl
@@ -1452,7 +1452,7 @@ Subskrypcja odnawia się automatycznie, o ile nie zostanie anulowana co najmniej
 
 Perler, Hama, Artkal i DMC to znaki towarowe ich właścicieli. Hantam nie jest powiązany z tymi firmami. Kolory na ekranie mogą się nieznacznie różnić od prawdziwych.
 
-Warunki korzystania: https://m1zz.github.io/PixelMe/pl/terms.html
+Warunki korzystania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Polityka prywatności: https://m1zz.github.io/PixelMe/pl/privacy.html
 
 ## sv
@@ -1518,7 +1518,7 @@ Prenumerationen förnyas automatiskt om den inte sägs upp minst 24 timmar före
 
 Perler, Hama, Artkal och DMC är varumärken som tillhör sina respektive ägare. Hantam är inte knutet till dessa företag. Färgerna på skärmen kan skilja sig något från de verkliga.
 
-Användarvillkor: https://m1zz.github.io/PixelMe/sv/terms.html
+Användarvillkor (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Integritetspolicy: https://m1zz.github.io/PixelMe/sv/privacy.html
 
 ## tr
@@ -1584,7 +1584,7 @@ Abonelik, geçerli dönemin bitiminden en az 24 saat önce iptal edilmezse otoma
 
 Perler, Hama, Artkal ve DMC ilgili sahiplerinin ticari markalarıdır. Hantam bu şirketlerle bağlantılı değildir. Ekrandaki renkler gerçeğinden biraz farklı olabilir.
 
-Kullanım Koşulları: https://m1zz.github.io/PixelMe/tr/terms.html
+Kullanım Koşulları (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Gizlilik Politikası: https://m1zz.github.io/PixelMe/tr/privacy.html
 
 ## 손쉬운 사용
