@@ -16,6 +16,8 @@ UDID="${UDID:-7F517AA6-6217-4326-9F6B-5AE490B38C7D}"
 BUNDLE=com.leeo.PixelMe
 PHOTO="$ROOT/docs/screenshots/raw/assets/demo-beagle.jpg"
 SCENES="${SCENES:-home maker detail symbols stitch pdf}"
+# IPAD=1 UDID=<iPad Pro 13"> : 꾸미지 않은 화면 그대로 제출본 docs/screenshots/marketing/<스토어 로케일>/ipad-NN-<장면>.png (2064×2752)
+if [ "$IPAD" = 1 ]; then SCENES="${IPAD_SCENES:-home detail stitch symbols}"; REVIEW=0; fi
 
 xcrun simctl boot "$UDID" 2>/dev/null || true
 t 600 xcrun simctl bootstatus "$UDID" -b >/dev/null
@@ -34,13 +36,18 @@ for L in $LANGS; do
     *) LOC=en_US;;
   esac
   mkdir -p "$ROOT/docs/screenshots/raw/$L"
+  case $L in en) ST=en-US;; es) ST=es-ES;; de) ST=de-DE;; fr) ST=fr-FR;; nl) ST=nl-NL;; *) ST=$L;; esac
+  N=0
   for SC in $SCENES; do
+    N=$((N+1))
+    OUT="$ROOT/docs/screenshots/raw/$L/$SC.png"
+    [ "$IPAD" = 1 ] && mkdir -p "$ROOT/docs/screenshots/marketing/$ST" && OUT="$ROOT/docs/screenshots/marketing/$ST/ipad-0$N-$SC.png"
     xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
     t 120 xcrun simctl launch "$UDID" $BUNDLE -AppleLanguages "($L)" -AppleLocale $LOC \
       -HantamScene $SC -HantamDemoPhoto "$PHOTO" >/dev/null
     if [ "$SC" = pdf ]; then sleep 11; else sleep 7; fi
-    t 60 xcrun simctl io "$UDID" screenshot "$ROOT/docs/screenshots/raw/$L/$SC.png" >/dev/null 2>&1
-    echo "📸 $L/$SC"
+    t 60 xcrun simctl io "$UDID" screenshot "$OUT" >/dev/null 2>&1
+    echo "📸 $OUT"
   done
 done
 xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true

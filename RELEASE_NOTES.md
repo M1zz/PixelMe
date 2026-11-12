@@ -3,6 +3,152 @@
 App Store 의 "이 버전의 새로운 기능" 에 그대로 올라가는 글이다.
 평문만 쓴다. 한 줄에 한 문장, 3~5줄, 한 줄 40자 이내. 언어마다 항목 수와 순서를 맞춘다.
 
+## 2.1.4
+
+### 앱스토어 (한국어)
+
+이제 iPad에서도 쓸 수 있어요
+Apple Pencil을 두 번 톡 치면 지우개로 바뀌어요
+키보드 단축키로 되돌리고 다시 할 수 있어요
+
+### App Store (en-US)
+
+Now available on iPad
+Double-tap Apple Pencil for the Eraser
+Undo and Redo with keyboard shortcuts
+
+### App Store (en-GB)
+
+Now available on iPad
+Double-tap Apple Pencil for the Eraser
+Undo and Redo with keyboard shortcuts
+
+### 앱스토어 (일본어)
+
+iPadでも使えるようになりました
+Apple Pencilをダブルタップで消しゴムに
+取り消しとやり直しがキーボードでできます
+
+### 앱스토어 (중국어 간체)
+
+现在也可以在 iPad 上使用
+轻点两下 Apple Pencil 即可切换橡皮擦
+用键盘快捷键撤销和重做
+
+### 앱스토어 (중국어 번체)
+
+現在也可以在 iPad 上使用
+點兩下 Apple Pencil 即可切換橡皮擦
+用鍵盤快速鍵還原和重做
+
+### 앱스토어 (러시아어)
+
+Теперь и на iPad
+Двойное касание Apple Pencil: ластик
+Отмена и повтор сочетаниями клавиш
+
+### 앱스토어 (스페인어)
+
+Ya disponible en iPad
+Doble toque en Apple Pencil: borrador
+Deshacer y rehacer con atajos de teclado
+
+### 앱스토어 (독일어)
+
+Jetzt auch auf dem iPad
+Apple Pencil doppeltippen: Radierer
+Widerrufen und Wiederholen per Tastatur
+
+### 앱스토어 (프랑스어)
+
+Désormais disponible sur iPad
+Touchez deux fois l’Apple Pencil : gomme
+Annuler et rétablir au clavier
+
+### 앱스토어 (이탈리아어)
+
+Ora disponibile su iPad
+Doppio tocco su Apple Pencil: gomma
+Annulla e ripeti con la tastiera
+
+### 앱스토어 (포르투갈어 브라질)
+
+Agora também no iPad
+Dois toques no Apple Pencil: borracha
+Desfazer e refazer com atalhos
+
+### 앱스토어 (태국어)
+
+ใช้งานบน iPad ได้แล้ว
+แตะ Apple Pencil สองครั้งเพื่อใช้ยางลบ
+เลิกทำและทำซ้ำได้ด้วยคีย์ลัด
+
+### 앱스토어 (베트남어)
+
+Nay đã dùng được trên iPad
+Chạm hai lần Apple Pencil để dùng tẩy
+Hoàn tác và làm lại bằng phím tắt
+
+### 앱스토어 (체코어)
+
+Nově také na iPadu
+Dvojí klepnutí Apple Pencil: guma
+Zpět a znovu klávesovými zkratkami
+
+### 앱스토어 (덴마크어)
+
+Nu også på iPad
+Dobbelttryk Apple Pencil for viskelæder
+Fortryd og gentag med tastaturgenveje
+
+### 앱스토어 (그리스어)
+
+Τώρα και στο iPad
+Διπλό άγγιγμα Apple Pencil: γόμα
+Αναίρεση και επανάληψη με πλήκτρα
+
+### 앱스토어 (핀란드어)
+
+Nyt myös iPadilla
+Kaksoisnapauta Apple Penciliä: pyyhekumi
+Kumoa ja tee uudelleen pikanäppäimillä
+
+### 앱스토어 (인도네시아어)
+
+Kini tersedia di iPad
+Ketuk dua kali Apple Pencil: penghapus
+Urungkan dan ulangi lewat papan ketik
+
+### 앱스토어 (노르웨이어 보크말)
+
+Nå også på iPad
+Dobbelttrykk Apple Pencil for viskelær
+Angre og gjør om med hurtigtaster
+
+### 앱스토어 (네덜란드어)
+
+Nu ook op iPad
+Dubbeltik op Apple Pencil voor de gum
+Ongedaan maken en opnieuw met sneltoets
+
+### 앱스토어 (폴란드어)
+
+Teraz także na iPadzie
+Dwukrotne stuknięcie Apple Pencil: gumka
+Cofnij i ponów skrótem klawiszowym
+
+### 앱스토어 (스웨덴어)
+
+Nu även på iPad
+Dubbeltryck Apple Pencil för suddgummi
+Ångra och gör om med kortkommandon
+
+### 앱스토어 (튀르키예어)
+
+Artık iPad'de de kullanılabilir
+Apple Pencil'a iki kez dokunun: silgi
+Klavyeyle geri alın ve yineleyin
+
 ## 2.1.3
 
 ### 앱스토어 (한국어)

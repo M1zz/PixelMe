@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import UniformTypeIdentifiers
 import ImageIO
 
@@ -117,6 +118,7 @@ struct PixelEditorView: View {
         }
         .background(Color(AppConfig.backgroundColor))
         .preferredColorScheme(.dark)
+        .modifier(PadEditing(viewModel: viewModel))
         .sheet(isPresented: $showLayerPanel) {
             LayerPanelView(viewModel: viewModel)
                 .presentationDetents([.medium])
@@ -876,6 +878,7 @@ struct RecoveredPixelEditorView: View {
         }
         .background(Color(AppConfig.backgroundColor))
         .preferredColorScheme(.dark)
+        .modifier(PadEditing(viewModel: viewModel))
         .sheet(isPresented: $showLayerPanel) { LayerPanelView(viewModel: viewModel).presentationDetents([.medium]) }
         .sheet(isPresented: $showExportSheet) { ExportSheetView(viewModel: viewModel).presentationDetents([.medium]) }
         .onAppear { viewModel.startAutoSave() }
@@ -885,4 +888,42 @@ struct RecoveredPixelEditorView: View {
 
 #Preview {
     PixelEditorView(preset: .small)
+}
+
+/// iPad 에서 그리기를 돕는다.
+/// - 키보드: ⌘Z 되돌리기 · ⇧⌘Z 다시 하기 (보이지 않는 단추에 단축키만 건다)
+/// - Apple Pencil 두 번 탭: 지우개로, 다시 치면 쓰던 도구로. 시스템 설정이 '무시'면 아무것도 하지 않는다.
+private struct PadEditing: ViewModifier {
+    @ObservedObject var viewModel: PixelEditorViewModel
+    @State private var toolBeforeEraser: DrawingToolType = .pencil
+
+    func body(content: Content) -> some View {
+        pencil(content.background {
+            Group {
+                Button("Undo") { if viewModel.canUndo { viewModel.undo() } }
+                    .keyboardShortcut("z")
+                Button("Redo") { if viewModel.canRedo { viewModel.redo() } }
+                    .keyboardShortcut("z", modifiers: [.command, .shift])
+            }
+            .opacity(0)
+            .accessibilityHidden(true)
+        })
+    }
+
+    @ViewBuilder
+    private func pencil(_ view: some View) -> some View {
+        if #available(iOS 17.5, *) {
+            view.onPencilDoubleTap { _ in
+                guard UIPencilInteraction.preferredTapAction != .ignore else { return }
+                if viewModel.selectedTool == .eraser {
+                    viewModel.selectedTool = toolBeforeEraser
+                } else {
+                    toolBeforeEraser = viewModel.selectedTool
+                    viewModel.selectedTool = .eraser
+                }
+            }
+        } else {
+            view
+        }
+    }
 }
