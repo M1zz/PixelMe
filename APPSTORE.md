@@ -27,7 +27,7 @@ Turn Photos into DIY Patterns
 
 ### 키워드
 
-fuse,melty,pixel,embroidery,needlepoint,chart,craft,kandi,mosaic,pegboard,pet,portrait,knit,grid
+pattern maker,tapestry,alpha pattern,beads,bead art,sprite,8bit,keychain,kandi,pegboard,fuse,mosaic
 
 ### 프로모션 텍스트
 
@@ -159,7 +159,7 @@ Hantam: アイロンビーズ&クロスステッチ
 
 ### 키워드
 
-刺繍,刺しゅう,ドット,ピクセル,手芸,ハンドメイド,キーホルダー,ペット,似顔絵,モザイク,プレート,色番号,クラフト,編み物,工作,DIY,8bit,方眼,自由研究,こども,推し活
+クロスステッチ図案,ビーズ図案,刺繍図案,アイロンビーズ図案,ドット絵メーカー,ビーズアート,ドット絵作成,方眼,プレート,8bit,DIY,刺繍,刺しゅう,編み物,手芸,工作,キーホルダー,自由研究
 
 ### 프로모션 텍스트
 
@@ -291,7 +291,7 @@ Hantam：拼豆与十字绣图纸
 
 ### 키워드
 
-拼豆,十字绣,刺绣,像素,像素画,手工,图纸,钥匙扣,宠物,照片,马赛克,色号,DIY,8bit,手作,亲子,儿童,毛线,打印,编织,挂件,礼物,头像,卡通,动漫,针线,布艺,网格,图案,材料包
+钥匙扣,布艺,材料包,照片转像素,串珠,手工diy,像素画生成,拼豆图,图纸生成,拼豆图纸生成,像素头像,刺绣,8bit,手工,网格,编织,手作,针线,色号,宠物,DIY,马赛克,亲子,毛线,动漫
 
 ### 프로모션 텍스트
 
