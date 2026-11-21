@@ -555,7 +555,7 @@ Fotos als Pixelart & Muster
 
 ### 키워드
 
-Kreuzstich,Sticken,Basteln,Schlüsselanhänger,Haustier,Porträt,Mosaik,DIY,8bit,Kinder
+Kreuzstich,Sticken,Basteln,Schlüsselanhänger,Haustier,Porträt,Mosaik,DIY,8bit,Kinder,Steckperlen
 
 ### 프로모션 텍스트
 
@@ -885,7 +885,7 @@ Biến ảnh thành pixel art
 
 ### 키워드
 
-thêu chữ thập,hạt nhựa,hạt ủi,thủ công,móc khóa,thú cưng,chân dung,mosaic,DIY,8bit,trẻ em,in
+thêu chữ thập,hạt nhựa,thủ công,móc khóa,thú cưng,chân dung,mosaic,DIY,8bit,trẻ em,in,kết cườm,tranh
 
 ### 프로모션 텍스트
 
@@ -1347,7 +1347,7 @@ Jouw foto’s als pixelart
 
 ### 키워드
 
-kruissteek,borduren,knutselen,sleutelhanger,huisdier,portret,mozaïek,DIY,8bit,kinderen
+kruissteek,borduren,knutselen,sleutelhanger,huisdier,portret,mozaïek,DIY,8bit,kinderen,strijkkralen
 
 ### 프로모션 텍스트
 
