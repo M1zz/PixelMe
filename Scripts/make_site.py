@@ -8,7 +8,7 @@
 페이지끼리 언어 전환 링크와 hreflang 을 단다. 앱 안의 약관 · 개인정보 링크는 루트(영어) 주소를 쓴다.
 문구는 언어마다 따로 썼다 — 직역하지 않는다.
 """
-import pathlib, html
+import pathlib, html, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "docs"
 BASE = "https://m1zz.github.io/PixelMe/"
@@ -18,6 +18,7 @@ UPDATED = {"en": "October 18, 2026", "ko": "2026년 10월 18일", "ja": "2026年
 LANGS = {"en": "", "ko": "ko/", "ja": "ja/"}
 STORE_LANG = {"en": "en-US", "ko": "ko", "ja": "ja"}  # 앱 언어 코드 → App Store Connect 로케일
 LANG_NAME = {"en": "English", "ko": "한국어", "ja": "日本語"}
+RTL = {"ar"}  # 오른쪽에서 왼쪽으로 쓰는 언어 — <html dir="rtl">
 
 T = {
     "en": {
@@ -1574,6 +1575,52 @@ T["tr"] = {'brand': 'Hantam',
            ('Uygulanacak hukuk', ['Bu koşullar Kore Cumhuriyeti hukukuna tabidir.'])],
  'dev': 'Geliştirici: Hyunho Lee'}
 
+LANGS["ar"] = "ar/"
+LANG_NAME["ar"] = 'العربية'
+UPDATED["ar"] = '18 أكتوبر 2026'
+STORE_LANG["ar"] = "ar"
+# 아랍어 소개 페이지(index.html)는 공용 생성기(Scripts/build_site.sh)가 docs/site/ar.json 으로 만든다. 여기서는 지원 · 개인정보 · 약관만.
+T["ar"] = {'brand': 'Hantam',
+ 'title': 'Hantam: تصاميم خرز الكي والتطريز',
+ 'desc': 'حوّل أي صورة إلى تصميم خرز كي أو تطريز بألوان Perler وHama وArtkal وDMC الحقيقية.',
+ 'nav': ('الرئيسية', 'الدعم', 'الخصوصية', 'الشروط'),
+ 'tm': 'Perler وHama وArtkal وDMC علامات تجارية لأصحابها، وHantam غير مرتبط بها.',
+ 'support_h': 'الدعم',
+ 'support_p': 'نرحب بأسئلتك وبلاغات الأخطاء وأفكارك. أسرع طريقة هي الإعدادات › إرسال رأيك داخل التطبيق، أو راسلنا بالبريد.',
+ 'faq': [('كيف أستعيد مشترياتي؟', 'افتح الإعدادات في التطبيق والمس استعادة المشتريات. استخدم حساب Apple نفسه الذي اشتريت به.'),
+         ('كيف ألغي الاشتراك؟', 'افتح إعدادات iPhone › اسمك › الاشتراكات واختر Hantam. الوصول مدى الحياة دفعة واحدة ولا يتجدد أبدًا.'),
+         ('الألوان تبدو مختلفة قليلًا عن الخرز الذي لدي.', 'تظهر الألوان على الشاشة بشكل مختلف عن البلاستيك والخيوط الحقيقية. المس لونًا في القائمة لتستبدله بلون أقرب من العلامة نفسها.'),
+         ('ما أكبر حجم للتصميم؟', 'التصاميم المجانية تتسع للوح واحد 29 × 29، أو 40 غرزة للضلع الأطول. ومع Plus حتى 4 × 4 ألواح (116 حبة) أو 200 غرزة.'),
+         ('هل تُرفع صوري؟', 'لا. تُعالَج الصور والتصاميم وتُحفظ على جهاز iPhone فقط.')],
+ 'contact': 'تواصل معنا',
+ 'privacy_h': 'سياسة الخصوصية',
+ 'terms_h': 'شروط الاستخدام',
+ 'updated': 'آخر تحديث',
+ 'privacy': [('الخلاصة', ['صورك وتصاميمك لا تغادر جهاز iPhone. لا نجمع إلا إحصاءات مجهولة لا يمكن أن تكشف هويتك.']),
+             ('الصور', ['لا يقرأ Hantam صورة إلا حين تختارها، وتحويلها إلى تصميم يجري على جهازك.', 'لا تُرفع الصور أبدًا ولا تُخزَّن على خادم ولا تُشارَك.']),
+             ('التصاميم التي تصنعها', ['تُحفظ التصاميم في مساحة التطبيق على جهاز iPhone، وحذف التطبيق يحذفها.']),
+             ('المشتريات', ['تتولى Apple كل عمليات الدفع. نعرف فقط إن كان Pro مفعّلًا، ولا نطّلع على بيانات الدفع أبدًا.']),
+             ('الإحصاءات المجهولة وتقارير الأعطال',
+              ['لنعرف عدد المستخدمين والميزات المستخدمة ونصلح الأعطال، يرسل التطبيق بيانات مجهولة إلى Apple iCloud ‏(CloudKit) لا يقرؤها إلا المطوّر:',
+               'معرّف عشوائي يُنشأ عند التثبيت (غير مرتبط بك ولا بحساب Apple ولا بتطبيقات أخرى، ويتغير إن أعدت التثبيت)، وإصدار التطبيق وiOS، والمنطقة واللغة، والأيام التي فُتح فيها التطبيق، والميزات المستخدمة (مثل صنع تصميم أو تصدير PDF أو ظهور شاشة الشراء)، وتفاصيل الأعطال.',
+               'لا يُرسَل اسم ولا بيانات تواصل ولا موقع ولا صور ولا تصاميم. ولا يُرسَل شيء إن لم تكن مسجّلًا في iCloud.']),
+             ('الآراء', ['إن أرسلت رأيك من التطبيق نتلقى ما تكتبه، وبريدك الإلكتروني فقط إن أضفته، لنتمكن من الرد.']),
+             ('بلا تتبع', ['لا إعلانات، ولا تحليلات من أطراف أخرى، ولا تتبع عبر التطبيقات أو المواقع الأخرى.']),
+             ('الأطفال', ['Hantam مناسب لكل الأعمار. لا نجمع عن علم أي معلومات شخصية من الأطفال.']),
+             ('التغييرات', ['إن تغيرت هذه السياسة فسننشر النسخة الجديدة هنا بتاريخ جديد.'])],
+ 'terms': [('استخدام التطبيق', ['باستخدامك Hantam فإنك توافق على هذه الشروط. إن لم توافق فلا تستخدم التطبيق.']),
+           ('ما يفعله Hantam', ['يحوّل Hantam الصور إلى تصاميم خرز كي وتطريز، ويضم أدوات لفن البكسل. الألوان على الشاشة تقريبية وقد تختلف عن المنتجات الحقيقية.']),
+           ('محتواك', ['الصور التي تختارها والتصاميم التي تصنعها ملك لك. تأكد أن لديك حق استخدام الصور التي تحوّلها إلى تصاميم، خاصة إن كنت تبيع ما تصنعه.']),
+           ('Hantam Plus · Pro',
+            ['تنزيل Hantam مجاني. يُباع Plus وPro عبر App Store من Apple كاشتراكات أسبوعية أو شهرية أو سنوية تتجدد تلقائيًا، أو كوصول مدى الحياة بدفعة واحدة. ويشمل Pro كل ما في Plus.',
+             'تتجدد الاشتراكات تلقائيًا ما لم تُلغَ قبل نهاية المدة الحالية بـ 24 ساعة على الأقل، ويُخصم المبلغ من حساب Apple خلال الـ 24 ساعة السابقة للتجديد. يمكنك الإدارة أو الإلغاء من إعدادات حساب Apple.',
+             'إن عُرضت تجربة مجانية، ينتهي الجزء غير المستخدم منها عند شراء اشتراك. ويخضع استرداد المبالغ لسياسة Apple.']),
+           ('القواعد', ['لا تحاول الهندسة العكسية للتطبيق ولا تستخدمه لأي غرض غير قانوني.']),
+           ('إخلاء الضمان', ['يُقدَّم التطبيق كما هو دون أي ضمانات. وفي الحدود التي يسمح بها القانون، تقتصر مسؤوليتنا على ما دفعته مقابل التطبيق.']),
+           ('العلامات التجارية', ['Perler وHama وArtkal وDMC علامات تجارية لأصحابها. Hantam غير مرتبط بها ولا معتمد منها.']),
+           ('القانون', ['تخضع هذه الشروط لقوانين جمهورية كوريا.'])],
+ 'dev': 'المطوّر: Hyunho Lee'}
+
 CSS = """
 :root{--bg:#faf5ee;--card:#fff;--ink:#2b211c;--muted:#7a6d64;--accent:#d9453d;--mustard:#dc9e21;--line:rgba(43,33,28,.1)}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1714;--card:#2b2623;--ink:#f2efec;--muted:#b3a89f;--accent:#ff7366;--line:rgba(255,255,255,.12)}}
@@ -1584,11 +1631,11 @@ a{color:var(--accent)}
 header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:960px;margin:0 auto;padding:20px 16px}
 header .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
 header .logo img{width:40px;height:40px;border-radius:10px}
-header nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap;font-size:15px}
+header nav{display:flex;gap:16px;margin-inline-start:auto;flex-wrap:wrap;font-size:15px}
 header nav a{color:var(--muted);text-decoration:none}
 header nav a:hover{color:var(--accent)}
 .langs{font-size:14px;color:var(--muted)}
-.langs a{color:var(--muted);text-decoration:none;margin-left:8px}
+.langs a{color:var(--muted);text-decoration:none;margin-inline-start:8px}
 .langs a[aria-current]{color:var(--ink);font-weight:700}
 main{max-width:960px;margin:0 auto;padding:16px 16px 60px}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
@@ -1626,8 +1673,9 @@ def page(lang, name, title, body):
     langs = "".join(
         f'<a href="{prefix}{p}{name}" lang="{l}"{current if l == lang else ""}>{LANG_NAME[l]}</a>'
         for l, p in LANGS.items())
+    dir_attr = ' dir="rtl"' if lang in RTL else ""
     return f"""<!doctype html>
-<html lang="{lang}">
+<html lang="{lang}"{dir_attr}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1699,10 +1747,12 @@ def doc(lang, key, head, name):
 
 
 if __name__ == "__main__":
-    for lang, p in LANGS.items():
+    # 사용법: python3 Scripts/make_site.py [언어 ...]  (없으면 전부)
+    # index.html 은 공용 생성기(Scripts/build_site.sh)가 만든다 — 여기서 쓰면 그 페이지를 덮는다.
+    for lang in sys.argv[1:] or list(LANGS):
+        p = LANGS[lang]
         d = ROOT / p
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(index(lang), encoding="utf-8")
         (d / "support.html").write_text(support(lang), encoding="utf-8")
         (d / "privacy.html").write_text(doc(lang, "privacy", "privacy_h", "privacy.html"), encoding="utf-8")
         (d / "terms.html").write_text(doc(lang, "terms", "terms_h", "terms.html"), encoding="utf-8")
