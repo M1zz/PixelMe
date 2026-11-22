@@ -3992,6 +3992,12 @@
             "state" : "translated",
             "value" : "1"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
         }
       }
     },
@@ -4585,6 +4591,12 @@
             "state" : "translated",
             "value" : "12x12"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12x12"
+          }
         }
       }
     },
@@ -4727,6 +4739,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "15+"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+15"
           }
         }
       }
@@ -4871,6 +4889,12 @@
             "state" : "translated",
             "value" : "16 renk"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16 لونًا"
+          }
         }
       }
     },
@@ -5010,6 +5034,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16x16"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "16x16"
@@ -5459,6 +5489,12 @@
             "state" : "translated",
             "value" : "22x22"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22x22"
+          }
         }
       }
     },
@@ -5598,6 +5634,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2K (2560x2560)"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "2K (2560x2560)"
@@ -5745,6 +5787,12 @@
             "state" : "translated",
             "value" : "3"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
         }
       }
     },
@@ -5887,6 +5935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3 seviye"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 مستويات"
           }
         }
       }
@@ -6179,6 +6233,12 @@
             "state" : "translated",
             "value" : "32 renk"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "32 لونًا"
+          }
         }
       }
     },
@@ -6318,6 +6378,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "32x32"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "32x32"
@@ -6615,6 +6681,12 @@
             "state" : "translated",
             "value" : "40x40"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "40x40"
+          }
         }
       }
     },
@@ -6754,6 +6826,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4K (3840x3840)"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "4K (3840x3840)"
@@ -6900,6 +6978,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "4K yüksek çözünürlük"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دقة 4K عالية"
           }
         }
       }
@@ -7198,6 +7282,12 @@
             "state" : "translated",
             "value" : "5"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5"
+          }
         }
       }
     },
@@ -7337,6 +7427,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "6"
@@ -7484,6 +7580,12 @@
             "state" : "translated",
             "value" : "6 seviye"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 مستويات"
+          }
         }
       }
     },
@@ -7626,6 +7728,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "64 renk"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "64 لونًا"
           }
         }
       }
@@ -7920,6 +8028,12 @@
             "state" : "translated",
             "value" : "8 renk"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8 ألوان"
+          }
         }
       }
     },
@@ -8063,6 +8177,12 @@
             "state" : "translated",
             "value" : "8 bit retro"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8-Bit كلاسيكي"
+          }
         }
       }
     },
@@ -8202,6 +8322,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8x8"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "8x8"
@@ -8503,6 +8629,12 @@
             "state" : "translated",
             "value" : "9"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "9"
+          }
         }
       }
     },
@@ -8795,6 +8927,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "9 palet, 6 filtre, dithering ve daha fazlası"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "9 لوحات ألوان و6 فلاتر وتنقيط لوني والمزيد"
           }
         }
       }
@@ -9539,6 +9677,12 @@
             "state" : "translated",
             "value" : "6 filtre efektiyle piksel sanata özgün bir hava kat"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أضف لمسة مميزة إلى فن البكسل مع 6 تأثيرات فلاتر"
+          }
         }
       }
     },
@@ -10125,6 +10269,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3 günlük ücretsiz denemeden sonra: "
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بعد تجربة مجانية لمدة 3 أيام: "
           }
         }
       }
@@ -10866,6 +11016,12 @@
             "state" : "translated",
             "value" : "Tüm renk paletleri"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل لوحات الألوان"
+          }
         }
       }
     },
@@ -11008,6 +11164,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tüm filtre efektleri"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل تأثيرات الفلاتر"
           }
         }
       }
@@ -11152,6 +11314,12 @@
             "state" : "translated",
             "value" : "Tüm ön ayarlar"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل الإعدادات الجاهزة"
+          }
         }
       }
     },
@@ -11295,6 +11463,12 @@
             "state" : "translated",
             "value" : "Tüm Pro özellikleri"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل ميزات Pro"
+          }
         }
       }
     },
@@ -11437,6 +11611,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tüm şablonlar"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل القوالب"
           }
         }
       }
@@ -11882,6 +12062,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bilinmeyen bir hata oluştu"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حدث خطأ غير معروف"
           }
         }
       }
@@ -12471,6 +12657,12 @@
             "state" : "translated",
             "value" : "Uygulama simgesi"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أيقونة تطبيق"
+          }
         }
       }
     },
@@ -12763,6 +12955,12 @@
             "state" : "translated",
             "value" : "Atari kabini"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "آلة أركيد"
+          }
         }
       }
     },
@@ -12905,6 +13103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atari ekranı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاشة أركيد"
           }
         }
       }
@@ -13961,6 +14165,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atkinson"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atkinson"
@@ -15297,6 +15507,12 @@
             "state" : "translated",
             "value" : "Afiş"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لافتة"
+          }
         }
       }
     },
@@ -15741,6 +15957,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "En avantajlısı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الأوفر"
           }
         }
       }
@@ -16641,6 +16863,12 @@
             "state" : "translated",
             "value" : "Siyah"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أسود"
+          }
         }
       }
     },
@@ -16783,6 +17011,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Siyah beyaz film stili"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طابع الأفلام بالأبيض والأسود"
           }
         }
       }
@@ -19176,6 +19410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "CRT monitör"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاشة CRT"
           }
         }
       }
@@ -21857,6 +22097,12 @@
             "state" : "translated",
             "value" : "Planını seç"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر خطتك"
+          }
         }
       }
     },
@@ -22302,6 +22548,12 @@
             "state" : "translated",
             "value" : "Bir seçenek seç"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر خيارًا"
+          }
         }
       }
     },
@@ -22444,6 +22696,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fotoğrafını dönüştürmek için bir seçenek seç"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر خيارًا لتحويل صورتك"
           }
         }
       }
@@ -23343,6 +23601,12 @@
             "state" : "translated",
             "value" : "Klasik 8 bit oyun renkleri"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ألوان ألعاب 8-bit الكلاسيكية"
+          }
         }
       }
     },
@@ -23485,6 +23749,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Klasik GameBoy yeşil tonları"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "درجات GameBoy الخضراء الكلاسيكية"
           }
         }
       }
@@ -23629,6 +23899,12 @@
             "state" : "translated",
             "value" : "Klasik atari kabini ekranı"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاشة آلة الأركيد الكلاسيكية"
+          }
         }
       }
     },
@@ -23772,6 +24048,12 @@
             "state" : "translated",
             "value" : "Temiz sonuçlar"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نتائج نظيفة"
+          }
         }
       }
     },
@@ -23914,6 +24196,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temiz, gürültüsüz"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نظيف بلا تشويش"
           }
         }
       }
@@ -24953,6 +25241,12 @@
             "state" : "translated",
             "value" : "Renk yakma"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حرق اللون"
+          }
         }
       }
     },
@@ -25095,6 +25389,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Renk soldurma"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تفتيح اللون"
           }
         }
       }
@@ -26290,6 +26590,12 @@
             "state" : "translated",
             "value" : "5 katmana kadar karmaşık piksel sanat oluştur"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع فن بكسل معقدًا بما يصل إلى 5 طبقات"
+          }
         }
       }
     },
@@ -26432,6 +26738,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sıkıştırılmış görsel, daha küçük boyut"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة مضغوطة بحجم أصغر"
           }
         }
       }
@@ -28399,6 +28711,12 @@
             "state" : "translated",
             "value" : "Hareketli piksel sanat GIF'leri oluştur"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع صور GIF متحركة بفن البكسل"
+          }
         }
       }
     },
@@ -28541,6 +28859,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daha canlı bir anlatım için hareketli piksel sanat GIF'leri oluştur"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع صور GIF متحركة بفن البكسل لتعبير أكثر حيوية"
           }
         }
       }
@@ -28835,6 +29159,12 @@
             "state" : "translated",
             "value" : "8 uzman ön ayarıyla tek seferde yüksek kaliteli piksel sanat oluştur"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع فن بكسل عالي الجودة دفعة واحدة مع 8 إعدادات احترافية"
+          }
         }
       }
     },
@@ -29126,6 +29456,12 @@
             "state" : "translated",
             "value" : "Profesyonel seviyede piksel sanat oluştur"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع فن بكسل بمستوى احترافي"
+          }
         }
       }
     },
@@ -29268,6 +29604,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kendi piksel sanatını oluştur"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع فن البكسل الخاص بك"
           }
         }
       }
@@ -30757,6 +31099,12 @@
             "state" : "translated",
             "value" : "Özel"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مخصص"
+          }
         }
       }
     },
@@ -31344,6 +31692,12 @@
             "state" : "translated",
             "value" : "Siberpunk"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cyberpunk"
+          }
         }
       }
     },
@@ -31486,6 +31840,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Siberpunk neon"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نيون Cyberpunk"
           }
         }
       }
@@ -31778,6 +32138,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Koyulaştır"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تغميق"
           }
         }
       }
@@ -32828,6 +33194,12 @@
             "state" : "translated",
             "value" : "Fark"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفرق"
+          }
         }
       }
     },
@@ -32971,6 +33343,12 @@
             "state" : "translated",
             "value" : "Dijital bozulma efekti"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تأثير التشوه الرقمي"
+          }
         }
       }
     },
@@ -33113,6 +33491,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Görünüm"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العرض"
           }
         }
       }
@@ -33553,6 +33937,12 @@
             "state" : "translated",
             "value" : "Dithering teknikleri"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تقنيات التنقيط اللوني"
+          }
         }
       }
     },
@@ -33695,6 +34085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Belge biçimi, yüksek kalite"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صيغة مستند بجودة عالية"
           }
         }
       }
@@ -35619,6 +36015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "15'ten fazla şablonla kolayca piksel sanat oluştur"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع فن البكسل بسهولة مع أكثر من 15 قالبًا"
           }
         }
       }
@@ -37564,6 +37966,12 @@
             "state" : "translated",
             "value" : "Dışlama"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاستبعاد"
+          }
         }
       }
     },
@@ -37856,6 +38264,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dışa aktar"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير"
           }
         }
       }
@@ -39334,6 +39748,12 @@
             "state" : "translated",
             "value" : "3 dithering tekniğiyle yumuşak renk geçişleri yarat"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عبّر عن تدرجات لونية ناعمة مع 3 تقنيات تنقيط لوني"
+          }
         }
       }
     },
@@ -39476,6 +39896,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "9 renk paletiyle farklı piksel sanat stillerini yansıt"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جرّب أنماطًا متنوعة من فن البكسل مع 9 لوحات ألوان"
           }
         }
       }
@@ -40521,6 +40947,12 @@
             "state" : "translated",
             "value" : "Ürünler yüklenemedi. Lütfen tekrar dene."
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذّر تحميل المنتجات. حاول مرة أخرى."
+          }
         }
       }
     },
@@ -40814,6 +41246,12 @@
             "state" : "translated",
             "value" : "Satın alımlar geri yüklenemedi: "
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذّرت استعادة المشتريات: "
+          }
         }
       }
     },
@@ -41106,6 +41544,12 @@
             "state" : "translated",
             "value" : "Özellik"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الميزة"
+          }
         }
       }
     },
@@ -41248,6 +41692,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Özellik karşılaştırması"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مقارنة الميزات"
           }
         }
       }
@@ -41695,6 +42145,12 @@
             "state" : "translated",
             "value" : "Kara film"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فيلم نوار"
+          }
         }
       }
     },
@@ -41837,6 +42293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtre"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فلتر"
           }
         }
       }
@@ -43484,6 +43946,12 @@
             "state" : "translated",
             "value" : "Floyd-Steinberg"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Floyd-Steinberg"
+          }
         }
       }
     },
@@ -44668,6 +45136,12 @@
             "state" : "translated",
             "value" : "Ücretsiz"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مجاني"
+          }
         }
       }
     },
@@ -44960,6 +45434,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ücretsiz sürüm"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "النسخة المجانية"
           }
         }
       }
@@ -45561,6 +46041,12 @@
             "state" : "translated",
             "value" : "Full HD (2160x2160)"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full HD (2160x2160)"
+          }
         }
       }
     },
@@ -46012,6 +46498,12 @@
             "state" : "translated",
             "value" : "GIF animasyonu"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رسوم GIF متحركة"
+          }
         }
       }
     },
@@ -46302,6 +46794,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GIF Fotoğraflar'a kaydedildi"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم حفظ GIF في الصور"
           }
         }
       }
@@ -47198,6 +47696,12 @@
             "state" : "translated",
             "value" : "Oyun sprite'ı"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شخصية لعبة"
+          }
         }
       }
     },
@@ -47337,6 +47841,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GameBoy"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GameBoy"
@@ -47483,6 +47993,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GameBoy Classic"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GameBoy الكلاسيكي"
           }
         }
       }
@@ -48232,6 +48748,12 @@
             "state" : "translated",
             "value" : "Başla"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ"
+          }
         }
       }
     },
@@ -48525,6 +49047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "8 profesyonel özelliğin tümüne eriş"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "احصل على كل الميزات الاحترافية الثماني"
           }
         }
       }
@@ -49116,6 +49644,12 @@
             "state" : "translated",
             "value" : "Glitch"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تشويش رقمي"
+          }
         }
       }
     },
@@ -49255,6 +49789,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD (1920x1920)"
+          }
+        },
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "HD (1920x1920)"
@@ -50157,6 +50697,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sert ışık"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ضوء قوي"
           }
         }
       }
@@ -51195,6 +51741,12 @@
             "state" : "translated",
             "value" : "Yüksek kaliteli dışa aktarma"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير بجودة عالية"
+          }
         }
       }
     },
@@ -51337,6 +51889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yüksek kaliteli 4K dışa aktarma, filigransız, SVG/PDF desteği"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير عالي الجودة بدقة 4K، وإزالة العلامة المائية، ودعم SVG وPDF"
           }
         }
       }
@@ -51629,6 +52187,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Retro ekranlar gibi yatay çizgiler"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خطوط أفقية مثل الشاشات القديمة"
           }
         }
       }
@@ -52070,6 +52634,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Görseller"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الصور"
           }
         }
       }
@@ -52956,6 +53526,12 @@
             "state" : "translated",
             "value" : "3 gün ücretsiz deneme dahil"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تشمل تجربة مجانية لمدة 3 أيام"
+          }
         }
       }
     },
@@ -53692,6 +54268,12 @@
             "state" : "translated",
             "value" : "JPEG"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JPEG"
+          }
         }
       }
     },
@@ -53834,6 +54416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "JPEG – daha küçük dosya, saydamlık yok"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JPEG: ملف أصغر، بلا شفافية"
           }
         }
       }
@@ -54735,6 +55323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Özgün renkleri koru"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إبقاء الألوان الأصلية"
           }
         }
       }
@@ -56069,6 +56663,12 @@
             "state" : "translated",
             "value" : "Katman düzenleyici"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "محرر الطبقات"
+          }
         }
       }
     },
@@ -56509,6 +57109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Katman sistemi"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نظام الطبقات"
           }
         }
       }
@@ -56951,6 +57557,12 @@
             "state" : "translated",
             "value" : "Ömür boyu"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مدى الحياة"
+          }
         }
       }
     },
@@ -57243,6 +57855,12 @@
             "state" : "translated",
             "value" : "Açıklaştır"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تفتيح"
+          }
         }
       }
     },
@@ -57386,6 +58004,12 @@
             "state" : "translated",
             "value" : "Daha hafif, retro Mac stili"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أخف، بطابع Mac القديم"
+          }
         }
       }
     },
@@ -57528,6 +58152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sınırlı süre"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لفترة محدودة"
           }
         }
       }
@@ -57970,6 +58600,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Logo"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شعار"
           }
         }
       }
@@ -60540,6 +61176,12 @@
             "state" : "translated",
             "value" : "Aylık"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شهري"
+          }
         }
       }
     },
@@ -60682,6 +61324,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aylık faturalandırma"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دفع شهري"
           }
         }
       }
@@ -61278,6 +61926,12 @@
             "state" : "translated",
             "value" : "Birden çok biçim"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صيغ متعددة"
+          }
         }
       }
     },
@@ -61568,6 +62222,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çarpma"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ضرب"
           }
         }
       }
@@ -62319,6 +62979,12 @@
             "state" : "translated",
             "value" : "NES"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NES"
+          }
         }
       }
     },
@@ -62461,6 +63127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NES retro"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NES كلاسيكي"
           }
         }
       }
@@ -62753,6 +63425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fütüristik görünüm için neon renkler"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ألوان نيون لمظهر مستقبلي"
           }
         }
       }
@@ -63500,6 +64178,12 @@
             "state" : "translated",
             "value" : "Nintendo Entertainment System paleti"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لوحة ألوان جهاز Nintendo NES"
+          }
         }
       }
     },
@@ -63642,6 +64326,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dithering yok"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا تنقيط لوني"
           }
         }
       }
@@ -64238,6 +64928,12 @@
             "state" : "translated",
             "value" : "Azaltma yok"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا تقليل"
+          }
         }
       }
     },
@@ -64530,6 +65226,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtre uygulanmadı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا فلتر"
           }
         }
       }
@@ -64972,6 +65674,12 @@
             "state" : "translated",
             "value" : "Abonelik yok. Reklam yok. Tüm özellikler sonsuza dek."
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا اشتراك. بلا إعلانات. كل الميزات للأبد."
+          }
         }
       }
     },
@@ -65114,6 +65822,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filigran yok, 4K"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا علامة مائية، 4K"
           }
         }
       }
@@ -65406,6 +66120,12 @@
             "state" : "translated",
             "value" : "Yok"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا شيء"
+          }
         }
       }
     },
@@ -65548,6 +66268,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Normal"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عادي"
           }
         }
       }
@@ -66141,6 +66867,12 @@
             "state" : "translated",
             "value" : "Eğimli eski TV ekranı"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاشة تلفاز قديمة منحنية"
+          }
         }
       }
     },
@@ -66283,6 +67015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eski oyun konsolu görünümü"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مظهر أجهزة الألعاب القديمة"
           }
         }
       }
@@ -66583,6 +67321,12 @@
             "state" : "translated",
             "value" : "Tek seferlik satın alma"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شراء لمرة واحدة"
+          }
         }
       }
     },
@@ -66873,6 +67617,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ömür boyu erişim için tek seferlik ödeme"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دفعة واحدة للوصول مدى الحياة"
           }
         }
       }
@@ -67920,6 +68670,12 @@
             "state" : "translated",
             "value" : "Sıralı (Bayer)"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordered (Bayer)"
+          }
         }
       }
     },
@@ -68210,6 +68966,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaplama"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تراكب"
           }
         }
       }
@@ -68503,6 +69265,12 @@
             "state" : "translated",
             "value" : "PDF"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF"
+          }
         }
       }
     },
@@ -68645,6 +69413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PDF – vektör biçimi, ölçeklenebilir"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF: صيغة متجهة قابلة للتكبير"
           }
         }
       }
@@ -69089,6 +69863,12 @@
             "state" : "translated",
             "value" : "PNG"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PNG"
+          }
         }
       }
     },
@@ -69231,6 +70011,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PNG – kayıpsız, saydamlığı destekler"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PNG: بلا فقدان، تدعم الشفافية"
           }
         }
       }
@@ -69531,6 +70317,12 @@
             "state" : "translated",
             "value" : "PNG, 1080p"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PNG، دقة 1080p"
+          }
         }
       }
     },
@@ -69673,6 +70465,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PNG, SVG, PDF desteği"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دعم PNG وSVG وPDF"
           }
         }
       }
@@ -69964,6 +70762,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PNG/SVG/PDF, 4K"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PNG/SVG/PDF، دقة 4K"
           }
         }
       }
@@ -70573,6 +71377,12 @@
             "state" : "translated",
             "value" : "Palet"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لوحة الألوان"
+          }
         }
       }
     },
@@ -71162,6 +71972,12 @@
             "state" : "translated",
             "value" : "Pastel"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "باستيل"
+          }
         }
       }
     },
@@ -71304,6 +72120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pastel rüya"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حلم الباستيل"
           }
         }
       }
@@ -71909,6 +72731,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desen tabanlı klasik yarım ton"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قائم على النقش، تدرج نصفي كلاسيكي"
           }
         }
       }
@@ -73728,6 +74556,12 @@
             "state" : "translated",
             "value" : "Fotoğraf önizlemesi"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معاينة الصورة"
+          }
         }
       }
     },
@@ -74631,6 +75465,12 @@
             "state" : "translated",
             "value" : "Bir örnek seç ve birlikte çiz"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر مثالًا وارسم بتتبعه"
+          }
         }
       }
     },
@@ -75226,6 +76066,12 @@
             "state" : "translated",
             "value" : "Pembe, mor ve camgöbeği estetiği"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طابع وردي وبنفسجي وسماوي"
+          }
         }
       }
     },
@@ -75668,6 +76514,12 @@
             "state" : "translated",
             "value" : "Piksel avatar"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة رمزية بالبكسل"
+          }
         }
       }
     },
@@ -75810,6 +76662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piksel atölyesi"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صانع البكسل"
           }
         }
       }
@@ -75955,6 +76813,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piksel yoğunluğu"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كثافة البكسل"
           }
         }
       }
@@ -76246,6 +77110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piksel boyutu"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حجم البكسل"
           }
         }
       }
@@ -76544,6 +77414,12 @@
             "state" : "translated",
             "value" : "Piksel avatarlar, oyun sprite'ları ve daha fazlası"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صور رمزية بالبكسل وشخصيات ألعاب والمزيد"
+          }
         }
       }
     },
@@ -76689,6 +77565,12 @@
             "state" : "translated",
             "value" : "Piksele çevir"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحويل إلى بكسل"
+          }
         }
       }
     },
@@ -76831,6 +77713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fotoğrafı piksele çevir"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحويل صورة إلى بكسل"
           }
         }
       }
@@ -78017,6 +78905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Premium"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بريميوم"
           }
         }
       }
@@ -80574,6 +81468,12 @@
             "state" : "translated",
             "value" : "Pro aboneliği etkin"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اشتراك Pro مفعّل"
+          }
         }
       }
     },
@@ -80866,6 +81766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pro sürümü"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخة Pro"
           }
         }
       }
@@ -81164,6 +82070,12 @@
             "state" : "translated",
             "value" : "Birden çok görseli aynı anda işle"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عالج عدة صور دفعة واحدة"
+          }
         }
       }
     },
@@ -81306,6 +82218,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zamandan kazanmak için aynı anda 10 görsele kadar işle"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عالج حتى 10 صور دفعة واحدة لتوفير الوقت"
           }
         }
       }
@@ -81902,6 +82820,12 @@
             "state" : "translated",
             "value" : "Profesyonel çok katmanlı düzenleme"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحرير احترافي متعدد الطبقات"
+          }
         }
       }
     },
@@ -82044,6 +82968,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil fotoğrafı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة الملف الشخصي"
           }
         }
       }
@@ -82340,6 +83270,12 @@
             "state" : "translated",
             "value" : "Profil piksel sanatı"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة ملف شخصي بالبكسل"
+          }
         }
       }
     },
@@ -82631,6 +83567,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ömür boyu satın al"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شراء مدى الحياة"
           }
         }
       }
@@ -83671,6 +84613,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Raster görsel, saydamlık desteği"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة نقطية، تدعم الشفافية"
           }
         }
       }
@@ -84856,6 +85804,12 @@
             "state" : "translated",
             "value" : "Filigranı kaldır"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إزالة العلامة المائية"
+          }
         }
       }
     },
@@ -85152,6 +86106,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaldırıldı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أُزيلت"
           }
         }
       }
@@ -86791,6 +87751,12 @@
             "state" : "translated",
             "value" : "SNES"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SNES"
+          }
         }
       }
     },
@@ -87246,6 +88212,12 @@
             "state" : "translated",
             "value" : "SVG"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SVG"
+          }
         }
       }
     },
@@ -87388,6 +88360,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SVG – web dostu vektör biçimi"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SVG: صيغة متجهة مناسبة للويب"
           }
         }
       }
@@ -88281,6 +89259,12 @@
             "state" : "translated",
             "value" : "Kaydet"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حفظ"
+          }
         }
       }
     },
@@ -89171,6 +90155,12 @@
             "state" : "translated",
             "value" : "Ölçeklenebilir"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قابلة للتكبير"
+          }
         }
       }
     },
@@ -89314,6 +90304,12 @@
             "state" : "translated",
             "value" : "Tarama çizgileri"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خطوط المسح"
+          }
         }
       }
     },
@@ -89456,6 +90452,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ekran"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاشة"
           }
         }
       }
@@ -90942,6 +91944,12 @@
             "state" : "translated",
             "value" : "Piksel yoğunluğunu seç"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر كثافة البكسل"
+          }
         }
       }
     },
@@ -91385,6 +92393,12 @@
             "state" : "translated",
             "value" : "Seçilen görsel"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الصورة المحددة"
+          }
         }
       }
     },
@@ -91527,6 +92541,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seçilen ürün bulunamadı"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يُعثر على المنتج المحدد"
           }
         }
       }
@@ -93768,6 +94788,12 @@
             "state" : "translated",
             "value" : "Yumuşak geçişler, daha fazla ayrıntı"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تدرجات ناعمة وتفاصيل أكثر"
+          }
         }
       }
     },
@@ -94209,6 +95235,12 @@
             "state" : "translated",
             "value" : "Yumuşak ışık"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ضوء ناعم"
+          }
         }
       }
     },
@@ -94351,6 +95383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yumuşak ve nazik renkler"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ألوان ناعمة ولطيفة"
           }
         }
       }
@@ -95429,6 +96467,12 @@
             "state" : "translated",
             "value" : "3 gün ücretsiz denemeyi başlat"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ تجربة مجانية لمدة 3 أيام"
+          }
         }
       }
     },
@@ -96318,6 +97362,12 @@
             "state" : "translated",
             "value" : "3 gün ücretsiz denemeyle başla!"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ بتجربة مجانية لمدة 3 أيام!"
+          }
         }
       }
     },
@@ -96610,6 +97660,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çıkartma"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ملصق"
           }
         }
       }
@@ -96907,6 +97963,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abonelik başarısız oldu: "
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فشل الاشتراك: "
           }
         }
       }
@@ -97348,6 +98410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Super Nintendo'nun parlak renkleri"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ألوان Super Nintendo الزاهية"
           }
         }
       }
@@ -100973,6 +102041,12 @@
             "state" : "translated",
             "value" : "Fotoğrafını piksel sanata dönüştür"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حوّل صورتك إلى فن بكسل"
+          }
         }
       }
     },
@@ -101115,6 +102189,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saydam"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شفاف"
           }
         }
       }
@@ -102613,6 +103693,12 @@
             "state" : "translated",
             "value" : "Fotoğrafını piksel sanata çevir"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حوّل صورتك إلى فن بكسل"
+          }
         }
       }
     },
@@ -103359,6 +104445,12 @@
             "state" : "translated",
             "value" : "Sınırsız"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلا حدود"
+          }
         }
       }
     },
@@ -103649,6 +104741,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sınırsız piksel boyutu"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أحجام بكسل بلا حدود"
           }
         }
       }
@@ -104585,6 +105683,12 @@
             "state" : "translated",
             "value" : "4096 × 4096 piksele kadar"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حتى 4096x4096 بكسل"
+          }
         }
       }
     },
@@ -105023,6 +106127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daha ayrıntılı piksel sanat için tüm piksel boyutlarını kullan"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استخدم كل أحجام البكسل لفن بكسل أكثر تفصيلًا"
           }
         }
       }
@@ -105618,6 +106728,12 @@
             "state" : "translated",
             "value" : "VHS kaset"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شريط VHS"
+          }
         }
       }
     },
@@ -105760,6 +106876,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "VHS kaset bozulmaları"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عيوب شريط VHS"
           }
         }
       }
@@ -106053,6 +107175,12 @@
             "state" : "translated",
             "value" : "Vaporwave"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaporwave"
+          }
         }
       }
     },
@@ -106196,6 +107324,12 @@
             "state" : "translated",
             "value" : "Vaporwave estetiği"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طابع Vaporwave"
+          }
         }
       }
     },
@@ -106338,6 +107472,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vektör görsel, ölçeklenebilir"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة متجهة قابلة للتكبير"
           }
         }
       }
@@ -106940,6 +108080,12 @@
             "state" : "translated",
             "value" : "Nostaljik oyun"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لعبة قديمة"
+          }
         }
       }
     },
@@ -107231,6 +108377,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abonelik onayı bekleniyor. Lütfen daha sonra tekrar bak."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاشتراك بانتظار الموافقة. تحقق لاحقًا."
           }
         }
       }
@@ -108119,6 +109271,12 @@
             "state" : "translated",
             "value" : "Beyaz"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أبيض"
+          }
         }
       }
     },
@@ -108263,6 +109421,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neden Premium?"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لماذا البريميوم؟"
           }
         }
       }
@@ -109150,6 +110314,12 @@
             "state" : "translated",
             "value" : "Yıllık"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سنوي"
+          }
         }
       }
     },
@@ -109292,6 +110462,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yıllık faturalandırma"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دفع سنوي"
           }
         }
       }
@@ -109436,6 +110612,12 @@
             "state" : "translated",
             "value" : "Evet"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نعم"
+          }
         }
       }
     },
@@ -109579,6 +110761,12 @@
             "state" : "translated",
             "value" : "Aboneliğini istediğin zaman iptal edebilirsin"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إلغاء اشتراكك في أي وقت"
+          }
         }
       }
     },
@@ -109721,6 +110909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu özelliği Pro'ya yükselterek kullanabilirsin"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك استخدام هذه الميزة بالترقية إلى Pro"
           }
         }
       }
@@ -111410,6 +112604,12 @@
             "state" : "translated",
             "value" : "aylık "
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شهريًا "
+          }
         }
       }
     },
@@ -111554,6 +112754,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ayda %@"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‏%@ شهريًا"
           }
         }
       }
@@ -112151,6 +113357,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "• 3 günlük ücretsiz denemeden sonra: %@"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بعد تجربة مجانية لمدة 3 أيام: %@"
           }
         }
       }
@@ -113384,6 +114596,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kendi piksel sanatını oluştur"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يصنع فن البكسل الخاص بك"
           }
         }
       }
@@ -117578,6 +118796,12 @@
             "state" : "translated",
             "value" : "Fotoğrafı piksel sanata dönüştürür"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحوّل الصورة إلى فن بكسل"
+          }
         }
       }
     },
@@ -118657,6 +119881,12 @@
             "state" : "translated",
             "value" : "Örnek: %@"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المثال: %@"
+          }
         }
       }
     },
@@ -118801,6 +120031,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bir örnek seç ve birlikte çiz"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر مثالًا وارسم بتتبعه"
           }
         }
       }
@@ -120970,6 +122206,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yüzü otomatik algılar ve profil piksel sanatı oluşturur"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يتعرّف على الوجه تلقائيًا ويصنع صورة ملف شخصي بالبكسل"
           }
         }
       }
@@ -126566,6 +127808,12 @@
             "state" : "translated",
             "value" : "Bu örneğe bakarak çizmek için dokun"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المس لترسم بتتبع هذا المثال"
+          }
         }
       }
     },
@@ -127334,6 +128582,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profili piksele çevir"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صورة ملف شخصي بالبكسل"
           }
         }
       }
