@@ -36,6 +36,8 @@ struct HantamApp: App {
                 .onOpenURL { url in
                     handleAsepriteFile(url)
                 }
+                // App Store 이벤트 링크(<번들 ID>://paywall)로 열리면 요금제를 띄운다 (LeeoKit).
+                .leeoPaywallLink { PaywallView(reason: .homeBanner).environmentObject(manager) }
                 // 아이폰 듀오: 접힘을 재서 아래로 흘린다. 시트 · 알림창도 접힌 선을 비킨다 (LeeoKit Fold).
                 .foldAware()
                 // Spotlight 에 싣는 내 도안을 지금 것에 맞춘다. 열 때 한 번, 뒤로 보낼 때마다.
