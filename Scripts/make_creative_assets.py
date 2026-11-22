@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """App Store 크리에이티브 자산(제품 페이지 헤더 · 검색 결과) 생성: HTML → 헤드리스 Chrome.
 
 사용법: python3 scripts/make_creative_assets.py [언어 ...]     (없으면 전부)
@@ -25,7 +26,7 @@ OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 앱 언어 코드 → App Store Connect 로케일.
-STORE = {"en": "en-US", "en-GB": "en-GB", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
+STORE = {"en": "en-US", "en-GB": "en-GB", "ko": "ko", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr", "ar": "ar"}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
 SPEC = {
@@ -59,6 +60,7 @@ SEARCH = {
     "pl": ('Wzory na koraliki do prasowania', 'Ze zdjęcia wzór<br>z koralików', 'Prawdziwe kolory i ich ilości'),
     "sv": ('Mönster för strykpärlor', 'Från foto till<br>pärlmönster', 'Äkta färger och hur många du behöver'),
     "tr": ('Ütülenebilir boncuk şeması', 'Bir fotoğraftan<br>boncuk şeması', 'Gerçek renkler ve gereken adetler'),
+    "ar": ('تصميم خرز الكي', 'صورة واحدة<br>تصبح تصميم خرز', 'ألوان حقيقية وعدد ما تحتاجه من كل لون'),
 }
 
 # 헤더는 처음 온 사람에게 한 가지 약속만 한다: 내 사진이 내 도안이 된다.
@@ -87,7 +89,11 @@ HEADER = {
     "pl": ('Koraliki do prasowania i haft krzyżykowy', 'Twoje zdjęcie,<br>Twój wzór'),
     "sv": ('Strykpärlor och korsstygn', 'Ditt foto,<br>ditt mönster'),
     "tr": ('Ütülenebilir boncuk ve kanaviçe', 'Fotoğrafın,<br>şeman'),
+    "ar": ('خرز الكي والتطريز', 'صورتك<br>تصبح تصميمك'),
 }
+
+# 오른쪽에서 왼쪽으로 읽는 언어 — 글을 오른쪽에 붙이고, 검색 결과는 글과 기기의 좌우를 바꾼다.
+RTL = {"ar"}
 
 # 기기 화면 재료 (Scripts/capture_screens.sh 가 찍은 장면)
 SEARCH_SHOT = "maker.png"
@@ -101,6 +107,8 @@ body { background:#faf5ee; position:relative;
   font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", sans-serif; }
 :lang(ko) .headline, :lang(ko) .sub, :lang(ko) .eyebrow { word-break:keep-all; }
 :lang(ja) .headline, :lang(ja) .sub, :lang(ja) .eyebrow { word-break:keep-all; line-break:strict; }
+:lang(ar) .headline, :lang(ar) .sub, :lang(ar) .eyebrow { letter-spacing:0; }
+:lang(ar) .headline { line-height:1.3; }
 .grid { position:absolute; inset:0;
   background-image:radial-gradient(circle, rgba(140,115,97,.16) 14px, transparent 15px);
   background-size:120px 120px; background-position:60px 60px; }
@@ -176,6 +184,10 @@ def search_html(lang):
     ph_w = 1040
     ph_left = l + col + int(sw * 0.04)
     img = (RAW / lang / SEARCH_SHOT).as_uri()
+    text_left = l
+    if lang in RTL:  # 안전 영역이 가운데 대칭이라 좌우만 바꾸면 그대로 안에 든다
+        ph_left = W - ph_left - ph_w
+        text_left = r - col
     return f"""
 <div class="grid"></div>
 <div class="glow" style="left:{ph_left - 300}px;top:500px;width:1700px;height:1700px;background:rgba(217,69,61,.16)"></div>
@@ -183,7 +195,7 @@ def search_html(lang):
 {sprite(HEART, 240, 2050, 48, "#d9453d", -8, .95)}
 {sprite(HEART, 160, 260, 40, "#2a8c80", 6, .7)}
 {phone(img, ph_left, t - 360, ph_w, 0)}
-<div class="text" style="left:{l}px;top:{t}px;width:{col}px;height:{sh}px">
+<div class="text" style="left:{text_left}px;top:{t}px;width:{col}px;height:{sh}px">
   <div class="eyebrow" style="font-size:96px">{eyebrow}</div>
   <div class="headline" data-max="250" data-min="140" style="margin-top:36px">{headline}</div>
   <div class="sub" style="font-size:84px;margin-top:52px">{sub}</div>
@@ -214,7 +226,8 @@ def header_html(lang):
 def render(lang, kind):
     W, H, _ = SPEC[kind]
     body = search_html(lang) if kind == "search" else header_html(lang)
-    page = (f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><style>'
+    dir_attr = ' dir="rtl"' if lang in RTL else ''
+    page = (f'<!doctype html><html lang="{lang}"{dir_attr}><head><meta charset="utf-8"><style>'
             f'{BASE_CSS % {"W": W, "H": H}}</style></head><body>{body}{FIT_JS}</body></html>')
     html_path = pathlib.Path(tempfile.gettempdir()) / f"hantam-creative-{lang}-{kind}.html"
     html_path.write_text(page, encoding="utf-8")

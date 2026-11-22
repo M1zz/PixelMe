@@ -51,6 +51,7 @@ enum ScreenshotScene {
             "pl": ["bead": "Mój beagle", "stitch": "Beagle w ramce", "heart": "Brelok serce"],
             "sv": ["bead": "Min beagle", "stitch": "Beagle i ram", "heart": "Hjärtnyckelring"],
             "tr": ["bead": "Benim beagle'ım", "stitch": "Beagle çerçevesi", "heart": "Kalpli anahtarlık"],
+            "ar": ["bead": "كلبي البيغل", "stitch": "لوحة البيغل", "heart": "ميدالية القلب"],
         ]
         // 가장 긴 접두사부터 맞춘다 — en-GB 가 en 보다 먼저.
         let key = table.keys.sorted { $0.count > $1.count }.first { lang.hasPrefix($0) } ?? "en"

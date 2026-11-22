@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """한땀 마케팅 스크린샷: HTML → 헤드리스 Chrome. 1242×2688 (이 계정의 iPhone 제출 규격).
 
 원본: docs/screenshots/raw/<앱 언어>/<장면>.png — Scripts/capture_screens.sh 가 DEBUG 장면을 찍은 것.
@@ -17,7 +18,7 @@ WORK = pathlib.Path(tempfile.gettempdir())
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 W, H = 1242, 2688
 
-STORE = {"ko": "ko", "en": "en-US", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr"}
+STORE = {"ko": "ko", "en": "en-US", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es-ES", "de": "de-DE", "fr": "fr-FR", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl-NL", "pl": "pl", "sv": "sv", "tr": "tr", "ar": "ar"}
 
 # (출력 파일, 원본 장면, 배치, 헤드라인, 보조 문구)
 SHOTS_BY_LANG = {
@@ -213,7 +214,18 @@ SHOTS_BY_LANG = {
         ('05-stitch.png', 'stitch', 'hero', 'Kanaviçe şemaları<br>da var', 'İplik numaraları ve kumaşına göre boyut'),
         ('06-home.png', 'home', 'accent', 'Tüm şemaların<br>tek yerde', 'Anahtarlıklar, çerçeveler ve hediyeler'),
     ],
+    "ar": [
+        ('01-photo.png', 'maker', 'hero', 'صورة واحدة<br>تصبح تصميم خرز', 'اختر المقاس وعدد الألوان وشاهد النتيجة فورًا'),
+        ('02-colors.png', 'detail', 'left', 'ألوان تُباع<br>في المتاجر فعلًا', 'رقم كل لون وكم تحتاج منه'),
+        ('03-symbols.png', 'symbols', 'bottom', 'رمز في كل خانة<br>فلا تخطئ', 'حدود الألواح عريضة، والمس أي خانة لتعديلها'),
+        ('04-print.png', 'pdf', 'tilt', 'اطبعه<br>وابدأ فورًا', 'مخططات لكل لوح وقائمة ألوان في ملف PDF'),
+        ('05-stitch.png', 'stitch', 'hero', 'وتصاميم<br>التطريز أيضًا', 'أرقام الخيوط والمقاس النهائي حسب قماشك'),
+        ('06-home.png', 'home', 'accent', 'كل تصاميمك<br>في مكان واحد', 'ميداليات ولوحات وهدايا'),
+    ],
 }
+
+# 오른쪽에서 왼쪽으로 읽는 언어 — 글을 오른쪽에 붙이고, 'left' 배치는 좌우를 바꾼다.
+RTL = {"ar"}
 
 BASE_CSS = f"""
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -224,6 +236,8 @@ body {{ background:#faf5ee; position:relative;
   background-size:62px 62px; background-position:31px 31px; }}
 :lang(ko) .headline, :lang(ko) .sub {{ word-break:keep-all; }}
 :lang(ja) .headline, :lang(ja) .sub {{ word-break:keep-all; line-break:strict; }}
+:lang(ar) .headline, :lang(ar) .sub {{ letter-spacing:0; }}
+:lang(ar) .headline {{ line-height:1.3; }}
 .headline {{ font-size:112px; font-weight:900; color:#2b211c; letter-spacing:-3px; line-height:1.14; }}
 .sub {{ font-size:50px; font-weight:600; color:#7a6d64; letter-spacing:-1px; line-height:1.35; }}
 .thread {{ display:inline-block; width:150px; height:10px; border-radius:5px; background:#d9453d; margin-bottom:46px; }}
@@ -257,11 +271,16 @@ body{background-color:#d9453d;background-image:radial-gradient(circle, rgba(255,
 
 def render(lang, fname, scene, layout, headline, sub):
     css, phone_style = LAYOUTS[layout]
+    rtl = lang in RTL
+    dir_attr = ' dir="rtl"' if rtl else ''
+    if rtl and layout == "left":
+        css, phone_style = (".text{top:230px;text-align:right}",
+                            "left:32px;top:930px;width:960px;transform:rotate(-4deg)")
     img = (RAW / lang / f"{scene}.png").as_uri()
     body = (f'<div class="phone" style="{phone_style}"><img src="{img}"></div>'
             f'<div class="text"><div class="thread"></div><div class="headline">{headline}</div>'
             f'<div class="sub" style="margin-top:40px">{sub}</div></div>')
-    page = (f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><style>{BASE_CSS}{css}</style>'
+    page = (f'<!doctype html><html lang="{lang}"{dir_attr}><head><meta charset="utf-8"><style>{BASE_CSS}{css}</style>'
             f'</head><body>{body}</body></html>')
     html_path = WORK / f"hantam-{lang}-{fname.replace('.png', '.html')}"
     html_path.write_text(page, encoding="utf-8")

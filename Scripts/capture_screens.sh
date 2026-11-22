@@ -6,6 +6,7 @@
 #   결과: docs/screenshots/raw/<언어>/<장면>.png
 #   데모 사진: docs/screenshots/raw/assets/demo-beagle.jpg (Unsplash 라이선스 — 상업적 사용 가능)
 set -e
+# 새 기기에서 처음 띄우면 LeeoKit 의 환영 인사가 화면을 덮는다 — 이미 본 것으로 넘겨 띄운다(-leeo.celebration.done).
 # 시뮬레이터 명령이 멈추면 끝없이 기다린다 — 명령마다 시간 제한을 둔다.
 t() { perl -e 'alarm shift; exec @ARGV' "$@"; }
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -33,6 +34,7 @@ for L in $LANGS; do
     fr) LOC=fr_FR;; it) LOC=it_IT;; pt-BR) LOC=pt_BR;; th) LOC=th_TH;; vi) LOC=vi_VN;;
     cs) LOC=cs_CZ;; da) LOC=da_DK;; el) LOC=el_GR;; fi) LOC=fi_FI;; id) LOC=id_ID;;
     nb) LOC=nb_NO;; nl) LOC=nl_NL;; pl) LOC=pl_PL;; sv) LOC=sv_SE;; tr) LOC=tr_TR;;
+    ar) LOC="ar_SA@calendar=gregorian;numbers=latn";;  # 앱과 같이 양력 · 0-9 (사우디 기본은 히즈라력 · ١٢٣)
     *) LOC=en_US;;
   esac
   mkdir -p "$ROOT/docs/screenshots/raw/$L"
@@ -44,7 +46,7 @@ for L in $LANGS; do
     [ "$IPAD" = 1 ] && mkdir -p "$ROOT/docs/screenshots/marketing/$ST" && OUT="$ROOT/docs/screenshots/marketing/$ST/ipad-0$N-$SC.png"
     xcrun simctl terminate "$UDID" $BUNDLE 2>/dev/null || true
     t 120 xcrun simctl launch "$UDID" $BUNDLE -AppleLanguages "($L)" -AppleLocale $LOC \
-      -HantamScene $SC -HantamDemoPhoto "$PHOTO" >/dev/null
+      -HantamScene $SC -HantamDemoPhoto "$PHOTO" -leeo.celebration.done '(welcome)' >/dev/null
     if [ "$SC" = pdf ]; then sleep 11; else sleep 7; fi
     t 60 xcrun simctl io "$UDID" screenshot "$OUT" >/dev/null 2>&1
     echo "📸 $OUT"
