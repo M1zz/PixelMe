@@ -756,7 +756,7 @@ struct NewCanvasView: View {
                                         .font(.system(size: 16))
                                         .foregroundColor(.white)
                                     Spacer()
-                                    Image(systemName: "chevron.right")
+                                    Image(systemName: "chevron.forward")
                                         .font(.system(size: 14))
                                         .foregroundColor(.gray)
                                 }

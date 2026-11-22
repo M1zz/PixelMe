@@ -622,6 +622,8 @@ struct BeadHeartMark: View {
             }
         }
         .accessibilityHidden(true)
+        // 도안 · 비즈 판은 그림이라 아랍어에서도 뒤집지 않는다. 칸 번호와 누른 자리도 왼쪽에서 셈한다.
+        .environment(\.layoutDirection, .leftToRight)
     }
 }
 

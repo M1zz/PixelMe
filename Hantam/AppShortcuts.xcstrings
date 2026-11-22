@@ -140,6 +140,12 @@
             "state" : "translated",
             "value" : "用${applicationName}製作圖樣"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اصنع تصميمًا في ${applicationName}"
+          }
         }
       }
     },
@@ -281,6 +287,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "用${applicationName}把照片變成圖樣"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حوّل صورة إلى تصميم في ${applicationName}"
           }
         }
       }

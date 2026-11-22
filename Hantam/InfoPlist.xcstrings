@@ -28,7 +28,8 @@
         "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "sv" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "CFBundleName" : {
@@ -58,7 +59,8 @@
         "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
         "sv" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
-        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
+        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "Hantam" } }
       }
     },
     "NSPhotoLibraryAddUsageDescription" : {
@@ -88,7 +90,8 @@
         "nl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam bewaart je patronen en pixelart in Foto’s." } },
         "pl" : { "stringUnit" : { "state" : "translated", "value" : "Hantam zapisuje Twoje wzory i pixel art w Zdjęciach." } },
         "sv" : { "stringUnit" : { "state" : "translated", "value" : "Hantam sparar dina mönster och din pixelkonst i Bilder." } },
-        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam, şemalarını ve piksel sanatını Fotoğraflar'a kaydeder." } }
+        "tr" : { "stringUnit" : { "state" : "translated", "value" : "Hantam, şemalarını ve piksel sanatını Fotoğraflar'a kaydeder." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحفظ Hantam تصاميمك وفن البكسل الخاص بك في الصور." } }
       }
     }
   },

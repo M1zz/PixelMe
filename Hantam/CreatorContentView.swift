@@ -325,7 +325,7 @@ struct CreatorContentView: View {
 
                 Spacer()
 
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .foregroundStyle(.tertiary)
                     .accessibilityHidden(true)
             }
@@ -474,6 +474,8 @@ struct CreatorContentView: View {
         }).disabled(!viewModel.didSelectBoardSize).overlay(WatermarkLogoView)
         .accessibilityLabel("픽셀 그리기 캔버스")
         .accessibilityHint("드래그하여 픽셀을 그립니다")
+        // 도안 · 비즈 판은 그림이라 아랍어에서도 뒤집지 않는다. 칸 번호와 누른 자리도 왼쪽에서 셈한다.
+        .environment(\.layoutDirection, .leftToRight)
     }
 
     private func Pixels(forColumn column: Int, height: CGFloat, export: Bool = false) -> some View {
@@ -806,7 +808,7 @@ struct CreatorContentView: View {
                     Text(manager.pixelBoardSize?.rawValue ?? "N/A")
                         .font(.system(size: 16))
                         .foregroundColor(.gray)
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
                 }.padding(.horizontal, 15)

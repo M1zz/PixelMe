@@ -172,7 +172,7 @@ enum PatternRenderer {
 
             // 색 목록 (넘치면 다음 쪽으로)
             y = drawText(NSLocalizedString("Colors you need", comment: "PDF: legend title"),
-                         at: CGPoint(x: margin, y: y), width: 400, font: .systemFont(ofSize: 14, weight: .bold))
+                         at: CGPoint(x: margin, y: y), width: page.width - margin * 2, font: .systemFont(ofSize: 14, weight: .bold))
             y += 4
             let rowH: CGFloat = 18
             let colW = (page.width - margin * 2) / 2
@@ -181,8 +181,10 @@ enum PatternRenderer {
                 if y + rowH > page.height - margin {
                     if col == 0 { col = 1; y = margin } else { ctx.beginPage(); col = 0; y = margin }
                 }
-                let x = margin + CGFloat(col) * colW
-                let sw = CGRect(x: x, y: y + 2, width: 14, height: 14)
+                // 아랍어는 첫 칸이 오른쪽, 색 견본도 글 오른쪽에 선다.
+                let rtl = Locale.appIsArabic
+                let x = rtl ? page.width - margin - CGFloat(col + 1) * colW : margin + CGFloat(col) * colW
+                let sw = CGRect(x: rtl ? x + colW - 14 : x, y: y + 2, width: 14, height: 14)
                 u.color.uiColor.withAlphaComponent(0.55).setFill()
                 UIRectFill(sw)
                 UIColor.gray.setStroke()
@@ -192,8 +194,11 @@ enum PatternRenderer {
                                                             .foregroundColor: u.color.isLight ? UIColor.black : UIColor.white]
                 let ss = (sym as NSString).size(withAttributes: attrs)
                 (sym as NSString).draw(at: CGPoint(x: sw.midX - ss.width / 2, y: sw.midY - ss.height / 2), withAttributes: attrs)
-                let label = "\(u.color.code)  \(u.color.name)  ×\(u.count)"
-                _ = drawText(label, at: CGPoint(x: x + 20, y: y + 2), width: colW - 24, font: .systemFont(ofSize: 10))
+                // 색 번호 · 이름 · 개수는 각각 왼쪽에서 오른쪽으로 읽는 덩어리라, 아랍어 문장 방향에 섞이지 않게 가둔다.
+                let label = rtl
+                    ? "\u{2068}\(u.color.code)\u{2069}  \u{2068}\(u.color.name)\u{2069}  \u{2068}×\(u.count)\u{2069}"
+                    : "\(u.color.code)  \(u.color.name)  ×\(u.count)"
+                _ = drawText(label, at: CGPoint(x: rtl ? x : x + 20, y: y + 2), width: colW - 24, font: .systemFont(ofSize: 10))
                 y += rowH
             }
 
@@ -246,7 +251,7 @@ enum PatternRenderer {
         var lines: [String] = []
         lines.append("\(p.material.brandName) · \(p.width) × \(p.height)")
         let size = p.finishedSizeCM
-        lines.append(String(format: NSLocalizedString("Finished size about %.1f × %.1f cm", comment: "Pattern info: finished size"), locale: .current, size.w, size.h))
+        lines.append(String(format: NSLocalizedString("Finished size about %.1f × %.1f cm", comment: "Pattern info: finished size"), locale: .app, size.w, size.h))
         if let b = p.boards {
             lines.append(String(format: NSLocalizedString("%lld pegboards (%lld × %lld)", comment: "Pattern info: pegboards needed"), b.across * b.down, b.across, b.down))
             lines.append(String(format: NSLocalizedString("%lld beads in %lld colors", comment: "Pattern info: bead count and colors"), p.filledCount, p.colorUsage.count))
@@ -259,7 +264,11 @@ enum PatternRenderer {
 
     @discardableResult
     private static func drawText(_ text: String, at point: CGPoint, width: CGFloat, font: UIFont, color: UIColor = .black) -> CGFloat {
-        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color]
+        // 아랍어 PDF 는 글을 오른쪽에 붙여 오른쪽에서 왼쪽으로 쓴다.
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.baseWritingDirection = Locale.appIsArabic ? .rightToLeft : .natural
+        paragraph.alignment = .natural
+        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color, .paragraphStyle: paragraph]
         let str = text as NSString
         let rect = str.boundingRect(with: CGSize(width: width, height: .greatestFiniteMagnitude),
                                     options: [.usesLineFragmentOrigin], attributes: attrs, context: nil)

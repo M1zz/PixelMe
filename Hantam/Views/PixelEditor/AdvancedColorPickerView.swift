@@ -74,6 +74,8 @@ struct AdvancedColorPickerView: View {
                                 applyHex(newValue)
                             }
                     }
+                    // #A7F3C2 는 어느 언어에서나 # 이 앞에 오는 한 덩어리다.
+                    .environment(\.layoutDirection, .leftToRight)
                     .padding(.horizontal)
                 }
                 .padding(.vertical)

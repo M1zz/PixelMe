@@ -472,7 +472,7 @@ struct PixelatedPhotoView: View {
                                 .foregroundColor(.gray)
                         }
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .foregroundColor(.gray)
                     }
                     .padding(12)
@@ -676,7 +676,7 @@ struct PixelatedPhotoView: View {
 
                 Spacer()
 
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .foregroundColor(.gray)
             }
             .padding()
@@ -1105,7 +1105,7 @@ struct AdvancedSettingsView: View {
                         Text("Select Custom Watermark")
                             .font(.system(size: 16, weight: .semibold))
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                     }
                     .foregroundColor(.white)
                     .padding()
@@ -1241,7 +1241,7 @@ struct AdvancedSettingsView: View {
 
                     Spacer()
 
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .foregroundColor(.gray)
                 }
                 .padding()
@@ -1326,7 +1326,7 @@ struct FeatureButton: View {
 
                 Spacer()
 
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .foregroundColor(.gray)
             }
             .padding()
@@ -2699,7 +2699,7 @@ struct PhotoPreviewView: View {
                     Text("Create pixel art instantly").font(.system(size: 13)).foregroundColor(.white.opacity(0.45))
                 }
                 Spacer()
-                Image(systemName: "arrow.right.circle.fill").font(.system(size: 24)).foregroundColor(.cyan.opacity(0.6))
+                Image(systemName: "arrow.forward.circle.fill").font(.system(size: 24)).foregroundColor(.cyan.opacity(0.6))
             }
             .padding(18)
             .background(
@@ -2742,7 +2742,7 @@ struct PhotoPreviewView: View {
                 }
                 Spacer()
                 if !isProcessing {
-                    Image(systemName: "arrow.right.circle.fill").font(.system(size: 24)).foregroundColor(.purple.opacity(0.5))
+                    Image(systemName: "arrow.forward.circle.fill").font(.system(size: 24)).foregroundColor(.purple.opacity(0.5))
                 }
             }
             .padding(18)
@@ -2818,7 +2818,7 @@ struct BackgroundRemovalResultView: View {
             Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Image(systemName: "chevron.left")
+                Image(systemName: "chevron.backward")
                     .font(.system(size: 22))
             }
 
@@ -2830,7 +2830,7 @@ struct BackgroundRemovalResultView: View {
             Spacer()
 
             // Invisible spacer for center alignment
-            Image(systemName: "chevron.left")
+            Image(systemName: "chevron.backward")
                 .font(.system(size: 22))
                 .opacity(0)
         }

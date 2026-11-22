@@ -49,11 +49,10 @@ enum SNSSizePreset: String, CaseIterable, Identifiable {
         switch self {
         case .original:
             return "As-is"
-        case .phoneWallpaper:
-            let s = size
-            return "\(Int(s.width))×\(Int(s.height))"
         default:
-            return "\(Int(size.width))×\(Int(size.height))"
+            // 아랍어 문장 방향에서 가로 × 세로가 뒤바뀌어 보이지 않게 한 덩어리로 가둔다.
+            let label = "\(Int(size.width))×\(Int(size.height))"
+            return Locale.appIsArabic ? "\u{2066}\(label)\u{2069}" : label
         }
     }
 

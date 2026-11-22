@@ -21,6 +21,7 @@ struct HantamApp: App {
     var body: some Scene {
         WindowGroup {
             rootView
+                .modifier(ArabicNumerals())
                 .environmentObject(manager)
                 .leeoSatisfactionCheck(HantamSpec.self)
                 // 개발자가 보낸 의견에 답장하면, 앱이 앞으로 올 때 답장을 시트로 보여 준다 (LeeoKit).
@@ -72,6 +73,17 @@ struct HantamApp: App {
             manager.shouldOpenPixelEditor = true
         } catch {
             presentAlert(title: "Aseprite 가져오기 실패", message: error.localizedDescription)
+        }
+    }
+}
+
+/// 아랍어에서는 화면 속 숫자 · 날짜를 0-9 와 양력으로 맞춘다 (§`Locale.app`). 다른 언어는 손대지 않는다.
+private struct ArabicNumerals: ViewModifier {
+    func body(content: Content) -> some View {
+        if Locale.appIsArabic {
+            content.environment(\.locale, .app)
+        } else {
+            content
         }
     }
 }

@@ -203,6 +203,8 @@ struct PatternDetailView: View {
         .accessibilityValue(Text(PatternRenderer.infoLines(for: pattern).joined(separator: ", ")))
         .accessibilityAddTraits(.isImage)
         .accessibilityHint(Text("Swap colors from the color list below."))
+        // 도안 · 비즈 판은 그림이라 아랍어에서도 뒤집지 않는다. 칸 번호와 누른 자리도 왼쪽에서 셈한다.
+        .environment(\.layoutDirection, .leftToRight)
     }
 
     private var stylePicker: some View {
@@ -329,7 +331,7 @@ struct PatternDetailView: View {
                         .font(.caption)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").accessibilityHidden(true)
+                Image(systemName: "chevron.forward").accessibilityHidden(true)
             }
             .foregroundStyle(Color.hantamInk)
             .padding(12)
@@ -371,7 +373,7 @@ struct PatternDetailView: View {
                         Spacer()
                         Text("\(u.count)")
                             .font(.subheadline.monospacedDigit().weight(.semibold))
-                        Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
+                        Image(systemName: "chevron.forward").font(.caption).foregroundStyle(.tertiary)
                             .accessibilityHidden(true)
                     }
                     .foregroundStyle(Color.hantamInk)

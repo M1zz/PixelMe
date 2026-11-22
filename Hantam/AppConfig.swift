@@ -89,3 +89,22 @@ class AppConfig {
     /// Delay after subscription success before auto-dismissing paywall
     static let subscriptionSuccessDelay: TimeInterval = 1.0
 }
+
+// MARK: - 숫자 · 달력은 아랍어에서 0-9 와 양력으로
+
+extension Locale {
+    /// 앱이 지금 아랍어로 나오는가. 아랍어는 오른쪽에서 왼쪽으로 읽는다.
+    static let appIsArabic: Bool = Bundle.main.preferredLocalizations.first == "ar"
+
+    /// 화면에 쓰는 로케일. 아랍어에서는 숫자를 0-9, 달력을 양력으로 맞춘다.
+    /// 사우디 기기는 ١٢٣ 이 기본이라 칸 번호 · 색 번호(0-9 로 그린다)와 글 속 숫자가 한 화면에 섞였다.
+    /// 다른 언어는 기기 설정 그대로 둔다.
+    static let app: Locale = {
+        let current = Locale.current
+        guard appIsArabic else { return current }
+        var parts = Locale.Components(locale: current)
+        parts.numberingSystem = Locale.NumberingSystem("latn")
+        parts.calendar = .gregorian
+        return Locale(components: parts)
+    }()
+}
