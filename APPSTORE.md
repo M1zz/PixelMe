@@ -23,15 +23,15 @@ Hantam: Bead & Cross Stitch
 
 ### 부제
 
-Turn Photos into DIY Patterns
+Photo to Fuse Bead Pattern
 
 ### 키워드
 
-pattern maker,tapestry,alpha pattern,beads,bead art,sprite,8bit,keychain,kandi,pegboard,fuse,mosaic
+maker,tapestry,alpha,beads,sprite,8bit,keychain,kandi,pegboard,mosaic,pixel art,diy,melty,pet,craft
 
 ### 프로모션 텍스트
 
-Snap your dog, your kid or a favorite character and get a bead or cross-stitch pattern in real colors, with counts for every color and a printable chart.
+Now free to download. Pick a photo of your dog, your kid or a favorite character and get a fuse bead or cross-stitch pattern in colors you can buy, with every count.
 
 ### 설명
 
@@ -89,15 +89,15 @@ https://m1zz.github.io/PixelMe/ko/
 
 ### 부제
 
-사진으로 만드는 DIY 키링·액자
+사진을 아이롱비즈 도안으로
 
 ### 키워드
 
-아이롱비즈,구슬공예,손공예,수예,픽셀도안,색번호,비즈공예,비즈도안,도트도안,십자수패턴,퍼즐비즈,비즈아트,보석십자수,크로스스티치,만들기,키링만들기
+구슬공예,손공예,수예,픽셀도안,색번호,비즈공예,비즈도안,도트도안,십자수패턴,퍼즐비즈,비즈아트,보석십자수,크로스스티치,만들기,키링만들기,액자,DIY,반려동물
 
 ### 프로모션 텍스트
 
-우리 집 강아지, 아이 얼굴, 좋아하는 캐릭터 사진 한 장이면 끝. 실제로 파는 색으로 맞춘 비즈·십자수 도안과 색마다 필요한 개수, 인쇄용 도안까지 한 번에.
+이제 무료로 받을 수 있어요. 우리 집 강아지, 아이 얼굴, 좋아하는 캐릭터 사진 한 장이면 끝. 실제로 파는 색으로 맞춘 비즈·십자수 도안과 색마다 필요한 개수, 인쇄용 도안까지 한 번에.
 
 ### 설명
 
@@ -221,15 +221,15 @@ Hantam: Bead & Cross Stitch
 
 ### 부제
 
-Turn Photos into DIY Patterns
+Photo to Fuse Bead Pattern
 
 ### 키워드
 
-fuse,melty,pixel,embroidery,needlepoint,chart,craft,mosaic,pegboard,pet,portrait,knit,keyring,hobby
+melty,pixel,embroidery,needlepoint,chart,craft,mosaic,pegboard,pet,portrait,knit,keyring,hobby,diy
 
 ### 프로모션 텍스트
 
-Snap your dog, your child or a favourite character and get a bead or cross-stitch pattern in real colours, with counts for every colour and a printable chart.
+Now free to download. Pick a photo of your dog, your child or a favourite character and get a fuse bead or cross-stitch pattern in colours you can buy, with every count.
 
 ### 설명
 
@@ -419,7 +419,7 @@ Hantam: схемы для мозаики
 
 ### 부제
 
-Пиксель-арт и узоры из фото
+Из фото: бусины и крестик
 
 ### 키워드
 
@@ -485,11 +485,11 @@ Hantam: patrones con cuentas
 
 ### 부제
 
-Tus fotos en pixel art
+De tu foto a punto de cruz
 
 ### 키워드
 
-punto de cruz,abalorios,bordado,planchar,manualidades,llavero,mascota,retrato,mosaico,DIY,8bit,niños
+pixel art,abalorios,bordado,planchar,manualidades,llavero,mascota,retrato,mosaico,DIY,8bit,niños
 
 ### 프로모션 텍스트
 
@@ -551,11 +551,11 @@ Hantam: Bügelperlen-Vorlagen
 
 ### 부제
 
-Fotos als Pixelart & Muster
+Aus Fotos: Perlen & Kreuzstich
 
 ### 키워드
 
-Kreuzstich,Sticken,Basteln,Schlüsselanhänger,Haustier,Porträt,Mosaik,DIY,8bit,Kinder,Steckperlen
+Pixelart,Sticken,Basteln,Schlüsselanhänger,Haustier,Porträt,Mosaik,DIY,8bit,Kinder,Steckperlen
 
 ### 프로모션 텍스트
 
@@ -617,11 +617,11 @@ Hantam : perles à repasser
 
 ### 부제
 
-Photos en grilles et pixel art
+Photo en grille point de croix
 
 ### 키워드
 
-point de croix,broderie,pixel art,loisirs créatifs,porte-clés,animal,portrait,mosaïque,DIY,8bit
+pixel art,broderie,loisirs créatifs,porte-clés,animal,portrait,mosaïque,DIY,8bit,enfant,perles
 
 ### 프로모션 텍스트
 
@@ -683,11 +683,11 @@ Hantam: schemi con perline
 
 ### 부제
 
-Dalle foto al pixel art
+Da foto a schema punto croce
 
 ### 키워드
 
-punto croce,ricamo,perline da stirare,hobby creativi,portachiavi,animale,ritratto,mosaico,fai da te
+pixel art,ricamo,perline da stirare,hobby creativi,portachiavi,animale,ritratto,mosaico,fai da te
 
 ### 프로모션 텍스트
 
@@ -749,11 +749,11 @@ Hantam: padrões de miçangas
 
 ### 부제
 
-Suas fotos em pixel art
+Sua foto em ponto cruz
 
 ### 키워드
 
-ponto cruz,bordado,miçanga de passar,pixel art,artesanato,chaveiro,pet,retrato,mosaico,DIY,8bit
+pixel art,bordado,miçanga de passar,artesanato,chaveiro,pet,retrato,mosaico,DIY,8bit,criança
 
 ### 프로모션 텍스트
 
@@ -815,11 +815,11 @@ Hantam: แพตเทิร์นลูกปัด
 
 ### 부제
 
-เปลี่ยนรูปเป็นพิกเซลอาร์ต
+เปลี่ยนรูปเป็นลายปักครอสติช
 
 ### 키워드
 
-ปักครอสติช,ครอสติช,ลูกปัดรีด,ลูกปัด,งานฝีมือ,พิกเซล,พวงกุญแจ,สัตว์เลี้ยง,ภาพเหมือน,โมเสก,DIY,8bit
+พิกเซลอาร์ต,ลูกปัดรีด,งานฝีมือ,พิกเซล,พวงกุญแจ,สัตว์เลี้ยง,ภาพเหมือน,โมเสก,DIY,8bit,งานปัก
 
 ### 프로모션 텍스트
 
@@ -947,11 +947,11 @@ Hantam: vzory z korálků
 
 ### 부제
 
-Tvoje fotky jako pixel art
+Z fotky křížkový steh
 
 ### 키워드
 
-křížkový steh,žehlicí korálky,výšivka,tvoření,klíčenka,mazlíček,portrét,mozaika,DIY,8bit,děti,tisk
+pixel art,žehlicí korálky,výšivka,tvoření,klíčenka,mazlíček,portrét,mozaika,DIY,8bit,děti,tisk
 
 ### 프로모션 텍스트
 
@@ -1013,11 +1013,11 @@ Hantam: perlemønstre
 
 ### 부제
 
-Dine fotos som pixelkunst
+Fra foto til korssting
 
 ### 키워드
 
-korssting,strygeperler,broderi,pixel,håndarbejde,nøglering,kæledyr,portræt,mosaik,DIY,8bit,børn
+pixelkunst,strygeperler,broderi,pixel,håndarbejde,nøglering,kæledyr,portræt,mosaik,DIY,8bit,børn
 
 ### 프로모션 텍스트
 
@@ -1079,11 +1079,11 @@ Hantam: σχέδια με χάντρες
 
 ### 부제
 
-Φωτογραφίες σε pixel art
+Φωτογραφία σε σταυροβελονιά
 
 ### 키워드
 
-σταυροβελονιά,κέντημα,χάντρες σιδερώματος,χειροτεχνία,πίξελ,μπρελόκ,κατοικίδιο,πορτρέτο,μωσαϊκό,DIY
+pixel art,κέντημα,χάντρες σιδερώματος,χειροτεχνία,πίξελ,μπρελόκ,κατοικίδιο,πορτρέτο,μωσαϊκό,DIY
 
 ### 프로모션 텍스트
 
@@ -1145,11 +1145,11 @@ Hantam: helmikuviot
 
 ### 부제
 
-Valokuvista pikselitaidetta
+Kuvasta ristipistotyön malli
 
 ### 키워드
 
-ristipistotyö,silitettävät helmet,kirjonta,käsityö,avaimenperä,lemmikki,muotokuva,mosaiikki,DIY,8bit
+pikselitaide,silitettävät helmet,kirjonta,käsityö,avaimenperä,lemmikki,muotokuva,mosaiikki,DIY,8bit
 
 ### 프로모션 텍스트
 
@@ -1211,11 +1211,11 @@ Hantam: pola manik setrika
 
 ### 부제
 
-Ubah foto jadi pixel art
+Ubah foto jadi kristik
 
 ### 키워드
 
-kristik,sulam silang,bordir,kerajinan,gantungan kunci,hewan peliharaan,potret,mosaik,DIY,8bit,anak
+pixel art,sulam silang,bordir,kerajinan,gantungan kunci,hewan peliharaan,potret,mosaik,DIY,8bit,anak
 
 ### 프로모션 텍스트
 
@@ -1277,11 +1277,11 @@ Hantam: perlemønstre
 
 ### 부제
 
-Bildene dine som pikselkunst
+Fra bilde til korssting
 
 ### 키워드
 
-korssting,strykeperler,broderi,pixel,håndarbeid,nøkkelring,kjæledyr,portrett,mosaikk,DIY,8bit,barn
+pikselkunst,strykeperler,broderi,pixel,håndarbeid,nøkkelring,kjæledyr,portrett,mosaikk,DIY,8bit,barn
 
 ### 프로모션 텍스트
 
@@ -1343,11 +1343,11 @@ Hantam: strijkkralenpatronen
 
 ### 부제
 
-Jouw foto’s als pixelart
+Van foto naar kruissteek
 
 ### 키워드
 
-kruissteek,borduren,knutselen,sleutelhanger,huisdier,portret,mozaïek,DIY,8bit,kinderen,strijkkralen
+pixelart,borduren,knutselen,sleutelhanger,huisdier,portret,mozaïek,DIY,8bit,kinderen,strijkkralen
 
 ### 프로모션 텍스트
 
@@ -1409,11 +1409,11 @@ Hantam: wzory z koralików
 
 ### 부제
 
-Twoje zdjęcia jako pixel art
+Zdjęcie na haft krzyżykowy
 
 ### 키워드
 
-haft krzyżykowy,koraliki do prasowania,haft,rękodzieło,brelok,zwierzak,portret,mozaika,DIY,8bit
+pixel art,koraliki do prasowania,rękodzieło,brelok,zwierzak,portret,mozaika,DIY,8bit,dzieci
 
 ### 프로모션 텍스트
 
@@ -1475,11 +1475,11 @@ Hantam: pärlmönster
 
 ### 부제
 
-Dina foton som pixelkonst
+Från foto till korsstygn
 
 ### 키워드
 
-korsstygn,strykpärlor,broderi,pyssel,nyckelring,husdjur,porträtt,mosaik,DIY,8bit,barn,skriv ut
+pixelkonst,strykpärlor,broderi,pyssel,nyckelring,husdjur,porträtt,mosaik,DIY,8bit,barn,skriv ut
 
 ### 프로모션 텍스트
 
@@ -1541,11 +1541,11 @@ Hantam: boncuk şemaları
 
 ### 부제
 
-Fotoğraftan piksel sanat
+Fotoğrafını kanaviçeye çevir
 
 ### 키워드
 
-kanaviçe,ütülenebilir boncuk,nakış,el işi,anahtarlık,evcil hayvan,portre,mozaik,DIY,8bit,çocuk
+piksel sanat,ütülenebilir boncuk,nakış,el işi,anahtarlık,evcil hayvan,portre,mozaik,DIY,8bit,çocuk
 
 ### 프로모션 텍스트
 

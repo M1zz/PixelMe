@@ -175,6 +175,25 @@ def sprite(rows, left, top, cell, color, rotate=0, alpha=1):
     return html + "</div>"
 
 
+# 검색 결과의 원본 사진 — 폰 속 비즈 도안(maker 장면)이 이 사진으로 만든 것이다. "사진이 도안이 된다" 를 그림으로.
+BEFORE_PHOTO = RAW / "assets" / "demo-beagle.jpg"
+
+
+def before_photo(ph_left, ph_w, rtl):
+    """폰 아래쪽(재료 · 크기 칸)을 덮는 폴라로이드 + 도안을 가리키는 빨간 실 화살표. 글이 없어 언어와 무관하다."""
+    w = 440
+    left = ph_left - 40 if not rtl else ph_left + ph_w - w + 40
+    rot = -7 if not rtl else 7
+    a_left = left + w - 150 if not rtl else left - 150
+    flip = "" if not rtl else "transform:scaleX(-1);"
+    return (f'<div style="position:absolute;left:{left}px;top:1380px;width:{w}px;padding:24px 24px 76px;background:#fff;'
+            f'border-radius:16px;transform:rotate({rot}deg);box-shadow:0 40px 90px rgba(80,50,30,.32);z-index:3">'
+            f'<img src="{BEFORE_PHOTO.as_uri()}" style="width:100%;display:block;border-radius:8px"></div>'
+            f'<svg style="position:absolute;left:{a_left}px;top:1120px;width:300px;height:300px;z-index:4;{flip}" viewBox="0 0 240 240">'
+            f'<path d="M30 200 C 40 110, 110 60, 200 60" fill="none" stroke="#d9453d" stroke-width="16" stroke-linecap="round"/>'
+            f'<path d="M160 22 L 210 60 L 165 102" fill="none" stroke="#d9453d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
 def search_html(lang):
     W, H, (l, t, r, b) = SPEC["search"]
     eyebrow, headline, sub = SEARCH[lang]
@@ -195,6 +214,7 @@ def search_html(lang):
 {sprite(HEART, 240, 2050, 48, "#d9453d", -8, .95)}
 {sprite(HEART, 160, 260, 40, "#2a8c80", 6, .7)}
 {phone(img, ph_left, t - 360, ph_w, 0)}
+{before_photo(ph_left, ph_w, lang in RTL)}
 <div class="text" style="left:{text_left}px;top:{t}px;width:{col}px;height:{sh}px">
   <div class="eyebrow" style="font-size:96px">{eyebrow}</div>
   <div class="headline" data-max="250" data-min="140" style="margin-top:36px">{headline}</div>
